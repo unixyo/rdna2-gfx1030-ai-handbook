@@ -1,6 +1,6 @@
 # RX 6900 XT / gfx1030 범용 AI 최적화 사용설명서
 
-작성 기준: **2026-11-08 KST, rdna2-ops v1.0**(v0.9 + GPT Pro의 v1.0 연구 §9.22와 §9.18·§9.20 보충). v1.0은 Applio ResBlock 융합과 남은 Conv 교체의 운영 경로 100 epoch 결과(§9.22), TunableOp 비결정의 원인과 연구 필터(§9.20), Strata warm 재개 판단(§9.18)을 추가한다. **Applio B′는 익명 청취에서 4문장 중 3문장 기존 B 선호·B′ 쪽 아티팩트 지적, 1문장 같음(2026-11-09 사용자)으로 보류했다.** 운영은 v0.8 B 그대로다. 이전 판 기준: **2026-11-08 KST, rdna2-ops v0.9**(v0.8 + GPT Pro의 Applio 학습 연구와 Claude 운영 롤아웃 §9.21). v0.9는 Applio RVC 학습의 solver 선택·직접 Conv1d·Conv 외 최적화와 100 epoch 익명 청취 판정, 그리고 운영 학습 경로에서 찾은 DataLoader 워커의 GPU 큐 문제를 §9.21에 추가한다. 이전 판 기준: **2026-11-07 KST, rdna2-ops v0.8**(v0.7 + Claude 후속 실측 §9.20). v0.8은 판정 기준을 지각 기준 기본으로 바꾸고(§1.2), PyTorch TunableOp와 RDNA2용 FlashAttention Triton의 실제 모델 결과를 §9.20에 추가한다. 아래의 v0.7 서술은 그대로 보존한다. 입구는 [연산 카탈로그](../RDNA2_OP_CATALOG_KO.md)다. RX 6900 XT의 기존 환경에서 실행한 결과를 연산·dtype·shape·layout·backend별로 묶고, MOSS·Qwen·Anima·Applio는 최종 출력 검증에 쓰는 기존 사례로 다룬다. v0.3 운영 검증, v0.4 신규 커널, v0.5 Qwen 리허설 수정과 INT8·FP32 Attention·혼합 정밀도·Sage 이력은 그대로 보존했다. v0.6의 Claude 재현·원인 규명은 다시 측정하지 않고 검수 근거로 반영했다. v0.7은 INT4 가중치 GEMM·Sparse Attention·Strata 프리필의 성공/실패/미검증 칸을 §9.16–9.18에 추가한다.
+작성 기준: **2026-11-10 KST, rdna2-ops v1.1**(v1.0 + Applio B+native 채택, §9.22 끝). 이전 판: **2026-11-08 KST, rdna2-ops v1.0**(v0.9 + GPT Pro의 v1.0 연구 §9.22와 §9.18·§9.20 보충). v1.0은 Applio ResBlock 융합과 남은 Conv 교체의 운영 경로 100 epoch 결과(§9.22), TunableOp 비결정의 원인과 연구 필터(§9.20), Strata warm 재개 판단(§9.18)을 추가한다. **Applio B′는 익명 청취에서 4문장 중 3문장 기존 B 선호·B′ 쪽 아티팩트 지적, 1문장 같음(2026-11-09 사용자)으로 보류했다.** v1.1에서 융합을 뺀 B+native가 보컬 익명 청취를 통과해 운영에 적용됐다(2026-11-10). 이전 판 기준: **2026-11-08 KST, rdna2-ops v0.9**(v0.8 + GPT Pro의 Applio 학습 연구와 Claude 운영 롤아웃 §9.21). v0.9는 Applio RVC 학습의 solver 선택·직접 Conv1d·Conv 외 최적화와 100 epoch 익명 청취 판정, 그리고 운영 학습 경로에서 찾은 DataLoader 워커의 GPU 큐 문제를 §9.21에 추가한다. 이전 판 기준: **2026-11-07 KST, rdna2-ops v0.8**(v0.7 + Claude 후속 실측 §9.20). v0.8은 판정 기준을 지각 기준 기본으로 바꾸고(§1.2), PyTorch TunableOp와 RDNA2용 FlashAttention Triton의 실제 모델 결과를 §9.20에 추가한다. 아래의 v0.7 서술은 그대로 보존한다. 입구는 [연산 카탈로그](../RDNA2_OP_CATALOG_KO.md)다. RX 6900 XT의 기존 환경에서 실행한 결과를 연산·dtype·shape·layout·backend별로 묶고, MOSS·Qwen·Anima·Applio는 최종 출력 검증에 쓰는 기존 사례로 다룬다. v0.3 운영 검증, v0.4 신규 커널, v0.5 Qwen 리허설 수정과 INT8·FP32 Attention·혼합 정밀도·Sage 이력은 그대로 보존했다. v0.6의 Claude 재현·원인 규명은 다시 측정하지 않고 검수 근거로 반영했다. v0.7은 INT4 가중치 GEMM·Sparse Attention·Strata 프리필의 성공/실패/미검증 칸을 §9.16–9.18에 추가한다.
 
 설치·드라이버·가상환경·운영 기본 설정을 바꾸지 않았고 Triton 3.8을 유지했다. **v0.7에서 추적한 운영 파일 79개(기존 15+16개와 Strata 48개)의 SHA-256이 전후 동일**하다. Strata 서비스는 감사 전후 inactive/dead, MainPID 0이며 시작·중지·재시작하지 않았다. 이는 명시한 파일 범위이며 전체 디렉터리·OS page cache·컴파일 cache 감사가 아니다. GPU는 연구 lock과 KFD 감시 하에 순차 실행했고 겹친 측정·불완전 audit의 timing은 성능 판정에서 제외했다. [31개 사전](results/v07_operating_files/before.json) / [사후](results/v07_operating_files/after.json), [Strata 48개 사전](results/strata_v07/operating_before.json) / [사후](results/strata_v07/operating_after.json). Anima의 prewarm 코드 변경은 Claude 검수에서 이미 있었던 v0.7 시작 상태를 보호했다. 이전 [v0.6 감사](results/v06_operating_files_audit.json), [Applio epoch 감사](results/conv_catalog_v06/epoch_filtered_transpose/result.json), [v0.5 감사](results/v05_operating_files_audit.json)는 역사적 기록으로 남긴다.
 
@@ -59,6 +59,7 @@
 | Applio v0.8 학습 묶음(shape·방향별 solver DB, 직접 Conv1d 21 shape, D AdamW single 등) | 하네스 100 epoch 25:40 → 22:00(14.3–14.5% 단축), 익명 청취 구분 불가로 지각 통과(2026-11-08 사용자). 운영 `applio-lab` 기본값으로 적용 | A / 9.21절 |
 | spawn DataLoader 워커의 GPU 큐 제거 | 운영 train.py를 워커가 다시 import하며 GPU 큐 3개씩을 잡아 학습 커널 전체가 1.5–2배 느려졌다. 워커에서 GPU를 숨기니 22 → 15 s/epoch, 계산은 바뀌지 않음. 적용 | A / 9.21절 |
 | Applio v1.0 B′(v0.8 B + ResBlock 융합 12쌍 + 남은 Conv 68방향) | 운영 경로 100 epoch 프로세스 21.42 → 19.54분(−8.79%), 연산·AMP 계약 통과. **익명 청취에서 4문장 중 3문장 기존 B 선호·B′ 쪽 아티팩트 지적, 1문장 같음(2026-11-09 사용자) → 보류.** 운영 사본은 꺼진 채 둠 | A, C / 9.22절 |
+| Applio v1.1 B+native(v0.8 B + 남은 Conv 68방향, 융합 끔) | 운영 경로 100 epoch 프로세스 21.42 → 19.64분(−8.33%), steady 12.57 → 11.44 s. 보컬 익명 A/B에서 구분 불가(2026-11-10 사용자). **운영 `applio-lab` 런처 기본값으로 적용** | A, C / 9.22절 |
 | TunableOp FP32 GSU4 atomic 행만 Default로 바꾸는 필터 | 해당 커널의 고정 입력 비결정 재현. Anima 새 2프로세스 6장 동일·1.79배 유지, Qwen 같은 프로세스 3장 동일(+1.32%). 연구 CSV만, 운영 미적용 | A / 9.20절 |
 
 ### 1.2 채택 판정 기준 (v0.8)
@@ -2318,7 +2319,7 @@ v0.8 연구는 GPT Pro, 운영 롤아웃과 운영 경로 실측은 Claude가 �
 - 미검증: GUI 버튼으로 시작한 학습, 다른 batch·샘플레이트·vocoder, rocm7.2에서의 워커 숨김 효과.
 - 그 위에 얹는 v1.0 B′(융합·남은 Conv 교체)는 §9.22에 있다.
 
-### 9.22 Applio v1.0: ResBlock 융합·남은 Conv 교체와 운영 경로 100 epoch (v1.0, 청취에서 보류)
+### 9.22 Applio v1.0: ResBlock 융합·남은 Conv 교체와 운영 경로 100 epoch (v1.1: B′ 보류, B+native 채택)
 
 연구는 GPT Pro, 원자료 재현 확인과 운영 사본 준비는 Claude가 했다(2026-11-08). 전체 수치·진단 실패·재현 명령은 [Applio v1.0 보고서](results/v10/APPLIO_V10_KO.md)와 [갱신안 원문](results/v10/V10_CATALOG_GUIDE_PROPOSAL_KO.md)에 있다. **B′는 익명 청취에서 기존 B보다 못하다는 판정을 받아 보류했다(2026-11-09).** 속도·연산 결과는 기록으로 남긴다.
 
@@ -2419,8 +2420,34 @@ v0.8 연구는 GPT Pro, 운영 롤아웃과 운영 경로 실측은 Claude가 �
   - 6.94분을 전부 회수 가능한 소프트웨어 비용으로 읽지 않는다.
 - 외부의 "5070 12분"은 데이터·step·batch·AMP·라이브러리·측정 범위가 같다는 증거가 없다. 그래서 하드웨어 필연분과 소프트웨어 회수분으로 나눌 수 없다(미식별). 이 PC에서 실제로 회수한 몫은 B→B′ 1.88분(프로세스 기준)이다.
 
-#### 운영 사본 (준비됨, 보류로 꺼진 채 둠)
+#### B + native 교체만 — 채택 (v1.1, 2026-11-09–10, Claude)
 
+- 근거: 위 kernel 표에서 절감 −149.2 ms 중 period Conv2d와 ConvTranspose가 −151.8 ms였다. 융합 쪽 계열(Conv1d·activation·elementwise·reduction)의 합은 거의 0이었다. 그래서 융합을 빼고 native 교체만 남긴 묶음을 다시 시험했다.
+- 학습: Pro의 `v10_run_operating.py --arm B_prime --native-selection …`을 융합 선택 없이 실행했다([result.json](results/v10/final_Bnative1_20261109/result.json)). 100 epoch·3,100 step, 초기 G/D SHA는 B와 같다. nonfinite 0, scale 감소 12, KFD 큐 최대 7, native hit 31/31, 융합 0, v0.8 직접 Conv 21/21.
+
+  | 운영 경로 100 epoch | B (v0.8) | B′ (보류) | B+native (채택) |
+  |---|---:|---:|---:|
+  | 프로세스 전체 | 1,285.25 s | 1,172.23 s | 1,178.24 s (−107.0 s, −8.33%) |
+  | epoch 시간 합 | 1,261.70 s | 1,153.37 s | 1,151.18 s |
+  | epoch 3–100 중앙값 | 12.566 s | 11.468 s | 11.439 s |
+
+  B′ 대비 속도 차이는 프로세스 기준 6 s 안쪽이다. 융합이 속도에 거의 기여하지 않았다는 추론과 맞는다(한 번씩 실행한 값이다).
+- TTS 네 문장 청취 자료([audio_eval_native](results/v10/audio_eval_native/CLAUDE_RUN_NOTES_KO.md))도 만들었다. B의 WAV는 11-08 자료와 SHA가 같다. 이 자료는 판정하지 않았다.
+- 보컬 청취(사용자의 실제 용도):
+  - 사용자가 준 분리 보컬 74 s(44.1 kHz 스테레오)를 썼다. 키 0이고, 나머지 설정은 TTS와 같다(RMVPE, index 0.3, protect 0.33, native FP32).
+  - 익명 A/B를 [v10_vocal_eval.py](v10_vocal_eval.py)로 만들었다. 입력과 출력은 연구 폴더에만 두고 공개하지 않는다.
+  - 판정(2026-11-10): "둘 다 아티팩츠가 비슷하게 좀 느껴지는데 rvc 자체의 구조 문제로 사료되옵니다." 구분 불가로 기록했다([human_judgment_chat.json](results/v10/audio_eval_vocal/human_judgment_chat.json)). 대응은 A = B, B = B+native였다.
+  - **판정: 채택.** 공통으로 들린 아티팩트는 사용자 판단으로 RVC 구조의 한계로 보고, 두 모델 사이의 차이로 세지 않는다.
+- 남는 의문: B′의 TTS 보류가 융합 탓인지, 100 epoch 1회 실행의 학습 편차 탓인지는 분리하지 않았다. 융합은 속도 이득이 없으므로 다시 시험할 이유도 작다.
+
+#### 운영 사본 (v1.1: B+native 켜짐, 융합 꺼짐)
+
+- 2026-11-10 변경:
+  - `rdna2_v10/__init__.py`에 `APPLIO_RDNA2_V10_FUSION`(기본 0)을 추가했다.
+  - 두 런처에 `APPLIO_RDNA2_V10=1`을 기본값으로 넣었다.
+  - 운영 `core.py train` 5 epoch 스모크에서 다음을 확인했다. `[rdna2_v10] enabled: fusion_pairs=0 native_shapes=31`, epoch 2–4에 `native_shapes=31/31`과 v0.8 `21/21`, 학습 속도 11 s/epoch, KFD 큐 최대 7, export 완료.
+  - 미검증: GUI 버튼으로 시작한 학습, 운영 런처로 돌린 100 epoch 전체.
+  - 원복은 `applio-lab/backups/20261110_pre_v10_native/ROLLBACK.md`에 있다. 아래는 2026-11-08 준비 단계의 기록이다.
 - `applio-lab/rvc/train/rdna2_v10/`: 연구본 4개 파일과 manifest 2개를 바이트 동일하게 복사했다. 각 manifest가 source SHA를 검사한다. `__init__.py`만 새로 썼다.
 - `lab_hooks.install_rdna2()`가 v0.8 설치 뒤 `rdna2_v10.install()`을 부른다. `APPLIO_RDNA2_V10=1`이고 v0.8이 실제로 켜졌을 때만 동작한다. 런처는 아직 이 값을 켜지 않으므로 운영 학습은 v0.8 B 그대로다.
 - 정적 검증(GPU 미사용)에서 다음을 확인했다.

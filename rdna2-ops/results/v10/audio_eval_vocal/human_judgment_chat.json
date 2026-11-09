@@ -1,0 +1,9 @@
+{
+  "schema": "applio_v10_vocal_blind_judgment",
+  "run_id": "20261109T165947Z_4f264fa3",
+  "recorded_by": "Claude from the user's chat message (JSON not transferred)",
+  "recorded_utc": "2026-11-09T17:16:09.935818+00:00",
+  "preference": "same",
+  "anomaly": "both_similar",
+  "user_words": "둘 다 아티팩츠가 비슷하게 좀 느껴지는데 rvc 자체의 구조 문제로 사료되옵니다."
+}
