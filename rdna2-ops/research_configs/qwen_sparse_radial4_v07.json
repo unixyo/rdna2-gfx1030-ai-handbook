@@ -1,0 +1,86 @@
+{
+  "sampler": [
+    "KSampler",
+    "sample"
+  ],
+  "sampler_node": "8",
+  "model": "qwen",
+  "runtime": "~/DevSpace/qwen-image-21-rdna2-lab01/runtime/ComfyUI",
+  "workflow": "~/DevSpace/qwen-image-21-rdna2-lab01/workflows/request-gemini-edit-640x960-api.json",
+  "decoder": [
+    "VAEDecodeTiled",
+    "decode"
+  ],
+  "save_node": "10",
+  "attention_target": "comfy.ldm.qwen_image21.model:optimized_attention",
+  "env": {
+    "Q21_RDNA2_INT8_PATCH": "1",
+    "Q21_RDNA2_ENCODER_CPU": "0",
+    "Q21_RDNA2_CONV3D_PATCH": "0",
+    "Q21_CFG1_PROBE": "0",
+    "MIOPEN_DEBUG_CONV_IMPLICIT_GEMM_HIP_FWD_V4R1": "0",
+    "MIOPEN_DEBUG_CONV_DIRECT_HIP_WRW53": "0"
+  },
+  "server_args": [
+    "--extra-model-paths-config",
+    "~/DevSpace/qwen-image-21-rdna2-lab01/extra_model_paths.yaml",
+    "--disable-auto-launch",
+    "--disable-triton-backend",
+    "--use-split-cross-attention",
+    "--reserve-vram",
+    "1",
+    "--vram-headroom",
+    "3"
+  ],
+  "input_files": [
+    "~/DevSpace/rdna2-pro-research-20261102/rehearsal_qwen_20261106/images/ref_image.png"
+  ],
+  "inputs": {
+    "3": {
+      "resolution": 0,
+      "prompt": "[private prompt removed: two-character anime illustration edit with a reference image]",
+      "negative_prompt": "low quality, blurry, extra fingers, deformed hands, text, watermark"
+    },
+    "11": {
+      "image": "ref_image.png"
+    }
+  },
+  "gpu_audit": true,
+  "switch_module": "sparse_switches_v07",
+  "save_reference_tensors": true,
+  "comparison_reference_modes": [
+    "dense_alpha",
+    "sparse_radial"
+  ],
+  "require_bitwise_modes": [
+    "baseline",
+    "dense_alpha",
+    "sparse_capture"
+  ],
+  "sparse_config": {
+    "capture_steps": [
+      0,
+      12,
+      24
+    ],
+    "capture_layers": [
+      0,
+      15,
+      31
+    ],
+    "mass": 0.95,
+    "similarity": 0.1,
+    "radius": 4,
+    "fraction": 0.5,
+    "block_q": 32,
+    "num_warps": 8
+  },
+  "v07_measurement_context": {
+    "cpu_build_overlap": false,
+    "quality_only": false,
+    "timing_eligible": true,
+    "adoption_eligible": false,
+    "reason": "Explicit model quality diagnostic after late same-mask compute gate failed; preserve native masked/prefix calls. First/warm stages reported separately."
+  },
+  "instrument_module": "instrument_sparse_outputs_v07"
+}

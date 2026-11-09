@@ -1,0 +1,61 @@
+{
+  "torch": "2.12.0+rocm10.2.0a20261011",
+  "gpu": "AMD Radeon RX 6900 XT",
+  "safe_softmax": [
+    {
+      "length": 1,
+      "equal_including_nonfinite": true,
+      "finite_bitwise_equal": true,
+      "all_negative_inf_zero": true
+    },
+    {
+      "length": 37,
+      "equal_including_nonfinite": true,
+      "finite_bitwise_equal": true,
+      "all_negative_inf_zero": true
+    },
+    {
+      "length": 1061,
+      "equal_including_nonfinite": true,
+      "finite_bitwise_equal": true,
+      "all_negative_inf_zero": true
+    },
+    {
+      "length": 4096,
+      "equal_including_nonfinite": true,
+      "finite_bitwise_equal": true,
+      "all_negative_inf_zero": true
+    }
+  ],
+  "attention_specials": [
+    {
+      "case": "overflow_negative",
+      "pass": true
+    },
+    {
+      "case": "positive_inf",
+      "pass": true
+    },
+    {
+      "case": "nan",
+      "pass": true
+    },
+    {
+      "case": "negative_scale",
+      "pass": true
+    },
+    {
+      "case": "zero_scale",
+      "pass": true
+    }
+  ],
+  "gn_eager_wall_ms": 0.032776433333333334,
+  "gn_capture_native_bitwise_equal": true,
+  "gn_trace_new_input_native_bitwise_equal": true,
+  "gn_compile_accuracy_pass": true,
+  "gn_graph_us": {
+    "native": 42.66049861907959,
+    "compiled_auto": 14.451000094413757
+  },
+  "status": "passed"
+}

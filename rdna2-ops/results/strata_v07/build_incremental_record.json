@@ -1,0 +1,10 @@
+{
+  "strata": {
+    "path": "~/DevSpace/strata-prefill-v07-lab-20261107/build-v07-gfx1030/strata",
+    "sha256": "31ecea0716fd7cba638d004b2fc7987efa1b179f9a9cf67ca96f8d42b4c263b5"
+  },
+  "hip_prefill_mmq_v07": {
+    "path": "~/DevSpace/strata-prefill-v07-lab-20261107/build-v07-gfx1030/hip_prefill_mmq_v07",
+    "sha256": "6879df8c5daf458e826d8a895cf81b2ffe935067797d1d11bdf5d5236ef0d1f8"
+  }
+}

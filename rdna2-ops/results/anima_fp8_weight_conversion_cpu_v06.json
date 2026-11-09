@@ -1,0 +1,109 @@
+{
+  "evidence_grade": "A CPU measurement only; not GPU or full-model output evidence",
+  "source": "~/DevSpace/anima-rdna2-lab01/models/diffusion_models/anima-base-v1.0.safetensors",
+  "header_sha256": "57b6e83a8bcf5a94888415a653cd58e52e5f013aecb569d4ea350b05c3ffcdf0",
+  "torch": "2.12.0+rocm10.2.0a20261011",
+  "cuda_initialized": false,
+  "matrix_shape_counts": {
+    "(256, 2048)": 85,
+    "(6144, 256)": 84,
+    "(2048, 1024)": 56,
+    "(2048, 2048)": 169,
+    "(8192, 2048)": 28,
+    "(2048, 8192)": 28,
+    "(4096, 256)": 1,
+    "(64, 2048)": 1,
+    "(1024, 1024)": 49,
+    "(4096, 1024)": 6,
+    "(1024, 4096)": 6,
+    "(32128, 1024)": 1,
+    "(6144, 2048)": 1,
+    "(2048, 68)": 1
+  },
+  "representative_weight_conversion": [
+    {
+      "name": "net.blocks.0.cross_attn.output_proj.weight",
+      "shape": [
+        2048,
+        2048
+      ],
+      "raw_sha256": "3d92504279c8282bb66c6179bc2ba568fff874906e9435d49d48aad53cad9d87",
+      "finite": true,
+      "max_abs": 0.1171875,
+      "rms": 0.006871218793094158,
+      "fp16_exact": false,
+      "fp8": {
+        "torch.float8_e4m3fn": {
+          "finite": true,
+          "max_abs_error": 0.00390625,
+          "rmse": 0.0005663334741257131,
+          "normalized_rmse": 0.08242110914804521,
+          "changed_fraction": 0.9841518402099609
+        },
+        "torch.float8_e5m2": {
+          "finite": true,
+          "max_abs_error": 0.0078125,
+          "rmse": 0.000364293489838019,
+          "normalized_rmse": 0.053017303160852354,
+          "changed_fraction": 0.9656920433044434
+        }
+      }
+    },
+    {
+      "name": "net.blocks.0.cross_attn.k_proj.weight",
+      "shape": [
+        2048,
+        1024
+      ],
+      "raw_sha256": "dae7e25fedd1c8bf8f3cc36f5355eea6ef32a2da8f31fec6d474276cf4900e9a",
+      "finite": true,
+      "max_abs": 0.09130859375,
+      "rms": 0.006112575531005859,
+      "fp16_exact": false,
+      "fp8": {
+        "torch.float8_e4m3fn": {
+          "finite": true,
+          "max_abs_error": 0.00390625,
+          "rmse": 0.0005648143123835325,
+          "normalized_rmse": 0.09240201769590062,
+          "changed_fraction": 0.987238883972168
+        },
+        "torch.float8_e5m2": {
+          "finite": true,
+          "max_abs_error": 0.00732421875,
+          "rmse": 0.0003227204142604023,
+          "normalized_rmse": 0.05279614339706929,
+          "changed_fraction": 0.9677248001098633
+        }
+      }
+    },
+    {
+      "name": "net.blocks.0.adaln_modulation_cross_attn.1.weight",
+      "shape": [
+        256,
+        2048
+      ],
+      "raw_sha256": "31b41d3706a72bfc261d2fe84acd5c607cba511b9e96963589b4f1549efb8f61",
+      "finite": true,
+      "max_abs": 0.091796875,
+      "rms": 0.015463081188499928,
+      "fp16_exact": false,
+      "fp8": {
+        "torch.float8_e4m3fn": {
+          "finite": true,
+          "max_abs_error": 0.00390625,
+          "rmse": 0.0005943226860836148,
+          "normalized_rmse": 0.038434945716098255,
+          "changed_fraction": 0.9758224487304688
+        },
+        "torch.float8_e5m2": {
+          "finite": true,
+          "max_abs_error": 0.0078125,
+          "rmse": 0.0008106126333586872,
+          "normalized_rmse": 0.052422452128205156,
+          "changed_fraction": 0.9664344787597656
+        }
+      }
+    }
+  ]
+}

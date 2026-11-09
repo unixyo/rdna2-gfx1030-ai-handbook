@@ -1,0 +1,10 @@
+{
+  "status": "passed",
+  "old_shape_access_reproduced": true,
+  "real_installed_container_class": true,
+  "peek_preserves_ownership": true,
+  "original_take_still_works": true,
+  "tensor_input_unchanged": true,
+  "source_sha256": "2e688c4c96ba10915c7ca847ea692faea3be4b9c2605d74d785b7abb23ee2502",
+  "harness_sha256": "2cc20cbb4e89b9c8a271e83f3f8c78d3c57c45b1ef212076feec1f9650092634"
+}

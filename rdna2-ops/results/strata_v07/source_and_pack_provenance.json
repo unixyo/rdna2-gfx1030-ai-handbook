@@ -1,0 +1,425 @@
+{
+  "research_head": {
+    "code": 0,
+    "stdout": "a6fe1183805bc75fa6dfd4aae741a75b187a9cdf\n",
+    "stderr": ""
+  },
+  "research_diff_stat": {
+    "code": 0,
+    "stdout": " CMakeLists.txt                        |   6 ++\n include/strata/core/expert_source.hpp |  25 ++++-\n include/strata/core/verify.hpp        |   4 +\n include/strata/kernels/cpu/pool.hpp   |  15 +++\n include/strata/prefill/moe_mmq.hpp    |   5 +\n src/core/expert_source.cpp            | 193 ++++++++++++++++++++++++++++++----\n src/core/verify.cpp                   |  35 +++++-\n src/kernels/cpu/iq_avx2_parity.cpp    |  55 +++++++++-\n src/kernels/cpu/pool.cpp              |  19 ++++\n src/prefill/moe_mmq.cu                |  26 ++++-\n src/prefill/prefill.cpp               |  33 +++++-\n src/program/generate.cpp              |  72 +++++++++++++\n tests/hip/prefill_mmq_parity.cpp      |  88 +++++++++++++++-\n 13 files changed, 545 insertions(+), 31 deletions(-)\n",
+    "stderr": ""
+  },
+  "research_status": {
+    "code": 0,
+    "stdout": " M CMakeLists.txt\n M include/strata/core/expert_source.hpp\n M include/strata/core/verify.hpp\n M include/strata/kernels/cpu/pool.hpp\n M include/strata/prefill/moe_mmq.hpp\n M src/core/expert_source.cpp\n M src/core/verify.cpp\n M src/kernels/cpu/iq_avx2_parity.cpp\n M src/kernels/cpu/pool.cpp\n M src/prefill/moe_mmq.cu\n M src/prefill/prefill.cpp\n M src/program/generate.cpp\n M tests/hip/prefill_mmq_parity.cpp\n?? src/kernels/cpu/pool_tasks_bench.cpp\n?? tests/hip/prefill_mmq_v07.cpp\n",
+    "stderr": ""
+  },
+  "candidate_checkout_head_read_only": {
+    "code": 0,
+    "stdout": "a6fe1183805bc75fa6dfd4aae741a75b187a9cdf\n",
+    "stderr": ""
+  },
+  "candidate_checkout_diff_stat_read_only": {
+    "code": 0,
+    "stdout": " CMakeLists.txt                        |   3 +\n include/strata/core/expert_source.hpp |  25 ++++-\n include/strata/core/verify.hpp        |   4 +\n include/strata/kernels/cpu/pool.hpp   |  15 +++\n src/core/expert_source.cpp            | 193 ++++++++++++++++++++++++++++++----\n src/core/verify.cpp                   |  35 +++++-\n src/kernels/cpu/iq_avx2_parity.cpp    |  55 +++++++++-\n src/kernels/cpu/pool.cpp              |  19 ++++\n src/program/generate.cpp              |  72 +++++++++++++\n 9 files changed, 397 insertions(+), 24 deletions(-)\n",
+    "stderr": ""
+  },
+  "note": "The historical pinned ELF is the identity baseline. A source checkout HEAD is not proof that it reproduces that ELF; use the separate output bridge.",
+  "research_source_sha256": {
+    "CMakeLists.txt": "3e0bf76ae6e5ee75f2e63a57bf5cc4e7bcdfe1468c572a1082e1ddbb6fb7ccb8",
+    "include/strata/prefill/moe_mmq.hpp": "8c0822acaec9e05b8e56e7505fdba7f10b992bc971618bf2d5f5c1a8db1441ad",
+    "src/prefill/moe_mmq.cu": "735bd1f195a6fb60b48a41c09bb979d00dd4965af119eb21d74c86a1b251684e",
+    "src/prefill/prefill.cpp": "82542fffe384a2d9e1363955fb2c1501a2787c5fe823022cf12640ad6c5dbec8",
+    "tests/hip/prefill_mmq_v07.cpp": "f3d690c731787a18fef0184b2aa831d460dd7bc9ba4849651fe0301b840f43a0"
+  },
+  "actual_native_type_counts": [
+    {
+      "gate_up_type": 17,
+      "down_type": 20,
+      "layers": 4
+    },
+    {
+      "gate_up_type": 16,
+      "down_type": 42,
+      "layers": 8
+    },
+    {
+      "gate_up_type": 17,
+      "down_type": 42,
+      "layers": 6
+    },
+    {
+      "gate_up_type": 21,
+      "down_type": 42,
+      "layers": 7
+    },
+    {
+      "gate_up_type": 22,
+      "down_type": 42,
+      "layers": 6
+    },
+    {
+      "gate_up_type": 21,
+      "down_type": 20,
+      "layers": 6
+    },
+    {
+      "gate_up_type": 22,
+      "down_type": 20,
+      "layers": 4
+    },
+    {
+      "gate_up_type": 16,
+      "down_type": 20,
+      "layers": 1
+    },
+    {
+      "gate_up_type": 18,
+      "down_type": 20,
+      "layers": 3
+    },
+    {
+      "gate_up_type": 18,
+      "down_type": 42,
+      "layers": 3
+    }
+  ],
+  "actual_layers": [
+    {
+      "layer": 0,
+      "gate_up_type": 17,
+      "down_type": 20,
+      "offset": 0,
+      "blob_bytes": 1868800
+    },
+    {
+      "layer": 1,
+      "gate_up_type": 16,
+      "down_type": 42,
+      "offset": 956825600,
+      "blob_bytes": 1305600
+    },
+    {
+      "layer": 2,
+      "gate_up_type": 17,
+      "down_type": 20,
+      "offset": 1625292800,
+      "blob_bytes": 1868800
+    },
+    {
+      "layer": 3,
+      "gate_up_type": 16,
+      "down_type": 42,
+      "offset": 2582118400,
+      "blob_bytes": 1305600
+    },
+    {
+      "layer": 4,
+      "gate_up_type": 17,
+      "down_type": 20,
+      "offset": 3250585600,
+      "blob_bytes": 1868800
+    },
+    {
+      "layer": 5,
+      "gate_up_type": 17,
+      "down_type": 42,
+      "offset": 4207411200,
+      "blob_bytes": 1408000
+    },
+    {
+      "layer": 6,
+      "gate_up_type": 16,
+      "down_type": 42,
+      "offset": 4928307200,
+      "blob_bytes": 1305600
+    },
+    {
+      "layer": 7,
+      "gate_up_type": 16,
+      "down_type": 42,
+      "offset": 5596774400,
+      "blob_bytes": 1305600
+    },
+    {
+      "layer": 8,
+      "gate_up_type": 21,
+      "down_type": 42,
+      "offset": 6265241600,
+      "blob_bytes": 1868800
+    },
+    {
+      "layer": 9,
+      "gate_up_type": 17,
+      "down_type": 42,
+      "offset": 7222067200,
+      "blob_bytes": 1408000
+    },
+    {
+      "layer": 10,
+      "gate_up_type": 17,
+      "down_type": 42,
+      "offset": 7942963200,
+      "blob_bytes": 1408000
+    },
+    {
+      "layer": 11,
+      "gate_up_type": 16,
+      "down_type": 42,
+      "offset": 8663859200,
+      "blob_bytes": 1305600
+    },
+    {
+      "layer": 12,
+      "gate_up_type": 22,
+      "down_type": 42,
+      "offset": 9332326400,
+      "blob_bytes": 1510400
+    },
+    {
+      "layer": 13,
+      "gate_up_type": 16,
+      "down_type": 42,
+      "offset": 10105651200,
+      "blob_bytes": 1305600
+    },
+    {
+      "layer": 14,
+      "gate_up_type": 17,
+      "down_type": 42,
+      "offset": 10774118400,
+      "blob_bytes": 1408000
+    },
+    {
+      "layer": 15,
+      "gate_up_type": 22,
+      "down_type": 42,
+      "offset": 11495014400,
+      "blob_bytes": 1510400
+    },
+    {
+      "layer": 16,
+      "gate_up_type": 16,
+      "down_type": 42,
+      "offset": 12268339200,
+      "blob_bytes": 1305600
+    },
+    {
+      "layer": 17,
+      "gate_up_type": 22,
+      "down_type": 42,
+      "offset": 12936806400,
+      "blob_bytes": 1510400
+    },
+    {
+      "layer": 18,
+      "gate_up_type": 21,
+      "down_type": 42,
+      "offset": 13710131200,
+      "blob_bytes": 1868800
+    },
+    {
+      "layer": 19,
+      "gate_up_type": 17,
+      "down_type": 42,
+      "offset": 14666956800,
+      "blob_bytes": 1408000
+    },
+    {
+      "layer": 20,
+      "gate_up_type": 21,
+      "down_type": 42,
+      "offset": 15387852800,
+      "blob_bytes": 1868800
+    },
+    {
+      "layer": 21,
+      "gate_up_type": 22,
+      "down_type": 42,
+      "offset": 16344678400,
+      "blob_bytes": 1510400
+    },
+    {
+      "layer": 22,
+      "gate_up_type": 21,
+      "down_type": 42,
+      "offset": 17118003200,
+      "blob_bytes": 1868800
+    },
+    {
+      "layer": 23,
+      "gate_up_type": 21,
+      "down_type": 42,
+      "offset": 18074828800,
+      "blob_bytes": 1868800
+    },
+    {
+      "layer": 24,
+      "gate_up_type": 21,
+      "down_type": 42,
+      "offset": 19031654400,
+      "blob_bytes": 1868800
+    },
+    {
+      "layer": 25,
+      "gate_up_type": 17,
+      "down_type": 42,
+      "offset": 19988480000,
+      "blob_bytes": 1408000
+    },
+    {
+      "layer": 26,
+      "gate_up_type": 22,
+      "down_type": 42,
+      "offset": 20709376000,
+      "blob_bytes": 1510400
+    },
+    {
+      "layer": 27,
+      "gate_up_type": 16,
+      "down_type": 42,
+      "offset": 21482700800,
+      "blob_bytes": 1305600
+    },
+    {
+      "layer": 28,
+      "gate_up_type": 21,
+      "down_type": 20,
+      "offset": 22151168000,
+      "blob_bytes": 2329600
+    },
+    {
+      "layer": 29,
+      "gate_up_type": 22,
+      "down_type": 20,
+      "offset": 23343923200,
+      "blob_bytes": 1971200
+    },
+    {
+      "layer": 30,
+      "gate_up_type": 21,
+      "down_type": 20,
+      "offset": 24353177600,
+      "blob_bytes": 2329600
+    },
+    {
+      "layer": 31,
+      "gate_up_type": 16,
+      "down_type": 20,
+      "offset": 25545932800,
+      "blob_bytes": 1766400
+    },
+    {
+      "layer": 32,
+      "gate_up_type": 21,
+      "down_type": 20,
+      "offset": 26450329600,
+      "blob_bytes": 2329600
+    },
+    {
+      "layer": 33,
+      "gate_up_type": 21,
+      "down_type": 42,
+      "offset": 27643084800,
+      "blob_bytes": 1868800
+    },
+    {
+      "layer": 34,
+      "gate_up_type": 21,
+      "down_type": 20,
+      "offset": 28599910400,
+      "blob_bytes": 2329600
+    },
+    {
+      "layer": 35,
+      "gate_up_type": 18,
+      "down_type": 20,
+      "offset": 29792665600,
+      "blob_bytes": 2176000
+    },
+    {
+      "layer": 36,
+      "gate_up_type": 18,
+      "down_type": 42,
+      "offset": 30906777600,
+      "blob_bytes": 1715200
+    },
+    {
+      "layer": 37,
+      "gate_up_type": 21,
+      "down_type": 20,
+      "offset": 31784960000,
+      "blob_bytes": 2329600
+    },
+    {
+      "layer": 38,
+      "gate_up_type": 22,
+      "down_type": 20,
+      "offset": 32977715200,
+      "blob_bytes": 1971200
+    },
+    {
+      "layer": 39,
+      "gate_up_type": 17,
+      "down_type": 20,
+      "offset": 33986969600,
+      "blob_bytes": 1868800
+    },
+    {
+      "layer": 40,
+      "gate_up_type": 22,
+      "down_type": 42,
+      "offset": 34943795200,
+      "blob_bytes": 1510400
+    },
+    {
+      "layer": 41,
+      "gate_up_type": 18,
+      "down_type": 42,
+      "offset": 35717120000,
+      "blob_bytes": 1715200
+    },
+    {
+      "layer": 42,
+      "gate_up_type": 22,
+      "down_type": 20,
+      "offset": 36595302400,
+      "blob_bytes": 1971200
+    },
+    {
+      "layer": 43,
+      "gate_up_type": 21,
+      "down_type": 20,
+      "offset": 37604556800,
+      "blob_bytes": 2329600
+    },
+    {
+      "layer": 44,
+      "gate_up_type": 18,
+      "down_type": 20,
+      "offset": 38797312000,
+      "blob_bytes": 2176000
+    },
+    {
+      "layer": 45,
+      "gate_up_type": 18,
+      "down_type": 42,
+      "offset": 39911424000,
+      "blob_bytes": 1715200
+    },
+    {
+      "layer": 46,
+      "gate_up_type": 22,
+      "down_type": 20,
+      "offset": 40789606400,
+      "blob_bytes": 1971200
+    },
+    {
+      "layer": 47,
+      "gate_up_type": 18,
+      "down_type": 20,
+      "offset": 41798860800,
+      "blob_bytes": 2176000
+    }
+  ]
+}

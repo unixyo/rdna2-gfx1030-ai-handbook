@@ -1,0 +1,270 @@
+{
+  "seed": 20261105,
+  "workflow": "sft_fast4_int8_512",
+  "same_seed_forced_rerun": true,
+  "pixel_acceptance": {
+    "max_abs": 0.01,
+    "rmse": 0.001
+  },
+  "runs": [
+    {
+      "mode": "torch",
+      "warmup": true,
+      "stage_wall_s": {
+        "denoise": 9.592664625030011,
+        "vae": 0.21071912499610335
+      },
+      "latent_error": {
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "finite": true
+      },
+      "image_error": {
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "finite": true
+      },
+      "success": true,
+      "request_wall_s": 13.694143069034908,
+      "prompt_id": "f3dff354-dc7f-4d70-b215-2a8b30ee684e",
+      "outputs": {
+        "11": {
+          "images": [
+            {
+              "filename": "rdna2_torch_0_00001_.png",
+              "subfolder": "",
+              "type": "output",
+              "metadata": {
+                "kind": "image",
+                "width": 512,
+                "height": 512
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "mode": "torch",
+      "warmup": false,
+      "stage_wall_s": {
+        "denoise": 7.523363246989902,
+        "vae": 0.04536863195244223
+      },
+      "latent_error": {
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "finite": true
+      },
+      "image_error": {
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "finite": true
+      },
+      "success": true,
+      "request_wall_s": 7.628869678999763,
+      "prompt_id": "a38a7fc7-c0f0-443e-945d-207ab3a4ca14",
+      "outputs": {
+        "11": {
+          "images": [
+            {
+              "filename": "rdna2_torch_1_00001_.png",
+              "subfolder": "",
+              "type": "output",
+              "metadata": {
+                "kind": "image",
+                "width": 512,
+                "height": 512
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "mode": "rdna2",
+      "warmup": false,
+      "stage_wall_s": {
+        "denoise": 7.271628381044138,
+        "vae": 0.04560953000327572
+      },
+      "latent_error": {
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "finite": true
+      },
+      "image_error": {
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "finite": true
+      },
+      "success": true,
+      "request_wall_s": 7.540434087975882,
+      "prompt_id": "e1be5bd1-5a28-44c3-bff1-2f0c56dd3393",
+      "outputs": {
+        "11": {
+          "images": [
+            {
+              "filename": "rdna2_rdna2_2_00001_.png",
+              "subfolder": "",
+              "type": "output",
+              "metadata": {
+                "kind": "image",
+                "width": 512,
+                "height": 512
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "mode": "rdna2",
+      "warmup": false,
+      "stage_wall_s": {
+        "denoise": 7.279252287989948,
+        "vae": 0.0450665740063414
+      },
+      "latent_error": {
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "finite": true
+      },
+      "image_error": {
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "finite": true
+      },
+      "success": true,
+      "request_wall_s": 7.426238998014014,
+      "prompt_id": "306ebf92-8658-4d13-b563-5da4de3e1bd7",
+      "outputs": {
+        "11": {
+          "images": [
+            {
+              "filename": "rdna2_rdna2_3_00001_.png",
+              "subfolder": "",
+              "type": "output",
+              "metadata": {
+                "kind": "image",
+                "width": 512,
+                "height": 512
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "mode": "torch",
+      "warmup": false,
+      "stage_wall_s": {
+        "denoise": 7.387989515962545,
+        "vae": 0.046917220985051244
+      },
+      "latent_error": {
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "finite": true
+      },
+      "image_error": {
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "finite": true
+      },
+      "success": true,
+      "request_wall_s": 7.6557576800114475,
+      "prompt_id": "be0440af-f142-46dc-a432-7b83528e7af5",
+      "outputs": {
+        "11": {
+          "images": [
+            {
+              "filename": "rdna2_torch_4_00001_.png",
+              "subfolder": "",
+              "type": "output",
+              "metadata": {
+                "kind": "image",
+                "width": 512,
+                "height": 512
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "mode": "torch",
+      "warmup": false,
+      "stage_wall_s": {
+        "denoise": 7.3934695679927245,
+        "vae": 0.04522101301699877
+      },
+      "latent_error": {
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "finite": true
+      },
+      "image_error": {
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "finite": true
+      },
+      "success": true,
+      "request_wall_s": 7.628411181969568,
+      "prompt_id": "9b77479c-3177-4864-a465-219d39567309",
+      "outputs": {
+        "11": {
+          "images": [
+            {
+              "filename": "rdna2_torch_5_00001_.png",
+              "subfolder": "",
+              "type": "output",
+              "metadata": {
+                "kind": "image",
+                "width": 512,
+                "height": 512
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "mode": "rdna2",
+      "warmup": false,
+      "stage_wall_s": {
+        "denoise": 7.285029096994549,
+        "vae": 0.045337641960941255
+      },
+      "latent_error": {
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "finite": true
+      },
+      "image_error": {
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "finite": true
+      },
+      "success": true,
+      "request_wall_s": 7.555504421994556,
+      "prompt_id": "9bf1d1d3-aa45-4578-bec0-b90247322074",
+      "outputs": {
+        "11": {
+          "images": [
+            {
+              "filename": "rdna2_rdna2_6_00001_.png",
+              "subfolder": "",
+              "type": "output",
+              "metadata": {
+                "kind": "image",
+                "width": 512,
+                "height": 512
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

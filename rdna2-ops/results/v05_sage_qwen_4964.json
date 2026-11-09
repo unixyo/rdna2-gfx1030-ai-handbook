@@ -1,0 +1,777 @@
+{
+  "status": "measured",
+  "implementation": "independent Sage-inspired port; not official SageAttention",
+  "input": "actual captured Qwen FP32 Q/K/V, same data for every method",
+  "contract": "unmasked noncausal D64/128; INT8 QK + FP16 PV, direct FP32 output",
+  "quantization": "per-token absmax/127, clamp [-127,127], nearest ties away from zero; optional K mean removal",
+  "acceptance": {
+    "max_abs": 0.02,
+    "relative_rmse": 0.03,
+    "cosine_min": 0.999,
+    "final_rgb_max": 0.00784313725490196,
+    "final_rgb_rmse": 0.000980392156862745,
+    "final_rgb_status": "not measured in this operator benchmark"
+  },
+  "timing": "alternating forward/reverse order; includes validation, mean, quantization, allocation, layout restore; no graph",
+  "memory": "separate phase after timing; peak allocated increment including all temporaries/output, excluding resident inputs/references",
+  "isa": "static textual instruction counts in compiled main kernel, not dynamic executed-operation counts",
+  "repeat": 3,
+  "methods": {
+    "attention_split": {
+      "status": "measured",
+      "vs_native": {
+        "finite": true,
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "relative_rmse": 0.0,
+        "cosine": 0.9999999999997082,
+        "operator_gate": true
+      },
+      "vs_split_alpha": {
+        "finite": true,
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "relative_rmse": 0.0,
+        "cosine": 0.9999999999997082,
+        "operator_gate": true
+      },
+      "vs_fp64_rows": {
+        "finite": true,
+        "max_abs": 3.37447394338497e-06,
+        "rmse": 3.094586390868709e-07,
+        "relative_rmse": 1.4465929292571138e-06,
+        "cosine": 0.9999999999990933,
+        "operator_gate": true
+      },
+      "timing": {
+        "median_wall_ms": 29.662296998139936,
+        "median_event_ms": 29.599092483520508,
+        "samples": [
+          {
+            "wall_ms": 29.662296998139936,
+            "event_ms": 29.599092483520508,
+            "round": 0,
+            "position": 0
+          },
+          {
+            "wall_ms": 29.615366998768877,
+            "event_ms": 29.592374801635742,
+            "round": 1,
+            "position": 6
+          },
+          {
+            "wall_ms": 29.86461600085022,
+            "event_ms": 29.83969497680664,
+            "round": 2,
+            "position": 0
+          }
+        ],
+        "peak_additional_allocated_bytes": 3293151232
+      },
+      "speedup_wall": {
+        "attention_split": 1.0,
+        "split_alpha": 0.769127488691308
+      }
+    },
+    "split_alpha": {
+      "status": "measured",
+      "vs_native": {
+        "finite": true,
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "relative_rmse": 0.0,
+        "cosine": 0.9999999999997082,
+        "operator_gate": true
+      },
+      "vs_split_alpha": {
+        "finite": true,
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "relative_rmse": 0.0,
+        "cosine": 0.9999999999997082,
+        "operator_gate": true
+      },
+      "vs_fp64_rows": {
+        "finite": true,
+        "max_abs": 3.37447394338497e-06,
+        "rmse": 3.094586390868709e-07,
+        "relative_rmse": 1.4465929292571138e-06,
+        "cosine": 0.9999999999990933,
+        "operator_gate": true
+      },
+      "timing": {
+        "median_wall_ms": 22.81408799899509,
+        "median_event_ms": 22.786277770996094,
+        "samples": [
+          {
+            "wall_ms": 22.81408799899509,
+            "event_ms": 22.786277770996094,
+            "round": 0,
+            "position": 1
+          },
+          {
+            "wall_ms": 22.21220300270943,
+            "event_ms": 22.184967041015625,
+            "round": 1,
+            "position": 5
+          },
+          {
+            "wall_ms": 22.977906999585684,
+            "event_ms": 22.93109703063965,
+            "round": 2,
+            "position": 1
+          }
+        ],
+        "peak_additional_allocated_bytes": 3253305344
+      },
+      "speedup_wall": {
+        "attention_split": 1.3001745675499494,
+        "split_alpha": 1.0
+      }
+    },
+    "rocblas_query_128": {
+      "status": "measured",
+      "vs_native": {
+        "finite": true,
+        "max_abs": 2.3126602172851562e-05,
+        "rmse": 3.1795255577612455e-07,
+        "relative_rmse": 1.582102613329554e-06,
+        "cosine": 0.9999999999984425,
+        "operator_gate": true
+      },
+      "vs_split_alpha": {
+        "finite": true,
+        "max_abs": 2.3126602172851562e-05,
+        "rmse": 3.1795255577612455e-07,
+        "relative_rmse": 1.582102613329554e-06,
+        "cosine": 0.9999999999984425,
+        "operator_gate": true
+      },
+      "vs_fp64_rows": {
+        "finite": true,
+        "max_abs": 8.905610646703366e-07,
+        "rmse": 1.5083783141561293e-07,
+        "relative_rmse": 7.051053447212022e-07,
+        "cosine": 0.99999999999978,
+        "operator_gate": true
+      },
+      "timing": {
+        "median_wall_ms": 28.219517997058574,
+        "median_event_ms": 28.192895889282227,
+        "samples": [
+          {
+            "wall_ms": 28.219517997058574,
+            "event_ms": 28.192895889282227,
+            "round": 0,
+            "position": 2
+          },
+          {
+            "wall_ms": 28.048888998455368,
+            "event_ms": 28.02348518371582,
+            "round": 1,
+            "position": 4
+          },
+          {
+            "wall_ms": 28.502516004664358,
+            "event_ms": 28.472824096679688,
+            "round": 2,
+            "position": 2
+          }
+        ],
+        "peak_additional_allocated_bytes": 325058560
+      },
+      "speedup_wall": {
+        "attention_split": 1.0511269895266018,
+        "split_alpha": 0.8084506617502499
+      }
+    },
+    "sage_smooth1_q16k32w4": {
+      "status": "measured",
+      "smooth_k": true,
+      "block_q": 16,
+      "block_k": 32,
+      "num_warps": 4,
+      "output_dtype": "torch.float32",
+      "vs_native": {
+        "finite": true,
+        "max_abs": 0.14971160888671875,
+        "rmse": 0.0018313205923844802,
+        "relative_rmse": 0.009112482483379609,
+        "cosine": 0.9999584884188394,
+        "operator_gate": false
+      },
+      "vs_split_alpha": {
+        "finite": true,
+        "max_abs": 0.14971160888671875,
+        "rmse": 0.0018313205923844802,
+        "relative_rmse": 0.009112482483379609,
+        "cosine": 0.9999584884188394,
+        "operator_gate": false
+      },
+      "vs_fp64_rows": {
+        "finite": true,
+        "max_abs": 0.013741699689518605,
+        "rmse": 0.0021821093008672623,
+        "relative_rmse": 0.010200471038117121,
+        "cosine": 0.9999483972931217,
+        "operator_gate": true
+      },
+      "kernel": {
+        "n_regs": 234,
+        "n_spills": 0,
+        "shared_bytes": 8192,
+        "asm_sha256": "d80f90a502c1b3236dfb3a07c43fbf33e3dedfccb4d9950998e0536658ccb41a",
+        "instructions": {
+          "\\bv_fmac_f32\\b": 0,
+          "\\bv_fma_f32\\b": 48,
+          "\\bv_dot2c_f32_f16\\b": 256,
+          "\\bv_dot4c_i32_i8\\b": 128,
+          "\\bv_mfma": 0,
+          "\\bv_wmma": 0,
+          "\\bscratch_load": 0,
+          "\\bscratch_store": 0
+        },
+        "private_segment": [
+          "0"
+        ]
+      },
+      "operator_gate": false,
+      "timing": {
+        "median_wall_ms": 22.293212001386564,
+        "median_event_ms": 22.2673282623291,
+        "samples": [
+          {
+            "wall_ms": 22.293212001386564,
+            "event_ms": 22.2673282623291,
+            "round": 0,
+            "position": 3
+          },
+          {
+            "wall_ms": 21.85863599879667,
+            "event_ms": 21.832427978515625,
+            "round": 1,
+            "position": 3
+          },
+          {
+            "wall_ms": 22.379082001862116,
+            "event_ms": 22.3569278717041,
+            "round": 2,
+            "position": 3
+          }
+        ],
+        "peak_additional_allocated_bytes": 134234624
+      },
+      "speedup_wall": {
+        "attention_split": 1.3305528604983006,
+        "split_alpha": 1.0233647801660941
+      }
+    },
+    "sage_smooth1_q32k32w4": {
+      "status": "measured",
+      "smooth_k": true,
+      "block_q": 32,
+      "block_k": 32,
+      "num_warps": 4,
+      "output_dtype": "torch.float32",
+      "vs_native": {
+        "finite": true,
+        "max_abs": 0.14971160888671875,
+        "rmse": 0.0018313205923844802,
+        "relative_rmse": 0.009112482483379609,
+        "cosine": 0.9999584884188394,
+        "operator_gate": false
+      },
+      "vs_split_alpha": {
+        "finite": true,
+        "max_abs": 0.14971160888671875,
+        "rmse": 0.0018313205923844802,
+        "relative_rmse": 0.009112482483379609,
+        "cosine": 0.9999584884188394,
+        "operator_gate": false
+      },
+      "vs_fp64_rows": {
+        "finite": true,
+        "max_abs": 0.013741699689518605,
+        "rmse": 0.0021821093008672623,
+        "relative_rmse": 0.010200471038117121,
+        "cosine": 0.9999483972931217,
+        "operator_gate": true
+      },
+      "kernel": {
+        "n_regs": 256,
+        "n_spills": 103,
+        "shared_bytes": 8192,
+        "asm_sha256": "0eefed94c387143e4043649ea9c6a80ad460f55709d9179819447ab20e4fd154",
+        "instructions": {
+          "\\bv_fmac_f32\\b": 0,
+          "\\bv_fma_f32\\b": 96,
+          "\\bv_dot2c_f32_f16\\b": 512,
+          "\\bv_dot4c_i32_i8\\b": 256,
+          "\\bv_mfma": 0,
+          "\\bv_wmma": 0,
+          "\\bscratch_load": 0,
+          "\\bscratch_store": 0
+        },
+        "private_segment": [
+          "412"
+        ]
+      },
+      "operator_gate": false,
+      "timing": {
+        "median_wall_ms": 20.210858005157206,
+        "median_event_ms": 20.18777084350586,
+        "samples": [
+          {
+            "wall_ms": 20.18030799808912,
+            "event_ms": 20.159439086914062,
+            "round": 0,
+            "position": 4
+          },
+          {
+            "wall_ms": 20.86625400261255,
+            "event_ms": 20.841249465942383,
+            "round": 1,
+            "position": 2
+          },
+          {
+            "wall_ms": 20.210858005157206,
+            "event_ms": 20.18777084350586,
+            "round": 2,
+            "position": 4
+          }
+        ],
+        "peak_additional_allocated_bytes": 134234624
+      },
+      "speedup_wall": {
+        "attention_split": 1.4676416503728344,
+        "split_alpha": 1.1288035368500249
+      }
+    },
+    "sage_smooth0_q16k32w4": {
+      "status": "measured",
+      "smooth_k": false,
+      "block_q": 16,
+      "block_k": 32,
+      "num_warps": 4,
+      "output_dtype": "torch.float32",
+      "vs_native": {
+        "finite": true,
+        "max_abs": 0.10747241973876953,
+        "rmse": 0.0018575479680987522,
+        "relative_rmse": 0.009242987487678244,
+        "cosine": 0.9999573781015467,
+        "operator_gate": false
+      },
+      "vs_split_alpha": {
+        "finite": true,
+        "max_abs": 0.10747241973876953,
+        "rmse": 0.0018575479680987522,
+        "relative_rmse": 0.009242987487678244,
+        "cosine": 0.9999573781015467,
+        "operator_gate": false
+      },
+      "vs_fp64_rows": {
+        "finite": true,
+        "max_abs": 0.02951593531562291,
+        "rmse": 0.003491799352089179,
+        "relative_rmse": 0.016322737888402612,
+        "cosine": 0.9999235249455516,
+        "operator_gate": false
+      },
+      "kernel": {
+        "n_regs": 234,
+        "n_spills": 0,
+        "shared_bytes": 8192,
+        "asm_sha256": "d80f90a502c1b3236dfb3a07c43fbf33e3dedfccb4d9950998e0536658ccb41a",
+        "instructions": {
+          "\\bv_fmac_f32\\b": 0,
+          "\\bv_fma_f32\\b": 48,
+          "\\bv_dot2c_f32_f16\\b": 256,
+          "\\bv_dot4c_i32_i8\\b": 128,
+          "\\bv_mfma": 0,
+          "\\bv_wmma": 0,
+          "\\bscratch_load": 0,
+          "\\bscratch_store": 0
+        },
+        "private_segment": [
+          "0"
+        ]
+      },
+      "operator_gate": false,
+      "timing": {
+        "median_wall_ms": 22.526770997501444,
+        "median_event_ms": 22.503507614135742,
+        "samples": [
+          {
+            "wall_ms": 22.48300200153608,
+            "event_ms": 22.460187911987305,
+            "round": 0,
+            "position": 5
+          },
+          {
+            "wall_ms": 22.56418100296287,
+            "event_ms": 22.53618812561035,
+            "round": 1,
+            "position": 1
+          },
+          {
+            "wall_ms": 22.526770997501444,
+            "event_ms": 22.503507614135742,
+            "round": 2,
+            "position": 5
+          }
+        ],
+        "peak_additional_allocated_bytes": 79691776
+      },
+      "speedup_wall": {
+        "attention_split": 1.3167576037164817,
+        "split_alpha": 1.012754468961642
+      }
+    },
+    "sage_smooth0_q32k32w4": {
+      "status": "measured",
+      "smooth_k": false,
+      "block_q": 32,
+      "block_k": 32,
+      "num_warps": 4,
+      "output_dtype": "torch.float32",
+      "vs_native": {
+        "finite": true,
+        "max_abs": 0.10747241973876953,
+        "rmse": 0.0018575479680987522,
+        "relative_rmse": 0.009242987487678244,
+        "cosine": 0.9999573781015467,
+        "operator_gate": false
+      },
+      "vs_split_alpha": {
+        "finite": true,
+        "max_abs": 0.10747241973876953,
+        "rmse": 0.0018575479680987522,
+        "relative_rmse": 0.009242987487678244,
+        "cosine": 0.9999573781015467,
+        "operator_gate": false
+      },
+      "vs_fp64_rows": {
+        "finite": true,
+        "max_abs": 0.02951593531562291,
+        "rmse": 0.003491799352089179,
+        "relative_rmse": 0.016322737888402612,
+        "cosine": 0.9999235249455516,
+        "operator_gate": false
+      },
+      "kernel": {
+        "n_regs": 256,
+        "n_spills": 103,
+        "shared_bytes": 8192,
+        "asm_sha256": "0eefed94c387143e4043649ea9c6a80ad460f55709d9179819447ab20e4fd154",
+        "instructions": {
+          "\\bv_fmac_f32\\b": 0,
+          "\\bv_fma_f32\\b": 96,
+          "\\bv_dot2c_f32_f16\\b": 512,
+          "\\bv_dot4c_i32_i8\\b": 256,
+          "\\bv_mfma": 0,
+          "\\bv_wmma": 0,
+          "\\bscratch_load": 0,
+          "\\bscratch_store": 0
+        },
+        "private_segment": [
+          "412"
+        ]
+      },
+      "operator_gate": false,
+      "timing": {
+        "median_wall_ms": 20.802163999178447,
+        "median_event_ms": 20.77984046936035,
+        "samples": [
+          {
+            "wall_ms": 20.75274399976479,
+            "event_ms": 20.730079650878906,
+            "round": 0,
+            "position": 6
+          },
+          {
+            "wall_ms": 20.89246299874503,
+            "event_ms": 20.870588302612305,
+            "round": 1,
+            "position": 0
+          },
+          {
+            "wall_ms": 20.802163999178447,
+            "event_ms": 20.77984046936035,
+            "round": 2,
+            "position": 6
+          }
+        ],
+        "peak_additional_allocated_bytes": 79691776
+      },
+      "speedup_wall": {
+        "attention_split": 1.4259236202210217,
+        "split_alpha": 1.0967170530862127
+      }
+    }
+  },
+  "sources": {
+    "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/bench_sage_qwen_v05.py": "954a7e23dd35e5038951ce958ca73658501a5750175b9e2c0667c84c92a201ce",
+    "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/rdna2_ops/sage_attention_v05.py": "ce3197e0639790f57ffdad95df918b52c598dc7d3f9ffd01af7c66431b3bca47",
+    "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/rdna2_ops/quantized_attention.py": "a328b1f2a5b73b11acfedac48ef9ef62e8365308513ea9a1130c11dba1d4881e",
+    "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/bench_fp32_attention.py": "32bddf8aad31ff7c4334edc167aea3fa9f4a1064a30b7d63c35420009c80db74",
+    "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/bench_quantized_attention.py": "98737d59ea9136d1e48b981e627af9e63c9f3d5b1e16cc588d765c0c48d23192",
+    "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/bench_tiled_attention.py": "b0a38497e5a9b5cb02bb94fdeb3beb5488ad412834c30fad56d8361ad23b1064",
+    "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/rdna2_ops/fp32_attention.py": "e64bf1223bd3ed91c8e89c4762b40d75e79a3878c5f2f6722d1542218dab1308",
+    "~/DevSpace/qwen-image-21-rdna2-lab01/runtime/ComfyUI/comfy/ldm/modules/attention.py": "9cafaafaf93ff53e8cbefb5e4a204014019985df2da8c1996bf40f1235fc2960",
+    "~/DevSpace/rdna2-pro-research-20261102/rehearsal_qwen_20261106/scripts/candidates.py": "281a8d1ea21bbf2dd6a7a0799ab4a4e3d0232ac4f458c33372876ade97e0d30d",
+    "results/v05_qwen_capture/actual_qkv_2400_4964.pt": "22e64c7d68b6106f8ec614640ff53b86077cf84666875d37d05ff25dd11add68",
+    "results/fp32_attention_qwen_actual_sweep_v05.json": "dfab81b395222f52d709c07d34f398eb38c267e7ec9c9bc0623418966bfcedee"
+  },
+  "comparison_selection": {
+    "always": [
+      "attention_split",
+      "split_alpha"
+    ],
+    "fp32_tile": null,
+    "query_block": 128,
+    "evidence": "results/fp32_attention_qwen_actual_sweep_v05.json",
+    "note": "An optional additional comparator is not called best without measured evidence."
+  },
+  "runtime": {
+    "torch": "2.12.0+rocm10.2.0a20261011",
+    "hip": "7.17.26405",
+    "triton": "3.8.0",
+    "device": "AMD Radeon RX 6900 XT",
+    "arch": "gfx1030",
+    "matmul_precision": "highest"
+  },
+  "small_rectangular_checks": [
+    {
+      "shape_q": [
+        1,
+        2,
+        17,
+        128
+      ],
+      "shape_k": [
+        1,
+        2,
+        37,
+        128
+      ],
+      "smooth_k": false,
+      "output_dtype": "torch.float32",
+      "accuracy": {
+        "finite": true,
+        "max_abs": 0.00010767573395206037,
+        "rmse": 2.599428761148881e-05,
+        "relative_rmse": 0.0006234128869384697,
+        "cosine": 0.9999998057892553,
+        "operator_gate": true
+      }
+    },
+    {
+      "shape_q": [
+        1,
+        2,
+        17,
+        128
+      ],
+      "shape_k": [
+        1,
+        2,
+        37,
+        128
+      ],
+      "smooth_k": true,
+      "output_dtype": "torch.float32",
+      "accuracy": {
+        "finite": true,
+        "max_abs": 0.00010107052208284395,
+        "rmse": 2.5323786811930995e-05,
+        "relative_rmse": 0.0006073324755267661,
+        "cosine": 0.999999815658171,
+        "operator_gate": true
+      }
+    },
+    {
+      "shape_q": [
+        2,
+        2,
+        17,
+        64
+      ],
+      "shape_k": [
+        2,
+        2,
+        37,
+        64
+      ],
+      "smooth_k": false,
+      "output_dtype": "torch.float32",
+      "accuracy": {
+        "finite": true,
+        "max_abs": 0.00010970801381353368,
+        "rmse": 2.3474983309324067e-05,
+        "relative_rmse": 0.0006069303191911381,
+        "cosine": 0.9999998158182515,
+        "operator_gate": true
+      }
+    },
+    {
+      "shape_q": [
+        2,
+        2,
+        17,
+        64
+      ],
+      "shape_k": [
+        2,
+        2,
+        37,
+        64
+      ],
+      "smooth_k": true,
+      "output_dtype": "torch.float32",
+      "accuracy": {
+        "finite": true,
+        "max_abs": 9.095538385415396e-05,
+        "rmse": 2.3563646814821374e-05,
+        "relative_rmse": 0.0006092226560581343,
+        "cosine": 0.9999998144653068,
+        "operator_gate": true
+      }
+    }
+  ],
+  "capture": {
+    "path": "results/v05_qwen_capture/actual_qkv_2400_4964.pt",
+    "metadata": {
+      "shapes": [
+        [
+          1,
+          2400,
+          4096
+        ],
+        [
+          1,
+          4964,
+          4096
+        ],
+        [
+          1,
+          4964,
+          4096
+        ]
+      ],
+      "strides": [
+        [
+          9830400,
+          4096,
+          1
+        ],
+        [
+          20332544,
+          4096,
+          1
+        ],
+        [
+          20332544,
+          4096,
+          1
+        ]
+      ],
+      "dtype": "torch.float32",
+      "heads": 32,
+      "mask": null,
+      "source": {
+        "module": "comfy.ldm.modules.attention",
+        "name": "attention_split",
+        "path": "~/DevSpace/qwen-image-21-rdna2-lab01/runtime/ComfyUI/comfy/ldm/modules/attention.py"
+      }
+    },
+    "shapes": [
+      [
+        1,
+        32,
+        2400,
+        128
+      ],
+      [
+        1,
+        32,
+        4964,
+        128
+      ],
+      [
+        1,
+        32,
+        4964,
+        128
+      ]
+    ],
+    "strides": [
+      [
+        9830400,
+        128,
+        4096,
+        1
+      ],
+      [
+        20332544,
+        128,
+        4096,
+        1
+      ],
+      [
+        20332544,
+        128,
+        4096,
+        1
+      ]
+    ],
+    "maximum_abs_qkv": [
+      25.57364845275879,
+      24.036333084106445,
+      53.71918869018555
+    ],
+    "scale": null,
+    "full_score_fp32_bytes": 1524940800
+  },
+  "fp64_scope": {
+    "heads": [
+      0,
+      1
+    ],
+    "query_rows": [
+      0,
+      800,
+      1599,
+      2399
+    ]
+  },
+  "timing_round_order": [
+    [
+      "attention_split",
+      "split_alpha",
+      "rocblas_query_128",
+      "sage_smooth1_q16k32w4",
+      "sage_smooth1_q32k32w4",
+      "sage_smooth0_q16k32w4",
+      "sage_smooth0_q32k32w4"
+    ],
+    [
+      "sage_smooth0_q32k32w4",
+      "sage_smooth0_q16k32w4",
+      "sage_smooth1_q32k32w4",
+      "sage_smooth1_q16k32w4",
+      "rocblas_query_128",
+      "split_alpha",
+      "attention_split"
+    ],
+    [
+      "attention_split",
+      "split_alpha",
+      "rocblas_query_128",
+      "sage_smooth1_q16k32w4",
+      "sage_smooth1_q32k32w4",
+      "sage_smooth0_q16k32w4",
+      "sage_smooth0_q32k32w4"
+    ]
+  ]
+}

@@ -1,0 +1,1057 @@
+{
+  "schema_version": 1,
+  "started_utc": "2026-11-05T14:42:54.164979+00:00",
+  "seed": 20261105,
+  "rounds": 3,
+  "iterations": 6,
+  "warmup_calls_per_method": 3,
+  "packed_v": false,
+  "inputs": "Seeded normal FP32 BSHD-to-BHSD tensors; not captured model activations.",
+  "timing": "Complete callable, including checks, allocations and required dtype conversions. Wall time includes final synchronization; events include host submission gaps. Input creation and backend warmup are excluded. Pair order alternates; no graphs.",
+  "probe_timing": "FP32 QKV -> target-dtype casts -> single forced SDPA backend -> FP32 output. The single-backend context is included in the callable cost.",
+  "acceptance_declared_before_measurement": {
+    "exact_fp32_path": "Finite outputs and identical contiguous uint8 views.",
+    "subsequent_real_images": {
+      "finite_rgb": true,
+      "max_abs": 0.00784313725490196,
+      "rmse": 0.000980392156862745
+    },
+    "image_validation_performed_here": false,
+    "note": "Random operator error is diagnostic; it cannot accept a real-image precision change."
+  },
+  "ranges": [
+    {
+      "length": 128,
+      "layout": {
+        "q": {
+          "shape": [
+            1,
+            24,
+            128,
+            128
+          ],
+          "stride": [
+            393216,
+            128,
+            3072,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.float32"
+        },
+        "k": {
+          "shape": [
+            1,
+            24,
+            128,
+            128
+          ],
+          "stride": [
+            393216,
+            128,
+            3072,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.float32"
+        },
+        "v": {
+          "shape": [
+            1,
+            24,
+            128,
+            128
+          ],
+          "stride": [
+            393216,
+            128,
+            3072,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.float32"
+        }
+      },
+      "status": "ok",
+      "accuracy": {
+        "finite": true,
+        "byte_equal": true,
+        "max_abs": 0.0,
+        "rmse": 0.0
+      },
+      "samples": {
+        "native_fp32": [
+          {
+            "wall_ms": 0.16540716751478612,
+            "event_ms": 0.1586465040842692
+          },
+          {
+            "wall_ms": 0.12334083051731189,
+            "event_ms": 0.12070983648300171
+          },
+          {
+            "wall_ms": 0.12277232599444687,
+            "event_ms": 0.12003149588902791
+          }
+        ],
+        "candidate": [
+          {
+            "wall_ms": 0.09678266360424459,
+            "event_ms": 0.09394499659538269
+          },
+          {
+            "wall_ms": 0.08718767397416134,
+            "event_ms": 0.08446150024731953
+          },
+          {
+            "wall_ms": 0.08998100141373773,
+            "event_ms": 0.08720333377520244
+          }
+        ]
+      },
+      "medians": {
+        "native_fp32": {
+          "wall_ms": 0.12334083051731189,
+          "event_ms": 0.12070983648300171
+        },
+        "candidate": {
+          "wall_ms": 0.08998100141373773,
+          "event_ms": 0.08720333377520244
+        }
+      },
+      "speedup_wall": 1.370743029966779,
+      "speedup_event": 1.3842341944652503
+    },
+    {
+      "length": 129,
+      "layout": {
+        "q": {
+          "shape": [
+            1,
+            24,
+            129,
+            128
+          ],
+          "stride": [
+            396288,
+            128,
+            3072,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.float32"
+        },
+        "k": {
+          "shape": [
+            1,
+            24,
+            129,
+            128
+          ],
+          "stride": [
+            396288,
+            128,
+            3072,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.float32"
+        },
+        "v": {
+          "shape": [
+            1,
+            24,
+            129,
+            128
+          ],
+          "stride": [
+            396288,
+            128,
+            3072,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.float32"
+        }
+      },
+      "status": "ok",
+      "accuracy": {
+        "finite": true,
+        "byte_equal": true,
+        "max_abs": 0.0,
+        "rmse": 0.0
+      },
+      "samples": {
+        "native_fp32": [
+          {
+            "wall_ms": 0.13249916567777595,
+            "event_ms": 0.12870983282725015
+          },
+          {
+            "wall_ms": 0.132484002582108,
+            "event_ms": 0.12988649805386862
+          },
+          {
+            "wall_ms": 0.12991566715451577,
+            "event_ms": 0.12723666429519653
+          }
+        ],
+        "candidate": [
+          {
+            "wall_ms": 0.10660433326847851,
+            "event_ms": 0.1037815014521281
+          },
+          {
+            "wall_ms": 0.10598749698450168,
+            "event_ms": 0.10320316751797994
+          },
+          {
+            "wall_ms": 0.10380267243211468,
+            "event_ms": 0.10111332933108012
+          }
+        ]
+      },
+      "medians": {
+        "native_fp32": {
+          "wall_ms": 0.132484002582108,
+          "event_ms": 0.12870983282725015
+        },
+        "candidate": {
+          "wall_ms": 0.10598749698450168,
+          "event_ms": 0.10320316751797994
+        }
+      },
+      "speedup_wall": 1.249996521773515,
+      "speedup_event": 1.2471500238093611
+    },
+    {
+      "length": 257,
+      "layout": {
+        "q": {
+          "shape": [
+            1,
+            24,
+            257,
+            128
+          ],
+          "stride": [
+            789504,
+            128,
+            3072,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.float32"
+        },
+        "k": {
+          "shape": [
+            1,
+            24,
+            257,
+            128
+          ],
+          "stride": [
+            789504,
+            128,
+            3072,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.float32"
+        },
+        "v": {
+          "shape": [
+            1,
+            24,
+            257,
+            128
+          ],
+          "stride": [
+            789504,
+            128,
+            3072,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.float32"
+        }
+      },
+      "status": "ok",
+      "accuracy": {
+        "finite": true,
+        "byte_equal": true,
+        "max_abs": 0.0,
+        "rmse": 0.0
+      },
+      "samples": {
+        "native_fp32": [
+          {
+            "wall_ms": 0.34416750228653353,
+            "event_ms": 0.33848432699839276
+          },
+          {
+            "wall_ms": 0.3405575019617875,
+            "event_ms": 0.3376513322194417
+          },
+          {
+            "wall_ms": 0.3403358277864754,
+            "event_ms": 0.33721450964609784
+          }
+        ],
+        "candidate": [
+          {
+            "wall_ms": 0.29185116485071677,
+            "event_ms": 0.2886280020078023
+          },
+          {
+            "wall_ms": 0.2905330038629472,
+            "event_ms": 0.2873379985491435
+          },
+          {
+            "wall_ms": 0.29264467108684283,
+            "event_ms": 0.2892463405927022
+          }
+        ]
+      },
+      "medians": {
+        "native_fp32": {
+          "wall_ms": 0.3405575019617875,
+          "event_ms": 0.3376513322194417
+        },
+        "candidate": {
+          "wall_ms": 0.29185116485071677,
+          "event_ms": 0.2886280020078023
+        }
+      },
+      "speedup_wall": 1.1668875885281604,
+      "speedup_event": 1.169849529049902
+    },
+    {
+      "length": 513,
+      "layout": {
+        "q": {
+          "shape": [
+            1,
+            24,
+            513,
+            128
+          ],
+          "stride": [
+            1575936,
+            128,
+            3072,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.float32"
+        },
+        "k": {
+          "shape": [
+            1,
+            24,
+            513,
+            128
+          ],
+          "stride": [
+            1575936,
+            128,
+            3072,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.float32"
+        },
+        "v": {
+          "shape": [
+            1,
+            24,
+            513,
+            128
+          ],
+          "stride": [
+            1575936,
+            128,
+            3072,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.float32"
+        }
+      },
+      "status": "ok",
+      "accuracy": {
+        "finite": true,
+        "byte_equal": true,
+        "max_abs": 0.0,
+        "rmse": 0.0
+      },
+      "samples": {
+        "native_fp32": [
+          {
+            "wall_ms": 0.6270473337887476,
+            "event_ms": 0.6233826478322347
+          },
+          {
+            "wall_ms": 0.6262556610939404,
+            "event_ms": 0.6232275168100992
+          },
+          {
+            "wall_ms": 0.632337168402349,
+            "event_ms": 0.6282660166422526
+          }
+        ],
+        "candidate": [
+          {
+            "wall_ms": 0.5240013318446776,
+            "event_ms": 0.5206126769383749
+          },
+          {
+            "wall_ms": 0.5179861618671566,
+            "event_ms": 0.5144395033518473
+          },
+          {
+            "wall_ms": 0.5228596661860744,
+            "event_ms": 0.5189778407414755
+          }
+        ]
+      },
+      "medians": {
+        "native_fp32": {
+          "wall_ms": 0.6270473337887476,
+          "event_ms": 0.6233826478322347
+        },
+        "candidate": {
+          "wall_ms": 0.5228596661860744,
+          "event_ms": 0.5189778407414755
+        }
+      },
+      "speedup_wall": 1.1992650692730906,
+      "speedup_event": 1.2011739209165342
+    },
+    {
+      "length": 1025,
+      "layout": {
+        "q": {
+          "shape": [
+            1,
+            24,
+            1025,
+            128
+          ],
+          "stride": [
+            3148800,
+            128,
+            3072,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.float32"
+        },
+        "k": {
+          "shape": [
+            1,
+            24,
+            1025,
+            128
+          ],
+          "stride": [
+            3148800,
+            128,
+            3072,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.float32"
+        },
+        "v": {
+          "shape": [
+            1,
+            24,
+            1025,
+            128
+          ],
+          "stride": [
+            3148800,
+            128,
+            3072,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.float32"
+        }
+      },
+      "status": "ok",
+      "accuracy": {
+        "finite": true,
+        "byte_equal": true,
+        "max_abs": 0.0,
+        "rmse": 0.0
+      },
+      "samples": {
+        "native_fp32": [
+          {
+            "wall_ms": 2.3884213296696544,
+            "event_ms": 2.3829170862833657
+          },
+          {
+            "wall_ms": 2.4082178327565393,
+            "event_ms": 2.40474541982015
+          },
+          {
+            "wall_ms": 2.3864946657946953,
+            "event_ms": 2.3833421071370444
+          }
+        ],
+        "candidate": [
+          {
+            "wall_ms": 1.7310443314878892,
+            "event_ms": 1.7273847262064617
+          },
+          {
+            "wall_ms": 1.7230711625112842,
+            "event_ms": 1.7198596000671387
+          },
+          {
+            "wall_ms": 1.7330993335538853,
+            "event_ms": 1.7299097379048665
+          }
+        ]
+      },
+      "medians": {
+        "native_fp32": {
+          "wall_ms": 2.3884213296696544,
+          "event_ms": 2.3833421071370444
+        },
+        "candidate": {
+          "wall_ms": 1.7310443314878892,
+          "event_ms": 1.7273847262064617
+        }
+      },
+      "speedup_wall": 1.3797574598316198,
+      "speedup_event": 1.3797401765680433
+    },
+    {
+      "length": 1537,
+      "layout": {
+        "q": {
+          "shape": [
+            1,
+            24,
+            1537,
+            128
+          ],
+          "stride": [
+            4721664,
+            128,
+            3072,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.float32"
+        },
+        "k": {
+          "shape": [
+            1,
+            24,
+            1537,
+            128
+          ],
+          "stride": [
+            4721664,
+            128,
+            3072,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.float32"
+        },
+        "v": {
+          "shape": [
+            1,
+            24,
+            1537,
+            128
+          ],
+          "stride": [
+            4721664,
+            128,
+            3072,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.float32"
+        }
+      },
+      "status": "ok",
+      "accuracy": {
+        "finite": true,
+        "byte_equal": true,
+        "max_abs": 0.0,
+        "rmse": 0.0
+      },
+      "samples": {
+        "native_fp32": [
+          {
+            "wall_ms": 9.091907006222755,
+            "event_ms": 9.088157018025717
+          },
+          {
+            "wall_ms": 9.11675666187269,
+            "event_ms": 9.113197962443033
+          },
+          {
+            "wall_ms": 9.025834170946231,
+            "event_ms": 9.022512435913086
+          }
+        ],
+        "candidate": [
+          {
+            "wall_ms": 7.235256838612258,
+            "event_ms": 7.231931050618489
+          },
+          {
+            "wall_ms": 7.285864829706649,
+            "event_ms": 7.282298405965169
+          },
+          {
+            "wall_ms": 7.280854828422889,
+            "event_ms": 7.277773539225261
+          }
+        ]
+      },
+      "medians": {
+        "native_fp32": {
+          "wall_ms": 9.091907006222755,
+          "event_ms": 9.088157018025717
+        },
+        "candidate": {
+          "wall_ms": 7.280854828422889,
+          "event_ms": 7.277773539225261
+        }
+      },
+      "speedup_wall": 1.2487416959242077,
+      "speedup_event": 1.2487551266940324
+    },
+    {
+      "length": 2049,
+      "layout": {
+        "q": {
+          "shape": [
+            1,
+            24,
+            2049,
+            128
+          ],
+          "stride": [
+            6294528,
+            128,
+            3072,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.float32"
+        },
+        "k": {
+          "shape": [
+            1,
+            24,
+            2049,
+            128
+          ],
+          "stride": [
+            6294528,
+            128,
+            3072,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.float32"
+        },
+        "v": {
+          "shape": [
+            1,
+            24,
+            2049,
+            128
+          ],
+          "stride": [
+            6294528,
+            128,
+            3072,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.float32"
+        }
+      },
+      "status": "ok",
+      "accuracy": {
+        "finite": true,
+        "byte_equal": true,
+        "max_abs": 0.0,
+        "rmse": 0.0
+      },
+      "samples": {
+        "native_fp32": [
+          {
+            "wall_ms": 17.03636217280291,
+            "event_ms": 17.0319086710612
+          },
+          {
+            "wall_ms": 17.05731683371899,
+            "event_ms": 17.053730010986328
+          },
+          {
+            "wall_ms": 17.028575501171872,
+            "event_ms": 17.024486541748047
+          }
+        ],
+        "candidate": [
+          {
+            "wall_ms": 13.718414168882495,
+            "event_ms": 13.714903513590494
+          },
+          {
+            "wall_ms": 13.733443998110792,
+            "event_ms": 13.730010986328125
+          },
+          {
+            "wall_ms": 13.733430668556442,
+            "event_ms": 13.728888193766275
+          }
+        ]
+      },
+      "medians": {
+        "native_fp32": {
+          "wall_ms": 17.03636217280291,
+          "event_ms": 17.0319086710612
+        },
+        "candidate": {
+          "wall_ms": 13.733430668556442,
+          "event_ms": 13.728888193766275
+        }
+      },
+      "speedup_wall": 1.240503016613958,
+      "speedup_event": 1.2405890725218878
+    },
+    {
+      "length": 3073,
+      "layout": {
+        "q": {
+          "shape": [
+            1,
+            24,
+            3073,
+            128
+          ],
+          "stride": [
+            9440256,
+            128,
+            3072,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.float32"
+        },
+        "k": {
+          "shape": [
+            1,
+            24,
+            3073,
+            128
+          ],
+          "stride": [
+            9440256,
+            128,
+            3072,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.float32"
+        },
+        "v": {
+          "shape": [
+            1,
+            24,
+            3073,
+            128
+          ],
+          "stride": [
+            9440256,
+            128,
+            3072,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.float32"
+        }
+      },
+      "status": "ok",
+      "accuracy": {
+        "finite": true,
+        "byte_equal": true,
+        "max_abs": 0.0,
+        "rmse": 0.0
+      },
+      "samples": {
+        "native_fp32": [
+          {
+            "wall_ms": 28.07522866836128,
+            "event_ms": 28.028656005859375
+          },
+          {
+            "wall_ms": 28.055430331733078,
+            "event_ms": 28.010416666666668
+          },
+          {
+            "wall_ms": 28.144221326025825,
+            "event_ms": 28.098612467447918
+          }
+        ],
+        "candidate": [
+          {
+            "wall_ms": 20.88449967171376,
+            "event_ms": 20.838932037353516
+          },
+          {
+            "wall_ms": 21.02893700551552,
+            "event_ms": 20.983397165934246
+          },
+          {
+            "wall_ms": 20.864866499323398,
+            "event_ms": 20.81768290201823
+          }
+        ]
+      },
+      "medians": {
+        "native_fp32": {
+          "wall_ms": 28.07522866836128,
+          "event_ms": 28.028656005859375
+        },
+        "candidate": {
+          "wall_ms": 20.88449967171376,
+          "event_ms": 20.838932037353516
+        }
+      },
+      "speedup_wall": 1.3443093734434415,
+      "speedup_event": 1.3450140321787303
+    },
+    {
+      "length": 4095,
+      "layout": {
+        "q": {
+          "shape": [
+            1,
+            24,
+            4095,
+            128
+          ],
+          "stride": [
+            12579840,
+            128,
+            3072,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.float32"
+        },
+        "k": {
+          "shape": [
+            1,
+            24,
+            4095,
+            128
+          ],
+          "stride": [
+            12579840,
+            128,
+            3072,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.float32"
+        },
+        "v": {
+          "shape": [
+            1,
+            24,
+            4095,
+            128
+          ],
+          "stride": [
+            12579840,
+            128,
+            3072,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.float32"
+        }
+      },
+      "status": "ok",
+      "accuracy": {
+        "finite": true,
+        "byte_equal": true,
+        "max_abs": 0.0,
+        "rmse": 0.0
+      },
+      "samples": {
+        "native_fp32": [
+          {
+            "wall_ms": 59.19080215971917,
+            "event_ms": 59.14342753092448
+          },
+          {
+            "wall_ms": 59.20945717177043,
+            "event_ms": 59.162089029947914
+          },
+          {
+            "wall_ms": 59.06975633115508,
+            "event_ms": 59.02056376139323
+          }
+        ],
+        "candidate": [
+          {
+            "wall_ms": 45.48945799857999,
+            "event_ms": 45.44348653157552
+          },
+          {
+            "wall_ms": 45.50537467002869,
+            "event_ms": 45.458984375
+          },
+          {
+            "wall_ms": 45.408532004027315,
+            "event_ms": 45.3592274983724
+          }
+        ]
+      },
+      "medians": {
+        "native_fp32": {
+          "wall_ms": 59.19080215971917,
+          "event_ms": 59.14342753092448
+        },
+        "candidate": {
+          "wall_ms": 45.48945799857999,
+          "event_ms": 45.44348653157552
+        }
+      },
+      "speedup_wall": 1.3011982284239765,
+      "speedup_event": 1.3014720490213667
+    },
+    {
+      "length": 4096,
+      "layout": {
+        "q": {
+          "shape": [
+            1,
+            24,
+            4096,
+            128
+          ],
+          "stride": [
+            12582912,
+            128,
+            3072,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.float32"
+        },
+        "k": {
+          "shape": [
+            1,
+            24,
+            4096,
+            128
+          ],
+          "stride": [
+            12582912,
+            128,
+            3072,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.float32"
+        },
+        "v": {
+          "shape": [
+            1,
+            24,
+            4096,
+            128
+          ],
+          "stride": [
+            12582912,
+            128,
+            3072,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.float32"
+        }
+      },
+      "status": "ok",
+      "accuracy": {
+        "finite": true,
+        "byte_equal": true,
+        "max_abs": 0.0,
+        "rmse": 0.0
+      },
+      "samples": {
+        "native_fp32": [
+          {
+            "wall_ms": 60.41447682461391,
+            "event_ms": 60.364095052083336
+          },
+          {
+            "wall_ms": 60.572327328069754,
+            "event_ms": 60.52460225423177
+          },
+          {
+            "wall_ms": 60.27717449857543,
+            "event_ms": 60.227081298828125
+          }
+        ],
+        "candidate": [
+          {
+            "wall_ms": 47.105353160683684,
+            "event_ms": 47.05658467610677
+          },
+          {
+            "wall_ms": 47.10485483519733,
+            "event_ms": 47.05633036295573
+          },
+          {
+            "wall_ms": 47.14914283249527,
+            "event_ms": 47.10057067871094
+          }
+        ]
+      },
+      "medians": {
+        "native_fp32": {
+          "wall_ms": 60.41447682461391,
+          "event_ms": 60.364095052083336
+        },
+        "candidate": {
+          "wall_ms": 47.105353160683684,
+          "event_ms": 47.05658467610677
+        }
+      },
+      "speedup_wall": 1.2825395155945596,
+      "speedup_event": 1.2827980497856557
+    }
+  ],
+  "backend_probes": [],
+  "status": "completed",
+  "environment": {
+    "torch": "2.12.0+rocm10.2.0a20261011",
+    "torch_git": "9ccf2fd0aab44087b58af23ad20bc961c29bb852",
+    "hip": "7.17.26405",
+    "gpu": "AMD Radeon RX 6900 XT",
+    "arch": "gfx1030",
+    "rocm_fa_preference": "_ROCmFABackend.AOTriton",
+    "math_sdp_reduced_precision": false
+  },
+  "range_exactness_pass": true,
+  "exit_status": 0
+}

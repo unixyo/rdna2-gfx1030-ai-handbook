@@ -1,0 +1,32 @@
+{
+  "evidence_grade": "B: installed source read, not runtime speed proof",
+  "hip_source": "moss-image-rdna2-lab01/.venv-moss/lib/python3.12/site-packages/comfy_kitchen/backends/hip/__init__.py",
+  "hip_sha256": "26faf7b55ed050d90a08bbd9126a75d2bc2bbfdaaae384cb68b44cbb96ca1e13",
+  "triton_source": "moss-image-rdna2-lab01/.venv-moss/lib/python3.12/site-packages/comfy_kitchen/backends/triton/w4a8_int8.py",
+  "triton_sha256": "6528efcf03ddc59e055033b8e7d78b51e4daf222e752abc3e7b1d323fa601cc8",
+  "architecture_manifest": {
+    "codexpro_tool": "read_bytes",
+    "codexpro_title": "Read File by Byte Range",
+    "workspace_id": "ws_6cac9f528eb957faf52fdab8",
+    "root": "~/DevSpace",
+    "path": "moss-image-rdna2-lab01/.venv-moss/lib/python3.12/site-packages/comfy_kitchen/backends/hip/architectures.json",
+    "text": "{\n  \"elementwise_only\": [\n    \"gfx1030\",\n    \"gfx1031\",\n    \"gfx1032\",\n    \"gfx1033\",\n    \"gfx1034\",\n    \"gfx1035\",\n    \"gfx1036\"\n  ],\n  \"wmma_gfx11\": [\n    \"gfx1100\",\n    \"gfx1101\",\n    \"gfx1102\",\n    \"gfx1103\",\n    \"gfx1150\",\n    \"gfx1151\",\n    \"gfx1152\",\n    \"gfx1153\"\n  ],\n  \"wmma_gfx12\": [\n    \"gfx1200\",\n    \"gfx1201\"\n  ]\n}\n",
+    "offset": 0,
+    "bytes": 330,
+    "nextOffset": 330,
+    "totalBytes": 330,
+    "eof": true,
+    "chunkSha256": "27e84eb8e81c5aef33af28768ac57fabed6259a8f4e0326669d0bec82246e5f2",
+    "sha256": "27e84eb8e81c5aef33af28768ac57fabed6259a8f4e0326669d0bec82246e5f2",
+    "next_offset": 330,
+    "total_bytes": 330,
+    "chunk_sha256": "27e84eb8e81c5aef33af28768ac57fabed6259a8f4e0326669d0bec82246e5f2"
+  },
+  "findings": [
+    "gfx1030 is elementwise_only; _WMMA_ONLY_OPS includes w4a8_int8_linear and _build_constraints removes it when !has_wmma",
+    "HIP decode availability is not a HIP gfx1030 W4 GEMM",
+    "Triton/eager decode round(clamp(level(q4)*s_rel,-127,127)) into an INT8 grid, then existing INT8 GEMM with s_channel",
+    "This differs from the v0.7 linear grouped q4-zero times FP32 scale storage contract",
+    "Asymmetric correction falls back to dequantized F.linear; optional nonlinear codebook/FP8 scales are distinct formats; no new checkpoint used"
+  ]
+}

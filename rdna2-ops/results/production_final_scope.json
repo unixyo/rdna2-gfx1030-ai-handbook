@@ -1,0 +1,851 @@
+{
+  "launcher": "~/DevSpace/moss-image-rdna2-lab01/scripts/start_moss_comfy.sh",
+  "workflow": "sft_fast4_int8_512",
+  "seeds": [
+    20261105
+  ],
+  "same_server": true,
+  "width_override": null,
+  "height_override": null,
+  "acceptance_fixed_before_execution": {
+    "exact_paths": "latent/RGB byte equality",
+    "rgb_max": 0.00784313725490196,
+    "rgb_rmse": 0.000980392156862745
+  },
+  "experiments": [
+    {
+      "mode": "legacy:native",
+      "runs": [
+        {
+          "index": 1,
+          "seed": 20261105,
+          "stage_wall_s": {
+            "denoise": 9.278479851956945,
+            "vae": 0.22094482800457627
+          },
+          "layout": "legacy",
+          "conditioning_sha256": {
+            "positive": "417dd00504d0b0e63c03b8db41eacd18c0bcd41c0836da048bfb2544de3c964f",
+            "negative": "1ace29fee10affc354c23df50f0a10057197015742c7a0dcbfa2474c988fb13c"
+          },
+          "manual_cast_dtype": "torch.float32",
+          "model_dtype": "torch.bfloat16",
+          "latent_shape": [
+            1,
+            128,
+            32,
+            32
+          ],
+          "latent": {
+            "finite": true,
+            "byte_equal": true,
+            "dtype": "torch.float32",
+            "shape": [
+              1,
+              128,
+              32,
+              32
+            ],
+            "sha256": "32c30692155a60a686a8ea778bd8c97b57bb23bd219e890fd37a4790c8041051",
+            "max_abs": 0.0,
+            "rmse": 0.0
+          },
+          "attention_counts": {
+            "native_denoise_torch.float32": 176
+          },
+          "attention_layouts": [
+            {
+              "q": {
+                "shape": [
+                  1,
+                  24,
+                  37,
+                  128
+                ],
+                "stride": [
+                  113664,
+                  128,
+                  3072,
+                  1
+                ],
+                "offset": 0,
+                "dtype": "torch.float32"
+              },
+              "k": {
+                "shape": [
+                  1,
+                  24,
+                  37,
+                  128
+                ],
+                "stride": [
+                  113664,
+                  128,
+                  3072,
+                  1
+                ],
+                "offset": 0,
+                "dtype": "torch.float32"
+              },
+              "v": {
+                "shape": [
+                  1,
+                  24,
+                  37,
+                  128
+                ],
+                "stride": [
+                  340992,
+                  128,
+                  9216,
+                  1
+                ],
+                "offset": 6144,
+                "dtype": "torch.float32"
+              }
+            },
+            {
+              "q": {
+                "shape": [
+                  1,
+                  24,
+                  1061,
+                  128
+                ],
+                "stride": [
+                  3259392,
+                  128,
+                  3072,
+                  1
+                ],
+                "offset": 0,
+                "dtype": "torch.float32"
+              },
+              "k": {
+                "shape": [
+                  1,
+                  24,
+                  1061,
+                  128
+                ],
+                "stride": [
+                  3259392,
+                  128,
+                  3072,
+                  1
+                ],
+                "offset": 0,
+                "dtype": "torch.float32"
+              },
+              "v": {
+                "shape": [
+                  1,
+                  24,
+                  1061,
+                  128
+                ],
+                "stride": [
+                  9778176,
+                  128,
+                  9216,
+                  1
+                ],
+                "offset": 6144,
+                "dtype": "torch.float32"
+              }
+            }
+          ],
+          "int8_stats": {
+            "enabled": true,
+            "calls": 0,
+            "weight_layouts": []
+          },
+          "image": {
+            "finite": true,
+            "byte_equal": true,
+            "dtype": "torch.float32",
+            "shape": [
+              1,
+              512,
+              512,
+              3
+            ],
+            "sha256": "34779c20a7aa2c8e25c38076658ee188a1748f402a8428ef15444d989461a572",
+            "max_abs": 0.0,
+            "rmse": 0.0
+          },
+          "accuracy_pass": true,
+          "acceptance": {
+            "exact": true,
+            "rgb_max": 0.00784313725490196,
+            "rgb_rmse": 0.000980392156862745
+          },
+          "attention_mode": "native",
+          "math_reduced_precision_default": true,
+          "warmup": true,
+          "request_wall_s": 13.001474513032008,
+          "prompt_id": "7bf1eb65-53d9-4b9c-a8ea-c1b37811299b"
+        },
+        {
+          "index": 3,
+          "seed": 20261105,
+          "stage_wall_s": {
+            "denoise": 7.38512648397591,
+            "vae": 0.046401699946727604
+          },
+          "layout": "legacy",
+          "conditioning_sha256": {
+            "positive": "417dd00504d0b0e63c03b8db41eacd18c0bcd41c0836da048bfb2544de3c964f",
+            "negative": "1ace29fee10affc354c23df50f0a10057197015742c7a0dcbfa2474c988fb13c"
+          },
+          "manual_cast_dtype": "torch.float32",
+          "model_dtype": "torch.bfloat16",
+          "latent_shape": [
+            1,
+            128,
+            32,
+            32
+          ],
+          "latent": {
+            "finite": true,
+            "byte_equal": true,
+            "dtype": "torch.float32",
+            "shape": [
+              1,
+              128,
+              32,
+              32
+            ],
+            "sha256": "32c30692155a60a686a8ea778bd8c97b57bb23bd219e890fd37a4790c8041051",
+            "max_abs": 0.0,
+            "rmse": 0.0
+          },
+          "attention_counts": {
+            "native_denoise_torch.float32": 176
+          },
+          "attention_layouts": [
+            {
+              "q": {
+                "shape": [
+                  1,
+                  24,
+                  37,
+                  128
+                ],
+                "stride": [
+                  113664,
+                  128,
+                  3072,
+                  1
+                ],
+                "offset": 0,
+                "dtype": "torch.float32"
+              },
+              "k": {
+                "shape": [
+                  1,
+                  24,
+                  37,
+                  128
+                ],
+                "stride": [
+                  113664,
+                  128,
+                  3072,
+                  1
+                ],
+                "offset": 0,
+                "dtype": "torch.float32"
+              },
+              "v": {
+                "shape": [
+                  1,
+                  24,
+                  37,
+                  128
+                ],
+                "stride": [
+                  340992,
+                  128,
+                  9216,
+                  1
+                ],
+                "offset": 6144,
+                "dtype": "torch.float32"
+              }
+            },
+            {
+              "q": {
+                "shape": [
+                  1,
+                  24,
+                  1061,
+                  128
+                ],
+                "stride": [
+                  3259392,
+                  128,
+                  3072,
+                  1
+                ],
+                "offset": 0,
+                "dtype": "torch.float32"
+              },
+              "k": {
+                "shape": [
+                  1,
+                  24,
+                  1061,
+                  128
+                ],
+                "stride": [
+                  3259392,
+                  128,
+                  3072,
+                  1
+                ],
+                "offset": 0,
+                "dtype": "torch.float32"
+              },
+              "v": {
+                "shape": [
+                  1,
+                  24,
+                  1061,
+                  128
+                ],
+                "stride": [
+                  9778176,
+                  128,
+                  9216,
+                  1
+                ],
+                "offset": 6144,
+                "dtype": "torch.float32"
+              }
+            }
+          ],
+          "int8_stats": {
+            "enabled": true,
+            "calls": 0,
+            "weight_layouts": []
+          },
+          "image": {
+            "finite": true,
+            "byte_equal": true,
+            "dtype": "torch.float32",
+            "shape": [
+              1,
+              512,
+              512,
+              3
+            ],
+            "sha256": "34779c20a7aa2c8e25c38076658ee188a1748f402a8428ef15444d989461a572",
+            "max_abs": 0.0,
+            "rmse": 0.0
+          },
+          "accuracy_pass": true,
+          "acceptance": {
+            "exact": true,
+            "rgb_max": 0.00784313725490196,
+            "rgb_rmse": 0.000980392156862745
+          },
+          "attention_mode": "native",
+          "math_reduced_precision_default": true,
+          "warmup": false,
+          "request_wall_s": 7.654890624980908,
+          "prompt_id": "30aa2f8b-22d8-48df-97d6-2deec69e06d3"
+        }
+      ],
+      "median_stage_s": 7.431528183922637,
+      "accuracy_pass": true
+    },
+    {
+      "mode": "view:auto",
+      "runs": [
+        {
+          "index": 2,
+          "seed": 20261105,
+          "stage_wall_s": {
+            "denoise": 4.707674795005005,
+            "vae": 0.04660174896707758
+          },
+          "layout": "view",
+          "conditioning_sha256": {
+            "positive": "417dd00504d0b0e63c03b8db41eacd18c0bcd41c0836da048bfb2544de3c964f",
+            "negative": "1ace29fee10affc354c23df50f0a10057197015742c7a0dcbfa2474c988fb13c"
+          },
+          "manual_cast_dtype": "torch.float32",
+          "model_dtype": "torch.bfloat16",
+          "latent_shape": [
+            1,
+            128,
+            32,
+            32
+          ],
+          "latent": {
+            "finite": true,
+            "byte_equal": true,
+            "dtype": "torch.float32",
+            "shape": [
+              1,
+              128,
+              32,
+              32
+            ],
+            "sha256": "32c30692155a60a686a8ea778bd8c97b57bb23bd219e890fd37a4790c8041051",
+            "max_abs": 0.0,
+            "rmse": 0.0
+          },
+          "attention_counts": {
+            "native_denoise_torch.float32": 8,
+            "exact_fp32": 168
+          },
+          "attention_layouts": [
+            {
+              "q": {
+                "shape": [
+                  1,
+                  24,
+                  37,
+                  128
+                ],
+                "stride": [
+                  113664,
+                  128,
+                  3072,
+                  1
+                ],
+                "offset": 0,
+                "dtype": "torch.float32"
+              },
+              "k": {
+                "shape": [
+                  1,
+                  24,
+                  37,
+                  128
+                ],
+                "stride": [
+                  113664,
+                  128,
+                  3072,
+                  1
+                ],
+                "offset": 0,
+                "dtype": "torch.float32"
+              },
+              "v": {
+                "shape": [
+                  1,
+                  24,
+                  37,
+                  128
+                ],
+                "stride": [
+                  340992,
+                  128,
+                  9216,
+                  1
+                ],
+                "offset": 6144,
+                "dtype": "torch.float32"
+              }
+            },
+            {
+              "q": {
+                "shape": [
+                  1,
+                  24,
+                  1061,
+                  128
+                ],
+                "stride": [
+                  3259392,
+                  128,
+                  3072,
+                  1
+                ],
+                "offset": 0,
+                "dtype": "torch.float32"
+              },
+              "k": {
+                "shape": [
+                  1,
+                  24,
+                  1061,
+                  128
+                ],
+                "stride": [
+                  3259392,
+                  128,
+                  3072,
+                  1
+                ],
+                "offset": 0,
+                "dtype": "torch.float32"
+              },
+              "v": {
+                "shape": [
+                  1,
+                  24,
+                  1061,
+                  128
+                ],
+                "stride": [
+                  9778176,
+                  128,
+                  9216,
+                  1
+                ],
+                "offset": 6144,
+                "dtype": "torch.float32"
+              }
+            }
+          ],
+          "int8_stats": {
+            "enabled": true,
+            "calls": 672,
+            "weight_layouts": [
+              {
+                "shape": [
+                  9216,
+                  3072
+                ],
+                "weight_stride": [
+                  3072,
+                  1
+                ],
+                "rhs_stride": [
+                  1,
+                  3072
+                ],
+                "device": "cuda:0",
+                "dtype": "torch.int8",
+                "calls": 168
+              },
+              {
+                "shape": [
+                  3072,
+                  3072
+                ],
+                "weight_stride": [
+                  3072,
+                  1
+                ],
+                "rhs_stride": [
+                  1,
+                  3072
+                ],
+                "device": "cuda:0",
+                "dtype": "torch.int8",
+                "calls": 168
+              },
+              {
+                "shape": [
+                  16384,
+                  3072
+                ],
+                "weight_stride": [
+                  3072,
+                  1
+                ],
+                "rhs_stride": [
+                  1,
+                  3072
+                ],
+                "device": "cuda:0",
+                "dtype": "torch.int8",
+                "calls": 168
+              },
+              {
+                "shape": [
+                  3072,
+                  8192
+                ],
+                "weight_stride": [
+                  8192,
+                  1
+                ],
+                "rhs_stride": [
+                  1,
+                  8192
+                ],
+                "device": "cuda:0",
+                "dtype": "torch.int8",
+                "calls": 168
+              }
+            ]
+          },
+          "image": {
+            "finite": true,
+            "byte_equal": true,
+            "dtype": "torch.float32",
+            "shape": [
+              1,
+              512,
+              512,
+              3
+            ],
+            "sha256": "34779c20a7aa2c8e25c38076658ee188a1748f402a8428ef15444d989461a572",
+            "max_abs": 0.0,
+            "rmse": 0.0
+          },
+          "accuracy_pass": true,
+          "acceptance": {
+            "exact": true,
+            "rgb_max": 0.00784313725490196,
+            "rgb_rmse": 0.000980392156862745
+          },
+          "attention_mode": "auto",
+          "math_reduced_precision_default": true,
+          "warmup": true,
+          "request_wall_s": 4.830501100979745,
+          "prompt_id": "fb6f42ff-5e5c-4cfd-b491-1e36f8c9f15c"
+        },
+        {
+          "index": 4,
+          "seed": 20261105,
+          "stage_wall_s": {
+            "denoise": 4.703037118015345,
+            "vae": 0.046177200973033905
+          },
+          "layout": "view",
+          "conditioning_sha256": {
+            "positive": "417dd00504d0b0e63c03b8db41eacd18c0bcd41c0836da048bfb2544de3c964f",
+            "negative": "1ace29fee10affc354c23df50f0a10057197015742c7a0dcbfa2474c988fb13c"
+          },
+          "manual_cast_dtype": "torch.float32",
+          "model_dtype": "torch.bfloat16",
+          "latent_shape": [
+            1,
+            128,
+            32,
+            32
+          ],
+          "latent": {
+            "finite": true,
+            "byte_equal": true,
+            "dtype": "torch.float32",
+            "shape": [
+              1,
+              128,
+              32,
+              32
+            ],
+            "sha256": "32c30692155a60a686a8ea778bd8c97b57bb23bd219e890fd37a4790c8041051",
+            "max_abs": 0.0,
+            "rmse": 0.0
+          },
+          "attention_counts": {
+            "native_denoise_torch.float32": 8,
+            "exact_fp32": 168
+          },
+          "attention_layouts": [
+            {
+              "q": {
+                "shape": [
+                  1,
+                  24,
+                  37,
+                  128
+                ],
+                "stride": [
+                  113664,
+                  128,
+                  3072,
+                  1
+                ],
+                "offset": 0,
+                "dtype": "torch.float32"
+              },
+              "k": {
+                "shape": [
+                  1,
+                  24,
+                  37,
+                  128
+                ],
+                "stride": [
+                  113664,
+                  128,
+                  3072,
+                  1
+                ],
+                "offset": 0,
+                "dtype": "torch.float32"
+              },
+              "v": {
+                "shape": [
+                  1,
+                  24,
+                  37,
+                  128
+                ],
+                "stride": [
+                  340992,
+                  128,
+                  9216,
+                  1
+                ],
+                "offset": 6144,
+                "dtype": "torch.float32"
+              }
+            },
+            {
+              "q": {
+                "shape": [
+                  1,
+                  24,
+                  1061,
+                  128
+                ],
+                "stride": [
+                  3259392,
+                  128,
+                  3072,
+                  1
+                ],
+                "offset": 0,
+                "dtype": "torch.float32"
+              },
+              "k": {
+                "shape": [
+                  1,
+                  24,
+                  1061,
+                  128
+                ],
+                "stride": [
+                  3259392,
+                  128,
+                  3072,
+                  1
+                ],
+                "offset": 0,
+                "dtype": "torch.float32"
+              },
+              "v": {
+                "shape": [
+                  1,
+                  24,
+                  1061,
+                  128
+                ],
+                "stride": [
+                  9778176,
+                  128,
+                  9216,
+                  1
+                ],
+                "offset": 6144,
+                "dtype": "torch.float32"
+              }
+            }
+          ],
+          "int8_stats": {
+            "enabled": true,
+            "calls": 672,
+            "weight_layouts": [
+              {
+                "shape": [
+                  9216,
+                  3072
+                ],
+                "weight_stride": [
+                  3072,
+                  1
+                ],
+                "rhs_stride": [
+                  1,
+                  3072
+                ],
+                "device": "cuda:0",
+                "dtype": "torch.int8",
+                "calls": 168
+              },
+              {
+                "shape": [
+                  3072,
+                  3072
+                ],
+                "weight_stride": [
+                  3072,
+                  1
+                ],
+                "rhs_stride": [
+                  1,
+                  3072
+                ],
+                "device": "cuda:0",
+                "dtype": "torch.int8",
+                "calls": 168
+              },
+              {
+                "shape": [
+                  16384,
+                  3072
+                ],
+                "weight_stride": [
+                  3072,
+                  1
+                ],
+                "rhs_stride": [
+                  1,
+                  3072
+                ],
+                "device": "cuda:0",
+                "dtype": "torch.int8",
+                "calls": 168
+              },
+              {
+                "shape": [
+                  3072,
+                  8192
+                ],
+                "weight_stride": [
+                  8192,
+                  1
+                ],
+                "rhs_stride": [
+                  1,
+                  8192
+                ],
+                "device": "cuda:0",
+                "dtype": "torch.int8",
+                "calls": 168
+              }
+            ]
+          },
+          "image": {
+            "finite": true,
+            "byte_equal": true,
+            "dtype": "torch.float32",
+            "shape": [
+              1,
+              512,
+              512,
+              3
+            ],
+            "sha256": "34779c20a7aa2c8e25c38076658ee188a1748f402a8428ef15444d989461a572",
+            "max_abs": 0.0,
+            "rmse": 0.0
+          },
+          "accuracy_pass": true,
+          "acceptance": {
+            "exact": true,
+            "rgb_max": 0.00784313725490196,
+            "rgb_rmse": 0.000980392156862745
+          },
+          "attention_mode": "auto",
+          "math_reduced_precision_default": true,
+          "warmup": false,
+          "request_wall_s": 4.828973681025673,
+          "prompt_id": "9e189b77-9547-4124-a7d2-29168032a5bb"
+        }
+      ],
+      "median_stage_s": 4.749214318988379,
+      "accuracy_pass": true
+    }
+  ]
+}

@@ -1,0 +1,224 @@
+{
+  "attention": [
+    {
+      "dtype": "torch.float32",
+      "heads": null,
+      "mask": null,
+      "shapes": [
+        [
+          1,
+          24,
+          37,
+          128
+        ],
+        [
+          1,
+          24,
+          37,
+          128
+        ],
+        [
+          1,
+          24,
+          37,
+          128
+        ]
+      ],
+      "source": {
+        "module": "~/DevSpace/moss-image-rdna2-lab01/custom_nodes/MOSS_RDNA2_INT8.attention_dispatch",
+        "name": "install.<locals>.dispatch",
+        "path": "~/DevSpace/moss-image-rdna2-lab01/custom_nodes/MOSS_RDNA2_INT8/attention_dispatch.py"
+      },
+      "strides": [
+        [
+          113664,
+          128,
+          3072,
+          1
+        ],
+        [
+          113664,
+          128,
+          3072,
+          1
+        ],
+        [
+          340992,
+          128,
+          9216,
+          1
+        ]
+      ],
+      "calls": 8
+    },
+    {
+      "dtype": "torch.float32",
+      "heads": null,
+      "mask": null,
+      "shapes": [
+        [
+          1,
+          24,
+          1061,
+          128
+        ],
+        [
+          1,
+          24,
+          1061,
+          128
+        ],
+        [
+          1,
+          24,
+          1061,
+          128
+        ]
+      ],
+      "source": {
+        "module": "~/DevSpace/moss-image-rdna2-lab01/custom_nodes/MOSS_RDNA2_INT8.attention_dispatch",
+        "name": "install.<locals>.dispatch",
+        "path": "~/DevSpace/moss-image-rdna2-lab01/custom_nodes/MOSS_RDNA2_INT8/attention_dispatch.py"
+      },
+      "strides": [
+        [
+          3259392,
+          128,
+          3072,
+          1
+        ],
+        [
+          3259392,
+          128,
+          3072,
+          1
+        ],
+        [
+          9778176,
+          128,
+          9216,
+          1
+        ]
+      ],
+      "calls": 168
+    }
+  ],
+  "int8_linear": [
+    {
+      "convrot": true,
+      "input_act": null,
+      "out_dtype": "torch.float32",
+      "scale": [
+        9216,
+        1
+      ],
+      "source": {
+        "module": "~/DevSpace/moss-image-rdna2-lab01/custom_nodes/MOSS_RDNA2_INT8.backend",
+        "name": "int8_linear",
+        "path": "~/DevSpace/moss-image-rdna2-lab01/custom_nodes/MOSS_RDNA2_INT8/backend.py"
+      },
+      "weight": [
+        9216,
+        3072
+      ],
+      "weight_stride": [
+        3072,
+        1
+      ],
+      "x": [
+        1,
+        1061,
+        3072
+      ],
+      "x_dtype": "torch.float32",
+      "calls": 168
+    },
+    {
+      "convrot": true,
+      "input_act": null,
+      "out_dtype": "torch.float32",
+      "scale": [
+        3072,
+        1
+      ],
+      "source": {
+        "module": "~/DevSpace/moss-image-rdna2-lab01/custom_nodes/MOSS_RDNA2_INT8.backend",
+        "name": "int8_linear",
+        "path": "~/DevSpace/moss-image-rdna2-lab01/custom_nodes/MOSS_RDNA2_INT8/backend.py"
+      },
+      "weight": [
+        3072,
+        3072
+      ],
+      "weight_stride": [
+        3072,
+        1
+      ],
+      "x": [
+        1,
+        1061,
+        3072
+      ],
+      "x_dtype": "torch.float32",
+      "calls": 168
+    },
+    {
+      "convrot": true,
+      "input_act": null,
+      "out_dtype": "torch.float32",
+      "scale": [
+        16384,
+        1
+      ],
+      "source": {
+        "module": "~/DevSpace/moss-image-rdna2-lab01/custom_nodes/MOSS_RDNA2_INT8.backend",
+        "name": "int8_linear",
+        "path": "~/DevSpace/moss-image-rdna2-lab01/custom_nodes/MOSS_RDNA2_INT8/backend.py"
+      },
+      "weight": [
+        16384,
+        3072
+      ],
+      "weight_stride": [
+        3072,
+        1
+      ],
+      "x": [
+        1,
+        1061,
+        3072
+      ],
+      "x_dtype": "torch.float32",
+      "calls": 168
+    },
+    {
+      "convrot": true,
+      "input_act": "situ",
+      "out_dtype": "torch.float32",
+      "scale": [
+        3072,
+        1
+      ],
+      "source": {
+        "module": "~/DevSpace/moss-image-rdna2-lab01/custom_nodes/MOSS_RDNA2_INT8.backend",
+        "name": "int8_linear",
+        "path": "~/DevSpace/moss-image-rdna2-lab01/custom_nodes/MOSS_RDNA2_INT8/backend.py"
+      },
+      "weight": [
+        3072,
+        8192
+      ],
+      "weight_stride": [
+        8192,
+        1
+      ],
+      "x": [
+        1,
+        1061,
+        16384
+      ],
+      "x_dtype": "torch.float32",
+      "calls": 168
+    }
+  ]
+}

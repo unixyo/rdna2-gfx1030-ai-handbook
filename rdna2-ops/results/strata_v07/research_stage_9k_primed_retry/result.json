@@ -1,0 +1,1427 @@
+{
+  "arm": "research-joff-stage-warm-retry",
+  "started_utc": "2026-11-06T22:57:05.118843+00:00",
+  "service_before": {
+    "ActiveState": "inactive",
+    "SubState": "dead",
+    "FragmentPath": "~/.config/systemd/user/strata-verified-256k.service",
+    "DropInPaths": "",
+    "MainPID": "0"
+  },
+  "before": {
+    "memory_psi": "some avg10=0.00 avg60=0.13 avg300=0.41 total=15684106\nfull avg10=0.00 avg60=0.12 avg300=0.37 total=13932534",
+    "io_psi": "some avg10=0.00 avg60=0.65 avg300=2.10 total=109913527\nfull avg10=0.00 avg60=0.10 avg300=0.29 total=81376898",
+    "mem_available": 47382523904,
+    "mem_breakdown_bytes": {
+      "MemFree": 1775194112,
+      "Cached": 44192124928,
+      "AnonPages": 12502085632,
+      "Active(anon)": 7167217664,
+      "Inactive(anon)": 5887840256,
+      "Unevictable": 585728,
+      "Mlocked": 585728,
+      "PageTables": 362393600
+    },
+    "swap_used": 10625679360,
+    "pswpin": 113537,
+    "pswpout": 2464353
+  },
+  "timing_enabled": true,
+  "exe": "~/DevSpace/strata-prefill-v07-lab-20261107/build-v07-gfx1030/strata",
+  "exe_sha256": "31ecea0716fd7cba638d004b2fc7987efa1b179f9a9cf67ca96f8d42b4c263b5",
+  "config_sha256": "a68ad39e00ca1009b14ae5e8b8ecf072d1368a14e4ca9ab4d8c93f0dab106921",
+  "requests": [],
+  "owned_pids": [
+    {
+      "pid": 948979,
+      "ppid": 948976,
+      "exe": "~/DevSpace/strata-rocm-feasibility/vision_canary/build-hip/bin/strata-vision",
+      "requested_unix_s": 1794005825.4559228
+    },
+    {
+      "pid": 949017,
+      "ppid": 948976,
+      "exe": "~/DevSpace/strata-prefill-v07-lab-20261107/build-v07-gfx1030/strata",
+      "requested_unix_s": 1794005827.6519027
+    }
+  ],
+  "ownership_errors": [],
+  "resources": [
+    {
+      "memory_psi": "some avg10=0.00 avg60=0.13 avg300=0.41 total=15684794\nfull avg10=0.00 avg60=0.12 avg300=0.37 total=13933182",
+      "io_psi": "some avg10=0.18 avg60=0.66 avg300=2.09 total=109924183\nfull avg10=0.18 avg60=0.13 avg300=0.29 total=81386835",
+      "mem_available": 47124905984,
+      "mem_breakdown_bytes": {
+        "MemFree": 1474404352,
+        "Cached": 44239196160,
+        "AnonPages": 12766302208,
+        "Active(anon)": 7435128832,
+        "Inactive(anon)": 5887868928,
+        "Unevictable": 585728,
+        "Mlocked": 585728,
+        "PageTables": 364019712
+      },
+      "swap_used": 10625671168,
+      "pswpin": 113553,
+      "pswpout": 2464353,
+      "unix_s": 1794005826.1420703,
+      "swap_out_since_process_start_bytes": 0,
+      "swap_out_since_request_start_bytes": null,
+      "owned_process_io": {
+        "948979": {
+          "io": {
+            "rchar": 11792649,
+            "wchar": 171,
+            "syscr": 3523,
+            "syscw": 3,
+            "read_bytes": 19861504,
+            "write_bytes": 4096,
+            "cancelled_write_bytes": 0
+          },
+          "wait_channel": "0",
+          "memory_bytes": {
+            "VmRSS": 236740608,
+            "VmHWM": 236740608,
+            "RssAnon": 57131008,
+            "RssFile": 175403008,
+            "RssShmem": 4206592,
+            "VmSwap": 0,
+            "VmPin": 0,
+            "VmLck": 0
+          }
+        }
+      }
+    },
+    {
+      "memory_psi": "some avg10=0.00 avg60=0.13 avg300=0.41 total=15719968\nfull avg10=0.00 avg60=0.12 avg300=0.37 total=13967988",
+      "io_psi": "some avg10=0.18 avg60=0.66 avg300=2.09 total=109952944\nfull avg10=0.18 avg60=0.13 avg300=0.29 total=81414931",
+      "mem_available": 46889627648,
+      "mem_breakdown_bytes": {
+        "MemFree": 694018048,
+        "Cached": 44838506496,
+        "AnonPages": 13045551104,
+        "Active(anon)": 7878889472,
+        "Inactive(anon)": 5689856000,
+        "Unevictable": 585728,
+        "Mlocked": 585728,
+        "PageTables": 364691456
+      },
+      "swap_used": 10651500544,
+      "pswpin": 113568,
+      "pswpout": 2470465,
+      "unix_s": 1794005827.1425447,
+      "swap_out_since_process_start_bytes": 25034752,
+      "swap_out_since_request_start_bytes": null,
+      "owned_process_io": {
+        "948979": {
+          "io": {
+            "rchar": 932028084,
+            "wchar": 27046041,
+            "syscr": 4041,
+            "syscw": 64,
+            "read_bytes": 967024640,
+            "write_bytes": 8192,
+            "cancelled_write_bytes": 0
+          },
+          "wait_channel": "0",
+          "memory_bytes": {
+            "VmRSS": 636706816,
+            "VmHWM": 636706816,
+            "RssAnon": 376713216,
+            "RssFile": 203317248,
+            "RssShmem": 56676352,
+            "VmSwap": 0,
+            "VmPin": 0,
+            "VmLck": 0
+          }
+        }
+      }
+    },
+    {
+      "memory_psi": "some avg10=0.18 avg60=0.16 avg300=0.41 total=15724450\nfull avg10=0.18 avg60=0.14 avg300=0.37 total=13972464",
+      "io_psi": "some avg10=0.32 avg60=0.67 avg300=2.08 total=109956164\nfull avg10=0.32 avg60=0.15 avg300=0.30 total=81418081",
+      "mem_available": 46558715904,
+      "mem_breakdown_bytes": {
+        "MemFree": 542396416,
+        "Cached": 44989800448,
+        "AnonPages": 13123358720,
+        "Active(anon)": 8198041600,
+        "Inactive(anon)": 5687779328,
+        "Unevictable": 585728,
+        "Mlocked": 585728,
+        "PageTables": 365797376
+      },
+      "swap_used": 10652905472,
+      "pswpin": 113574,
+      "pswpout": 2470790,
+      "unix_s": 1794005828.1429706,
+      "swap_out_since_process_start_bytes": 26365952,
+      "swap_out_since_request_start_bytes": null,
+      "owned_process_io": {
+        "948979": {
+          "io": {
+            "rchar": 932028084,
+            "wchar": 27046098,
+            "syscr": 4041,
+            "syscw": 66,
+            "read_bytes": 967024640,
+            "write_bytes": 8192,
+            "cancelled_write_bytes": 0
+          },
+          "wait_channel": "anon_pipe_read",
+          "memory_bytes": {
+            "VmRSS": 636706816,
+            "VmHWM": 636706816,
+            "RssAnon": 376713216,
+            "RssFile": 203317248,
+            "RssShmem": 56676352,
+            "VmSwap": 0,
+            "VmPin": 0,
+            "VmLck": 0
+          }
+        },
+        "949017": {
+          "io": {
+            "rchar": 771844,
+            "wchar": 306945,
+            "syscr": 875,
+            "syscw": 32,
+            "read_bytes": 273539072,
+            "write_bytes": 4096,
+            "cancelled_write_bytes": 0
+          },
+          "wait_channel": "0",
+          "memory_bytes": {
+            "VmRSS": 585207808,
+            "VmHWM": 585207808,
+            "RssAnon": 84664320,
+            "RssFile": 205283328,
+            "RssShmem": 295260160,
+            "VmSwap": 0,
+            "VmPin": 0,
+            "VmLck": 0
+          }
+        }
+      }
+    },
+    {
+      "memory_psi": "some avg10=0.18 avg60=0.16 avg300=0.41 total=15804028\nfull avg10=0.18 avg60=0.14 avg300=0.37 total=14051611",
+      "io_psi": "some avg10=0.32 avg60=0.67 avg300=2.08 total=109968337\nfull avg10=0.32 avg60=0.15 avg300=0.30 total=81430193",
+      "mem_available": 46594154496,
+      "mem_breakdown_bytes": {
+        "MemFree": 551444480,
+        "Cached": 45130113024,
+        "AnonPages": 13062471680,
+        "Active(anon)": 8559423488,
+        "Inactive(anon)": 5253808128,
+        "Unevictable": 585728,
+        "Mlocked": 585728,
+        "PageTables": 366149632
+      },
+      "swap_used": 10725281792,
+      "pswpin": 113575,
+      "pswpout": 2487614,
+      "unix_s": 1794005829.143521,
+      "swap_out_since_process_start_bytes": 95277056,
+      "swap_out_since_request_start_bytes": null,
+      "owned_process_io": {
+        "948979": {
+          "io": {
+            "rchar": 932028084,
+            "wchar": 27046098,
+            "syscr": 4041,
+            "syscw": 66,
+            "read_bytes": 967024640,
+            "write_bytes": 8192,
+            "cancelled_write_bytes": 0
+          },
+          "wait_channel": "anon_pipe_read",
+          "memory_bytes": {
+            "VmRSS": 636612608,
+            "VmHWM": 636612608,
+            "RssAnon": 376713216,
+            "RssFile": 203223040,
+            "RssShmem": 56676352,
+            "VmSwap": 0,
+            "VmPin": 0,
+            "VmLck": 0
+          }
+        },
+        "949017": {
+          "io": {
+            "rchar": 1538994442,
+            "wchar": 307277,
+            "syscr": 2139,
+            "syscw": 36,
+            "read_bytes": 2793791488,
+            "write_bytes": 8192,
+            "cancelled_write_bytes": 0
+          },
+          "wait_channel": "0",
+          "memory_bytes": {
+            "VmRSS": 586059776,
+            "VmHWM": 857165824,
+            "RssAnon": 85475328,
+            "RssFile": 205324288,
+            "RssShmem": 295260160,
+            "VmSwap": 0,
+            "VmPin": 0,
+            "VmLck": 0
+          }
+        }
+      }
+    },
+    {
+      "memory_psi": "some avg10=0.87 avg60=0.28 avg300=0.44 total=15817545\nfull avg10=0.87 avg60=0.27 avg300=0.40 total=14065014",
+      "io_psi": "some avg10=0.26 avg60=0.65 avg300=2.07 total=109999662\nfull avg10=0.26 avg60=0.15 avg300=0.30 total=81457690",
+      "mem_available": 46601854976,
+      "mem_breakdown_bytes": {
+        "MemFree": 484302848,
+        "Cached": 45163405312,
+        "AnonPages": 13162680320,
+        "Active(anon)": 8168132608,
+        "Inactive(anon)": 5694889984,
+        "Unevictable": 585728,
+        "Mlocked": 585728,
+        "PageTables": 366587904
+      },
+      "swap_used": 10781126656,
+      "pswpin": 113589,
+      "pswpout": 2495794,
+      "unix_s": 1794005830.1440253,
+      "swap_out_since_process_start_bytes": 128782336,
+      "swap_out_since_request_start_bytes": null,
+      "owned_process_io": {
+        "948979": {
+          "io": {
+            "rchar": 932028084,
+            "wchar": 27046098,
+            "syscr": 4041,
+            "syscw": 66,
+            "read_bytes": 967024640,
+            "write_bytes": 8192,
+            "cancelled_write_bytes": 0
+          },
+          "wait_channel": "anon_pipe_read",
+          "memory_bytes": {
+            "VmRSS": 636612608,
+            "VmHWM": 636612608,
+            "RssAnon": 376713216,
+            "RssFile": 203223040,
+            "RssShmem": 56676352,
+            "VmSwap": 0,
+            "VmPin": 0,
+            "VmLck": 0
+          }
+        },
+        "949017": {
+          "io": {
+            "rchar": 1556295953,
+            "wchar": 307740,
+            "syscr": 6242,
+            "syscw": 42,
+            "read_bytes": 3993743360,
+            "write_bytes": 8192,
+            "cancelled_write_bytes": 0
+          },
+          "wait_channel": "0",
+          "memory_bytes": {
+            "VmRSS": 784150528,
+            "VmHWM": 2755903488,
+            "RssAnon": 284966912,
+            "RssFile": 194441216,
+            "RssShmem": 304742400,
+            "VmSwap": 0,
+            "VmPin": 0,
+            "VmLck": 0
+          }
+        }
+      },
+      "operating_service": {
+        "ActiveState": "inactive",
+        "SubState": "dead",
+        "FragmentPath": "~/.config/systemd/user/strata-verified-256k.service",
+        "DropInPaths": "",
+        "MainPID": "0"
+      }
+    },
+    {
+      "memory_psi": "some avg10=0.87 avg60=0.28 avg300=0.44 total=15841650\nfull avg10=0.87 avg60=0.27 avg300=0.40 total=14088924",
+      "io_psi": "some avg10=0.26 avg60=0.65 avg300=2.07 total=110002694\nfull avg10=0.26 avg60=0.15 avg300=0.30 total=81460706",
+      "mem_available": 46776020992,
+      "mem_breakdown_bytes": {
+        "MemFree": 594006016,
+        "Cached": 45245595648,
+        "AnonPages": 13071736832,
+        "Active(anon)": 8251064320,
+        "Inactive(anon)": 5486194688,
+        "Unevictable": 585728,
+        "Mlocked": 585728,
+        "PageTables": 368275456
+      },
+      "swap_used": 10845007872,
+      "pswpin": 113604,
+      "pswpout": 2506107,
+      "unix_s": 1794005831.152505,
+      "swap_out_since_process_start_bytes": 171024384,
+      "swap_out_since_request_start_bytes": null,
+      "owned_process_io": {
+        "948979": {
+          "io": {
+            "rchar": 932028084,
+            "wchar": 27046098,
+            "syscr": 4041,
+            "syscw": 66,
+            "read_bytes": 967024640,
+            "write_bytes": 8192,
+            "cancelled_write_bytes": 0
+          },
+          "wait_channel": "anon_pipe_read",
+          "memory_bytes": {
+            "VmRSS": 636612608,
+            "VmHWM": 636612608,
+            "RssAnon": 376713216,
+            "RssFile": 203223040,
+            "RssShmem": 56676352,
+            "VmSwap": 0,
+            "VmPin": 0,
+            "VmLck": 0
+          }
+        },
+        "949017": {
+          "io": {
+            "rchar": 2380229065,
+            "wchar": 309478,
+            "syscr": 6396,
+            "syscw": 61,
+            "read_bytes": 5519192064,
+            "write_bytes": 12288,
+            "cancelled_write_bytes": 0
+          },
+          "wait_channel": "0",
+          "memory_bytes": {
+            "VmRSS": 1301188608,
+            "VmHWM": 2755903488,
+            "RssAnon": 257011712,
+            "RssFile": 727535616,
+            "RssShmem": 316641280,
+            "VmSwap": 0,
+            "VmPin": 0,
+            "VmLck": 0
+          }
+        }
+      }
+    },
+    {
+      "memory_psi": "some avg10=0.89 avg60=0.31 avg300=0.44 total=15877608\nfull avg10=0.89 avg60=0.29 avg300=0.40 total=14124814",
+      "io_psi": "some avg10=0.40 avg60=0.66 avg300=2.06 total=110042358\nfull avg10=0.40 avg60=0.18 avg300=0.30 total=81500022",
+      "mem_available": 46797078528,
+      "mem_breakdown_bytes": {
+        "MemFree": 541585408,
+        "Cached": 45356949504,
+        "AnonPages": 13024260096,
+        "Active(anon)": 8296116224,
+        "Inactive(anon)": 5381206016,
+        "Unevictable": 585728,
+        "Mlocked": 585728,
+        "PageTables": 382550016
+      },
+      "swap_used": 10893615104,
+      "pswpin": 113615,
+      "pswpout": 2515059,
+      "unix_s": 1794005832.153064,
+      "swap_out_since_process_start_bytes": 207691776,
+      "swap_out_since_request_start_bytes": null,
+      "owned_process_io": {
+        "948979": {
+          "io": {
+            "rchar": 932028084,
+            "wchar": 27046098,
+            "syscr": 4041,
+            "syscw": 66,
+            "read_bytes": 967024640,
+            "write_bytes": 8192,
+            "cancelled_write_bytes": 0
+          },
+          "wait_channel": "anon_pipe_read",
+          "memory_bytes": {
+            "VmRSS": 636612608,
+            "VmHWM": 636612608,
+            "RssAnon": 376713216,
+            "RssFile": 203223040,
+            "RssShmem": 56676352,
+            "VmSwap": 0,
+            "VmPin": 0,
+            "VmLck": 0
+          }
+        },
+        "949017": {
+          "io": {
+            "rchar": 2380270025,
+            "wchar": 309478,
+            "syscr": 6406,
+            "syscw": 61,
+            "read_bytes": 6591848448,
+            "write_bytes": 12288,
+            "cancelled_write_bytes": 0
+          },
+          "wait_channel": "0",
+          "memory_bytes": {
+            "VmRSS": 4989218816,
+            "VmHWM": 4989218816,
+            "RssAnon": 257622016,
+            "RssFile": 4414955520,
+            "RssShmem": 316641280,
+            "VmSwap": 0,
+            "VmPin": 0,
+            "VmLck": 0
+          }
+        }
+      }
+    },
+    {
+      "memory_psi": "some avg10=0.89 avg60=0.31 avg300=0.44 total=15914025\nfull avg10=0.89 avg60=0.29 avg300=0.40 total=14161066",
+      "io_psi": "some avg10=0.40 avg60=0.66 avg300=2.06 total=110105454\nfull avg10=0.40 avg60=0.18 avg300=0.30 total=81562878",
+      "mem_available": 46313426944,
+      "mem_breakdown_bytes": {
+        "MemFree": 777834496,
+        "Cached": 45005676544,
+        "AnonPages": 13215272960,
+        "Active(anon)": 8520482816,
+        "Inactive(anon)": 5317160960,
+        "Unevictable": 585728,
+        "Mlocked": 585728,
+        "PageTables": 390578176
+      },
+      "swap_used": 10928697344,
+      "pswpin": 113653,
+      "pswpout": 2523425,
+      "unix_s": 1794005833.1536126,
+      "swap_out_since_process_start_bytes": 241958912,
+      "swap_out_since_request_start_bytes": null,
+      "owned_process_io": {
+        "948979": {
+          "io": {
+            "rchar": 932028084,
+            "wchar": 27046098,
+            "syscr": 4041,
+            "syscw": 66,
+            "read_bytes": 967024640,
+            "write_bytes": 8192,
+            "cancelled_write_bytes": 0
+          },
+          "wait_channel": "anon_pipe_read",
+          "memory_bytes": {
+            "VmRSS": 636612608,
+            "VmHWM": 636612608,
+            "RssAnon": 376713216,
+            "RssFile": 203223040,
+            "RssShmem": 56676352,
+            "VmSwap": 0,
+            "VmPin": 0,
+            "VmLck": 0
+          }
+        },
+        "949017": {
+          "io": {
+            "rchar": 2380312995,
+            "wchar": 310057,
+            "syscr": 6478,
+            "syscw": 69,
+            "read_bytes": 7657771008,
+            "write_bytes": 12288,
+            "cancelled_write_bytes": 0
+          },
+          "wait_channel": "0",
+          "memory_bytes": {
+            "VmRSS": 7401492480,
+            "VmHWM": 7401492480,
+            "RssAnon": 411717632,
+            "RssFile": 6670372864,
+            "RssShmem": 319401984,
+            "VmSwap": 0,
+            "VmPin": 0,
+            "VmLck": 0
+          }
+        }
+      }
+    },
+    {
+      "memory_psi": "some avg10=1.27 avg60=0.40 avg300=0.46 total=15930131\nfull avg10=1.27 avg60=0.38 avg300=0.42 total=14176914",
+      "io_psi": "some avg10=1.23 avg60=0.80 avg300=2.08 total=110198882\nfull avg10=1.23 avg60=0.33 avg300=0.33 total=81597475",
+      "mem_available": 45580582912,
+      "mem_breakdown_bytes": {
+        "MemFree": 1112244224,
+        "Cached": 44543815680,
+        "AnonPages": 13360377856,
+        "Active(anon)": 9064689664,
+        "Inactive(anon)": 5273653248,
+        "Unevictable": 585728,
+        "Mlocked": 585728,
+        "PageTables": 394563584
+      },
+      "swap_used": 10941079552,
+      "pswpin": 113798,
+      "pswpout": 2526518,
+      "unix_s": 1794005834.1541562,
+      "swap_out_since_process_start_bytes": 254627840,
+      "swap_out_since_request_start_bytes": 1318912,
+      "owned_process_io": {
+        "948979": {
+          "io": {
+            "rchar": 932028084,
+            "wchar": 27046098,
+            "syscr": 4041,
+            "syscw": 66,
+            "read_bytes": 967024640,
+            "write_bytes": 8192,
+            "cancelled_write_bytes": 0
+          },
+          "wait_channel": "anon_pipe_read",
+          "memory_bytes": {
+            "VmRSS": 636612608,
+            "VmHWM": 636612608,
+            "RssAnon": 376713216,
+            "RssFile": 203223040,
+            "RssShmem": 56676352,
+            "VmSwap": 0,
+            "VmPin": 0,
+            "VmLck": 0
+          }
+        },
+        "949017": {
+          "io": {
+            "rchar": 2477344192,
+            "wchar": 12187932,
+            "syscr": 16784,
+            "syscw": 117,
+            "read_bytes": 7860568064,
+            "write_bytes": 12288,
+            "cancelled_write_bytes": 0
+          },
+          "wait_channel": "0",
+          "memory_bytes": {
+            "VmRSS": 9144696832,
+            "VmHWM": 9144696832,
+            "RssAnon": 602087424,
+            "RssFile": 7865434112,
+            "RssShmem": 677175296,
+            "VmSwap": 0,
+            "VmPin": 0,
+            "VmLck": 0
+          }
+        }
+      }
+    },
+    {
+      "memory_psi": "some avg10=1.27 avg60=0.40 avg300=0.46 total=15930136\nfull avg10=1.27 avg60=0.38 avg300=0.42 total=14176919",
+      "io_psi": "some avg10=1.23 avg60=0.80 avg300=2.08 total=110549805\nfull avg10=1.23 avg60=0.33 avg300=0.33 total=81597753",
+      "mem_available": 45524873216,
+      "mem_breakdown_bytes": {
+        "MemFree": 939880448,
+        "Cached": 44660297728,
+        "AnonPages": 13377822720,
+        "Active(anon)": 9083949056,
+        "Inactive(anon)": 5271072768,
+        "Unevictable": 585728,
+        "Mlocked": 585728,
+        "PageTables": 397082624
+      },
+      "swap_used": 10941071360,
+      "pswpin": 113799,
+      "pswpout": 2526518,
+      "unix_s": 1794005835.1546988,
+      "swap_out_since_process_start_bytes": 254627840,
+      "swap_out_since_request_start_bytes": 1318912,
+      "owned_process_io": {
+        "948979": {
+          "io": {
+            "rchar": 932028084,
+            "wchar": 27046098,
+            "syscr": 4041,
+            "syscw": 66,
+            "read_bytes": 967024640,
+            "write_bytes": 8192,
+            "cancelled_write_bytes": 0
+          },
+          "wait_channel": "anon_pipe_read",
+          "memory_bytes": {
+            "VmRSS": 636612608,
+            "VmHWM": 636612608,
+            "RssAnon": 376713216,
+            "RssFile": 203223040,
+            "RssShmem": 56676352,
+            "VmSwap": 0,
+            "VmPin": 0,
+            "VmLck": 0
+          }
+        },
+        "949017": {
+          "io": {
+            "rchar": 2477401738,
+            "wchar": 12188022,
+            "syscr": 16802,
+            "syscw": 126,
+            "read_bytes": 7977197568,
+            "write_bytes": 16384,
+            "cancelled_write_bytes": 0
+          },
+          "wait_channel": "0",
+          "memory_bytes": {
+            "VmRSS": 10533236736,
+            "VmHWM": 10533236736,
+            "RssAnon": 602726400,
+            "RssFile": 9252888576,
+            "RssShmem": 677621760,
+            "VmSwap": 0,
+            "VmPin": 0,
+            "VmLck": 0
+          }
+        }
+      },
+      "operating_service": {
+        "ActiveState": "inactive",
+        "SubState": "dead",
+        "FragmentPath": "~/.config/systemd/user/strata-verified-256k.service",
+        "DropInPaths": "",
+        "MainPID": "0"
+      }
+    },
+    {
+      "memory_psi": "some avg10=1.04 avg60=0.38 avg300=0.46 total=15930142\nfull avg10=1.04 avg60=0.37 avg300=0.42 total=14176924",
+      "io_psi": "some avg10=5.90 avg60=1.66 avg300=2.25 total=111023628\nfull avg10=1.19 avg60=0.36 avg300=0.34 total=81597807",
+      "mem_available": 45501820928,
+      "mem_breakdown_bytes": {
+        "MemFree": 788258816,
+        "Cached": 44788555776,
+        "AnonPages": 13378924544,
+        "Active(anon)": 9085337600,
+        "Inactive(anon)": 5270945792,
+        "Unevictable": 585728,
+        "Mlocked": 585728,
+        "PageTables": 399839232
+      },
+      "swap_used": 10941063168,
+      "pswpin": 113819,
+      "pswpout": 2526518,
+      "unix_s": 1794005836.16276,
+      "swap_out_since_process_start_bytes": 254627840,
+      "swap_out_since_request_start_bytes": 1318912,
+      "owned_process_io": {
+        "948979": {
+          "io": {
+            "rchar": 932028084,
+            "wchar": 27046098,
+            "syscr": 4041,
+            "syscw": 66,
+            "read_bytes": 967024640,
+            "write_bytes": 8192,
+            "cancelled_write_bytes": 0
+          },
+          "wait_channel": "anon_pipe_read",
+          "memory_bytes": {
+            "VmRSS": 636612608,
+            "VmHWM": 636612608,
+            "RssAnon": 376713216,
+            "RssFile": 203223040,
+            "RssShmem": 56676352,
+            "VmSwap": 0,
+            "VmPin": 0,
+            "VmLck": 0
+          }
+        },
+        "949017": {
+          "io": {
+            "rchar": 2477443160,
+            "wchar": 12188022,
+            "syscr": 16816,
+            "syscw": 126,
+            "read_bytes": 8105291776,
+            "write_bytes": 16384,
+            "cancelled_write_bytes": 0
+          },
+          "wait_channel": "0",
+          "memory_bytes": {
+            "VmRSS": 12341739520,
+            "VmHWM": 12341739520,
+            "RssAnon": 602726400,
+            "RssFile": 11061391360,
+            "RssShmem": 677621760,
+            "VmSwap": 0,
+            "VmPin": 0,
+            "VmLck": 0
+          }
+        }
+      }
+    },
+    {
+      "memory_psi": "some avg10=1.04 avg60=0.38 avg300=0.46 total=15935968\nfull avg10=1.04 avg60=0.37 avg300=0.42 total=14182742",
+      "io_psi": "some avg10=5.90 avg60=1.66 avg300=2.25 total=111365260\nfull avg10=1.19 avg60=0.36 avg300=0.34 total=81597865",
+      "mem_available": 45499514880,
+      "mem_breakdown_bytes": {
+        "MemFree": 986144768,
+        "Cached": 44590784512,
+        "AnonPages": 13381173248,
+        "Active(anon)": 9092087808,
+        "Inactive(anon)": 5266591744,
+        "Unevictable": 585728,
+        "Mlocked": 585728,
+        "PageTables": 403148800
+      },
+      "swap_used": 10941972480,
+      "pswpin": 113833,
+      "pswpout": 2526735,
+      "unix_s": 1794005837.1632335,
+      "swap_out_since_process_start_bytes": 255516672,
+      "swap_out_since_request_start_bytes": 2207744,
+      "owned_process_io": {
+        "948979": {
+          "io": {
+            "rchar": 932028084,
+            "wchar": 27046098,
+            "syscr": 4041,
+            "syscw": 66,
+            "read_bytes": 967024640,
+            "write_bytes": 8192,
+            "cancelled_write_bytes": 0
+          },
+          "wait_channel": "anon_pipe_read",
+          "memory_bytes": {
+            "VmRSS": 636612608,
+            "VmHWM": 636612608,
+            "RssAnon": 376713216,
+            "RssFile": 203223040,
+            "RssShmem": 56676352,
+            "VmSwap": 0,
+            "VmPin": 0,
+            "VmLck": 0
+          }
+        },
+        "949017": {
+          "io": {
+            "rchar": 2477488613,
+            "wchar": 12188024,
+            "syscr": 16831,
+            "syscw": 128,
+            "read_bytes": 8215117824,
+            "write_bytes": 16384,
+            "cancelled_write_bytes": 0
+          },
+          "wait_channel": "0",
+          "memory_bytes": {
+            "VmRSS": 14280359936,
+            "VmHWM": 14280359936,
+            "RssAnon": 605069312,
+            "RssFile": 12997087232,
+            "RssShmem": 678203392,
+            "VmSwap": 0,
+            "VmPin": 0,
+            "VmLck": 0
+          }
+        }
+      }
+    },
+    {
+      "memory_psi": "some avg10=0.85 avg60=0.37 avg300=0.45 total=15939704\nfull avg10=0.85 avg60=0.36 avg300=0.42 total=14186290",
+      "io_psi": "some avg10=12.44 avg60=2.98 avg300=2.52 total=111789543\nfull avg10=0.97 avg60=0.34 avg300=0.34 total=81599051",
+      "mem_available": 46072995840,
+      "mem_breakdown_bytes": {
+        "MemFree": 930439168,
+        "Cached": 44668084224,
+        "AnonPages": 13367951360,
+        "Active(anon)": 9113686016,
+        "Inactive(anon)": 5229891584,
+        "Unevictable": 585728,
+        "Mlocked": 585728,
+        "PageTables": 405028864
+      },
+      "swap_used": 10951081984,
+      "pswpin": 113837,
+      "pswpout": 2528451,
+      "unix_s": 1794005838.1637645,
+      "swap_out_since_process_start_bytes": 262545408,
+      "swap_out_since_request_start_bytes": 9236480,
+      "owned_process_io": {
+        "948979": {
+          "io": {
+            "rchar": 932028084,
+            "wchar": 27046098,
+            "syscr": 4041,
+            "syscw": 66,
+            "read_bytes": 967024640,
+            "write_bytes": 8192,
+            "cancelled_write_bytes": 0
+          },
+          "wait_channel": "anon_pipe_read",
+          "memory_bytes": {
+            "VmRSS": 636612608,
+            "VmHWM": 636612608,
+            "RssAnon": 376713216,
+            "RssFile": 203223040,
+            "RssShmem": 56676352,
+            "VmSwap": 0,
+            "VmPin": 0,
+            "VmLck": 0
+          }
+        },
+        "949017": {
+          "io": {
+            "rchar": 2477530036,
+            "wchar": 12188024,
+            "syscr": 16845,
+            "syscw": 128,
+            "read_bytes": 8342208512,
+            "write_bytes": 16384,
+            "cancelled_write_bytes": 0
+          },
+          "wait_channel": "0",
+          "memory_bytes": {
+            "VmRSS": 15601258496,
+            "VmHWM": 15601258496,
+            "RssAnon": 605069312,
+            "RssFile": 14317985792,
+            "RssShmem": 678203392,
+            "VmSwap": 0,
+            "VmPin": 0,
+            "VmLck": 0
+          }
+        }
+      }
+    },
+    {
+      "memory_psi": "some avg10=0.85 avg60=0.37 avg300=0.45 total=15939755\nfull avg10=0.85 avg60=0.36 avg300=0.42 total=14186341",
+      "io_psi": "some avg10=12.44 avg60=2.98 avg300=2.52 total=112284679\nfull avg10=0.97 avg60=0.34 avg300=0.34 total=81599185",
+      "mem_available": 46029778944,
+      "mem_breakdown_bytes": {
+        "MemFree": 768348160,
+        "Cached": 44788150272,
+        "AnonPages": 13395976192,
+        "Active(anon)": 9141964800,
+        "Inactive(anon)": 5230239744,
+        "Unevictable": 585728,
+        "Mlocked": 585728,
+        "PageTables": 408178688
+      },
+      "swap_used": 10950512640,
+      "pswpin": 114022,
+      "pswpout": 2528451,
+      "unix_s": 1794005839.1643238,
+      "swap_out_since_process_start_bytes": 262545408,
+      "swap_out_since_request_start_bytes": 9236480,
+      "owned_process_io": {
+        "948979": {
+          "io": {
+            "rchar": 932028084,
+            "wchar": 27046098,
+            "syscr": 4041,
+            "syscw": 66,
+            "read_bytes": 967024640,
+            "write_bytes": 8192,
+            "cancelled_write_bytes": 0
+          },
+          "wait_channel": "anon_pipe_read",
+          "memory_bytes": {
+            "VmRSS": 636612608,
+            "VmHWM": 636612608,
+            "RssAnon": 376713216,
+            "RssFile": 203223040,
+            "RssShmem": 56676352,
+            "VmSwap": 0,
+            "VmPin": 0,
+            "VmLck": 0
+          }
+        },
+        "949017": {
+          "io": {
+            "rchar": 2477575490,
+            "wchar": 12188026,
+            "syscr": 16860,
+            "syscw": 130,
+            "read_bytes": 8460902400,
+            "write_bytes": 16384,
+            "cancelled_write_bytes": 0
+          },
+          "wait_channel": "0",
+          "memory_bytes": {
+            "VmRSS": 17631944704,
+            "VmHWM": 17631944704,
+            "RssAnon": 607223808,
+            "RssFile": 16345931776,
+            "RssShmem": 678789120,
+            "VmSwap": 0,
+            "VmPin": 0,
+            "VmLck": 0
+          }
+        }
+      }
+    },
+    {
+      "memory_psi": "some avg10=0.70 avg60=0.36 avg300=0.45 total=15939755\nfull avg10=0.70 avg60=0.35 avg300=0.41 total=14186341",
+      "io_psi": "some avg10=18.52 avg60=4.38 avg300=2.82 total=112754971\nfull avg10=0.79 avg60=0.33 avg300=0.33 total=81599491",
+      "mem_available": 46029533184,
+      "mem_breakdown_bytes": {
+        "MemFree": 643346432,
+        "Cached": 44913098752,
+        "AnonPages": 13397561344,
+        "Active(anon)": 9147822080,
+        "Inactive(anon)": 5226610688,
+        "Unevictable": 585728,
+        "Mlocked": 585728,
+        "PageTables": 409935872
+      },
+      "swap_used": 10950508544,
+      "pswpin": 114024,
+      "pswpout": 2528451,
+      "unix_s": 1794005840.1648712,
+      "swap_out_since_process_start_bytes": 262545408,
+      "swap_out_since_request_start_bytes": 9236480,
+      "owned_process_io": {
+        "948979": {
+          "io": {
+            "rchar": 932028084,
+            "wchar": 27046098,
+            "syscr": 4041,
+            "syscw": 66,
+            "read_bytes": 967024640,
+            "write_bytes": 8192,
+            "cancelled_write_bytes": 0
+          },
+          "wait_channel": "anon_pipe_read",
+          "memory_bytes": {
+            "VmRSS": 636612608,
+            "VmHWM": 636612608,
+            "RssAnon": 376713216,
+            "RssFile": 203223040,
+            "RssShmem": 56676352,
+            "VmSwap": 0,
+            "VmPin": 0,
+            "VmLck": 0
+          }
+        },
+        "949017": {
+          "io": {
+            "rchar": 2477616913,
+            "wchar": 12188026,
+            "syscr": 16874,
+            "syscw": 130,
+            "read_bytes": 8585682944,
+            "write_bytes": 16384,
+            "cancelled_write_bytes": 0
+          },
+          "wait_channel": "0",
+          "memory_bytes": {
+            "VmRSS": 18889740288,
+            "VmHWM": 18889740288,
+            "RssAnon": 607227904,
+            "RssFile": 17603723264,
+            "RssShmem": 678789120,
+            "VmSwap": 0,
+            "VmPin": 0,
+            "VmLck": 0
+          }
+        }
+      },
+      "operating_service": {
+        "ActiveState": "inactive",
+        "SubState": "dead",
+        "FragmentPath": "~/.config/systemd/user/strata-verified-256k.service",
+        "DropInPaths": "",
+        "MainPID": "0"
+      }
+    },
+    {
+      "memory_psi": "some avg10=0.70 avg60=0.36 avg300=0.45 total=15939775\nfull avg10=0.70 avg60=0.35 avg300=0.41 total=14186362",
+      "io_psi": "some avg10=18.52 avg60=4.38 avg300=2.82 total=113356077\nfull avg10=0.79 avg60=0.33 avg300=0.33 total=81599585",
+      "mem_available": 46006145024,
+      "mem_breakdown_bytes": {
+        "MemFree": 458010624,
+        "Cached": 45074849792,
+        "AnonPages": 13415100416,
+        "Active(anon)": 9167212544,
+        "Inactive(anon)": 5226090496,
+        "Unevictable": 585728,
+        "Mlocked": 585728,
+        "PageTables": 410677248
+      },
+      "swap_used": 10950283264,
+      "pswpin": 114090,
+      "pswpout": 2528451,
+      "unix_s": 1794005841.1734474,
+      "swap_out_since_process_start_bytes": 262545408,
+      "swap_out_since_request_start_bytes": 9236480,
+      "owned_process_io": {
+        "948979": {
+          "io": {
+            "rchar": 932028084,
+            "wchar": 27046098,
+            "syscr": 4041,
+            "syscw": 66,
+            "read_bytes": 967024640,
+            "write_bytes": 8192,
+            "cancelled_write_bytes": 0
+          },
+          "wait_channel": "anon_pipe_read",
+          "memory_bytes": {
+            "VmRSS": 636612608,
+            "VmHWM": 636612608,
+            "RssAnon": 376713216,
+            "RssFile": 203223040,
+            "RssShmem": 56676352,
+            "VmSwap": 0,
+            "VmPin": 0,
+            "VmLck": 0
+          }
+        },
+        "949017": {
+          "io": {
+            "rchar": 2477658336,
+            "wchar": 12188026,
+            "syscr": 16888,
+            "syscw": 130,
+            "read_bytes": 8747577344,
+            "write_bytes": 16384,
+            "cancelled_write_bytes": 0
+          },
+          "wait_channel": "0",
+          "memory_bytes": {
+            "VmRSS": 19440340992,
+            "VmHWM": 19440340992,
+            "RssAnon": 607227904,
+            "RssFile": 18154323968,
+            "RssShmem": 678789120,
+            "VmSwap": 0,
+            "VmPin": 0,
+            "VmLck": 0
+          }
+        }
+      }
+    },
+    {
+      "memory_psi": "some avg10=0.57 avg60=0.35 avg300=0.45 total=15960642\nfull avg10=0.57 avg60=0.33 avg300=0.41 total=14206992",
+      "io_psi": "some avg10=24.94 avg60=6.01 avg300=3.17 total=113893911\nfull avg10=0.65 avg60=0.32 avg300=0.33 total=81605120",
+      "mem_available": 46044069888,
+      "mem_breakdown_bytes": {
+        "MemFree": 639651840,
+        "Cached": 44946223104,
+        "AnonPages": 13401632768,
+        "Active(anon)": 9175269376,
+        "Inactive(anon)": 5202370560,
+        "Unevictable": 585728,
+        "Mlocked": 585728,
+        "PageTables": 411422720
+      },
+      "swap_used": 10970603520,
+      "pswpin": 114092,
+      "pswpout": 2532969,
+      "unix_s": 1794005842.1739898,
+      "swap_out_since_process_start_bytes": 281051136,
+      "swap_out_since_request_start_bytes": 27742208,
+      "owned_process_io": {
+        "948979": {
+          "io": {
+            "rchar": 932028084,
+            "wchar": 27046098,
+            "syscr": 4041,
+            "syscw": 66,
+            "read_bytes": 967024640,
+            "write_bytes": 8192,
+            "cancelled_write_bytes": 0
+          },
+          "wait_channel": "anon_pipe_read",
+          "memory_bytes": {
+            "VmRSS": 636612608,
+            "VmHWM": 636612608,
+            "RssAnon": 376713216,
+            "RssFile": 203223040,
+            "RssShmem": 56676352,
+            "VmSwap": 0,
+            "VmPin": 0,
+            "VmLck": 0
+          }
+        },
+        "949017": {
+          "io": {
+            "rchar": 2477699296,
+            "wchar": 12188026,
+            "syscr": 16898,
+            "syscw": 130,
+            "read_bytes": 8914984960,
+            "write_bytes": 16384,
+            "cancelled_write_bytes": 0
+          },
+          "wait_channel": "0",
+          "memory_bytes": {
+            "VmRSS": 19719393280,
+            "VmHWM": 19719393280,
+            "RssAnon": 607227904,
+            "RssFile": 18433376256,
+            "RssShmem": 678789120,
+            "VmSwap": 0,
+            "VmPin": 0,
+            "VmLck": 0
+          }
+        }
+      }
+    },
+    {
+      "memory_psi": "some avg10=0.57 avg60=0.35 avg300=0.45 total=15965318\nfull avg10=0.57 avg60=0.33 avg300=0.41 total=14211581",
+      "io_psi": "some avg10=24.94 avg60=6.01 avg300=3.17 total=114369324\nfull avg10=0.65 avg60=0.32 avg300=0.33 total=81606789",
+      "mem_available": 46040752128,
+      "mem_breakdown_bytes": {
+        "MemFree": 641531904,
+        "Cached": 44947996672,
+        "AnonPages": 13423697920,
+        "Active(anon)": 9208430592,
+        "Inactive(anon)": 5187416064,
+        "Unevictable": 585728,
+        "Mlocked": 585728,
+        "PageTables": 411942912
+      },
+      "swap_used": 10978377728,
+      "pswpin": 114111,
+      "pswpout": 2534854,
+      "unix_s": 1794005843.1745222,
+      "swap_out_since_process_start_bytes": 288772096,
+      "swap_out_since_request_start_bytes": 35463168,
+      "owned_process_io": {
+        "948979": {
+          "io": {
+            "rchar": 932028084,
+            "wchar": 27046098,
+            "syscr": 4041,
+            "syscw": 66,
+            "read_bytes": 967024640,
+            "write_bytes": 8192,
+            "cancelled_write_bytes": 0
+          },
+          "wait_channel": "anon_pipe_read",
+          "memory_bytes": {
+            "VmRSS": 636612608,
+            "VmHWM": 636612608,
+            "RssAnon": 376713216,
+            "RssFile": 203223040,
+            "RssShmem": 56676352,
+            "VmSwap": 0,
+            "VmPin": 0,
+            "VmLck": 0
+          }
+        },
+        "949017": {
+          "io": {
+            "rchar": 2477740719,
+            "wchar": 12188026,
+            "syscr": 16912,
+            "syscw": 130,
+            "read_bytes": 9075826688,
+            "write_bytes": 16384,
+            "cancelled_write_bytes": 0
+          },
+          "wait_channel": "0",
+          "memory_bytes": {
+            "VmRSS": 19998224384,
+            "VmHWM": 19998224384,
+            "RssAnon": 607227904,
+            "RssFile": 18712207360,
+            "RssShmem": 678789120,
+            "VmSwap": 0,
+            "VmPin": 0,
+            "VmLck": 0
+          }
+        }
+      }
+    }
+  ],
+  "ready_s": 8.511052376998123,
+  "incomplete_request": {
+    "label": "prime_rows390_r0",
+    "rows": 390,
+    "repeat": 0,
+    "phase": "prime",
+    "prewarm_in_same_process": false,
+    "first_request": true,
+    "before": {
+      "memory_psi": "some avg10=1.27 avg60=0.40 avg300=0.46 total=15919911\nfull avg10=1.27 avg60=0.38 avg300=0.42 total=14166855",
+      "io_psi": "some avg10=1.23 avg60=0.80 avg300=2.08 total=110115172\nfull avg10=1.23 avg60=0.33 avg300=0.33 total=81570828",
+      "mem_available": 46194102272,
+      "mem_breakdown_bytes": {
+        "MemFree": 589684736,
+        "Cached": 45113868288,
+        "AnonPages": 13261234176,
+        "Active(anon)": 8946139136,
+        "Inactive(anon)": 5281247232,
+        "Unevictable": 585728,
+        "Mlocked": 585728,
+        "PageTables": 392577024
+      },
+      "swap_used": 10939572224,
+      "pswpin": 113797,
+      "pswpout": 2526196
+    },
+    "started_unix_s": 1794005833.6599176,
+    "request_sha256": "62c62256233c07af4f35b802393fccd03f72f27bebafb3bbf710632677518bcc",
+    "owned_io_before": {
+      "unix_s": 1794005833.6600995,
+      "scope": "owned processes at the HTTP request boundary",
+      "processes": {
+        "948979": {
+          "exe": "~/DevSpace/strata-rocm-feasibility/vision_canary/build-hip/bin/strata-vision",
+          "io": {
+            "rchar": 932028084,
+            "wchar": 27046098,
+            "syscr": 4041,
+            "syscw": 66,
+            "read_bytes": 967024640,
+            "write_bytes": 8192,
+            "cancelled_write_bytes": 0
+          },
+          "minor_faults": 121177,
+          "major_faults": 254
+        },
+        "949017": {
+          "exe": "~/DevSpace/strata-prefill-v07-lab-20261107/build-v07-gfx1030/strata",
+          "io": {
+            "rchar": 2392266576,
+            "wchar": 12187901,
+            "syscr": 6652,
+            "syscw": 94,
+            "read_bytes": 7680139264,
+            "write_bytes": 12288,
+            "cancelled_write_bytes": 0
+          },
+          "minor_faults": 546007,
+          "major_faults": 1537
+        }
+      }
+    },
+    "swap_page_bytes": 4096
+  },
+  "resource_abort": "resource-contaminated: swap-out kept growing beyond 256 MiB since process start",
+  "resource_abort_sample": {
+    "memory_psi": "some avg10=0.57 avg60=0.35 avg300=0.45 total=15965318\nfull avg10=0.57 avg60=0.33 avg300=0.41 total=14211581",
+    "io_psi": "some avg10=24.94 avg60=6.01 avg300=3.17 total=114369324\nfull avg10=0.65 avg60=0.32 avg300=0.33 total=81606789",
+    "mem_available": 46040752128,
+    "mem_breakdown_bytes": {
+      "MemFree": 641531904,
+      "Cached": 44947996672,
+      "AnonPages": 13423697920,
+      "Active(anon)": 9208430592,
+      "Inactive(anon)": 5187416064,
+      "Unevictable": 585728,
+      "Mlocked": 585728,
+      "PageTables": 411942912
+    },
+    "swap_used": 10978377728,
+    "pswpin": 114111,
+    "pswpout": 2534854,
+    "unix_s": 1794005843.1745222,
+    "swap_out_since_process_start_bytes": 288772096,
+    "swap_out_since_request_start_bytes": 35463168,
+    "owned_process_io": {
+      "948979": {
+        "io": {
+          "rchar": 932028084,
+          "wchar": 27046098,
+          "syscr": 4041,
+          "syscw": 66,
+          "read_bytes": 967024640,
+          "write_bytes": 8192,
+          "cancelled_write_bytes": 0
+        },
+        "wait_channel": "anon_pipe_read",
+        "memory_bytes": {
+          "VmRSS": 636612608,
+          "VmHWM": 636612608,
+          "RssAnon": 376713216,
+          "RssFile": 203223040,
+          "RssShmem": 56676352,
+          "VmSwap": 0,
+          "VmPin": 0,
+          "VmLck": 0
+        }
+      },
+      "949017": {
+        "io": {
+          "rchar": 2477740719,
+          "wchar": 12188026,
+          "syscr": 16912,
+          "syscw": 130,
+          "read_bytes": 9075826688,
+          "write_bytes": 16384,
+          "cancelled_write_bytes": 0
+        },
+        "wait_channel": "0",
+        "memory_bytes": {
+          "VmRSS": 19998224384,
+          "VmHWM": 19998224384,
+          "RssAnon": 607227904,
+          "RssFile": 18712207360,
+          "RssShmem": 678789120,
+          "VmSwap": 0,
+          "VmPin": 0,
+          "VmLck": 0
+        }
+      }
+    }
+  },
+  "error": "RemoteDisconnected: Remote end closed connection without response",
+  "owned_pids_remaining": [],
+  "after": {
+    "memory_psi": "some avg10=0.65 avg60=0.37 avg300=0.45 total=15965318\nfull avg10=0.65 avg60=0.36 avg300=0.41 total=14211581",
+    "io_psi": "some avg10=28.21 avg60=7.22 avg300=3.44 total=114371441\nfull avg10=0.53 avg60=0.31 avg300=0.33 total=81608860",
+    "mem_available": 47735558144,
+    "mem_breakdown_bytes": {
+      "MemFree": 2335870976,
+      "Cached": 44213112832,
+      "AnonPages": 12265943040,
+      "Active(anon)": 7539703808,
+      "Inactive(anon)": 5187530752,
+      "Unevictable": 585728,
+      "Mlocked": 585728,
+      "PageTables": 363339776
+    },
+    "swap_used": 10976276480,
+    "pswpin": 114111,
+    "pswpout": 2534854
+  },
+  "service_after": {
+    "ActiveState": "inactive",
+    "SubState": "dead",
+    "FragmentPath": "~/.config/systemd/user/strata-verified-256k.service",
+    "DropInPaths": "",
+    "MainPID": "0"
+  },
+  "guard": {
+    "available": true,
+    "valid_for_timing": true,
+    "method": "KFD client PID snapshots and periodic polling; research flock",
+    "limitation": "Detects observed KFD clients, not graphics load or sub-poll transient clients",
+    "allowed_pids": [
+      948973,
+      948976,
+      948979,
+      949017
+    ],
+    "interval_s": 0.25,
+    "sample_count": 78,
+    "started_unix_s": 1794005825.1410358,
+    "ended_unix_s": 1794005843.8377063,
+    "foreign_clients": [],
+    "errors": [],
+    "transitions": [
+      {
+        "unix_s": 1794005825.1410363,
+        "kfd_pids": [],
+        "foreign_or_error": []
+      }
+    ]
+  },
+  "wall_s": 18.703880340995966,
+  "resource_valid_for_timing": false,
+  "post_observation_swap_gate": {
+    "limit_bytes": 268435456,
+    "consecutive_increasing_one_second_samples": 2,
+    "introduced_after": "pinned_stage_9k_first_retry",
+    "retroactive": false
+  },
+  "ended_utc": "2026-11-06T22:57:23.844892+00:00"
+}

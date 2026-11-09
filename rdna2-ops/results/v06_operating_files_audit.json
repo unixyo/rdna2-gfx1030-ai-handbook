@@ -1,0 +1,99 @@
+{
+  "schema": "rdna2-v06-operating-file-audit-1",
+  "checked_utc": "2026-11-06T19:32:43.617041+00:00",
+  "scope": "15 tracked MOSS/Qwen/Anima operating source/config/workflow paths; Applio 16 protected files are separately recorded in each actual-epoch result. Not a whole-filesystem or cache audit.",
+  "all_unchanged": true,
+  "count": 15,
+  "files": [
+    {
+      "path": "moss-image-rdna2-lab01/scripts/start_moss_comfy.sh",
+      "before_sha256": "607c4febce9608ba5eb31ba96d1c1b503a05fda12577ea9b567a1100c50ab54e",
+      "after_sha256": "607c4febce9608ba5eb31ba96d1c1b503a05fda12577ea9b567a1100c50ab54e",
+      "unchanged": true
+    },
+    {
+      "path": "moss-image-rdna2-lab01/custom_nodes/MOSS_RDNA2_INT8/__init__.py",
+      "before_sha256": "9f35d44120d0e8a05e7e1ba7a5e90cd96cacdc05f8b71032f37a68ca727455f6",
+      "after_sha256": "9f35d44120d0e8a05e7e1ba7a5e90cd96cacdc05f8b71032f37a68ca727455f6",
+      "unchanged": true
+    },
+    {
+      "path": "moss-image-rdna2-lab01/custom_nodes/MOSS_RDNA2_INT8/backend.py",
+      "before_sha256": "f7815a94624980ab9ed5e5a45e9bc16abf629c18c08c5672110be1ce522b1e47",
+      "after_sha256": "f7815a94624980ab9ed5e5a45e9bc16abf629c18c08c5672110be1ce522b1e47",
+      "unchanged": true
+    },
+    {
+      "path": "moss-image-rdna2-lab01/custom_nodes/MOSS_RDNA2_INT8/attention_dispatch.py",
+      "before_sha256": "8304438ae4001903e97b7ef451ea089bfb5aa4280a7b11241534a8360b0285dc",
+      "after_sha256": "8304438ae4001903e97b7ef451ea089bfb5aa4280a7b11241534a8360b0285dc",
+      "unchanged": true
+    },
+    {
+      "path": "moss-image-rdna2-lab01/workflows/sft_fast4_int8_512.json",
+      "before_sha256": "5d83f8c4b282dadd5c09dd0840062c9d5500616f001137c3dd6b30ca0942d27d",
+      "after_sha256": "5d83f8c4b282dadd5c09dd0840062c9d5500616f001137c3dd6b30ca0942d27d",
+      "unchanged": true
+    },
+    {
+      "path": "qwen-image-21-rdna2-lab01/custom_nodes/RDNA2-Qwen21-INT8/__init__.py",
+      "before_sha256": "26689d43a57d8088ef883bce905ccc4712dd626bbf7e1a57fbee20bc4c0a1bd1",
+      "after_sha256": "26689d43a57d8088ef883bce905ccc4712dd626bbf7e1a57fbee20bc4c0a1bd1",
+      "unchanged": true
+    },
+    {
+      "path": "qwen-image-21-rdna2-lab01/custom_nodes/RDNA2-Qwen21-INT8/rocm_int8_kitchen_patch.py",
+      "before_sha256": "e30de1392612bbce0c5b370222d7eae42403babcf4f3f932de95fc982278ed3f",
+      "after_sha256": "e30de1392612bbce0c5b370222d7eae42403babcf4f3f932de95fc982278ed3f",
+      "unchanged": true
+    },
+    {
+      "path": "qwen-image-21-rdna2-lab01/custom_nodes/RDNA2-Qwen21-INT8/int8_fused_kernel.py",
+      "before_sha256": "70c014d3c394b69cc907c60dd7086e367861c6bf03031320524c3ba2dcf86603",
+      "after_sha256": "70c014d3c394b69cc907c60dd7086e367861c6bf03031320524c3ba2dcf86603",
+      "unchanged": true
+    },
+    {
+      "path": "qwen-image-21-rdna2-lab01/workflows/request-gemini-edit-640x960-api.json",
+      "before_sha256": "9d256b3127980229e02bf7801c32cb65ac127e122a377dcf13f092386e5ab466",
+      "after_sha256": "9d256b3127980229e02bf7801c32cb65ac127e122a377dcf13f092386e5ab466",
+      "unchanged": true
+    },
+    {
+      "path": "qwen-image-21-rdna2-lab01/extra_model_paths.yaml",
+      "before_sha256": "df24f84c3d58923a690a7c4ea2daab6935dac6758a5a95b57dcffa8b86d4bada",
+      "after_sha256": "df24f84c3d58923a690a7c4ea2daab6935dac6758a5a95b57dcffa8b86d4bada",
+      "unchanged": true
+    },
+    {
+      "path": "moss-image-rdna2-lab01/runtime/ComfyUI/comfy/ops.py",
+      "before_sha256": "fa87356b1dd5aa8ecc5b1e71d5bcd43f5cd7e9eba4a469f72e4f099b00e6cb39",
+      "after_sha256": "fa87356b1dd5aa8ecc5b1e71d5bcd43f5cd7e9eba4a469f72e4f099b00e6cb39",
+      "unchanged": true
+    },
+    {
+      "path": "moss-image-rdna2-lab01/runtime/ComfyUI/comfy/ldm/modules/attention.py",
+      "before_sha256": "2e688c4c96ba10915c7ca847ea692faea3be4b9c2605d74d785b7abb23ee2502",
+      "after_sha256": "2e688c4c96ba10915c7ca847ea692faea3be4b9c2605d74d785b7abb23ee2502",
+      "unchanged": true
+    },
+    {
+      "path": "anima-rdna2-lab01/scripts/anima_lab.py",
+      "before_sha256": "36d5948a25552e1553afb02feb774a72875b88b4e2ea9745f809e2e02b7c4386",
+      "after_sha256": "36d5948a25552e1553afb02feb774a72875b88b4e2ea9745f809e2e02b7c4386",
+      "unchanged": true
+    },
+    {
+      "path": "anima-rdna2-lab01/workflows/anima_t2i_1024_api.json",
+      "before_sha256": "ff2e96430dac62b2bf6a76e2b8de79024921bb2702988505953e5ff0ae8bf804",
+      "after_sha256": "ff2e96430dac62b2bf6a76e2b8de79024921bb2702988505953e5ff0ae8bf804",
+      "unchanged": true
+    },
+    {
+      "path": "anima-rdna2-lab01/extra_model_paths.yaml",
+      "before_sha256": "076320464a7166bb322c173c968827bc6ca1d6e4772413b84f24e0b601eef056",
+      "after_sha256": "076320464a7166bb322c173c968827bc6ca1d6e4772413b84f24e0b601eef056",
+      "unchanged": true
+    }
+  ]
+}

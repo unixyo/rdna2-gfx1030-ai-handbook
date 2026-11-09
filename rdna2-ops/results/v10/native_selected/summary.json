@@ -1,0 +1,90 @@
+{
+  "schema": "applio_v10_native_merged_summary",
+  "completed": true,
+  "coverage_complete": true,
+  "source_sha256": "ab69ce5f24f3736fc755f894729325fa8766bb58f4f960f533e802ef1d24b169",
+  "benchmark_sha256": "bf17394ad5aa5c8ab2e1c9981e2a604f56b321641192bdee281e356f6b7f2798",
+  "merge_source_sha256": "2b015cb70d7f167bef1c164e47eb8e126d260cfd406653a20fb36dbddaf1e060",
+  "runtime": {
+    "torch": "2.11.0+rocm10.0.0",
+    "hip": "7.15.26333",
+    "triton": "3.8.0",
+    "device": "AMD Radeon RX 6900 XT"
+  },
+  "gate": {
+    "finite": true,
+    "reference_finite": true,
+    "nrmse": 0.002,
+    "max_over_reference_rms": 0.02,
+    "seed": 20261108,
+    "candidate_event_speedup_min": 1.1,
+    "candidate_wall_speedup_min": 1.05
+  },
+  "counts": {
+    "cases": 60,
+    "directions": 169,
+    "candidates": 531,
+    "candidate_operator_pass": 531,
+    "candidate_execution_error": 0,
+    "native_operator_fail": 0,
+    "selected_new_directions": 68,
+    "selected_entries": 31,
+    "contract_variants": 39,
+    "contract_metrics": 195,
+    "preserved_v08_direct_directions": 0
+  },
+  "families": {
+    "remaining1d": {
+      "directions": 13,
+      "selected": 2
+    },
+    "period": {
+      "directions": 144,
+      "selected": 59
+    },
+    "transpose": {
+      "directions": 12,
+      "selected": 7
+    }
+  },
+  "source_reports": [
+    {
+      "path": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/v10/native_c192_smoke/result.json",
+      "sha256": "97e25bee7560e696cc0cdc0ecd1da44eb208ec66174a7e9a298fd54b6f34867f",
+      "dispatch_path": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/v10/native_c192_smoke/dispatch.json",
+      "dispatch_sha256": "f220b75f8d50409c1b54090ca1c908b61635d2acb170de5e0b603e2e8d9fbb3c",
+      "native_policy_path": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/v10/native_c192_smoke/native_policy.json",
+      "native_policy_sha256": "08d66727691767c630b0f37296d824f8bcdf8781a9d641c3e258be577a2ce934"
+    },
+    {
+      "path": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/v10/native_family_smoke/result.json",
+      "sha256": "7a8b27ba6ab548a2cc4661491f95faf4e2744dfd7cff52277faa0246b5399705",
+      "dispatch_path": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/v10/native_family_smoke/dispatch.json",
+      "dispatch_sha256": "e5e9d3e12168aa166e0836a9e9023060a1ddd67f64882f4f61c072a912430ee3",
+      "native_policy_path": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/v10/native_family_smoke/native_policy.json",
+      "native_policy_sha256": "8fa040e574594f92ac2753d40aada0929ae208ef0f6375f3aed14ab34b7f512d"
+    },
+    {
+      "path": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/v10/native_full/result.json",
+      "sha256": "54b30355194a14cdfe713b547a8a9f4cfb931ee14481c565457e1972b62065ab",
+      "dispatch_path": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/v10/native_full/dispatch.json",
+      "dispatch_sha256": "ded87dd9070a08f1f16dc82d554dce6552955d949cc345a764dfcf2f75428c89",
+      "native_policy_path": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/v10/native_full/native_policy.json",
+      "native_policy_sha256": "1c10908651400114ec9d0446e165bd0fc204c084759d5d83ee86cd9a02290775"
+    }
+  ],
+  "native_baseline": "fresh fastest historical-accurate policy; each comparator is the faster of initial/recheck event and wall separately",
+  "roofline_review": {
+    "arithmetic_recomputed_all_cases": true,
+    "compute_capacity": "48.7 TFLOP/s measured dot2 calibration, useful direct-Conv mathematical FLOPs",
+    "memory_capacity": "436.7 GB/s measured DRAM calibration applied conditionally to compulsory tensor bytes",
+    "caveats": [
+      "No DRAM hardware counters were recorded. Warm/cached tensor reads need not cross DRAM; this is not a strict physical time floor.",
+      "Direct useful FLOPs exclude masked/tile-padding work, address instructions, launch latency, and register traffic.",
+      "Winograd, FFT, and unattributed native kernels have no direct-FLOP compute-utilization estimate.",
+      "Time above a conditional roofline is not proof that the whole difference can be removed.",
+      "A microbenchmark win is not an operating epoch or perceptual adoption result."
+    ]
+  },
+  "status": "operator and AMP/weight_norm validated candidate; operating B/B-prime and audio are separate"
+}

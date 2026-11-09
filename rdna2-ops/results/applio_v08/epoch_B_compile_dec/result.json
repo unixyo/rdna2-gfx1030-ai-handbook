@@ -1,0 +1,246 @@
+{
+  "schema": "applio_epoch_v08",
+  "mode": "FAST",
+  "fold": false,
+  "compile": "dec",
+  "profile_at": 0,
+  "requested_benchmark": "native",
+  "completed": false,
+  "harness_sha256": "13cc7faf0ce9b19ca09d612faf88dc6e9d60678b27a743d751880a5938129674",
+  "direct_dispatch_manifest": {
+    "path": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/applio_v08/direct_selected_final/dispatch.json",
+    "sha256": "22e41075581e8b2d969388244bf063adba59579942c4959ae892e2aeb4fcfa59"
+  },
+  "compile_native_rng_requested": true,
+  "cache_paths": {
+    "TRITON_CACHE_DIR": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/applio_v08/triton_cache",
+    "TORCHINDUCTOR_CACHE_DIR": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/applio_v08/epoch_B_compile_dec/inductor_cache"
+  },
+  "dataset": "voice_model_A",
+  "batch_size": 8,
+  "pretrain": "KLM HFG 40k",
+  "valid_for_epoch_timing": true,
+  "profile_probe": "metadata uses channels/kernel/parameter dtype; never evaluate parametrized weight getter",
+  "torch_num_threads": 16,
+  "selective_fold": false,
+  "selective_fold_hits": {},
+  "observe_transpose": false,
+  "actual_transpose_calls": {},
+  "torch": "2.11.0+rocm10.0.0",
+  "hip": "7.15.26333",
+  "protected_before": {
+    "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/applio_v08/applio_copy/assets/config.json": "308b2af4c1b96775d2a3279ebe1532425e2df55647cd5a8be50cb8d48b2f047a",
+    "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/applio_v08/applio_copy/logs/voice_model_A/config.json": "c094bf09b022c44c0c7bca928f5322df36643760402b90f439938d9fd99798b2",
+    "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/applio_v08/applio_copy/logs/voice_model_A/filelist.txt": "43a91adf52e2763060bb96e944bd8e659a2ca6a5b041ffde367567d674460f79",
+    "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/applio_v08/applio_copy/logs/voice_model_A/model_info.json": "b475401155328130d1f4c31a18673c19039160066af9908ffd76086e51dd1a7d",
+    "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/applio_v08/applio_copy/rvc/train/train.py": "66d370f6cf4b2c4e5085a16da3183321c7514d5c6a1b6321291ac87f83985cc9",
+    "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/applio_v08/applio_copy/rvc/lib/zluda.py": "d0a403ab827e1e66c18a6b40db6fb88efbf818bf8dfc79aa8f991551d344b637",
+    "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/applio_v08/applio_copy/rvc/lib/algorithm/fold_conv.py": "de5fa14073500187b9feeb8202f1d5c28f97dd463929647d601008a5198398b2",
+    "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/applio_v08/applio_copy/assets/config_template.json": "c1a12140f7f1348243909472b1e3e71be8149fcfe9277d378d617f8f947d6bf0",
+    "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/applio_v08/applio_copy/core.py": "fd288f0d20f7796723f72e9075c8dc274a058b8b772b3bf2420b5a449159dd5b",
+    "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/applio_v08/applio_copy/rvc/train/lab_hooks.py": "c337ac89703ec81cfb84d05a24ddbbada11eea0e1401869e96605d55eb77aa62",
+    "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/applio_v08/applio_copy/rvc/train/data_utils.py": "e736d02dc9b677aad1db9e2ac143d559f9b486ec7ecfa75f6e996ebe0a235c65",
+    "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/applio_v08/applio_copy/rvc/lib/algorithm/synthesizers.py": "d373936c510fdc80abd5213ae6b18bd0ad35650a7bc338bc1f7ea6916bc82f0d",
+    "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/applio_v08/applio_copy/rvc/lib/algorithm/discriminators.py": "f269a5c7cb79d0a40f614703cd3ef4d51348466912771b7decae33478723bce5",
+    "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/applio_v08/applio_copy/rvc/lib/algorithm/residuals.py": "bb34c5746642cb9e7265beba6df5ce890a8cabbf553c63a79084778934572f7f",
+    "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/applio_v08/applio_copy/rvc/models/pretraineds/custom/G_KLM_HFG_40k.pth": "3322483d01cdfe817053ec772064444941a00ba13bea80587710e4599dff8d85",
+    "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/applio_v08/applio_copy/rvc/models/pretraineds/custom/D_KLM_HFG_40k.pth": "aad06c8ff1684c7c0de1eb51a5ff967b767d35b3fe12edd103952dbcf6dbcab7"
+  },
+  "pretrain_sha256": {
+    "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/applio_v08/applio_copy/rvc/models/pretraineds/custom/G_KLM_HFG_40k.pth": "3322483d01cdfe817053ec772064444941a00ba13bea80587710e4599dff8d85",
+    "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/applio_v08/applio_copy/rvc/models/pretraineds/custom/D_KLM_HFG_40k.pth": "aad06c8ff1684c7c0de1eb51a5ff967b767d35b3fe12edd103952dbcf6dbcab7"
+  },
+  "db_before": [
+    {
+      "path": "gfx1030_40.HIP.3_6_0_8d1ae90e.ufdb.txt",
+      "bytes": 712120,
+      "sha256": "fa2af4e846b0b565e23f058ae5d011cba85fe47a757a399a3ffa618563fbfdd5"
+    },
+    {
+      "path": "gfx1030_40.HIP.3_6_0_8d1ae90e.ufdb.txt.time",
+      "bytes": 14,
+      "sha256": "54ef6b494912e84d58946a12bbde0022a896ad754e21c132e20c8ec4ff3a2c29"
+    },
+    {
+      "path": "selection_manifest.json",
+      "bytes": 237045,
+      "sha256": "80b900d080a75e90e9dcb90f0c608c141946f6e9d92768046712261000fda259"
+    }
+  ],
+  "epochs": [],
+  "steps": [],
+  "quality_gate": {
+    "provisional_audio_gate": true,
+    "wave_max_abs": 0.001,
+    "wave_rmse": 0.0001,
+    "loss_median_relative": 0.02,
+    "note": "Predeclared engineering screen, not user-approved perceptual equivalence. Require native-repeat floor too."
+  },
+  "effective_inductor_fallback_random": true,
+  "effective_cudnn_benchmark": false,
+  "safety_env": {
+    "MIOPEN_DEBUG_CONV_IMPLICIT_GEMM_HIP_FWD_V4R1": "0",
+    "MIOPEN_DEBUG_CONV_DIRECT_HIP_WRW53": "0"
+  },
+  "nonconv": {
+    "schema": "applio_nonconv_v08",
+    "adamw": "native",
+    "adamw_by_optimizer": {
+      "G": "native",
+      "D": "single"
+    },
+    "optimizer_order_contract": "Native trainer constructs G index 0, D index 1; later optimizers use the global mode",
+    "slice_gather": true,
+    "grad_norm": "foreach",
+    "discriminator_weight_norm_cache": false,
+    "skip_empty_cache": true,
+    "snapshot_dir": "",
+    "snapshot_at": 3,
+    "snapshots": [],
+    "optimizer_constructors": [
+      {
+        "index": 0,
+        "role": "G",
+        "mode": "native",
+        "flags": [
+          {
+            "foreach": null,
+            "fused": null
+          }
+        ],
+        "groups": [
+          {
+            "lr": 0.0001,
+            "betas": [
+              0.8,
+              0.99
+            ],
+            "eps": 1e-09,
+            "weight_decay": 0.01,
+            "amsgrad": false,
+            "maximize": false,
+            "foreach": null,
+            "capturable": false,
+            "differentiable": false,
+            "fused": null,
+            "decoupled_weight_decay": true
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "role": "D",
+        "mode": "single",
+        "flags": [
+          {
+            "foreach": false,
+            "fused": false
+          }
+        ],
+        "groups": [
+          {
+            "lr": 0.0001,
+            "betas": [
+              0.8,
+              0.99
+            ],
+            "eps": 1e-09,
+            "weight_decay": 0.01,
+            "amsgrad": false,
+            "maximize": false,
+            "foreach": false,
+            "capturable": false,
+            "differentiable": false,
+            "fused": false,
+            "decoupled_weight_decay": true
+          }
+        ]
+      }
+    ],
+    "torch": "2.11.0+rocm10.0.0",
+    "hip": "7.15.26333",
+    "source_sha256": "4912353a4e45e13f18b0c33839ff78af33d872315c2415232fa32888109094a8"
+  },
+  "direct_dispatch_hits": {},
+  "device": "AMD Radeon RX 6900 XT",
+  "actual_functional_conv1d": {
+    "module": "torch",
+    "name": "_VariableFunctionsClass.conv1d"
+  },
+  "conv_calls": {},
+  "steps_per_epoch": 31,
+  "dataset_rows": 233,
+  "dataset_sampler_samples": 248,
+  "optimizer_groups": [
+    {
+      "foreach": null,
+      "fused": null,
+      "capturable": false,
+      "eps": 1e-09,
+      "weight_decay": 0.01
+    },
+    {
+      "foreach": false,
+      "fused": false,
+      "capturable": false,
+      "eps": 1e-09,
+      "weight_decay": 0.01
+    }
+  ],
+  "initial_state_sha256": [
+    "7cdf79b528dca3dd3cf886130635259ee4e59763f73cae6e4038eb719ea79419",
+    "f74926ee85de22d8b867bdbd5bd2e8b44f7c12a9346dcdcede8f04c870ea2071"
+  ],
+  "total_process_after_import_s": 9.861055996007053,
+  "operating_protection": {
+    "legacy16_count": 16,
+    "additional_count": 987,
+    "changed": []
+  },
+  "gpu_audit": {
+    "available": true,
+    "valid_for_timing": true,
+    "method": "KFD client PID snapshots and periodic polling; research flock",
+    "limitation": "Detects observed KFD clients, not graphics load or sub-poll transient clients",
+    "allowed_pids": [
+      1792184
+    ],
+    "interval_s": 0.25,
+    "sample_count": 49,
+    "started_unix_s": 1794076988.557599,
+    "ended_unix_s": 1794077000.3528187,
+    "foreign_clients": [],
+    "errors": [],
+    "transitions": [
+      {
+        "unix_s": 1794076988.5575995,
+        "kfd_pids": [],
+        "foreign_or_error": []
+      }
+    ]
+  },
+  "valid_for_timing": false,
+  "protected_after": {
+    "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/applio_v08/applio_copy/assets/config.json": "308b2af4c1b96775d2a3279ebe1532425e2df55647cd5a8be50cb8d48b2f047a",
+    "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/applio_v08/applio_copy/logs/voice_model_A/config.json": "c094bf09b022c44c0c7bca928f5322df36643760402b90f439938d9fd99798b2",
+    "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/applio_v08/applio_copy/logs/voice_model_A/filelist.txt": "43a91adf52e2763060bb96e944bd8e659a2ca6a5b041ffde367567d674460f79",
+    "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/applio_v08/applio_copy/logs/voice_model_A/model_info.json": "b475401155328130d1f4c31a18673c19039160066af9908ffd76086e51dd1a7d",
+    "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/applio_v08/applio_copy/rvc/train/train.py": "66d370f6cf4b2c4e5085a16da3183321c7514d5c6a1b6321291ac87f83985cc9",
+    "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/applio_v08/applio_copy/rvc/lib/zluda.py": "d0a403ab827e1e66c18a6b40db6fb88efbf818bf8dfc79aa8f991551d344b637",
+    "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/applio_v08/applio_copy/rvc/lib/algorithm/fold_conv.py": "de5fa14073500187b9feeb8202f1d5c28f97dd463929647d601008a5198398b2",
+    "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/applio_v08/applio_copy/assets/config_template.json": "c1a12140f7f1348243909472b1e3e71be8149fcfe9277d378d617f8f947d6bf0",
+    "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/applio_v08/applio_copy/core.py": "fd288f0d20f7796723f72e9075c8dc274a058b8b772b3bf2420b5a449159dd5b",
+    "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/applio_v08/applio_copy/rvc/train/lab_hooks.py": "c337ac89703ec81cfb84d05a24ddbbada11eea0e1401869e96605d55eb77aa62",
+    "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/applio_v08/applio_copy/rvc/train/data_utils.py": "e736d02dc9b677aad1db9e2ac143d559f9b486ec7ecfa75f6e996ebe0a235c65",
+    "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/applio_v08/applio_copy/rvc/lib/algorithm/synthesizers.py": "d373936c510fdc80abd5213ae6b18bd0ad35650a7bc338bc1f7ea6916bc82f0d",
+    "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/applio_v08/applio_copy/rvc/lib/algorithm/discriminators.py": "f269a5c7cb79d0a40f614703cd3ef4d51348466912771b7decae33478723bce5",
+    "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/applio_v08/applio_copy/rvc/lib/algorithm/residuals.py": "bb34c5746642cb9e7265beba6df5ce890a8cabbf553c63a79084778934572f7f",
+    "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/applio_v08/applio_copy/rvc/models/pretraineds/custom/G_KLM_HFG_40k.pth": "3322483d01cdfe817053ec772064444941a00ba13bea80587710e4599dff8d85",
+    "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/applio_v08/applio_copy/rvc/models/pretraineds/custom/D_KLM_HFG_40k.pth": "aad06c8ff1684c7c0de1eb51a5ff967b767d35b3fe12edd103952dbcf6dbcab7"
+  },
+  "protected_unchanged": true,
+  "error": {
+    "type": "TorchRuntimeError",
+    "message": "RuntimeError when making fake tensor call\n  Explanation: Dynamo failed to run FX node with fake tensors: call_function <built-in method conv1d of type object at 0x70867c5371a0>(*(FakeTensor(..., device='cuda:0', size=(8, 128, 3200), dtype=torch.float16,\n               grad_fn=<LeakyReluBackward0>), FakeTensor(..., device='cuda:0', size=(128, 128, 11),\n               grad_fn=<WeightNormInterfaceBackward0>), Parameter(FakeTensor(..., device='cuda:0', size=(128,), requires_grad=True)), (1,), (5,), (1,), 1), **{}): got RuntimeError('Input type (c10::Half) and bias type (float) should be the same')\n  Hint: Your code may result in an error when running in eager. Please double check that your code doesn't contain a similar error when actually running eager/uncompiled. You can do this by removing the `torch.compile` call, or by using `torch.compiler.set_stance(\"force_eager\")`. \n\n  Developer debug context: \n\n For more details about this graph break, please visit: https://meta-pytorch.github.io/compile-graph-break-site/gb/gb4315.html\n\nfrom user code:\n   File \"~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/applio_v08/applio_copy/rvc/lib/algorithm/generators/hifigan_nsf.py\", line 202, in forward\n    resblock(x)\n  File \"~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/applio_v08/applio_copy/rvc/lib/algorithm/residuals.py\", line 79, in forward\n    x = conv2(x)\n  File \"~/DevSpace/applio-lab/.venv-rocm10/lib/python3.12/site-packages/torch/nn/modules/conv.py\", line 375, in forward\n    return self._conv_forward(input, self.weight, self.bias)\n  File \"~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/v08_direct_conv.py\", line 356, in hook\n    return original(module, x, w, bias)\n  File \"~/DevSpace/applio-lab/.venv-rocm10/lib/python3.12/site-packages/torch/nn/modules/conv.py\", line 370, in _conv_forward\n    return F.conv1d(\n\nSet TORCHDYNAMO_VERBOSE=1 for the internal stack trace (please do this especially if you're reporting a bug to PyTorch). For even more developer context, set TORCH_LOGS=\"+dynamo\"\n"
+  }
+}

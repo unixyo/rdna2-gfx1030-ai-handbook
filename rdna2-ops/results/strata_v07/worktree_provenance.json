@@ -1,0 +1,13 @@
+{
+  "created_unix_s": 1794004074.1258318,
+  "worktree": "~/DevSpace/strata-prefill-v07-lab-20261107",
+  "base_commit": "a6fe1183805bc75fa6dfd4aae741a75b187a9cdf",
+  "inherited_patch_sha256": "49c581c1f0c8dc145291d6d80ae330f2852fc03f67119a03f12600a97b3cd35d",
+  "baseline_copy_sha256": "dd6753203cec325a2a89bc1c9a96d2a847c0bbcf3e08622d9cebb62484977466",
+  "baseline_original_sha256": "dd6753203cec325a2a89bc1c9a96d2a847c0bbcf3e08622d9cebb62484977466",
+  "ggml_source": "~/DevSpace/strata_v01403_port/build-hip-gfx1030-rocm10-juud/_deps/strata_llamacpp-src",
+  "ggml_commit": "3cf03257f219afbe7334045ff7c6a06ac68c627d",
+  "inherited_untracked": {
+    "src/kernels/cpu/pool_tasks_bench.cpp": "414d8514d7dde19c2d11fe698d2173a491d898fe6f2d1264d372cb62c89a817b"
+  }
+}

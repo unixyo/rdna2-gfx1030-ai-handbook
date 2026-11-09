@@ -1,0 +1,329 @@
+{
+  "schema": "rdna2_v07_blind_unblinded_verdict",
+  "created_utc": "2026-11-06 23:36:07 UTC",
+  "criteria_source": "../../V07_PREREGISTERED_CRITERIA_KO.md",
+  "frozen_prompt_source": "../BLIND_JUDGE_PROMPT_V07.json",
+  "session_prompts_source": "SESSION_PROMPTS.json",
+  "session_prompts_sha256": "9017913ddb0190ad849d647c19699d1b7bc0b4f22e1d87edf5ec9a27c9152727",
+  "public_images_source": "../blind_panels/PUBLIC_CASES.json",
+  "private_mapping_source": "../blind_panels/PRIVATE_MAPPING.json",
+  "private_mapping_sha256": "7b9a26ba7fccdea46c84defd435fb3625b5f5b6db08abd9f3dba831e64f048f9",
+  "method": "two logical independent reviewers, each assessed three seeds in both side orders; four fresh contexts with no inherited research history",
+  "limitations": [
+    "Same available base vision model (visible GPT-6 Astra Pro) across all four contexts, not different model architectures.",
+    "Internal model revision is not exposed.",
+    "Three seeds of one existing prompt/workflow; no universal quality claim.",
+    "Minor native-side hand/prop fidelity comments differ, but all candidate-side severity and preference/adoption outcomes agree.",
+    "Strict RGB and late compute gates remain failed independently of this qualitative verdict."
+  ],
+  "followups": [
+    {
+      "session": "J2/session-B",
+      "message": "배정된 공통 입력·full/crop을 모두 확인했다면 추가 자료나 다른 세트를 탐색하지 말고, 현재 관찰에 근거한 원래 JSON 형식의 최종 응답을 반환해 줘. 아직 확인하지 않은 배정 파일이 있으면 먼저 그 파일을 확인해. 기준과 익명 상태는 그대로 유지해.",
+      "purpose": "neutral completion/status instruction; no method/identity/timing/error/result information supplied"
+    }
+  ],
+  "responses": [
+    {
+      "session": "J1/session-A",
+      "file": "J1_session_A_raw.json",
+      "sha256": "3e8366c43be3669f9633f7c82ea6e6627ecd76e68e5e519a30f94b2413c515e5",
+      "model_label_visible": "GPT-6 Astra Pro",
+      "internal_revision": "unknown",
+      "received_utc": "2026-11-06 23:30:28 UTC",
+      "viewed_unique_file_count": 13
+    },
+    {
+      "session": "J1/session-B",
+      "file": "J1_session_B_raw.json",
+      "sha256": "1770420d98127cf83084bb556e64053418e9916546d92521848c035bb329cc62",
+      "model_label_visible": "GPT-6 Astra Pro",
+      "internal_revision": "unknown",
+      "received_utc": "2026-11-06 23:31:58 UTC",
+      "viewed_unique_file_count": 13
+    },
+    {
+      "session": "J2/session-A",
+      "file": "J2_session_A_raw.json",
+      "sha256": "d71ad05b310d39a25fa01ef941450b9b637f52f113ba2802fe1cbf3f069d762a",
+      "model_label_visible": "GPT-6 Astra Pro",
+      "internal_revision": "unknown",
+      "received_utc": "2026-11-06 23:35:33 UTC",
+      "viewed_unique_file_count": 13
+    },
+    {
+      "session": "J2/session-B",
+      "file": "J2_session_B_raw.json",
+      "sha256": "cf470e1c97541a699520888448201db5624f13dd566049d481cbcd784114acd5",
+      "model_label_visible": "GPT-6 Astra Pro",
+      "internal_revision": "unknown",
+      "received_utc": "2026-11-06 23:33:45 UTC",
+      "viewed_unique_file_count": 13
+    }
+  ],
+  "decisions": [
+    {
+      "reviewer": "J1",
+      "session": "J1/session-A",
+      "seed": 20261109,
+      "set_id": "p05c2321271f549cb",
+      "candidate_side": "A",
+      "preferred_anonymous": "B",
+      "preferred_unblinded": "native",
+      "candidate_relative_severity": 3,
+      "native_relative_severity": 0,
+      "confidence": "high",
+      "raw_response": "J1_session_A_raw.json"
+    },
+    {
+      "reviewer": "J1",
+      "session": "J1/session-A",
+      "seed": 20261108,
+      "set_id": "p27c6e8b55e1db2fe",
+      "candidate_side": "A",
+      "preferred_anonymous": "B",
+      "preferred_unblinded": "native",
+      "candidate_relative_severity": 3,
+      "native_relative_severity": 0,
+      "confidence": "high",
+      "raw_response": "J1_session_A_raw.json"
+    },
+    {
+      "reviewer": "J1",
+      "session": "J1/session-A",
+      "seed": 20261107,
+      "set_id": "p9f8880d85a773938",
+      "candidate_side": "A",
+      "preferred_anonymous": "B",
+      "preferred_unblinded": "native",
+      "candidate_relative_severity": 3,
+      "native_relative_severity": 0,
+      "confidence": "high",
+      "raw_response": "J1_session_A_raw.json"
+    },
+    {
+      "reviewer": "J1",
+      "session": "J1/session-B",
+      "seed": 20261109,
+      "set_id": "p506af831a3e94ea5",
+      "candidate_side": "B",
+      "preferred_anonymous": "A",
+      "preferred_unblinded": "native",
+      "candidate_relative_severity": 3,
+      "native_relative_severity": 0,
+      "confidence": "high",
+      "raw_response": "J1_session_B_raw.json"
+    },
+    {
+      "reviewer": "J1",
+      "session": "J1/session-B",
+      "seed": 20261107,
+      "set_id": "p77e54ad28ee8a89d",
+      "candidate_side": "B",
+      "preferred_anonymous": "A",
+      "preferred_unblinded": "native",
+      "candidate_relative_severity": 3,
+      "native_relative_severity": 0,
+      "confidence": "high",
+      "raw_response": "J1_session_B_raw.json"
+    },
+    {
+      "reviewer": "J1",
+      "session": "J1/session-B",
+      "seed": 20261108,
+      "set_id": "p37d12c010e3506f1",
+      "candidate_side": "B",
+      "preferred_anonymous": "A",
+      "preferred_unblinded": "native",
+      "candidate_relative_severity": 3,
+      "native_relative_severity": 0,
+      "confidence": "high",
+      "raw_response": "J1_session_B_raw.json"
+    },
+    {
+      "reviewer": "J2",
+      "session": "J2/session-A",
+      "seed": 20261109,
+      "set_id": "p05c2321271f549cb",
+      "candidate_side": "A",
+      "preferred_anonymous": "B",
+      "preferred_unblinded": "native",
+      "candidate_relative_severity": 3,
+      "native_relative_severity": 0,
+      "confidence": "high",
+      "raw_response": "J2_session_A_raw.json"
+    },
+    {
+      "reviewer": "J2",
+      "session": "J2/session-A",
+      "seed": 20261108,
+      "set_id": "p27c6e8b55e1db2fe",
+      "candidate_side": "A",
+      "preferred_anonymous": "B",
+      "preferred_unblinded": "native",
+      "candidate_relative_severity": 3,
+      "native_relative_severity": 0,
+      "confidence": "high",
+      "raw_response": "J2_session_A_raw.json"
+    },
+    {
+      "reviewer": "J2",
+      "session": "J2/session-A",
+      "seed": 20261107,
+      "set_id": "p9f8880d85a773938",
+      "candidate_side": "A",
+      "preferred_anonymous": "B",
+      "preferred_unblinded": "native",
+      "candidate_relative_severity": 3,
+      "native_relative_severity": 0,
+      "confidence": "high",
+      "raw_response": "J2_session_A_raw.json"
+    },
+    {
+      "reviewer": "J2",
+      "session": "J2/session-B",
+      "seed": 20261109,
+      "set_id": "p506af831a3e94ea5",
+      "candidate_side": "B",
+      "preferred_anonymous": "A",
+      "preferred_unblinded": "native",
+      "candidate_relative_severity": 3,
+      "native_relative_severity": 0,
+      "confidence": "high",
+      "raw_response": "J2_session_B_raw.json"
+    },
+    {
+      "reviewer": "J2",
+      "session": "J2/session-B",
+      "seed": 20261107,
+      "set_id": "p77e54ad28ee8a89d",
+      "candidate_side": "B",
+      "preferred_anonymous": "A",
+      "preferred_unblinded": "native",
+      "candidate_relative_severity": 3,
+      "native_relative_severity": 0,
+      "confidence": "high",
+      "raw_response": "J2_session_B_raw.json"
+    },
+    {
+      "reviewer": "J2",
+      "session": "J2/session-B",
+      "seed": 20261108,
+      "set_id": "p37d12c010e3506f1",
+      "candidate_side": "B",
+      "preferred_anonymous": "A",
+      "preferred_unblinded": "native",
+      "candidate_relative_severity": 3,
+      "native_relative_severity": 1,
+      "confidence": "high",
+      "raw_response": "J2_session_B_raw.json"
+    }
+  ],
+  "paired_checks": [
+    {
+      "reviewer": "J1",
+      "seed": 20261107,
+      "decisions": [
+        "p9f8880d85a773938",
+        "p77e54ad28ee8a89d"
+      ],
+      "candidate_severities": [
+        3,
+        3
+      ],
+      "preference_consistent": true,
+      "same_major_defect_in_both_orders": true,
+      "matched_defect_family": "인물·얼굴의 다층 반복 및 신체/소품 연결 붕괴",
+      "annotation_method": "coordinator compared the two raw descriptions after unblinding; this is a semantic evidence annotation, not a string-count metric"
+    },
+    {
+      "reviewer": "J1",
+      "seed": 20261108,
+      "decisions": [
+        "p27c6e8b55e1db2fe",
+        "p37d12c010e3506f1"
+      ],
+      "candidate_severities": [
+        3,
+        3
+      ],
+      "preference_consistent": true,
+      "same_major_defect_in_both_orders": true,
+      "matched_defect_family": "인물·얼굴의 다층 반복 및 신체/소품 연결 붕괴",
+      "annotation_method": "coordinator compared the two raw descriptions after unblinding; this is a semantic evidence annotation, not a string-count metric"
+    },
+    {
+      "reviewer": "J1",
+      "seed": 20261109,
+      "decisions": [
+        "p05c2321271f549cb",
+        "p506af831a3e94ea5"
+      ],
+      "candidate_severities": [
+        3,
+        3
+      ],
+      "preference_consistent": true,
+      "same_major_defect_in_both_orders": true,
+      "matched_defect_family": "인물·얼굴의 다층 반복 및 신체/소품 연결 붕괴",
+      "annotation_method": "coordinator compared the two raw descriptions after unblinding; this is a semantic evidence annotation, not a string-count metric"
+    },
+    {
+      "reviewer": "J2",
+      "seed": 20261107,
+      "decisions": [
+        "p9f8880d85a773938",
+        "p77e54ad28ee8a89d"
+      ],
+      "candidate_severities": [
+        3,
+        3
+      ],
+      "preference_consistent": true,
+      "same_major_defect_in_both_orders": true,
+      "matched_defect_family": "인물·얼굴의 다층 반복 및 신체/소품 연결 붕괴",
+      "annotation_method": "coordinator compared the two raw descriptions after unblinding; this is a semantic evidence annotation, not a string-count metric"
+    },
+    {
+      "reviewer": "J2",
+      "seed": 20261108,
+      "decisions": [
+        "p27c6e8b55e1db2fe",
+        "p37d12c010e3506f1"
+      ],
+      "candidate_severities": [
+        3,
+        3
+      ],
+      "preference_consistent": true,
+      "same_major_defect_in_both_orders": true,
+      "matched_defect_family": "인물·얼굴의 다층 반복 및 신체/소품 연결 붕괴",
+      "annotation_method": "coordinator compared the two raw descriptions after unblinding; this is a semantic evidence annotation, not a string-count metric"
+    },
+    {
+      "reviewer": "J2",
+      "seed": 20261109,
+      "decisions": [
+        "p05c2321271f549cb",
+        "p506af831a3e94ea5"
+      ],
+      "candidate_severities": [
+        3,
+        3
+      ],
+      "preference_consistent": true,
+      "same_major_defect_in_both_orders": true,
+      "matched_defect_family": "인물·얼굴의 다층 반복 및 신체/소품 연결 붕괴",
+      "annotation_method": "coordinator compared the two raw descriptions after unblinding; this is a semantic evidence annotation, not a string-count metric"
+    }
+  ],
+  "gate": {
+    "decision_count": 12,
+    "candidate_equivalent_or_preferred_severity_le1": 0,
+    "native_preferred": 12,
+    "repeated_major_defect_pairs": 6,
+    "order_preference_conflicts": 0,
+    "between_reviewer_adoption_conflicts": 0,
+    "status": "fail"
+  }
+}

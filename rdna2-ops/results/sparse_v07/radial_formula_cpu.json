@@ -1,0 +1,68 @@
+{
+  "kind": "CPU equation verification; not a GPU or video-model measurement",
+  "source": "https://arxiv.org/html/2506.19852v1#S4.SS2",
+  "source_equation": 4,
+  "first_frame_sink_added": false,
+  "rows": [
+    {
+      "frames": 1,
+      "tokens_per_frame": 8,
+      "kept": 64,
+      "total": 64,
+      "density": 1.0
+    },
+    {
+      "frames": 1,
+      "tokens_per_frame": 32,
+      "kept": 1024,
+      "total": 1024,
+      "density": 1.0
+    },
+    {
+      "frames": 2,
+      "tokens_per_frame": 8,
+      "kept": 256,
+      "total": 256,
+      "density": 1.0
+    },
+    {
+      "frames": 2,
+      "tokens_per_frame": 32,
+      "kept": 4096,
+      "total": 4096,
+      "density": 1.0
+    },
+    {
+      "frames": 4,
+      "tokens_per_frame": 8,
+      "kept": 904,
+      "total": 1024,
+      "density": 0.8828125
+    },
+    {
+      "frames": 4,
+      "tokens_per_frame": 32,
+      "kept": 14752,
+      "total": 16384,
+      "density": 0.900390625
+    },
+    {
+      "frames": 8,
+      "tokens_per_frame": 8,
+      "kept": 2816,
+      "total": 4096,
+      "density": 0.6875
+    },
+    {
+      "frames": 8,
+      "tokens_per_frame": 32,
+      "kept": 47552,
+      "total": 65536,
+      "density": 0.7255859375
+    }
+  ],
+  "implication": "Single-frame image and two adjacent frames give an all-visible mask; no sparse compute saved by this unmodified formula",
+  "model_scope": "Qwen reference images are not declared video frames; this verifies only the f=1/2 limiting case",
+  "time_utc": "2026-11-06T22:32:22.612578+00:00",
+  "script_sha256": "d457091208c72f9055d4214604353252a58a83c8b4b1dbb4709dc27230b92cba"
+}

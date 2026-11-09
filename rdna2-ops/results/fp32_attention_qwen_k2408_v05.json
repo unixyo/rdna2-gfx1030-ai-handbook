@@ -1,0 +1,561 @@
+{
+  "schema_version": 1,
+  "started_utc": "2026-11-06T15:26:01.132294+00:00",
+  "seed": 20261106,
+  "tolerance_fixed_before_execution": {
+    "rtol": 0.0003,
+    "atol": 3e-05
+  },
+  "tiles": {
+    "q32k16d16v128w8r": [
+      32,
+      16,
+      16,
+      128,
+      8,
+      1,
+      false
+    ],
+    "q32k64d16v128w8p16": [
+      32,
+      64,
+      16,
+      128,
+      8,
+      1,
+      false,
+      16
+    ]
+  },
+  "rocblas_hybrid_query_blocks": [
+    32,
+    64,
+    128
+  ],
+  "rounds": 3,
+  "iterations": 3,
+  "warmup": 1,
+  "memory_metric": "Incremental peak PyTorch allocated, excluding input/reference and non-allocator driver scratch.",
+  "timing": "Whole ordinary call including validation/output allocation/layout conversion; compilation and input creation excluded.",
+  "correctness": [],
+  "benchmarks": [
+    {
+      "model": "qwen",
+      "source": "captured",
+      "capture_path": "results/v05_qwen_capture/actual_qkv_2400_2408.pt",
+      "layout": {
+        "q": {
+          "shape": [
+            1,
+            32,
+            2400,
+            128
+          ],
+          "stride": [
+            9830400,
+            128,
+            4096,
+            1
+          ],
+          "offset": 0,
+          "dtype": "torch.float32"
+        },
+        "k": {
+          "shape": [
+            1,
+            32,
+            2408,
+            128
+          ],
+          "stride": [
+            9863168,
+            128,
+            4096,
+            1
+          ],
+          "offset": 0,
+          "dtype": "torch.float32"
+        },
+        "v": {
+          "shape": [
+            1,
+            32,
+            2408,
+            128
+          ],
+          "stride": [
+            9863168,
+            128,
+            4096,
+            1
+          ],
+          "offset": 0,
+          "dtype": "torch.float32"
+        }
+      },
+      "scale_mode": "post",
+      "accuracy": {
+        "attention_split": {
+          "vs_native": {
+            "finite": true,
+            "passed": true,
+            "max_abs": 0.0,
+            "rmse": 0.0
+          },
+          "vs_fp64_rows": {
+            "finite": true,
+            "passed": true,
+            "max_abs": 6.468643751866843e-06,
+            "rmse": 4.97901805026038e-07
+          }
+        },
+        "split_alpha": {
+          "vs_native": {
+            "finite": true,
+            "passed": true,
+            "max_abs": 0.0,
+            "rmse": 0.0
+          },
+          "vs_fp64_rows": {
+            "finite": true,
+            "passed": true,
+            "max_abs": 6.468643751866843e-06,
+            "rmse": 4.97901805026038e-07
+          }
+        },
+        "rocblas_query32": {
+          "vs_native": {
+            "finite": true,
+            "passed": true,
+            "max_abs": 4.780292510986328e-05,
+            "rmse": 8.298867736501522e-07,
+            "bitwise": false
+          },
+          "vs_fp64_rows": {
+            "finite": true,
+            "passed": true,
+            "max_abs": 1.2077002932486813e-05,
+            "rmse": 8.881205282223623e-07
+          }
+        },
+        "rocblas_query64": {
+          "vs_native": {
+            "finite": true,
+            "passed": true,
+            "max_abs": 4.780292510986328e-05,
+            "rmse": 8.281481468007651e-07,
+            "bitwise": false
+          },
+          "vs_fp64_rows": {
+            "finite": true,
+            "passed": true,
+            "max_abs": 1.2077002932486813e-05,
+            "rmse": 8.879964942750337e-07
+          }
+        },
+        "rocblas_query128": {
+          "vs_native": {
+            "finite": true,
+            "passed": true,
+            "max_abs": 4.780292510986328e-05,
+            "rmse": 8.284461615778462e-07,
+            "bitwise": false
+          },
+          "vs_fp64_rows": {
+            "finite": true,
+            "passed": true,
+            "max_abs": 1.2077002932486813e-05,
+            "rmse": 8.874662470887006e-07
+          }
+        },
+        "q32k16d16v128w8r": {
+          "vs_native": {
+            "finite": true,
+            "passed": true,
+            "max_abs": 4.792213439941406e-05,
+            "rmse": 8.629582578555481e-07
+          },
+          "vs_fp64_rows": {
+            "finite": true,
+            "passed": true,
+            "max_abs": 1.1898188998160641e-05,
+            "rmse": 8.778736547930403e-07
+          }
+        },
+        "q32k64d16v128w8p16": {
+          "vs_native": {
+            "finite": true,
+            "passed": true,
+            "max_abs": 4.744529724121094e-05,
+            "rmse": 8.506128325997065e-07
+          },
+          "vs_fp64_rows": {
+            "finite": true,
+            "passed": true,
+            "max_abs": 1.2077002932486813e-05,
+            "rmse": 8.82234341306004e-07
+          }
+        }
+      },
+      "isa": {
+        "q32k16d16v128w8r": [
+          {
+            "n_regs": 127,
+            "n_spills": 0,
+            "shared_bytes": 16384,
+            "asm_sha256": "3667242422b81986f5b2ab6e16515d79aab6c76740f3b69d4e199aa027f7b70f",
+            "instructions": {
+              "\\bv_fmac_f32\\b": 0,
+              "\\bv_fma_f32\\b": 48,
+              "\\bv_dot2c_f32_f16\\b": 0,
+              "\\bv_dot4c_i32_i8\\b": 0,
+              "\\bv_mfma": 0,
+              "\\bv_wmma": 0,
+              "\\bscratch_load": 0,
+              "\\bscratch_store": 0
+            },
+            "private_segment": [
+              "0"
+            ]
+          }
+        ],
+        "q32k64d16v128w8p16": [
+          {
+            "n_regs": 191,
+            "n_spills": 0,
+            "shared_bytes": 16384,
+            "asm_sha256": "c23fcdb059e958516f6bac0a1d5e333e712b70919317c017c72edd3478d355a3",
+            "instructions": {
+              "\\bv_fmac_f32\\b": 0,
+              "\\bv_fma_f32\\b": 48,
+              "\\bv_dot2c_f32_f16\\b": 0,
+              "\\bv_dot4c_i32_i8\\b": 0,
+              "\\bv_mfma": 0,
+              "\\bv_wmma": 0,
+              "\\bscratch_load": 0,
+              "\\bscratch_store": 0
+            },
+            "private_segment": [
+              "0"
+            ]
+          }
+        ]
+      },
+      "capture_metadata": {
+        "shapes": [
+          [
+            1,
+            2400,
+            4096
+          ],
+          [
+            1,
+            2408,
+            4096
+          ],
+          [
+            1,
+            2408,
+            4096
+          ]
+        ],
+        "strides": [
+          [
+            9830400,
+            4096,
+            1
+          ],
+          [
+            9863168,
+            4096,
+            1
+          ],
+          [
+            9863168,
+            4096,
+            1
+          ]
+        ],
+        "dtype": "torch.float32",
+        "heads": 32,
+        "mask": null,
+        "source": {
+          "module": "comfy.ldm.modules.attention",
+          "name": "attention_split",
+          "path": "~/DevSpace/qwen-image-21-rdna2-lab01/runtime/ComfyUI/comfy/ldm/modules/attention.py"
+        }
+      },
+      "fp64_reference": {
+        "heads": [
+          0,
+          1
+        ],
+        "query_rows": [
+          0,
+          800,
+          1599,
+          2399
+        ]
+      },
+      "round_order": [
+        [
+          "attention_split",
+          "split_alpha",
+          "rocblas_query32",
+          "rocblas_query64",
+          "rocblas_query128",
+          "q32k16d16v128w8r",
+          "q32k64d16v128w8p16"
+        ],
+        [
+          "q32k64d16v128w8p16",
+          "q32k16d16v128w8r",
+          "rocblas_query128",
+          "rocblas_query64",
+          "rocblas_query32",
+          "split_alpha",
+          "attention_split"
+        ],
+        [
+          "attention_split",
+          "split_alpha",
+          "rocblas_query32",
+          "rocblas_query64",
+          "rocblas_query128",
+          "q32k16d16v128w8r",
+          "q32k64d16v128w8p16"
+        ]
+      ],
+      "methods": {
+        "attention_split": {
+          "samples": [
+            {
+              "wall_ms": 15.816408665462708,
+              "event_ms": 15.79758071899414
+            },
+            {
+              "wall_ms": 16.306667998530127,
+              "event_ms": 16.29991404215495
+            },
+            {
+              "wall_ms": 16.34661100009301,
+              "event_ms": 16.339337666829426
+            }
+          ],
+          "median": {
+            "wall_ms": 16.306667998530127,
+            "event_ms": 16.29991404215495
+          },
+          "memory": {
+            "baseline_allocated_bytes": 192937984,
+            "peak_allocated_bytes": 1832386560,
+            "incremental_peak_bytes": 1639448576,
+            "output_bytes": 39321600
+          },
+          "speedups": {
+            "attention_split": 1.0,
+            "split_alpha": 0.7889476665462445
+          }
+        },
+        "split_alpha": {
+          "samples": [
+            {
+              "wall_ms": 12.822557999849474,
+              "event_ms": 12.814404805501303
+            },
+            {
+              "wall_ms": 12.865107666584663,
+              "event_ms": 12.857976277669271
+            },
+            {
+              "wall_ms": 13.18001199979335,
+              "event_ms": 13.171218872070312
+            }
+          ],
+          "median": {
+            "wall_ms": 12.865107666584663,
+            "event_ms": 12.857976277669271
+          },
+          "memory": {
+            "baseline_allocated_bytes": 192937984,
+            "peak_allocated_bytes": 1793064960,
+            "incremental_peak_bytes": 1600126976,
+            "output_bytes": 39321600
+          },
+          "speedups": {
+            "attention_split": 1.2675111954861007,
+            "split_alpha": 1.0
+          }
+        },
+        "rocblas_query32": {
+          "samples": [
+            {
+              "wall_ms": 33.45476633451957,
+              "event_ms": 33.44225056966146
+            },
+            {
+              "wall_ms": 33.42414333261937,
+              "event_ms": 33.41226450602213
+            },
+            {
+              "wall_ms": 33.66896133229602,
+              "event_ms": 33.65702565511068
+            }
+          ],
+          "median": {
+            "wall_ms": 33.45476633451957,
+            "event_ms": 33.44225056966146
+          },
+          "memory": {
+            "baseline_allocated_bytes": 192937984,
+            "peak_allocated_bytes": 361660416,
+            "incremental_peak_bytes": 168722432,
+            "output_bytes": 39321600
+          },
+          "speedups": {
+            "attention_split": 0.4874243578770553,
+            "split_alpha": 0.38455230976490434
+          }
+        },
+        "rocblas_query64": {
+          "samples": [
+            {
+              "wall_ms": 23.262324667787954,
+              "event_ms": 23.250015258789062
+            },
+            {
+              "wall_ms": 23.323830668232404,
+              "event_ms": 23.30779520670573
+            },
+            {
+              "wall_ms": 23.33693066611886,
+              "event_ms": 23.32581075032552
+            }
+          ],
+          "median": {
+            "wall_ms": 23.323830668232404,
+            "event_ms": 23.30779520670573
+          },
+          "memory": {
+            "baseline_allocated_bytes": 192937984,
+            "peak_allocated_bytes": 371523584,
+            "incremental_peak_bytes": 178585600,
+            "output_bytes": 39321600
+          },
+          "speedups": {
+            "attention_split": 0.6991419304351315,
+            "split_alpha": 0.5515863946014339
+          }
+        },
+        "rocblas_query128": {
+          "samples": [
+            {
+              "wall_ms": 20.567048668453936,
+              "event_ms": 20.556111653645832
+            },
+            {
+              "wall_ms": 20.284420999814756,
+              "event_ms": 20.270029703776043
+            },
+            {
+              "wall_ms": 20.668938001714803,
+              "event_ms": 20.658175150553387
+            }
+          ],
+          "median": {
+            "wall_ms": 20.567048668453936,
+            "event_ms": 20.556111653645832
+          },
+          "memory": {
+            "baseline_allocated_bytes": 192937984,
+            "peak_allocated_bytes": 391249920,
+            "incremental_peak_bytes": 198311936,
+            "output_bytes": 39321600
+          },
+          "speedups": {
+            "attention_split": 0.7928540580322325,
+            "split_alpha": 0.6255203589962506
+          }
+        },
+        "q32k16d16v128w8r": {
+          "samples": [
+            {
+              "wall_ms": 27.321966665719327,
+              "event_ms": 27.31145985921224
+            },
+            {
+              "wall_ms": 27.233740666512556,
+              "event_ms": 27.22046407063802
+            },
+            {
+              "wall_ms": 27.418889333299983,
+              "event_ms": 27.405431111653645
+            }
+          ],
+          "median": {
+            "wall_ms": 27.321966665719327,
+            "event_ms": 27.31145985921224
+          },
+          "memory": {
+            "baseline_allocated_bytes": 192937984,
+            "peak_allocated_bytes": 272629760,
+            "incremental_peak_bytes": 79691776,
+            "output_bytes": 39321600
+          },
+          "speedups": {
+            "attention_split": 0.5968336100413293,
+            "split_alpha": 0.470870483958478
+          }
+        },
+        "q32k64d16v128w8p16": {
+          "samples": [
+            {
+              "wall_ms": 25.655082999340568,
+              "event_ms": 25.646336873372395
+            },
+            {
+              "wall_ms": 25.387864666602884,
+              "event_ms": 25.377212524414062
+            },
+            {
+              "wall_ms": 25.751371998921968,
+              "event_ms": 25.742884318033855
+            }
+          ],
+          "median": {
+            "wall_ms": 25.655082999340568,
+            "event_ms": 25.646336873372395
+          },
+          "memory": {
+            "baseline_allocated_bytes": 192937984,
+            "peak_allocated_bytes": 272629760,
+            "incremental_peak_bytes": 79691776,
+            "output_bytes": 39321600
+          },
+          "speedups": {
+            "attention_split": 0.6356115861698545,
+            "split_alpha": 0.5014642777384639
+          }
+        }
+      },
+      "passed": true
+    }
+  ],
+  "status": "passed",
+  "environment": {
+    "torch": "2.12.0+rocm10.2.0a20261011",
+    "torch_git": "9ccf2fd0aab44087b58af23ad20bc961c29bb852",
+    "hip": "7.17.26405",
+    "triton": "3.8.0",
+    "arch": "gfx1030",
+    "gpu": "AMD Radeon RX 6900 XT"
+  },
+  "source_sha256": {
+    "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/bench_fp32_attention.py": "32bddf8aad31ff7c4334edc167aea3fa9f4a1064a30b7d63c35420009c80db74",
+    "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/rdna2_ops/attention.py": "1033fd79c4f7df988c3d1ee0f3166c7f8dcb871f596ad462d71c7f3583c3a311",
+    "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/rdna2_ops/fp32_attention.py": "e64bf1223bd3ed91c8e89c4762b40d75e79a3878c5f2f6722d1542218dab1308",
+    "~/DevSpace/qwen-image-21-rdna2-lab01/runtime/ComfyUI/comfy/ldm/modules/attention.py": "9cafaafaf93ff53e8cbefb5e4a204014019985df2da8c1996bf40f1235fc2960",
+    "~/DevSpace/rdna2-pro-research-20261102/rehearsal_qwen_20261106/scripts/candidates.py": "281a8d1ea21bbf2dd6a7a0799ab4a4e3d0232ac4f458c33372876ade97e0d30d"
+  },
+  "exit_status": 0
+}

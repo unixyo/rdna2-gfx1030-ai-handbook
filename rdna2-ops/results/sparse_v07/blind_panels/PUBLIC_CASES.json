@@ -1,0 +1,518 @@
+{
+  "cases": [
+    {
+      "pair_id": "p05c2321271f549cb",
+      "assets": [
+        {
+          "path": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/sparse_v07/blind_panels/a0000.png",
+          "sha256": "f240c4c9c5eea07d1282cd4a5418718e448de2bb861ea838db6a7522247c6055",
+          "bytes": 1830009,
+          "view": "full",
+          "source_region": [
+            0,
+            0,
+            960,
+            640
+          ],
+          "size": [
+            1944,
+            688
+          ],
+          "pixel_identity_verified": true,
+          "resized": false
+        },
+        {
+          "path": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/sparse_v07/blind_panels/a0001.png",
+          "sha256": "d56652573d54c2da17947670f6413fb53ea614be8386e1d7b19b87f79a9bae59",
+          "bytes": 683567,
+          "view": "C1",
+          "source_region": [
+            48,
+            13,
+            912,
+            269
+          ],
+          "size": [
+            1752,
+            304
+          ],
+          "pixel_identity_verified": true,
+          "resized": false
+        },
+        {
+          "path": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/sparse_v07/blind_panels/a0002.png",
+          "sha256": "336e81c0a297b4acf837730f655a50228d10a39beea1d70fe482ccff94d0cf51",
+          "bytes": 812531,
+          "view": "C2",
+          "source_region": [
+            48,
+            192,
+            912,
+            480
+          ],
+          "size": [
+            1752,
+            336
+          ],
+          "pixel_identity_verified": true,
+          "resized": false
+        },
+        {
+          "path": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/sparse_v07/blind_panels/a0003.png",
+          "sha256": "aced9b4ee83db68ab4f50815a3644a733fcd202f8a76ea88fedf81924e5bd368",
+          "bytes": 657943,
+          "view": "C3",
+          "source_region": [
+            48,
+            371,
+            912,
+            627
+          ],
+          "size": [
+            1752,
+            304
+          ],
+          "pixel_identity_verified": true,
+          "resized": false
+        }
+      ],
+      "full": [
+        "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/sparse_v07/blind_panels/a0000.png"
+      ],
+      "crops": [
+        "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/sparse_v07/blind_panels/a0001.png",
+        "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/sparse_v07/blind_panels/a0002.png",
+        "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/sparse_v07/blind_panels/a0003.png"
+      ]
+    },
+    {
+      "pair_id": "p27c6e8b55e1db2fe",
+      "assets": [
+        {
+          "path": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/sparse_v07/blind_panels/a0004.png",
+          "sha256": "6b8d1728998c3cc022cf8dc20bc4a1774638482a072fe8dbe7a51d1458b9d6a6",
+          "bytes": 1800226,
+          "view": "full",
+          "source_region": [
+            0,
+            0,
+            960,
+            640
+          ],
+          "size": [
+            1944,
+            688
+          ],
+          "pixel_identity_verified": true,
+          "resized": false
+        },
+        {
+          "path": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/sparse_v07/blind_panels/a0005.png",
+          "sha256": "837b794002b5a8d7eed03011e10290a25e5b3be45fccd4573fad0cad22515bd5",
+          "bytes": 646213,
+          "view": "C1",
+          "source_region": [
+            48,
+            13,
+            912,
+            269
+          ],
+          "size": [
+            1752,
+            304
+          ],
+          "pixel_identity_verified": true,
+          "resized": false
+        },
+        {
+          "path": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/sparse_v07/blind_panels/a0006.png",
+          "sha256": "295327e62fa92cf0c1415d6eedd3d304c0acb3ba7956d3a01ba3d3830509c745",
+          "bytes": 797459,
+          "view": "C2",
+          "source_region": [
+            48,
+            192,
+            912,
+            480
+          ],
+          "size": [
+            1752,
+            336
+          ],
+          "pixel_identity_verified": true,
+          "resized": false
+        },
+        {
+          "path": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/sparse_v07/blind_panels/a0007.png",
+          "sha256": "a960038f1dd853cc872fa69d612a9fa5730c75b618fa90e50c3938d4df37234a",
+          "bytes": 648799,
+          "view": "C3",
+          "source_region": [
+            48,
+            371,
+            912,
+            627
+          ],
+          "size": [
+            1752,
+            304
+          ],
+          "pixel_identity_verified": true,
+          "resized": false
+        }
+      ],
+      "full": [
+        "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/sparse_v07/blind_panels/a0004.png"
+      ],
+      "crops": [
+        "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/sparse_v07/blind_panels/a0005.png",
+        "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/sparse_v07/blind_panels/a0006.png",
+        "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/sparse_v07/blind_panels/a0007.png"
+      ]
+    },
+    {
+      "pair_id": "p9f8880d85a773938",
+      "assets": [
+        {
+          "path": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/sparse_v07/blind_panels/a0008.png",
+          "sha256": "fbba8fd0843645126147d9603f4e69a071f169eab97eb26b153518d992278537",
+          "bytes": 1812581,
+          "view": "full",
+          "source_region": [
+            0,
+            0,
+            960,
+            640
+          ],
+          "size": [
+            1944,
+            688
+          ],
+          "pixel_identity_verified": true,
+          "resized": false
+        },
+        {
+          "path": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/sparse_v07/blind_panels/a0009.png",
+          "sha256": "93a7640a4b297af7e427ac1a7ca1c5ccca832acf5511747a3d9b3be45156ad09",
+          "bytes": 641330,
+          "view": "C1",
+          "source_region": [
+            48,
+            13,
+            912,
+            269
+          ],
+          "size": [
+            1752,
+            304
+          ],
+          "pixel_identity_verified": true,
+          "resized": false
+        },
+        {
+          "path": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/sparse_v07/blind_panels/a0010.png",
+          "sha256": "fa192e6d345f386bb11dfead643ebfdda669645c4b6cbf6c55b2883be0b85307",
+          "bytes": 811318,
+          "view": "C2",
+          "source_region": [
+            48,
+            192,
+            912,
+            480
+          ],
+          "size": [
+            1752,
+            336
+          ],
+          "pixel_identity_verified": true,
+          "resized": false
+        },
+        {
+          "path": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/sparse_v07/blind_panels/a0011.png",
+          "sha256": "566f9b5d985d70a4c0251b05612cc6cc6c9093511d3cdde9f52d95bdd079f827",
+          "bytes": 668368,
+          "view": "C3",
+          "source_region": [
+            48,
+            371,
+            912,
+            627
+          ],
+          "size": [
+            1752,
+            304
+          ],
+          "pixel_identity_verified": true,
+          "resized": false
+        }
+      ],
+      "full": [
+        "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/sparse_v07/blind_panels/a0008.png"
+      ],
+      "crops": [
+        "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/sparse_v07/blind_panels/a0009.png",
+        "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/sparse_v07/blind_panels/a0010.png",
+        "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/sparse_v07/blind_panels/a0011.png"
+      ]
+    },
+    {
+      "pair_id": "p506af831a3e94ea5",
+      "assets": [
+        {
+          "path": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/sparse_v07/blind_panels/a0012.png",
+          "sha256": "0110ad0efba97f337b39c77676bdcdc86b3daf72ff9c2f40d6c091be03d9cc6a",
+          "bytes": 1830270,
+          "view": "full",
+          "source_region": [
+            0,
+            0,
+            960,
+            640
+          ],
+          "size": [
+            1944,
+            688
+          ],
+          "pixel_identity_verified": true,
+          "resized": false
+        },
+        {
+          "path": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/sparse_v07/blind_panels/a0013.png",
+          "sha256": "3a6d9b65a36678d1894cb482000e08eac63438ef5fdca9f3e52c183961f7c191",
+          "bytes": 683649,
+          "view": "C1",
+          "source_region": [
+            48,
+            13,
+            912,
+            269
+          ],
+          "size": [
+            1752,
+            304
+          ],
+          "pixel_identity_verified": true,
+          "resized": false
+        },
+        {
+          "path": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/sparse_v07/blind_panels/a0014.png",
+          "sha256": "c5c2c92c76dc1ab5dfccdcf33f2fef4a1dc4a84cc09a8d860c46bc6fbe8606d1",
+          "bytes": 812587,
+          "view": "C2",
+          "source_region": [
+            48,
+            192,
+            912,
+            480
+          ],
+          "size": [
+            1752,
+            336
+          ],
+          "pixel_identity_verified": true,
+          "resized": false
+        },
+        {
+          "path": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/sparse_v07/blind_panels/a0015.png",
+          "sha256": "6b53b0b9e5a4db453117c423208a0c4238069d5452b3fcf8423cfdb6406ea79b",
+          "bytes": 658128,
+          "view": "C3",
+          "source_region": [
+            48,
+            371,
+            912,
+            627
+          ],
+          "size": [
+            1752,
+            304
+          ],
+          "pixel_identity_verified": true,
+          "resized": false
+        }
+      ],
+      "full": [
+        "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/sparse_v07/blind_panels/a0012.png"
+      ],
+      "crops": [
+        "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/sparse_v07/blind_panels/a0013.png",
+        "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/sparse_v07/blind_panels/a0014.png",
+        "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/sparse_v07/blind_panels/a0015.png"
+      ]
+    },
+    {
+      "pair_id": "p77e54ad28ee8a89d",
+      "assets": [
+        {
+          "path": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/sparse_v07/blind_panels/a0016.png",
+          "sha256": "55b45d29c83ae1a784d96bbd43832ef89a5c2790ca03968560c12d1e73b1d489",
+          "bytes": 1812998,
+          "view": "full",
+          "source_region": [
+            0,
+            0,
+            960,
+            640
+          ],
+          "size": [
+            1944,
+            688
+          ],
+          "pixel_identity_verified": true,
+          "resized": false
+        },
+        {
+          "path": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/sparse_v07/blind_panels/a0017.png",
+          "sha256": "e442e5d78df30ec4aa17623c91120ead9e94193ef23cbc8bc722756c9e48e6cf",
+          "bytes": 641653,
+          "view": "C1",
+          "source_region": [
+            48,
+            13,
+            912,
+            269
+          ],
+          "size": [
+            1752,
+            304
+          ],
+          "pixel_identity_verified": true,
+          "resized": false
+        },
+        {
+          "path": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/sparse_v07/blind_panels/a0018.png",
+          "sha256": "f60dae9c4ffb9236a78ec7cfc6a6bc66f0f1465d353c6e630bfa02cadeda52fc",
+          "bytes": 811228,
+          "view": "C2",
+          "source_region": [
+            48,
+            192,
+            912,
+            480
+          ],
+          "size": [
+            1752,
+            336
+          ],
+          "pixel_identity_verified": true,
+          "resized": false
+        },
+        {
+          "path": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/sparse_v07/blind_panels/a0019.png",
+          "sha256": "b69db09f6e3c97faacecd84e6816b7acf9dbbf44af10d32479cadb63f575f64f",
+          "bytes": 667852,
+          "view": "C3",
+          "source_region": [
+            48,
+            371,
+            912,
+            627
+          ],
+          "size": [
+            1752,
+            304
+          ],
+          "pixel_identity_verified": true,
+          "resized": false
+        }
+      ],
+      "full": [
+        "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/sparse_v07/blind_panels/a0016.png"
+      ],
+      "crops": [
+        "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/sparse_v07/blind_panels/a0017.png",
+        "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/sparse_v07/blind_panels/a0018.png",
+        "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/sparse_v07/blind_panels/a0019.png"
+      ]
+    },
+    {
+      "pair_id": "p37d12c010e3506f1",
+      "assets": [
+        {
+          "path": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/sparse_v07/blind_panels/a0020.png",
+          "sha256": "9cf563894f19366037ef55ada826de9b6196caa0507944250aae6e1196ce1312",
+          "bytes": 1800653,
+          "view": "full",
+          "source_region": [
+            0,
+            0,
+            960,
+            640
+          ],
+          "size": [
+            1944,
+            688
+          ],
+          "pixel_identity_verified": true,
+          "resized": false
+        },
+        {
+          "path": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/sparse_v07/blind_panels/a0021.png",
+          "sha256": "66755a9382cf581af1513020a39bfb8706012607071bb67e2334b1c6da188983",
+          "bytes": 646920,
+          "view": "C1",
+          "source_region": [
+            48,
+            13,
+            912,
+            269
+          ],
+          "size": [
+            1752,
+            304
+          ],
+          "pixel_identity_verified": true,
+          "resized": false
+        },
+        {
+          "path": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/sparse_v07/blind_panels/a0022.png",
+          "sha256": "7ee538d1e5639ad0c37ba93251f0a13659174cb47c42979c7fd924ce8bd415fb",
+          "bytes": 797431,
+          "view": "C2",
+          "source_region": [
+            48,
+            192,
+            912,
+            480
+          ],
+          "size": [
+            1752,
+            336
+          ],
+          "pixel_identity_verified": true,
+          "resized": false
+        },
+        {
+          "path": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/sparse_v07/blind_panels/a0023.png",
+          "sha256": "a392afc6a4c72fee97d061cd74c8cbf766a60cac9f7b964d7fa8e88f40973522",
+          "bytes": 648914,
+          "view": "C3",
+          "source_region": [
+            48,
+            371,
+            912,
+            627
+          ],
+          "size": [
+            1752,
+            304
+          ],
+          "pixel_identity_verified": true,
+          "resized": false
+        }
+      ],
+      "full": [
+        "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/sparse_v07/blind_panels/a0020.png"
+      ],
+      "crops": [
+        "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/sparse_v07/blind_panels/a0021.png",
+        "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/sparse_v07/blind_panels/a0022.png",
+        "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/sparse_v07/blind_panels/a0023.png"
+      ]
+    }
+  ],
+  "prompt_file": "JUDGE_PROMPT_KO.txt",
+  "public_task_file": "PUBLIC_TASK.json",
+  "max_asset_bytes": 2000000,
+  "source_pixels_1_to_1": true
+}

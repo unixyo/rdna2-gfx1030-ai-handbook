@@ -1,0 +1,31 @@
+{
+  "device": "AMD Radeon RX 6900 XT",
+  "scope": "FP32 input/output; other precision forwarded to original eager",
+  "tests": [
+    {
+      "input_dtype": "torch.float32",
+      "output_dtype": "torch.float32",
+      "byte_equal": true,
+      "optimized_calls": 1
+    },
+    {
+      "input_dtype": "torch.float16",
+      "output_dtype": "torch.float16",
+      "byte_equal": true,
+      "optimized_calls": 0
+    },
+    {
+      "input_dtype": "torch.bfloat16",
+      "output_dtype": "torch.bfloat16",
+      "byte_equal": true,
+      "optimized_calls": 0
+    },
+    {
+      "input_dtype": "torch.float32",
+      "output_dtype": "torch.bfloat16",
+      "byte_equal": true,
+      "optimized_calls": 0
+    }
+  ],
+  "rollback_export_restored": true
+}

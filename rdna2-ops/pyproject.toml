@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "rdna2-ops"
+version = "0.7.0"
+description = "Measured reusable HIP and Triton inference operators for AMD gfx1030"
+requires-python = ">=3.10"
+dependencies = ["torch"]
+license = {text = "MIT AND Apache-2.0"}
+
+[tool.setuptools.packages.find]
+include = ["rdna2_ops*"]
+
+[tool.setuptools.package-data]
+rdna2_ops = ["csrc/*.hip", "lib/*.so", "LICENSE.kitchen"]

@@ -1,0 +1,237 @@
+{
+  "schema": "applio_v10_fusion_gl2c_summary_v2",
+  "valid_for_counters": true,
+  "arm": "B",
+  "seed": 20261108,
+  "case": {
+    "name": "B8_C32_T12800_K3_D1",
+    "key1": "[[8,32,12800],[32,32,3],1,1,1,\"float16\",\"NCT\",1]",
+    "key2": "[[8,32,12800],[32,32,3],1,1,1,\"float16\",\"NCT\",1]",
+    "pair_key": "[\"[[8,32,12800],[32,32,3],1,1,1,\\\"float16\\\",\\\"NCT\\\",1]\",\"[[8,32,12800],[32,32,3],1,1,1,\\\"float16\\\",\\\"NCT\\\",1]\"]",
+    "shape": [
+      8,
+      32,
+      12800
+    ],
+    "weight": [
+      32,
+      32,
+      3
+    ],
+    "dilation": 1,
+    "padding": 1,
+    "directions1": {
+      "fwd": {
+        "bm": 32,
+        "bn": 128,
+        "bk": 32,
+        "num_warps": 4
+      },
+      "dx": {
+        "bm": 32,
+        "bn": 64,
+        "bk": 32,
+        "num_warps": 4
+      },
+      "dw": {
+        "bm": 32,
+        "bn": 32,
+        "bk": 64,
+        "num_warps": 4,
+        "split": 32
+      }
+    },
+    "directions2": {
+      "fwd": {
+        "bm": 32,
+        "bn": 128,
+        "bk": 32,
+        "num_warps": 4
+      },
+      "dx": {
+        "bm": 32,
+        "bn": 64,
+        "bk": 32,
+        "num_warps": 4
+      },
+      "dw": {
+        "bm": 32,
+        "bn": 32,
+        "bk": 64,
+        "num_warps": 4,
+        "split": 32
+      }
+    }
+  },
+  "input_hashes": {
+    "x": "a0615c363ed0a967ec9560f5c7257a9fb6751ddeeff2718fa066b7a8b92e1279",
+    "dy": "7a011c36bb7fcb6ffe3d691ed63056de21fac9fade5014e1f9703bc5dd1d73bb",
+    "masters": "d52d2def6678b413224a3daadddf1d144f6c12de0b5fb15e31d8850e48813b20"
+  },
+  "output_hashes": {
+    "y": "67d583581aea2260d5d3c8f7b6c3cda512745e4518469bdd0751ae924d96dbd8",
+    "dx": "fd6c102fba9cd3c641fb37c847632c0fb88fb239f4df425b3971748d00b4dec8",
+    "convs1.0.bias": "34feb258c558048f24547d40be31e2dae1e3c2bb3e152ad7c840ebe0f45ba17d",
+    "convs1.0.parametrizations.weight.original0": "11817b813129b5347769315030c0fad30023b9aae2039ee02931d30b4696ee6a",
+    "convs1.0.parametrizations.weight.original1": "9563c4a48d8bb1079853ae00210694e214c4974cc6cf234b8f2e306deaebe934",
+    "convs2.0.bias": "9f1c3c350cb75dae9251d66e8f70d18f2397de44077a3ffdf04b1512bc517247",
+    "convs2.0.parametrizations.weight.original0": "7365defda5133506810a77e0d40c61dadaeb73e5869ef60e8907dbe821f3accc",
+    "convs2.0.parametrizations.weight.original1": "d9e044ff37961370d53f97b59e6018a4a186dfe8517fa38e2437063eca80ba70"
+  },
+  "sources": {
+    "bench_v10_fusion.py": "d3f6c6f7d5a26e601c6d0780a8510e5e5e4dbe9aeff59c5fc771f1041569068c",
+    "v08_direct_conv.py": "6ef607af92b0ffd561a633093ff9bd62ae8428deb6f613aa2d38fca3a674b4e3",
+    "v10_fused_resblock.py": "c824ee32ccaf69d6b17b605f68687bc556b4958c2d951663e0563b481ee780b6"
+  },
+  "driver_sha256": "b236e122cd424dd57ff1d95bf6ce1df0707d657af950b148d85a22f415f47acb",
+  "summarizer_sha256": "271b00e60bc401eb2f1eaf2927e1afd900ca96bbc250d1894a86c3e0a6671bd2",
+  "controls": {
+    "seed": 20261108,
+    "warmup": 3,
+    "measured_pairs": 1,
+    "case": {
+      "name": "B8_C32_T12800_K3_D1",
+      "key1": "[[8,32,12800],[32,32,3],1,1,1,\"float16\",\"NCT\",1]",
+      "key2": "[[8,32,12800],[32,32,3],1,1,1,\"float16\",\"NCT\",1]",
+      "pair_key": "[\"[[8,32,12800],[32,32,3],1,1,1,\\\"float16\\\",\\\"NCT\\\",1]\",\"[[8,32,12800],[32,32,3],1,1,1,\\\"float16\\\",\\\"NCT\\\",1]\"]",
+      "shape": [
+        8,
+        32,
+        12800
+      ],
+      "weight": [
+        32,
+        32,
+        3
+      ],
+      "dilation": 1,
+      "padding": 1,
+      "directions1": {
+        "fwd": {
+          "bm": 32,
+          "bn": 128,
+          "bk": 32,
+          "num_warps": 4
+        },
+        "dx": {
+          "bm": 32,
+          "bn": 64,
+          "bk": 32,
+          "num_warps": 4
+        },
+        "dw": {
+          "bm": 32,
+          "bn": 32,
+          "bk": 64,
+          "num_warps": 4,
+          "split": 32
+        }
+      },
+      "directions2": {
+        "fwd": {
+          "bm": 32,
+          "bn": 128,
+          "bk": 32,
+          "num_warps": 4
+        },
+        "dx": {
+          "bm": 32,
+          "bn": 64,
+          "bk": 32,
+          "num_warps": 4
+        },
+        "dw": {
+          "bm": 32,
+          "bn": 32,
+          "bk": 64,
+          "num_warps": 4,
+          "split": 32
+        }
+      }
+    },
+    "sources": {
+      "bench_v10_fusion.py": "d3f6c6f7d5a26e601c6d0780a8510e5e5e4dbe9aeff59c5fc771f1041569068c",
+      "v08_direct_conv.py": "6ef607af92b0ffd561a633093ff9bd62ae8428deb6f613aa2d38fca3a674b4e3",
+      "v10_fused_resblock.py": "c824ee32ccaf69d6b17b605f68687bc556b4958c2d951663e0563b481ee780b6"
+    },
+    "driver_sha256": "b236e122cd424dd57ff1d95bf6ce1df0707d657af950b148d85a22f415f47acb",
+    "evidence_sha256": "7b8f5708cf2ef20139e7d4db13722bf1f201bdc4c6a4982d729c452fd937fa86",
+    "manifest_sha256": "22e41075581e8b2d969388244bf063adba59579942c4959ae892e2aeb4fcfa59",
+    "selection_sha256": "db3da6994b49d8433bb3e63031c604a2ca0d61aa6404cbc6fbf024aef968cdfa",
+    "torch": "2.11.0+rocm10.0.0",
+    "hip": "7.15.26333",
+    "safety_env": {
+      "MIOPEN_DEBUG_CONV_IMPLICIT_GEMM_HIP_FWD_V4R1": "0",
+      "MIOPEN_DEBUG_CONV_DIRECT_HIP_WRW53": "0",
+      "HSA_DISABLE_COREDUMP_ON_EXCEPTION": "1"
+    },
+    "db": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/v10/fusion_traffic_db_01",
+    "memory_scope": "GL2C/EA interface request bytes; not identified physical DRAM bytes"
+  },
+  "run": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/v10/fusion_traffic_FETCH_SIZE_B_02/result.json",
+  "run_sha256": "73ae2f5e7c80cb6cac94f77e6dde31ced8274ccd09239c307a2f290526710860",
+  "pid": 2621847,
+  "counter_dir": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/v10/fusion_traffic_FETCH_SIZE_B_02_rocprof",
+  "csv_files": {
+    "kernel": {
+      "path": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/v10/fusion_traffic_FETCH_SIZE_B_02_rocprof/fusion_traffic_FETCH_SIZE_B_02_kernel_trace.csv",
+      "sha256": "9fe32a21ec55a97814a84c8c0052cde77586008f2ac0ce0bab16a8fc96b6e802",
+      "rows": 28
+    },
+    "counter": {
+      "path": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/v10/fusion_traffic_FETCH_SIZE_B_02_rocprof/fusion_traffic_FETCH_SIZE_B_02_counter_collection.csv",
+      "sha256": "0aecddfbc2c0bd5fd597a9816248f58d07d292a09388107b38037eceb8bfd05c",
+      "rows": 28
+    },
+    "marker": {
+      "path": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/v10/fusion_traffic_FETCH_SIZE_B_02_rocprof/fusion_traffic_FETCH_SIZE_B_02_marker_api_trace.csv",
+      "sha256": "a670cc550f26d40cfd568c3fadb5ada1475df132d0a4fa17a27ea713682046e5",
+      "rows": 5
+    }
+  },
+  "join_fields": [
+    "Dispatch_Id",
+    "Agent_Id",
+    "Queue_Id",
+    "Kernel_Id",
+    "Kernel_Name",
+    "Start_Timestamp",
+    "End_Timestamp",
+    "Correlation_Id",
+    "Thread_Id"
+  ],
+  "kernel_pid_source": "Exact join to counter Process_Id",
+  "marker": {
+    "label": "B8_C32_T12800_K3_D1_float16_B",
+    "pid": 2621847,
+    "start_ns": 216748294972172,
+    "end_ns": 216748298730668
+  },
+  "measured_pairs": 1,
+  "observed_kernel_count": 28,
+  "expected_kernel_count": 28,
+  "kernel_names": {
+    "void at::native::vectorized_elementwise_kernel<8, at::native::(anonymous namespace)::leaky_relu_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#3}::operator()() const::{lambda(c10::Half)#1}, std::array<char*, 2ul> >(int, at::native::(anonymous namespace)::leaky_relu_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#3}::operator()() const::{lambda(c10::Half)#1}, std::array<char*, 2ul>)": 2,
+    "void at::native::(anonymous namespace)::weight_norm_fwd_first_dim_kernel<float, float>(float*, float*, float const*, float const*, int)": 2,
+    "void at::native::vectorized_elementwise_kernel<4, at::native::float16_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda(float)#1}, std::array<char*, 2ul> >(int, at::native::float16_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda(float)#1}, std::array<char*, 2ul>)": 4,
+    "_fwd": 2,
+    "void at::native::vectorized_elementwise_kernel<8, at::native::CUDAFunctor_add<c10::Half>, std::array<char*, 3ul> >(int, at::native::CUDAFunctor_add<c10::Half>, std::array<char*, 3ul>)": 2,
+    "_dx": 2,
+    "_dw_partial": 2,
+    "_dw_reduce": 2,
+    "void at::native::reduce_kernel<512, 1, at::native::ReduceOp<c10::Half, at::native::func_wrapper_t<c10::Half, at::native::sum_functor<c10::Half, float, c10::Half>::operator()(at::TensorIterator&)::{lambda(float, float)#1}>, unsigned int, c10::Half, 4, 8> >(at::native::ReduceOp<c10::Half, at::native::func_wrapper_t<c10::Half, at::native::sum_functor<c10::Half, float, c10::Half>::operator()(at::TensorIterator&)::{lambda(float, float)#1}>, unsigned int, c10::Half, 4, 8>)": 2,
+    "void at::native::vectorized_elementwise_kernel<4, at::native::float16tofloat32_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda(c10::Half)#1}, std::array<char*, 2ul> >(int, at::native::float16tofloat32_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda(c10::Half)#1}, std::array<char*, 2ul>)": 4,
+    "void at::native::(anonymous namespace)::weight_norm_bwd_first_dim_kernel<float, float>(float*, float*, float const*, float const*, float const*, float const*, int)": 2,
+    "void at::native::vectorized_elementwise_kernel<8, at::native::(anonymous namespace)::leaky_relu_backward_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#3}::operator()() const::{lambda(c10::Half, c10::Half)#1}, std::array<char*, 3ul> >(int, at::native::(anonymous namespace)::leaky_relu_backward_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#3}::operator()() const::{lambda(c10::Half, c10::Half)#1}, std::array<char*, 3ul>)": 2
+  },
+  "memory_scope": "GL2C/EA interface request bytes; not identified physical DRAM bytes",
+  "counters": {
+    "FETCH_SIZE": {
+      "unit": "KiB",
+      "sum": 129689.0,
+      "bytes_per_pair": 132801536.0
+    }
+  },
+  "valid_for_timing": false,
+  "timing_scope": "Counter-instrumented execution; existing speed measurements remain authoritative"
+}

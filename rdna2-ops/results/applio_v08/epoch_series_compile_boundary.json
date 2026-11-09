@@ -1,0 +1,32 @@
+{
+  "purpose": "One recovery of decoder compile after FakeTensor AMP dispatch failure: preserve the already verified Conv1d eager boundary, native RNG, and surrounding decoder compile.",
+  "runs": [
+    {
+      "name": "epoch_B_compile_boundary",
+      "out": "results/applio_v08/epoch_B_compile_boundary",
+      "db": "results/applio_v08/epoch_B_compile_boundary_db",
+      "db_seed": "results/applio_v08/solver_selected_final_db",
+      "epochs": 4,
+      "args": [
+        "--dispatch",
+        "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/applio_v08/direct_selected_final/dispatch.json",
+        "--nonconv",
+        "--compile",
+        "dec",
+        "--compile-native-rng",
+        "--compile-eager-conv"
+      ],
+      "env": {
+        "APPLIO_RDNA2_ADAMW": "native",
+        "APPLIO_RDNA2_ADAMW_G": "native",
+        "APPLIO_RDNA2_ADAMW_D": "single",
+        "APPLIO_RDNA2_SLICE_GATHER": "1",
+        "APPLIO_RDNA2_GRAD_NORM": "foreach",
+        "APPLIO_RDNA2_D_WN_CACHE": "0",
+        "APPLIO_RDNA2_SKIP_EMPTY_CACHE": "1",
+        "TORCHINDUCTOR_COMPILE_THREADS": "1",
+        "TORCH_LOGS": "graph_breaks,recompiles"
+      }
+    }
+  ]
+}

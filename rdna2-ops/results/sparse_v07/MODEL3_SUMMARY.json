@@ -1,0 +1,547 @@
+{
+  "schema": "rdna2_sparse_v07_model3_summary",
+  "plan": "MODEL_DIAGNOSTIC_PLAN_KO.md",
+  "model": "Existing Qwen INT8 convrot workflow, 25 Euler/simple steps, cfg1",
+  "criteria": {
+    "rgb_max_abs": 0.00784313725490196,
+    "rgb_rmse": 0.000980392156862745,
+    "compute_atol": 0.00003,
+    "compute_rtol": 0.0003
+  },
+  "adoption_status": "failed; late same-mask native-reproduction tolerance and all 3 strict RGB gates failed",
+  "gpu_lease_released": true,
+  "cleanup_source": "rdna2-pro-research-20261102/rdna2-ops/results/sparse_v07/model_cleanup.json",
+  "cleanup_sha256": "a05d179268ac92f90863699353747e8fa03a3ef9be9ea5b4bb02021310d75a65",
+  "runs": [
+    {
+      "seed": 20261107,
+      "source": "rdna2-pro-research-20261102/rdna2-ops/results/sparse_v07/model_seed20261107/runs.json",
+      "source_sha256": "f921590d33c636b290d9216ba9c46a077941496f03f845b6c645fb5fc77ceb28",
+      "audit_source": "rdna2-pro-research-20261102/rdna2-ops/results/sparse_v07/model_seed20261107/gpu_audit.json",
+      "audit_sha256": "53b131b49e443e0178199992082b50315e729c501b6e9f59167811e4ba7aecac",
+      "gpu_audit": {
+        "available": true,
+        "valid_for_timing": true,
+        "method": "KFD client PID snapshots and periodic polling; research flock",
+        "limitation": "Detects observed KFD clients, not graphics load or sub-poll transient clients",
+        "allowed_pids": [
+          957578
+        ],
+        "interval_s": 0.25,
+        "sample_count": 1168,
+        "started_unix_s": 1794006638.454209,
+        "ended_unix_s": 1794006931.1038506,
+        "foreign_clients": [],
+        "errors": [],
+        "transitions": [
+          {
+            "unix_s": 1794006638.4542093,
+            "kfd_pids": [],
+            "foreign_or_error": []
+          }
+        ]
+      },
+      "baseline_first_s": 66.89556365599856,
+      "baseline_first_excluded_from_warm_speedup": true,
+      "alpha_denoise_s": [
+        50.87972507200902,
+        50.869267675996525
+      ],
+      "candidate_denoise_s": 46.394129298001644,
+      "candidate_vae_s": 2.6142506129981484,
+      "candidate_phase": "warm_second_in_same_process",
+      "alpha_over_candidate_ratio": 1.0965718538917404,
+      "eligible_for_warm_speedup": true,
+      "rgb_error": {
+        "finite": true,
+        "max_abs": 0.9546711444854736,
+        "rmse": 0.19529361583559413,
+        "byte_equal": false
+      },
+      "rgb_max_in_1_over_255": 243.44114184379578,
+      "rgb_rmse_in_1_over_255": 49.7998720380765,
+      "latent_error": {
+        "finite": true,
+        "max_abs": 16.63161277770996,
+        "rmse": 2.9910766715419586,
+        "byte_equal": false
+      },
+      "strict_gate": false,
+      "adoption_eligible": false,
+      "conditioning_equal": true,
+      "native_alpha_byte_equal": true,
+      "candidate_repeat_byte_equal": {
+        "latent": {
+          "finite": true,
+          "max_abs": 0,
+          "rmse": 0,
+          "byte_equal": true
+        },
+        "image": {
+          "finite": true,
+          "max_abs": 0,
+          "rmse": 0,
+          "byte_equal": true
+        }
+      },
+      "baseline_image_sha256": "44774961c8a713e3feb31ca08df5140309d6c88287dc318805ec38ced7f7ba8e",
+      "candidate_image_sha256": "f5422af7f62c47cb55604ad577ba149365395eb9938f0aa6e5cf1ec2b757dd12",
+      "candidate_tensor_file": {
+        "path": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/sparse_v07/model_seed20261107/candidate_003_tensors.pt",
+        "sha256": "f28197cf1e0842d12c019ef381cf64d19963b6c5ba8263ffc2b7eaccae1c6bc0",
+        "artifact_write_outside_stage_clocks": true,
+        "request_wall_includes_artifact_write": true
+      },
+      "candidate_call_counts": {
+        "target_sparse": 800,
+        "reference_dense": 32,
+        "masked_native": 64,
+        "total": 896
+      },
+      "all_runs": [
+        {
+          "index": 0,
+          "mode": "baseline",
+          "wall": {
+            "denoise_s": 66.89556365599856,
+            "vae_s": 2.7492592350026825
+          },
+          "image_error": {
+            "finite": true,
+            "max_abs": 0,
+            "rmse": 0,
+            "byte_equal": true
+          },
+          "latent_error": {
+            "finite": true,
+            "max_abs": 0,
+            "rmse": 0,
+            "byte_equal": true
+          },
+          "image_sha256": "44774961c8a713e3feb31ca08df5140309d6c88287dc318805ec38ced7f7ba8e",
+          "latent_sha256": "28849ac1b0d3482386fab39bced661548511d3b468859010fe16f5732e972638",
+          "conditioning": {
+            "positive": "8c4ea0b943170a57737be20b93200092279a724b620961e86eadbc15fda67b78",
+            "negative": "a9b843232e2151b917d1f97dee975e9eda228acb05421fe6e4c4a3e50280bde3"
+          }
+        },
+        {
+          "index": 1,
+          "mode": "dense_alpha",
+          "wall": {
+            "denoise_s": 50.87972507200902,
+            "vae_s": 2.643765454995446
+          },
+          "image_error": {
+            "finite": true,
+            "max_abs": 0,
+            "rmse": 0,
+            "byte_equal": true
+          },
+          "latent_error": {
+            "finite": true,
+            "max_abs": 0,
+            "rmse": 0,
+            "byte_equal": true
+          },
+          "image_sha256": "44774961c8a713e3feb31ca08df5140309d6c88287dc318805ec38ced7f7ba8e",
+          "latent_sha256": "28849ac1b0d3482386fab39bced661548511d3b468859010fe16f5732e972638",
+          "conditioning": {
+            "positive": "8c4ea0b943170a57737be20b93200092279a724b620961e86eadbc15fda67b78",
+            "negative": "a9b843232e2151b917d1f97dee975e9eda228acb05421fe6e4c4a3e50280bde3"
+          }
+        },
+        {
+          "index": 2,
+          "mode": "sparse_radial",
+          "wall": {
+            "denoise_s": 46.43176891299663,
+            "vae_s": 2.614937297999859
+          },
+          "image_error": {
+            "finite": true,
+            "max_abs": 0.9546711444854736,
+            "rmse": 0.19529361583559413,
+            "byte_equal": false
+          },
+          "latent_error": {
+            "finite": true,
+            "max_abs": 16.63161277770996,
+            "rmse": 2.9910766715419586,
+            "byte_equal": false
+          },
+          "image_sha256": "f5422af7f62c47cb55604ad577ba149365395eb9938f0aa6e5cf1ec2b757dd12",
+          "latent_sha256": "7970338c3cc54f00640803e05ea7b2c2819182da23825178382eaf9d0c183244",
+          "conditioning": {
+            "positive": "8c4ea0b943170a57737be20b93200092279a724b620961e86eadbc15fda67b78",
+            "negative": "a9b843232e2151b917d1f97dee975e9eda228acb05421fe6e4c4a3e50280bde3"
+          }
+        },
+        {
+          "index": 3,
+          "mode": "sparse_radial",
+          "wall": {
+            "denoise_s": 46.394129298001644,
+            "vae_s": 2.6142506129981484
+          },
+          "image_error": {
+            "finite": true,
+            "max_abs": 0.9546711444854736,
+            "rmse": 0.19529361583559413,
+            "byte_equal": false
+          },
+          "latent_error": {
+            "finite": true,
+            "max_abs": 16.63161277770996,
+            "rmse": 2.9910766715419586,
+            "byte_equal": false
+          },
+          "image_sha256": "f5422af7f62c47cb55604ad577ba149365395eb9938f0aa6e5cf1ec2b757dd12",
+          "latent_sha256": "7970338c3cc54f00640803e05ea7b2c2819182da23825178382eaf9d0c183244",
+          "conditioning": {
+            "positive": "8c4ea0b943170a57737be20b93200092279a724b620961e86eadbc15fda67b78",
+            "negative": "a9b843232e2151b917d1f97dee975e9eda228acb05421fe6e4c4a3e50280bde3"
+          }
+        },
+        {
+          "index": 4,
+          "mode": "dense_alpha",
+          "wall": {
+            "denoise_s": 50.869267675996525,
+            "vae_s": 2.639587774989195
+          },
+          "image_error": {
+            "finite": true,
+            "max_abs": 0,
+            "rmse": 0,
+            "byte_equal": true
+          },
+          "latent_error": {
+            "finite": true,
+            "max_abs": 0,
+            "rmse": 0,
+            "byte_equal": true
+          },
+          "image_sha256": "44774961c8a713e3feb31ca08df5140309d6c88287dc318805ec38ced7f7ba8e",
+          "latent_sha256": "28849ac1b0d3482386fab39bced661548511d3b468859010fe16f5732e972638",
+          "conditioning": {
+            "positive": "8c4ea0b943170a57737be20b93200092279a724b620961e86eadbc15fda67b78",
+            "negative": "a9b843232e2151b917d1f97dee975e9eda228acb05421fe6e4c4a3e50280bde3"
+          }
+        }
+      ]
+    },
+    {
+      "seed": 20261108,
+      "source": "rdna2-pro-research-20261102/rdna2-ops/results/sparse_v07/model_seed20261108/runs.json",
+      "source_sha256": "d9041ea1a5b08a0918e92f4a78305345c865c8602764818c5b85a4cf66bd2b8f",
+      "audit_source": "rdna2-pro-research-20261102/rdna2-ops/results/sparse_v07/model_seed20261108/gpu_audit.json",
+      "audit_sha256": "09c301ff0b68f57f8e6ee3181b30656114f0c1f28faaab0bd2cca3b20575b660",
+      "gpu_audit": {
+        "available": true,
+        "valid_for_timing": true,
+        "method": "KFD client PID snapshots and periodic polling; research flock",
+        "limitation": "Detects observed KFD clients, not graphics load or sub-poll transient clients",
+        "allowed_pids": [
+          961659
+        ],
+        "interval_s": 0.25,
+        "sample_count": 742,
+        "started_unix_s": 1794007044.553483,
+        "ended_unix_s": 1794007230.71485,
+        "foreign_clients": [],
+        "errors": [],
+        "transitions": [
+          {
+            "unix_s": 1794007044.5534832,
+            "kfd_pids": [],
+            "foreign_or_error": []
+          }
+        ]
+      },
+      "baseline_first_s": 65.69972351798788,
+      "baseline_first_excluded_from_warm_speedup": true,
+      "alpha_denoise_s": [
+        50.77871406500344
+      ],
+      "candidate_denoise_s": 46.41199533100007,
+      "candidate_vae_s": 2.6232269470056053,
+      "candidate_phase": "first_in_same_process",
+      "alpha_over_candidate_ratio": 1.094085994425814,
+      "eligible_for_warm_speedup": false,
+      "rgb_error": {
+        "finite": true,
+        "max_abs": 0.9417266845703125,
+        "rmse": 0.1891075415684566,
+        "byte_equal": false
+      },
+      "rgb_max_in_1_over_255": 240.1403045654297,
+      "rgb_rmse_in_1_over_255": 48.22242309995644,
+      "latent_error": {
+        "finite": true,
+        "max_abs": 16.662376403808594,
+        "rmse": 2.884930478164836,
+        "byte_equal": false
+      },
+      "strict_gate": false,
+      "adoption_eligible": false,
+      "conditioning_equal": true,
+      "native_alpha_byte_equal": true,
+      "candidate_repeat_byte_equal": null,
+      "baseline_image_sha256": "28f49d9887f2f8dabd3274ffdec622395a8d78823b776777cab864e683bd0686",
+      "candidate_image_sha256": "521617c858d0bc7e6f577e4dea63ed8ea10abf984b31fbd9e4d6cb6db812cdd1",
+      "candidate_tensor_file": {
+        "path": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/sparse_v07/model_seed20261108/candidate_002_tensors.pt",
+        "sha256": "1b234e85376cabd93c7796dc40b308a461c11841748ca506799a32efd6c2639e",
+        "artifact_write_outside_stage_clocks": true,
+        "request_wall_includes_artifact_write": true
+      },
+      "candidate_call_counts": {
+        "target_sparse": 800,
+        "reference_dense": 32,
+        "masked_native": 64,
+        "total": 896
+      },
+      "all_runs": [
+        {
+          "index": 0,
+          "mode": "baseline",
+          "wall": {
+            "denoise_s": 65.69972351798788,
+            "vae_s": 2.738025230006315
+          },
+          "image_error": {
+            "finite": true,
+            "max_abs": 0,
+            "rmse": 0,
+            "byte_equal": true
+          },
+          "latent_error": {
+            "finite": true,
+            "max_abs": 0,
+            "rmse": 0,
+            "byte_equal": true
+          },
+          "image_sha256": "28f49d9887f2f8dabd3274ffdec622395a8d78823b776777cab864e683bd0686",
+          "latent_sha256": "bfc55a970015c23e30a00e615bf6b3ece933e8da9cd0b3308b041f3885c7ce5c",
+          "conditioning": {
+            "positive": "8c4ea0b943170a57737be20b93200092279a724b620961e86eadbc15fda67b78",
+            "negative": "a9b843232e2151b917d1f97dee975e9eda228acb05421fe6e4c4a3e50280bde3"
+          }
+        },
+        {
+          "index": 1,
+          "mode": "dense_alpha",
+          "wall": {
+            "denoise_s": 50.77871406500344,
+            "vae_s": 2.6457450300076744
+          },
+          "image_error": {
+            "finite": true,
+            "max_abs": 0,
+            "rmse": 0,
+            "byte_equal": true
+          },
+          "latent_error": {
+            "finite": true,
+            "max_abs": 0,
+            "rmse": 0,
+            "byte_equal": true
+          },
+          "image_sha256": "28f49d9887f2f8dabd3274ffdec622395a8d78823b776777cab864e683bd0686",
+          "latent_sha256": "bfc55a970015c23e30a00e615bf6b3ece933e8da9cd0b3308b041f3885c7ce5c",
+          "conditioning": {
+            "positive": "8c4ea0b943170a57737be20b93200092279a724b620961e86eadbc15fda67b78",
+            "negative": "a9b843232e2151b917d1f97dee975e9eda228acb05421fe6e4c4a3e50280bde3"
+          }
+        },
+        {
+          "index": 2,
+          "mode": "sparse_radial",
+          "wall": {
+            "denoise_s": 46.41199533100007,
+            "vae_s": 2.6232269470056053
+          },
+          "image_error": {
+            "finite": true,
+            "max_abs": 0.9417266845703125,
+            "rmse": 0.1891075415684566,
+            "byte_equal": false
+          },
+          "latent_error": {
+            "finite": true,
+            "max_abs": 16.662376403808594,
+            "rmse": 2.884930478164836,
+            "byte_equal": false
+          },
+          "image_sha256": "521617c858d0bc7e6f577e4dea63ed8ea10abf984b31fbd9e4d6cb6db812cdd1",
+          "latent_sha256": "928587356c9b6bf7687aa8b5fcc6334fc8606e2cc5779402d13af635578b6d74",
+          "conditioning": {
+            "positive": "8c4ea0b943170a57737be20b93200092279a724b620961e86eadbc15fda67b78",
+            "negative": "a9b843232e2151b917d1f97dee975e9eda228acb05421fe6e4c4a3e50280bde3"
+          }
+        }
+      ]
+    },
+    {
+      "seed": 20261109,
+      "source": "rdna2-pro-research-20261102/rdna2-ops/results/sparse_v07/model_seed20261109/runs.json",
+      "source_sha256": "a9bef3457e34457237e7b1b206d6c5dbf26c0439300c8edfafb51e4ccaaaa8e6",
+      "audit_source": "rdna2-pro-research-20261102/rdna2-ops/results/sparse_v07/model_seed20261109/gpu_audit.json",
+      "audit_sha256": "397867df77743646941796b77abc81915d04bf30faccd1dd52e4fce6df7c65cd",
+      "gpu_audit": {
+        "available": true,
+        "valid_for_timing": true,
+        "method": "KFD client PID snapshots and periodic polling; research flock",
+        "limitation": "Detects observed KFD clients, not graphics load or sub-poll transient clients",
+        "allowed_pids": [
+          964115
+        ],
+        "interval_s": 0.25,
+        "sample_count": 743,
+        "started_unix_s": 1794007249.3584974,
+        "ended_unix_s": 1794007435.6806233,
+        "foreign_clients": [],
+        "errors": [],
+        "transitions": [
+          {
+            "unix_s": 1794007249.3584976,
+            "kfd_pids": [],
+            "foreign_or_error": []
+          }
+        ]
+      },
+      "baseline_first_s": 65.61492551999982,
+      "baseline_first_excluded_from_warm_speedup": true,
+      "alpha_denoise_s": [
+        51.01794178599084
+      ],
+      "candidate_denoise_s": 46.549845803994685,
+      "candidate_vae_s": 2.62342831598653,
+      "candidate_phase": "first_in_same_process",
+      "alpha_over_candidate_ratio": 1.095985194039305,
+      "eligible_for_warm_speedup": false,
+      "rgb_error": {
+        "finite": true,
+        "max_abs": 0.9465169906616211,
+        "rmse": 0.21184425653890385,
+        "byte_equal": false
+      },
+      "rgb_max_in_1_over_255": 241.36183261871338,
+      "rgb_rmse_in_1_over_255": 54.02028541742048,
+      "latent_error": {
+        "finite": true,
+        "max_abs": 23.266271591186523,
+        "rmse": 3.34552301165303,
+        "byte_equal": false
+      },
+      "strict_gate": false,
+      "adoption_eligible": false,
+      "conditioning_equal": true,
+      "native_alpha_byte_equal": true,
+      "candidate_repeat_byte_equal": null,
+      "baseline_image_sha256": "94d9e0293464b574ee4b7b4b12aec00049d2610d91bd7b1312cc86d5cd6f596f",
+      "candidate_image_sha256": "8d6fadf38d0051546d323ea524797592f241710342b4cbbc5a6cf13a2f5b2693",
+      "candidate_tensor_file": {
+        "path": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/sparse_v07/model_seed20261109/candidate_002_tensors.pt",
+        "sha256": "2d37e4c1b3d2b458f3a2e7d0756fa76ac83dcd8e28f8a4ae8db6e91ff2d9cd79",
+        "artifact_write_outside_stage_clocks": true,
+        "request_wall_includes_artifact_write": true
+      },
+      "candidate_call_counts": {
+        "target_sparse": 800,
+        "reference_dense": 32,
+        "masked_native": 64,
+        "total": 896
+      },
+      "all_runs": [
+        {
+          "index": 0,
+          "mode": "baseline",
+          "wall": {
+            "denoise_s": 65.61492551999982,
+            "vae_s": 2.698320577997947
+          },
+          "image_error": {
+            "finite": true,
+            "max_abs": 0,
+            "rmse": 0,
+            "byte_equal": true
+          },
+          "latent_error": {
+            "finite": true,
+            "max_abs": 0,
+            "rmse": 0,
+            "byte_equal": true
+          },
+          "image_sha256": "94d9e0293464b574ee4b7b4b12aec00049d2610d91bd7b1312cc86d5cd6f596f",
+          "latent_sha256": "f695fb1d9ef593357b71e309bb1bf1c529d4b98e1e9e8460ccf9a0830a105658",
+          "conditioning": {
+            "positive": "8c4ea0b943170a57737be20b93200092279a724b620961e86eadbc15fda67b78",
+            "negative": "a9b843232e2151b917d1f97dee975e9eda228acb05421fe6e4c4a3e50280bde3"
+          }
+        },
+        {
+          "index": 1,
+          "mode": "dense_alpha",
+          "wall": {
+            "denoise_s": 51.01794178599084,
+            "vae_s": 2.6558123550057644
+          },
+          "image_error": {
+            "finite": true,
+            "max_abs": 0,
+            "rmse": 0,
+            "byte_equal": true
+          },
+          "latent_error": {
+            "finite": true,
+            "max_abs": 0,
+            "rmse": 0,
+            "byte_equal": true
+          },
+          "image_sha256": "94d9e0293464b574ee4b7b4b12aec00049d2610d91bd7b1312cc86d5cd6f596f",
+          "latent_sha256": "f695fb1d9ef593357b71e309bb1bf1c529d4b98e1e9e8460ccf9a0830a105658",
+          "conditioning": {
+            "positive": "8c4ea0b943170a57737be20b93200092279a724b620961e86eadbc15fda67b78",
+            "negative": "a9b843232e2151b917d1f97dee975e9eda228acb05421fe6e4c4a3e50280bde3"
+          }
+        },
+        {
+          "index": 2,
+          "mode": "sparse_radial",
+          "wall": {
+            "denoise_s": 46.549845803994685,
+            "vae_s": 2.62342831598653
+          },
+          "image_error": {
+            "finite": true,
+            "max_abs": 0.9465169906616211,
+            "rmse": 0.21184425653890385,
+            "byte_equal": false
+          },
+          "latent_error": {
+            "finite": true,
+            "max_abs": 23.266271591186523,
+            "rmse": 3.34552301165303,
+            "byte_equal": false
+          },
+          "image_sha256": "8d6fadf38d0051546d323ea524797592f241710342b4cbbc5a6cf13a2f5b2693",
+          "latent_sha256": "5120fdeb86d760eddbc3f37d7ee15cec46ddb6f0b54754e8de93216933f03cde",
+          "conditioning": {
+            "positive": "8c4ea0b943170a57737be20b93200092279a724b620961e86eadbc15fda67b78",
+            "negative": "a9b843232e2151b917d1f97dee975e9eda228acb05421fe6e4c4a3e50280bde3"
+          }
+        }
+      ]
+    }
+  ],
+  "perceptual_status": "failed: 12/12 native preferred, candidate severity3 in all12, repeated major defects in6/6 reviewer-seed reversed-order pairs",
+  "perceptual_verdict": {
+    "path": "blind_judgements/UNBLINDED_VERDICT.json",
+    "sha256": "f693da97469374f88bfffd0c3223fa2d19bb9d0de0e84c6b4e7b83fe7a647ad1",
+    "same_base_model_fresh_contexts": true,
+    "independent_architectures": false,
+    "never_overrides_strict": true
+  }
+}

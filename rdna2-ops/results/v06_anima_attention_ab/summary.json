@@ -1,0 +1,172 @@
+{
+  "status": "measured",
+  "gpu_audit_valid": true,
+  "seed": 20261107,
+  "steps": 30,
+  "resolution": [
+    1024,
+    1024
+  ],
+  "native_reference": "first warm float RGB, repeated native controls bitwise identical",
+  "timing_note": "all per-mode requests retained; prescale4d_native first-vs-second difference unresolved, warm extra repeat pending with normalization model A/B",
+  "modes": {
+    "warm": {
+      "count": 1,
+      "denoise_s": [
+        80.88638492999598
+      ],
+      "vae_s": [
+        0.6538272049947409
+      ],
+      "median_denoise_s": 80.88638492999598,
+      "speed_vs_native_using_all_requests": 0.9986031696670645,
+      "speed_vs_manual_vt_using_all_requests": 0.7045388676576294,
+      "rgb_max": [
+        0.0
+      ],
+      "rgb_rmse": [
+        0.0
+      ],
+      "all_latent_rgb_byte_equal": true,
+      "strict_rgb_pass": true,
+      "hits": [
+        0
+      ]
+    },
+    "attn_manual_nn": {
+      "count": 1,
+      "denoise_s": [
+        63.72378771100193
+      ],
+      "vae_s": [
+        0.5560411640035454
+      ],
+      "median_denoise_s": 63.72378771100193,
+      "speed_vs_native_using_all_requests": 1.267554915918137,
+      "speed_vs_manual_vt_using_all_requests": 0.8942908777793757,
+      "rgb_max": [
+        0.8203125
+      ],
+      "rgb_rmse": [
+        0.024798754013303337
+      ],
+      "all_latent_rgb_byte_equal": false,
+      "strict_rgb_pass": false,
+      "hits": [
+        1680
+      ]
+    },
+    "attn_manual_vt": {
+      "count": 2,
+      "denoise_s": [
+        56.952527175002615,
+        57.02267691999441
+      ],
+      "vae_s": [
+        0.5569302569929278,
+        0.557574693011702
+      ],
+      "median_denoise_s": 56.98760204749851,
+      "speed_vs_native_using_all_requests": 1.4173854921405635,
+      "speed_vs_manual_vt_using_all_requests": 1.0,
+      "rgb_max": [
+        0.82470703125,
+        0.82470703125
+      ],
+      "rgb_rmse": [
+        0.024306802322194728,
+        0.024306802322194728
+      ],
+      "all_latent_rgb_byte_equal": false,
+      "strict_rgb_pass": false,
+      "hits": [
+        1680,
+        1680
+      ]
+    },
+    "attn_prescale_vt": {
+      "count": 2,
+      "denoise_s": [
+        57.14817417699669,
+        57.17816920300538
+      ],
+      "vae_s": [
+        0.5552882299962221,
+        0.550507434993051
+      ],
+      "median_denoise_s": 57.163171690001036,
+      "speed_vs_native_using_all_requests": 1.4130321671450068,
+      "speed_vs_manual_vt_using_all_requests": 0.9969286231447295,
+      "rgb_max": [
+        0.8056640625,
+        0.8056640625
+      ],
+      "rgb_rmse": [
+        0.024888045015533357,
+        0.024888045015533357
+      ],
+      "all_latent_rgb_byte_equal": false,
+      "strict_rgb_pass": false,
+      "hits": [
+        1680,
+        1680
+      ]
+    },
+    "attn_prescale4d_native": {
+      "count": 2,
+      "denoise_s": [
+        83.01857638300862,
+        67.72613075999834
+      ],
+      "vae_s": [
+        0.5547574139927747,
+        0.5527336490049493
+      ],
+      "median_denoise_s": 75.37235357150348,
+      "speed_vs_native_using_all_requests": 1.0716581949026838,
+      "speed_vs_manual_vt_using_all_requests": 0.7560809679829898,
+      "rgb_max": [
+        0.0,
+        0.0
+      ],
+      "rgb_rmse": [
+        0.0,
+        0.0
+      ],
+      "all_latent_rgb_byte_equal": true,
+      "strict_rgb_pass": true,
+      "hits": [
+        1680,
+        1680
+      ]
+    },
+    "baseline": {
+      "count": 2,
+      "denoise_s": [
+        80.79603927400603,
+        80.7507614740025
+      ],
+      "vae_s": [
+        0.553910860005999,
+        0.55365138000343
+      ],
+      "median_denoise_s": 80.77340037400427,
+      "speed_vs_native_using_all_requests": 1.0,
+      "speed_vs_manual_vt_using_all_requests": 0.7055243654919737,
+      "rgb_max": [
+        0.0,
+        0.0
+      ],
+      "rgb_rmse": [
+        0.0,
+        0.0
+      ],
+      "all_latent_rgb_byte_equal": true,
+      "strict_rgb_pass": true,
+      "hits": [
+        0,
+        0
+      ]
+    }
+  }
+}

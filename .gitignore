@@ -1,0 +1,14 @@
+__pycache__/
+*.pyc
+triton_cache/
+miopen_cache/
+miopen_db/
+*.pth
+*.safetensors
+*.wav
+*.png
+*.jpg
+*.webp
+*.log
+*.zip
+*.7z

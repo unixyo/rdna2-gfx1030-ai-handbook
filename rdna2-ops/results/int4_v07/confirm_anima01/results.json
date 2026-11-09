@@ -1,0 +1,311 @@
+{
+  "schema": 1,
+  "purpose": "W4 real model Linear shapes; actual checkpoint weight, synthetic activation; no model quality claim",
+  "command": [
+    "bench_int4_v07.py",
+    "--mode",
+    "sweep",
+    "--cases",
+    "anima_proj",
+    "--groups",
+    "64",
+    "--quant",
+    "sym",
+    "--layouts",
+    "kn",
+    "--methods",
+    "fp16_dequant,fp16_prepared_w",
+    "--rounds",
+    "7",
+    "--iters",
+    "10",
+    "--out",
+    "results/int4_v07/confirm_anima01"
+  ],
+  "mode": "sweep",
+  "sources": {
+    "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/bench_int4_v07.py": "b65e21b6abda44405c7e2608b0de06ab5deba5120ea277a32fc75473de207391",
+    "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/rdna2_ops/int4_weight_gemm_v07.py": "a4fc124619e3a8fa7525411f5abb1f2f1f350cfe4a95d25d34090d220c52dee8",
+    "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/rdna2_ops/int8_gemm.py": "0b2d0970af17ddf61aa19d242bfebbb6f42add330e07387442dbe97ab316109d",
+    "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/gpu_guard_v06.py": "7409f98dbf2c1975f5727338346af248657d98229c4a92732809379207b4b329",
+    "~/DevSpace/qwen-image-21-rdna2-lab01/custom_nodes/RDNA2-Qwen21-INT8/int8_fused_kernel.py": "70c014d3c394b69cc907c60dd7086e367861c6bf03031320524c3ba2dcf86603"
+  },
+  "criteria_file": "source/INT4_PLAN_V07_KO.md",
+  "criteria_sha256": "151db7c72107459b68572902c77ea5a57b3809f27b7752a73c628e44d2c46f99",
+  "started_unix_s": 1794005502.863714,
+  "criteria": {
+    "fp32_relative_l2": 2e-05,
+    "fp32_max_abs": "1e-4 + 1e-4*reference_max_abs",
+    "fp16_relative_l2": 0.001,
+    "fp16_max_abs": "2e-3 + 2e-3*reference_max_abs",
+    "model_rgb_max_abs": 0.00784313725490196,
+    "model_rgb_rmse": 0.000980392156862745,
+    "performance_promotion": 1.05
+  },
+  "timing": {
+    "rounds": 7,
+    "iterations": 10,
+    "warmups": 2,
+    "interleaved_forward_reverse": true,
+    "wall_scope": "synchronized ordinary call with output allocation and documented activation/weight conversion",
+    "event_scope": "HIP events around repeated ordinary calls; may contain host launch gaps",
+    "weight_cache": "explicit caller owned; resident bytes include sums and zeros",
+    "cold": "first compile/autotune/preparation separately; never warm throughput"
+  },
+  "success": true,
+  "runtime": {
+    "torch": "2.12.0+rocm10.2.0a20261011",
+    "triton": "3.8.0",
+    "hip": "7.17.26405",
+    "gpu": "AMD Radeon RX 6900 XT",
+    "arch": "gfx1030"
+  },
+  "rows": [
+    {
+      "case": "anima_proj",
+      "model": "anima",
+      "shape": [
+        8192,
+        2048,
+        2048
+      ],
+      "weight": {
+        "file": "~/DevSpace/anima-rdna2-lab01/models/diffusion_models/anima-base-v1.0.safetensors",
+        "name": "net.blocks.0.self_attn.q_proj.weight",
+        "dtype": "torch.bfloat16",
+        "shape": [
+          2048,
+          2048
+        ],
+        "tensor_sha256": "3786686ba533d86fc01c14447fa893e7c9996e043c78affa1931def734203fe9",
+        "scale_sha256": null
+      },
+      "input_values": "synthetic seeded activations at actual observed shape",
+      "unit_scope": "Bias-free GEMM at actual Linear weight/shape; not full Linear pipeline",
+      "bias_in_unit": false,
+      "baseline": "FP16 rocBLAS F.linear",
+      "native_first_compile_autotune_s": 0.1312162269896362,
+      "native_profile": {
+        "trace": "profile_anima_proj_native.json",
+        "kernels": [
+          {
+            "name": "Cijk_Alik_Bljk_HHS_BH_MT128x256x16_SN_AMAS3_BL1_BS1_EPS0_GLVWA8_GLVWB8_GRVW8_GSU1_GSUASB_ISA1030_IU2_K1_KLA_LDL2_LRVW8_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU0_SUM0_SUS0_SVW4_TT8_16_USFGROn1_VAW2_VSn1_VW8_VWB8_WS32_WG16_16_1_WGM4.kd",
+            "duration_us": 3054.575
+          }
+        ]
+      },
+      "candidates": [
+        {
+          "method": "fp16_dequant",
+          "error_same_stored_values": {
+            "finite": true,
+            "max_abs": 0.00010833811194388421,
+            "rmse": 2.9927568875647953e-05,
+            "reference_max_abs": 0.4825833781169797,
+            "relative_l2": 0.00027813706966097607
+          },
+          "compute_gate": true,
+          "kernel": null,
+          "weight_prepare_excluded": false,
+          "activation_prepare_excluded_from_core": true,
+          "candidate_core_dtype": "torch.float16",
+          "prepared_core_sample": {
+            "event_ms": 2.924488830566406,
+            "wall_ms": 2.9288734003785066
+          },
+          "additional_peak_bytes": 41943040,
+          "samples": [
+            {
+              "event_ms": 2.8028221130371094,
+              "wall_ms": 2.8056793002178892
+            },
+            {
+              "event_ms": 2.9008920669555662,
+              "wall_ms": 2.9032436010311358
+            },
+            {
+              "event_ms": 2.8822299957275392,
+              "wall_ms": 2.884797699516639
+            },
+            {
+              "event_ms": 2.9002710342407227,
+              "wall_ms": 2.9024236006080173
+            },
+            {
+              "event_ms": 2.8689050674438477,
+              "wall_ms": 2.8710437996778637
+            },
+            {
+              "event_ms": 2.942822074890137,
+              "wall_ms": 2.945183300471399
+            },
+            {
+              "event_ms": 2.9577497482299804,
+              "wall_ms": 2.960140199866146
+            }
+          ],
+          "median_wall_ms": 2.9024236006080173,
+          "median_event_ms": 2.9002710342407227,
+          "speedup_wall": 0.9807693130615953,
+          "speedup_event": 0.980844512146801,
+          "model_candidate": false
+        },
+        {
+          "method": "fp16_prepared_w",
+          "error_same_stored_values": {
+            "finite": true,
+            "max_abs": 0.00010833811194388421,
+            "rmse": 2.9927568875647953e-05,
+            "reference_max_abs": 0.4825833781169797,
+            "relative_l2": 0.00027813706966097607
+          },
+          "compute_gate": true,
+          "kernel": null,
+          "weight_prepare_excluded": true,
+          "activation_prepare_excluded_from_core": true,
+          "candidate_core_dtype": "torch.float16",
+          "prepared_core_sample": {
+            "event_ms": 2.652629280090332,
+            "wall_ms": 2.6565923006273806
+          },
+          "additional_peak_bytes": 33554432,
+          "samples": [
+            {
+              "event_ms": 2.7985952377319334,
+              "wall_ms": 2.8017333010211587
+            },
+            {
+              "event_ms": 2.8625820159912108,
+              "wall_ms": 2.8649179002968594
+            },
+            {
+              "event_ms": 2.9313289642333986,
+              "wall_ms": 2.9333953993045725
+            },
+            {
+              "event_ms": 2.801445198059082,
+              "wall_ms": 2.803471201332286
+            },
+            {
+              "event_ms": 2.857628059387207,
+              "wall_ms": 2.859821899619419
+            },
+            {
+              "event_ms": 2.879224967956543,
+              "wall_ms": 2.8813958007958718
+            },
+            {
+              "event_ms": 2.8093229293823243,
+              "wall_ms": 2.8118441987317055
+            }
+          ],
+          "median_wall_ms": 2.859821899619419,
+          "median_event_ms": 2.857628059387207,
+          "speedup_wall": 0.9953794679874679,
+          "speedup_event": 0.9954811712911873,
+          "model_candidate": false
+        }
+      ],
+      "weight_packing_s": 0.002856070001143962,
+      "weight_packing_scope": "Single first preparation; may include JIT; excluded from warm call comparison",
+      "storage": {
+        "group_size": 64,
+        "symmetric": true,
+        "layout": "kn",
+        "order": "low",
+        "packed_bytes": 2097152,
+        "scale_bytes": 262144,
+        "zero_bytes": 262144,
+        "sum_bytes": 262144,
+        "total_resident_bytes": 2883584,
+        "logical_stride": [
+          1,
+          2048
+        ]
+      },
+      "weight_representation_error": {
+        "finite": true,
+        "max_abs": 0.07519714319572027,
+        "rmse": 0.014612292413326856,
+        "reference_max_abs": 0.4950006067811046,
+        "relative_l2": 0.13606822042281144
+      },
+      "activation_representation_error": {
+        "finite": true,
+        "max_abs": 0.004281809240749751,
+        "rmse": 0.00087926460889525,
+        "reference_max_abs": 0.4825833781169797,
+        "relative_l2": 0.008171598661785193
+      },
+      "native_compute_error": {
+        "finite": true,
+        "max_abs": 0.00011658071889542043,
+        "rmse": 2.2943784919139332e-05,
+        "reference_max_abs": 0.4950006067811046,
+        "relative_l2": 0.00021365025386870448
+      },
+      "weight_dequant_fp16_error": {
+        "finite": true,
+        "max_abs": 4.359986633062363e-06,
+        "rmse": 4.4314577709471446e-07,
+        "reference_max_abs": 0.023193358909338713,
+        "relative_l2": 0.00018745412050538807
+      },
+      "native_samples": [
+        {
+          "event_ms": 2.7517282485961916,
+          "wall_ms": 2.7545315999304876
+        },
+        {
+          "event_ms": 2.837100028991699,
+          "wall_ms": 2.8398530004778877
+        },
+        {
+          "event_ms": 2.8159358978271483,
+          "wall_ms": 2.818553200631868
+        },
+        {
+          "event_ms": 2.9172290802001952,
+          "wall_ms": 2.919765499245841
+        },
+        {
+          "event_ms": 2.8447149276733397,
+          "wall_ms": 2.846608000982087
+        },
+        {
+          "event_ms": 2.870781135559082,
+          "wall_ms": 2.8731548009091057
+        },
+        {
+          "event_ms": 2.953215980529785,
+          "wall_ms": 2.955124199797865
+        }
+      ],
+      "native_median_wall_ms": 2.846608000982087,
+      "native_median_event_ms": 2.8447149276733397
+    }
+  ],
+  "gpu_audit": {
+    "available": true,
+    "valid_for_timing": true,
+    "method": "KFD client PID snapshots and periodic polling; research flock",
+    "limitation": "Detects observed KFD clients, not graphics load or sub-poll transient clients",
+    "allowed_pids": [
+      945153
+    ],
+    "interval_s": 0.25,
+    "sample_count": 12,
+    "started_unix_s": 1794005502.8637552,
+    "ended_unix_s": 1794005505.352774,
+    "foreign_clients": [],
+    "errors": [],
+    "transitions": [
+      {
+        "unix_s": 1794005502.8637555,
+        "kfd_pids": [],
+        "foreign_or_error": []
+      }
+    ]
+  },
+  "ended_unix_s": 1794005505.3527925
+}

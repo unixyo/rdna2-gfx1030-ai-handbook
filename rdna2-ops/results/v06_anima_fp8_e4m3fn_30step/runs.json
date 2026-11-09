@@ -1,0 +1,541 @@
+{
+  "spec": {
+    "sampler": [
+      "KSampler",
+      "sample"
+    ],
+    "sampler_node": "7",
+    "model": "anima",
+    "runtime": "~/DevSpace/moss-image-rdna2-lab01/runtime/ComfyUI",
+    "workflow": "~/DevSpace/anima-rdna2-lab01/workflows/anima_t2i_1024_api.json",
+    "decoder": [
+      "VAEDecode",
+      "decode"
+    ],
+    "save_node": "9",
+    "attention_target": "comfy.ldm.cosmos.predict2:optimized_attention",
+    "env": {},
+    "server_args": [
+      "--extra-model-paths-config",
+      "~/DevSpace/anima-rdna2-lab01/extra_model_paths.yaml",
+      "--disable-auto-launch",
+      "--use-pytorch-cross-attention",
+      "--disable-comfy-compiler"
+    ],
+    "input_files": [],
+    "inputs": {
+      "1": {
+        "weight_dtype": "fp8_e4m3fn"
+      }
+    },
+    "attention_capture_target": "comfy.ops:scaled_dot_product_attention",
+    "switch_module": "dtype_switches_v06",
+    "fp8_prepared_cache_bytes": 5368709120,
+    "fp8_int8_allowed_shapes": [
+      [
+        8192,
+        2048,
+        2048
+      ]
+    ],
+    "research_scope": "Existing Anima BF16 checkpoint is represented as unscaled e4m3fn only in this request. Baseline and candidates use identical FP8 values.",
+    "gpu_audit": true,
+    "save_reference_tensors": true,
+    "require_bitwise_modes": [
+      "fp8_control",
+      "fp8_prepared_fp16",
+      "fp8_decode"
+    ]
+  },
+  "seed": 20261107,
+  "rgb_gate": {
+    "max_abs": 0.00784313725490196,
+    "rmse": 0.000980392156862745
+  },
+  "runs": [
+    {
+      "index": 0,
+      "mode": "warm",
+      "success": true,
+      "wall": {
+        "denoise_s": 80.19789494299039,
+        "vae_s": 0.6766064569965238
+      },
+      "request_wall_s": 82.81999753600394,
+      "conditioning_first_embedding_sha256": {
+        "positive": "a6c15ee3d0208bb976cb338714960a180fd73170fa904280577da928000f4968",
+        "negative": "f2199b5a6d7ba57a2d9d62675ea8d45c8d5da3f77d6e969fc1ee7f562cb0ec2e"
+      },
+      "candidate": {},
+      "stage_calls": {
+        "denoise": 1,
+        "vae": 1
+      },
+      "profile_artifacts": [],
+      "latent_error": {
+        "finite": true,
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "byte_equal": true
+      },
+      "image_error": {
+        "finite": true,
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "byte_equal": true
+      },
+      "comparison_errors": {},
+      "image_gate": true,
+      "latent_sha256": "75565b9f9ca9dd05a20e4a02b3e5cf53e8bbb390254af9c01dc579a345c853db",
+      "image_sha256": "3915987e3b7be9b50e497437a0fbc4e3316fdda5a84e145675c7b38e1358f27f"
+    },
+    {
+      "index": 1,
+      "mode": "fp8_control",
+      "success": true,
+      "wall": {
+        "denoise_s": 79.60250907299633,
+        "vae_s": 0.5534716070105787
+      },
+      "request_wall_s": 80.5840142119996,
+      "conditioning_first_embedding_sha256": {
+        "positive": "a6c15ee3d0208bb976cb338714960a180fd73170fa904280577da928000f4968",
+        "negative": "f2199b5a6d7ba57a2d9d62675ea8d45c8d5da3f77d6e969fc1ee7f562cb0ec2e"
+      },
+      "candidate": {
+        "mode": "fp8_control",
+        "hits": 13742,
+        "candidate_calls": 0,
+        "cache_reuses": 0,
+        "preparations": 0,
+        "cache_bytes": 0,
+        "max_cache_bytes": 5368709120,
+        "int8_allowed_shapes": [
+          [
+            8192,
+            2048,
+            2048
+          ]
+        ],
+        "contract": "plain unscaled FP8 weight, FP16 activation, immutable model, request-local prepared storage",
+        "preparation_in_stage_time": true,
+        "native_source_weight_dtype": {
+          "torch.bfloat16": 13742
+        },
+        "geometry_weight_dtype": {
+          "torch.float8_e4m3fn": 13742
+        },
+        "actual_resident_weight_dtype": {
+          "torch.float8_e4m3fn": 13742
+        },
+        "actual_weight_contracts": {
+          "('torch.float8_e4m3fn', (1024, 1024), (1024, 1), 'cuda:0')": 98,
+          "('torch.float8_e4m3fn', (4096, 1024), (1024, 1), 'cuda:0')": 12,
+          "('torch.float8_e4m3fn', (1024, 4096), (4096, 1), 'cuda:0')": 12,
+          "('torch.float8_e4m3fn', (2048, 68), (68, 1), 'cuda:0')": 30,
+          "('torch.float8_e4m3fn', (2048, 2048), (2048, 1), 'cuda:0')": 5070,
+          "('torch.float8_e4m3fn', (6144, 2048), (2048, 1), 'cuda:0')": 30,
+          "('torch.float8_e4m3fn', (256, 2048), (2048, 1), 'cuda:0')": 2550,
+          "('torch.float8_e4m3fn', (6144, 256), (256, 1), 'cuda:0')": 2520,
+          "('torch.float8_e4m3fn', (2048, 1024), (1024, 1), 'cuda:0')": 1680,
+          "('torch.float8_e4m3fn', (8192, 2048), (2048, 1), 'cuda:0')": 840,
+          "('torch.float8_e4m3fn', (2048, 8192), (8192, 1), 'cuda:0')": 840,
+          "('torch.float8_e4m3fn', (4096, 256), (256, 1), 'cuda:0')": 30,
+          "('torch.float8_e4m3fn', (64, 2048), (2048, 1), 'cuda:0')": 30
+        },
+        "context_weight_is_resident_storage": {},
+        "shapes": {
+          "((1, 177, 1024), (1024, 1024), 'torch.float8_e4m3fn')": 37,
+          "((1, 156, 1024), (1024, 1024), 'torch.float8_e4m3fn')": 12,
+          "((1, 177, 1024), (4096, 1024), 'torch.float8_e4m3fn')": 6,
+          "((1, 177, 4096), (1024, 4096), 'torch.float8_e4m3fn')": 6,
+          "((1, 38, 1024), (1024, 1024), 'torch.float8_e4m3fn')": 37,
+          "((1, 32, 1024), (1024, 1024), 'torch.float8_e4m3fn')": 12,
+          "((1, 38, 1024), (4096, 1024), 'torch.float8_e4m3fn')": 6,
+          "((1, 38, 4096), (1024, 4096), 'torch.float8_e4m3fn')": 6,
+          "((2, 1, 64, 64, 68), (2048, 68), 'torch.float8_e4m3fn')": 30,
+          "((2, 1, 2048), (2048, 2048), 'torch.float8_e4m3fn')": 30,
+          "((2, 1, 2048), (6144, 2048), 'torch.float8_e4m3fn')": 30,
+          "((2, 1, 2048), (256, 2048), 'torch.float8_e4m3fn')": 2550,
+          "((2, 1, 256), (6144, 256), 'torch.float8_e4m3fn')": 2520,
+          "((2, 4096, 2048), (2048, 2048), 'torch.float8_e4m3fn')": 5040,
+          "((2, 512, 1024), (2048, 1024), 'torch.float8_e4m3fn')": 1680,
+          "((2, 1, 64, 64, 2048), (8192, 2048), 'torch.float8_e4m3fn')": 840,
+          "((2, 1, 64, 64, 8192), (2048, 8192), 'torch.float8_e4m3fn')": 840,
+          "((2, 1, 256), (4096, 256), 'torch.float8_e4m3fn')": 30,
+          "((2, 1, 64, 64, 2048), (64, 2048), 'torch.float8_e4m3fn')": 30
+        },
+        "fallbacks": {},
+        "source_sha256": {
+          "dtype_switches_v06.py": "bb0a9fde7506c560b6a7187288adace6d8f9e9b8025c0826a07572aac6972f07",
+          "rdna2_ops/fp8_weight_gemm_v06.py": "6305048cda4e2dd61c1512d775cef700784de1aaf9831cae7d3eef1c12597223",
+          "rdna2_ops/int8_gemm.py": "0b2d0970af17ddf61aa19d242bfebbb6f42add330e07387442dbe97ab316109d"
+        },
+        "cuda_allocated_bytes_at_entry": 33896448,
+        "memory_scope": "per-request PyTorch allocator, excludes external DynamicVRAM allocator; explicit prepared cache bytes also recorded",
+        "cuda_peak_allocated_bytes": 3045647872,
+        "prepared_entries": 0,
+        "request_cache_released": true
+      },
+      "stage_calls": {
+        "denoise": 1,
+        "vae": 1
+      },
+      "profile_artifacts": [],
+      "latent_error": {
+        "finite": true,
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "byte_equal": true
+      },
+      "image_error": {
+        "finite": true,
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "byte_equal": true
+      },
+      "comparison_errors": {},
+      "image_gate": true,
+      "latent_sha256": "75565b9f9ca9dd05a20e4a02b3e5cf53e8bbb390254af9c01dc579a345c853db",
+      "image_sha256": "3915987e3b7be9b50e497437a0fbc4e3316fdda5a84e145675c7b38e1358f27f",
+      "required_bitwise_gate": true
+    },
+    {
+      "index": 2,
+      "mode": "fp8_prepared_fp16",
+      "success": true,
+      "wall": {
+        "denoise_s": 80.58530731299834,
+        "vae_s": 0.5611235310061602
+      },
+      "request_wall_s": 81.53875126699859,
+      "conditioning_first_embedding_sha256": {
+        "positive": "a6c15ee3d0208bb976cb338714960a180fd73170fa904280577da928000f4968",
+        "negative": "f2199b5a6d7ba57a2d9d62675ea8d45c8d5da3f77d6e969fc1ee7f562cb0ec2e"
+      },
+      "candidate": {
+        "mode": "fp8_prepared_fp16",
+        "hits": 13742,
+        "candidate_calls": 13742,
+        "cache_reuses": 13227,
+        "preparations": 515,
+        "cache_bytes": 4116201472,
+        "max_cache_bytes": 5368709120,
+        "int8_allowed_shapes": [
+          [
+            8192,
+            2048,
+            2048
+          ]
+        ],
+        "contract": "plain unscaled FP8 weight, FP16 activation, immutable model, request-local prepared storage",
+        "preparation_in_stage_time": true,
+        "native_source_weight_dtype": {
+          "torch.bfloat16": 13742
+        },
+        "geometry_weight_dtype": {
+          "torch.float8_e4m3fn": 13742
+        },
+        "actual_resident_weight_dtype": {
+          "torch.float8_e4m3fn": 13742
+        },
+        "actual_weight_contracts": {
+          "('torch.float8_e4m3fn', (1024, 1024), (1024, 1), 'cuda:0')": 98,
+          "('torch.float8_e4m3fn', (4096, 1024), (1024, 1), 'cuda:0')": 12,
+          "('torch.float8_e4m3fn', (1024, 4096), (4096, 1), 'cuda:0')": 12,
+          "('torch.float8_e4m3fn', (2048, 68), (68, 1), 'cuda:0')": 30,
+          "('torch.float8_e4m3fn', (2048, 2048), (2048, 1), 'cuda:0')": 5070,
+          "('torch.float8_e4m3fn', (6144, 2048), (2048, 1), 'cuda:0')": 30,
+          "('torch.float8_e4m3fn', (256, 2048), (2048, 1), 'cuda:0')": 2550,
+          "('torch.float8_e4m3fn', (6144, 256), (256, 1), 'cuda:0')": 2520,
+          "('torch.float8_e4m3fn', (2048, 1024), (1024, 1), 'cuda:0')": 1680,
+          "('torch.float8_e4m3fn', (8192, 2048), (2048, 1), 'cuda:0')": 840,
+          "('torch.float8_e4m3fn', (2048, 8192), (8192, 1), 'cuda:0')": 840,
+          "('torch.float8_e4m3fn', (4096, 256), (256, 1), 'cuda:0')": 30,
+          "('torch.float8_e4m3fn', (64, 2048), (2048, 1), 'cuda:0')": 30
+        },
+        "context_weight_is_resident_storage": {
+          "True": 13742
+        },
+        "shapes": {
+          "((1, 177, 1024), (1024, 1024), 'torch.float8_e4m3fn')": 37,
+          "((1, 156, 1024), (1024, 1024), 'torch.float8_e4m3fn')": 12,
+          "((1, 177, 1024), (4096, 1024), 'torch.float8_e4m3fn')": 6,
+          "((1, 177, 4096), (1024, 4096), 'torch.float8_e4m3fn')": 6,
+          "((1, 38, 1024), (1024, 1024), 'torch.float8_e4m3fn')": 37,
+          "((1, 32, 1024), (1024, 1024), 'torch.float8_e4m3fn')": 12,
+          "((1, 38, 1024), (4096, 1024), 'torch.float8_e4m3fn')": 6,
+          "((1, 38, 4096), (1024, 4096), 'torch.float8_e4m3fn')": 6,
+          "((2, 1, 64, 64, 68), (2048, 68), 'torch.float8_e4m3fn')": 30,
+          "((2, 1, 2048), (2048, 2048), 'torch.float8_e4m3fn')": 30,
+          "((2, 1, 2048), (6144, 2048), 'torch.float8_e4m3fn')": 30,
+          "((2, 1, 2048), (256, 2048), 'torch.float8_e4m3fn')": 2550,
+          "((2, 1, 256), (6144, 256), 'torch.float8_e4m3fn')": 2520,
+          "((2, 4096, 2048), (2048, 2048), 'torch.float8_e4m3fn')": 5040,
+          "((2, 512, 1024), (2048, 1024), 'torch.float8_e4m3fn')": 1680,
+          "((2, 1, 64, 64, 2048), (8192, 2048), 'torch.float8_e4m3fn')": 840,
+          "((2, 1, 64, 64, 8192), (2048, 8192), 'torch.float8_e4m3fn')": 840,
+          "((2, 1, 256), (4096, 256), 'torch.float8_e4m3fn')": 30,
+          "((2, 1, 64, 64, 2048), (64, 2048), 'torch.float8_e4m3fn')": 30
+        },
+        "fallbacks": {},
+        "source_sha256": {
+          "dtype_switches_v06.py": "bb0a9fde7506c560b6a7187288adace6d8f9e9b8025c0826a07572aac6972f07",
+          "rdna2_ops/fp8_weight_gemm_v06.py": "6305048cda4e2dd61c1512d775cef700784de1aaf9831cae7d3eef1c12597223",
+          "rdna2_ops/int8_gemm.py": "0b2d0970af17ddf61aa19d242bfebbb6f42add330e07387442dbe97ab316109d"
+        },
+        "cuda_allocated_bytes_at_entry": 33896448,
+        "memory_scope": "per-request PyTorch allocator, excludes external DynamicVRAM allocator; explicit prepared cache bytes also recorded",
+        "cuda_peak_allocated_bytes": 7200400896,
+        "prepared_entries": 515,
+        "request_cache_released": true
+      },
+      "stage_calls": {
+        "denoise": 1,
+        "vae": 1
+      },
+      "profile_artifacts": [],
+      "latent_error": {
+        "finite": true,
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "byte_equal": true
+      },
+      "image_error": {
+        "finite": true,
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "byte_equal": true
+      },
+      "comparison_errors": {},
+      "image_gate": true,
+      "latent_sha256": "75565b9f9ca9dd05a20e4a02b3e5cf53e8bbb390254af9c01dc579a345c853db",
+      "image_sha256": "3915987e3b7be9b50e497437a0fbc4e3316fdda5a84e145675c7b38e1358f27f",
+      "required_bitwise_gate": true
+    },
+    {
+      "index": 3,
+      "mode": "fp8_control",
+      "success": true,
+      "wall": {
+        "denoise_s": 79.46481598900573,
+        "vae_s": 0.5488040009950055
+      },
+      "request_wall_s": 80.37496945900784,
+      "conditioning_first_embedding_sha256": {
+        "positive": "a6c15ee3d0208bb976cb338714960a180fd73170fa904280577da928000f4968",
+        "negative": "f2199b5a6d7ba57a2d9d62675ea8d45c8d5da3f77d6e969fc1ee7f562cb0ec2e"
+      },
+      "candidate": {
+        "mode": "fp8_control",
+        "hits": 13742,
+        "candidate_calls": 0,
+        "cache_reuses": 0,
+        "preparations": 0,
+        "cache_bytes": 0,
+        "max_cache_bytes": 5368709120,
+        "int8_allowed_shapes": [
+          [
+            8192,
+            2048,
+            2048
+          ]
+        ],
+        "contract": "plain unscaled FP8 weight, FP16 activation, immutable model, request-local prepared storage",
+        "preparation_in_stage_time": true,
+        "native_source_weight_dtype": {
+          "torch.bfloat16": 13742
+        },
+        "geometry_weight_dtype": {
+          "torch.float8_e4m3fn": 13742
+        },
+        "actual_resident_weight_dtype": {
+          "torch.float8_e4m3fn": 13742
+        },
+        "actual_weight_contracts": {
+          "('torch.float8_e4m3fn', (1024, 1024), (1024, 1), 'cuda:0')": 98,
+          "('torch.float8_e4m3fn', (4096, 1024), (1024, 1), 'cuda:0')": 12,
+          "('torch.float8_e4m3fn', (1024, 4096), (4096, 1), 'cuda:0')": 12,
+          "('torch.float8_e4m3fn', (2048, 68), (68, 1), 'cuda:0')": 30,
+          "('torch.float8_e4m3fn', (2048, 2048), (2048, 1), 'cuda:0')": 5070,
+          "('torch.float8_e4m3fn', (6144, 2048), (2048, 1), 'cuda:0')": 30,
+          "('torch.float8_e4m3fn', (256, 2048), (2048, 1), 'cuda:0')": 2550,
+          "('torch.float8_e4m3fn', (6144, 256), (256, 1), 'cuda:0')": 2520,
+          "('torch.float8_e4m3fn', (2048, 1024), (1024, 1), 'cuda:0')": 1680,
+          "('torch.float8_e4m3fn', (8192, 2048), (2048, 1), 'cuda:0')": 840,
+          "('torch.float8_e4m3fn', (2048, 8192), (8192, 1), 'cuda:0')": 840,
+          "('torch.float8_e4m3fn', (4096, 256), (256, 1), 'cuda:0')": 30,
+          "('torch.float8_e4m3fn', (64, 2048), (2048, 1), 'cuda:0')": 30
+        },
+        "context_weight_is_resident_storage": {},
+        "shapes": {
+          "((1, 177, 1024), (1024, 1024), 'torch.float8_e4m3fn')": 37,
+          "((1, 156, 1024), (1024, 1024), 'torch.float8_e4m3fn')": 12,
+          "((1, 177, 1024), (4096, 1024), 'torch.float8_e4m3fn')": 6,
+          "((1, 177, 4096), (1024, 4096), 'torch.float8_e4m3fn')": 6,
+          "((1, 38, 1024), (1024, 1024), 'torch.float8_e4m3fn')": 37,
+          "((1, 32, 1024), (1024, 1024), 'torch.float8_e4m3fn')": 12,
+          "((1, 38, 1024), (4096, 1024), 'torch.float8_e4m3fn')": 6,
+          "((1, 38, 4096), (1024, 4096), 'torch.float8_e4m3fn')": 6,
+          "((2, 1, 64, 64, 68), (2048, 68), 'torch.float8_e4m3fn')": 30,
+          "((2, 1, 2048), (2048, 2048), 'torch.float8_e4m3fn')": 30,
+          "((2, 1, 2048), (6144, 2048), 'torch.float8_e4m3fn')": 30,
+          "((2, 1, 2048), (256, 2048), 'torch.float8_e4m3fn')": 2550,
+          "((2, 1, 256), (6144, 256), 'torch.float8_e4m3fn')": 2520,
+          "((2, 4096, 2048), (2048, 2048), 'torch.float8_e4m3fn')": 5040,
+          "((2, 512, 1024), (2048, 1024), 'torch.float8_e4m3fn')": 1680,
+          "((2, 1, 64, 64, 2048), (8192, 2048), 'torch.float8_e4m3fn')": 840,
+          "((2, 1, 64, 64, 8192), (2048, 8192), 'torch.float8_e4m3fn')": 840,
+          "((2, 1, 256), (4096, 256), 'torch.float8_e4m3fn')": 30,
+          "((2, 1, 64, 64, 2048), (64, 2048), 'torch.float8_e4m3fn')": 30
+        },
+        "fallbacks": {},
+        "source_sha256": {
+          "dtype_switches_v06.py": "bb0a9fde7506c560b6a7187288adace6d8f9e9b8025c0826a07572aac6972f07",
+          "rdna2_ops/fp8_weight_gemm_v06.py": "6305048cda4e2dd61c1512d775cef700784de1aaf9831cae7d3eef1c12597223",
+          "rdna2_ops/int8_gemm.py": "0b2d0970af17ddf61aa19d242bfebbb6f42add330e07387442dbe97ab316109d"
+        },
+        "cuda_allocated_bytes_at_entry": 33896448,
+        "memory_scope": "per-request PyTorch allocator, excludes external DynamicVRAM allocator; explicit prepared cache bytes also recorded",
+        "cuda_peak_allocated_bytes": 3045647872,
+        "prepared_entries": 0,
+        "request_cache_released": true
+      },
+      "stage_calls": {
+        "denoise": 1,
+        "vae": 1
+      },
+      "profile_artifacts": [],
+      "latent_error": {
+        "finite": true,
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "byte_equal": true
+      },
+      "image_error": {
+        "finite": true,
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "byte_equal": true
+      },
+      "comparison_errors": {},
+      "image_gate": true,
+      "latent_sha256": "75565b9f9ca9dd05a20e4a02b3e5cf53e8bbb390254af9c01dc579a345c853db",
+      "image_sha256": "3915987e3b7be9b50e497437a0fbc4e3316fdda5a84e145675c7b38e1358f27f",
+      "required_bitwise_gate": true
+    },
+    {
+      "index": 4,
+      "mode": "fp8_prepared_fp16",
+      "success": true,
+      "wall": {
+        "denoise_s": 80.77766082699236,
+        "vae_s": 0.5567194119939813
+      },
+      "request_wall_s": 81.69339111699082,
+      "conditioning_first_embedding_sha256": {
+        "positive": "a6c15ee3d0208bb976cb338714960a180fd73170fa904280577da928000f4968",
+        "negative": "f2199b5a6d7ba57a2d9d62675ea8d45c8d5da3f77d6e969fc1ee7f562cb0ec2e"
+      },
+      "candidate": {
+        "mode": "fp8_prepared_fp16",
+        "hits": 13742,
+        "candidate_calls": 13742,
+        "cache_reuses": 13227,
+        "preparations": 515,
+        "cache_bytes": 4116201472,
+        "max_cache_bytes": 5368709120,
+        "int8_allowed_shapes": [
+          [
+            8192,
+            2048,
+            2048
+          ]
+        ],
+        "contract": "plain unscaled FP8 weight, FP16 activation, immutable model, request-local prepared storage",
+        "preparation_in_stage_time": true,
+        "native_source_weight_dtype": {
+          "torch.bfloat16": 13742
+        },
+        "geometry_weight_dtype": {
+          "torch.float8_e4m3fn": 13742
+        },
+        "actual_resident_weight_dtype": {
+          "torch.float8_e4m3fn": 13742
+        },
+        "actual_weight_contracts": {
+          "('torch.float8_e4m3fn', (1024, 1024), (1024, 1), 'cuda:0')": 98,
+          "('torch.float8_e4m3fn', (4096, 1024), (1024, 1), 'cuda:0')": 12,
+          "('torch.float8_e4m3fn', (1024, 4096), (4096, 1), 'cuda:0')": 12,
+          "('torch.float8_e4m3fn', (2048, 68), (68, 1), 'cuda:0')": 30,
+          "('torch.float8_e4m3fn', (2048, 2048), (2048, 1), 'cuda:0')": 5070,
+          "('torch.float8_e4m3fn', (6144, 2048), (2048, 1), 'cuda:0')": 30,
+          "('torch.float8_e4m3fn', (256, 2048), (2048, 1), 'cuda:0')": 2550,
+          "('torch.float8_e4m3fn', (6144, 256), (256, 1), 'cuda:0')": 2520,
+          "('torch.float8_e4m3fn', (2048, 1024), (1024, 1), 'cuda:0')": 1680,
+          "('torch.float8_e4m3fn', (8192, 2048), (2048, 1), 'cuda:0')": 840,
+          "('torch.float8_e4m3fn', (2048, 8192), (8192, 1), 'cuda:0')": 840,
+          "('torch.float8_e4m3fn', (4096, 256), (256, 1), 'cuda:0')": 30,
+          "('torch.float8_e4m3fn', (64, 2048), (2048, 1), 'cuda:0')": 30
+        },
+        "context_weight_is_resident_storage": {
+          "True": 13742
+        },
+        "shapes": {
+          "((1, 177, 1024), (1024, 1024), 'torch.float8_e4m3fn')": 37,
+          "((1, 156, 1024), (1024, 1024), 'torch.float8_e4m3fn')": 12,
+          "((1, 177, 1024), (4096, 1024), 'torch.float8_e4m3fn')": 6,
+          "((1, 177, 4096), (1024, 4096), 'torch.float8_e4m3fn')": 6,
+          "((1, 38, 1024), (1024, 1024), 'torch.float8_e4m3fn')": 37,
+          "((1, 32, 1024), (1024, 1024), 'torch.float8_e4m3fn')": 12,
+          "((1, 38, 1024), (4096, 1024), 'torch.float8_e4m3fn')": 6,
+          "((1, 38, 4096), (1024, 4096), 'torch.float8_e4m3fn')": 6,
+          "((2, 1, 64, 64, 68), (2048, 68), 'torch.float8_e4m3fn')": 30,
+          "((2, 1, 2048), (2048, 2048), 'torch.float8_e4m3fn')": 30,
+          "((2, 1, 2048), (6144, 2048), 'torch.float8_e4m3fn')": 30,
+          "((2, 1, 2048), (256, 2048), 'torch.float8_e4m3fn')": 2550,
+          "((2, 1, 256), (6144, 256), 'torch.float8_e4m3fn')": 2520,
+          "((2, 4096, 2048), (2048, 2048), 'torch.float8_e4m3fn')": 5040,
+          "((2, 512, 1024), (2048, 1024), 'torch.float8_e4m3fn')": 1680,
+          "((2, 1, 64, 64, 2048), (8192, 2048), 'torch.float8_e4m3fn')": 840,
+          "((2, 1, 64, 64, 8192), (2048, 8192), 'torch.float8_e4m3fn')": 840,
+          "((2, 1, 256), (4096, 256), 'torch.float8_e4m3fn')": 30,
+          "((2, 1, 64, 64, 2048), (64, 2048), 'torch.float8_e4m3fn')": 30
+        },
+        "fallbacks": {},
+        "source_sha256": {
+          "dtype_switches_v06.py": "bb0a9fde7506c560b6a7187288adace6d8f9e9b8025c0826a07572aac6972f07",
+          "rdna2_ops/fp8_weight_gemm_v06.py": "6305048cda4e2dd61c1512d775cef700784de1aaf9831cae7d3eef1c12597223",
+          "rdna2_ops/int8_gemm.py": "0b2d0970af17ddf61aa19d242bfebbb6f42add330e07387442dbe97ab316109d"
+        },
+        "cuda_allocated_bytes_at_entry": 33896448,
+        "memory_scope": "per-request PyTorch allocator, excludes external DynamicVRAM allocator; explicit prepared cache bytes also recorded",
+        "cuda_peak_allocated_bytes": 7200400896,
+        "prepared_entries": 515,
+        "request_cache_released": true
+      },
+      "stage_calls": {
+        "denoise": 1,
+        "vae": 1
+      },
+      "profile_artifacts": [],
+      "latent_error": {
+        "finite": true,
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "byte_equal": true
+      },
+      "image_error": {
+        "finite": true,
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "byte_equal": true
+      },
+      "comparison_errors": {},
+      "image_gate": true,
+      "latent_sha256": "75565b9f9ca9dd05a20e4a02b3e5cf53e8bbb390254af9c01dc579a345c853db",
+      "image_sha256": "3915987e3b7be9b50e497437a0fbc4e3316fdda5a84e145675c7b38e1358f27f",
+      "required_bitwise_gate": true
+    }
+  ]
+}

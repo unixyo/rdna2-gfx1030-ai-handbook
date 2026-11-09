@@ -1,0 +1,228 @@
+{
+  "scope": "CPU-only installed file/header/symbol inspection; no runtime dispatch measured",
+  "torch_version_file": "from typing import Optional\n\n__all__ = ['__version__', 'debug', 'cuda', 'git_version', 'hip', 'rocm', 'xpu']\n__version__ = '2.12.0+rocm10.2.0a20261011'\ndebug = False\ncuda: Optional[str] = None\ngit_version = '9ccf2fd0aab44087b58af23ad20bc961c29bb852'\nhip: Optional[str] = '7.17.26405'\nrocm: Optional[str] = '10.2.0'\nxpu: Optional[str] = None\n",
+  "header_sha256": "4fe87122f5c6580620ec9c79778ed76e173ae8c36ab14129c43f0c5eba8c5ab5",
+  "families": {
+    "HS_HPA": {
+      "files": [
+        {
+          "name": "TensileLibrary_Type_HS_HPA_Contraction_l_Ailk_Bjlk_Cijk_Dijk_fallback_gfx1030.dat",
+          "bytes": 43234
+        },
+        {
+          "name": "TensileLibrary_Type_HS_HPA_Contraction_l_Ailk_Bjlk_Cijk_Dijk_fallback_gfx1030.hsaco",
+          "bytes": 317328
+        },
+        {
+          "name": "TensileLibrary_Type_HS_HPA_Contraction_l_Ailk_Bljk_Cijk_Dijk_fallback_gfx1030.dat",
+          "bytes": 26110
+        },
+        {
+          "name": "TensileLibrary_Type_HS_HPA_Contraction_l_Ailk_Bljk_Cijk_Dijk_fallback_gfx1030.hsaco",
+          "bytes": 201848
+        },
+        {
+          "name": "TensileLibrary_Type_HS_HPA_Contraction_l_Alik_Bjlk_Cijk_Dijk_fallback_gfx1030.dat",
+          "bytes": 18983
+        },
+        {
+          "name": "TensileLibrary_Type_HS_HPA_Contraction_l_Alik_Bjlk_Cijk_Dijk_fallback_gfx1030.hsaco",
+          "bytes": 97672
+        },
+        {
+          "name": "TensileLibrary_Type_HS_HPA_Contraction_l_Alik_Bljk_Cijk_Dijk_fallback_gfx1030.dat",
+          "bytes": 29375
+        },
+        {
+          "name": "TensileLibrary_Type_HS_HPA_Contraction_l_Alik_Bljk_Cijk_Dijk_fallback_gfx1030.hsaco",
+          "bytes": 235120
+        }
+      ],
+      "has_arch_co": false,
+      "sample_object": "TensileLibrary_Type_HS_HPA_Contraction_l_Ailk_Bjlk_Cijk_Dijk_fallback_gfx1030.hsaco",
+      "sample_sha256": "516eb11ccccbd359188c21a3a6f99410efd4db1cbea843373d9cddf4023ece08",
+      "sample_symbols": [
+        "Cijk_Ailk_Bjlk_HSS_BH_GB_MT128x32x16_SE_AMAS0_BL1_BS1_EPS0_GLVWA1_GLVWB1_GRVW1_GSU1_GSUASB_ISA000_IU1_K1_KLS_LDL1_LRVW1_MMFSC_NLCA1_NLCB1_PGR0_PLR1_SIA1_SU32_SUM0_SUS256_SVW4_TT8_2_USFGROn1_VAW2_VSn1_VW1_VWB1_WS64_WG16_16_1_WGM8",
+        "Cijk_Ailk_Bjlk_HSS_BH_GB_MT128x32x16_SE_AMAS0_BL1_BS1_EPS0_GLVWA1_GLVWB1_GRVW1_GSU3_GSUAMB_ISA000_IU1_K1_KLS_LDL1_LRVW1_MMFSC_NLCA1_NLCB1_PGR0_PLR1_SIA1_SU32_SUM0_SUS256_SVW4_TT8_2_USFGROn1_VAW1_VSn1_VW1_VWB1_WS64_WG16_16_1_WGM8",
+        "Cijk_Ailk_Bjlk_HSS_BH_GB_MT16x64x16_SE_AMAS0_BL1_BS1_EPS0_GLVWA1_GLVWB1_GRVW1_GSU3_GSUAMB_ISA000_IU1_K1_KLS_LDL1_LRVW1_MMFSC_NLCA1_NLCB1_PGR0_PLR1_SIA1_SU32_SUM0_SUS256_SVW4_TT2_8_USFGROn1_VAW1_VSn1_VW1_VWB1_WS64_WG8_8_1_WGM8"
+      ],
+      "sample_kernel_symbol_count": 24,
+      "disassembly": {
+        "tool": "~/DevSpace/moss-image-rdna2-lab01/.venv-moss/lib/python3.12/site-packages/_rocm_sdk_core/lib/llvm/bin/llvm-objdump",
+        "returncode": 0,
+        "stderr": "",
+        "static_counts_whole_object": {
+          "v_dot2c_f32_f16": 0,
+          "v_dot2_f32_f16": 0,
+          "v_fma_mix_f32": 2830,
+          "v_fmac_f32": 52
+        },
+        "sha256": "01ab0a8dd11b56848ed3a1289c0986cebcc110e79a942dbd299f09c035772c2d",
+        "actual_mnemonics_whole_object": {
+          "v_cvt_f32_u32_e32": 20,
+          "v_cvt_u32_f32_e32": 20,
+          "v_fma_mix_f32": 2830,
+          "v_fmac_f32_e32": 52
+        },
+        "output_bytes": 3785404,
+        "meaning": "Static whole-object counts, not proof that a symbol was selected at runtime.",
+        "counting_note": "Actual mnemonic counts retain suffixes; this normalized summary merges _e32/_e64 forms."
+      }
+    },
+    "HH_HPA": {
+      "files": [
+        {
+          "name": "TensileLibrary_Type_HH_HPA_Contraction_l_Ailk_Bjlk_Cijk_Dijk_fallback_gfx1030.dat",
+          "bytes": 69118
+        },
+        {
+          "name": "TensileLibrary_Type_HH_HPA_Contraction_l_Ailk_Bjlk_Cijk_Dijk_fallback_gfx1030.hsaco",
+          "bytes": 370272
+        },
+        {
+          "name": "TensileLibrary_Type_HH_HPA_Contraction_l_Ailk_Bjlk_Cijk_Dijk_gfx1030.co",
+          "bytes": 280614
+        },
+        {
+          "name": "TensileLibrary_Type_HH_HPA_Contraction_l_Ailk_Bjlk_Cijk_Dijk_gfx1030.dat",
+          "bytes": 582653
+        },
+        {
+          "name": "TensileLibrary_Type_HH_HPA_Contraction_l_Ailk_Bljk_Cijk_Dijk_fallback_gfx1030.dat",
+          "bytes": 48358
+        },
+        {
+          "name": "TensileLibrary_Type_HH_HPA_Contraction_l_Ailk_Bljk_Cijk_Dijk_fallback_gfx1030.hsaco",
+          "bytes": 191784
+        },
+        {
+          "name": "TensileLibrary_Type_HH_HPA_Contraction_l_Ailk_Bljk_Cijk_Dijk_gfx1030.co",
+          "bytes": 419467
+        },
+        {
+          "name": "TensileLibrary_Type_HH_HPA_Contraction_l_Ailk_Bljk_Cijk_Dijk_gfx1030.dat",
+          "bytes": 1081921
+        },
+        {
+          "name": "TensileLibrary_Type_HH_HPA_Contraction_l_Alik_Bjlk_Cijk_Dijk_fallback_gfx1030.dat",
+          "bytes": 42256
+        },
+        {
+          "name": "TensileLibrary_Type_HH_HPA_Contraction_l_Alik_Bjlk_Cijk_Dijk_fallback_gfx1030.hsaco",
+          "bytes": 102720
+        },
+        {
+          "name": "TensileLibrary_Type_HH_HPA_Contraction_l_Alik_Bjlk_Cijk_Dijk_gfx1030.co",
+          "bytes": 75805
+        },
+        {
+          "name": "TensileLibrary_Type_HH_HPA_Contraction_l_Alik_Bjlk_Cijk_Dijk_gfx1030.dat",
+          "bytes": 132774
+        },
+        {
+          "name": "TensileLibrary_Type_HH_HPA_Contraction_l_Alik_Bljk_Cijk_Dijk_fallback_gfx1030.dat",
+          "bytes": 42194
+        },
+        {
+          "name": "TensileLibrary_Type_HH_HPA_Contraction_l_Alik_Bljk_Cijk_Dijk_fallback_gfx1030.hsaco",
+          "bytes": 159560
+        },
+        {
+          "name": "TensileLibrary_Type_HH_HPA_Contraction_l_Alik_Bljk_Cijk_Dijk_gfx1030.co",
+          "bytes": 369313
+        },
+        {
+          "name": "TensileLibrary_Type_HH_HPA_Contraction_l_Alik_Bljk_Cijk_Dijk_gfx1030.dat",
+          "bytes": 995046
+        }
+      ],
+      "has_arch_co": true,
+      "sample_object": "TensileLibrary_Type_HH_HPA_Contraction_l_Ailk_Bjlk_Cijk_Dijk_fallback_gfx1030.hsaco",
+      "sample_sha256": "a6d106e620ce58aa190fc078d6c4d9bb8953dcc73eccf906551201a51f9e0b9c",
+      "sample_symbols": [
+        "Cijk_Ailk_Bjlk_HHS_BH_GB_MT128x32x16_SN_AMAS0_BL0_BS1_EPS0_GLVWA1_GLVWB1_GRVW1_GSU1_GSUASB_ISA000_IU1_K1_KLS_LDL1_LRVW1_MMFSC_NLCA1_NLCB1_PGR0_PLR1_SIA1_SU32_SUM0_SUS256_SVW4_TT8_2_USFGRO0_VAW2_VS1_VW1_VWB1_WS64_WG16_16_1_WGM8",
+        "Cijk_Ailk_Bjlk_HHS_BH_GB_MT128x32x16_SN_AMAS2_BL0_BS1_EPS0_GLVWA2_GLVWB2_GRVW2_GSU1_GSUASB_ISA000_IU1_K1_KLS_LDL1_LRVW2_MMFSC_NLCA1_NLCB1_PGR0_PLR1_SIA1_SU32_SUM0_SUS256_SVW4_TT8_2_USFGRO0_VAW2_VS1_VW2_VWB2_WS64_WG16_16_1_WGM8",
+        "Cijk_Ailk_Bjlk_HHS_BH_GB_MT16x64x16_SN_AMAS0_BL0_BS1_EPS0_GLVWA1_GLVWB1_GRVW1_GSU1_GSUASB_ISA000_IU1_K1_KLS_LDL1_LRVW1_MMFSC_NLCA1_NLCB1_PGR0_PLR1_SIA1_SU32_SUM0_SUS256_SVW4_TT2_8_USFGRO0_VAW2_VS1_VW1_VWB1_WS64_WG8_8_1_WGM8"
+      ],
+      "sample_kernel_symbol_count": 26
+    },
+    "SS": {
+      "files": [
+        {
+          "name": "TensileLibrary_Type_SS_Contraction_l_Ailk_Bjlk_Cijk_Dijk_fallback_gfx1030.dat",
+          "bytes": 6546
+        },
+        {
+          "name": "TensileLibrary_Type_SS_Contraction_l_Ailk_Bjlk_Cijk_Dijk_fallback_gfx1030.hsaco",
+          "bytes": 51640
+        },
+        {
+          "name": "TensileLibrary_Type_SS_Contraction_l_Ailk_Bjlk_Cijk_Dijk_gfx1030.co",
+          "bytes": 483495
+        },
+        {
+          "name": "TensileLibrary_Type_SS_Contraction_l_Ailk_Bjlk_Cijk_Dijk_gfx1030.dat",
+          "bytes": 1193187
+        },
+        {
+          "name": "TensileLibrary_Type_SS_Contraction_l_Ailk_Bljk_Cijk_Dijk_fallback_gfx1030.dat",
+          "bytes": 6538
+        },
+        {
+          "name": "TensileLibrary_Type_SS_Contraction_l_Ailk_Bljk_Cijk_Dijk_fallback_gfx1030.hsaco",
+          "bytes": 33976
+        },
+        {
+          "name": "TensileLibrary_Type_SS_Contraction_l_Ailk_Bljk_Cijk_Dijk_gfx1030.co",
+          "bytes": 554154
+        },
+        {
+          "name": "TensileLibrary_Type_SS_Contraction_l_Ailk_Bljk_Cijk_Dijk_gfx1030.dat",
+          "bytes": 1365293
+        },
+        {
+          "name": "TensileLibrary_Type_SS_Contraction_l_Alik_Bjlk_Cijk_Dijk_fallback_gfx1030.dat",
+          "bytes": 6550
+        },
+        {
+          "name": "TensileLibrary_Type_SS_Contraction_l_Alik_Bjlk_Cijk_Dijk_fallback_gfx1030.hsaco",
+          "bytes": 32952
+        },
+        {
+          "name": "TensileLibrary_Type_SS_Contraction_l_Alik_Bjlk_Cijk_Dijk_gfx1030.co",
+          "bytes": 244825
+        },
+        {
+          "name": "TensileLibrary_Type_SS_Contraction_l_Alik_Bjlk_Cijk_Dijk_gfx1030.dat",
+          "bytes": 525564
+        },
+        {
+          "name": "TensileLibrary_Type_SS_Contraction_l_Alik_Bljk_Cijk_Dijk_fallback_gfx1030.dat",
+          "bytes": 6550
+        },
+        {
+          "name": "TensileLibrary_Type_SS_Contraction_l_Alik_Bljk_Cijk_Dijk_fallback_gfx1030.hsaco",
+          "bytes": 42168
+        },
+        {
+          "name": "TensileLibrary_Type_SS_Contraction_l_Alik_Bljk_Cijk_Dijk_gfx1030.co",
+          "bytes": 532778
+        },
+        {
+          "name": "TensileLibrary_Type_SS_Contraction_l_Alik_Bljk_Cijk_Dijk_gfx1030.dat",
+          "bytes": 1344224
+        }
+      ],
+      "has_arch_co": true,
+      "sample_object": "TensileLibrary_Type_SS_Contraction_l_Ailk_Bjlk_Cijk_Dijk_fallback_gfx1030.hsaco",
+      "sample_sha256": "846dfeac4f7d0f703e1c70330f5e17fa620be7d74c2498924682231147861916",
+      "sample_symbols": [
+        "Cijk_Ailk_Bjlk_SB_GB_MT128x128x8_SN_AMAS0_BL0_BS1_EPS0_GLVWA1_GLVWB1_GRVW1_GSU1_GSUASB_ISA000_IU1_K1_KLS_LDL1_LRVW1_MMFSC_NLCA1_NLCB1_PGR0_PLR0_SIA1_SU32_SUM0_SUS256_SVW4_TT8_8_USFGRO0_VAW1_VS1_VW1_VWB1_WS64_WG16_16_1_WGM8",
+        "Cijk_Ailk_Bjlk_SB_MT128x128x8_SN_AMAS0_BL0_BS1_EPS0_GLVWA1_GLVWB1_GRVW1_GSU1_GSUASB_ISA000_IU1_K1_KLS_LDL1_LRVW1_MMFSC_NLCA1_NLCB1_PGR0_PLR0_SIA1_SU32_SUM0_SUS256_SVW4_TT8_8_USFGRO0_VAW1_VS1_VW1_VWB1_WS64_WG16_16_1_WGM8"
+      ],
+      "sample_kernel_symbol_count": 2
+    }
+  },
+  "source_reference": "https://github.com/pytorch/pytorch/blob/main/aten/src/ATen/cuda/CUDABlas.cpp",
+  "source_revision_note": "Official main inspected through search; installed git commit implementation unavailable, header confirmed."
+}

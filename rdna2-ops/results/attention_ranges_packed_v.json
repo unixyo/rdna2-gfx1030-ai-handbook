@@ -1,0 +1,2630 @@
+{
+  "schema_version": 1,
+  "started_utc": "2026-11-05T14:33:25.873317+00:00",
+  "seed": 20261105,
+  "rounds": 3,
+  "iterations": 6,
+  "warmup_calls_per_method": 3,
+  "packed_v": true,
+  "inputs": "Seeded normal FP32 BSHD-to-BHSD tensors; not captured model activations.",
+  "timing": "Complete callable, including checks, allocations and required dtype conversions. Wall time includes final synchronization; events include host submission gaps. Input creation and backend warmup are excluded. Pair order alternates; no graphs.",
+  "probe_timing": "FP32 QKV -> target-dtype casts -> single forced SDPA backend -> FP32 output. The single-backend context is included in the callable cost.",
+  "acceptance_declared_before_measurement": {
+    "exact_fp32_path": "Finite outputs and identical contiguous uint8 views.",
+    "subsequent_real_images": {
+      "finite_rgb": true,
+      "max_abs": 0.00784313725490196,
+      "rmse": 0.000980392156862745
+    },
+    "image_validation_performed_here": false,
+    "note": "Random operator error is diagnostic; it cannot accept a real-image precision change."
+  },
+  "ranges": [
+    {
+      "length": 128,
+      "layout": {
+        "q": {
+          "shape": [
+            1,
+            24,
+            128,
+            128
+          ],
+          "stride": [
+            393216,
+            128,
+            3072,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.float32"
+        },
+        "k": {
+          "shape": [
+            1,
+            24,
+            128,
+            128
+          ],
+          "stride": [
+            393216,
+            128,
+            3072,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.float32"
+        },
+        "v": {
+          "shape": [
+            1,
+            24,
+            128,
+            128
+          ],
+          "stride": [
+            1179648,
+            128,
+            9216,
+            1
+          ],
+          "storage_offset": 6144,
+          "dtype": "torch.float32"
+        }
+      },
+      "status": "ok",
+      "accuracy": {
+        "finite": true,
+        "byte_equal": true,
+        "max_abs": 0.0,
+        "rmse": 0.0
+      },
+      "samples": {
+        "native_fp32": [
+          {
+            "wall_ms": 0.1712588321728011,
+            "event_ms": 0.16470799843470255
+          },
+          {
+            "wall_ms": 0.12372416676953435,
+            "event_ms": 0.12109999855359395
+          },
+          {
+            "wall_ms": 0.1228058342045794,
+            "event_ms": 0.12002167105674744
+          }
+        ],
+        "candidate": [
+          {
+            "wall_ms": 0.1355256730069717,
+            "event_ms": 0.13258333007494608
+          },
+          {
+            "wall_ms": 0.08756432604665558,
+            "event_ms": 0.08483833074569702
+          },
+          {
+            "wall_ms": 0.08610616593311231,
+            "event_ms": 0.08351317048072815
+          }
+        ]
+      },
+      "medians": {
+        "native_fp32": {
+          "wall_ms": 0.12372416676953435,
+          "event_ms": 0.12109999855359395
+        },
+        "candidate": {
+          "wall_ms": 0.08756432604665558,
+          "event_ms": 0.08483833074569702
+        }
+      },
+      "speedup_wall": 1.412951739086215,
+      "speedup_event": 1.4274208071890442
+    },
+    {
+      "length": 256,
+      "layout": {
+        "q": {
+          "shape": [
+            1,
+            24,
+            256,
+            128
+          ],
+          "stride": [
+            786432,
+            128,
+            3072,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.float32"
+        },
+        "k": {
+          "shape": [
+            1,
+            24,
+            256,
+            128
+          ],
+          "stride": [
+            786432,
+            128,
+            3072,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.float32"
+        },
+        "v": {
+          "shape": [
+            1,
+            24,
+            256,
+            128
+          ],
+          "stride": [
+            2359296,
+            128,
+            9216,
+            1
+          ],
+          "storage_offset": 6144,
+          "dtype": "torch.float32"
+        }
+      },
+      "status": "ok",
+      "accuracy": {
+        "finite": true,
+        "byte_equal": true,
+        "max_abs": 0.0,
+        "rmse": 0.0
+      },
+      "samples": {
+        "native_fp32": [
+          {
+            "wall_ms": 0.29369950061663985,
+            "event_ms": 0.2894766728083293
+          },
+          {
+            "wall_ms": 0.29032799648121,
+            "event_ms": 0.2875083287556966
+          },
+          {
+            "wall_ms": 0.28796283489403623,
+            "event_ms": 0.2851283351580302
+          }
+        ],
+        "candidate": [
+          {
+            "wall_ms": 0.24683316587470472,
+            "event_ms": 0.24394500255584717
+          },
+          {
+            "wall_ms": 0.24435667243475714,
+            "event_ms": 0.24159483114878336
+          },
+          {
+            "wall_ms": 0.24558482497620085,
+            "event_ms": 0.24289482831954956
+          }
+        ]
+      },
+      "medians": {
+        "native_fp32": {
+          "wall_ms": 0.29032799648121,
+          "event_ms": 0.2875083287556966
+        },
+        "candidate": {
+          "wall_ms": 0.24558482497620085,
+          "event_ms": 0.24289482831954956
+        }
+      },
+      "speedup_wall": 1.18219029416555,
+      "speedup_event": 1.183674147139329
+    },
+    {
+      "length": 512,
+      "layout": {
+        "q": {
+          "shape": [
+            1,
+            24,
+            512,
+            128
+          ],
+          "stride": [
+            1572864,
+            128,
+            3072,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.float32"
+        },
+        "k": {
+          "shape": [
+            1,
+            24,
+            512,
+            128
+          ],
+          "stride": [
+            1572864,
+            128,
+            3072,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.float32"
+        },
+        "v": {
+          "shape": [
+            1,
+            24,
+            512,
+            128
+          ],
+          "stride": [
+            4718592,
+            128,
+            9216,
+            1
+          ],
+          "storage_offset": 6144,
+          "dtype": "torch.float32"
+        }
+      },
+      "status": "ok",
+      "accuracy": {
+        "finite": true,
+        "byte_equal": true,
+        "max_abs": 0.0,
+        "rmse": 0.0
+      },
+      "samples": {
+        "native_fp32": [
+          {
+            "wall_ms": 0.5908140058939656,
+            "event_ms": 0.5873546600341797
+          },
+          {
+            "wall_ms": 0.5893606673150013,
+            "event_ms": 0.5856948296229044
+          },
+          {
+            "wall_ms": 0.5922806643260022,
+            "event_ms": 0.5892931620279948
+          }
+        ],
+        "candidate": [
+          {
+            "wall_ms": 0.4875948264574011,
+            "event_ms": 0.48452484607696533
+          },
+          {
+            "wall_ms": 0.48566983120205504,
+            "event_ms": 0.4829549789428711
+          },
+          {
+            "wall_ms": 0.4898648282202582,
+            "event_ms": 0.486971656481425
+          }
+        ]
+      },
+      "medians": {
+        "native_fp32": {
+          "wall_ms": 0.5908140058939656,
+          "event_ms": 0.5873546600341797
+        },
+        "candidate": {
+          "wall_ms": 0.4875948264574011,
+          "event_ms": 0.48452484607696533
+        }
+      },
+      "speedup_wall": 1.2116904729824534,
+      "speedup_event": 1.2122281546339528
+    },
+    {
+      "length": 768,
+      "layout": {
+        "q": {
+          "shape": [
+            1,
+            24,
+            768,
+            128
+          ],
+          "stride": [
+            2359296,
+            128,
+            3072,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.float32"
+        },
+        "k": {
+          "shape": [
+            1,
+            24,
+            768,
+            128
+          ],
+          "stride": [
+            2359296,
+            128,
+            3072,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.float32"
+        },
+        "v": {
+          "shape": [
+            1,
+            24,
+            768,
+            128
+          ],
+          "stride": [
+            7077888,
+            128,
+            9216,
+            1
+          ],
+          "storage_offset": 6144,
+          "dtype": "torch.float32"
+        }
+      },
+      "status": "ok",
+      "accuracy": {
+        "finite": true,
+        "byte_equal": true,
+        "max_abs": 0.0,
+        "rmse": 0.0
+      },
+      "samples": {
+        "native_fp32": [
+          {
+            "wall_ms": 1.2321011648358156,
+            "event_ms": 1.2282346884409587
+          },
+          {
+            "wall_ms": 1.234502832327659,
+            "event_ms": 1.2312514781951904
+          },
+          {
+            "wall_ms": 1.2382678299521406,
+            "event_ms": 1.2353896299997966
+          }
+        ],
+        "candidate": [
+          {
+            "wall_ms": 1.039792502221341,
+            "event_ms": 1.0363365014394124
+          },
+          {
+            "wall_ms": 1.0444475046824664,
+            "event_ms": 1.0413498083750408
+          },
+          {
+            "wall_ms": 1.0360693365025024,
+            "event_ms": 1.033263127009074
+          }
+        ]
+      },
+      "medians": {
+        "native_fp32": {
+          "wall_ms": 1.234502832327659,
+          "event_ms": 1.2312514781951904
+        },
+        "candidate": {
+          "wall_ms": 1.039792502221341,
+          "event_ms": 1.0363365014394124
+        }
+      },
+      "speedup_wall": 1.1872588325943418,
+      "speedup_event": 1.1880807792498405
+    },
+    {
+      "length": 1024,
+      "layout": {
+        "q": {
+          "shape": [
+            1,
+            24,
+            1024,
+            128
+          ],
+          "stride": [
+            3145728,
+            128,
+            3072,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.float32"
+        },
+        "k": {
+          "shape": [
+            1,
+            24,
+            1024,
+            128
+          ],
+          "stride": [
+            3145728,
+            128,
+            3072,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.float32"
+        },
+        "v": {
+          "shape": [
+            1,
+            24,
+            1024,
+            128
+          ],
+          "stride": [
+            9437184,
+            128,
+            9216,
+            1
+          ],
+          "storage_offset": 6144,
+          "dtype": "torch.float32"
+        }
+      },
+      "status": "ok",
+      "accuracy": {
+        "finite": true,
+        "byte_equal": true,
+        "max_abs": 0.0,
+        "rmse": 0.0
+      },
+      "samples": {
+        "native_fp32": [
+          {
+            "wall_ms": 2.2184073362344257,
+            "event_ms": 2.2141844431559243
+          },
+          {
+            "wall_ms": 2.2346206727282456,
+            "event_ms": 2.2315828005472818
+          },
+          {
+            "wall_ms": 2.220985673678418,
+            "event_ms": 2.217787583669027
+          }
+        ],
+        "candidate": [
+          {
+            "wall_ms": 1.7080393348199625,
+            "event_ms": 1.704867998758952
+          },
+          {
+            "wall_ms": 1.7050895063827436,
+            "event_ms": 1.7018561363220215
+          },
+          {
+            "wall_ms": 1.7047978277939062,
+            "event_ms": 1.7014296849568684
+          }
+        ]
+      },
+      "medians": {
+        "native_fp32": {
+          "wall_ms": 2.220985673678418,
+          "event_ms": 2.217787583669027
+        },
+        "candidate": {
+          "wall_ms": 1.7050895063827436,
+          "event_ms": 1.7018561363220215
+        }
+      },
+      "speedup_wall": 1.3025625137944346,
+      "speedup_event": 1.3031580850670577
+    },
+    {
+      "length": 1061,
+      "layout": {
+        "q": {
+          "shape": [
+            1,
+            24,
+            1061,
+            128
+          ],
+          "stride": [
+            3259392,
+            128,
+            3072,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.float32"
+        },
+        "k": {
+          "shape": [
+            1,
+            24,
+            1061,
+            128
+          ],
+          "stride": [
+            3259392,
+            128,
+            3072,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.float32"
+        },
+        "v": {
+          "shape": [
+            1,
+            24,
+            1061,
+            128
+          ],
+          "stride": [
+            9778176,
+            128,
+            9216,
+            1
+          ],
+          "storage_offset": 6144,
+          "dtype": "torch.float32"
+        }
+      },
+      "status": "ok",
+      "accuracy": {
+        "finite": true,
+        "byte_equal": true,
+        "max_abs": 0.0,
+        "rmse": 0.0
+      },
+      "samples": {
+        "native_fp32": [
+          {
+            "wall_ms": 2.558585004104922,
+            "event_ms": 2.5550761222839355
+          },
+          {
+            "wall_ms": 2.5766531665188572,
+            "event_ms": 2.572559674580892
+          },
+          {
+            "wall_ms": 2.5950865043948093,
+            "event_ms": 2.5901079177856445
+          }
+        ],
+        "candidate": [
+          {
+            "wall_ms": 1.8625416657111298,
+            "event_ms": 1.8590679168701172
+          },
+          {
+            "wall_ms": 1.8577164931533237,
+            "event_ms": 1.8545444806416829
+          },
+          {
+            "wall_ms": 1.8794348288793117,
+            "event_ms": 1.875184694925944
+          }
+        ]
+      },
+      "medians": {
+        "native_fp32": {
+          "wall_ms": 2.5766531665188572,
+          "event_ms": 2.572559674580892
+        },
+        "candidate": {
+          "wall_ms": 1.8625416657111298,
+          "event_ms": 1.8590679168701172
+        }
+      },
+      "speedup_wall": 1.3834069937625129,
+      "speedup_event": 1.3837900440517488
+    },
+    {
+      "length": 1536,
+      "layout": {
+        "q": {
+          "shape": [
+            1,
+            24,
+            1536,
+            128
+          ],
+          "stride": [
+            4718592,
+            128,
+            3072,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.float32"
+        },
+        "k": {
+          "shape": [
+            1,
+            24,
+            1536,
+            128
+          ],
+          "stride": [
+            4718592,
+            128,
+            3072,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.float32"
+        },
+        "v": {
+          "shape": [
+            1,
+            24,
+            1536,
+            128
+          ],
+          "stride": [
+            14155776,
+            128,
+            9216,
+            1
+          ],
+          "storage_offset": 6144,
+          "dtype": "torch.float32"
+        }
+      },
+      "status": "ok",
+      "accuracy": {
+        "finite": true,
+        "byte_equal": true,
+        "max_abs": 0.0,
+        "rmse": 0.0
+      },
+      "samples": {
+        "native_fp32": [
+          {
+            "wall_ms": 8.902416001850119,
+            "event_ms": 8.898463567097982
+          },
+          {
+            "wall_ms": 8.888844332735365,
+            "event_ms": 8.88555653889974
+          },
+          {
+            "wall_ms": 8.897949339977155,
+            "event_ms": 8.893733342488607
+          }
+        ],
+        "candidate": [
+          {
+            "wall_ms": 6.473606665773938,
+            "event_ms": 6.470081965128581
+          },
+          {
+            "wall_ms": 6.498244998510927,
+            "event_ms": 6.4947357177734375
+          },
+          {
+            "wall_ms": 6.43106199762163,
+            "event_ms": 6.426955540974935
+          }
+        ]
+      },
+      "medians": {
+        "native_fp32": {
+          "wall_ms": 8.897949339977155,
+          "event_ms": 8.893733342488607
+        },
+        "candidate": {
+          "wall_ms": 6.473606665773938,
+          "event_ms": 6.470081965128581
+        }
+      },
+      "speedup_wall": 1.3744964436935525,
+      "speedup_event": 1.3745936126346834
+    },
+    {
+      "length": 2048,
+      "layout": {
+        "q": {
+          "shape": [
+            1,
+            24,
+            2048,
+            128
+          ],
+          "stride": [
+            6291456,
+            128,
+            3072,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.float32"
+        },
+        "k": {
+          "shape": [
+            1,
+            24,
+            2048,
+            128
+          ],
+          "stride": [
+            6291456,
+            128,
+            3072,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.float32"
+        },
+        "v": {
+          "shape": [
+            1,
+            24,
+            2048,
+            128
+          ],
+          "stride": [
+            18874368,
+            128,
+            9216,
+            1
+          ],
+          "storage_offset": 6144,
+          "dtype": "torch.float32"
+        }
+      },
+      "status": "ok",
+      "accuracy": {
+        "finite": true,
+        "byte_equal": true,
+        "max_abs": 0.0,
+        "rmse": 0.0
+      },
+      "samples": {
+        "native_fp32": [
+          {
+            "wall_ms": 15.03498349726821,
+            "event_ms": 15.027571360270182
+          },
+          {
+            "wall_ms": 15.055993339046836,
+            "event_ms": 15.052179972330729
+          },
+          {
+            "wall_ms": 15.027271835909536,
+            "event_ms": 15.02365239461263
+          }
+        ],
+        "candidate": [
+          {
+            "wall_ms": 12.013403495075181,
+            "event_ms": 12.007522583007812
+          },
+          {
+            "wall_ms": 11.967342162582403,
+            "event_ms": 11.963592529296875
+          },
+          {
+            "wall_ms": 11.980405339272693,
+            "event_ms": 11.976985931396484
+          }
+        ]
+      },
+      "medians": {
+        "native_fp32": {
+          "wall_ms": 15.03498349726821,
+          "event_ms": 15.027571360270182
+        },
+        "candidate": {
+          "wall_ms": 11.980405339272693,
+          "event_ms": 11.976985931396484
+        }
+      },
+      "speedup_wall": 1.2549645084196253,
+      "speedup_event": 1.2547039335561787
+    },
+    {
+      "length": 3072,
+      "layout": {
+        "q": {
+          "shape": [
+            1,
+            24,
+            3072,
+            128
+          ],
+          "stride": [
+            9437184,
+            128,
+            3072,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.float32"
+        },
+        "k": {
+          "shape": [
+            1,
+            24,
+            3072,
+            128
+          ],
+          "stride": [
+            9437184,
+            128,
+            3072,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.float32"
+        },
+        "v": {
+          "shape": [
+            1,
+            24,
+            3072,
+            128
+          ],
+          "stride": [
+            28311552,
+            128,
+            9216,
+            1
+          ],
+          "storage_offset": 6144,
+          "dtype": "torch.float32"
+        }
+      },
+      "status": "ok",
+      "accuracy": {
+        "finite": true,
+        "byte_equal": true,
+        "max_abs": 0.0,
+        "rmse": 0.0
+      },
+      "samples": {
+        "native_fp32": [
+          {
+            "wall_ms": 30.327063335183386,
+            "event_ms": 30.277964274088543
+          },
+          {
+            "wall_ms": 30.22918083782618,
+            "event_ms": 30.183135986328125
+          },
+          {
+            "wall_ms": 29.987925828512136,
+            "event_ms": 29.940226236979168
+          }
+        ],
+        "candidate": [
+          {
+            "wall_ms": 22.20044700273623,
+            "event_ms": 22.154762268066406
+          },
+          {
+            "wall_ms": 22.147390661605943,
+            "event_ms": 22.101834615071613
+          },
+          {
+            "wall_ms": 22.01050499570556,
+            "event_ms": 21.964927673339844
+          }
+        ]
+      },
+      "medians": {
+        "native_fp32": {
+          "wall_ms": 30.22918083782618,
+          "event_ms": 30.183135986328125
+        },
+        "candidate": {
+          "wall_ms": 22.147390661605943,
+          "event_ms": 22.101834615071613
+        }
+      },
+      "speedup_wall": 1.3649093610937468,
+      "speedup_event": 1.3656393920233996
+    },
+    {
+      "length": 4096,
+      "layout": {
+        "q": {
+          "shape": [
+            1,
+            24,
+            4096,
+            128
+          ],
+          "stride": [
+            12582912,
+            128,
+            3072,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.float32"
+        },
+        "k": {
+          "shape": [
+            1,
+            24,
+            4096,
+            128
+          ],
+          "stride": [
+            12582912,
+            128,
+            3072,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.float32"
+        },
+        "v": {
+          "shape": [
+            1,
+            24,
+            4096,
+            128
+          ],
+          "stride": [
+            37748736,
+            128,
+            9216,
+            1
+          ],
+          "storage_offset": 6144,
+          "dtype": "torch.float32"
+        }
+      },
+      "status": "ok",
+      "accuracy": {
+        "finite": true,
+        "byte_equal": true,
+        "max_abs": 0.0,
+        "rmse": 0.0
+      },
+      "samples": {
+        "native_fp32": [
+          {
+            "wall_ms": 60.929998328598835,
+            "event_ms": 60.8794199625651
+          },
+          {
+            "wall_ms": 60.577219167801864,
+            "event_ms": 60.528778076171875
+          },
+          {
+            "wall_ms": 60.55142766369196,
+            "event_ms": 60.50394185384115
+          }
+        ],
+        "candidate": [
+          {
+            "wall_ms": 47.38906232523732,
+            "event_ms": 47.339752197265625
+          },
+          {
+            "wall_ms": 47.17666232803216,
+            "event_ms": 47.12616984049479
+          },
+          {
+            "wall_ms": 47.04695666441694,
+            "event_ms": 46.997721354166664
+          }
+        ]
+      },
+      "medians": {
+        "native_fp32": {
+          "wall_ms": 60.577219167801864,
+          "event_ms": 60.528778076171875
+        },
+        "candidate": {
+          "wall_ms": 47.17666232803216,
+          "event_ms": 47.12616984049479
+        }
+      },
+      "speedup_wall": 1.2840505491166796,
+      "speedup_event": 1.2843984198384912
+    }
+  ],
+  "backend_probes": [
+    {
+      "backend": "MATH",
+      "dtype": "torch.float32",
+      "input_layout": {
+        "q": {
+          "shape": [
+            1,
+            24,
+            1061,
+            128
+          ],
+          "stride": [
+            3259392,
+            128,
+            3072,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.float32"
+        },
+        "k": {
+          "shape": [
+            1,
+            24,
+            1061,
+            128
+          ],
+          "stride": [
+            3259392,
+            128,
+            3072,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.float32"
+        },
+        "v": {
+          "shape": [
+            1,
+            24,
+            1061,
+            128
+          ],
+          "stride": [
+            9778176,
+            128,
+            9216,
+            1
+          ],
+          "storage_offset": 6144,
+          "dtype": "torch.float32"
+        }
+      },
+      "converted_layout": {
+        "q": {
+          "shape": [
+            1,
+            24,
+            1061,
+            128
+          ],
+          "stride": [
+            3259392,
+            128,
+            3072,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.float32"
+        },
+        "k": {
+          "shape": [
+            1,
+            24,
+            1061,
+            128
+          ],
+          "stride": [
+            3259392,
+            128,
+            3072,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.float32"
+        },
+        "v": {
+          "shape": [
+            1,
+            24,
+            1061,
+            128
+          ],
+          "stride": [
+            9778176,
+            128,
+            9216,
+            1
+          ],
+          "storage_offset": 6144,
+          "dtype": "torch.float32"
+        }
+      },
+      "status": "executed",
+      "capability": {
+        "status": "no_capability_query"
+      },
+      "forced_call_attempted": true,
+      "vs_fp32_native": {
+        "finite": true,
+        "byte_equal": true,
+        "max_abs": 0.0,
+        "rmse": 0.0
+      },
+      "vs_dtype_math": {
+        "finite": true,
+        "byte_equal": true,
+        "max_abs": 0.0,
+        "rmse": 0.0
+      },
+      "samples": {
+        "native_fp32": [
+          {
+            "wall_ms": 2.5677431646424034,
+            "event_ms": 2.562554200490316
+          },
+          {
+            "wall_ms": 2.581303007900715,
+            "event_ms": 2.5772143999735513
+          },
+          {
+            "wall_ms": 2.582673158030957,
+            "event_ms": 2.579575856526693
+          }
+        ],
+        "candidate": [
+          {
+            "wall_ms": 2.567514825689917,
+            "event_ms": 2.5641660690307617
+          },
+          {
+            "wall_ms": 2.58781632874161,
+            "event_ms": 2.5840226809183755
+          },
+          {
+            "wall_ms": 2.5865713347836086,
+            "event_ms": 2.583531061808268
+          }
+        ]
+      },
+      "medians": {
+        "native_fp32": {
+          "wall_ms": 2.581303007900715,
+          "event_ms": 2.5772143999735513
+        },
+        "candidate": {
+          "wall_ms": 2.5865713347836086,
+          "event_ms": 2.583531061808268
+        }
+      },
+      "speedup_wall": 0.997963200623139,
+      "speedup_event": 0.9975550277184221,
+      "warnings": []
+    },
+    {
+      "backend": "FLASH_ATTENTION",
+      "dtype": "torch.float32",
+      "input_layout": {
+        "q": {
+          "shape": [
+            1,
+            24,
+            1061,
+            128
+          ],
+          "stride": [
+            3259392,
+            128,
+            3072,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.float32"
+        },
+        "k": {
+          "shape": [
+            1,
+            24,
+            1061,
+            128
+          ],
+          "stride": [
+            3259392,
+            128,
+            3072,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.float32"
+        },
+        "v": {
+          "shape": [
+            1,
+            24,
+            1061,
+            128
+          ],
+          "stride": [
+            9778176,
+            128,
+            9216,
+            1
+          ],
+          "storage_offset": 6144,
+          "dtype": "torch.float32"
+        }
+      },
+      "converted_layout": {
+        "q": {
+          "shape": [
+            1,
+            24,
+            1061,
+            128
+          ],
+          "stride": [
+            3259392,
+            128,
+            3072,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.float32"
+        },
+        "k": {
+          "shape": [
+            1,
+            24,
+            1061,
+            128
+          ],
+          "stride": [
+            3259392,
+            128,
+            3072,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.float32"
+        },
+        "v": {
+          "shape": [
+            1,
+            24,
+            1061,
+            128
+          ],
+          "stride": [
+            9778176,
+            128,
+            9216,
+            1
+          ],
+          "storage_offset": 6144,
+          "dtype": "torch.float32"
+        }
+      },
+      "status": "rejected_or_failed",
+      "capability": {
+        "query": "can_use_flash_attention",
+        "can_use": false,
+        "note": "A capability result is not proof of successful kernel execution."
+      },
+      "forced_call_attempted": true,
+      "error": "RuntimeError: No available kernel. Aborting execution.",
+      "warnings": [
+        "Memory efficient kernel not used because: (Triggered internally at /__w/rockrel/rockrel/external-builds/pytorch/pytorch/aten/src/ATen/native/transformers/hip/sdp_utils.cpp:1042.)",
+        "Memory Efficient attention has been runtime disabled. (Triggered internally at /__w/rockrel/rockrel/external-builds/pytorch/pytorch/aten/src/ATen/native/transformers/sdp_utils_cpp.h:552.)",
+        "Flash attention kernel not used because: (Triggered internally at /__w/rockrel/rockrel/external-builds/pytorch/pytorch/aten/src/ATen/native/transformers/hip/sdp_utils.cpp:1044.)",
+        "Flash attention was not compiled for current AMD GPU architecture. Attempting to run on architecture gfx1030 (Triggered internally at /__w/rockrel/rockrel/external-builds/pytorch/pytorch/aten/src/ATen/native/transformers/hip/sdp_utils.cpp:362.)",
+        "cuDNN attention kernel not used because: (Triggered internally at /__w/rockrel/rockrel/external-builds/pytorch/pytorch/aten/src/ATen/native/transformers/hip/sdp_utils.cpp:1046.)",
+        "Torch was not compiled with cuDNN attention. (Triggered internally at /__w/rockrel/rockrel/external-builds/pytorch/pytorch/aten/src/ATen/native/transformers/hip/sdp_utils.cpp:792.)"
+      ]
+    },
+    {
+      "backend": "EFFICIENT_ATTENTION",
+      "dtype": "torch.float32",
+      "input_layout": {
+        "q": {
+          "shape": [
+            1,
+            24,
+            1061,
+            128
+          ],
+          "stride": [
+            3259392,
+            128,
+            3072,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.float32"
+        },
+        "k": {
+          "shape": [
+            1,
+            24,
+            1061,
+            128
+          ],
+          "stride": [
+            3259392,
+            128,
+            3072,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.float32"
+        },
+        "v": {
+          "shape": [
+            1,
+            24,
+            1061,
+            128
+          ],
+          "stride": [
+            9778176,
+            128,
+            9216,
+            1
+          ],
+          "storage_offset": 6144,
+          "dtype": "torch.float32"
+        }
+      },
+      "converted_layout": {
+        "q": {
+          "shape": [
+            1,
+            24,
+            1061,
+            128
+          ],
+          "stride": [
+            3259392,
+            128,
+            3072,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.float32"
+        },
+        "k": {
+          "shape": [
+            1,
+            24,
+            1061,
+            128
+          ],
+          "stride": [
+            3259392,
+            128,
+            3072,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.float32"
+        },
+        "v": {
+          "shape": [
+            1,
+            24,
+            1061,
+            128
+          ],
+          "stride": [
+            9778176,
+            128,
+            9216,
+            1
+          ],
+          "storage_offset": 6144,
+          "dtype": "torch.float32"
+        }
+      },
+      "status": "rejected_or_failed",
+      "capability": {
+        "query": "can_use_efficient_attention",
+        "can_use": false,
+        "note": "A capability result is not proof of successful kernel execution."
+      },
+      "forced_call_attempted": true,
+      "error": "RuntimeError: No available kernel. Aborting execution.",
+      "warnings": [
+        "Memory efficient kernel not used because: (Triggered internally at /__w/rockrel/rockrel/external-builds/pytorch/pytorch/aten/src/ATen/native/transformers/hip/sdp_utils.cpp:1042.)",
+        "Mem Efficient attention was not compiled for current AMD GPU architecture. Attempting to run on architecture gfx1030 (Triggered internally at /__w/rockrel/rockrel/external-builds/pytorch/pytorch/aten/src/ATen/native/transformers/hip/sdp_utils.cpp:422.)",
+        "Flash attention kernel not used because: (Triggered internally at /__w/rockrel/rockrel/external-builds/pytorch/pytorch/aten/src/ATen/native/transformers/hip/sdp_utils.cpp:1044.)",
+        "Flash attention has been runtime disabled. (Triggered internally at /__w/rockrel/rockrel/external-builds/pytorch/pytorch/aten/src/ATen/native/transformers/sdp_utils_cpp.h:540.)",
+        "cuDNN attention kernel not used because: (Triggered internally at /__w/rockrel/rockrel/external-builds/pytorch/pytorch/aten/src/ATen/native/transformers/hip/sdp_utils.cpp:1046.)",
+        "Torch was not compiled with cuDNN attention. (Triggered internally at /__w/rockrel/rockrel/external-builds/pytorch/pytorch/aten/src/ATen/native/transformers/hip/sdp_utils.cpp:792.)"
+      ]
+    },
+    {
+      "backend": "CUDNN_ATTENTION",
+      "dtype": "torch.float32",
+      "input_layout": {
+        "q": {
+          "shape": [
+            1,
+            24,
+            1061,
+            128
+          ],
+          "stride": [
+            3259392,
+            128,
+            3072,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.float32"
+        },
+        "k": {
+          "shape": [
+            1,
+            24,
+            1061,
+            128
+          ],
+          "stride": [
+            3259392,
+            128,
+            3072,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.float32"
+        },
+        "v": {
+          "shape": [
+            1,
+            24,
+            1061,
+            128
+          ],
+          "stride": [
+            9778176,
+            128,
+            9216,
+            1
+          ],
+          "storage_offset": 6144,
+          "dtype": "torch.float32"
+        }
+      },
+      "converted_layout": {
+        "q": {
+          "shape": [
+            1,
+            24,
+            1061,
+            128
+          ],
+          "stride": [
+            3259392,
+            128,
+            3072,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.float32"
+        },
+        "k": {
+          "shape": [
+            1,
+            24,
+            1061,
+            128
+          ],
+          "stride": [
+            3259392,
+            128,
+            3072,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.float32"
+        },
+        "v": {
+          "shape": [
+            1,
+            24,
+            1061,
+            128
+          ],
+          "stride": [
+            9778176,
+            128,
+            9216,
+            1
+          ],
+          "storage_offset": 6144,
+          "dtype": "torch.float32"
+        }
+      },
+      "status": "rejected_or_failed",
+      "capability": {
+        "query": "can_use_cudnn_attention",
+        "can_use": false,
+        "note": "A capability result is not proof of successful kernel execution."
+      },
+      "forced_call_attempted": true,
+      "error": "RuntimeError: No available kernel. Aborting execution.",
+      "warnings": [
+        "Memory efficient kernel not used because: (Triggered internally at /__w/rockrel/rockrel/external-builds/pytorch/pytorch/aten/src/ATen/native/transformers/hip/sdp_utils.cpp:1042.)",
+        "Memory Efficient attention has been runtime disabled. (Triggered internally at /__w/rockrel/rockrel/external-builds/pytorch/pytorch/aten/src/ATen/native/transformers/sdp_utils_cpp.h:552.)",
+        "Flash attention kernel not used because: (Triggered internally at /__w/rockrel/rockrel/external-builds/pytorch/pytorch/aten/src/ATen/native/transformers/hip/sdp_utils.cpp:1044.)",
+        "Flash attention has been runtime disabled. (Triggered internally at /__w/rockrel/rockrel/external-builds/pytorch/pytorch/aten/src/ATen/native/transformers/sdp_utils_cpp.h:540.)",
+        "cuDNN attention kernel not used because: (Triggered internally at /__w/rockrel/rockrel/external-builds/pytorch/pytorch/aten/src/ATen/native/transformers/hip/sdp_utils.cpp:1046.)",
+        "Torch was not compiled with cuDNN attention. (Triggered internally at /__w/rockrel/rockrel/external-builds/pytorch/pytorch/aten/src/ATen/native/transformers/hip/sdp_utils.cpp:792.)"
+      ]
+    },
+    {
+      "backend": "MATH",
+      "dtype": "torch.float16",
+      "input_layout": {
+        "q": {
+          "shape": [
+            1,
+            24,
+            1061,
+            128
+          ],
+          "stride": [
+            3259392,
+            128,
+            3072,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.float32"
+        },
+        "k": {
+          "shape": [
+            1,
+            24,
+            1061,
+            128
+          ],
+          "stride": [
+            3259392,
+            128,
+            3072,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.float32"
+        },
+        "v": {
+          "shape": [
+            1,
+            24,
+            1061,
+            128
+          ],
+          "stride": [
+            9778176,
+            128,
+            9216,
+            1
+          ],
+          "storage_offset": 6144,
+          "dtype": "torch.float32"
+        }
+      },
+      "converted_layout": {
+        "q": {
+          "shape": [
+            1,
+            24,
+            1061,
+            128
+          ],
+          "stride": [
+            3259392,
+            128,
+            3072,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.float16"
+        },
+        "k": {
+          "shape": [
+            1,
+            24,
+            1061,
+            128
+          ],
+          "stride": [
+            3259392,
+            128,
+            3072,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.float16"
+        },
+        "v": {
+          "shape": [
+            1,
+            24,
+            1061,
+            128
+          ],
+          "stride": [
+            3259392,
+            128,
+            3072,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.float16"
+        }
+      },
+      "status": "executed",
+      "capability": {
+        "status": "no_capability_query"
+      },
+      "forced_call_attempted": true,
+      "vs_fp32_native": {
+        "finite": true,
+        "byte_equal": false,
+        "max_abs": 0.00024324655532836914,
+        "rmse": 2.132778081151167e-05
+      },
+      "vs_dtype_math": {
+        "finite": true,
+        "byte_equal": true,
+        "max_abs": 0.0,
+        "rmse": 0.0
+      },
+      "samples": {
+        "native_fp32": [
+          {
+            "wall_ms": 2.576028161759799,
+            "event_ms": 2.5718092918395996
+          },
+          {
+            "wall_ms": 2.569149995300298,
+            "event_ms": 2.5655943552652993
+          },
+          {
+            "wall_ms": 2.5709263378909477,
+            "event_ms": 2.567414124806722
+          }
+        ],
+        "candidate": [
+          {
+            "wall_ms": 3.312669500398139,
+            "event_ms": 3.3095925649007163
+          },
+          {
+            "wall_ms": 3.3105878392234445,
+            "event_ms": 3.3070926666259766
+          },
+          {
+            "wall_ms": 3.31292783569855,
+            "event_ms": 3.309470812479655
+          }
+        ]
+      },
+      "medians": {
+        "native_fp32": {
+          "wall_ms": 2.5709263378909477,
+          "event_ms": 2.567414124806722
+        },
+        "candidate": {
+          "wall_ms": 3.312669500398139,
+          "event_ms": 3.309470812479655
+        }
+      },
+      "speedup_wall": 0.7760889933577607,
+      "speedup_event": 0.7757778419212167,
+      "warnings": []
+    },
+    {
+      "backend": "FLASH_ATTENTION",
+      "dtype": "torch.float16",
+      "input_layout": {
+        "q": {
+          "shape": [
+            1,
+            24,
+            1061,
+            128
+          ],
+          "stride": [
+            3259392,
+            128,
+            3072,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.float32"
+        },
+        "k": {
+          "shape": [
+            1,
+            24,
+            1061,
+            128
+          ],
+          "stride": [
+            3259392,
+            128,
+            3072,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.float32"
+        },
+        "v": {
+          "shape": [
+            1,
+            24,
+            1061,
+            128
+          ],
+          "stride": [
+            9778176,
+            128,
+            9216,
+            1
+          ],
+          "storage_offset": 6144,
+          "dtype": "torch.float32"
+        }
+      },
+      "converted_layout": {
+        "q": {
+          "shape": [
+            1,
+            24,
+            1061,
+            128
+          ],
+          "stride": [
+            3259392,
+            128,
+            3072,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.float16"
+        },
+        "k": {
+          "shape": [
+            1,
+            24,
+            1061,
+            128
+          ],
+          "stride": [
+            3259392,
+            128,
+            3072,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.float16"
+        },
+        "v": {
+          "shape": [
+            1,
+            24,
+            1061,
+            128
+          ],
+          "stride": [
+            3259392,
+            128,
+            3072,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.float16"
+        }
+      },
+      "status": "rejected_or_failed",
+      "capability": {
+        "query": "can_use_flash_attention",
+        "can_use": false,
+        "note": "A capability result is not proof of successful kernel execution."
+      },
+      "forced_call_attempted": true,
+      "error": "RuntimeError: No available kernel. Aborting execution.",
+      "warnings": [
+        "Memory efficient kernel not used because: (Triggered internally at /__w/rockrel/rockrel/external-builds/pytorch/pytorch/aten/src/ATen/native/transformers/hip/sdp_utils.cpp:1042.)",
+        "Memory Efficient attention has been runtime disabled. (Triggered internally at /__w/rockrel/rockrel/external-builds/pytorch/pytorch/aten/src/ATen/native/transformers/sdp_utils_cpp.h:552.)",
+        "Flash attention kernel not used because: (Triggered internally at /__w/rockrel/rockrel/external-builds/pytorch/pytorch/aten/src/ATen/native/transformers/hip/sdp_utils.cpp:1044.)",
+        "Flash attention was not compiled for current AMD GPU architecture. Attempting to run on architecture gfx1030 (Triggered internally at /__w/rockrel/rockrel/external-builds/pytorch/pytorch/aten/src/ATen/native/transformers/hip/sdp_utils.cpp:362.)",
+        "cuDNN attention kernel not used because: (Triggered internally at /__w/rockrel/rockrel/external-builds/pytorch/pytorch/aten/src/ATen/native/transformers/hip/sdp_utils.cpp:1046.)",
+        "Torch was not compiled with cuDNN attention. (Triggered internally at /__w/rockrel/rockrel/external-builds/pytorch/pytorch/aten/src/ATen/native/transformers/hip/sdp_utils.cpp:792.)"
+      ]
+    },
+    {
+      "backend": "EFFICIENT_ATTENTION",
+      "dtype": "torch.float16",
+      "input_layout": {
+        "q": {
+          "shape": [
+            1,
+            24,
+            1061,
+            128
+          ],
+          "stride": [
+            3259392,
+            128,
+            3072,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.float32"
+        },
+        "k": {
+          "shape": [
+            1,
+            24,
+            1061,
+            128
+          ],
+          "stride": [
+            3259392,
+            128,
+            3072,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.float32"
+        },
+        "v": {
+          "shape": [
+            1,
+            24,
+            1061,
+            128
+          ],
+          "stride": [
+            9778176,
+            128,
+            9216,
+            1
+          ],
+          "storage_offset": 6144,
+          "dtype": "torch.float32"
+        }
+      },
+      "converted_layout": {
+        "q": {
+          "shape": [
+            1,
+            24,
+            1061,
+            128
+          ],
+          "stride": [
+            3259392,
+            128,
+            3072,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.float16"
+        },
+        "k": {
+          "shape": [
+            1,
+            24,
+            1061,
+            128
+          ],
+          "stride": [
+            3259392,
+            128,
+            3072,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.float16"
+        },
+        "v": {
+          "shape": [
+            1,
+            24,
+            1061,
+            128
+          ],
+          "stride": [
+            3259392,
+            128,
+            3072,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.float16"
+        }
+      },
+      "status": "rejected_or_failed",
+      "capability": {
+        "query": "can_use_efficient_attention",
+        "can_use": false,
+        "note": "A capability result is not proof of successful kernel execution."
+      },
+      "forced_call_attempted": true,
+      "error": "RuntimeError: No available kernel. Aborting execution.",
+      "warnings": [
+        "Memory efficient kernel not used because: (Triggered internally at /__w/rockrel/rockrel/external-builds/pytorch/pytorch/aten/src/ATen/native/transformers/hip/sdp_utils.cpp:1042.)",
+        "Mem Efficient attention was not compiled for current AMD GPU architecture. Attempting to run on architecture gfx1030 (Triggered internally at /__w/rockrel/rockrel/external-builds/pytorch/pytorch/aten/src/ATen/native/transformers/hip/sdp_utils.cpp:422.)",
+        "Flash attention kernel not used because: (Triggered internally at /__w/rockrel/rockrel/external-builds/pytorch/pytorch/aten/src/ATen/native/transformers/hip/sdp_utils.cpp:1044.)",
+        "Flash attention has been runtime disabled. (Triggered internally at /__w/rockrel/rockrel/external-builds/pytorch/pytorch/aten/src/ATen/native/transformers/sdp_utils_cpp.h:540.)",
+        "cuDNN attention kernel not used because: (Triggered internally at /__w/rockrel/rockrel/external-builds/pytorch/pytorch/aten/src/ATen/native/transformers/hip/sdp_utils.cpp:1046.)",
+        "Torch was not compiled with cuDNN attention. (Triggered internally at /__w/rockrel/rockrel/external-builds/pytorch/pytorch/aten/src/ATen/native/transformers/hip/sdp_utils.cpp:792.)"
+      ]
+    },
+    {
+      "backend": "CUDNN_ATTENTION",
+      "dtype": "torch.float16",
+      "input_layout": {
+        "q": {
+          "shape": [
+            1,
+            24,
+            1061,
+            128
+          ],
+          "stride": [
+            3259392,
+            128,
+            3072,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.float32"
+        },
+        "k": {
+          "shape": [
+            1,
+            24,
+            1061,
+            128
+          ],
+          "stride": [
+            3259392,
+            128,
+            3072,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.float32"
+        },
+        "v": {
+          "shape": [
+            1,
+            24,
+            1061,
+            128
+          ],
+          "stride": [
+            9778176,
+            128,
+            9216,
+            1
+          ],
+          "storage_offset": 6144,
+          "dtype": "torch.float32"
+        }
+      },
+      "converted_layout": {
+        "q": {
+          "shape": [
+            1,
+            24,
+            1061,
+            128
+          ],
+          "stride": [
+            3259392,
+            128,
+            3072,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.float16"
+        },
+        "k": {
+          "shape": [
+            1,
+            24,
+            1061,
+            128
+          ],
+          "stride": [
+            3259392,
+            128,
+            3072,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.float16"
+        },
+        "v": {
+          "shape": [
+            1,
+            24,
+            1061,
+            128
+          ],
+          "stride": [
+            3259392,
+            128,
+            3072,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.float16"
+        }
+      },
+      "status": "rejected_or_failed",
+      "capability": {
+        "query": "can_use_cudnn_attention",
+        "can_use": false,
+        "note": "A capability result is not proof of successful kernel execution."
+      },
+      "forced_call_attempted": true,
+      "error": "RuntimeError: No available kernel. Aborting execution.",
+      "warnings": [
+        "Memory efficient kernel not used because: (Triggered internally at /__w/rockrel/rockrel/external-builds/pytorch/pytorch/aten/src/ATen/native/transformers/hip/sdp_utils.cpp:1042.)",
+        "Memory Efficient attention has been runtime disabled. (Triggered internally at /__w/rockrel/rockrel/external-builds/pytorch/pytorch/aten/src/ATen/native/transformers/sdp_utils_cpp.h:552.)",
+        "Flash attention kernel not used because: (Triggered internally at /__w/rockrel/rockrel/external-builds/pytorch/pytorch/aten/src/ATen/native/transformers/hip/sdp_utils.cpp:1044.)",
+        "Flash attention has been runtime disabled. (Triggered internally at /__w/rockrel/rockrel/external-builds/pytorch/pytorch/aten/src/ATen/native/transformers/sdp_utils_cpp.h:540.)",
+        "cuDNN attention kernel not used because: (Triggered internally at /__w/rockrel/rockrel/external-builds/pytorch/pytorch/aten/src/ATen/native/transformers/hip/sdp_utils.cpp:1046.)",
+        "Torch was not compiled with cuDNN attention. (Triggered internally at /__w/rockrel/rockrel/external-builds/pytorch/pytorch/aten/src/ATen/native/transformers/hip/sdp_utils.cpp:792.)"
+      ]
+    },
+    {
+      "backend": "MATH",
+      "dtype": "torch.bfloat16",
+      "input_layout": {
+        "q": {
+          "shape": [
+            1,
+            24,
+            1061,
+            128
+          ],
+          "stride": [
+            3259392,
+            128,
+            3072,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.float32"
+        },
+        "k": {
+          "shape": [
+            1,
+            24,
+            1061,
+            128
+          ],
+          "stride": [
+            3259392,
+            128,
+            3072,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.float32"
+        },
+        "v": {
+          "shape": [
+            1,
+            24,
+            1061,
+            128
+          ],
+          "stride": [
+            9778176,
+            128,
+            9216,
+            1
+          ],
+          "storage_offset": 6144,
+          "dtype": "torch.float32"
+        }
+      },
+      "converted_layout": {
+        "q": {
+          "shape": [
+            1,
+            24,
+            1061,
+            128
+          ],
+          "stride": [
+            3259392,
+            128,
+            3072,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.bfloat16"
+        },
+        "k": {
+          "shape": [
+            1,
+            24,
+            1061,
+            128
+          ],
+          "stride": [
+            3259392,
+            128,
+            3072,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.bfloat16"
+        },
+        "v": {
+          "shape": [
+            1,
+            24,
+            1061,
+            128
+          ],
+          "stride": [
+            3259392,
+            128,
+            3072,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.bfloat16"
+        }
+      },
+      "status": "executed",
+      "capability": {
+        "status": "no_capability_query"
+      },
+      "forced_call_attempted": true,
+      "vs_fp32_native": {
+        "finite": true,
+        "byte_equal": false,
+        "max_abs": 0.002066582441329956,
+        "rmse": 0.00017074265211429327
+      },
+      "vs_dtype_math": {
+        "finite": true,
+        "byte_equal": true,
+        "max_abs": 0.0,
+        "rmse": 0.0
+      },
+      "samples": {
+        "native_fp32": [
+          {
+            "wall_ms": 2.567843330325559,
+            "event_ms": 2.563589255015055
+          },
+          {
+            "wall_ms": 2.5699514953885227,
+            "event_ms": 2.566630999247233
+          },
+          {
+            "wall_ms": 2.581032992263014,
+            "event_ms": 2.5776724815368652
+          }
+        ],
+        "candidate": [
+          {
+            "wall_ms": 3.3229261656136564,
+            "event_ms": 3.3193655014038086
+          },
+          {
+            "wall_ms": 3.3211476693395525,
+            "event_ms": 3.31757386525472
+          },
+          {
+            "wall_ms": 3.31182949594222,
+            "event_ms": 3.3085339864095054
+          }
+        ]
+      },
+      "medians": {
+        "native_fp32": {
+          "wall_ms": 2.5699514953885227,
+          "event_ms": 2.566630999247233
+        },
+        "candidate": {
+          "wall_ms": 3.3211476693395525,
+          "event_ms": 3.31757386525472
+        }
+      },
+      "speedup_wall": 0.7738142808626111,
+      "speedup_event": 0.7736469792361863,
+      "warnings": []
+    },
+    {
+      "backend": "FLASH_ATTENTION",
+      "dtype": "torch.bfloat16",
+      "input_layout": {
+        "q": {
+          "shape": [
+            1,
+            24,
+            1061,
+            128
+          ],
+          "stride": [
+            3259392,
+            128,
+            3072,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.float32"
+        },
+        "k": {
+          "shape": [
+            1,
+            24,
+            1061,
+            128
+          ],
+          "stride": [
+            3259392,
+            128,
+            3072,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.float32"
+        },
+        "v": {
+          "shape": [
+            1,
+            24,
+            1061,
+            128
+          ],
+          "stride": [
+            9778176,
+            128,
+            9216,
+            1
+          ],
+          "storage_offset": 6144,
+          "dtype": "torch.float32"
+        }
+      },
+      "converted_layout": {
+        "q": {
+          "shape": [
+            1,
+            24,
+            1061,
+            128
+          ],
+          "stride": [
+            3259392,
+            128,
+            3072,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.bfloat16"
+        },
+        "k": {
+          "shape": [
+            1,
+            24,
+            1061,
+            128
+          ],
+          "stride": [
+            3259392,
+            128,
+            3072,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.bfloat16"
+        },
+        "v": {
+          "shape": [
+            1,
+            24,
+            1061,
+            128
+          ],
+          "stride": [
+            3259392,
+            128,
+            3072,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.bfloat16"
+        }
+      },
+      "status": "rejected_or_failed",
+      "capability": {
+        "query": "can_use_flash_attention",
+        "can_use": false,
+        "note": "A capability result is not proof of successful kernel execution."
+      },
+      "forced_call_attempted": true,
+      "error": "RuntimeError: No available kernel. Aborting execution.",
+      "warnings": [
+        "Memory efficient kernel not used because: (Triggered internally at /__w/rockrel/rockrel/external-builds/pytorch/pytorch/aten/src/ATen/native/transformers/hip/sdp_utils.cpp:1042.)",
+        "Memory Efficient attention has been runtime disabled. (Triggered internally at /__w/rockrel/rockrel/external-builds/pytorch/pytorch/aten/src/ATen/native/transformers/sdp_utils_cpp.h:552.)",
+        "Flash attention kernel not used because: (Triggered internally at /__w/rockrel/rockrel/external-builds/pytorch/pytorch/aten/src/ATen/native/transformers/hip/sdp_utils.cpp:1044.)",
+        "Flash attention was not compiled for current AMD GPU architecture. Attempting to run on architecture gfx1030 (Triggered internally at /__w/rockrel/rockrel/external-builds/pytorch/pytorch/aten/src/ATen/native/transformers/hip/sdp_utils.cpp:362.)",
+        "cuDNN attention kernel not used because: (Triggered internally at /__w/rockrel/rockrel/external-builds/pytorch/pytorch/aten/src/ATen/native/transformers/hip/sdp_utils.cpp:1046.)",
+        "Torch was not compiled with cuDNN attention. (Triggered internally at /__w/rockrel/rockrel/external-builds/pytorch/pytorch/aten/src/ATen/native/transformers/hip/sdp_utils.cpp:792.)"
+      ]
+    },
+    {
+      "backend": "EFFICIENT_ATTENTION",
+      "dtype": "torch.bfloat16",
+      "input_layout": {
+        "q": {
+          "shape": [
+            1,
+            24,
+            1061,
+            128
+          ],
+          "stride": [
+            3259392,
+            128,
+            3072,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.float32"
+        },
+        "k": {
+          "shape": [
+            1,
+            24,
+            1061,
+            128
+          ],
+          "stride": [
+            3259392,
+            128,
+            3072,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.float32"
+        },
+        "v": {
+          "shape": [
+            1,
+            24,
+            1061,
+            128
+          ],
+          "stride": [
+            9778176,
+            128,
+            9216,
+            1
+          ],
+          "storage_offset": 6144,
+          "dtype": "torch.float32"
+        }
+      },
+      "converted_layout": {
+        "q": {
+          "shape": [
+            1,
+            24,
+            1061,
+            128
+          ],
+          "stride": [
+            3259392,
+            128,
+            3072,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.bfloat16"
+        },
+        "k": {
+          "shape": [
+            1,
+            24,
+            1061,
+            128
+          ],
+          "stride": [
+            3259392,
+            128,
+            3072,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.bfloat16"
+        },
+        "v": {
+          "shape": [
+            1,
+            24,
+            1061,
+            128
+          ],
+          "stride": [
+            3259392,
+            128,
+            3072,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.bfloat16"
+        }
+      },
+      "status": "rejected_or_failed",
+      "capability": {
+        "query": "can_use_efficient_attention",
+        "can_use": false,
+        "note": "A capability result is not proof of successful kernel execution."
+      },
+      "forced_call_attempted": true,
+      "error": "RuntimeError: No available kernel. Aborting execution.",
+      "warnings": [
+        "Memory efficient kernel not used because: (Triggered internally at /__w/rockrel/rockrel/external-builds/pytorch/pytorch/aten/src/ATen/native/transformers/hip/sdp_utils.cpp:1042.)",
+        "Mem Efficient attention was not compiled for current AMD GPU architecture. Attempting to run on architecture gfx1030 (Triggered internally at /__w/rockrel/rockrel/external-builds/pytorch/pytorch/aten/src/ATen/native/transformers/hip/sdp_utils.cpp:422.)",
+        "Flash attention kernel not used because: (Triggered internally at /__w/rockrel/rockrel/external-builds/pytorch/pytorch/aten/src/ATen/native/transformers/hip/sdp_utils.cpp:1044.)",
+        "Flash attention has been runtime disabled. (Triggered internally at /__w/rockrel/rockrel/external-builds/pytorch/pytorch/aten/src/ATen/native/transformers/sdp_utils_cpp.h:540.)",
+        "cuDNN attention kernel not used because: (Triggered internally at /__w/rockrel/rockrel/external-builds/pytorch/pytorch/aten/src/ATen/native/transformers/hip/sdp_utils.cpp:1046.)",
+        "Torch was not compiled with cuDNN attention. (Triggered internally at /__w/rockrel/rockrel/external-builds/pytorch/pytorch/aten/src/ATen/native/transformers/hip/sdp_utils.cpp:792.)"
+      ]
+    },
+    {
+      "backend": "CUDNN_ATTENTION",
+      "dtype": "torch.bfloat16",
+      "input_layout": {
+        "q": {
+          "shape": [
+            1,
+            24,
+            1061,
+            128
+          ],
+          "stride": [
+            3259392,
+            128,
+            3072,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.float32"
+        },
+        "k": {
+          "shape": [
+            1,
+            24,
+            1061,
+            128
+          ],
+          "stride": [
+            3259392,
+            128,
+            3072,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.float32"
+        },
+        "v": {
+          "shape": [
+            1,
+            24,
+            1061,
+            128
+          ],
+          "stride": [
+            9778176,
+            128,
+            9216,
+            1
+          ],
+          "storage_offset": 6144,
+          "dtype": "torch.float32"
+        }
+      },
+      "converted_layout": {
+        "q": {
+          "shape": [
+            1,
+            24,
+            1061,
+            128
+          ],
+          "stride": [
+            3259392,
+            128,
+            3072,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.bfloat16"
+        },
+        "k": {
+          "shape": [
+            1,
+            24,
+            1061,
+            128
+          ],
+          "stride": [
+            3259392,
+            128,
+            3072,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.bfloat16"
+        },
+        "v": {
+          "shape": [
+            1,
+            24,
+            1061,
+            128
+          ],
+          "stride": [
+            3259392,
+            128,
+            3072,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.bfloat16"
+        }
+      },
+      "status": "rejected_or_failed",
+      "capability": {
+        "query": "can_use_cudnn_attention",
+        "can_use": false,
+        "note": "A capability result is not proof of successful kernel execution."
+      },
+      "forced_call_attempted": true,
+      "error": "RuntimeError: No available kernel. Aborting execution.",
+      "warnings": [
+        "Memory efficient kernel not used because: (Triggered internally at /__w/rockrel/rockrel/external-builds/pytorch/pytorch/aten/src/ATen/native/transformers/hip/sdp_utils.cpp:1042.)",
+        "Memory Efficient attention has been runtime disabled. (Triggered internally at /__w/rockrel/rockrel/external-builds/pytorch/pytorch/aten/src/ATen/native/transformers/sdp_utils_cpp.h:552.)",
+        "Flash attention kernel not used because: (Triggered internally at /__w/rockrel/rockrel/external-builds/pytorch/pytorch/aten/src/ATen/native/transformers/hip/sdp_utils.cpp:1044.)",
+        "Flash attention has been runtime disabled. (Triggered internally at /__w/rockrel/rockrel/external-builds/pytorch/pytorch/aten/src/ATen/native/transformers/sdp_utils_cpp.h:540.)",
+        "cuDNN attention kernel not used because: (Triggered internally at /__w/rockrel/rockrel/external-builds/pytorch/pytorch/aten/src/ATen/native/transformers/hip/sdp_utils.cpp:1046.)",
+        "Torch was not compiled with cuDNN attention. (Triggered internally at /__w/rockrel/rockrel/external-builds/pytorch/pytorch/aten/src/ATen/native/transformers/hip/sdp_utils.cpp:792.)"
+      ]
+    }
+  ],
+  "status": "completed",
+  "environment": {
+    "torch": "2.12.0+rocm10.2.0a20261011",
+    "torch_git": "9ccf2fd0aab44087b58af23ad20bc961c29bb852",
+    "hip": "7.17.26405",
+    "gpu": "AMD Radeon RX 6900 XT",
+    "arch": "gfx1030",
+    "rocm_fa_preference": "_ROCmFABackend.AOTriton",
+    "math_sdp_reduced_precision": false
+  },
+  "range_exactness_pass": true,
+  "exit_status": 0
+}

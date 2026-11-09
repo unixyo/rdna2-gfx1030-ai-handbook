@@ -1,0 +1,67 @@
+{
+  "verified_utc": "2026-11-05T14:53:48Z",
+  "actual_launcher": "~/DevSpace/moss-image-rdna2-lab01/scripts/start_moss_comfy.sh",
+  "server_job_id": "c44aae2b-f86d-4577-8616-55f91460245c",
+  "server_pid": 2015237,
+  "server_url": "http://127.0.0.1:8299",
+  "mode": {
+    "int8_patch": 1,
+    "int8_layout": "view",
+    "attention": "auto",
+    "measurement_enabled": false,
+    "int8_statistics_enabled": false
+  },
+  "startup_activation_lines": [
+    "[WARNING] MOSS_RDNA2_INT8_PATCH active on gfx1030: gfx1030 Triton INT32 GEMM, layout=view (FP32 input/output only, eager export, weight.T view)",
+    "[WARNING] MOSS_RDNA2_ATTENTION=auto",
+    "[INFO]    0.0 seconds: ~/DevSpace/moss-image-rdna2-lab01/custom_nodes/MOSS_RDNA2_INT8"
+  ],
+  "request": {
+    "workflow": "sft_fast4_int8_512",
+    "prompt_id": "0e046019-f669-4a83-a115-5a5f0b9253c2",
+    "elapsed_seconds_queue_to_history": 10.075,
+    "status": {
+      "status_str": "success",
+      "completed": true,
+      "messages": [
+        [
+          "execution_start",
+          {
+            "prompt_id": "0e046019-f669-4a83-a115-5a5f0b9253c2",
+            "timestamp": 1793890418094
+          }
+        ],
+        [
+          "execution_cached",
+          {
+            "nodes": [],
+            "prompt_id": "0e046019-f669-4a83-a115-5a5f0b9253c2",
+            "timestamp": 1793890418095
+          }
+        ],
+        [
+          "execution_success",
+          {
+            "prompt_id": "0e046019-f669-4a83-a115-5a5f0b9253c2",
+            "timestamp": 1793890427989
+          }
+        ]
+      ]
+    },
+    "images": [
+      {
+        "path": "~/DevSpace/moss-image-rdna2-lab01/outputs/moss_sft_fast4_int8_512_00002_.png",
+        "exists": true,
+        "size_bytes": 322210
+      }
+    ],
+    "prompt": "A photographic storefront with a white vinyl window sticker reading \"OPEN 7 DAYS\", legible capital letters, street reflections, natural daylight.",
+    "negative": "",
+    "seed": 20261105,
+    "steps": 4,
+    "cfg": 1,
+    "reference_image": null,
+    "edit_format": null
+  },
+  "comparison_scope": "Normal-server end-to-end execution check; separate process, no cross-restart equality claim. Paired exact comparisons are in production_server_shared.json and production_final_scope.json."
+}

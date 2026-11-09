@@ -1,0 +1,84 @@
+{
+  "schema": "applio_v08_blind_audio",
+  "run_id": "20261107T200036Z_42f0957d",
+  "labels": [
+    "A",
+    "B",
+    "C"
+  ],
+  "key_excluded": true,
+  "sentences": [
+    {
+      "sentence_index": 0,
+      "text": "선생님, 오늘 당번은 나야. 필요한 거 있으면 말해줘.",
+      "audio": {
+        "A": {
+          "file": "blind/sentence_01_A.wav",
+          "sha256": "2e79104ab9cd0a097dfae78da789403d41614996e81e6491a11eea8ee8536172"
+        },
+        "B": {
+          "file": "blind/sentence_01_B.wav",
+          "sha256": "114a11d7ae5a8c865963f75c5d82db551182ff14439af782983f734a2ce108f2"
+        },
+        "C": {
+          "file": "blind/sentence_01_C.wav",
+          "sha256": "2535b38352b62b5ab205e40ac028d225a2af25f38bfeec3ef80e1ce1ef593080"
+        }
+      }
+    },
+    {
+      "sentence_index": 1,
+      "text": "닭꼬치, 하나만 부탁해. 소금에 구운 것으로.",
+      "audio": {
+        "A": {
+          "file": "blind/sentence_02_A.wav",
+          "sha256": "26961041031beeabeaef2449530861fe2441cd21d53f83c41f0db17c82ed49eb"
+        },
+        "B": {
+          "file": "blind/sentence_02_B.wav",
+          "sha256": "b250e910632a745540866c6e36af521d9d9ba946a304b42b9d1a5762456355e7"
+        },
+        "C": {
+          "file": "blind/sentence_02_C.wav",
+          "sha256": "6a561b1327b035537c7a3d7069302a5257b7835f3572a24c4a8949892e4bae1c"
+        }
+      }
+    },
+    {
+      "sentence_index": 2,
+      "text": "......괜찮아. 조금 놀랐을 뿐이야. 신경 쓰지 않아도 돼.",
+      "audio": {
+        "A": {
+          "file": "blind/sentence_03_A.wav",
+          "sha256": "5d2703ba402a340dd0c9a65da5d6a56e8f50d01ea977e05f1727d1230da2536a"
+        },
+        "B": {
+          "file": "blind/sentence_03_B.wav",
+          "sha256": "507dc77c1749ac51cf24816cb98f5da703834d206a6e4def6d41aaddb8acea33"
+        },
+        "C": {
+          "file": "blind/sentence_03_C.wav",
+          "sha256": "890dd8baa805c4fa8554b34d7aaf04027ba257a344a0747c768e46c0908e9651"
+        }
+      }
+    },
+    {
+      "sentence_index": 3,
+      "text": "그 서류는 내가 정리해 둘게. 선생님은 잠깐 쉬어.",
+      "audio": {
+        "A": {
+          "file": "blind/sentence_04_A.wav",
+          "sha256": "793b0ffeda7170de3f97c7761e332e968df20136f8001e8d9f8a330383527052"
+        },
+        "B": {
+          "file": "blind/sentence_04_B.wav",
+          "sha256": "ee3a2ac4e577ded1dc012530f8fb416dea2934699892f31667f260adc92e448c"
+        },
+        "C": {
+          "file": "blind/sentence_04_C.wav",
+          "sha256": "01e3132b94858018619fa683af6ee425cc8d29abadcdeec7cef9c531ed10e48c"
+        }
+      }
+    }
+  ]
+}

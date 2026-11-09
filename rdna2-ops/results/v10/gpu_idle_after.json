@@ -1,0 +1,28 @@
+{
+  "utc": "2026-11-08T11:51:04.014025+00:00",
+  "scope": "all v1.0 GPU experiments completed; final idle audit",
+  "gpu_audit": {
+    "available": true,
+    "valid_for_timing": true,
+    "method": "KFD client PID snapshots and periodic polling; research flock",
+    "limitation": "Detects observed KFD clients, not graphics load or sub-poll transient clients",
+    "allowed_pids": [
+      2623125
+    ],
+    "interval_s": 0.25,
+    "sample_count": 3,
+    "started_unix_s": 1794138664.013743,
+    "ended_unix_s": 1794138664.014007,
+    "foreign_clients": [],
+    "errors": [],
+    "transitions": [
+      {
+        "unix_s": 1794138664.0137434,
+        "kfd_pids": [],
+        "foreign_or_error": []
+      }
+    ]
+  },
+  "kfd_clients": [],
+  "gpu_idle": true
+}

@@ -1,0 +1,95 @@
+{
+  "status": "summary_failed",
+  "completed": false,
+  "command": [
+    "~/DevSpace/applio-lab/.venv-rocm10/bin/python",
+    "-B",
+    "~/DevSpace/applio-lab/.venv-rocm10/lib/python3.12/site-packages/_rocm_sdk_core/bin/rocprofv3",
+    "--selected-regions",
+    "--kernel-trace",
+    "--marker-trace",
+    "--pmc",
+    "FETCH_SIZE",
+    "-f",
+    "csv",
+    "-d",
+    "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/v10/fusion_traffic_FETCH_SIZE_B_02_rocprof",
+    "-o",
+    "fusion_traffic_FETCH_SIZE_B_02",
+    "--",
+    "~/DevSpace/applio-lab/.venv-rocm10/bin/python",
+    "-B",
+    "v10_fusion_traffic.py",
+    "--execute",
+    "--arm",
+    "B",
+    "--counters",
+    "FETCH_SIZE",
+    "--seed",
+    "20261108",
+    "--warmup",
+    "3",
+    "--reps",
+    "1",
+    "--db",
+    "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/v10/fusion_traffic_db_01",
+    "--out",
+    "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/v10/fusion_traffic_FETCH_SIZE_B_02"
+  ],
+  "loader_alias": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/v10/fusion_traffic_loader_02/libhsa-amd-aqlprofile64.so",
+  "loader_target": "~/DevSpace/applio-lab/.venv-rocm10/lib/python3.12/site-packages/_rocm_sdk_core/lib/libhsa-amd-aqlprofile64.so.1",
+  "loader_target_sha256": "0001175c61c8ad3491e75a12a056697261b6ffe86b3bdd65c153834602f1b686",
+  "ld_library_path_prefix": [
+    "~/DevSpace/applio-lab/.venv-rocm10/lib/python3.12/site-packages/_rocm_sdk_core/lib",
+    "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/v10/fusion_traffic_loader_02"
+  ],
+  "pre_audit": {
+    "available": true,
+    "valid_for_timing": true,
+    "method": "KFD client PID snapshots and periodic polling; research flock",
+    "limitation": "Detects observed KFD clients, not graphics load or sub-poll transient clients",
+    "allowed_pids": [
+      2621845
+    ],
+    "interval_s": 0.25,
+    "sample_count": 3,
+    "started_unix_s": 1794138602.2357616,
+    "ended_unix_s": 1794138602.2359805,
+    "foreign_clients": [],
+    "errors": [],
+    "transitions": [
+      {
+        "unix_s": 1794138602.235762,
+        "kfd_pids": [],
+        "foreign_or_error": []
+      }
+    ]
+  },
+  "result": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/v10/fusion_traffic_FETCH_SIZE_B_02/result.json",
+  "counter_dir": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/v10/fusion_traffic_FETCH_SIZE_B_02_rocprof",
+  "pid": 2621847,
+  "exit_code": 0,
+  "post_audit": {
+    "available": true,
+    "valid_for_timing": true,
+    "method": "KFD client PID snapshots and periodic polling; research flock",
+    "limitation": "Detects observed KFD clients, not graphics load or sub-poll transient clients",
+    "allowed_pids": [
+      2621845
+    ],
+    "interval_s": 0.25,
+    "sample_count": 3,
+    "started_unix_s": 1794138606.7392912,
+    "ended_unix_s": 1794138606.7394989,
+    "foreign_clients": [],
+    "errors": [],
+    "transitions": [
+      {
+        "unix_s": 1794138606.7392924,
+        "kfd_pids": [],
+        "foreign_or_error": []
+      }
+    ]
+  },
+  "summary_exit_code": 1
+}

@@ -1,0 +1,32 @@
+{
+  "schema": "applio_nonconv_bench_v08",
+  "device": "cuda",
+  "torch": "2.11.0+rocm10.0.0",
+  "hip": "7.15.26333",
+  "predeclared_gates": {
+    "slice_bitwise": true,
+    "adam_nrmse": 2e-06,
+    "adam_max_over_rms": 2e-05,
+    "update_nrmse": 0.002,
+    "update_max_over_rms": 0.02,
+    "overflow_skip_bitwise": true
+  },
+  "adam_hyperparameters": {
+    "lr": 0.0001,
+    "betas": [
+      0.8,
+      0.99
+    ],
+    "eps": 1e-09,
+    "weight_decay": 0.01
+  },
+  "note": "CPU results validate code only; CUDA warm operator timings and model acceptance are distinct.",
+  "source_sha256": {
+    "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/v08_nonconv_bench.py": "3de725be88914daf491e33a3f2f6f81a323d9d812a0a6911a895ab1674bb139c",
+    "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/v08_nonconv_opt.py": "3c1235703209bf8d0c7c5b8b3769423eb318241500b49b7554a2e880138024f2"
+  },
+  "adam": [],
+  "slices": [],
+  "norms": [],
+  "weight_norm_cache": null
+}

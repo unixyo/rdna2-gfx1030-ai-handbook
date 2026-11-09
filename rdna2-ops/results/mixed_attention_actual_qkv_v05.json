@@ -1,0 +1,230 @@
+{
+  "input": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/v05_moss_capture_fixed/actual_qkv_1061_1061.pt",
+  "shape": [
+    1,
+    24,
+    1061,
+    128
+  ],
+  "strides": [
+    [
+      3259392,
+      128,
+      3072,
+      1
+    ],
+    [
+      3259392,
+      128,
+      3072,
+      1
+    ],
+    [
+      9778176,
+      128,
+      9216,
+      1
+    ]
+  ],
+  "source": "actual captured QKV with original strides restored",
+  "capture_metadata": {
+    "shapes": [
+      [
+        1,
+        24,
+        1061,
+        128
+      ],
+      [
+        1,
+        24,
+        1061,
+        128
+      ],
+      [
+        1,
+        24,
+        1061,
+        128
+      ]
+    ],
+    "strides": [
+      [
+        3259392,
+        128,
+        3072,
+        1
+      ],
+      [
+        3259392,
+        128,
+        3072,
+        1
+      ],
+      [
+        9778176,
+        128,
+        9216,
+        1
+      ]
+    ],
+    "dtype": "torch.float32",
+    "heads": null,
+    "mask": null,
+    "source": {
+      "module": "~/DevSpace/moss-image-rdna2-lab01/custom_nodes/MOSS_RDNA2_INT8.attention_dispatch",
+      "name": "install.<locals>.dispatch",
+      "path": "~/DevSpace/moss-image-rdna2-lab01/custom_nodes/MOSS_RDNA2_INT8/attention_dispatch.py"
+    }
+  },
+  "scale": null,
+  "input_stats": {
+    "q": {
+      "finite": true,
+      "max_abs": 10.405517578125,
+      "half_finite": true
+    },
+    "k": {
+      "finite": true,
+      "max_abs": 9.109071731567383,
+      "half_finite": true
+    },
+    "v": {
+      "finite": true,
+      "max_abs": 24.949474334716797,
+      "half_finite": true
+    }
+  },
+  "torch": "2.12.0+rocm10.2.0a20261011",
+  "gpu": "AMD Radeon RX 6900 XT",
+  "acceptance": "operator diagnostic; final model RGB max<=2/255, RMSE<=.25/255 is decisive",
+  "timing": "ordinary wall; 3 warmups then 3 alternating rounds x3 calls; allocations/conversions included",
+  "rows": [
+    {
+      "mode": "native_math",
+      "error": {
+        "finite": true,
+        "byte_equal": true,
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "relative_rmse": 0.0
+      },
+      "extra_peak_bytes": 258430464,
+      "round_ms": [
+        2.5517369989150516,
+        2.5554870007908903,
+        2.559670332023719
+      ],
+      "median_ms": 2.5554870007908903,
+      "speedup": 1.0
+    },
+    {
+      "mode": "control_fp32",
+      "error": {
+        "finite": true,
+        "byte_equal": true,
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "relative_rmse": 0.0
+      },
+      "extra_peak_bytes": 353256960,
+      "round_ms": [
+        2.7453690005737976,
+        2.7333823333416754,
+        2.744012335218334
+      ],
+      "median_ms": 2.744012335218334,
+      "speedup": 0.931295740909108
+    },
+    {
+      "mode": "qk_half",
+      "error": {
+        "finite": true,
+        "byte_equal": false,
+        "max_abs": 0.006478309631347656,
+        "rmse": 8.530045275771276e-05,
+        "relative_rmse": 0.0001565738532607161
+      },
+      "extra_peak_bytes": 353256960,
+      "round_ms": [
+        5.959390999729901,
+        5.965250665515971,
+        5.9563276663539
+      ],
+      "median_ms": 5.959390999729901,
+      "speedup": 0.42881680374835507
+    },
+    {
+      "mode": "pv_half",
+      "error": {
+        "finite": true,
+        "byte_equal": false,
+        "max_abs": 0.010915756225585938,
+        "rmse": 7.444254910204788e-05,
+        "relative_rmse": 0.00013664355091484316
+      },
+      "extra_peak_bytes": 353256960,
+      "round_ms": [
+        3.1799123341140025,
+        3.147856000092967,
+        3.1707823339578076
+      ],
+      "median_ms": 3.1707823339578076,
+      "speedup": 0.8059484163963729
+    },
+    {
+      "mode": "both_half",
+      "error": {
+        "finite": true,
+        "byte_equal": false,
+        "max_abs": 0.011749267578125,
+        "rmse": 0.00011310259352035389,
+        "relative_rmse": 0.00020760627064386937
+      },
+      "extra_peak_bytes": 353256960,
+      "round_ms": [
+        6.387440667216045,
+        6.431440667559703,
+        6.393324333960966
+      ],
+      "median_ms": 6.393324333960966,
+      "speedup": 0.3997117723585979
+    },
+    {
+      "mode": "qk_split3",
+      "error": {
+        "finite": true,
+        "byte_equal": false,
+        "max_abs": 1.1444091796875e-05,
+        "rmse": 2.392030918335498e-07,
+        "relative_rmse": 4.3907093795430494e-07
+      },
+      "extra_peak_bytes": 488357888,
+      "round_ms": [
+        16.082746667962056,
+        16.090943332528695,
+        16.033310001754824
+      ],
+      "median_ms": 16.082746667962056,
+      "speedup": 0.15889617946178294
+    },
+    {
+      "mode": "pv_split3",
+      "error": {
+        "finite": true,
+        "byte_equal": false,
+        "max_abs": 1.430511474609375e-05,
+        "rmse": 3.115130667733979e-07,
+        "relative_rmse": 5.718000271852426e-07
+      },
+      "extra_peak_bytes": 535874048,
+      "round_ms": [
+        6.340381000579025,
+        6.334418001642916,
+        6.314048332569655
+      ],
+      "median_ms": 6.334418001642916,
+      "speedup": 0.40342885488897173
+    }
+  ]
+}

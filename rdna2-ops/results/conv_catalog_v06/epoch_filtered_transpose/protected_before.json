@@ -1,0 +1,18 @@
+{
+  "~/DevSpace/applio-lab/assets/config.json": "308b2af4c1b96775d2a3279ebe1532425e2df55647cd5a8be50cb8d48b2f047a",
+  "~/DevSpace/applio-lab/logs/bench40k/config.json": "3e76c57835d482099bd692b069495011cc5860307d9427960268e9da497f2a6d",
+  "~/DevSpace/applio-lab/logs/bench40k/filelist.txt": "01ce3e7c233f3292e7635c19fc5c85a255f8781bff6f80997ce159cb34499afa",
+  "~/DevSpace/applio-lab/logs/bench40k/model_info.json": "9352d604b3ae3dd8ce95730665ce99a5eea95cb03288e6db2d2230a86a5bbe40",
+  "~/DevSpace/applio-lab/rvc/train/train.py": "66d370f6cf4b2c4e5085a16da3183321c7514d5c6a1b6321291ac87f83985cc9",
+  "~/DevSpace/applio-lab/rvc/lib/zluda.py": "d0a403ab827e1e66c18a6b40db6fb88efbf818bf8dfc79aa8f991551d344b637",
+  "~/DevSpace/applio-lab/rvc/lib/algorithm/fold_conv.py": "de5fa14073500187b9feeb8202f1d5c28f97dd463929647d601008a5198398b2",
+  "~/DevSpace/applio-lab/lab/train_bench.sh": "28e3438b6722cd9215a7e3d8e76057f52a03c9ff7fa524040f3813487458d6f5",
+  "~/DevSpace/applio-lab/core.py": "fd288f0d20f7796723f72e9075c8dc274a058b8b772b3bf2420b5a449159dd5b",
+  "~/DevSpace/applio-lab/rvc/train/lab_hooks.py": "c337ac89703ec81cfb84d05a24ddbbada11eea0e1401869e96605d55eb77aa62",
+  "~/DevSpace/applio-lab/rvc/train/data_utils.py": "e736d02dc9b677aad1db9e2ac143d559f9b486ec7ecfa75f6e996ebe0a235c65",
+  "~/DevSpace/applio-lab/rvc/lib/algorithm/synthesizers.py": "d373936c510fdc80abd5213ae6b18bd0ad35650a7bc338bc1f7ea6916bc82f0d",
+  "~/DevSpace/applio-lab/rvc/lib/algorithm/discriminators.py": "f269a5c7cb79d0a40f614703cd3ef4d51348466912771b7decae33478723bce5",
+  "~/DevSpace/applio-lab/rvc/lib/algorithm/residuals.py": "bb34c5746642cb9e7265beba6df5ce890a8cabbf553c63a79084778934572f7f",
+  "~/DevSpace/applio-lab/rvc/models/pretraineds/hifi-gan/f0G40k.pth": "3b2c44035e782c4b14ddc0bede9e2f4a724d025cd073f736d4f43708453adfcb",
+  "~/DevSpace/applio-lab/rvc/models/pretraineds/hifi-gan/f0D40k.pth": "6b6ab091e70801b28e3f41f335f2fc5f3f35c75b39ae2628d419644ec2b0fa09"
+}

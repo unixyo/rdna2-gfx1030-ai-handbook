@@ -1,0 +1,231 @@
+{
+  "extracted_sha256": "74ece098ca4f491f16b2f318020fb309b5e6cef44109a438c14f3509e6152f18",
+  "asm_sha256": "2c0f8ad95647d0e20b4e960d36bcd99aa581fd067fafc7cc5cca1f3fff40b2ef",
+  "kernels": [
+    {
+      "kernel": "000000000002cf00 <void mul_mat_q<(ggml_type)18, 8, false>(char const*, int const*, int const*, int const*, float*, float*, float const*, HIP_vector_type<unsigned int, 3u>, int, int, int, int, int, HIP_vector_type<unsigned int, 3u>, HIP_vector_type<unsigned int, 3u>, int, int, int, HIP_vector_type<unsigned int, 3u>, HIP_vector_type<unsigned int, 3u>, int, int, int, HIP_vector_type<unsigned int, 3u>)>",
+      "static_dot4_count": 256,
+      "static_dot8_count": 0,
+      "scratch_ops": 0,
+      "lines": 2209
+    },
+    {
+      "kernel": "0000000000031400 <void mul_mat_q<(ggml_type)18, 16, false>(char const*, int const*, int const*, int const*, float*, float*, float const*, HIP_vector_type<unsigned int, 3u>, int, int, int, int, int, HIP_vector_type<unsigned int, 3u>, HIP_vector_type<unsigned int, 3u>, int, int, int, HIP_vector_type<unsigned int, 3u>, HIP_vector_type<unsigned int, 3u>, int, int, int, HIP_vector_type<unsigned int, 3u>)>",
+      "static_dot4_count": 128,
+      "static_dot8_count": 0,
+      "scratch_ops": 0,
+      "lines": 1802
+    },
+    {
+      "kernel": "0000000000035200 <void mul_mat_q<(ggml_type)18, 24, false>(char const*, int const*, int const*, int const*, float*, float*, float const*, HIP_vector_type<unsigned int, 3u>, int, int, int, int, int, HIP_vector_type<unsigned int, 3u>, HIP_vector_type<unsigned int, 3u>, int, int, int, HIP_vector_type<unsigned int, 3u>, HIP_vector_type<unsigned int, 3u>, int, int, int, HIP_vector_type<unsigned int, 3u>)>",
+      "static_dot4_count": 192,
+      "static_dot8_count": 0,
+      "scratch_ops": 0,
+      "lines": 1941
+    },
+    {
+      "kernel": "0000000000039400 <void mul_mat_q<(ggml_type)18, 32, false>(char const*, int const*, int const*, int const*, float*, float*, float const*, HIP_vector_type<unsigned int, 3u>, int, int, int, int, int, HIP_vector_type<unsigned int, 3u>, HIP_vector_type<unsigned int, 3u>, int, int, int, HIP_vector_type<unsigned int, 3u>, HIP_vector_type<unsigned int, 3u>, int, int, int, HIP_vector_type<unsigned int, 3u>)>",
+      "static_dot4_count": 256,
+      "static_dot8_count": 0,
+      "scratch_ops": 0,
+      "lines": 2085
+    },
+    {
+      "kernel": "000000000003db00 <void mul_mat_q<(ggml_type)18, 40, false>(char const*, int const*, int const*, int const*, float*, float*, float const*, HIP_vector_type<unsigned int, 3u>, int, int, int, int, int, HIP_vector_type<unsigned int, 3u>, HIP_vector_type<unsigned int, 3u>, int, int, int, HIP_vector_type<unsigned int, 3u>, HIP_vector_type<unsigned int, 3u>, int, int, int, HIP_vector_type<unsigned int, 3u>)>",
+      "static_dot4_count": 320,
+      "static_dot8_count": 0,
+      "scratch_ops": 0,
+      "lines": 2230
+    },
+    {
+      "kernel": "0000000000042700 <void mul_mat_q<(ggml_type)18, 48, false>(char const*, int const*, int const*, int const*, float*, float*, float const*, HIP_vector_type<unsigned int, 3u>, int, int, int, int, int, HIP_vector_type<unsigned int, 3u>, HIP_vector_type<unsigned int, 3u>, int, int, int, HIP_vector_type<unsigned int, 3u>, HIP_vector_type<unsigned int, 3u>, int, int, int, HIP_vector_type<unsigned int, 3u>)>",
+      "static_dot4_count": 384,
+      "static_dot8_count": 0,
+      "scratch_ops": 0,
+      "lines": 2393
+    },
+    {
+      "kernel": "0000000000047800 <void mul_mat_q<(ggml_type)18, 56, false>(char const*, int const*, int const*, int const*, float*, float*, float const*, HIP_vector_type<unsigned int, 3u>, int, int, int, int, int, HIP_vector_type<unsigned int, 3u>, HIP_vector_type<unsigned int, 3u>, int, int, int, HIP_vector_type<unsigned int, 3u>, HIP_vector_type<unsigned int, 3u>, int, int, int, HIP_vector_type<unsigned int, 3u>)>",
+      "static_dot4_count": 0,
+      "static_dot8_count": 0,
+      "scratch_ops": 0,
+      "lines": 12
+    },
+    {
+      "kernel": "0000000000048f00 <void mul_mat_q<(ggml_type)18, 64, false>(char const*, int const*, int const*, int const*, float*, float*, float const*, HIP_vector_type<unsigned int, 3u>, int, int, int, int, int, HIP_vector_type<unsigned int, 3u>, HIP_vector_type<unsigned int, 3u>, int, int, int, HIP_vector_type<unsigned int, 3u>, HIP_vector_type<unsigned int, 3u>, int, int, int, HIP_vector_type<unsigned int, 3u>)>",
+      "static_dot4_count": 512,
+      "static_dot8_count": 0,
+      "scratch_ops": 0,
+      "lines": 2666
+    },
+    {
+      "kernel": "000000000004e800 <void mul_mat_q<(ggml_type)18, 72, false>(char const*, int const*, int const*, int const*, float*, float*, float const*, HIP_vector_type<unsigned int, 3u>, int, int, int, int, int, HIP_vector_type<unsigned int, 3u>, HIP_vector_type<unsigned int, 3u>, int, int, int, HIP_vector_type<unsigned int, 3u>, HIP_vector_type<unsigned int, 3u>, int, int, int, HIP_vector_type<unsigned int, 3u>)>",
+      "static_dot4_count": 0,
+      "static_dot8_count": 0,
+      "scratch_ops": 0,
+      "lines": 12
+    },
+    {
+      "kernel": "0000000000050400 <void mul_mat_q<(ggml_type)18, 80, false>(char const*, int const*, int const*, int const*, float*, float*, float const*, HIP_vector_type<unsigned int, 3u>, int, int, int, int, int, HIP_vector_type<unsigned int, 3u>, HIP_vector_type<unsigned int, 3u>, int, int, int, HIP_vector_type<unsigned int, 3u>, HIP_vector_type<unsigned int, 3u>, int, int, int, HIP_vector_type<unsigned int, 3u>)>",
+      "static_dot4_count": 0,
+      "static_dot8_count": 0,
+      "scratch_ops": 0,
+      "lines": 12
+    },
+    {
+      "kernel": "0000000000052100 <void mul_mat_q<(ggml_type)18, 88, false>(char const*, int const*, int const*, int const*, float*, float*, float const*, HIP_vector_type<unsigned int, 3u>, int, int, int, int, int, HIP_vector_type<unsigned int, 3u>, HIP_vector_type<unsigned int, 3u>, int, int, int, HIP_vector_type<unsigned int, 3u>, HIP_vector_type<unsigned int, 3u>, int, int, int, HIP_vector_type<unsigned int, 3u>)>",
+      "static_dot4_count": 0,
+      "static_dot8_count": 0,
+      "scratch_ops": 0,
+      "lines": 12
+    },
+    {
+      "kernel": "0000000000054000 <void mul_mat_q<(ggml_type)18, 96, false>(char const*, int const*, int const*, int const*, float*, float*, float const*, HIP_vector_type<unsigned int, 3u>, int, int, int, int, int, HIP_vector_type<unsigned int, 3u>, HIP_vector_type<unsigned int, 3u>, int, int, int, HIP_vector_type<unsigned int, 3u>, HIP_vector_type<unsigned int, 3u>, int, int, int, HIP_vector_type<unsigned int, 3u>)>",
+      "static_dot4_count": 0,
+      "static_dot8_count": 0,
+      "scratch_ops": 0,
+      "lines": 12
+    },
+    {
+      "kernel": "0000000000056100 <void mul_mat_q<(ggml_type)18, 104, false>(char const*, int const*, int const*, int const*, float*, float*, float const*, HIP_vector_type<unsigned int, 3u>, int, int, int, int, int, HIP_vector_type<unsigned int, 3u>, HIP_vector_type<unsigned int, 3u>, int, int, int, HIP_vector_type<unsigned int, 3u>, HIP_vector_type<unsigned int, 3u>, int, int, int, HIP_vector_type<unsigned int, 3u>)>",
+      "static_dot4_count": 0,
+      "static_dot8_count": 0,
+      "scratch_ops": 0,
+      "lines": 12
+    },
+    {
+      "kernel": "0000000000058400 <void mul_mat_q<(ggml_type)18, 112, false>(char const*, int const*, int const*, int const*, float*, float*, float const*, HIP_vector_type<unsigned int, 3u>, int, int, int, int, int, HIP_vector_type<unsigned int, 3u>, HIP_vector_type<unsigned int, 3u>, int, int, int, HIP_vector_type<unsigned int, 3u>, HIP_vector_type<unsigned int, 3u>, int, int, int, HIP_vector_type<unsigned int, 3u>)>",
+      "static_dot4_count": 0,
+      "static_dot8_count": 0,
+      "scratch_ops": 0,
+      "lines": 12
+    },
+    {
+      "kernel": "000000000005a900 <void mul_mat_q<(ggml_type)18, 120, false>(char const*, int const*, int const*, int const*, float*, float*, float const*, HIP_vector_type<unsigned int, 3u>, int, int, int, int, int, HIP_vector_type<unsigned int, 3u>, HIP_vector_type<unsigned int, 3u>, int, int, int, HIP_vector_type<unsigned int, 3u>, HIP_vector_type<unsigned int, 3u>, int, int, int, HIP_vector_type<unsigned int, 3u>)>",
+      "static_dot4_count": 0,
+      "static_dot8_count": 0,
+      "scratch_ops": 0,
+      "lines": 12
+    },
+    {
+      "kernel": "000000000005cf00 <void mul_mat_q<(ggml_type)18, 128, false>(char const*, int const*, int const*, int const*, float*, float*, float const*, HIP_vector_type<unsigned int, 3u>, int, int, int, int, int, HIP_vector_type<unsigned int, 3u>, HIP_vector_type<unsigned int, 3u>, int, int, int, HIP_vector_type<unsigned int, 3u>, HIP_vector_type<unsigned int, 3u>, int, int, int, HIP_vector_type<unsigned int, 3u>)>",
+      "static_dot4_count": 0,
+      "static_dot8_count": 0,
+      "scratch_ops": 0,
+      "lines": 12
+    },
+    {
+      "kernel": "000000000005f700 <void mul_mat_q<(ggml_type)18, 8, true>(char const*, int const*, int const*, int const*, float*, float*, float const*, HIP_vector_type<unsigned int, 3u>, int, int, int, int, int, HIP_vector_type<unsigned int, 3u>, HIP_vector_type<unsigned int, 3u>, int, int, int, HIP_vector_type<unsigned int, 3u>, HIP_vector_type<unsigned int, 3u>, int, int, int, HIP_vector_type<unsigned int, 3u>)>",
+      "static_dot4_count": 256,
+      "static_dot8_count": 0,
+      "scratch_ops": 0,
+      "lines": 2298
+    },
+    {
+      "kernel": "0000000000063e00 <void mul_mat_q<(ggml_type)18, 16, true>(char const*, int const*, int const*, int const*, float*, float*, float const*, HIP_vector_type<unsigned int, 3u>, int, int, int, int, int, HIP_vector_type<unsigned int, 3u>, HIP_vector_type<unsigned int, 3u>, int, int, int, HIP_vector_type<unsigned int, 3u>, HIP_vector_type<unsigned int, 3u>, int, int, int, HIP_vector_type<unsigned int, 3u>)>",
+      "static_dot4_count": 128,
+      "static_dot8_count": 0,
+      "scratch_ops": 0,
+      "lines": 1920
+    },
+    {
+      "kernel": "0000000000067f00 <void mul_mat_q<(ggml_type)18, 24, true>(char const*, int const*, int const*, int const*, float*, float*, float const*, HIP_vector_type<unsigned int, 3u>, int, int, int, int, int, HIP_vector_type<unsigned int, 3u>, HIP_vector_type<unsigned int, 3u>, int, int, int, HIP_vector_type<unsigned int, 3u>, HIP_vector_type<unsigned int, 3u>, int, int, int, HIP_vector_type<unsigned int, 3u>)>",
+      "static_dot4_count": 0,
+      "static_dot8_count": 0,
+      "scratch_ops": 0,
+      "lines": 12
+    },
+    {
+      "kernel": "0000000000068f00 <void mul_mat_q<(ggml_type)18, 32, true>(char const*, int const*, int const*, int const*, float*, float*, float const*, HIP_vector_type<unsigned int, 3u>, int, int, int, int, int, HIP_vector_type<unsigned int, 3u>, HIP_vector_type<unsigned int, 3u>, int, int, int, HIP_vector_type<unsigned int, 3u>, HIP_vector_type<unsigned int, 3u>, int, int, int, HIP_vector_type<unsigned int, 3u>)>",
+      "static_dot4_count": 256,
+      "static_dot8_count": 0,
+      "scratch_ops": 0,
+      "lines": 2310
+    },
+    {
+      "kernel": "000000000006db00 <void mul_mat_q<(ggml_type)18, 40, true>(char const*, int const*, int const*, int const*, float*, float*, float const*, HIP_vector_type<unsigned int, 3u>, int, int, int, int, int, HIP_vector_type<unsigned int, 3u>, HIP_vector_type<unsigned int, 3u>, int, int, int, HIP_vector_type<unsigned int, 3u>, HIP_vector_type<unsigned int, 3u>, int, int, int, HIP_vector_type<unsigned int, 3u>)>",
+      "static_dot4_count": 0,
+      "static_dot8_count": 0,
+      "scratch_ops": 0,
+      "lines": 12
+    },
+    {
+      "kernel": "000000000006ef00 <void mul_mat_q<(ggml_type)18, 48, true>(char const*, int const*, int const*, int const*, float*, float*, float const*, HIP_vector_type<unsigned int, 3u>, int, int, int, int, int, HIP_vector_type<unsigned int, 3u>, HIP_vector_type<unsigned int, 3u>, int, int, int, HIP_vector_type<unsigned int, 3u>, HIP_vector_type<unsigned int, 3u>, int, int, int, HIP_vector_type<unsigned int, 3u>)>",
+      "static_dot4_count": 0,
+      "static_dot8_count": 0,
+      "scratch_ops": 0,
+      "lines": 12
+    },
+    {
+      "kernel": "0000000000070500 <void mul_mat_q<(ggml_type)18, 56, true>(char const*, int const*, int const*, int const*, float*, float*, float const*, HIP_vector_type<unsigned int, 3u>, int, int, int, int, int, HIP_vector_type<unsigned int, 3u>, HIP_vector_type<unsigned int, 3u>, int, int, int, HIP_vector_type<unsigned int, 3u>, HIP_vector_type<unsigned int, 3u>, int, int, int, HIP_vector_type<unsigned int, 3u>)>",
+      "static_dot4_count": 0,
+      "static_dot8_count": 0,
+      "scratch_ops": 0,
+      "lines": 12
+    },
+    {
+      "kernel": "0000000000071d00 <void mul_mat_q<(ggml_type)18, 64, true>(char const*, int const*, int const*, int const*, float*, float*, float const*, HIP_vector_type<unsigned int, 3u>, int, int, int, int, int, HIP_vector_type<unsigned int, 3u>, HIP_vector_type<unsigned int, 3u>, int, int, int, HIP_vector_type<unsigned int, 3u>, HIP_vector_type<unsigned int, 3u>, int, int, int, HIP_vector_type<unsigned int, 3u>)>",
+      "static_dot4_count": 512,
+      "static_dot8_count": 0,
+      "scratch_ops": 0,
+      "lines": 3074
+    },
+    {
+      "kernel": "0000000000078000 <void mul_mat_q<(ggml_type)18, 72, true>(char const*, int const*, int const*, int const*, float*, float*, float const*, HIP_vector_type<unsigned int, 3u>, int, int, int, int, int, HIP_vector_type<unsigned int, 3u>, HIP_vector_type<unsigned int, 3u>, int, int, int, HIP_vector_type<unsigned int, 3u>, HIP_vector_type<unsigned int, 3u>, int, int, int, HIP_vector_type<unsigned int, 3u>)>",
+      "static_dot4_count": 0,
+      "static_dot8_count": 0,
+      "scratch_ops": 0,
+      "lines": 12
+    },
+    {
+      "kernel": "0000000000079c00 <void mul_mat_q<(ggml_type)18, 80, true>(char const*, int const*, int const*, int const*, float*, float*, float const*, HIP_vector_type<unsigned int, 3u>, int, int, int, int, int, HIP_vector_type<unsigned int, 3u>, HIP_vector_type<unsigned int, 3u>, int, int, int, HIP_vector_type<unsigned int, 3u>, HIP_vector_type<unsigned int, 3u>, int, int, int, HIP_vector_type<unsigned int, 3u>)>",
+      "static_dot4_count": 0,
+      "static_dot8_count": 0,
+      "scratch_ops": 0,
+      "lines": 12
+    },
+    {
+      "kernel": "000000000007b900 <void mul_mat_q<(ggml_type)18, 88, true>(char const*, int const*, int const*, int const*, float*, float*, float const*, HIP_vector_type<unsigned int, 3u>, int, int, int, int, int, HIP_vector_type<unsigned int, 3u>, HIP_vector_type<unsigned int, 3u>, int, int, int, HIP_vector_type<unsigned int, 3u>, HIP_vector_type<unsigned int, 3u>, int, int, int, HIP_vector_type<unsigned int, 3u>)>",
+      "static_dot4_count": 0,
+      "static_dot8_count": 0,
+      "scratch_ops": 0,
+      "lines": 12
+    },
+    {
+      "kernel": "000000000007d800 <void mul_mat_q<(ggml_type)18, 96, true>(char const*, int const*, int const*, int const*, float*, float*, float const*, HIP_vector_type<unsigned int, 3u>, int, int, int, int, int, HIP_vector_type<unsigned int, 3u>, HIP_vector_type<unsigned int, 3u>, int, int, int, HIP_vector_type<unsigned int, 3u>, HIP_vector_type<unsigned int, 3u>, int, int, int, HIP_vector_type<unsigned int, 3u>)>",
+      "static_dot4_count": 0,
+      "static_dot8_count": 0,
+      "scratch_ops": 0,
+      "lines": 12
+    },
+    {
+      "kernel": "000000000007f900 <void mul_mat_q<(ggml_type)18, 104, true>(char const*, int const*, int const*, int const*, float*, float*, float const*, HIP_vector_type<unsigned int, 3u>, int, int, int, int, int, HIP_vector_type<unsigned int, 3u>, HIP_vector_type<unsigned int, 3u>, int, int, int, HIP_vector_type<unsigned int, 3u>, HIP_vector_type<unsigned int, 3u>, int, int, int, HIP_vector_type<unsigned int, 3u>)>",
+      "static_dot4_count": 0,
+      "static_dot8_count": 0,
+      "scratch_ops": 0,
+      "lines": 12
+    },
+    {
+      "kernel": "0000000000081c00 <void mul_mat_q<(ggml_type)18, 112, true>(char const*, int const*, int const*, int const*, float*, float*, float const*, HIP_vector_type<unsigned int, 3u>, int, int, int, int, int, HIP_vector_type<unsigned int, 3u>, HIP_vector_type<unsigned int, 3u>, int, int, int, HIP_vector_type<unsigned int, 3u>, HIP_vector_type<unsigned int, 3u>, int, int, int, HIP_vector_type<unsigned int, 3u>)>",
+      "static_dot4_count": 0,
+      "static_dot8_count": 0,
+      "scratch_ops": 0,
+      "lines": 12
+    },
+    {
+      "kernel": "0000000000084100 <void mul_mat_q<(ggml_type)18, 120, true>(char const*, int const*, int const*, int const*, float*, float*, float const*, HIP_vector_type<unsigned int, 3u>, int, int, int, int, int, HIP_vector_type<unsigned int, 3u>, HIP_vector_type<unsigned int, 3u>, int, int, int, HIP_vector_type<unsigned int, 3u>, HIP_vector_type<unsigned int, 3u>, int, int, int, HIP_vector_type<unsigned int, 3u>)>",
+      "static_dot4_count": 0,
+      "static_dot8_count": 0,
+      "scratch_ops": 0,
+      "lines": 12
+    },
+    {
+      "kernel": "0000000000086800 <void mul_mat_q<(ggml_type)18, 128, true>(char const*, int const*, int const*, int const*, float*, float*, float const*, HIP_vector_type<unsigned int, 3u>, int, int, int, int, int, HIP_vector_type<unsigned int, 3u>, HIP_vector_type<unsigned int, 3u>, int, int, int, HIP_vector_type<unsigned int, 3u>, HIP_vector_type<unsigned int, 3u>, int, int, int, HIP_vector_type<unsigned int, 3u>)>",
+      "static_dot4_count": 0,
+      "static_dot8_count": 0,
+      "scratch_ops": 0,
+      "lines": 12
+    }
+  ],
+  "notes_exit": 0
+}

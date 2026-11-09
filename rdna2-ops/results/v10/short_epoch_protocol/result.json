@@ -1,0 +1,153 @@
+{
+  "schema": "applio_v10_operating_epoch_protocol",
+  "phase": "short",
+  "epochs_each": 8,
+  "arms": [
+    "B",
+    "B_prime",
+    "B",
+    "B_prime"
+  ],
+  "completed": true,
+  "runs": [
+    {
+      "label": "B1",
+      "arm": "B",
+      "result_path": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/v10/short_B1/result.json",
+      "result_sha256": "9eb6fb72ee053425a1c3019a9dc759767b9eac6e7d5ce7bb7270b380ee82e605",
+      "steady_epoch_median_s": 12.526975274085999,
+      "steady_epoch_seconds": [
+        12.469377756118774,
+        12.467909097671509,
+        12.541966438293457,
+        12.556859493255615,
+        12.621235370635986,
+        12.51198410987854
+      ],
+      "sum_epoch_seconds": 104.35860133171082,
+      "process_wall_s": 121.56132658798015,
+      "initial_state_sha256": [
+        "732feda6913551ecdc4309f1466ce1debbf829a9c56ea968a22b168a15359f7f",
+        "ae2b43f05be2d7a4becd607dc91ad55a1f7bb74d07d7356f57382e742ac425f9"
+      ],
+      "model_exports": [
+        {
+          "path": "~/DevSpace/applio-lab/logs/v10_short_B1_20261108/v10_short_B1_20261108_8e_248s.pth",
+          "bytes": 55179511,
+          "sha256": "8569ff334721cfc2e02a9d74359c8cda6d0c43446b81c6d9e96cda00e3972141"
+        }
+      ],
+      "max_queues": 7,
+      "scale_reductions": 10,
+      "finite_losses": true
+    },
+    {
+      "label": "Bprime1",
+      "arm": "B_prime",
+      "result_path": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/v10/short_Bprime1/result.json",
+      "result_sha256": "054175ea786378ba6a481572cd7a63a90b516febe30d8c23f832d5c47da1190a",
+      "steady_epoch_median_s": 11.441322565078735,
+      "steady_epoch_seconds": [
+        11.47648811340332,
+        11.447952508926392,
+        11.426267385482788,
+        11.535400629043579,
+        11.434692621231079,
+        11.412584066390991
+      ],
+      "sum_epoch_seconds": 115.03412008285522,
+      "process_wall_s": 132.05544477701187,
+      "initial_state_sha256": [
+        "732feda6913551ecdc4309f1466ce1debbf829a9c56ea968a22b168a15359f7f",
+        "ae2b43f05be2d7a4becd607dc91ad55a1f7bb74d07d7356f57382e742ac425f9"
+      ],
+      "model_exports": [
+        {
+          "path": "~/DevSpace/applio-lab/logs/v10_short_Bprime1_20261108/v10_short_Bprime1_20261108_8e_248s.pth",
+          "bytes": 55181826,
+          "sha256": "0c697caef85bc4e243dfd0f5f56d356c1f1bed982830d92086d3c092e39823bd"
+        }
+      ],
+      "max_queues": 7,
+      "scale_reductions": 11,
+      "finite_losses": true
+    },
+    {
+      "label": "B2",
+      "arm": "B",
+      "result_path": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/v10/short_B2/result.json",
+      "result_sha256": "daa6e42329bd37eb136f478e144d68e92e1273875788d8e4e6c5fecd6e8204a0",
+      "steady_epoch_median_s": 12.546043395996094,
+      "steady_epoch_seconds": [
+        12.509508609771729,
+        12.542182683944702,
+        12.549904108047485,
+        12.552042961120605,
+        12.652740240097046,
+        12.513832569122314
+      ],
+      "sum_epoch_seconds": 104.31990671157837,
+      "process_wall_s": 121.56849851002335,
+      "initial_state_sha256": [
+        "732feda6913551ecdc4309f1466ce1debbf829a9c56ea968a22b168a15359f7f",
+        "ae2b43f05be2d7a4becd607dc91ad55a1f7bb74d07d7356f57382e742ac425f9"
+      ],
+      "model_exports": [
+        {
+          "path": "~/DevSpace/applio-lab/logs/v10_short_B2_20261108/v10_short_B2_20261108_8e_248s.pth",
+          "bytes": 55179511,
+          "sha256": "7e3e1230a85c625d0658e07cc6b654099712266c67da587295cfc1ed19fbdc65"
+        }
+      ],
+      "max_queues": 7,
+      "scale_reductions": 11,
+      "finite_losses": true
+    },
+    {
+      "label": "Bprime2",
+      "arm": "B_prime",
+      "result_path": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/v10/short_Bprime2/result.json",
+      "result_sha256": "ee4c23a57ce25d165515a3c8630fb6c263e31a3a94f8a9cdfbaf5e6d72d2f8f2",
+      "steady_epoch_median_s": 11.46418297290802,
+      "steady_epoch_seconds": [
+        11.414889335632324,
+        11.508450984954834,
+        11.445395469665527,
+        11.581092119216919,
+        11.447094202041626,
+        11.481271743774414
+      ],
+      "sum_epoch_seconds": 96.03488183021545,
+      "process_wall_s": 114.06549995098612,
+      "initial_state_sha256": [
+        "732feda6913551ecdc4309f1466ce1debbf829a9c56ea968a22b168a15359f7f",
+        "ae2b43f05be2d7a4becd607dc91ad55a1f7bb74d07d7356f57382e742ac425f9"
+      ],
+      "model_exports": [
+        {
+          "path": "~/DevSpace/applio-lab/logs/v10_short_Bprime2_20261108/v10_short_Bprime2_20261108_8e_248s.pth",
+          "bytes": 55181826,
+          "sha256": "5fcf73d035c50130e2e3cb47e3e8d4112ba5523124f2534fec60e8d8ba64b6be"
+        }
+      ],
+      "max_queues": 7,
+      "scale_reductions": 11,
+      "finite_losses": true
+    }
+  ],
+  "selection_sha256": {
+    "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/v10/fusion_full/selection.json": "db3da6994b49d8433bb3e63031c604a2ca0d61aa6404cbc6fbf024aef968cdfa",
+    "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/v10/native_selected/dispatch.json": "37f1fede6701d2cc79efb60a1eb81afb7d568678df74cd11ba2a1fbd1d81a705"
+  },
+  "initial_states_identical": true,
+  "pooled_steady_medians_s": {
+    "B": 12.54207456111908,
+    "B_prime": 11.447523355484009
+  },
+  "steady_speedup": 1.095614673291819,
+  "adjacent_pair_speedups": [
+    1.0948887423487996,
+    1.0943687330919882
+  ],
+  "meaningful_speedup_pass": true
+}

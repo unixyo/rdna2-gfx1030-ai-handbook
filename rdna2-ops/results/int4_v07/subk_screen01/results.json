@@ -1,0 +1,1330 @@
+{
+  "schema": 1,
+  "purpose": "W4 real model Linear shapes; actual checkpoint weight, synthetic activation; no model quality claim",
+  "command": [
+    "bench_int4_v07.py",
+    "--mode",
+    "sweep",
+    "--cases",
+    "moss_proj,qwen_proj,anima_proj",
+    "--groups",
+    "128",
+    "--quant",
+    "sym,aff",
+    "--layouts",
+    "kn",
+    "--dot4-tile",
+    "64,64",
+    "--methods",
+    "dot4,dot4_split",
+    "--out",
+    "results/int4_v07/subk_screen01"
+  ],
+  "mode": "sweep",
+  "sources": {
+    "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/bench_int4_v07.py": "6ebea2b993e7ffe5c861a0f04ae260dcca3b941e4a25ce6f9239629cd495bfc5",
+    "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/rdna2_ops/int4_weight_gemm_v07.py": "9876326b9585f81816c2f695c7b1a5c0a01e1a8205d15e35130004833c73e1ab",
+    "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/rdna2_ops/int8_gemm.py": "0b2d0970af17ddf61aa19d242bfebbb6f42add330e07387442dbe97ab316109d",
+    "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/gpu_guard_v06.py": "7409f98dbf2c1975f5727338346af248657d98229c4a92732809379207b4b329",
+    "~/DevSpace/qwen-image-21-rdna2-lab01/custom_nodes/RDNA2-Qwen21-INT8/int8_fused_kernel.py": "70c014d3c394b69cc907c60dd7086e367861c6bf03031320524c3ba2dcf86603"
+  },
+  "criteria_file": "source/INT4_PLAN_V07_KO.md",
+  "criteria_sha256": "151db7c72107459b68572902c77ea5a57b3809f27b7752a73c628e44d2c46f99",
+  "started_unix_s": 1794006311.7752316,
+  "criteria": {
+    "fp32_relative_l2": 2e-05,
+    "fp32_max_abs": "1e-4 + 1e-4*reference_max_abs",
+    "fp16_relative_l2": 0.001,
+    "fp16_max_abs": "2e-3 + 2e-3*reference_max_abs",
+    "model_rgb_max_abs": 0.00784313725490196,
+    "model_rgb_rmse": 0.000980392156862745,
+    "performance_promotion": 1.05
+  },
+  "timing": {
+    "rounds": 3,
+    "iterations": 3,
+    "warmups": 2,
+    "interleaved_forward_reverse": true,
+    "wall_scope": "synchronized ordinary call with output allocation and documented activation/weight conversion",
+    "event_scope": "HIP events around repeated ordinary calls; may contain host launch gaps",
+    "weight_cache": "explicit caller owned; resident bytes include sums and zeros",
+    "cold": "first compile/autotune/preparation separately; never warm throughput"
+  },
+  "success": true,
+  "runtime": {
+    "torch": "2.12.0+rocm10.2.0a20261011",
+    "triton": "3.8.0",
+    "hip": "7.17.26405",
+    "gpu": "AMD Radeon RX 6900 XT",
+    "arch": "gfx1030"
+  },
+  "rows": [
+    {
+      "case": "moss_proj",
+      "model": "moss",
+      "shape": [
+        1061,
+        3072,
+        3072
+      ],
+      "weight": {
+        "file": "~/DevSpace/moss-image-rdna2-lab01/models/diffusion_models/moss_image_sft_int8_convrot.safetensors",
+        "name": "layers.0.proj.o.weight",
+        "dtype": "torch.int8",
+        "shape": [
+          3072,
+          3072
+        ],
+        "tensor_sha256": "78f4a92c3a1ade013c5671fea82ce812ee77d8ba1bf1ecf14c84c6b8e5f9d21c",
+        "scale_sha256": "10372561e22931d59f25abd27b7a1dcc7189d13c88f1718e5d783f08b56ccc4a"
+      },
+      "input_values": "synthetic seeded activations at actual observed shape",
+      "unit_scope": "Bias-free GEMM at actual Linear weight/shape; not full Linear pipeline",
+      "bias_in_unit": false,
+      "baseline": "MOSS v0.5 fused INT8",
+      "native_first_compile_autotune_s": 0.5464799799956381,
+      "native_profile": {
+        "trace": "profile_moss_proj_native.json",
+        "kernels": [
+          {
+            "name": "_int8_dot_dequant.kd",
+            "duration_us": 1268.379
+          }
+        ]
+      },
+      "candidates": [
+        {
+          "method": "dot4",
+          "error_same_stored_values": {
+            "finite": true,
+            "max_abs": 5.05857010280053e-07,
+            "rmse": 1.0985130314177338e-07,
+            "reference_max_abs": 4.215053723821226,
+            "relative_l2": 1.0112263510620067e-07
+          },
+          "compute_gate": true,
+          "kernel": {
+            "n_regs": 256,
+            "n_spills": 136,
+            "shared_bytes": 8192,
+            "instruction_counts": {
+              "v_dot8_i32_i4": 0,
+              "v_dot4c_i32_i8": 1024,
+              "v_dot4_i32_i8": 0,
+              "v_dot2c_f32_f16": 0,
+              "v_dot2_f32_f16": 0
+            },
+            "asm_sha256": "8c7d3f60e80fdfcba0b4219f3f580838c509a2325da8f50774a999be3f4343f6",
+            "kernel_name": "_linear_dot4",
+            "asm_file": "isa/moss_proj_dot4_g128_sym_kn_low_8c7d3f60e80f.amdgcn"
+          },
+          "weight_prepare_excluded": false,
+          "activation_prepare_excluded_from_core": false,
+          "candidate_core_dtype": "torch.float32",
+          "prepared_core_sample": {
+            "event_ms": 1.8717193603515625,
+            "wall_ms": 2.0107560024674362
+          },
+          "additional_peak_bytes": 13037568,
+          "samples": [
+            {
+              "event_ms": 1.6835659344991047,
+              "wall_ms": 1.6911346659374733
+            },
+            {
+              "event_ms": 1.6963359514872234,
+              "wall_ms": 1.7074046675891925
+            },
+            {
+              "event_ms": 1.6973427136739094,
+              "wall_ms": 1.7088946672932555
+            }
+          ],
+          "median_wall_ms": 1.7074046675891925,
+          "median_event_ms": 1.6963359514872234,
+          "speedup_wall": 0.41820099671284205,
+          "speedup_event": 0.41510447065300915,
+          "model_candidate": false
+        },
+        {
+          "method": "dot4_split",
+          "original_dot4_byte_equal": true,
+          "error_same_stored_values": {
+            "finite": true,
+            "max_abs": 5.05857010280053e-07,
+            "rmse": 1.0985130314177338e-07,
+            "reference_max_abs": 4.215053723821226,
+            "relative_l2": 1.0112263510620067e-07
+          },
+          "compute_gate": true,
+          "kernel": {
+            "n_regs": 256,
+            "n_spills": 19,
+            "shared_bytes": 8192,
+            "instruction_counts": {
+              "v_dot8_i32_i4": 0,
+              "v_dot4c_i32_i8": 512,
+              "v_dot4_i32_i8": 0,
+              "v_dot2c_f32_f16": 0,
+              "v_dot2_f32_f16": 0
+            },
+            "asm_sha256": "f9ee3435bae31bd150def766f40b6b4a8ba8c8f5257bf767e283a16972ba16ae",
+            "kernel_name": "_linear_dot4_split",
+            "asm_file": "isa/moss_proj_dot4_split_g128_sym_kn_low_f9ee3435bae3.amdgcn"
+          },
+          "weight_prepare_excluded": false,
+          "activation_prepare_excluded_from_core": false,
+          "candidate_core_dtype": "torch.float32",
+          "prepared_core_sample": {
+            "event_ms": 0.9734699726104736,
+            "wall_ms": 0.9916496686249351
+          },
+          "additional_peak_bytes": 13037568,
+          "samples": [
+            {
+              "event_ms": 0.9305266539255778,
+              "wall_ms": 0.9386199963046238
+            },
+            {
+              "event_ms": 0.9281596342722574,
+              "wall_ms": 0.9376400024242079
+            },
+            {
+              "event_ms": 0.9469830195109049,
+              "wall_ms": 0.9577733338422453
+            }
+          ],
+          "median_wall_ms": 0.9386199963046238,
+          "median_event_ms": 0.9305266539255778,
+          "speedup_wall": 0.760732071114136,
+          "speedup_event": 0.7567291428151718,
+          "model_candidate": false
+        }
+      ],
+      "weight_packing_s": 0.0049270750023424625,
+      "weight_packing_scope": "Single first preparation; may include JIT; excluded from warm call comparison",
+      "storage": {
+        "group_size": 128,
+        "symmetric": true,
+        "layout": "kn",
+        "order": "low",
+        "packed_bytes": 4718592,
+        "scale_bytes": 294912,
+        "zero_bytes": 294912,
+        "sum_bytes": 294912,
+        "total_resident_bytes": 5603328,
+        "logical_stride": [
+          1,
+          3072
+        ]
+      },
+      "weight_representation_error": {
+        "finite": true,
+        "max_abs": 0.4015864330504808,
+        "rmse": 0.11043506612723256,
+        "reference_max_abs": 4.103521042647197,
+        "relative_l2": 0.10304631721274685
+      },
+      "activation_representation_error": {
+        "relative_l2": 0.0,
+        "max_abs": 0.0,
+        "reason": "Existing A8 and row scales retained"
+      },
+      "native_compute_error": {
+        "finite": true,
+        "max_abs": 2.958426001953285e-07,
+        "rmse": 4.78500763299398e-08,
+        "reference_max_abs": 4.103521042647197,
+        "relative_l2": 4.4648627624022674e-08
+      },
+      "weight_dequant_fp16_error": {
+        "finite": true,
+        "max_abs": 2.9624439775943756e-05,
+        "rmse": 4.144943884363323e-06,
+        "reference_max_abs": 0.10190313495695591,
+        "relative_l2": 0.00021222554671820415
+      },
+      "native_samples": [
+        {
+          "event_ms": 0.7048863569895426,
+          "wall_ms": 0.7162849991194283
+        },
+        {
+          "event_ms": 0.7014729976654053,
+          "wall_ms": 0.7118716651651388
+        },
+        {
+          "event_ms": 0.7041566371917725,
+          "wall_ms": 0.7140383337779591
+        }
+      ],
+      "native_median_wall_ms": 0.7140383337779591,
+      "native_median_event_ms": 0.7041566371917725
+    },
+    {
+      "case": "moss_proj",
+      "model": "moss",
+      "shape": [
+        1061,
+        3072,
+        3072
+      ],
+      "weight": {
+        "file": "~/DevSpace/moss-image-rdna2-lab01/models/diffusion_models/moss_image_sft_int8_convrot.safetensors",
+        "name": "layers.0.proj.o.weight",
+        "dtype": "torch.int8",
+        "shape": [
+          3072,
+          3072
+        ],
+        "tensor_sha256": "78f4a92c3a1ade013c5671fea82ce812ee77d8ba1bf1ecf14c84c6b8e5f9d21c",
+        "scale_sha256": "10372561e22931d59f25abd27b7a1dcc7189d13c88f1718e5d783f08b56ccc4a"
+      },
+      "input_values": "synthetic seeded activations at actual observed shape",
+      "unit_scope": "Bias-free GEMM at actual Linear weight/shape; not full Linear pipeline",
+      "bias_in_unit": false,
+      "baseline": "MOSS v0.5 fused INT8",
+      "native_first_compile_autotune_s": 0.5464799799956381,
+      "native_profile": {
+        "trace": "profile_moss_proj_native.json",
+        "kernels": [
+          {
+            "name": "_int8_dot_dequant.kd",
+            "duration_us": 1268.379
+          }
+        ]
+      },
+      "candidates": [
+        {
+          "method": "dot4",
+          "error_same_stored_values": {
+            "finite": true,
+            "max_abs": 3.7415345932600985e-07,
+            "rmse": 9.91066438611663e-08,
+            "reference_max_abs": 3.9048087648497036,
+            "relative_l2": 9.216373996904174e-08
+          },
+          "compute_gate": true,
+          "kernel": {
+            "n_regs": 256,
+            "n_spills": 136,
+            "shared_bytes": 8192,
+            "instruction_counts": {
+              "v_dot8_i32_i4": 0,
+              "v_dot4c_i32_i8": 1024,
+              "v_dot4_i32_i8": 0,
+              "v_dot2c_f32_f16": 0,
+              "v_dot2_f32_f16": 0
+            },
+            "asm_sha256": "8c7d3f60e80fdfcba0b4219f3f580838c509a2325da8f50774a999be3f4343f6",
+            "kernel_name": "_linear_dot4",
+            "asm_file": "isa/moss_proj_dot4_g128_aff_kn_low_8c7d3f60e80f.amdgcn"
+          },
+          "weight_prepare_excluded": false,
+          "activation_prepare_excluded_from_core": false,
+          "candidate_core_dtype": "torch.float32",
+          "prepared_core_sample": {
+            "event_ms": 1.7671796480814617,
+            "wall_ms": 1.780630666568565
+          },
+          "additional_peak_bytes": 13037568,
+          "samples": [
+            {
+              "event_ms": 1.6882592837015789,
+              "wall_ms": 1.6951050007871042
+            },
+            {
+              "event_ms": 1.6963793436686199,
+              "wall_ms": 1.704764668829739
+            },
+            {
+              "event_ms": 1.6819559733072917,
+              "wall_ms": 1.6902250014633562
+            }
+          ],
+          "median_wall_ms": 1.6951050007871042,
+          "median_event_ms": 1.6882592837015789,
+          "speedup_wall": 0.4085125508403409,
+          "speedup_event": 0.4064796115164849,
+          "model_candidate": false
+        },
+        {
+          "method": "dot4_split",
+          "original_dot4_byte_equal": true,
+          "error_same_stored_values": {
+            "finite": true,
+            "max_abs": 3.7415345932600985e-07,
+            "rmse": 9.91066438611663e-08,
+            "reference_max_abs": 3.9048087648497036,
+            "relative_l2": 9.216373996904174e-08
+          },
+          "compute_gate": true,
+          "kernel": {
+            "n_regs": 256,
+            "n_spills": 19,
+            "shared_bytes": 8192,
+            "instruction_counts": {
+              "v_dot8_i32_i4": 0,
+              "v_dot4c_i32_i8": 512,
+              "v_dot4_i32_i8": 0,
+              "v_dot2c_f32_f16": 0,
+              "v_dot2_f32_f16": 0
+            },
+            "asm_sha256": "f9ee3435bae31bd150def766f40b6b4a8ba8c8f5257bf767e283a16972ba16ae",
+            "kernel_name": "_linear_dot4_split",
+            "asm_file": "isa/moss_proj_dot4_split_g128_aff_kn_low_f9ee3435bae3.amdgcn"
+          },
+          "weight_prepare_excluded": false,
+          "activation_prepare_excluded_from_core": false,
+          "candidate_core_dtype": "torch.float32",
+          "prepared_core_sample": {
+            "event_ms": 0.9322830041249593,
+            "wall_ms": 0.943790000746958
+          },
+          "additional_peak_bytes": 13037568,
+          "samples": [
+            {
+              "event_ms": 0.92815629641215,
+              "wall_ms": 0.9365566656924784
+            },
+            {
+              "event_ms": 0.930009682973226,
+              "wall_ms": 0.9393736642474929
+            },
+            {
+              "event_ms": 0.9387996991475424,
+              "wall_ms": 0.948667002376169
+            }
+          ],
+          "median_wall_ms": 0.9393736642474929,
+          "median_event_ms": 0.930009682973226,
+          "speedup_wall": 0.7371631696407824,
+          "speedup_event": 0.7378879922886492,
+          "model_candidate": false
+        }
+      ],
+      "weight_packing_s": 0.0028665700083365664,
+      "weight_packing_scope": "Single first preparation; may include JIT; excluded from warm call comparison",
+      "storage": {
+        "group_size": 128,
+        "symmetric": false,
+        "layout": "kn",
+        "order": "low",
+        "packed_bytes": 4718592,
+        "scale_bytes": 294912,
+        "zero_bytes": 294912,
+        "sum_bytes": 294912,
+        "total_resident_bytes": 5603328,
+        "logical_stride": [
+          1,
+          3072
+        ]
+      },
+      "weight_representation_error": {
+        "finite": true,
+        "max_abs": 0.3452920802317525,
+        "rmse": 0.1070344488631804,
+        "reference_max_abs": 4.103521042647197,
+        "relative_l2": 0.09987322104321189
+      },
+      "activation_representation_error": {
+        "relative_l2": 0.0,
+        "max_abs": 0.0,
+        "reason": "Existing A8 and row scales retained"
+      },
+      "native_compute_error": {
+        "finite": true,
+        "max_abs": 2.958426001953285e-07,
+        "rmse": 4.78500763299398e-08,
+        "reference_max_abs": 4.103521042647197,
+        "relative_l2": 4.4648627624022674e-08
+      },
+      "weight_dequant_fp16_error": {
+        "finite": true,
+        "max_abs": 3.0517578125e-05,
+        "rmse": 4.110645486881143e-06,
+        "reference_max_abs": 0.10061931610107422,
+        "relative_l2": 0.00021129009898815165
+      },
+      "native_samples": [
+        {
+          "event_ms": 0.6950363318125407,
+          "wall_ms": 0.7051949990758052
+        },
+        {
+          "event_ms": 0.6862429777781168,
+          "wall_ms": 0.692471667813758
+        },
+        {
+          "event_ms": 0.6852233409881592,
+          "wall_ms": 0.6913950007098416
+        }
+      ],
+      "native_median_wall_ms": 0.692471667813758,
+      "native_median_event_ms": 0.6862429777781168
+    },
+    {
+      "case": "qwen_proj",
+      "model": "qwen",
+      "shape": [
+        2400,
+        4096,
+        4096
+      ],
+      "weight": {
+        "file": "~/DevSpace/qwen-image-21-rdna2-lab01/models/diffusion_models/qwen_image_2.1_int8_convrot.safetensors",
+        "name": "transformer_blocks.0.attn.to_q.weight",
+        "dtype": "torch.int8",
+        "shape": [
+          4096,
+          4096
+        ],
+        "tensor_sha256": "efa2c879fe291ed800769a4865296403ed233f002e00f7a1ba9c25378fe846cb",
+        "scale_sha256": "edc744cec6578e8eaabff16d8b888228b747e457209e6bcb70196b19ca4a8225"
+      },
+      "input_values": "synthetic seeded activations at actual observed shape",
+      "unit_scope": "Bias-free GEMM at actual Linear weight/shape; not full Linear pipeline",
+      "bias_in_unit": false,
+      "baseline": "patientx per-row",
+      "native_first_compile_autotune_s": 0.8587941669975407,
+      "native_profile": {
+        "trace": "profile_qwen_proj_native.json",
+        "kernels": [
+          {
+            "name": "_int8_matmul_dequant_per_row_kernel.kd",
+            "duration_us": 2367.358
+          }
+        ]
+      },
+      "candidates": [
+        {
+          "method": "dot4",
+          "error_same_stored_values": {
+            "finite": true,
+            "max_abs": 1.8673350332676364e-06,
+            "rmse": 3.369458738648489e-07,
+            "reference_max_abs": 13.651217723714067,
+            "relative_l2": 1.0724730710930062e-07
+          },
+          "compute_gate": true,
+          "kernel": {
+            "n_regs": 256,
+            "n_spills": 137,
+            "shared_bytes": 8192,
+            "instruction_counts": {
+              "v_dot8_i32_i4": 0,
+              "v_dot4c_i32_i8": 1024,
+              "v_dot4_i32_i8": 0,
+              "v_dot2c_f32_f16": 0,
+              "v_dot2_f32_f16": 0
+            },
+            "asm_sha256": "d3d659afcc1c9ec2cd0bcad42e3dfbf2cac0853b417971e5c4bce59a3aed8142",
+            "kernel_name": "_linear_dot4",
+            "asm_file": "isa/qwen_proj_dot4_g128_sym_kn_low_d3d659afcc1c.amdgcn"
+          },
+          "weight_prepare_excluded": false,
+          "activation_prepare_excluded_from_core": false,
+          "candidate_core_dtype": "torch.float32",
+          "prepared_core_sample": {
+            "event_ms": 7.158973693847656,
+            "wall_ms": 7.255762330411623
+          },
+          "additional_peak_bytes": 39321600,
+          "samples": [
+            {
+              "event_ms": 7.0669504801432295,
+              "wall_ms": 7.161749667526844
+            },
+            {
+              "event_ms": 7.064637502034505,
+              "wall_ms": 7.1650796647494035
+            },
+            {
+              "event_ms": 7.107777277628581,
+              "wall_ms": 7.203942669245104
+            }
+          ],
+          "median_wall_ms": 7.1650796647494035,
+          "median_event_ms": 7.0669504801432295,
+          "speedup_wall": 0.32635231438370943,
+          "speedup_event": 0.3290956507720133,
+          "model_candidate": false
+        },
+        {
+          "method": "dot4_split",
+          "original_dot4_byte_equal": true,
+          "error_same_stored_values": {
+            "finite": true,
+            "max_abs": 1.8673350332676364e-06,
+            "rmse": 3.369458738648489e-07,
+            "reference_max_abs": 13.651217723714067,
+            "relative_l2": 1.0724730710930062e-07
+          },
+          "compute_gate": true,
+          "kernel": {
+            "n_regs": 256,
+            "n_spills": 18,
+            "shared_bytes": 8192,
+            "instruction_counts": {
+              "v_dot8_i32_i4": 0,
+              "v_dot4c_i32_i8": 512,
+              "v_dot4_i32_i8": 0,
+              "v_dot2c_f32_f16": 0,
+              "v_dot2_f32_f16": 0
+            },
+            "asm_sha256": "038a213660067c4f6633a4d36f3277bed47f1d6b913b6130d6e2b5cfdbf99b5a",
+            "kernel_name": "_linear_dot4_split",
+            "asm_file": "isa/qwen_proj_dot4_split_g128_sym_kn_low_038a21366006.amdgcn"
+          },
+          "weight_prepare_excluded": false,
+          "activation_prepare_excluded_from_core": false,
+          "candidate_core_dtype": "torch.float32",
+          "prepared_core_sample": {
+            "event_ms": 3.5309855143229165,
+            "wall_ms": 3.546414998709224
+          },
+          "additional_peak_bytes": 39321600,
+          "samples": [
+            {
+              "event_ms": 3.5129852294921875,
+              "wall_ms": 3.5254283332809186
+            },
+            {
+              "event_ms": 3.513051986694336,
+              "wall_ms": 3.522211996217569
+            },
+            {
+              "event_ms": 3.6310221354166665,
+              "wall_ms": 3.639674333195823
+            }
+          ],
+          "median_wall_ms": 3.5254283332809186,
+          "median_event_ms": 3.513051986694336,
+          "speedup_wall": 0.6632783623085193,
+          "speedup_event": 0.6620177202173249,
+          "model_candidate": false
+        }
+      ],
+      "weight_packing_s": 0.0041511809977237135,
+      "weight_packing_scope": "Single first preparation; may include JIT; excluded from warm call comparison",
+      "storage": {
+        "group_size": 128,
+        "symmetric": true,
+        "layout": "kn",
+        "order": "low",
+        "packed_bytes": 8388608,
+        "scale_bytes": 524288,
+        "zero_bytes": 524288,
+        "sum_bytes": 524288,
+        "total_resident_bytes": 9961472,
+        "logical_stride": [
+          1,
+          4096
+        ]
+      },
+      "weight_representation_error": {
+        "finite": true,
+        "max_abs": 1.9028546865969709,
+        "rmse": 0.35899329093185556,
+        "reference_max_abs": 13.376355758207476,
+        "relative_l2": 0.11568446815418054
+      },
+      "activation_representation_error": {
+        "relative_l2": 0.0,
+        "max_abs": 0.0,
+        "reason": "Existing A8 and row scales retained"
+      },
+      "native_compute_error": {
+        "finite": true,
+        "max_abs": 6.373300820428085e-07,
+        "rmse": 1.2627189789004555e-07,
+        "reference_max_abs": 13.376355758207476,
+        "relative_l2": 4.069072520077195e-08
+      },
+      "weight_dequant_fp16_error": {
+        "finite": true,
+        "max_abs": 6.097182631492615e-05,
+        "rmse": 1.0198667914079602e-05,
+        "reference_max_abs": 0.24041206017136574,
+        "relative_l2": 0.00020638424648587974
+      },
+      "native_samples": [
+        {
+          "event_ms": 2.325702667236328,
+          "wall_ms": 2.3383403313346207
+        },
+        {
+          "event_ms": 2.3938490549723306,
+          "wall_ms": 2.4110429997866354
+        },
+        {
+          "event_ms": 2.317416032155355,
+          "wall_ms": 2.3288803349714726
+        }
+      ],
+      "native_median_wall_ms": 2.3383403313346207,
+      "native_median_event_ms": 2.325702667236328
+    },
+    {
+      "case": "qwen_proj",
+      "model": "qwen",
+      "shape": [
+        2400,
+        4096,
+        4096
+      ],
+      "weight": {
+        "file": "~/DevSpace/qwen-image-21-rdna2-lab01/models/diffusion_models/qwen_image_2.1_int8_convrot.safetensors",
+        "name": "transformer_blocks.0.attn.to_q.weight",
+        "dtype": "torch.int8",
+        "shape": [
+          4096,
+          4096
+        ],
+        "tensor_sha256": "efa2c879fe291ed800769a4865296403ed233f002e00f7a1ba9c25378fe846cb",
+        "scale_sha256": "edc744cec6578e8eaabff16d8b888228b747e457209e6bcb70196b19ca4a8225"
+      },
+      "input_values": "synthetic seeded activations at actual observed shape",
+      "unit_scope": "Bias-free GEMM at actual Linear weight/shape; not full Linear pipeline",
+      "bias_in_unit": false,
+      "baseline": "patientx per-row",
+      "native_first_compile_autotune_s": 0.8587941669975407,
+      "native_profile": {
+        "trace": "profile_qwen_proj_native.json",
+        "kernels": [
+          {
+            "name": "_int8_matmul_dequant_per_row_kernel.kd",
+            "duration_us": 2367.358
+          }
+        ]
+      },
+      "candidates": [
+        {
+          "method": "dot4",
+          "error_same_stored_values": {
+            "finite": true,
+            "max_abs": 2.294133881974858e-06,
+            "rmse": 3.471077042076003e-07,
+            "reference_max_abs": 13.637521356989165,
+            "relative_l2": 1.1109523612491224e-07
+          },
+          "compute_gate": true,
+          "kernel": {
+            "n_regs": 256,
+            "n_spills": 137,
+            "shared_bytes": 8192,
+            "instruction_counts": {
+              "v_dot8_i32_i4": 0,
+              "v_dot4c_i32_i8": 1024,
+              "v_dot4_i32_i8": 0,
+              "v_dot2c_f32_f16": 0,
+              "v_dot2_f32_f16": 0
+            },
+            "asm_sha256": "d3d659afcc1c9ec2cd0bcad42e3dfbf2cac0853b417971e5c4bce59a3aed8142",
+            "kernel_name": "_linear_dot4",
+            "asm_file": "isa/qwen_proj_dot4_g128_aff_kn_low_d3d659afcc1c.amdgcn"
+          },
+          "weight_prepare_excluded": false,
+          "activation_prepare_excluded_from_core": false,
+          "candidate_core_dtype": "torch.float32",
+          "prepared_core_sample": {
+            "event_ms": 7.15207036336263,
+            "wall_ms": 7.246952334147257
+          },
+          "additional_peak_bytes": 39321600,
+          "samples": [
+            {
+              "event_ms": 7.20199457804362,
+              "wall_ms": 7.296945666894317
+            },
+            {
+              "event_ms": 7.2463938395182295,
+              "wall_ms": 7.34235499597465
+            },
+            {
+              "event_ms": 7.192623774210612,
+              "wall_ms": 7.2858223332635434
+            }
+          ],
+          "median_wall_ms": 7.296945666894317,
+          "median_event_ms": 7.20199457804362,
+          "speedup_wall": 0.32933505467200114,
+          "speedup_event": 0.33162978940757737,
+          "model_candidate": false
+        },
+        {
+          "method": "dot4_split",
+          "original_dot4_byte_equal": true,
+          "error_same_stored_values": {
+            "finite": true,
+            "max_abs": 2.294133881974858e-06,
+            "rmse": 3.471077042076003e-07,
+            "reference_max_abs": 13.637521356989165,
+            "relative_l2": 1.1109523612491224e-07
+          },
+          "compute_gate": true,
+          "kernel": {
+            "n_regs": 256,
+            "n_spills": 18,
+            "shared_bytes": 8192,
+            "instruction_counts": {
+              "v_dot8_i32_i4": 0,
+              "v_dot4c_i32_i8": 512,
+              "v_dot4_i32_i8": 0,
+              "v_dot2c_f32_f16": 0,
+              "v_dot2_f32_f16": 0
+            },
+            "asm_sha256": "038a213660067c4f6633a4d36f3277bed47f1d6b913b6130d6e2b5cfdbf99b5a",
+            "kernel_name": "_linear_dot4_split",
+            "asm_file": "isa/qwen_proj_dot4_split_g128_aff_kn_low_038a21366006.amdgcn"
+          },
+          "weight_prepare_excluded": false,
+          "activation_prepare_excluded_from_core": false,
+          "candidate_core_dtype": "torch.float32",
+          "prepared_core_sample": {
+            "event_ms": 3.5262587865193686,
+            "wall_ms": 3.535951667193634
+          },
+          "additional_peak_bytes": 39321600,
+          "samples": [
+            {
+              "event_ms": 3.7123819986979165,
+              "wall_ms": 3.722547000506893
+            },
+            {
+              "event_ms": 3.6720221837361655,
+              "wall_ms": 3.6812473311632252
+            },
+            {
+              "event_ms": 3.7217483520507812,
+              "wall_ms": 3.7306603335309774
+            }
+          ],
+          "median_wall_ms": 3.722547000506893,
+          "median_event_ms": 3.7123819986979165,
+          "speedup_wall": 0.6455633736304821,
+          "speedup_event": 0.6433594242372761,
+          "model_candidate": false
+        }
+      ],
+      "weight_packing_s": 0.013118287999532185,
+      "weight_packing_scope": "Single first preparation; may include JIT; excluded from warm call comparison",
+      "storage": {
+        "group_size": 128,
+        "symmetric": false,
+        "layout": "kn",
+        "order": "low",
+        "packed_bytes": 8388608,
+        "scale_bytes": 524288,
+        "zero_bytes": 524288,
+        "sum_bytes": 524288,
+        "total_resident_bytes": 9961472,
+        "logical_stride": [
+          1,
+          4096
+        ]
+      },
+      "weight_representation_error": {
+        "finite": true,
+        "max_abs": 1.1135195496017982,
+        "rmse": 0.3093383501140727,
+        "reference_max_abs": 13.376355758207476,
+        "relative_l2": 0.09968331836995542
+      },
+      "activation_representation_error": {
+        "relative_l2": 0.0,
+        "max_abs": 0.0,
+        "reason": "Existing A8 and row scales retained"
+      },
+      "native_compute_error": {
+        "finite": true,
+        "max_abs": 6.373300820428085e-07,
+        "rmse": 1.2627189789004555e-07,
+        "reference_max_abs": 13.376355758207476,
+        "relative_l2": 4.069072520077195e-08
+      },
+      "weight_dequant_fp16_error": {
+        "finite": true,
+        "max_abs": 6.097741425037384e-05,
+        "rmse": 1.0384930730201154e-05,
+        "reference_max_abs": 0.2451953887939453,
+        "relative_l2": 0.00021076243328326292
+      },
+      "native_samples": [
+        {
+          "event_ms": 2.3883959452311196,
+          "wall_ms": 2.4031400001452616
+        },
+        {
+          "event_ms": 2.442676067352295,
+          "wall_ms": 2.4531996653725705
+        },
+        {
+          "event_ms": 2.36960236231486,
+          "wall_ms": 2.3756663334400705
+        }
+      ],
+      "native_median_wall_ms": 2.4031400001452616,
+      "native_median_event_ms": 2.3883959452311196
+    },
+    {
+      "case": "anima_proj",
+      "model": "anima",
+      "shape": [
+        8192,
+        2048,
+        2048
+      ],
+      "weight": {
+        "file": "~/DevSpace/anima-rdna2-lab01/models/diffusion_models/anima-base-v1.0.safetensors",
+        "name": "net.blocks.0.self_attn.q_proj.weight",
+        "dtype": "torch.bfloat16",
+        "shape": [
+          2048,
+          2048
+        ],
+        "tensor_sha256": "3786686ba533d86fc01c14447fa893e7c9996e043c78affa1931def734203fe9",
+        "scale_sha256": null
+      },
+      "input_values": "synthetic seeded activations at actual observed shape",
+      "unit_scope": "Bias-free GEMM at actual Linear weight/shape; not full Linear pipeline",
+      "bias_in_unit": false,
+      "baseline": "FP16 rocBLAS F.linear",
+      "native_first_compile_autotune_s": 0.16231517899723258,
+      "native_profile": {
+        "trace": "profile_anima_proj_native.json",
+        "kernels": [
+          {
+            "name": "Cijk_Alik_Bljk_HHS_BH_MT128x256x16_SN_AMAS3_BL1_BS1_EPS0_GLVWA8_GLVWB8_GRVW8_GSU1_GSUASB_ISA1030_IU2_K1_KLA_LDL2_LRVW8_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU0_SUM0_SUS0_SVW4_TT8_16_USFGROn1_VAW2_VSn1_VW8_VWB8_WS32_WG16_16_1_WGM4.kd",
+            "duration_us": 2932.558
+          }
+        ]
+      },
+      "candidates": [
+        {
+          "method": "dot4",
+          "core_fp32_error": {
+            "finite": true,
+            "max_abs": 4.1199245903733583e-08,
+            "rmse": 8.592990052944117e-09,
+            "reference_max_abs": 0.517803364387461,
+            "relative_l2": 7.884396549837598e-08
+          },
+          "error_same_stored_values": {
+            "finite": true,
+            "max_abs": 0.00022523938746099592,
+            "rmse": 2.5893648043056247e-05,
+            "reference_max_abs": 0.517803364387461,
+            "relative_l2": 0.00023758410987969692
+          },
+          "compute_gate": true,
+          "kernel": {
+            "n_regs": 256,
+            "n_spills": 137,
+            "shared_bytes": 8192,
+            "instruction_counts": {
+              "v_dot8_i32_i4": 0,
+              "v_dot4c_i32_i8": 1024,
+              "v_dot4_i32_i8": 0,
+              "v_dot2c_f32_f16": 0,
+              "v_dot2_f32_f16": 0
+            },
+            "asm_sha256": "1fddc97d93d03fdface2a05360a5cf112f2b8eec72b72a65f5c36783b9564b8b",
+            "kernel_name": "_linear_dot4",
+            "asm_file": "isa/anima_proj_dot4_g128_sym_kn_low_1fddc97d93d0.amdgcn"
+          },
+          "weight_prepare_excluded": false,
+          "activation_prepare_excluded_from_core": true,
+          "candidate_core_dtype": "torch.float16",
+          "prepared_core_sample": {
+            "event_ms": 5.836647669474284,
+            "wall_ms": 5.9338686648213
+          },
+          "additional_peak_bytes": 117473280,
+          "samples": [
+            {
+              "event_ms": 6.016024271647136,
+              "wall_ms": 6.022337668885787
+            },
+            {
+              "event_ms": 6.017077128092448,
+              "wall_ms": 6.023967667715624
+            },
+            {
+              "event_ms": 6.086930592854817,
+              "wall_ms": 6.093183998018503
+            }
+          ],
+          "median_wall_ms": 6.023967667715624,
+          "median_event_ms": 6.017077128092448,
+          "speedup_wall": 0.49203656095240983,
+          "speedup_event": 0.49138349314521357,
+          "model_candidate": false
+        },
+        {
+          "method": "dot4_split",
+          "original_dot4_byte_equal": true,
+          "core_fp32_error": {
+            "finite": true,
+            "max_abs": 4.1199245903733583e-08,
+            "rmse": 8.592990052944117e-09,
+            "reference_max_abs": 0.517803364387461,
+            "relative_l2": 7.884396549837598e-08
+          },
+          "error_same_stored_values": {
+            "finite": true,
+            "max_abs": 0.00022523938746099592,
+            "rmse": 2.5893648043056247e-05,
+            "reference_max_abs": 0.517803364387461,
+            "relative_l2": 0.00023758410987969692
+          },
+          "compute_gate": true,
+          "kernel": {
+            "n_regs": 256,
+            "n_spills": 18,
+            "shared_bytes": 8192,
+            "instruction_counts": {
+              "v_dot8_i32_i4": 0,
+              "v_dot4c_i32_i8": 512,
+              "v_dot4_i32_i8": 0,
+              "v_dot2c_f32_f16": 0,
+              "v_dot2_f32_f16": 0
+            },
+            "asm_sha256": "b45ae3cb546b2dd91b67ca3a4bc5f781c6adaf10f8f96fde4d67f1cb9e8a8255",
+            "kernel_name": "_linear_dot4_split",
+            "asm_file": "isa/anima_proj_dot4_split_g128_sym_kn_low_b45ae3cb546b.amdgcn"
+          },
+          "weight_prepare_excluded": false,
+          "activation_prepare_excluded_from_core": true,
+          "candidate_core_dtype": "torch.float16",
+          "prepared_core_sample": {
+            "event_ms": 2.912309010823568,
+            "wall_ms": 2.925719333385738
+          },
+          "additional_peak_bytes": 117473280,
+          "samples": [
+            {
+              "event_ms": 3.094119071960449,
+              "wall_ms": 3.1051046680659056
+            },
+            {
+              "event_ms": 3.091712315877279,
+              "wall_ms": 3.1001783354440704
+            },
+            {
+              "event_ms": 3.192612330118815,
+              "wall_ms": 3.2002406660467386
+            }
+          ],
+          "median_wall_ms": 3.1051046680659056,
+          "median_event_ms": 3.094119071960449,
+          "speedup_wall": 0.9545611666474084,
+          "speedup_event": 0.95558454893362,
+          "model_candidate": false
+        }
+      ],
+      "weight_packing_s": 0.0022378940047929063,
+      "weight_packing_scope": "Single first preparation; may include JIT; excluded from warm call comparison",
+      "storage": {
+        "group_size": 128,
+        "symmetric": true,
+        "layout": "kn",
+        "order": "low",
+        "packed_bytes": 2097152,
+        "scale_bytes": 131072,
+        "zero_bytes": 131072,
+        "sum_bytes": 131072,
+        "total_resident_bytes": 2490368,
+        "logical_stride": [
+          1,
+          2048
+        ]
+      },
+      "weight_representation_error": {
+        "finite": true,
+        "max_abs": 0.07705005383491129,
+        "rmse": 0.017255700523715705,
+        "reference_max_abs": 0.4950006067811046,
+        "relative_l2": 0.16068337506506283
+      },
+      "activation_representation_error": {
+        "finite": true,
+        "max_abs": 0.004010212077010911,
+        "rmse": 0.0008709311804375377,
+        "reference_max_abs": 0.5181945669995494,
+        "relative_l2": 0.007996246717363433
+      },
+      "native_compute_error": {
+        "finite": true,
+        "max_abs": 0.00011658071889542043,
+        "rmse": 2.2943784919139332e-05,
+        "reference_max_abs": 0.4950006067811046,
+        "relative_l2": 0.00021365025386870448
+      },
+      "weight_dequant_fp16_error": {
+        "finite": true,
+        "max_abs": 4.359986633062363e-06,
+        "rmse": 4.63566563035906e-07,
+        "reference_max_abs": 0.023193358909338713,
+        "relative_l2": 0.00019539997758361366
+      },
+      "native_samples": [
+        {
+          "event_ms": 3.036855697631836,
+          "wall_ms": 3.044738667085767
+        },
+        {
+          "event_ms": 2.956692377726237,
+          "wall_ms": 2.9640123345113047
+        },
+        {
+          "event_ms": 2.515442371368408,
+          "wall_ms": 2.521175668031598
+        }
+      ],
+      "native_median_wall_ms": 2.9640123345113047,
+      "native_median_event_ms": 2.956692377726237
+    },
+    {
+      "case": "anima_proj",
+      "model": "anima",
+      "shape": [
+        8192,
+        2048,
+        2048
+      ],
+      "weight": {
+        "file": "~/DevSpace/anima-rdna2-lab01/models/diffusion_models/anima-base-v1.0.safetensors",
+        "name": "net.blocks.0.self_attn.q_proj.weight",
+        "dtype": "torch.bfloat16",
+        "shape": [
+          2048,
+          2048
+        ],
+        "tensor_sha256": "3786686ba533d86fc01c14447fa893e7c9996e043c78affa1931def734203fe9",
+        "scale_sha256": null
+      },
+      "input_values": "synthetic seeded activations at actual observed shape",
+      "unit_scope": "Bias-free GEMM at actual Linear weight/shape; not full Linear pipeline",
+      "bias_in_unit": false,
+      "baseline": "FP16 rocBLAS F.linear",
+      "native_first_compile_autotune_s": 0.16231517899723258,
+      "native_profile": {
+        "trace": "profile_anima_proj_native.json",
+        "kernels": [
+          {
+            "name": "Cijk_Alik_Bljk_HHS_BH_MT128x256x16_SN_AMAS3_BL1_BS1_EPS0_GLVWA8_GLVWB8_GRVW8_GSU1_GSUASB_ISA1030_IU2_K1_KLA_LDL2_LRVW8_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU0_SUM0_SUS0_SVW4_TT8_16_USFGROn1_VAW2_VSn1_VW8_VWB8_WS32_WG16_16_1_WGM4.kd",
+            "duration_us": 2932.558
+          }
+        ]
+      },
+      "candidates": [
+        {
+          "method": "dot4",
+          "core_fp32_error": {
+            "finite": true,
+            "max_abs": 4.6478966064800176e-08,
+            "rmse": 9.12428814477661e-09,
+            "reference_max_abs": 0.508749447282457,
+            "relative_l2": 8.420258378150832e-08
+          },
+          "error_same_stored_values": {
+            "finite": true,
+            "max_abs": 0.00011947900193265415,
+            "rmse": 2.1041468946504005e-05,
+            "reference_max_abs": 0.508749447282457,
+            "relative_l2": 0.00019417909909698347
+          },
+          "compute_gate": true,
+          "kernel": {
+            "n_regs": 256,
+            "n_spills": 137,
+            "shared_bytes": 8192,
+            "instruction_counts": {
+              "v_dot8_i32_i4": 0,
+              "v_dot4c_i32_i8": 1024,
+              "v_dot4_i32_i8": 0,
+              "v_dot2c_f32_f16": 0,
+              "v_dot2_f32_f16": 0
+            },
+            "asm_sha256": "1fddc97d93d03fdface2a05360a5cf112f2b8eec72b72a65f5c36783b9564b8b",
+            "kernel_name": "_linear_dot4",
+            "asm_file": "isa/anima_proj_dot4_g128_aff_kn_low_1fddc97d93d0.amdgcn"
+          },
+          "weight_prepare_excluded": false,
+          "activation_prepare_excluded_from_core": true,
+          "candidate_core_dtype": "torch.float16",
+          "prepared_core_sample": {
+            "event_ms": 5.844191233317058,
+            "wall_ms": 5.936458333356616
+          },
+          "additional_peak_bytes": 117473280,
+          "samples": [
+            {
+              "event_ms": 6.197727203369141,
+              "wall_ms": 6.206552997658339
+            },
+            {
+              "event_ms": 6.169390360514323,
+              "wall_ms": 6.1780700004116325
+            },
+            {
+              "event_ms": 6.226650873819987,
+              "wall_ms": 6.234625999544126
+            }
+          ],
+          "median_wall_ms": 6.206552997658339,
+          "median_event_ms": 6.197727203369141,
+          "speedup_wall": 0.4588864919219061,
+          "speedup_event": 0.4584775910010707,
+          "model_candidate": false
+        },
+        {
+          "method": "dot4_split",
+          "original_dot4_byte_equal": true,
+          "core_fp32_error": {
+            "finite": true,
+            "max_abs": 4.6478966064800176e-08,
+            "rmse": 9.12428814477661e-09,
+            "reference_max_abs": 0.508749447282457,
+            "relative_l2": 8.420258378150832e-08
+          },
+          "error_same_stored_values": {
+            "finite": true,
+            "max_abs": 0.00011947900193265415,
+            "rmse": 2.1041468946504005e-05,
+            "reference_max_abs": 0.508749447282457,
+            "relative_l2": 0.00019417909909698347
+          },
+          "compute_gate": true,
+          "kernel": {
+            "n_regs": 256,
+            "n_spills": 18,
+            "shared_bytes": 8192,
+            "instruction_counts": {
+              "v_dot8_i32_i4": 0,
+              "v_dot4c_i32_i8": 512,
+              "v_dot4_i32_i8": 0,
+              "v_dot2c_f32_f16": 0,
+              "v_dot2_f32_f16": 0
+            },
+            "asm_sha256": "b45ae3cb546b2dd91b67ca3a4bc5f781c6adaf10f8f96fde4d67f1cb9e8a8255",
+            "kernel_name": "_linear_dot4_split",
+            "asm_file": "isa/anima_proj_dot4_split_g128_aff_kn_low_b45ae3cb546b.amdgcn"
+          },
+          "weight_prepare_excluded": false,
+          "activation_prepare_excluded_from_core": true,
+          "candidate_core_dtype": "torch.float16",
+          "prepared_core_sample": {
+            "event_ms": 2.911418914794922,
+            "wall_ms": 2.921832667198032
+          },
+          "additional_peak_bytes": 117473280,
+          "samples": [
+            {
+              "event_ms": 3.2826455434163413,
+              "wall_ms": 3.2936803327174857
+            },
+            {
+              "event_ms": 3.220372200012207,
+              "wall_ms": 3.2292736674814173
+            },
+            {
+              "event_ms": 3.2907190322875977,
+              "wall_ms": 3.298493664866934
+            }
+          ],
+          "median_wall_ms": 3.2936803327174857,
+          "median_event_ms": 3.2826455434163413,
+          "speedup_wall": 0.8647175937905813,
+          "speedup_event": 0.8656185994803564,
+          "model_candidate": false
+        }
+      ],
+      "weight_packing_s": 0.012580162001540884,
+      "weight_packing_scope": "Single first preparation; may include JIT; excluded from warm call comparison",
+      "storage": {
+        "group_size": 128,
+        "symmetric": false,
+        "layout": "kn",
+        "order": "low",
+        "packed_bytes": 2097152,
+        "scale_bytes": 131072,
+        "zero_bytes": 131072,
+        "sum_bytes": 131072,
+        "total_resident_bytes": 2490368,
+        "logical_stride": [
+          1,
+          2048
+        ]
+      },
+      "weight_representation_error": {
+        "finite": true,
+        "max_abs": 0.05717328483926054,
+        "rmse": 0.013131498362418838,
+        "reference_max_abs": 0.4950006067811046,
+        "relative_l2": 0.12227921281056463
+      },
+      "activation_representation_error": {
+        "finite": true,
+        "max_abs": 0.00404218597998432,
+        "rmse": 0.00088776520561239,
+        "reference_max_abs": 0.5096473784977803,
+        "relative_l2": 0.008197052147788571
+      },
+      "native_compute_error": {
+        "finite": true,
+        "max_abs": 0.00011658071889542043,
+        "rmse": 2.2943784919139332e-05,
+        "reference_max_abs": 0.4950006067811046,
+        "relative_l2": 0.00021365025386870448
+      },
+      "weight_dequant_fp16_error": {
+        "finite": true,
+        "max_abs": 7.120892405509949e-06,
+        "rmse": 4.833912528585917e-07,
+        "reference_max_abs": 0.023600261192768812,
+        "relative_l2": 0.00020493115447121413
+      },
+      "native_samples": [
+        {
+          "event_ms": 2.8279924392700195,
+          "wall_ms": 2.8386399984204522
+        },
+        {
+          "event_ms": 3.0865119298299155,
+          "wall_ms": 3.092838334850967
+        },
+        {
+          "event_ms": 2.841519037882487,
+          "wall_ms": 2.8481033320228257
+        }
+      ],
+      "native_median_wall_ms": 2.8481033320228257,
+      "native_median_event_ms": 2.841519037882487
+    }
+  ],
+  "gpu_audit": {
+    "available": true,
+    "valid_for_timing": true,
+    "method": "KFD client PID snapshots and periodic polling; research flock",
+    "limitation": "Detects observed KFD clients, not graphics load or sub-poll transient clients",
+    "allowed_pids": [
+      954146
+    ],
+    "interval_s": 0.25,
+    "sample_count": 21,
+    "started_unix_s": 1794006311.775274,
+    "ended_unix_s": 1794006316.5368137,
+    "foreign_clients": [],
+    "errors": [],
+    "transitions": [
+      {
+        "unix_s": 1794006311.7752743,
+        "kfd_pids": [],
+        "foreign_or_error": []
+      }
+    ]
+  },
+  "ended_unix_s": 1794006316.5368288
+}

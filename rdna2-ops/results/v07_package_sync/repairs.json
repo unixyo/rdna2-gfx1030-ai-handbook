@@ -1,0 +1,37 @@
+{
+  "schema": "rdna2-v07-package-sync-1",
+  "source_manifest_sha256": "5db5b82e9b8de82ae60294d5f8f4177dc099465e0e464e89505ceb29b5c9b941",
+  "rows": [
+    {
+      "path": "rdna2-ops/kernels.hip",
+      "before_sha256": null,
+      "after_sha256": "5fcb2e02724764592adee84d95a96a5cc865b9807f5053d93dfe62a4a86dfa20",
+      "change": "Restore exact 14,366-byte v0.6 delivered source; no kernel algorithm edit"
+    },
+    {
+      "path": "rdna2-ops/research_configs/anima_fp8_e4m3fn_v06.json",
+      "before_sha256": "8d463ff82aa7eb5ac3af01a07a4f240bd01dbd8facedbbbeb8e0f5b80a20cff3",
+      "after_sha256": "4318d1a566cd62f386dba09c12a25d99dfc683fa1d7266a1349ab8ff120dc322",
+      "change": "JSON key order/indentation only; parsed objects equal"
+    },
+    {
+      "path": "rdna2-ops/research_configs/anima_fp8_e5m2_v06.json",
+      "before_sha256": "e39aa17fd225587ddafbd32a6bbf0fbf728f251b44ff947821dca9f47ba1ec31",
+      "after_sha256": "1522a3f908146c32169121f8d8993a4131c0237cf576c6f20ef9b8ba9b3abf40",
+      "change": "JSON key order/indentation only; parsed objects equal"
+    }
+  ],
+  "catalog_spacing": {
+    "before_sha256": "5a00c981817079aae31f3698a0a31735f3261f80626d7a86653e4b7f2f47c548",
+    "after_sha256": "9c9aa0b1d1341e4561a02d006c4e04dbd76acf6aab8c1fad5ee88a120adcb813",
+    "scope": "Korean-to-number and number-to-SI/English-unit spaces; inline code and link destinations preserved",
+    "hashes_are_historical_first_spacing_pass": true
+  },
+  "note": "Historical measured and intermediate spacing hashes remain unchanged. The v0.7 manifest/SHA256SUMS describe final selected current files.",
+  "current_file_authority": "RDNA2_PACKAGE_V07_MANIFEST.json and rdna2-ops/SHA256SUMS",
+  "release_metadata_versions": {
+    "pyproject": "0.7.0",
+    "python_package": "0.7.0",
+    "catalog": "0.3"
+  }
+}

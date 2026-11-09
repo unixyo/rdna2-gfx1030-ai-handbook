@@ -1,0 +1,480 @@
+{
+  "schema": "strata_v10_small_operating_sha",
+  "utc": "2026-11-08T10:15:34.219505+00:00",
+  "files": [
+    {
+      "path": "~/.config/systemd/user/strata-verified-256k.service",
+      "bytes": 422,
+      "mtime_ns": 1792972124637518403,
+      "sha256": "75fc0300fad20dba9443280813e92e6d589ae522a591e939bfe1e9851b609553",
+      "legacy_sha256": "75fc0300fad20dba9443280813e92e6d589ae522a591e939bfe1e9851b609553",
+      "matches_legacy": true,
+      "reasons": [
+        "legacy_v07",
+        "live_systemd_fragment",
+        "operating_control"
+      ]
+    },
+    {
+      "path": "~/DevSpace/strata-rocm-feasibility/models/SC117-IQ3_S/strata/rt/dense.txt",
+      "bytes": 1880,
+      "mtime_ns": 1790935022493000000,
+      "sha256": "8773c81ebb0986e37fe94a8a9933e87be48b1fabc6889a0106bcdab179d1c2ac",
+      "legacy_sha256": null,
+      "matches_legacy": null,
+      "reasons": [
+        "runtime_mtp"
+      ]
+    },
+    {
+      "path": "~/DevSpace/strata-rocm-feasibility/models/SC117-IQ3_S/strata/rt/draft_vocab.bin",
+      "bytes": 425196,
+      "mtime_ns": 1790935021255000000,
+      "sha256": "b1e1d3a7a9e4bf862dcd5923ce661fb59bbd07907e594df5cf86a62ac235cb91",
+      "legacy_sha256": null,
+      "matches_legacy": null,
+      "reasons": [
+        "runtime_mtp"
+      ]
+    },
+    {
+      "path": "~/DevSpace/strata-rocm-feasibility/packs/iq2_xs/index.txt",
+      "bytes": 93686,
+      "mtime_ns": 1790528092753505841,
+      "sha256": "19e781af360ca3b83fd90fe09e757ac9aa2a9dcada26810ddc9e933bdb112091",
+      "legacy_sha256": "19e781af360ca3b83fd90fe09e757ac9aa2a9dcada26810ddc9e933bdb112091",
+      "matches_legacy": true,
+      "reasons": [
+        "legacy_v07"
+      ]
+    },
+    {
+      "path": "~/DevSpace/strata-rocm-feasibility/packs/iq2_xs/native_experts.txt",
+      "bytes": 3289,
+      "mtime_ns": 1790528093342786816,
+      "sha256": "48df605acb89c7e8c3176a51cec777c2ed344ea439e8f3a37e5ce4f9dcb6946c",
+      "legacy_sha256": "48df605acb89c7e8c3176a51cec777c2ed344ea439e8f3a37e5ce4f9dcb6946c",
+      "matches_legacy": true,
+      "reasons": [
+        "legacy_v07"
+      ]
+    },
+    {
+      "path": "~/DevSpace/strata-rocm-feasibility/packs/iq2_xs/tokenizer/chat_template.jinja",
+      "bytes": 9993,
+      "mtime_ns": 1790528093315121332,
+      "sha256": "12827f24b742ea4e80cdc12dbcf9622227056b9f797252a3149263d4f9aaadce",
+      "legacy_sha256": "12827f24b742ea4e80cdc12dbcf9622227056b9f797252a3149263d4f9aaadce",
+      "matches_legacy": true,
+      "reasons": [
+        "legacy_v07"
+      ]
+    },
+    {
+      "path": "~/DevSpace/strata-rocm-feasibility/packs/iq2_xs/tokenizer/token_type.json",
+      "bytes": 744960,
+      "mtime_ns": 1790528093191873593,
+      "sha256": "5088c8c298fc06af8382ddb3b76c888703ac2634e82263b97eedcc2ad202738b",
+      "legacy_sha256": "5088c8c298fc06af8382ddb3b76c888703ac2634e82263b97eedcc2ad202738b",
+      "matches_legacy": true,
+      "reasons": [
+        "legacy_v07"
+      ]
+    },
+    {
+      "path": "~/DevSpace/strata-rocm-feasibility/packs/iq2_xs/tokenizer/tokenizer.json",
+      "bytes": 541,
+      "mtime_ns": 1790528093192057532,
+      "sha256": "c0bd435efbc6c3b28964b47999afe16c4ad268c7c7c4e8cb3af410796a6f30bf",
+      "legacy_sha256": "c0bd435efbc6c3b28964b47999afe16c4ad268c7c7c4e8cb3af410796a6f30bf",
+      "matches_legacy": true,
+      "reasons": [
+        "legacy_v07"
+      ]
+    },
+    {
+      "path": "~/DevSpace/strata-rocm-feasibility/packs/iq4-hybrid-bf16-20260928/hybrid_manifest.json",
+      "bytes": 2652,
+      "mtime_ns": 1790607957795892058,
+      "sha256": "07ba61b2a034a81c2e8619f7efd0356a9dce5044427010d2fa1adf3888defcc9",
+      "legacy_sha256": "07ba61b2a034a81c2e8619f7efd0356a9dce5044427010d2fa1adf3888defcc9",
+      "matches_legacy": true,
+      "reasons": [
+        "legacy_v07"
+      ]
+    },
+    {
+      "path": "~/DevSpace/strata-rocm-feasibility/packs/iq4-hybrid-bf16-20260928/index.txt",
+      "bytes": 93674,
+      "mtime_ns": 1790607466705939704,
+      "sha256": "190eda9c15481da768018c4290d99c21db61da7727f469a9538e5a2888082a3c",
+      "legacy_sha256": "190eda9c15481da768018c4290d99c21db61da7727f469a9538e5a2888082a3c",
+      "matches_legacy": true,
+      "reasons": [
+        "legacy_v07"
+      ]
+    },
+    {
+      "path": "~/DevSpace/strata-rocm-feasibility/packs/iq4-hybrid-bf16-20260928/native_experts.txt",
+      "bytes": 5608,
+      "mtime_ns": 1790607956272511986,
+      "sha256": "3bc95fa47c4fb2c72997baff361d6d7d147128482c9f549a975219a563ae8dd7",
+      "legacy_sha256": "3bc95fa47c4fb2c72997baff361d6d7d147128482c9f549a975219a563ae8dd7",
+      "matches_legacy": true,
+      "reasons": [
+        "legacy_v07"
+      ]
+    },
+    {
+      "path": "~/DevSpace/strata-rocm-feasibility/packs/iq4-hybrid-bf16-20260928/tokenizer/chat_template.jinja",
+      "bytes": 8952,
+      "mtime_ns": 1790607956810552071,
+      "sha256": "c3cf9e34abf4f9e36c2d72165aa9c132d3e2a725b6c2586aaa3a8af9d7a81041",
+      "legacy_sha256": "c3cf9e34abf4f9e36c2d72165aa9c132d3e2a725b6c2586aaa3a8af9d7a81041",
+      "matches_legacy": true,
+      "reasons": [
+        "legacy_v07"
+      ]
+    },
+    {
+      "path": "~/DevSpace/strata-rocm-feasibility/packs/iq4-hybrid-bf16-20260928/tokenizer/token_type.json",
+      "bytes": 744960,
+      "mtime_ns": 1790607956689233464,
+      "sha256": "5088c8c298fc06af8382ddb3b76c888703ac2634e82263b97eedcc2ad202738b",
+      "legacy_sha256": "5088c8c298fc06af8382ddb3b76c888703ac2634e82263b97eedcc2ad202738b",
+      "matches_legacy": true,
+      "reasons": [
+        "legacy_v07"
+      ]
+    },
+    {
+      "path": "~/DevSpace/strata-rocm-feasibility/packs/iq4-hybrid-bf16-20260928/tokenizer/tokenizer.json",
+      "bytes": 541,
+      "mtime_ns": 1790607956689419572,
+      "sha256": "c0bd435efbc6c3b28964b47999afe16c4ad268c7c7c4e8cb3af410796a6f30bf",
+      "legacy_sha256": "c0bd435efbc6c3b28964b47999afe16c4ad268c7c7c4e8cb3af410796a6f30bf",
+      "matches_legacy": true,
+      "reasons": [
+        "legacy_v07"
+      ]
+    },
+    {
+      "path": "~/DevSpace/strata-rocm-feasibility/packs/sc117-iq3s-abliterated-20261002/index.txt",
+      "bytes": 93697,
+      "mtime_ns": 1790938862619641248,
+      "sha256": "02e228d5488792b1c2cb97b7021d099f47b198f5e13d0b9f9bc8716bb0592146",
+      "legacy_sha256": "02e228d5488792b1c2cb97b7021d099f47b198f5e13d0b9f9bc8716bb0592146",
+      "matches_legacy": true,
+      "reasons": [
+        "legacy_v07"
+      ]
+    },
+    {
+      "path": "~/DevSpace/strata-rocm-feasibility/packs/sc117-iq3s-abliterated-20261002/native_experts.txt",
+      "bytes": 3316,
+      "mtime_ns": 1790938863177604313,
+      "sha256": "adba4968661f3d59f749a676a87948e29236c81997f649f5526daf71148edc24",
+      "legacy_sha256": "adba4968661f3d59f749a676a87948e29236c81997f649f5526daf71148edc24",
+      "matches_legacy": true,
+      "reasons": [
+        "legacy_v07"
+      ]
+    },
+    {
+      "path": "~/DevSpace/strata-rocm-feasibility/packs/sc117-iq3s-abliterated-20261002/tokenizer/chat_template.jinja",
+      "bytes": 9993,
+      "mtime_ns": 1790939003823046126,
+      "sha256": "12827f24b742ea4e80cdc12dbcf9622227056b9f797252a3149263d4f9aaadce",
+      "legacy_sha256": "12827f24b742ea4e80cdc12dbcf9622227056b9f797252a3149263d4f9aaadce",
+      "matches_legacy": true,
+      "reasons": [
+        "legacy_v07",
+        "research_server_tokenizer"
+      ]
+    },
+    {
+      "path": "~/DevSpace/strata-rocm-feasibility/packs/sc117-iq3s-abliterated-20261002/tokenizer/token_type.json",
+      "bytes": 744960,
+      "mtime_ns": 1790939003695227029,
+      "sha256": "5088c8c298fc06af8382ddb3b76c888703ac2634e82263b97eedcc2ad202738b",
+      "legacy_sha256": "5088c8c298fc06af8382ddb3b76c888703ac2634e82263b97eedcc2ad202738b",
+      "matches_legacy": true,
+      "reasons": [
+        "legacy_v07",
+        "research_server_tokenizer"
+      ]
+    },
+    {
+      "path": "~/DevSpace/strata-rocm-feasibility/packs/sc117-iq3s-abliterated-20261002/tokenizer/tokenizer.json",
+      "bytes": 541,
+      "mtime_ns": 1790939003695493498,
+      "sha256": "c0bd435efbc6c3b28964b47999afe16c4ad268c7c7c4e8cb3af410796a6f30bf",
+      "legacy_sha256": "c0bd435efbc6c3b28964b47999afe16c4ad268c7c7c4e8cb3af410796a6f30bf",
+      "matches_legacy": true,
+      "reasons": [
+        "legacy_v07",
+        "research_server_tokenizer"
+      ]
+    },
+    {
+      "path": "~/DevSpace/strata-rocm-feasibility/packs/swift-iq2_xs/index.txt",
+      "bytes": 93692,
+      "mtime_ns": 1790573171198801211,
+      "sha256": "fe5f6869bfed3786986d954709d03053d296b8c7ee53b9086f209c8adb2ae3bf",
+      "legacy_sha256": "fe5f6869bfed3786986d954709d03053d296b8c7ee53b9086f209c8adb2ae3bf",
+      "matches_legacy": true,
+      "reasons": [
+        "legacy_v07"
+      ]
+    },
+    {
+      "path": "~/DevSpace/strata-rocm-feasibility/packs/swift-iq2_xs/native_experts.txt",
+      "bytes": 5386,
+      "mtime_ns": 1790573171797362280,
+      "sha256": "ad437fa433f5ca2bc2e5058e02dafbe6535cca64421b256996343bd10b57eaeb",
+      "legacy_sha256": "ad437fa433f5ca2bc2e5058e02dafbe6535cca64421b256996343bd10b57eaeb",
+      "matches_legacy": true,
+      "reasons": [
+        "legacy_v07"
+      ]
+    },
+    {
+      "path": "~/DevSpace/strata-rocm-feasibility/packs/swift-iq2_xs/tokenizer/chat_template.jinja",
+      "bytes": 8952,
+      "mtime_ns": 1790573171765652542,
+      "sha256": "c3cf9e34abf4f9e36c2d72165aa9c132d3e2a725b6c2586aaa3a8af9d7a81041",
+      "legacy_sha256": "c3cf9e34abf4f9e36c2d72165aa9c132d3e2a725b6c2586aaa3a8af9d7a81041",
+      "matches_legacy": true,
+      "reasons": [
+        "legacy_v07"
+      ]
+    },
+    {
+      "path": "~/DevSpace/strata-rocm-feasibility/packs/swift-iq2_xs/tokenizer/token_type.json",
+      "bytes": 744960,
+      "mtime_ns": 1790573171643426191,
+      "sha256": "5088c8c298fc06af8382ddb3b76c888703ac2634e82263b97eedcc2ad202738b",
+      "legacy_sha256": "5088c8c298fc06af8382ddb3b76c888703ac2634e82263b97eedcc2ad202738b",
+      "matches_legacy": true,
+      "reasons": [
+        "legacy_v07"
+      ]
+    },
+    {
+      "path": "~/DevSpace/strata-rocm-feasibility/packs/swift-iq2_xs/tokenizer/tokenizer.json",
+      "bytes": 541,
+      "mtime_ns": 1790573171643647800,
+      "sha256": "c0bd435efbc6c3b28964b47999afe16c4ad268c7c7c4e8cb3af410796a6f30bf",
+      "legacy_sha256": "c0bd435efbc6c3b28964b47999afe16c4ad268c7c7c4e8cb3af410796a6f30bf",
+      "matches_legacy": true,
+      "reasons": [
+        "legacy_v07"
+      ]
+    },
+    {
+      "path": "~/DevSpace/strata-rocm-feasibility/v2/pack-sc117-iq3s-abliterated-v0139/tokenizer/chat_template.jinja",
+      "bytes": 9993,
+      "mtime_ns": 1791221884450958728,
+      "sha256": "12827f24b742ea4e80cdc12dbcf9622227056b9f797252a3149263d4f9aaadce",
+      "legacy_sha256": null,
+      "matches_legacy": null,
+      "reasons": [
+        "operating_tokenizer"
+      ]
+    },
+    {
+      "path": "~/DevSpace/strata-rocm-feasibility/v2/pack-sc117-iq3s-abliterated-v0139/tokenizer/token_type.json",
+      "bytes": 744960,
+      "mtime_ns": 1791221884324599005,
+      "sha256": "5088c8c298fc06af8382ddb3b76c888703ac2634e82263b97eedcc2ad202738b",
+      "legacy_sha256": null,
+      "matches_legacy": null,
+      "reasons": [
+        "operating_tokenizer"
+      ]
+    },
+    {
+      "path": "~/DevSpace/strata-rocm-feasibility/v2/pack-sc117-iq3s-abliterated-v0139/tokenizer/tokenizer.json",
+      "bytes": 541,
+      "mtime_ns": 1791221884324849704,
+      "sha256": "c0bd435efbc6c3b28964b47999afe16c4ad268c7c7c4e8cb3af410796a6f30bf",
+      "legacy_sha256": null,
+      "matches_legacy": null,
+      "reasons": [
+        "operating_tokenizer"
+      ]
+    },
+    {
+      "path": "~/DevSpace/strata_v01401_juud_eval/data/expert-profile.bin",
+      "bytes": 196632,
+      "mtime_ns": 1791319316770521182,
+      "sha256": "8f59b4aa8873209dff11c11e37bcda9529a1335b724a1afeea37bf6388975baf",
+      "legacy_sha256": null,
+      "matches_legacy": null,
+      "reasons": [
+        "runtime_expert-profile"
+      ]
+    },
+    {
+      "path": "~/DevSpace/strata_v01401_juud_eval/draft_vocab_ko_ab/veneta65536.bin",
+      "bytes": 262144,
+      "mtime_ns": 1791365109120370398,
+      "sha256": "26ae673ae4b2a57b7e9b33f3200a0352f1c79850829083681ff8f6a54f196d04",
+      "legacy_sha256": null,
+      "matches_legacy": null,
+      "reasons": [
+        "runtime_mtp-draft-vocab"
+      ]
+    },
+    {
+      "path": "~/DevSpace/strata_v01403_port/diag-guard-wide-corpus-20261009/shadow-canary-v2/serve/__init__.py",
+      "bytes": 127,
+      "mtime_ns": 1791482719113132172,
+      "sha256": "1612489b3537d0922c6ae6213c1f5d989427912787252f1ab1b52f5893000c29",
+      "legacy_sha256": null,
+      "matches_legacy": null,
+      "reasons": [
+        "research_server_import_source"
+      ]
+    },
+    {
+      "path": "~/DevSpace/strata_v01403_port/diag-guard-wide-corpus-20261009/shadow-canary-v2/serve/server.py",
+      "bytes": 345420,
+      "mtime_ns": 1791482719113025592,
+      "sha256": "77aae32002b31286aa9f17cd606f762f37582d74c98ed597d0413f3062e2cabe",
+      "legacy_sha256": null,
+      "matches_legacy": null,
+      "reasons": [
+        "research_server_import_source"
+      ]
+    },
+    {
+      "path": "~/DevSpace/strata_v01403_port/prod-promoted/context-verified.private.json",
+      "bytes": 3543,
+      "mtime_ns": 1793435410018466798,
+      "sha256": "277668dc58b8e2c6fd63d86dfa82c26f66d2dc631ab727ef36797c5bb9a86273",
+      "legacy_sha256": "277668dc58b8e2c6fd63d86dfa82c26f66d2dc631ab727ef36797c5bb9a86273",
+      "matches_legacy": true,
+      "reasons": [
+        "legacy_v07",
+        "operating_control"
+      ]
+    },
+    {
+      "path": "~/DevSpace/strata_v01403_port/prod-promoted/engine-pinned-20261024-dd6753203cec325a",
+      "bytes": 21015712,
+      "mtime_ns": 1792815057390927960,
+      "sha256": "dd6753203cec325a2a89bc1c9a96d2a847c0bbcf3e08622d9cebb62484977466",
+      "legacy_sha256": "dd6753203cec325a2a89bc1c9a96d2a847c0bbcf3e08622d9cebb62484977466",
+      "matches_legacy": true,
+      "reasons": [
+        "legacy_v07",
+        "operating_control"
+      ]
+    },
+    {
+      "path": "~/DevSpace/strata_v01403_port/serve_context_verified.sh",
+      "bytes": 797,
+      "mtime_ns": 1791536378846899044,
+      "sha256": "b3bb244ff0d917ad40f53e8f0fa964b76abb6e14110972e4baf54b70da54cde2",
+      "legacy_sha256": "b3bb244ff0d917ad40f53e8f0fa964b76abb6e14110972e4baf54b70da54cde2",
+      "matches_legacy": true,
+      "reasons": [
+        "legacy_v07",
+        "operating_control"
+      ]
+    },
+    {
+      "path": "<storage>/models/SC117-IQ3_XXS/pack-strata-v0142/conversions.json",
+      "bytes": 334,
+      "mtime_ns": 1792748950780187821,
+      "sha256": "83946994e5bd9d8c81e40aef6362968dd589637f4299dd5735a7d9a6c1f91ede",
+      "legacy_sha256": "83946994e5bd9d8c81e40aef6362968dd589637f4299dd5735a7d9a6c1f91ede",
+      "matches_legacy": true,
+      "reasons": [
+        "legacy_v07",
+        "runtime_pack"
+      ]
+    },
+    {
+      "path": "<storage>/models/SC117-IQ3_XXS/pack-strata-v0142/experts.bin.src.json",
+      "bytes": 401,
+      "mtime_ns": 1792749125984774590,
+      "sha256": "a2922a3e8c76f3789ac87d6b2c273a7a89932b873d353731b429d4eafaaba5c9",
+      "legacy_sha256": "a2922a3e8c76f3789ac87d6b2c273a7a89932b873d353731b429d4eafaaba5c9",
+      "matches_legacy": true,
+      "reasons": [
+        "legacy_v07",
+        "runtime_pack"
+      ]
+    },
+    {
+      "path": "<storage>/models/SC117-IQ3_XXS/pack-strata-v0142/index.txt",
+      "bytes": 93699,
+      "mtime_ns": 1792748950779437252,
+      "sha256": "307fb25d7410cb414aae032b9b36347c525e6b7a010438fcd7dc0f95cf2b6041",
+      "legacy_sha256": "307fb25d7410cb414aae032b9b36347c525e6b7a010438fcd7dc0f95cf2b6041",
+      "matches_legacy": true,
+      "reasons": [
+        "legacy_v07",
+        "runtime_pack"
+      ]
+    },
+    {
+      "path": "<storage>/models/SC117-IQ3_XXS/pack-strata-v0142/native_experts.txt",
+      "bytes": 3309,
+      "mtime_ns": 1792748951775286085,
+      "sha256": "346daeadb77b0bacfd71eb8a72026f2260d80afa5db542f5a762fd93ced84008",
+      "legacy_sha256": "346daeadb77b0bacfd71eb8a72026f2260d80afa5db542f5a762fd93ced84008",
+      "matches_legacy": true,
+      "reasons": [
+        "legacy_v07",
+        "runtime_pack"
+      ]
+    },
+    {
+      "path": "<storage>/models/SC117-IQ3_XXS/pack-strata-v0142/tokenizer/chat_template.jinja",
+      "bytes": 9993,
+      "mtime_ns": 1792748951742433983,
+      "sha256": "12827f24b742ea4e80cdc12dbcf9622227056b9f797252a3149263d4f9aaadce",
+      "legacy_sha256": "12827f24b742ea4e80cdc12dbcf9622227056b9f797252a3149263d4f9aaadce",
+      "matches_legacy": true,
+      "reasons": [
+        "legacy_v07",
+        "runtime_pack"
+      ]
+    },
+    {
+      "path": "<storage>/models/SC117-IQ3_XXS/pack-strata-v0142/tokenizer/token_type.json",
+      "bytes": 744960,
+      "mtime_ns": 1792748951615936421,
+      "sha256": "5088c8c298fc06af8382ddb3b76c888703ac2634e82263b97eedcc2ad202738b",
+      "legacy_sha256": "5088c8c298fc06af8382ddb3b76c888703ac2634e82263b97eedcc2ad202738b",
+      "matches_legacy": true,
+      "reasons": [
+        "legacy_v07",
+        "runtime_pack"
+      ]
+    },
+    {
+      "path": "<storage>/models/SC117-IQ3_XXS/pack-strata-v0142/tokenizer/tokenizer.json",
+      "bytes": 541,
+      "mtime_ns": 1792748951616154639,
+      "sha256": "c0bd435efbc6c3b28964b47999afe16c4ad268c7c7c4e8cb3af410796a6f30bf",
+      "legacy_sha256": "c0bd435efbc6c3b28964b47999afe16c4ad268c7c7c4e8cb3af410796a6f30bf",
+      "matches_legacy": true,
+      "reasons": [
+        "legacy_v07",
+        "runtime_pack"
+      ]
+    }
+  ],
+  "count": 41,
+  "bytes_read": 27275498,
+  "changed_from_legacy": [],
+  "matching_legacy_count": 32,
+  "new_baseline_count": 9,
+  "scope": "Files at most 1 MiB plus the 21 MB operating pinned ELF; large model inputs were not read or hashed.",
+  "gpu_execution": false,
+  "service_actions": []
+}

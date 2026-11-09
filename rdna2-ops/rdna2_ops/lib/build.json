@@ -1,0 +1,21 @@
+{
+  "command": [
+    "~/DevSpace/rocm10-gfx1030/install/bin/hipcc",
+    "-O3",
+    "-std=c++17",
+    "-shared",
+    "-fPIC",
+    "--offload-arch=gfx1030",
+    "-ffp-contract=off",
+    "-Rpass-analysis=kernel-resource-usage",
+    "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/rdna2_ops/csrc/group_norm_silu.hip",
+    "-o",
+    "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/rdna2_ops/lib/librdna2_ops.so"
+  ],
+  "compiler_version": "HIP version: 7.15.26333-0000000\nAMD clang version 23.0.0git (https://github.com/ROCm/llvm-project.git 8f497e0992fb7513f7f78a6f6b6f1056c375e961)\nTarget: x86_64-unknown-linux-gnu\nThread model: posix\nInstalledDir: ~/DevSpace/rocm10-gfx1030/install/lib/llvm/bin\n",
+  "source_sha256": "5fcb2e02724764592adee84d95a96a5cc865b9807f5053d93dfe62a4a86dfa20",
+  "seconds": 2.0232220260077156,
+  "returncode": 0,
+  "target": "gfx1030",
+  "library_sha256": "077be90ae3e23533bcb2530cb1792eddad25b6fa43cc403db2f0b9c32634afb2"
+}

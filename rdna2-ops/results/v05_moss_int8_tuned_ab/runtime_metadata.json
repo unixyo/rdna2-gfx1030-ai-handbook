@@ -1,0 +1,34 @@
+{
+  "python": "3.12.14 (main, Sep  1 2026, 14:16:52) [Clang 22.1.3 ]",
+  "python_executable": "~/DevSpace/moss-image-rdna2-lab01/.venv-moss/bin/python",
+  "torch": "2.12.0+rocm10.2.0a20261011",
+  "hip": "7.17.26405",
+  "triton": "3.8.0",
+  "gpu": {
+    "ordinal": 0,
+    "name": "AMD Radeon RX 6900 XT",
+    "gcn_arch_name": "gfx1030",
+    "total_memory_bytes": 17163091968
+  },
+  "comfy_root": "~/DevSpace/moss-image-rdna2-lab01/runtime/ComfyUI",
+  "harness_sha256": "00d8dd333422e950b539adf8dd45dc0517337aa780f682c89dd5b67b8b97a118",
+  "startup_precision_flags": {
+    "fp16_bf16_reduction_math_sdp_allowed": true,
+    "allow_fp16_reduced_precision_reduction": true
+  },
+  "timing_contract": "synchronized stage wall; profile setup/collection included; report and trace export excluded",
+  "profile_views": "operator attribution and device activities have separate denominators; device activities include memcpy",
+  "node_contract": "KSampler-family synchronous sample -> ({samples: Tensor},); VAE decode -> (RGB Tensor,)",
+  "node_sources": {
+    "sampler": {
+      "module": "nodes",
+      "name": "KSampler.sample",
+      "path": "~/DevSpace/moss-image-rdna2-lab01/runtime/ComfyUI/nodes.py"
+    },
+    "decoder": {
+      "module": "nodes",
+      "name": "VAEDecode.decode",
+      "path": "~/DevSpace/moss-image-rdna2-lab01/runtime/ComfyUI/nodes.py"
+    }
+  }
+}

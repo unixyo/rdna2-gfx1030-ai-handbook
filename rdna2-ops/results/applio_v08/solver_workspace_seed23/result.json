@@ -1,0 +1,3628 @@
+{
+  "schema": "v08_solver_direction_bench",
+  "label": "normal_explicit_range_remaining23",
+  "torch": "2.11.0+rocm10.0.0",
+  "hip": "7.15.26333",
+  "mode": "NORMAL",
+  "benchmark": false,
+  "dtype": "fp16",
+  "gate": {
+    "finite": true,
+    "reference_finite": true,
+    "nrmse": 0.002,
+    "max_over_reference_rms": 0.02
+  },
+  "safety": {
+    "MIOPEN_DEBUG_CONV_IMPLICIT_GEMM_HIP_FWD_V4R1": "0",
+    "MIOPEN_DEBUG_CONV_DIRECT_HIP_WRW53": "0"
+  },
+  "seed": 63117,
+  "db": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/applio_v08/solver_workspace_seed_db24",
+  "db_file_before": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/applio_v08/solver_workspace_seed_db24/gfx1030_40.HIP.3_6_0_8d1ae90e.ufdb.txt",
+  "db_sha256_before": "0ddc3856c9765efcc51cdc185197e79ae429a64ee7ea5fa466ba6ced6f2feedd",
+  "cases": [
+    {
+      "case": {
+        "kind": "conv1d",
+        "shape": [
+          8,
+          128,
+          3200
+        ],
+        "weight": [
+          128,
+          128,
+          11
+        ],
+        "stride": [
+          1
+        ],
+        "padding": [
+          15
+        ],
+        "dilation": [
+          3
+        ],
+        "groups": 1,
+        "output_padding": [
+          0
+        ],
+        "name": "conv1d_B8_C128_T3200_O128_K11_S1_D3_G1_P15",
+        "origin": "Actual voice_model_A KLM49 HFG FP16 AMP B8 training capture",
+        "benchmark_dtype": "fp16",
+        "physical_dtype_basis": "FP16 training autocast contract; module hook records logical boundary dtypes",
+        "source_capture_keys": [
+          "9714ef3cb3f1"
+        ],
+        "logical_boundary_variants": [
+          {
+            "capture_key": "9714ef3cb3f1",
+            "module_kind": "ParametrizedConv1d",
+            "input_dtype": "torch.float16",
+            "weight_dtype": "torch.float32",
+            "count": 5
+          }
+        ],
+        "observed_forward_calls": 5
+      },
+      "directions": {
+        "fwd": {
+          "cold_s": 0.17105233101756312,
+          "event_ms_rounds": [
+            1.0220999717712402
+          ],
+          "wall_ms_rounds": [
+            1.0728609922807664
+          ],
+          "event_median_ms": 1.0220999717712402,
+          "wall_median_ms": 1.0728609922807664,
+          "db_key": "128-1-3200-1x11-128-1-3200-8-0x15-1x1-1x3-0-NCHW-FP16-F",
+          "db_entries_before": [],
+          "requested_single_solver": null,
+          "reference_error": {
+            "finite": true,
+            "reference_finite": true,
+            "screen_pass": true,
+            "nrmse": 0.00020781171209395793,
+            "max_over_reference_rms": 0.0019560096084420687,
+            "max_abs": 0.001949310302734375,
+            "rmse": 0.0002070999598699668,
+            "reference_rms": 0.9965750139064861
+          },
+          "db_entries_after": [
+            {
+              "solver": "GemmFwdRest",
+              "recorded_ms": 1.04214,
+              "workspace_bytes": 9011200,
+              "algorithm": "miopenConvolutionFwdAlgoGEMM",
+              "raw": "GemmFwdRest:1.04214,9011200,miopenConvolutionFwdAlgoGEMM"
+            }
+          ],
+          "db_target_entry_unchanged": false
+        },
+        "dx": {
+          "cold_s": 0.04291604898753576,
+          "event_ms_rounds": [
+            0.7506899833679199
+          ],
+          "wall_ms_rounds": [
+            0.7883140060584992
+          ],
+          "event_median_ms": 0.7506899833679199,
+          "wall_median_ms": 0.7883140060584992,
+          "db_key": "128-1-3200-1x11-128-1-3200-8-0x15-1x1-1x3-0-NCHW-FP16-B",
+          "db_entries_before": [],
+          "requested_single_solver": null,
+          "reference_error": {
+            "finite": true,
+            "reference_finite": true,
+            "screen_pass": true,
+            "nrmse": 0.00029325125324145186,
+            "max_over_reference_rms": 0.002366306034113199,
+            "max_abs": 2.360716462135315e-05,
+            "rmse": 2.925585495235187e-06,
+            "reference_rms": 0.009976378490789849
+          },
+          "db_entries_after": [
+            {
+              "solver": "GemmBwdRest",
+              "recorded_ms": 0.70516,
+              "workspace_bytes": 9011200,
+              "algorithm": "miopenConvolutionBwdDataAlgoGEMM",
+              "raw": "GemmBwdRest:0.70516,9011200,miopenConvolutionBwdDataAlgoGEMM"
+            }
+          ],
+          "db_target_entry_unchanged": false
+        },
+        "dw": {
+          "cold_s": 0.08286065098945983,
+          "event_ms_rounds": [
+            1.4371010065078735
+          ],
+          "wall_ms_rounds": [
+            1.473098003771156
+          ],
+          "event_median_ms": 1.4371010065078735,
+          "wall_median_ms": 1.473098003771156,
+          "db_key": "128-1-3200-1x11-128-1-3200-8-0x15-1x1-1x3-0-NCHW-FP16-W",
+          "db_entries_before": [],
+          "requested_single_solver": null,
+          "reference_error": {
+            "finite": true,
+            "reference_finite": true,
+            "screen_pass": true,
+            "nrmse": 0.00043973940767341984,
+            "max_over_reference_rms": 0.004035324348424763,
+            "max_abs": 0.006437778472900391,
+            "rmse": 0.0007015408547050262,
+            "reference_rms": 1.5953558913829207
+          },
+          "db_entries_after": [
+            {
+              "solver": "GemmWrwUniversal",
+              "recorded_ms": 1.43858,
+              "workspace_bytes": 9011200,
+              "algorithm": "miopenConvolutionBwdWeightsAlgoGEMM",
+              "raw": "GemmWrwUniversal:1.43858,9011200,miopenConvolutionBwdWeightsAlgoGEMM"
+            },
+            {
+              "solver": "ConvHipImplicitGemmV4R1WrW",
+              "recorded_ms": 2.82105,
+              "workspace_bytes": 0,
+              "algorithm": "miopenConvolutionBwdWeightsAlgoImplicitGEMM",
+              "raw": "ConvHipImplicitGemmV4R1WrW:2.82105,0,miopenConvolutionBwdWeightsAlgoImplicitGEMM"
+            }
+          ],
+          "db_target_entry_unchanged": false
+        }
+      },
+      "all_gates_pass": true
+    },
+    {
+      "case": {
+        "kind": "conv1d",
+        "shape": [
+          8,
+          128,
+          3200
+        ],
+        "weight": [
+          128,
+          128,
+          11
+        ],
+        "stride": [
+          1
+        ],
+        "padding": [
+          25
+        ],
+        "dilation": [
+          5
+        ],
+        "groups": 1,
+        "output_padding": [
+          0
+        ],
+        "name": "conv1d_B8_C128_T3200_O128_K11_S1_D5_G1_P25",
+        "origin": "Actual voice_model_A KLM49 HFG FP16 AMP B8 training capture",
+        "benchmark_dtype": "fp16",
+        "physical_dtype_basis": "FP16 training autocast contract; module hook records logical boundary dtypes",
+        "source_capture_keys": [
+          "89dfdaeee1f1"
+        ],
+        "logical_boundary_variants": [
+          {
+            "capture_key": "89dfdaeee1f1",
+            "module_kind": "ParametrizedConv1d",
+            "input_dtype": "torch.float16",
+            "weight_dtype": "torch.float32",
+            "count": 5
+          }
+        ],
+        "observed_forward_calls": 5
+      },
+      "directions": {
+        "fwd": {
+          "cold_s": 0.014252927008783445,
+          "event_ms_rounds": [
+            1.0974199771881104
+          ],
+          "wall_ms_rounds": [
+            1.1281510232947767
+          ],
+          "event_median_ms": 1.0974199771881104,
+          "wall_median_ms": 1.1281510232947767,
+          "db_key": "128-1-3200-1x11-128-1-3200-8-0x25-1x1-1x5-0-NCHW-FP16-F",
+          "db_entries_before": [],
+          "requested_single_solver": null,
+          "reference_error": {
+            "finite": true,
+            "reference_finite": true,
+            "screen_pass": true,
+            "nrmse": 0.00020771801304480514,
+            "max_over_reference_rms": 0.001957119146834449,
+            "max_abs": 0.0019502639770507812,
+            "rmse": 0.00020699044249865243,
+            "reference_rms": 0.9964973160705337
+          },
+          "db_entries_after": [
+            {
+              "solver": "GemmFwdRest",
+              "recorded_ms": 1.10383,
+              "workspace_bytes": 9011200,
+              "algorithm": "miopenConvolutionFwdAlgoGEMM",
+              "raw": "GemmFwdRest:1.10383,9011200,miopenConvolutionFwdAlgoGEMM"
+            }
+          ],
+          "db_target_entry_unchanged": false
+        },
+        "dx": {
+          "cold_s": 0.009966270998120308,
+          "event_ms_rounds": [
+            0.8778899908065796
+          ],
+          "wall_ms_rounds": [
+            0.901102990610525
+          ],
+          "event_median_ms": 0.8778899908065796,
+          "wall_median_ms": 0.901102990610525,
+          "db_key": "128-1-3200-1x11-128-1-3200-8-0x25-1x1-1x5-0-NCHW-FP16-B",
+          "db_entries_before": [],
+          "requested_single_solver": null,
+          "reference_error": {
+            "finite": true,
+            "reference_finite": true,
+            "screen_pass": true,
+            "nrmse": 0.00029290795730190243,
+            "max_over_reference_rms": 0.0025398814478477015,
+            "max_abs": 2.5331974029541016e-05,
+            "rmse": 2.9213713001074772e-06,
+            "reference_rms": 0.009973683634331579
+          },
+          "db_entries_after": [
+            {
+              "solver": "GemmBwdRest",
+              "recorded_ms": 0.84886,
+              "workspace_bytes": 9011200,
+              "algorithm": "miopenConvolutionBwdDataAlgoGEMM",
+              "raw": "GemmBwdRest:0.84886,9011200,miopenConvolutionBwdDataAlgoGEMM"
+            }
+          ],
+          "db_target_entry_unchanged": false
+        },
+        "dw": {
+          "cold_s": 0.04106629398302175,
+          "event_ms_rounds": [
+            1.5373899936676025
+          ],
+          "wall_ms_rounds": [
+            1.5662569785490632
+          ],
+          "event_median_ms": 1.5373899936676025,
+          "wall_median_ms": 1.5662569785490632,
+          "db_key": "128-1-3200-1x11-128-1-3200-8-0x25-1x1-1x5-0-NCHW-FP16-W",
+          "db_entries_before": [],
+          "requested_single_solver": null,
+          "reference_error": {
+            "finite": true,
+            "reference_finite": true,
+            "screen_pass": true,
+            "nrmse": 0.0004393239987912396,
+            "max_over_reference_rms": 0.004641355835922202,
+            "max_abs": 0.007390499114990234,
+            "rmse": 0.0006995420603461462,
+            "reference_rms": 1.592314697742152
+          },
+          "db_entries_after": [
+            {
+              "solver": "GemmWrwUniversal",
+              "recorded_ms": 1.53502,
+              "workspace_bytes": 9011200,
+              "algorithm": "miopenConvolutionBwdWeightsAlgoGEMM",
+              "raw": "GemmWrwUniversal:1.53502,9011200,miopenConvolutionBwdWeightsAlgoGEMM"
+            },
+            {
+              "solver": "ConvHipImplicitGemmV4R1WrW",
+              "recorded_ms": 2.82606,
+              "workspace_bytes": 0,
+              "algorithm": "miopenConvolutionBwdWeightsAlgoImplicitGEMM",
+              "raw": "ConvHipImplicitGemmV4R1WrW:2.82606,0,miopenConvolutionBwdWeightsAlgoImplicitGEMM"
+            }
+          ],
+          "db_target_entry_unchanged": false
+        }
+      },
+      "all_gates_pass": true
+    },
+    {
+      "case": {
+        "kind": "conv1d",
+        "shape": [
+          8,
+          128,
+          3200
+        ],
+        "weight": [
+          128,
+          128,
+          3
+        ],
+        "stride": [
+          1
+        ],
+        "padding": [
+          3
+        ],
+        "dilation": [
+          3
+        ],
+        "groups": 1,
+        "output_padding": [
+          0
+        ],
+        "name": "conv1d_B8_C128_T3200_O128_K3_S1_D3_G1_P3",
+        "origin": "Actual voice_model_A KLM49 HFG FP16 AMP B8 training capture",
+        "benchmark_dtype": "fp16",
+        "physical_dtype_basis": "FP16 training autocast contract; module hook records logical boundary dtypes",
+        "source_capture_keys": [
+          "aa3ce5d9bfc4"
+        ],
+        "logical_boundary_variants": [
+          {
+            "capture_key": "aa3ce5d9bfc4",
+            "module_kind": "ParametrizedConv1d",
+            "input_dtype": "torch.float16",
+            "weight_dtype": "torch.float32",
+            "count": 5
+          }
+        ],
+        "observed_forward_calls": 5
+      },
+      "directions": {
+        "fwd": {
+          "cold_s": 0.010117969999555498,
+          "event_ms_rounds": [
+            0.5959699749946594
+          ],
+          "wall_ms_rounds": [
+            0.6323140114545822
+          ],
+          "event_median_ms": 0.5959699749946594,
+          "wall_median_ms": 0.6323140114545822,
+          "db_key": "128-1-3200-1x3-128-1-3200-8-0x3-1x1-1x3-0-NCHW-FP16-F",
+          "db_entries_before": [],
+          "requested_single_solver": null,
+          "reference_error": {
+            "finite": true,
+            "reference_finite": true,
+            "screen_pass": true,
+            "nrmse": 0.00020783140968790237,
+            "max_over_reference_rms": 0.0019531088701644158,
+            "max_abs": 0.0019431114196777344,
+            "rmse": 0.00020676757537755125,
+            "reference_rms": 0.994881263077854
+          },
+          "db_entries_after": [
+            {
+              "solver": "GemmFwdRest",
+              "recorded_ms": 0.642027,
+              "workspace_bytes": 2457600,
+              "algorithm": "miopenConvolutionFwdAlgoGEMM",
+              "raw": "GemmFwdRest:0.642027,2457600,miopenConvolutionFwdAlgoGEMM"
+            }
+          ],
+          "db_target_entry_unchanged": false
+        },
+        "dx": {
+          "cold_s": 0.005788114009192213,
+          "event_ms_rounds": [
+            0.354449987411499
+          ],
+          "wall_ms_rounds": [
+            0.37830701330676675
+          ],
+          "event_median_ms": 0.354449987411499,
+          "wall_median_ms": 0.37830701330676675,
+          "db_key": "128-1-3200-1x3-128-1-3200-8-0x3-1x1-1x3-0-NCHW-FP16-B",
+          "db_entries_before": [],
+          "requested_single_solver": null,
+          "reference_error": {
+            "finite": true,
+            "reference_finite": true,
+            "screen_pass": true,
+            "nrmse": 0.0002974636307310372,
+            "max_over_reference_rms": 0.0028718350989399483,
+            "max_abs": 2.8606504201889038e-05,
+            "rmse": 2.963051257907382e-06,
+            "reference_rms": 0.009961053896321648
+          },
+          "db_entries_after": [
+            {
+              "solver": "GemmBwdRest",
+              "recorded_ms": 0.36595,
+              "workspace_bytes": 2457600,
+              "algorithm": "miopenConvolutionBwdDataAlgoGEMM",
+              "raw": "GemmBwdRest:0.36595,2457600,miopenConvolutionBwdDataAlgoGEMM"
+            }
+          ],
+          "db_target_entry_unchanged": false
+        },
+        "dw": {
+          "cold_s": 0.03680580802028999,
+          "event_ms_rounds": [
+            0.9742500185966492
+          ],
+          "wall_ms_rounds": [
+            1.0041719942819327
+          ],
+          "event_median_ms": 0.9742500185966492,
+          "wall_median_ms": 1.0041719942819327,
+          "db_key": "128-1-3200-1x3-128-1-3200-8-0x3-1x1-1x3-0-NCHW-FP16-W",
+          "db_entries_before": [],
+          "requested_single_solver": null,
+          "reference_error": {
+            "finite": true,
+            "reference_finite": true,
+            "screen_pass": true,
+            "nrmse": 0.0004395914887452766,
+            "max_over_reference_rms": 0.004272948246853471,
+            "max_abs": 0.006781816482543945,
+            "rmse": 0.000697698317819336,
+            "reference_rms": 1.5871515615799847
+          },
+          "db_entries_after": [
+            {
+              "solver": "GemmWrwUniversal",
+              "recorded_ms": 1.01326,
+              "workspace_bytes": 2457600,
+              "algorithm": "miopenConvolutionBwdWeightsAlgoGEMM",
+              "raw": "GemmWrwUniversal:1.01326,2457600,miopenConvolutionBwdWeightsAlgoGEMM"
+            },
+            {
+              "solver": "ConvHipImplicitGemmV4R1WrW",
+              "recorded_ms": 2.84193,
+              "workspace_bytes": 0,
+              "algorithm": "miopenConvolutionBwdWeightsAlgoImplicitGEMM",
+              "raw": "ConvHipImplicitGemmV4R1WrW:2.84193,0,miopenConvolutionBwdWeightsAlgoImplicitGEMM"
+            }
+          ],
+          "db_target_entry_unchanged": false
+        }
+      },
+      "all_gates_pass": true
+    },
+    {
+      "case": {
+        "kind": "conv1d",
+        "shape": [
+          8,
+          128,
+          3200
+        ],
+        "weight": [
+          128,
+          128,
+          3
+        ],
+        "stride": [
+          1
+        ],
+        "padding": [
+          5
+        ],
+        "dilation": [
+          5
+        ],
+        "groups": 1,
+        "output_padding": [
+          0
+        ],
+        "name": "conv1d_B8_C128_T3200_O128_K3_S1_D5_G1_P5",
+        "origin": "Actual voice_model_A KLM49 HFG FP16 AMP B8 training capture",
+        "benchmark_dtype": "fp16",
+        "physical_dtype_basis": "FP16 training autocast contract; module hook records logical boundary dtypes",
+        "source_capture_keys": [
+          "8475855691cf"
+        ],
+        "logical_boundary_variants": [
+          {
+            "capture_key": "8475855691cf",
+            "module_kind": "ParametrizedConv1d",
+            "input_dtype": "torch.float16",
+            "weight_dtype": "torch.float32",
+            "count": 5
+          }
+        ],
+        "observed_forward_calls": 5
+      },
+      "directions": {
+        "fwd": {
+          "cold_s": 0.00984850199893117,
+          "event_ms_rounds": [
+            0.5938799977302551
+          ],
+          "wall_ms_rounds": [
+            0.6261749949771911
+          ],
+          "event_median_ms": 0.5938799977302551,
+          "wall_median_ms": 0.6261749949771911,
+          "db_key": "128-1-3200-1x3-128-1-3200-8-0x5-1x1-1x5-0-NCHW-FP16-F",
+          "db_entries_before": [],
+          "requested_single_solver": null,
+          "reference_error": {
+            "finite": true,
+            "reference_finite": true,
+            "screen_pass": true,
+            "nrmse": 0.0002076447455364938,
+            "max_over_reference_rms": 0.0019627330477540715,
+            "max_abs": 0.0019516944885253906,
+            "rmse": 0.00020647693577002975,
+            "reference_rms": 0.9943759243054922
+          },
+          "db_entries_after": [
+            {
+              "solver": "GemmFwdRest",
+              "recorded_ms": 0.640112,
+              "workspace_bytes": 2457600,
+              "algorithm": "miopenConvolutionFwdAlgoGEMM",
+              "raw": "GemmFwdRest:0.640112,2457600,miopenConvolutionFwdAlgoGEMM"
+            }
+          ],
+          "db_target_entry_unchanged": false
+        },
+        "dx": {
+          "cold_s": 0.005394657026045024,
+          "event_ms_rounds": [
+            0.3805699944496155
+          ],
+          "wall_ms_rounds": [
+            0.40980702033266425
+          ],
+          "event_median_ms": 0.3805699944496155,
+          "wall_median_ms": 0.40980702033266425,
+          "db_key": "128-1-3200-1x3-128-1-3200-8-0x5-1x1-1x5-0-NCHW-FP16-B",
+          "db_entries_before": [],
+          "requested_single_solver": null,
+          "reference_error": {
+            "finite": true,
+            "reference_finite": true,
+            "screen_pass": true,
+            "nrmse": 0.00029755741559489373,
+            "max_over_reference_rms": 0.002815382335402069,
+            "max_abs": 2.8021633625030518e-05,
+            "rmse": 2.961603039617099e-06,
+            "reference_rms": 0.009953047325996207
+          },
+          "db_entries_after": [
+            {
+              "solver": "GemmBwdRest",
+              "recorded_ms": 0.36946,
+              "workspace_bytes": 2457600,
+              "algorithm": "miopenConvolutionBwdDataAlgoGEMM",
+              "raw": "GemmBwdRest:0.36946,2457600,miopenConvolutionBwdDataAlgoGEMM"
+            }
+          ],
+          "db_target_entry_unchanged": false
+        },
+        "dw": {
+          "cold_s": 0.03670844802400097,
+          "event_ms_rounds": [
+            0.9982399940490723
+          ],
+          "wall_ms_rounds": [
+            1.0295819956809282
+          ],
+          "event_median_ms": 0.9982399940490723,
+          "wall_median_ms": 1.0295819956809282,
+          "db_key": "128-1-3200-1x3-128-1-3200-8-0x5-1x1-1x5-0-NCHW-FP16-W",
+          "db_entries_before": [],
+          "requested_single_solver": null,
+          "reference_error": {
+            "finite": true,
+            "reference_finite": true,
+            "screen_pass": true,
+            "nrmse": 0.00043864567188130985,
+            "max_over_reference_rms": 0.004235393890357176,
+            "max_abs": 0.006781816482543945,
+            "rmse": 0.0007023701985154351,
+            "reference_rms": 1.6012245042861946
+          },
+          "db_entries_after": [
+            {
+              "solver": "GemmWrwUniversal",
+              "recorded_ms": 1.01226,
+              "workspace_bytes": 2457600,
+              "algorithm": "miopenConvolutionBwdWeightsAlgoGEMM",
+              "raw": "GemmWrwUniversal:1.01226,2457600,miopenConvolutionBwdWeightsAlgoGEMM"
+            },
+            {
+              "solver": "ConvHipImplicitGemmV4R1WrW",
+              "recorded_ms": 2.84193,
+              "workspace_bytes": 0,
+              "algorithm": "miopenConvolutionBwdWeightsAlgoImplicitGEMM",
+              "raw": "ConvHipImplicitGemmV4R1WrW:2.84193,0,miopenConvolutionBwdWeightsAlgoImplicitGEMM"
+            }
+          ],
+          "db_target_entry_unchanged": false
+        }
+      },
+      "all_gates_pass": true
+    },
+    {
+      "case": {
+        "kind": "conv1d",
+        "shape": [
+          8,
+          128,
+          3200
+        ],
+        "weight": [
+          128,
+          128,
+          7
+        ],
+        "stride": [
+          1
+        ],
+        "padding": [
+          9
+        ],
+        "dilation": [
+          3
+        ],
+        "groups": 1,
+        "output_padding": [
+          0
+        ],
+        "name": "conv1d_B8_C128_T3200_O128_K7_S1_D3_G1_P9",
+        "origin": "Actual voice_model_A KLM49 HFG FP16 AMP B8 training capture",
+        "benchmark_dtype": "fp16",
+        "physical_dtype_basis": "FP16 training autocast contract; module hook records logical boundary dtypes",
+        "source_capture_keys": [
+          "0c86de94e965"
+        ],
+        "logical_boundary_variants": [
+          {
+            "capture_key": "0c86de94e965",
+            "module_kind": "ParametrizedConv1d",
+            "input_dtype": "torch.float16",
+            "weight_dtype": "torch.float32",
+            "count": 5
+          }
+        ],
+        "observed_forward_calls": 5
+      },
+      "directions": {
+        "fwd": {
+          "cold_s": 0.01155251800082624,
+          "event_ms_rounds": [
+            0.8191499710083008
+          ],
+          "wall_ms_rounds": [
+            0.8553529914934188
+          ],
+          "event_median_ms": 0.8191499710083008,
+          "wall_median_ms": 0.8553529914934188,
+          "db_key": "128-1-3200-1x7-128-1-3200-8-0x9-1x1-1x3-0-NCHW-FP16-F",
+          "db_entries_before": [],
+          "requested_single_solver": null,
+          "reference_error": {
+            "finite": true,
+            "reference_finite": true,
+            "screen_pass": true,
+            "nrmse": 0.0002077655736843124,
+            "max_over_reference_rms": 0.00193998326737172,
+            "max_abs": 0.00193023681640625,
+            "rmse": 0.00020672176211630319,
+            "reference_rms": 0.9949760128711448
+          },
+          "db_entries_after": [
+            {
+              "solver": "GemmFwdRest",
+              "recorded_ms": 0.841263,
+              "workspace_bytes": 5734400,
+              "algorithm": "miopenConvolutionFwdAlgoGEMM",
+              "raw": "GemmFwdRest:0.841263,5734400,miopenConvolutionFwdAlgoGEMM"
+            }
+          ],
+          "db_target_entry_unchanged": false
+        },
+        "dx": {
+          "cold_s": 0.0069551150081679225,
+          "event_ms_rounds": [
+            0.5775499939918518
+          ],
+          "wall_ms_rounds": [
+            0.5998149863444269
+          ],
+          "event_median_ms": 0.5775499939918518,
+          "wall_median_ms": 0.5998149863444269,
+          "db_key": "128-1-3200-1x7-128-1-3200-8-0x9-1x1-1x3-0-NCHW-FP16-B",
+          "db_entries_before": [],
+          "requested_single_solver": null,
+          "reference_error": {
+            "finite": true,
+            "reference_finite": true,
+            "screen_pass": true,
+            "nrmse": 0.0002942998296918156,
+            "max_over_reference_rms": 0.0025251607177898022,
+            "max_abs": 2.514570951461792e-05,
+            "rmse": 2.9306562451633776e-06,
+            "reference_rms": 0.009958063000689797
+          },
+          "db_entries_after": [
+            {
+              "solver": "GemmBwdRest",
+              "recorded_ms": 0.544967,
+              "workspace_bytes": 5734400,
+              "algorithm": "miopenConvolutionBwdDataAlgoGEMM",
+              "raw": "GemmBwdRest:0.544967,5734400,miopenConvolutionBwdDataAlgoGEMM"
+            }
+          ],
+          "db_target_entry_unchanged": false
+        },
+        "dw": {
+          "cold_s": 0.03781808901112527,
+          "event_ms_rounds": [
+            1.1604199409484863
+          ],
+          "wall_ms_rounds": [
+            1.1856310011353344
+          ],
+          "event_median_ms": 1.1604199409484863,
+          "wall_median_ms": 1.1856310011353344,
+          "db_key": "128-1-3200-1x7-128-1-3200-8-0x9-1x1-1x3-0-NCHW-FP16-W",
+          "db_entries_before": [],
+          "requested_single_solver": null,
+          "reference_error": {
+            "finite": true,
+            "reference_finite": true,
+            "screen_pass": true,
+            "nrmse": 0.0004402303350190176,
+            "max_over_reference_rms": 0.004091661282433079,
+            "max_abs": 0.00654149055480957,
+            "rmse": 0.0007038125542872711,
+            "reference_rms": 1.598737066260704
+          },
+          "db_entries_after": [
+            {
+              "solver": "GemmWrwUniversal",
+              "recorded_ms": 1.18035,
+              "workspace_bytes": 5734400,
+              "algorithm": "miopenConvolutionBwdWeightsAlgoGEMM",
+              "raw": "GemmWrwUniversal:1.18035,5734400,miopenConvolutionBwdWeightsAlgoGEMM"
+            },
+            {
+              "solver": "ConvHipImplicitGemmV4R1WrW",
+              "recorded_ms": 2.82276,
+              "workspace_bytes": 0,
+              "algorithm": "miopenConvolutionBwdWeightsAlgoImplicitGEMM",
+              "raw": "ConvHipImplicitGemmV4R1WrW:2.82276,0,miopenConvolutionBwdWeightsAlgoImplicitGEMM"
+            }
+          ],
+          "db_target_entry_unchanged": false
+        }
+      },
+      "all_gates_pass": true
+    },
+    {
+      "case": {
+        "kind": "conv1d",
+        "shape": [
+          8,
+          128,
+          3200
+        ],
+        "weight": [
+          128,
+          128,
+          7
+        ],
+        "stride": [
+          1
+        ],
+        "padding": [
+          15
+        ],
+        "dilation": [
+          5
+        ],
+        "groups": 1,
+        "output_padding": [
+          0
+        ],
+        "name": "conv1d_B8_C128_T3200_O128_K7_S1_D5_G1_P15",
+        "origin": "Actual voice_model_A KLM49 HFG FP16 AMP B8 training capture",
+        "benchmark_dtype": "fp16",
+        "physical_dtype_basis": "FP16 training autocast contract; module hook records logical boundary dtypes",
+        "source_capture_keys": [
+          "1bf1fca3e754"
+        ],
+        "logical_boundary_variants": [
+          {
+            "capture_key": "1bf1fca3e754",
+            "module_kind": "ParametrizedConv1d",
+            "input_dtype": "torch.float16",
+            "weight_dtype": "torch.float32",
+            "count": 5
+          }
+        ],
+        "observed_forward_calls": 5
+      },
+      "directions": {
+        "fwd": {
+          "cold_s": 0.010386498004663736,
+          "event_ms_rounds": [
+            0.8258699774742126
+          ],
+          "wall_ms_rounds": [
+            0.8614429971203208
+          ],
+          "event_median_ms": 0.8258699774742126,
+          "wall_median_ms": 0.8614429971203208,
+          "db_key": "128-1-3200-1x7-128-1-3200-8-0x15-1x1-1x5-0-NCHW-FP16-F",
+          "db_entries_before": [],
+          "requested_single_solver": null,
+          "reference_error": {
+            "finite": true,
+            "reference_finite": true,
+            "screen_pass": true,
+            "nrmse": 0.0002075864532766039,
+            "max_over_reference_rms": 0.001947638379517537,
+            "max_abs": 0.0019383430480957031,
+            "rmse": 0.00020659572270660605,
+            "reference_rms": 0.9952273833173607
+          },
+          "db_entries_after": [
+            {
+              "solver": "GemmFwdRest",
+              "recorded_ms": 0.841424,
+              "workspace_bytes": 5734400,
+              "algorithm": "miopenConvolutionFwdAlgoGEMM",
+              "raw": "GemmFwdRest:0.841424,5734400,miopenConvolutionFwdAlgoGEMM"
+            }
+          ],
+          "db_target_entry_unchanged": false
+        },
+        "dx": {
+          "cold_s": 0.00788688799366355,
+          "event_ms_rounds": [
+            0.662850022315979
+          ],
+          "wall_ms_rounds": [
+            0.6900940206833184
+          ],
+          "event_median_ms": 0.662850022315979,
+          "wall_median_ms": 0.6900940206833184,
+          "db_key": "128-1-3200-1x7-128-1-3200-8-0x15-1x1-1x5-0-NCHW-FP16-B",
+          "db_entries_before": [],
+          "requested_single_solver": null,
+          "reference_error": {
+            "finite": true,
+            "reference_finite": true,
+            "screen_pass": true,
+            "nrmse": 0.00029411117333922145,
+            "max_over_reference_rms": 0.002442983241206988,
+            "max_abs": 2.431124448776245e-05,
+            "rmse": 2.926834912751935e-06,
+            "reference_rms": 0.009951457741376547
+          },
+          "db_entries_after": [
+            {
+              "solver": "GemmBwdRest",
+              "recorded_ms": 0.630663,
+              "workspace_bytes": 5734400,
+              "algorithm": "miopenConvolutionBwdDataAlgoGEMM",
+              "raw": "GemmBwdRest:0.630663,5734400,miopenConvolutionBwdDataAlgoGEMM"
+            }
+          ],
+          "db_target_entry_unchanged": false
+        },
+        "dw": {
+          "cold_s": 0.038187125988770276,
+          "event_ms_rounds": [
+            1.1648900508880615
+          ],
+          "wall_ms_rounds": [
+            1.1958910035900772
+          ],
+          "event_median_ms": 1.1648900508880615,
+          "wall_median_ms": 1.1958910035900772,
+          "db_key": "128-1-3200-1x7-128-1-3200-8-0x15-1x1-1x5-0-NCHW-FP16-W",
+          "db_entries_before": [],
+          "requested_single_solver": null,
+          "reference_error": {
+            "finite": true,
+            "reference_finite": true,
+            "screen_pass": true,
+            "nrmse": 0.00043937735608837365,
+            "max_over_reference_rms": 0.004159870580917091,
+            "max_abs": 0.006669521331787109,
+            "rmse": 0.0007044538026203643,
+            "reference_rms": 1.6033001993818607
+          },
+          "db_entries_after": [
+            {
+              "solver": "GemmWrwUniversal",
+              "recorded_ms": 1.17539,
+              "workspace_bytes": 5734400,
+              "algorithm": "miopenConvolutionBwdWeightsAlgoGEMM",
+              "raw": "GemmWrwUniversal:1.17539,5734400,miopenConvolutionBwdWeightsAlgoGEMM"
+            },
+            {
+              "solver": "ConvHipImplicitGemmV4R1WrW",
+              "recorded_ms": 2.82364,
+              "workspace_bytes": 0,
+              "algorithm": "miopenConvolutionBwdWeightsAlgoImplicitGEMM",
+              "raw": "ConvHipImplicitGemmV4R1WrW:2.82364,0,miopenConvolutionBwdWeightsAlgoImplicitGEMM"
+            }
+          ],
+          "db_target_entry_unchanged": false
+        }
+      },
+      "all_gates_pass": true
+    },
+    {
+      "case": {
+        "kind": "conv1d",
+        "shape": [
+          8,
+          256,
+          320
+        ],
+        "weight": [
+          256,
+          256,
+          11
+        ],
+        "stride": [
+          1
+        ],
+        "padding": [
+          15
+        ],
+        "dilation": [
+          3
+        ],
+        "groups": 1,
+        "output_padding": [
+          0
+        ],
+        "name": "conv1d_B8_C256_T320_O256_K11_S1_D3_G1_P15",
+        "origin": "Actual voice_model_A KLM49 HFG FP16 AMP B8 training capture",
+        "benchmark_dtype": "fp16",
+        "physical_dtype_basis": "FP16 training autocast contract; module hook records logical boundary dtypes",
+        "source_capture_keys": [
+          "4502bc7e9306"
+        ],
+        "logical_boundary_variants": [
+          {
+            "capture_key": "4502bc7e9306",
+            "module_kind": "ParametrizedConv1d",
+            "input_dtype": "torch.float16",
+            "weight_dtype": "torch.float32",
+            "count": 5
+          }
+        ],
+        "observed_forward_calls": 5
+      },
+      "directions": {
+        "fwd": {
+          "cold_s": 0.008417942997766659,
+          "event_ms_rounds": [
+            0.5457900166511536
+          ],
+          "wall_ms_rounds": [
+            0.5751050193794072
+          ],
+          "event_median_ms": 0.5457900166511536,
+          "wall_median_ms": 0.5751050193794072,
+          "db_key": "256-1-320-1x11-256-1-320-8-0x15-1x1-1x3-0-NCHW-FP16-F",
+          "db_entries_before": [],
+          "requested_single_solver": null,
+          "reference_error": {
+            "finite": true,
+            "reference_finite": true,
+            "screen_pass": true,
+            "nrmse": 0.00020755528139267948,
+            "max_over_reference_rms": 0.0019591049478063323,
+            "max_abs": 0.0019326210021972656,
+            "rmse": 0.00020474946805969124,
+            "reference_rms": 0.9864816095540356
+          },
+          "db_entries_after": [
+            {
+              "solver": "GemmFwdRest",
+              "recorded_ms": 0.611976,
+              "workspace_bytes": 1802240,
+              "algorithm": "miopenConvolutionFwdAlgoGEMM",
+              "raw": "GemmFwdRest:0.611976,1802240,miopenConvolutionFwdAlgoGEMM"
+            }
+          ],
+          "db_target_entry_unchanged": false
+        },
+        "dx": {
+          "cold_s": 0.005779414001153782,
+          "event_ms_rounds": [
+            0.3853999972343445
+          ],
+          "wall_ms_rounds": [
+            0.40951601113192737
+          ],
+          "event_median_ms": 0.3853999972343445,
+          "wall_median_ms": 0.40951601113192737,
+          "db_key": "256-1-320-1x11-256-1-320-8-0x15-1x1-1x3-0-NCHW-FP16-B",
+          "db_entries_before": [],
+          "requested_single_solver": null,
+          "reference_error": {
+            "finite": true,
+            "reference_finite": true,
+            "screen_pass": true,
+            "nrmse": 0.00029289934766177356,
+            "max_over_reference_rms": 0.0024235008590055857,
+            "max_abs": 2.386420965194702e-05,
+            "rmse": 2.884179476786797e-06,
+            "reference_rms": 0.009846998635576724
+          },
+          "db_entries_after": [
+            {
+              "solver": "GemmBwdRest",
+              "recorded_ms": 0.395098,
+              "workspace_bytes": 1802240,
+              "algorithm": "miopenConvolutionBwdDataAlgoGEMM",
+              "raw": "GemmBwdRest:0.395098,1802240,miopenConvolutionBwdDataAlgoGEMM"
+            }
+          ],
+          "db_target_entry_unchanged": false
+        },
+        "dw": {
+          "cold_s": 0.012892867001937702,
+          "event_ms_rounds": [
+            0.3941499888896942
+          ],
+          "wall_ms_rounds": [
+            0.42207600199617445
+          ],
+          "event_median_ms": 0.3941499888896942,
+          "wall_median_ms": 0.42207600199617445,
+          "db_key": "256-1-320-1x11-256-1-320-8-0x15-1x1-1x3-0-NCHW-FP16-W",
+          "db_entries_before": [],
+          "requested_single_solver": null,
+          "reference_error": {
+            "finite": true,
+            "reference_finite": true,
+            "screen_pass": true,
+            "nrmse": 0.000441330806520082,
+            "max_over_reference_rms": 0.004523619630919921,
+            "max_abs": 0.0022562742233276367,
+            "rmse": 0.00022012534296769767,
+            "reference_rms": 0.4987762914250158
+          },
+          "db_entries_after": [
+            {
+              "solver": "GemmWrwUniversal",
+              "recorded_ms": 0.42979,
+              "workspace_bytes": 1802240,
+              "algorithm": "miopenConvolutionBwdWeightsAlgoGEMM",
+              "raw": "GemmWrwUniversal:0.42979,1802240,miopenConvolutionBwdWeightsAlgoGEMM"
+            },
+            {
+              "solver": "ConvHipImplicitGemmV4R1WrW",
+              "recorded_ms": 0.49316,
+              "workspace_bytes": 0,
+              "algorithm": "miopenConvolutionBwdWeightsAlgoImplicitGEMM",
+              "raw": "ConvHipImplicitGemmV4R1WrW:0.49316,0,miopenConvolutionBwdWeightsAlgoImplicitGEMM"
+            }
+          ],
+          "db_target_entry_unchanged": false
+        }
+      },
+      "all_gates_pass": true
+    },
+    {
+      "case": {
+        "kind": "conv1d",
+        "shape": [
+          8,
+          256,
+          320
+        ],
+        "weight": [
+          256,
+          256,
+          11
+        ],
+        "stride": [
+          1
+        ],
+        "padding": [
+          25
+        ],
+        "dilation": [
+          5
+        ],
+        "groups": 1,
+        "output_padding": [
+          0
+        ],
+        "name": "conv1d_B8_C256_T320_O256_K11_S1_D5_G1_P25",
+        "origin": "Actual voice_model_A KLM49 HFG FP16 AMP B8 training capture",
+        "benchmark_dtype": "fp16",
+        "physical_dtype_basis": "FP16 training autocast contract; module hook records logical boundary dtypes",
+        "source_capture_keys": [
+          "b179f16ed937"
+        ],
+        "logical_boundary_variants": [
+          {
+            "capture_key": "b179f16ed937",
+            "module_kind": "ParametrizedConv1d",
+            "input_dtype": "torch.float16",
+            "weight_dtype": "torch.float32",
+            "count": 5
+          }
+        ],
+        "observed_forward_calls": 5
+      },
+      "directions": {
+        "fwd": {
+          "cold_s": 0.008406163979088888,
+          "event_ms_rounds": [
+            0.5580300092697144
+          ],
+          "wall_ms_rounds": [
+            0.5896049842704087
+          ],
+          "event_median_ms": 0.5580300092697144,
+          "wall_median_ms": 0.5896049842704087,
+          "db_key": "256-1-320-1x11-256-1-320-8-0x25-1x1-1x5-0-NCHW-FP16-F",
+          "db_entries_before": [],
+          "requested_single_solver": null,
+          "reference_error": {
+            "finite": true,
+            "reference_finite": true,
+            "screen_pass": true,
+            "nrmse": 0.00020758052073915415,
+            "max_over_reference_rms": 0.0019278115760368011,
+            "max_abs": 0.0018835067749023438,
+            "rmse": 0.0002028099229250036,
+            "reference_rms": 0.977018085333039
+          },
+          "db_entries_after": [
+            {
+              "solver": "GemmFwdRest",
+              "recorded_ms": 0.625712,
+              "workspace_bytes": 1802240,
+              "algorithm": "miopenConvolutionFwdAlgoGEMM",
+              "raw": "GemmFwdRest:0.625712,1802240,miopenConvolutionFwdAlgoGEMM"
+            }
+          ],
+          "db_target_entry_unchanged": false
+        },
+        "dx": {
+          "cold_s": 0.0061218710034154356,
+          "event_ms_rounds": [
+            0.4273099899291992
+          ],
+          "wall_ms_rounds": [
+            0.4565659910440445
+          ],
+          "event_median_ms": 0.4273099899291992,
+          "wall_median_ms": 0.4565659910440445,
+          "db_key": "256-1-320-1x11-256-1-320-8-0x25-1x1-1x5-0-NCHW-FP16-B",
+          "db_entries_before": [],
+          "requested_single_solver": null,
+          "reference_error": {
+            "finite": true,
+            "reference_finite": true,
+            "screen_pass": true,
+            "nrmse": 0.0002936019183903618,
+            "max_over_reference_rms": 0.002329181493407284,
+            "max_abs": 2.2716820240020752e-05,
+            "rmse": 2.863538981860191e-06,
+            "reference_rms": 0.009753134439853829
+          },
+          "db_entries_after": [
+            {
+              "solver": "GemmBwdRest",
+              "recorded_ms": 0.430584,
+              "workspace_bytes": 1802240,
+              "algorithm": "miopenConvolutionBwdDataAlgoGEMM",
+              "raw": "GemmBwdRest:0.430584,1802240,miopenConvolutionBwdDataAlgoGEMM"
+            }
+          ],
+          "db_target_entry_unchanged": false
+        },
+        "dw": {
+          "cold_s": 0.01275853900006041,
+          "event_ms_rounds": [
+            0.4273799955844879
+          ],
+          "wall_ms_rounds": [
+            0.45772598241455853
+          ],
+          "event_median_ms": 0.4273799955844879,
+          "wall_median_ms": 0.45772598241455853,
+          "db_key": "256-1-320-1x11-256-1-320-8-0x25-1x1-1x5-0-NCHW-FP16-W",
+          "db_entries_before": [],
+          "requested_single_solver": null,
+          "reference_error": {
+            "finite": true,
+            "reference_finite": true,
+            "screen_pass": true,
+            "nrmse": 0.0004408266042787487,
+            "max_over_reference_rms": 0.005488189627682399,
+            "max_abs": 0.002708911895751953,
+            "rmse": 0.00021758731263061724,
+            "reference_rms": 0.4935893399324644
+          },
+          "db_entries_after": [
+            {
+              "solver": "GemmWrwUniversal",
+              "recorded_ms": 0.435707,
+              "workspace_bytes": 1802240,
+              "algorithm": "miopenConvolutionBwdWeightsAlgoGEMM",
+              "raw": "GemmWrwUniversal:0.435707,1802240,miopenConvolutionBwdWeightsAlgoGEMM"
+            },
+            {
+              "solver": "ConvHipImplicitGemmV4R1WrW",
+              "recorded_ms": 0.49344,
+              "workspace_bytes": 0,
+              "algorithm": "miopenConvolutionBwdWeightsAlgoImplicitGEMM",
+              "raw": "ConvHipImplicitGemmV4R1WrW:0.49344,0,miopenConvolutionBwdWeightsAlgoImplicitGEMM"
+            }
+          ],
+          "db_target_entry_unchanged": false
+        }
+      },
+      "all_gates_pass": true
+    },
+    {
+      "case": {
+        "kind": "conv1d",
+        "shape": [
+          8,
+          256,
+          320
+        ],
+        "weight": [
+          256,
+          256,
+          3
+        ],
+        "stride": [
+          1
+        ],
+        "padding": [
+          3
+        ],
+        "dilation": [
+          3
+        ],
+        "groups": 1,
+        "output_padding": [
+          0
+        ],
+        "name": "conv1d_B8_C256_T320_O256_K3_S1_D3_G1_P3",
+        "origin": "Actual voice_model_A KLM49 HFG FP16 AMP B8 training capture",
+        "benchmark_dtype": "fp16",
+        "physical_dtype_basis": "FP16 training autocast contract; module hook records logical boundary dtypes",
+        "source_capture_keys": [
+          "4b4555c33e12"
+        ],
+        "logical_boundary_variants": [
+          {
+            "capture_key": "4b4555c33e12",
+            "module_kind": "ParametrizedConv1d",
+            "input_dtype": "torch.float16",
+            "weight_dtype": "torch.float32",
+            "count": 5
+          }
+        ],
+        "observed_forward_calls": 5
+      },
+      "directions": {
+        "fwd": {
+          "cold_s": 0.0066443069954402745,
+          "event_ms_rounds": [
+            0.3785499930381775
+          ],
+          "wall_ms_rounds": [
+            0.4081370134372264
+          ],
+          "event_median_ms": 0.3785499930381775,
+          "wall_median_ms": 0.4081370134372264,
+          "db_key": "256-1-320-1x3-256-1-320-8-0x3-1x1-1x3-0-NCHW-FP16-F",
+          "db_entries_before": [],
+          "requested_single_solver": null,
+          "reference_error": {
+            "finite": true,
+            "reference_finite": true,
+            "screen_pass": true,
+            "nrmse": 0.00020794507126161024,
+            "max_over_reference_rms": 0.0019249274569684536,
+            "max_abs": 0.0019154548645019531,
+            "rmse": 0.00020692177092457788,
+            "reference_rms": 0.9950789872978285
+          },
+          "db_entries_after": [
+            {
+              "solver": "GemmFwdRest",
+              "recorded_ms": 0.411576,
+              "workspace_bytes": 491520,
+              "algorithm": "miopenConvolutionFwdAlgoGEMM",
+              "raw": "GemmFwdRest:0.411576,491520,miopenConvolutionFwdAlgoGEMM"
+            }
+          ],
+          "db_target_entry_unchanged": false
+        },
+        "dx": {
+          "cold_s": 0.004848251002840698,
+          "event_ms_rounds": [
+            0.28338098526000977
+          ],
+          "wall_ms_rounds": [
+            0.3073170082643628
+          ],
+          "event_median_ms": 0.28338098526000977,
+          "wall_median_ms": 0.3073170082643628,
+          "db_key": "256-1-320-1x3-256-1-320-8-0x3-1x1-1x3-0-NCHW-FP16-B",
+          "db_entries_before": [],
+          "requested_single_solver": null,
+          "reference_error": {
+            "finite": true,
+            "reference_finite": true,
+            "screen_pass": true,
+            "nrmse": 0.00029786340224544815,
+            "max_over_reference_rms": 0.0027129347015596834,
+            "max_abs": 2.7023255825042725e-05,
+            "rmse": 2.966985867801681e-06,
+            "reference_rms": 0.009960894307373814
+          },
+          "db_entries_after": [
+            {
+              "solver": "GemmBwdRest",
+              "recorded_ms": 0.289386,
+              "workspace_bytes": 491520,
+              "algorithm": "miopenConvolutionBwdDataAlgoGEMM",
+              "raw": "GemmBwdRest:0.289386,491520,miopenConvolutionBwdDataAlgoGEMM"
+            }
+          ],
+          "db_target_entry_unchanged": false
+        },
+        "dw": {
+          "cold_s": 0.009877970995148644,
+          "event_ms_rounds": [
+            0.26941999793052673
+          ],
+          "wall_ms_rounds": [
+            0.2921069972217083
+          ],
+          "event_median_ms": 0.26941999793052673,
+          "wall_median_ms": 0.2921069972217083,
+          "db_key": "256-1-320-1x3-256-1-320-8-0x3-1x1-1x3-0-NCHW-FP16-W",
+          "db_entries_before": [],
+          "requested_single_solver": null,
+          "reference_error": {
+            "finite": true,
+            "reference_finite": true,
+            "screen_pass": true,
+            "nrmse": 0.000439113982897552,
+            "max_over_reference_rms": 0.0044002546354965566,
+            "max_abs": 0.0022162199020385742,
+            "rmse": 0.00022116291641634985,
+            "reference_rms": 0.5036571938724814
+          },
+          "db_entries_after": [
+            {
+              "solver": "GemmWrwUniversal",
+              "recorded_ms": 0.288553,
+              "workspace_bytes": 491520,
+              "algorithm": "miopenConvolutionBwdWeightsAlgoGEMM",
+              "raw": "GemmWrwUniversal:0.288553,491520,miopenConvolutionBwdWeightsAlgoGEMM"
+            },
+            {
+              "solver": "ConvHipImplicitGemmV4R1WrW",
+              "recorded_ms": 0.303528,
+              "workspace_bytes": 0,
+              "algorithm": "miopenConvolutionBwdWeightsAlgoImplicitGEMM",
+              "raw": "ConvHipImplicitGemmV4R1WrW:0.303528,0,miopenConvolutionBwdWeightsAlgoImplicitGEMM"
+            }
+          ],
+          "db_target_entry_unchanged": false
+        }
+      },
+      "all_gates_pass": true
+    },
+    {
+      "case": {
+        "kind": "conv1d",
+        "shape": [
+          8,
+          256,
+          320
+        ],
+        "weight": [
+          256,
+          256,
+          3
+        ],
+        "stride": [
+          1
+        ],
+        "padding": [
+          5
+        ],
+        "dilation": [
+          5
+        ],
+        "groups": 1,
+        "output_padding": [
+          0
+        ],
+        "name": "conv1d_B8_C256_T320_O256_K3_S1_D5_G1_P5",
+        "origin": "Actual voice_model_A KLM49 HFG FP16 AMP B8 training capture",
+        "benchmark_dtype": "fp16",
+        "physical_dtype_basis": "FP16 training autocast contract; module hook records logical boundary dtypes",
+        "source_capture_keys": [
+          "08998ac5e999"
+        ],
+        "logical_boundary_variants": [
+          {
+            "capture_key": "08998ac5e999",
+            "module_kind": "ParametrizedConv1d",
+            "input_dtype": "torch.float16",
+            "weight_dtype": "torch.float32",
+            "count": 5
+          }
+        ],
+        "observed_forward_calls": 5
+      },
+      "directions": {
+        "fwd": {
+          "cold_s": 0.006443829013733193,
+          "event_ms_rounds": [
+            0.3871999979019165
+          ],
+          "wall_ms_rounds": [
+            0.4173259949311614
+          ],
+          "event_median_ms": 0.3871999979019165,
+          "wall_median_ms": 0.4173259949311614,
+          "db_key": "256-1-320-1x3-256-1-320-8-0x5-1x1-1x5-0-NCHW-FP16-F",
+          "db_entries_before": [],
+          "requested_single_solver": null,
+          "reference_error": {
+            "finite": true,
+            "reference_finite": true,
+            "screen_pass": true,
+            "nrmse": 0.00020772266776682613,
+            "max_over_reference_rms": 0.0018867070756808332,
+            "max_abs": 0.0018744468688964844,
+            "rmse": 0.00020637284357130344,
+            "reference_rms": 0.9935017963613008
+          },
+          "db_entries_after": [
+            {
+              "solver": "GemmFwdRest",
+              "recorded_ms": 0.411593,
+              "workspace_bytes": 491520,
+              "algorithm": "miopenConvolutionFwdAlgoGEMM",
+              "raw": "GemmFwdRest:0.411593,491520,miopenConvolutionFwdAlgoGEMM"
+            }
+          ],
+          "db_target_entry_unchanged": false
+        },
+        "dx": {
+          "cold_s": 0.004992180009139702,
+          "event_ms_rounds": [
+            0.28874000906944275
+          ],
+          "wall_ms_rounds": [
+            0.3124979848507792
+          ],
+          "event_median_ms": 0.28874000906944275,
+          "wall_median_ms": 0.3124979848507792,
+          "db_key": "256-1-320-1x3-256-1-320-8-0x5-1x1-1x5-0-NCHW-FP16-B",
+          "db_entries_before": [],
+          "requested_single_solver": null,
+          "reference_error": {
+            "finite": true,
+            "reference_finite": true,
+            "screen_pass": true,
+            "nrmse": 0.0002983542970354184,
+            "max_over_reference_rms": 0.002619055128301596,
+            "max_abs": 2.5998800992965698e-05,
+            "rmse": 2.961699396931054e-06,
+            "reference_rms": 0.009926786462805537
+          },
+          "db_entries_after": [
+            {
+              "solver": "GemmBwdRest",
+              "recorded_ms": 0.295707,
+              "workspace_bytes": 491520,
+              "algorithm": "miopenConvolutionBwdDataAlgoGEMM",
+              "raw": "GemmBwdRest:0.295707,491520,miopenConvolutionBwdDataAlgoGEMM"
+            }
+          ],
+          "db_target_entry_unchanged": false
+        },
+        "dw": {
+          "cold_s": 0.0100620900047943,
+          "event_ms_rounds": [
+            0.2844499945640564
+          ],
+          "wall_ms_rounds": [
+            0.30959700234234333
+          ],
+          "event_median_ms": 0.2844499945640564,
+          "wall_median_ms": 0.30959700234234333,
+          "db_key": "256-1-320-1x3-256-1-320-8-0x5-1x1-1x5-0-NCHW-FP16-W",
+          "db_entries_before": [],
+          "requested_single_solver": null,
+          "reference_error": {
+            "finite": true,
+            "reference_finite": true,
+            "screen_pass": true,
+            "nrmse": 0.00043995550981770917,
+            "max_over_reference_rms": 0.004403728776744544,
+            "max_abs": 0.0022162199020385742,
+            "rmse": 0.00022141194571713186,
+            "reference_rms": 0.5032598541813273
+          },
+          "db_entries_after": [
+            {
+              "solver": "GemmWrwUniversal",
+              "recorded_ms": 0.288183,
+              "workspace_bytes": 491520,
+              "algorithm": "miopenConvolutionBwdWeightsAlgoGEMM",
+              "raw": "GemmWrwUniversal:0.288183,491520,miopenConvolutionBwdWeightsAlgoGEMM"
+            },
+            {
+              "solver": "ConvHipImplicitGemmV4R1WrW",
+              "recorded_ms": 0.305072,
+              "workspace_bytes": 0,
+              "algorithm": "miopenConvolutionBwdWeightsAlgoImplicitGEMM",
+              "raw": "ConvHipImplicitGemmV4R1WrW:0.305072,0,miopenConvolutionBwdWeightsAlgoImplicitGEMM"
+            }
+          ],
+          "db_target_entry_unchanged": false
+        }
+      },
+      "all_gates_pass": true
+    },
+    {
+      "case": {
+        "kind": "conv1d",
+        "shape": [
+          8,
+          256,
+          320
+        ],
+        "weight": [
+          256,
+          256,
+          7
+        ],
+        "stride": [
+          1
+        ],
+        "padding": [
+          9
+        ],
+        "dilation": [
+          3
+        ],
+        "groups": 1,
+        "output_padding": [
+          0
+        ],
+        "name": "conv1d_B8_C256_T320_O256_K7_S1_D3_G1_P9",
+        "origin": "Actual voice_model_A KLM49 HFG FP16 AMP B8 training capture",
+        "benchmark_dtype": "fp16",
+        "physical_dtype_basis": "FP16 training autocast contract; module hook records logical boundary dtypes",
+        "source_capture_keys": [
+          "126911079844"
+        ],
+        "logical_boundary_variants": [
+          {
+            "capture_key": "126911079844",
+            "module_kind": "ParametrizedConv1d",
+            "input_dtype": "torch.float16",
+            "weight_dtype": "torch.float32",
+            "count": 5
+          }
+        ],
+        "observed_forward_calls": 5
+      },
+      "directions": {
+        "fwd": {
+          "cold_s": 0.008260695001808926,
+          "event_ms_rounds": [
+            0.44185999035835266
+          ],
+          "wall_ms_rounds": [
+            0.4703459853772074
+          ],
+          "event_median_ms": 0.44185999035835266,
+          "wall_median_ms": 0.4703459853772074,
+          "db_key": "256-1-320-1x7-256-1-320-8-0x9-1x1-1x3-0-NCHW-FP16-F",
+          "db_entries_before": [],
+          "requested_single_solver": null,
+          "reference_error": {
+            "finite": true,
+            "reference_finite": true,
+            "screen_pass": true,
+            "nrmse": 0.000207737497272512,
+            "max_over_reference_rms": 0.001981695527519947,
+            "max_abs": 0.0019593238830566406,
+            "rmse": 0.00020539231893096634,
+            "reference_rms": 0.9887108568634133
+          },
+          "db_entries_after": [
+            {
+              "solver": "GemmFwdRest",
+              "recorded_ms": 0.536223,
+              "workspace_bytes": 1146880,
+              "algorithm": "miopenConvolutionFwdAlgoGEMM",
+              "raw": "GemmFwdRest:0.536223,1146880,miopenConvolutionFwdAlgoGEMM"
+            }
+          ],
+          "db_target_entry_unchanged": false
+        },
+        "dx": {
+          "cold_s": 0.005159569001989439,
+          "event_ms_rounds": [
+            0.3251599967479706
+          ],
+          "wall_ms_rounds": [
+            0.3469269722700119
+          ],
+          "event_median_ms": 0.3251599967479706,
+          "wall_median_ms": 0.3469269722700119,
+          "db_key": "256-1-320-1x7-256-1-320-8-0x9-1x1-1x3-0-NCHW-FP16-B",
+          "db_entries_before": [],
+          "requested_single_solver": null,
+          "reference_error": {
+            "finite": true,
+            "reference_finite": true,
+            "screen_pass": true,
+            "nrmse": 0.0002940850150973903,
+            "max_over_reference_rms": 0.0023115989658089105,
+            "max_abs": 2.2921711206436157e-05,
+            "rmse": 2.9161337610496407e-06,
+            "reference_rms": 0.009915954949571038
+          },
+          "db_entries_after": [
+            {
+              "solver": "GemmBwdRest",
+              "recorded_ms": 0.324887,
+              "workspace_bytes": 1146880,
+              "algorithm": "miopenConvolutionBwdDataAlgoGEMM",
+              "raw": "GemmBwdRest:0.324887,1146880,miopenConvolutionBwdDataAlgoGEMM"
+            }
+          ],
+          "db_target_entry_unchanged": false
+        },
+        "dw": {
+          "cold_s": 0.010700815008021891,
+          "event_ms_rounds": [
+            0.355459988117218
+          ],
+          "wall_ms_rounds": [
+            0.37974698352627456
+          ],
+          "event_median_ms": 0.355459988117218,
+          "wall_median_ms": 0.37974698352627456,
+          "db_key": "256-1-320-1x7-256-1-320-8-0x9-1x1-1x3-0-NCHW-FP16-W",
+          "db_entries_before": [],
+          "requested_single_solver": null,
+          "reference_error": {
+            "finite": true,
+            "reference_finite": true,
+            "screen_pass": true,
+            "nrmse": 0.00020783728364048433,
+            "max_over_reference_rms": 0.0018385120571698815,
+            "max_abs": 0.0009224414825439453,
+            "rmse": 0.00010427874612057538,
+            "reference_rms": 0.5017326260910728
+          },
+          "db_entries_after": [
+            {
+              "solver": "GemmWrwUniversal",
+              "recorded_ms": 0.362547,
+              "workspace_bytes": 1146880,
+              "algorithm": "miopenConvolutionBwdWeightsAlgoGEMM",
+              "raw": "GemmWrwUniversal:0.362547,1146880,miopenConvolutionBwdWeightsAlgoGEMM"
+            },
+            {
+              "solver": "ConvHipImplicitGemmV4R1WrW",
+              "recorded_ms": 0.30254,
+              "workspace_bytes": 0,
+              "algorithm": "miopenConvolutionBwdWeightsAlgoImplicitGEMM",
+              "raw": "ConvHipImplicitGemmV4R1WrW:0.30254,0,miopenConvolutionBwdWeightsAlgoImplicitGEMM"
+            }
+          ],
+          "db_target_entry_unchanged": false
+        }
+      },
+      "all_gates_pass": true
+    },
+    {
+      "case": {
+        "kind": "conv1d",
+        "shape": [
+          8,
+          256,
+          320
+        ],
+        "weight": [
+          256,
+          256,
+          7
+        ],
+        "stride": [
+          1
+        ],
+        "padding": [
+          15
+        ],
+        "dilation": [
+          5
+        ],
+        "groups": 1,
+        "output_padding": [
+          0
+        ],
+        "name": "conv1d_B8_C256_T320_O256_K7_S1_D5_G1_P15",
+        "origin": "Actual voice_model_A KLM49 HFG FP16 AMP B8 training capture",
+        "benchmark_dtype": "fp16",
+        "physical_dtype_basis": "FP16 training autocast contract; module hook records logical boundary dtypes",
+        "source_capture_keys": [
+          "221949c4a611"
+        ],
+        "logical_boundary_variants": [
+          {
+            "capture_key": "221949c4a611",
+            "module_kind": "ParametrizedConv1d",
+            "input_dtype": "torch.float16",
+            "weight_dtype": "torch.float32",
+            "count": 5
+          }
+        ],
+        "observed_forward_calls": 5
+      },
+      "directions": {
+        "fwd": {
+          "cold_s": 0.0075971589831169695,
+          "event_ms_rounds": [
+            0.44225001335144043
+          ],
+          "wall_ms_rounds": [
+            0.4732469969894737
+          ],
+          "event_median_ms": 0.44225001335144043,
+          "wall_median_ms": 0.4732469969894737,
+          "db_key": "256-1-320-1x7-256-1-320-8-0x15-1x1-1x5-0-NCHW-FP16-F",
+          "db_entries_before": [],
+          "requested_single_solver": null,
+          "reference_error": {
+            "finite": true,
+            "reference_finite": true,
+            "screen_pass": true,
+            "nrmse": 0.0002076445506225755,
+            "max_over_reference_rms": 0.0017968530442128137,
+            "max_abs": 0.0017685890197753906,
+            "rmse": 0.00020437835661077453,
+            "reference_rms": 0.9842702637656129
+          },
+          "db_entries_after": [
+            {
+              "solver": "GemmFwdRest",
+              "recorded_ms": 0.524743,
+              "workspace_bytes": 1146880,
+              "algorithm": "miopenConvolutionFwdAlgoGEMM",
+              "raw": "GemmFwdRest:0.524743,1146880,miopenConvolutionFwdAlgoGEMM"
+            }
+          ],
+          "db_target_entry_unchanged": false
+        },
+        "dx": {
+          "cold_s": 0.0053057580080349,
+          "event_ms_rounds": [
+            0.3517400026321411
+          ],
+          "wall_ms_rounds": [
+            0.37428701762109995
+          ],
+          "event_median_ms": 0.3517400026321411,
+          "wall_median_ms": 0.37428701762109995,
+          "db_key": "256-1-320-1x7-256-1-320-8-0x15-1x1-1x5-0-NCHW-FP16-B",
+          "db_entries_before": [],
+          "requested_single_solver": null,
+          "reference_error": {
+            "finite": true,
+            "reference_finite": true,
+            "screen_pass": true,
+            "nrmse": 0.00029414892990505025,
+            "max_over_reference_rms": 0.0023175623704852688,
+            "max_abs": 2.285093069076538e-05,
+            "rmse": 2.900278713368863e-06,
+            "reference_rms": 0.009859898910069324
+          },
+          "db_entries_after": [
+            {
+              "solver": "GemmBwdRest",
+              "recorded_ms": 0.352259,
+              "workspace_bytes": 1146880,
+              "algorithm": "miopenConvolutionBwdDataAlgoGEMM",
+              "raw": "GemmBwdRest:0.352259,1146880,miopenConvolutionBwdDataAlgoGEMM"
+            }
+          ],
+          "db_target_entry_unchanged": false
+        },
+        "dw": {
+          "cold_s": 0.010255608998704702,
+          "event_ms_rounds": [
+            0.35464000701904297
+          ],
+          "wall_ms_rounds": [
+            0.37605699617415667
+          ],
+          "event_median_ms": 0.35464000701904297,
+          "wall_median_ms": 0.37605699617415667,
+          "db_key": "256-1-320-1x7-256-1-320-8-0x15-1x1-1x5-0-NCHW-FP16-W",
+          "db_entries_before": [],
+          "requested_single_solver": null,
+          "reference_error": {
+            "finite": true,
+            "reference_finite": true,
+            "screen_pass": true,
+            "nrmse": 0.00020789496880538262,
+            "max_over_reference_rms": 0.001809006992887931,
+            "max_abs": 0.0009021759033203125,
+            "rmse": 0.00010367999240197716,
+            "reference_rms": 0.49871333105244814
+          },
+          "db_entries_after": [
+            {
+              "solver": "GemmWrwUniversal",
+              "recorded_ms": 0.3574,
+              "workspace_bytes": 1146880,
+              "algorithm": "miopenConvolutionBwdWeightsAlgoGEMM",
+              "raw": "GemmWrwUniversal:0.3574,1146880,miopenConvolutionBwdWeightsAlgoGEMM"
+            },
+            {
+              "solver": "ConvHipImplicitGemmV4R1WrW",
+              "recorded_ms": 0.302187,
+              "workspace_bytes": 0,
+              "algorithm": "miopenConvolutionBwdWeightsAlgoImplicitGEMM",
+              "raw": "ConvHipImplicitGemmV4R1WrW:0.302187,0,miopenConvolutionBwdWeightsAlgoImplicitGEMM"
+            }
+          ],
+          "db_target_entry_unchanged": false
+        }
+      },
+      "all_gates_pass": true
+    },
+    {
+      "case": {
+        "kind": "conv1d",
+        "shape": [
+          8,
+          32,
+          12800
+        ],
+        "weight": [
+          32,
+          32,
+          11
+        ],
+        "stride": [
+          1
+        ],
+        "padding": [
+          15
+        ],
+        "dilation": [
+          3
+        ],
+        "groups": 1,
+        "output_padding": [
+          0
+        ],
+        "name": "conv1d_B8_C32_T12800_O32_K11_S1_D3_G1_P15",
+        "origin": "Actual voice_model_A KLM49 HFG FP16 AMP B8 training capture",
+        "benchmark_dtype": "fp16",
+        "physical_dtype_basis": "FP16 training autocast contract; module hook records logical boundary dtypes",
+        "source_capture_keys": [
+          "f80553a24685"
+        ],
+        "logical_boundary_variants": [
+          {
+            "capture_key": "f80553a24685",
+            "module_kind": "ParametrizedConv1d",
+            "input_dtype": "torch.float16",
+            "weight_dtype": "torch.float32",
+            "count": 5
+          }
+        ],
+        "observed_forward_calls": 5
+      },
+      "directions": {
+        "fwd": {
+          "cold_s": 0.01006199000403285,
+          "event_ms_rounds": [
+            0.7509499788284302
+          ],
+          "wall_ms_rounds": [
+            0.7850539986975491
+          ],
+          "event_median_ms": 0.7509499788284302,
+          "wall_median_ms": 0.7850539986975491,
+          "db_key": "32-1-12800-1x11-32-1-12800-8-0x15-1x1-1x3-0-NCHW-FP16-F",
+          "db_entries_before": [],
+          "requested_single_solver": null,
+          "reference_error": {
+            "finite": true,
+            "reference_finite": true,
+            "screen_pass": true,
+            "nrmse": 0.000207723486250268,
+            "max_over_reference_rms": 0.00195375557399618,
+            "max_abs": 0.0019483566284179688,
+            "rmse": 0.000207149469821341,
+            "reference_rms": 0.997236632028044
+          },
+          "db_entries_after": [
+            {
+              "solver": "GemmFwdRest",
+              "recorded_ms": 0.767472,
+              "workspace_bytes": 9011200,
+              "algorithm": "miopenConvolutionFwdAlgoGEMM",
+              "raw": "GemmFwdRest:0.767472,9011200,miopenConvolutionFwdAlgoGEMM"
+            }
+          ],
+          "db_target_entry_unchanged": false
+        },
+        "dx": {
+          "cold_s": 0.008145294996211305,
+          "event_ms_rounds": [
+            0.6614099740982056
+          ],
+          "wall_ms_rounds": [
+            0.6880439759697765
+          ],
+          "event_median_ms": 0.6614099740982056,
+          "wall_median_ms": 0.6880439759697765,
+          "db_key": "32-1-12800-1x11-32-1-12800-8-0x15-1x1-1x3-0-NCHW-FP16-B",
+          "db_entries_before": [],
+          "requested_single_solver": null,
+          "reference_error": {
+            "finite": true,
+            "reference_finite": true,
+            "screen_pass": true,
+            "nrmse": 0.0002930941384595702,
+            "max_over_reference_rms": 0.0024281956782689264,
+            "max_abs": 2.425163984298706e-05,
+            "rmse": 2.9272819936321683e-06,
+            "reference_rms": 0.00998751462249376
+          },
+          "db_entries_after": [
+            {
+              "solver": "GemmBwdRest",
+              "recorded_ms": 0.63702,
+              "workspace_bytes": 9011200,
+              "algorithm": "miopenConvolutionBwdDataAlgoGEMM",
+              "raw": "GemmBwdRest:0.63702,9011200,miopenConvolutionBwdDataAlgoGEMM"
+            }
+          ],
+          "db_target_entry_unchanged": false
+        },
+        "dw": {
+          "cold_s": 0.017942456994205713,
+          "event_ms_rounds": [
+            1.5012099742889404
+          ],
+          "wall_ms_rounds": [
+            1.5242279914673418
+          ],
+          "event_median_ms": 1.5012099742889404,
+          "wall_median_ms": 1.5242279914673418,
+          "db_key": "32-1-12800-1x11-32-1-12800-8-0x15-1x1-1x3-0-NCHW-FP16-W",
+          "db_entries_before": [],
+          "requested_single_solver": null,
+          "reference_error": {
+            "finite": true,
+            "reference_finite": true,
+            "screen_pass": true,
+            "nrmse": 0.00044313794783727977,
+            "max_over_reference_rms": 0.002966180317754468,
+            "max_abs": 0.009397506713867188,
+            "rmse": 0.001403957748301289,
+            "reference_rms": 3.1682182831627457
+          },
+          "db_entries_after": [
+            {
+              "solver": "GemmWrwUniversal",
+              "recorded_ms": 1.52473,
+              "workspace_bytes": 9011200,
+              "algorithm": "miopenConvolutionBwdWeightsAlgoGEMM",
+              "raw": "GemmWrwUniversal:1.52473,9011200,miopenConvolutionBwdWeightsAlgoGEMM"
+            }
+          ],
+          "db_target_entry_unchanged": false
+        }
+      },
+      "all_gates_pass": true
+    },
+    {
+      "case": {
+        "kind": "conv1d",
+        "shape": [
+          8,
+          32,
+          12800
+        ],
+        "weight": [
+          32,
+          32,
+          11
+        ],
+        "stride": [
+          1
+        ],
+        "padding": [
+          25
+        ],
+        "dilation": [
+          5
+        ],
+        "groups": 1,
+        "output_padding": [
+          0
+        ],
+        "name": "conv1d_B8_C32_T12800_O32_K11_S1_D5_G1_P25",
+        "origin": "Actual voice_model_A KLM49 HFG FP16 AMP B8 training capture",
+        "benchmark_dtype": "fp16",
+        "physical_dtype_basis": "FP16 training autocast contract; module hook records logical boundary dtypes",
+        "source_capture_keys": [
+          "195a5b68948a"
+        ],
+        "logical_boundary_variants": [
+          {
+            "capture_key": "195a5b68948a",
+            "module_kind": "ParametrizedConv1d",
+            "input_dtype": "torch.float16",
+            "weight_dtype": "torch.float32",
+            "count": 5
+          }
+        ],
+        "observed_forward_calls": 5
+      },
+      "directions": {
+        "fwd": {
+          "cold_s": 0.010695634002331644,
+          "event_ms_rounds": [
+            0.8349900245666504
+          ],
+          "wall_ms_rounds": [
+            0.8745840168558061
+          ],
+          "event_median_ms": 0.8349900245666504,
+          "wall_median_ms": 0.8745840168558061,
+          "db_key": "32-1-12800-1x11-32-1-12800-8-0x25-1x1-1x5-0-NCHW-FP16-F",
+          "db_entries_before": [],
+          "requested_single_solver": null,
+          "reference_error": {
+            "finite": true,
+            "reference_finite": true,
+            "screen_pass": true,
+            "nrmse": 0.0002077779770326647,
+            "max_over_reference_rms": 0.0019506854088842775,
+            "max_abs": 0.00194549560546875,
+            "rmse": 0.0002072251832044214,
+            "reference_rms": 0.9973394974956542
+          },
+          "db_entries_after": [
+            {
+              "solver": "GemmFwdRest",
+              "recorded_ms": 0.83776,
+              "workspace_bytes": 9011200,
+              "algorithm": "miopenConvolutionFwdAlgoGEMM",
+              "raw": "GemmFwdRest:0.83776,9011200,miopenConvolutionFwdAlgoGEMM"
+            }
+          ],
+          "db_target_entry_unchanged": false
+        },
+        "dx": {
+          "cold_s": 0.009345794998807833,
+          "event_ms_rounds": [
+            0.8063099980354309
+          ],
+          "wall_ms_rounds": [
+            0.8348130213562399
+          ],
+          "event_median_ms": 0.8063099980354309,
+          "wall_median_ms": 0.8348130213562399,
+          "db_key": "32-1-12800-1x11-32-1-12800-8-0x25-1x1-1x5-0-NCHW-FP16-B",
+          "db_entries_before": [],
+          "requested_single_solver": null,
+          "reference_error": {
+            "finite": true,
+            "reference_finite": true,
+            "screen_pass": true,
+            "nrmse": 0.00029326683299882555,
+            "max_over_reference_rms": 0.0022971293675298284,
+            "max_abs": 2.2936612367630005e-05,
+            "rmse": 2.92824068328803e-06,
+            "reference_rms": 0.009984902327157319
+          },
+          "db_entries_after": [
+            {
+              "solver": "GemmBwdRest",
+              "recorded_ms": 0.774467,
+              "workspace_bytes": 9011200,
+              "algorithm": "miopenConvolutionBwdDataAlgoGEMM",
+              "raw": "GemmBwdRest:0.774467,9011200,miopenConvolutionBwdDataAlgoGEMM"
+            }
+          ],
+          "db_target_entry_unchanged": false
+        },
+        "dw": {
+          "cold_s": 0.01716468299855478,
+          "event_ms_rounds": [
+            1.5782599449157715
+          ],
+          "wall_ms_rounds": [
+            1.608057995326817
+          ],
+          "event_median_ms": 1.5782599449157715,
+          "wall_median_ms": 1.608057995326817,
+          "db_key": "32-1-12800-1x11-32-1-12800-8-0x25-1x1-1x5-0-NCHW-FP16-W",
+          "db_entries_before": [],
+          "requested_single_solver": null,
+          "reference_error": {
+            "finite": true,
+            "reference_finite": true,
+            "screen_pass": true,
+            "nrmse": 0.0004415064957409938,
+            "max_over_reference_rms": 0.00291608568420945,
+            "max_abs": 0.009289741516113281,
+            "rmse": 0.0014065023004393344,
+            "reference_rms": 3.1856888041449056
+          },
+          "db_entries_after": [
+            {
+              "solver": "GemmWrwUniversal",
+              "recorded_ms": 1.59045,
+              "workspace_bytes": 9011200,
+              "algorithm": "miopenConvolutionBwdWeightsAlgoGEMM",
+              "raw": "GemmWrwUniversal:1.59045,9011200,miopenConvolutionBwdWeightsAlgoGEMM"
+            }
+          ],
+          "db_target_entry_unchanged": false
+        }
+      },
+      "all_gates_pass": true
+    },
+    {
+      "case": {
+        "kind": "conv1d",
+        "shape": [
+          8,
+          32,
+          12800
+        ],
+        "weight": [
+          32,
+          32,
+          3
+        ],
+        "stride": [
+          1
+        ],
+        "padding": [
+          3
+        ],
+        "dilation": [
+          3
+        ],
+        "groups": 1,
+        "output_padding": [
+          0
+        ],
+        "name": "conv1d_B8_C32_T12800_O32_K3_S1_D3_G1_P3",
+        "origin": "Actual voice_model_A KLM49 HFG FP16 AMP B8 training capture",
+        "benchmark_dtype": "fp16",
+        "physical_dtype_basis": "FP16 training autocast contract; module hook records logical boundary dtypes",
+        "source_capture_keys": [
+          "46510875b36f"
+        ],
+        "logical_boundary_variants": [
+          {
+            "capture_key": "46510875b36f",
+            "module_kind": "ParametrizedConv1d",
+            "input_dtype": "torch.float16",
+            "weight_dtype": "torch.float32",
+            "count": 5
+          }
+        ],
+        "observed_forward_calls": 5
+      },
+      "directions": {
+        "fwd": {
+          "cold_s": 0.00768367902492173,
+          "event_ms_rounds": [
+            0.49656999111175537
+          ],
+          "wall_ms_rounds": [
+            0.5303660000208765
+          ],
+          "event_median_ms": 0.49656999111175537,
+          "wall_median_ms": 0.5303660000208765,
+          "db_key": "32-1-12800-1x3-32-1-12800-8-0x3-1x1-1x3-0-NCHW-FP16-F",
+          "db_entries_before": [],
+          "requested_single_solver": null,
+          "reference_error": {
+            "finite": true,
+            "reference_finite": true,
+            "screen_pass": true,
+            "nrmse": 0.00020768147947289954,
+            "max_over_reference_rms": 0.0019703708726550094,
+            "max_abs": 0.00194549560546875,
+            "rmse": 0.00020505957089557425,
+            "reference_rms": 0.987375337541028
+          },
+          "db_entries_after": [
+            {
+              "solver": "GemmFwdRest",
+              "recorded_ms": 0.522427,
+              "workspace_bytes": 2457600,
+              "algorithm": "miopenConvolutionFwdAlgoGEMM",
+              "raw": "GemmFwdRest:0.522427,2457600,miopenConvolutionFwdAlgoGEMM"
+            }
+          ],
+          "db_target_entry_unchanged": false
+        },
+        "dx": {
+          "cold_s": 0.006273300008615479,
+          "event_ms_rounds": [
+            0.3985399901866913
+          ],
+          "wall_ms_rounds": [
+            0.42277699685655534
+          ],
+          "event_median_ms": 0.3985399901866913,
+          "wall_median_ms": 0.42277699685655534,
+          "db_key": "32-1-12800-1x3-32-1-12800-8-0x3-1x1-1x3-0-NCHW-FP16-B",
+          "db_entries_before": [],
+          "requested_single_solver": null,
+          "reference_error": {
+            "finite": true,
+            "reference_finite": true,
+            "screen_pass": true,
+            "nrmse": 0.00029772564118069387,
+            "max_over_reference_rms": 0.0029720177710824084,
+            "max_abs": 2.9359012842178345e-05,
+            "rmse": 2.9410762640515195e-06,
+            "reference_rms": 0.009878478227095458
+          },
+          "db_entries_after": [
+            {
+              "solver": "GemmBwdRest",
+              "recorded_ms": 0.446276,
+              "workspace_bytes": 2457600,
+              "algorithm": "miopenConvolutionBwdDataAlgoGEMM",
+              "raw": "GemmBwdRest:0.446276,2457600,miopenConvolutionBwdDataAlgoGEMM"
+            }
+          ],
+          "db_target_entry_unchanged": false
+        },
+        "dw": {
+          "cold_s": 0.022821197984740138,
+          "event_ms_rounds": [
+            1.9802700281143188
+          ],
+          "wall_ms_rounds": [
+            2.0061139948666096
+          ],
+          "event_median_ms": 1.9802700281143188,
+          "wall_median_ms": 2.0061139948666096,
+          "db_key": "32-1-12800-1x3-32-1-12800-8-0x3-1x1-1x3-0-NCHW-FP16-W",
+          "db_entries_before": [],
+          "requested_single_solver": null,
+          "reference_error": {
+            "finite": true,
+            "reference_finite": true,
+            "screen_pass": true,
+            "nrmse": 0.00044691877888492154,
+            "max_over_reference_rms": 0.0029649877224461147,
+            "max_abs": 0.009305477142333984,
+            "rmse": 0.0014026339636787602,
+            "reference_rms": 3.138453853244615
+          },
+          "db_entries_after": [
+            {
+              "solver": "GemmWrwUniversal",
+              "recorded_ms": 2.02711,
+              "workspace_bytes": 2457600,
+              "algorithm": "miopenConvolutionBwdWeightsAlgoGEMM",
+              "raw": "GemmWrwUniversal:2.02711,2457600,miopenConvolutionBwdWeightsAlgoGEMM"
+            }
+          ],
+          "db_target_entry_unchanged": false
+        }
+      },
+      "all_gates_pass": true
+    },
+    {
+      "case": {
+        "kind": "conv1d",
+        "shape": [
+          8,
+          32,
+          12800
+        ],
+        "weight": [
+          32,
+          32,
+          3
+        ],
+        "stride": [
+          1
+        ],
+        "padding": [
+          5
+        ],
+        "dilation": [
+          5
+        ],
+        "groups": 1,
+        "output_padding": [
+          0
+        ],
+        "name": "conv1d_B8_C32_T12800_O32_K3_S1_D5_G1_P5",
+        "origin": "Actual voice_model_A KLM49 HFG FP16 AMP B8 training capture",
+        "benchmark_dtype": "fp16",
+        "physical_dtype_basis": "FP16 training autocast contract; module hook records logical boundary dtypes",
+        "source_capture_keys": [
+          "1a34f662013d"
+        ],
+        "logical_boundary_variants": [
+          {
+            "capture_key": "1a34f662013d",
+            "module_kind": "ParametrizedConv1d",
+            "input_dtype": "torch.float16",
+            "weight_dtype": "torch.float32",
+            "count": 5
+          }
+        ],
+        "observed_forward_calls": 5
+      },
+      "directions": {
+        "fwd": {
+          "cold_s": 0.007459490996552631,
+          "event_ms_rounds": [
+            0.4978100061416626
+          ],
+          "wall_ms_rounds": [
+            0.5277260206639767
+          ],
+          "event_median_ms": 0.4978100061416626,
+          "wall_median_ms": 0.5277260206639767,
+          "db_key": "32-1-12800-1x3-32-1-12800-8-0x5-1x1-1x5-0-NCHW-FP16-F",
+          "db_entries_before": [],
+          "requested_single_solver": null,
+          "reference_error": {
+            "finite": true,
+            "reference_finite": true,
+            "screen_pass": true,
+            "nrmse": 0.0002074749222411037,
+            "max_over_reference_rms": 0.001972596202137686,
+            "max_abs": 0.0019488334655761719,
+            "rmse": 0.00020497559069266352,
+            "reference_rms": 0.9879535727911457
+          },
+          "db_entries_after": [
+            {
+              "solver": "GemmFwdRest",
+              "recorded_ms": 0.5162,
+              "workspace_bytes": 2457600,
+              "algorithm": "miopenConvolutionFwdAlgoGEMM",
+              "raw": "GemmFwdRest:0.5162,2457600,miopenConvolutionFwdAlgoGEMM"
+            }
+          ],
+          "db_target_entry_unchanged": false
+        },
+        "dx": {
+          "cold_s": 0.006209020997630432,
+          "event_ms_rounds": [
+            0.44909000396728516
+          ],
+          "wall_ms_rounds": [
+            0.4764659970533103
+          ],
+          "event_median_ms": 0.44909000396728516,
+          "wall_median_ms": 0.4764659970533103,
+          "db_key": "32-1-12800-1x3-32-1-12800-8-0x5-1x1-1x5-0-NCHW-FP16-B",
+          "db_entries_before": [],
+          "requested_single_solver": null,
+          "reference_error": {
+            "finite": true,
+            "reference_finite": true,
+            "screen_pass": true,
+            "nrmse": 0.0002973353334611024,
+            "max_over_reference_rms": 0.0031700363305660574,
+            "max_abs": 3.1322240829467773e-05,
+            "rmse": 2.937887125134539e-06,
+            "reference_rms": 0.009880719828808624
+          },
+          "db_entries_after": [
+            {
+              "solver": "GemmBwdRest",
+              "recorded_ms": 0.446331,
+              "workspace_bytes": 2457600,
+              "algorithm": "miopenConvolutionBwdDataAlgoGEMM",
+              "raw": "GemmBwdRest:0.446331,2457600,miopenConvolutionBwdDataAlgoGEMM"
+            }
+          ],
+          "db_target_entry_unchanged": false
+        },
+        "dw": {
+          "cold_s": 0.020906953985104337,
+          "event_ms_rounds": [
+            1.9733200073242188
+          ],
+          "wall_ms_rounds": [
+            1.998193998588249
+          ],
+          "event_median_ms": 1.9733200073242188,
+          "wall_median_ms": 1.998193998588249,
+          "db_key": "32-1-12800-1x3-32-1-12800-8-0x5-1x1-1x5-0-NCHW-FP16-W",
+          "db_entries_before": [],
+          "requested_single_solver": null,
+          "reference_error": {
+            "finite": true,
+            "reference_finite": true,
+            "screen_pass": true,
+            "nrmse": 0.00045097419635920313,
+            "max_over_reference_rms": 0.0029167125779740776,
+            "max_abs": 0.009305477142333984,
+            "rmse": 0.0014387876637875217,
+            "reference_rms": 3.190399085808272
+          },
+          "db_entries_after": [
+            {
+              "solver": "GemmWrwUniversal",
+              "recorded_ms": 2.00131,
+              "workspace_bytes": 2457600,
+              "algorithm": "miopenConvolutionBwdWeightsAlgoGEMM",
+              "raw": "GemmWrwUniversal:2.00131,2457600,miopenConvolutionBwdWeightsAlgoGEMM"
+            }
+          ],
+          "db_target_entry_unchanged": false
+        }
+      },
+      "all_gates_pass": true
+    },
+    {
+      "case": {
+        "kind": "conv1d",
+        "shape": [
+          8,
+          32,
+          12800
+        ],
+        "weight": [
+          32,
+          32,
+          7
+        ],
+        "stride": [
+          1
+        ],
+        "padding": [
+          9
+        ],
+        "dilation": [
+          3
+        ],
+        "groups": 1,
+        "output_padding": [
+          0
+        ],
+        "name": "conv1d_B8_C32_T12800_O32_K7_S1_D3_G1_P9",
+        "origin": "Actual voice_model_A KLM49 HFG FP16 AMP B8 training capture",
+        "benchmark_dtype": "fp16",
+        "physical_dtype_basis": "FP16 training autocast contract; module hook records logical boundary dtypes",
+        "source_capture_keys": [
+          "3d7026e72ed6"
+        ],
+        "logical_boundary_variants": [
+          {
+            "capture_key": "3d7026e72ed6",
+            "module_kind": "ParametrizedConv1d",
+            "input_dtype": "torch.float16",
+            "weight_dtype": "torch.float32",
+            "count": 5
+          }
+        ],
+        "observed_forward_calls": 5
+      },
+      "directions": {
+        "fwd": {
+          "cold_s": 0.009511444019153714,
+          "event_ms_rounds": [
+            0.6882200241088867
+          ],
+          "wall_ms_rounds": [
+            0.7177340157795697
+          ],
+          "event_median_ms": 0.6882200241088867,
+          "wall_median_ms": 0.7177340157795697,
+          "db_key": "32-1-12800-1x7-32-1-12800-8-0x9-1x1-1x3-0-NCHW-FP16-F",
+          "db_entries_before": [],
+          "requested_single_solver": null,
+          "reference_error": {
+            "finite": true,
+            "reference_finite": true,
+            "screen_pass": true,
+            "nrmse": 0.00020749819000847775,
+            "max_over_reference_rms": 0.0019536389810027952,
+            "max_abs": 0.0019364356994628906,
+            "rmse": 0.00020567101015772347,
+            "reference_rms": 0.9911942371609139
+          },
+          "db_entries_after": [
+            {
+              "solver": "GemmFwdRest",
+              "recorded_ms": 0.701535,
+              "workspace_bytes": 5734400,
+              "algorithm": "miopenConvolutionFwdAlgoGEMM",
+              "raw": "GemmFwdRest:0.701535,5734400,miopenConvolutionFwdAlgoGEMM"
+            }
+          ],
+          "db_target_entry_unchanged": false
+        },
+        "dx": {
+          "cold_s": 0.006956635013921186,
+          "event_ms_rounds": [
+            0.5330600142478943
+          ],
+          "wall_ms_rounds": [
+            0.5597549898084253
+          ],
+          "event_median_ms": 0.5330600142478943,
+          "wall_median_ms": 0.5597549898084253,
+          "db_key": "32-1-12800-1x7-32-1-12800-8-0x9-1x1-1x3-0-NCHW-FP16-B",
+          "db_entries_before": [],
+          "requested_single_solver": null,
+          "reference_error": {
+            "finite": true,
+            "reference_finite": true,
+            "screen_pass": true,
+            "nrmse": 0.0002940639332789874,
+            "max_over_reference_rms": 0.0026056284173263744,
+            "max_abs": 2.5834888219833374e-05,
+            "rmse": 2.915653204896554e-06,
+            "reference_rms": 0.009915031647660052
+          },
+          "db_entries_after": [
+            {
+              "solver": "GemmBwdRest",
+              "recorded_ms": 0.51242,
+              "workspace_bytes": 5734400,
+              "algorithm": "miopenConvolutionBwdDataAlgoGEMM",
+              "raw": "GemmBwdRest:0.51242,5734400,miopenConvolutionBwdDataAlgoGEMM"
+            }
+          ],
+          "db_target_entry_unchanged": false
+        },
+        "dw": {
+          "cold_s": 0.01788575798855163,
+          "event_ms_rounds": [
+            1.4625599384307861
+          ],
+          "wall_ms_rounds": [
+            1.494608004577458
+          ],
+          "event_median_ms": 1.4625599384307861,
+          "wall_median_ms": 1.494608004577458,
+          "db_key": "32-1-12800-1x7-32-1-12800-8-0x9-1x1-1x3-0-NCHW-FP16-W",
+          "db_entries_before": [],
+          "requested_single_solver": null,
+          "reference_error": {
+            "finite": true,
+            "reference_finite": true,
+            "screen_pass": true,
+            "nrmse": 0.000438017821250113,
+            "max_over_reference_rms": 0.0029157637025763873,
+            "max_abs": 0.009366035461425781,
+            "rmse": 0.0014070037441442978,
+            "reference_rms": 3.212206617823623
+          },
+          "db_entries_after": [
+            {
+              "solver": "GemmWrwUniversal",
+              "recorded_ms": 1.47176,
+              "workspace_bytes": 5734400,
+              "algorithm": "miopenConvolutionBwdWeightsAlgoGEMM",
+              "raw": "GemmWrwUniversal:1.47176,5734400,miopenConvolutionBwdWeightsAlgoGEMM"
+            }
+          ],
+          "db_target_entry_unchanged": false
+        }
+      },
+      "all_gates_pass": true
+    },
+    {
+      "case": {
+        "kind": "conv1d",
+        "shape": [
+          8,
+          32,
+          12800
+        ],
+        "weight": [
+          32,
+          32,
+          7
+        ],
+        "stride": [
+          1
+        ],
+        "padding": [
+          15
+        ],
+        "dilation": [
+          5
+        ],
+        "groups": 1,
+        "output_padding": [
+          0
+        ],
+        "name": "conv1d_B8_C32_T12800_O32_K7_S1_D5_G1_P15",
+        "origin": "Actual voice_model_A KLM49 HFG FP16 AMP B8 training capture",
+        "benchmark_dtype": "fp16",
+        "physical_dtype_basis": "FP16 training autocast contract; module hook records logical boundary dtypes",
+        "source_capture_keys": [
+          "c6633aaa287d"
+        ],
+        "logical_boundary_variants": [
+          {
+            "capture_key": "c6633aaa287d",
+            "module_kind": "ParametrizedConv1d",
+            "input_dtype": "torch.float16",
+            "weight_dtype": "torch.float32",
+            "count": 5
+          }
+        ],
+        "observed_forward_calls": 5
+      },
+      "directions": {
+        "fwd": {
+          "cold_s": 0.009026408020872623,
+          "event_ms_rounds": [
+            0.6762199997901917
+          ],
+          "wall_ms_rounds": [
+            0.7049150008242577
+          ],
+          "event_median_ms": 0.6762199997901917,
+          "wall_median_ms": 0.7049150008242577,
+          "db_key": "32-1-12800-1x7-32-1-12800-8-0x15-1x1-1x5-0-NCHW-FP16-F",
+          "db_entries_before": [],
+          "requested_single_solver": null,
+          "reference_error": {
+            "finite": true,
+            "reference_finite": true,
+            "screen_pass": true,
+            "nrmse": 0.00020759011179574457,
+            "max_over_reference_rms": 0.0019679686280045607,
+            "max_abs": 0.0019483566284179688,
+            "rmse": 0.00020552135057222507,
+            "reference_rms": 0.9900343941933273
+          },
+          "db_entries_after": [
+            {
+              "solver": "GemmFwdRest",
+              "recorded_ms": 0.695347,
+              "workspace_bytes": 5734400,
+              "algorithm": "miopenConvolutionFwdAlgoGEMM",
+              "raw": "GemmFwdRest:0.695347,5734400,miopenConvolutionFwdAlgoGEMM"
+            }
+          ],
+          "db_target_entry_unchanged": false
+        },
+        "dx": {
+          "cold_s": 0.007554400013759732,
+          "event_ms_rounds": [
+            0.6178200244903564
+          ],
+          "wall_ms_rounds": [
+            0.6386949971783906
+          ],
+          "event_median_ms": 0.6178200244903564,
+          "wall_median_ms": 0.6386949971783906,
+          "db_key": "32-1-12800-1x7-32-1-12800-8-0x15-1x1-1x5-0-NCHW-FP16-B",
+          "db_entries_before": [],
+          "requested_single_solver": null,
+          "reference_error": {
+            "finite": true,
+            "reference_finite": true,
+            "screen_pass": true,
+            "nrmse": 0.0002941823426225913,
+            "max_over_reference_rms": 0.0026283620098898246,
+            "max_abs": 2.6054680347442627e-05,
+            "rmse": 2.9161990897953806e-06,
+            "reference_rms": 0.009912896415868826
+          },
+          "db_entries_after": [
+            {
+              "solver": "GemmBwdRest",
+              "recorded_ms": 0.586137,
+              "workspace_bytes": 5734400,
+              "algorithm": "miopenConvolutionBwdDataAlgoGEMM",
+              "raw": "GemmBwdRest:0.586137,5734400,miopenConvolutionBwdDataAlgoGEMM"
+            }
+          ],
+          "db_target_entry_unchanged": false
+        },
+        "dw": {
+          "cold_s": 0.015795425017131492,
+          "event_ms_rounds": [
+            1.438730001449585
+          ],
+          "wall_ms_rounds": [
+            1.4606789918616414
+          ],
+          "event_median_ms": 1.438730001449585,
+          "wall_median_ms": 1.4606789918616414,
+          "db_key": "32-1-12800-1x7-32-1-12800-8-0x15-1x1-1x5-0-NCHW-FP16-W",
+          "db_entries_before": [],
+          "requested_single_solver": null,
+          "reference_error": {
+            "finite": true,
+            "reference_finite": true,
+            "screen_pass": true,
+            "nrmse": 0.00043974130117494756,
+            "max_over_reference_rms": 0.0028994709902010222,
+            "max_abs": 0.009337425231933594,
+            "rmse": 0.0014161381627858913,
+            "reference_rms": 3.220389258416489
+          },
+          "db_entries_after": [
+            {
+              "solver": "GemmWrwUniversal",
+              "recorded_ms": 1.45834,
+              "workspace_bytes": 5734400,
+              "algorithm": "miopenConvolutionBwdWeightsAlgoGEMM",
+              "raw": "GemmWrwUniversal:1.45834,5734400,miopenConvolutionBwdWeightsAlgoGEMM"
+            }
+          ],
+          "db_target_entry_unchanged": false
+        }
+      },
+      "all_gates_pass": true
+    },
+    {
+      "case": {
+        "kind": "conv1d",
+        "shape": [
+          8,
+          64,
+          6400
+        ],
+        "weight": [
+          64,
+          64,
+          11
+        ],
+        "stride": [
+          1
+        ],
+        "padding": [
+          15
+        ],
+        "dilation": [
+          3
+        ],
+        "groups": 1,
+        "output_padding": [
+          0
+        ],
+        "name": "conv1d_B8_C64_T6400_O64_K11_S1_D3_G1_P15",
+        "origin": "Actual voice_model_A KLM49 HFG FP16 AMP B8 training capture",
+        "benchmark_dtype": "fp16",
+        "physical_dtype_basis": "FP16 training autocast contract; module hook records logical boundary dtypes",
+        "source_capture_keys": [
+          "128ae5e3525b"
+        ],
+        "logical_boundary_variants": [
+          {
+            "capture_key": "128ae5e3525b",
+            "module_kind": "ParametrizedConv1d",
+            "input_dtype": "torch.float16",
+            "weight_dtype": "torch.float32",
+            "count": 5
+          }
+        ],
+        "observed_forward_calls": 5
+      },
+      "directions": {
+        "fwd": {
+          "cold_s": 0.01258368999697268,
+          "event_ms_rounds": [
+            1.0245599746704102
+          ],
+          "wall_ms_rounds": [
+            1.0604520211927593
+          ],
+          "event_median_ms": 1.0245599746704102,
+          "wall_median_ms": 1.0604520211927593,
+          "db_key": "64-1-6400-1x11-64-1-6400-8-0x15-1x1-1x3-0-NCHW-FP16-F",
+          "db_entries_before": [],
+          "requested_single_solver": null,
+          "reference_error": {
+            "finite": true,
+            "reference_finite": true,
+            "screen_pass": true,
+            "nrmse": 0.00020753513105175163,
+            "max_over_reference_rms": 0.0019648905687035373,
+            "max_abs": 0.0019516944885253906,
+            "rmse": 0.0002061413383017828,
+            "reference_rms": 0.9932840635563467
+          },
+          "db_entries_after": [
+            {
+              "solver": "GemmFwdRest",
+              "recorded_ms": 1.02737,
+              "workspace_bytes": 9011200,
+              "algorithm": "miopenConvolutionFwdAlgoGEMM",
+              "raw": "GemmFwdRest:1.02737,9011200,miopenConvolutionFwdAlgoGEMM"
+            }
+          ],
+          "db_target_entry_unchanged": false
+        },
+        "dx": {
+          "cold_s": 0.00863260100595653,
+          "event_ms_rounds": [
+            0.703819990158081
+          ],
+          "wall_ms_rounds": [
+            0.7326650083996356
+          ],
+          "event_median_ms": 0.703819990158081,
+          "wall_median_ms": 0.7326650083996356,
+          "db_key": "64-1-6400-1x11-64-1-6400-8-0x15-1x1-1x3-0-NCHW-FP16-B",
+          "db_entries_before": [],
+          "requested_single_solver": null,
+          "reference_error": {
+            "finite": true,
+            "reference_finite": true,
+            "screen_pass": true,
+            "nrmse": 0.0002932299528398034,
+            "max_over_reference_rms": 0.0025247244915538145,
+            "max_abs": 2.51084566116333e-05,
+            "rmse": 2.9161801902504935e-06,
+            "reference_rms": 0.00994502833700503
+          },
+          "db_entries_after": [
+            {
+              "solver": "GemmBwdRest",
+              "recorded_ms": 0.654528,
+              "workspace_bytes": 9011200,
+              "algorithm": "miopenConvolutionBwdDataAlgoGEMM",
+              "raw": "GemmBwdRest:0.654528,9011200,miopenConvolutionBwdDataAlgoGEMM"
+            }
+          ],
+          "db_target_entry_unchanged": false
+        },
+        "dw": {
+          "cold_s": 0.07944403900182806,
+          "event_ms_rounds": [
+            4.111939907073975
+          ],
+          "wall_ms_rounds": [
+            4.160487005719915
+          ],
+          "event_median_ms": 4.111939907073975,
+          "wall_median_ms": 4.160487005719915,
+          "db_key": "64-1-6400-1x11-64-1-6400-8-0x15-1x1-1x3-0-NCHW-FP16-W",
+          "db_entries_before": [],
+          "requested_single_solver": null,
+          "reference_error": {
+            "finite": true,
+            "reference_finite": true,
+            "screen_pass": true,
+            "nrmse": 0.0004456101010017623,
+            "max_over_reference_rms": 0.0032447319671488435,
+            "max_abs": 0.007311820983886719,
+            "rmse": 0.0010041572986996443,
+            "reference_rms": 2.253443753726025
+          },
+          "db_entries_after": [
+            {
+              "solver": "GemmWrwUniversal",
+              "recorded_ms": 4.1244,
+              "workspace_bytes": 9011200,
+              "algorithm": "miopenConvolutionBwdWeightsAlgoGEMM",
+              "raw": "GemmWrwUniversal:4.1244,9011200,miopenConvolutionBwdWeightsAlgoGEMM"
+            },
+            {
+              "solver": "ConvHipImplicitGemmV4R1WrW",
+              "recorded_ms": 4.17829,
+              "workspace_bytes": 0,
+              "algorithm": "miopenConvolutionBwdWeightsAlgoImplicitGEMM",
+              "raw": "ConvHipImplicitGemmV4R1WrW:4.17829,0,miopenConvolutionBwdWeightsAlgoImplicitGEMM"
+            }
+          ],
+          "db_target_entry_unchanged": false
+        }
+      },
+      "all_gates_pass": true
+    },
+    {
+      "case": {
+        "kind": "conv1d",
+        "shape": [
+          8,
+          64,
+          6400
+        ],
+        "weight": [
+          64,
+          64,
+          11
+        ],
+        "stride": [
+          1
+        ],
+        "padding": [
+          25
+        ],
+        "dilation": [
+          5
+        ],
+        "groups": 1,
+        "output_padding": [
+          0
+        ],
+        "name": "conv1d_B8_C64_T6400_O64_K11_S1_D5_G1_P25",
+        "origin": "Actual voice_model_A KLM49 HFG FP16 AMP B8 training capture",
+        "benchmark_dtype": "fp16",
+        "physical_dtype_basis": "FP16 training autocast contract; module hook records logical boundary dtypes",
+        "source_capture_keys": [
+          "18cb3df3362d"
+        ],
+        "logical_boundary_variants": [
+          {
+            "capture_key": "18cb3df3362d",
+            "module_kind": "ParametrizedConv1d",
+            "input_dtype": "torch.float16",
+            "weight_dtype": "torch.float32",
+            "count": 5
+          }
+        ],
+        "observed_forward_calls": 5
+      },
+      "directions": {
+        "fwd": {
+          "cold_s": 0.013807331008138135,
+          "event_ms_rounds": [
+            1.0961799621582031
+          ],
+          "wall_ms_rounds": [
+            1.1407909914851189
+          ],
+          "event_median_ms": 1.0961799621582031,
+          "wall_median_ms": 1.1407909914851189,
+          "db_key": "64-1-6400-1x11-64-1-6400-8-0x25-1x1-1x5-0-NCHW-FP16-F",
+          "db_entries_before": [],
+          "requested_single_solver": null,
+          "reference_error": {
+            "finite": true,
+            "reference_finite": true,
+            "screen_pass": true,
+            "nrmse": 0.0002078597586726236,
+            "max_over_reference_rms": 0.0019520931343222445,
+            "max_abs": 0.0019378662109375,
+            "rmse": 0.00020634486944453684,
+            "reference_rms": 0.9927119648470645
+          },
+          "db_entries_after": [
+            {
+              "solver": "GemmFwdRest",
+              "recorded_ms": 1.11306,
+              "workspace_bytes": 9011200,
+              "algorithm": "miopenConvolutionFwdAlgoGEMM",
+              "raw": "GemmFwdRest:1.11306,9011200,miopenConvolutionFwdAlgoGEMM"
+            }
+          ],
+          "db_target_entry_unchanged": false
+        },
+        "dx": {
+          "cold_s": 0.009957511007087305,
+          "event_ms_rounds": [
+            0.8400200009346008
+          ],
+          "wall_ms_rounds": [
+            0.8668929804116488
+          ],
+          "event_median_ms": 0.8400200009346008,
+          "wall_median_ms": 0.8668929804116488,
+          "db_key": "64-1-6400-1x11-64-1-6400-8-0x25-1x1-1x5-0-NCHW-FP16-B",
+          "db_entries_before": [],
+          "requested_single_solver": null,
+          "reference_error": {
+            "finite": true,
+            "reference_finite": true,
+            "screen_pass": true,
+            "nrmse": 0.0002933653751765548,
+            "max_over_reference_rms": 0.002281412220199073,
+            "max_abs": 2.2679567337036133e-05,
+            "rmse": 2.9163514255617404e-06,
+            "reference_rms": 0.00994102123949224
+          },
+          "db_entries_after": [
+            {
+              "solver": "GemmBwdRest",
+              "recorded_ms": 0.802784,
+              "workspace_bytes": 9011200,
+              "algorithm": "miopenConvolutionBwdDataAlgoGEMM",
+              "raw": "GemmBwdRest:0.802784,9011200,miopenConvolutionBwdDataAlgoGEMM"
+            }
+          ],
+          "db_target_entry_unchanged": false
+        },
+        "dw": {
+          "cold_s": 0.07953732798341662,
+          "event_ms_rounds": [
+            4.233029842376709
+          ],
+          "wall_ms_rounds": [
+            4.269416007446125
+          ],
+          "event_median_ms": 4.233029842376709,
+          "wall_median_ms": 4.269416007446125,
+          "db_key": "64-1-6400-1x11-64-1-6400-8-0x25-1x1-1x5-0-NCHW-FP16-W",
+          "db_entries_before": [],
+          "requested_single_solver": null,
+          "reference_error": {
+            "finite": true,
+            "reference_finite": true,
+            "screen_pass": true,
+            "nrmse": 0.0002073400630777797,
+            "max_over_reference_rms": 0.0016458540120908348,
+            "max_abs": 0.00371551513671875,
+            "rmse": 0.0004680701551622149,
+            "reference_rms": 2.2574998204115873
+          },
+          "db_entries_after": [
+            {
+              "solver": "GemmWrwUniversal",
+              "recorded_ms": 4.19988,
+              "workspace_bytes": 9011200,
+              "algorithm": "miopenConvolutionBwdWeightsAlgoGEMM",
+              "raw": "GemmWrwUniversal:4.19988,9011200,miopenConvolutionBwdWeightsAlgoGEMM"
+            },
+            {
+              "solver": "ConvHipImplicitGemmV4R1WrW",
+              "recorded_ms": 4.16236,
+              "workspace_bytes": 0,
+              "algorithm": "miopenConvolutionBwdWeightsAlgoImplicitGEMM",
+              "raw": "ConvHipImplicitGemmV4R1WrW:4.16236,0,miopenConvolutionBwdWeightsAlgoImplicitGEMM"
+            }
+          ],
+          "db_target_entry_unchanged": false
+        }
+      },
+      "all_gates_pass": true
+    },
+    {
+      "case": {
+        "kind": "conv1d",
+        "shape": [
+          8,
+          64,
+          6400
+        ],
+        "weight": [
+          64,
+          64,
+          3
+        ],
+        "stride": [
+          1
+        ],
+        "padding": [
+          3
+        ],
+        "dilation": [
+          3
+        ],
+        "groups": 1,
+        "output_padding": [
+          0
+        ],
+        "name": "conv1d_B8_C64_T6400_O64_K3_S1_D3_G1_P3",
+        "origin": "Actual voice_model_A KLM49 HFG FP16 AMP B8 training capture",
+        "benchmark_dtype": "fp16",
+        "physical_dtype_basis": "FP16 training autocast contract; module hook records logical boundary dtypes",
+        "source_capture_keys": [
+          "a427b71ca974"
+        ],
+        "logical_boundary_variants": [
+          {
+            "capture_key": "a427b71ca974",
+            "module_kind": "ParametrizedConv1d",
+            "input_dtype": "torch.float16",
+            "weight_dtype": "torch.float32",
+            "count": 5
+          }
+        ],
+        "observed_forward_calls": 5
+      },
+      "directions": {
+        "fwd": {
+          "cold_s": 0.00896760800969787,
+          "event_ms_rounds": [
+            0.6281700134277344
+          ],
+          "wall_ms_rounds": [
+            0.6599249900318682
+          ],
+          "event_median_ms": 0.6281700134277344,
+          "wall_median_ms": 0.6599249900318682,
+          "db_key": "64-1-6400-1x3-64-1-6400-8-0x3-1x1-1x3-0-NCHW-FP16-F",
+          "db_entries_before": [],
+          "requested_single_solver": null,
+          "reference_error": {
+            "finite": true,
+            "reference_finite": true,
+            "screen_pass": true,
+            "nrmse": 0.00020764860796644788,
+            "max_over_reference_rms": 0.001956502638469162,
+            "max_abs": 0.0019497871398925781,
+            "rmse": 0.00020693587499905495,
+            "reference_rms": 0.996567600551851
+          },
+          "db_entries_after": [
+            {
+              "solver": "GemmFwdRest",
+              "recorded_ms": 0.644253,
+              "workspace_bytes": 2457600,
+              "algorithm": "miopenConvolutionFwdAlgoGEMM",
+              "raw": "GemmFwdRest:0.644253,2457600,miopenConvolutionFwdAlgoGEMM"
+            }
+          ],
+          "db_target_entry_unchanged": false
+        },
+        "dx": {
+          "cold_s": 0.006236960005480796,
+          "event_ms_rounds": [
+            0.447050005197525
+          ],
+          "wall_ms_rounds": [
+            0.46922601177357137
+          ],
+          "event_median_ms": 0.447050005197525,
+          "wall_median_ms": 0.46922601177357137,
+          "db_key": "64-1-6400-1x3-64-1-6400-8-0x3-1x1-1x3-0-NCHW-FP16-B",
+          "db_entries_before": [],
+          "requested_single_solver": null,
+          "reference_error": {
+            "finite": true,
+            "reference_finite": true,
+            "screen_pass": true,
+            "nrmse": 0.0002974655756999548,
+            "max_over_reference_rms": 0.0030090100927998233,
+            "max_abs": 3.0022114515304565e-05,
+            "rmse": 2.9679347368739963e-06,
+            "reference_rms": 0.009977405721284768
+          },
+          "db_entries_after": [
+            {
+              "solver": "GemmBwdRest",
+              "recorded_ms": 0.435903,
+              "workspace_bytes": 2457600,
+              "algorithm": "miopenConvolutionBwdDataAlgoGEMM",
+              "raw": "GemmBwdRest:0.435903,2457600,miopenConvolutionBwdDataAlgoGEMM"
+            }
+          ],
+          "db_target_entry_unchanged": false
+        },
+        "dw": {
+          "cold_s": 0.06514058299944736,
+          "event_ms_rounds": [
+            2.595139980316162
+          ],
+          "wall_ms_rounds": [
+            2.627818990731612
+          ],
+          "event_median_ms": 2.595139980316162,
+          "wall_median_ms": 2.627818990731612,
+          "db_key": "64-1-6400-1x3-64-1-6400-8-0x3-1x1-1x3-0-NCHW-FP16-W",
+          "db_entries_before": [],
+          "requested_single_solver": null,
+          "reference_error": {
+            "finite": true,
+            "reference_finite": true,
+            "screen_pass": true,
+            "nrmse": 0.0004339221212377046,
+            "max_over_reference_rms": 0.0031680037828206047,
+            "max_abs": 0.007123470306396484,
+            "rmse": 0.0009757031739315952,
+            "reference_rms": 2.2485674875218
+          },
+          "db_entries_after": [
+            {
+              "solver": "GemmWrwUniversal",
+              "recorded_ms": 2.62727,
+              "workspace_bytes": 2457600,
+              "algorithm": "miopenConvolutionBwdWeightsAlgoGEMM",
+              "raw": "GemmWrwUniversal:2.62727,2457600,miopenConvolutionBwdWeightsAlgoGEMM"
+            },
+            {
+              "solver": "ConvHipImplicitGemmV4R1WrW",
+              "recorded_ms": 4.14844,
+              "workspace_bytes": 0,
+              "algorithm": "miopenConvolutionBwdWeightsAlgoImplicitGEMM",
+              "raw": "ConvHipImplicitGemmV4R1WrW:4.14844,0,miopenConvolutionBwdWeightsAlgoImplicitGEMM"
+            }
+          ],
+          "db_target_entry_unchanged": false
+        }
+      },
+      "all_gates_pass": true
+    },
+    {
+      "case": {
+        "kind": "conv1d",
+        "shape": [
+          8,
+          64,
+          6400
+        ],
+        "weight": [
+          64,
+          64,
+          3
+        ],
+        "stride": [
+          1
+        ],
+        "padding": [
+          5
+        ],
+        "dilation": [
+          5
+        ],
+        "groups": 1,
+        "output_padding": [
+          0
+        ],
+        "name": "conv1d_B8_C64_T6400_O64_K3_S1_D5_G1_P5",
+        "origin": "Actual voice_model_A KLM49 HFG FP16 AMP B8 training capture",
+        "benchmark_dtype": "fp16",
+        "physical_dtype_basis": "FP16 training autocast contract; module hook records logical boundary dtypes",
+        "source_capture_keys": [
+          "d01f6f7aaf90"
+        ],
+        "logical_boundary_variants": [
+          {
+            "capture_key": "d01f6f7aaf90",
+            "module_kind": "ParametrizedConv1d",
+            "input_dtype": "torch.float16",
+            "weight_dtype": "torch.float32",
+            "count": 5
+          }
+        ],
+        "observed_forward_calls": 5
+      },
+      "directions": {
+        "fwd": {
+          "cold_s": 0.008786761027295142,
+          "event_ms_rounds": [
+            0.6290199756622314
+          ],
+          "wall_ms_rounds": [
+            0.658675009617582
+          ],
+          "event_median_ms": 0.6290199756622314,
+          "wall_median_ms": 0.658675009617582,
+          "db_key": "64-1-6400-1x3-64-1-6400-8-0x5-1x1-1x5-0-NCHW-FP16-F",
+          "db_entries_before": [],
+          "requested_single_solver": null,
+          "reference_error": {
+            "finite": true,
+            "reference_finite": true,
+            "screen_pass": true,
+            "nrmse": 0.00020766339665036202,
+            "max_over_reference_rms": 0.0019576782401888484,
+            "max_abs": 0.0019516944885253906,
+            "rmse": 0.00020702866200927717,
+            "reference_rms": 0.9969434447701271
+          },
+          "db_entries_after": [
+            {
+              "solver": "GemmFwdRest",
+              "recorded_ms": 0.646192,
+              "workspace_bytes": 2457600,
+              "algorithm": "miopenConvolutionFwdAlgoGEMM",
+              "raw": "GemmFwdRest:0.646192,2457600,miopenConvolutionFwdAlgoGEMM"
+            }
+          ],
+          "db_target_entry_unchanged": false
+        },
+        "dx": {
+          "cold_s": 0.006350509996991605,
+          "event_ms_rounds": [
+            0.40213000774383545
+          ],
+          "wall_ms_rounds": [
+            0.42434700299054384
+          ],
+          "event_median_ms": 0.40213000774383545,
+          "wall_median_ms": 0.42434700299054384,
+          "db_key": "64-1-6400-1x3-64-1-6400-8-0x5-1x1-1x5-0-NCHW-FP16-B",
+          "db_entries_before": [],
+          "requested_single_solver": null,
+          "reference_error": {
+            "finite": true,
+            "reference_finite": true,
+            "screen_pass": true,
+            "nrmse": 0.0002976218904024083,
+            "max_over_reference_rms": 0.0028156977128618614,
+            "max_abs": 2.8092414140701294e-05,
+            "rmse": 2.9693945356175574e-06,
+            "reference_rms": 0.00997707034117249
+          },
+          "db_entries_after": [
+            {
+              "solver": "GemmBwdRest",
+              "recorded_ms": 0.450566,
+              "workspace_bytes": 2457600,
+              "algorithm": "miopenConvolutionBwdDataAlgoGEMM",
+              "raw": "GemmBwdRest:0.450566,2457600,miopenConvolutionBwdDataAlgoGEMM"
+            }
+          ],
+          "db_target_entry_unchanged": false
+        },
+        "dw": {
+          "cold_s": 0.06471423601033166,
+          "event_ms_rounds": [
+            2.5889298915863037
+          ],
+          "wall_ms_rounds": [
+            2.614369004731998
+          ],
+          "event_median_ms": 2.5889298915863037,
+          "wall_median_ms": 2.614369004731998,
+          "db_key": "64-1-6400-1x3-64-1-6400-8-0x5-1x1-1x5-0-NCHW-FP16-W",
+          "db_entries_before": [],
+          "requested_single_solver": null,
+          "reference_error": {
+            "finite": true,
+            "reference_finite": true,
+            "screen_pass": true,
+            "nrmse": 0.00044087898661256006,
+            "max_over_reference_rms": 0.0035417354137373125,
+            "max_abs": 0.007977485656738281,
+            "rmse": 0.0009930458888648837,
+            "reference_rms": 2.2524228167344305
+          },
+          "db_entries_after": [
+            {
+              "solver": "GemmWrwUniversal",
+              "recorded_ms": 2.62019,
+              "workspace_bytes": 2457600,
+              "algorithm": "miopenConvolutionBwdWeightsAlgoGEMM",
+              "raw": "GemmWrwUniversal:2.62019,2457600,miopenConvolutionBwdWeightsAlgoGEMM"
+            },
+            {
+              "solver": "ConvHipImplicitGemmV4R1WrW",
+              "recorded_ms": 4.14493,
+              "workspace_bytes": 0,
+              "algorithm": "miopenConvolutionBwdWeightsAlgoImplicitGEMM",
+              "raw": "ConvHipImplicitGemmV4R1WrW:4.14493,0,miopenConvolutionBwdWeightsAlgoImplicitGEMM"
+            }
+          ],
+          "db_target_entry_unchanged": false
+        }
+      },
+      "all_gates_pass": true
+    },
+    {
+      "case": {
+        "kind": "conv1d",
+        "shape": [
+          8,
+          64,
+          6400
+        ],
+        "weight": [
+          64,
+          64,
+          7
+        ],
+        "stride": [
+          1
+        ],
+        "padding": [
+          15
+        ],
+        "dilation": [
+          5
+        ],
+        "groups": 1,
+        "output_padding": [
+          0
+        ],
+        "name": "conv1d_B8_C64_T6400_O64_K7_S1_D5_G1_P15",
+        "origin": "Actual voice_model_A KLM49 HFG FP16 AMP B8 training capture",
+        "benchmark_dtype": "fp16",
+        "physical_dtype_basis": "FP16 training autocast contract; module hook records logical boundary dtypes",
+        "source_capture_keys": [
+          "ede18b7109d3"
+        ],
+        "logical_boundary_variants": [
+          {
+            "capture_key": "ede18b7109d3",
+            "module_kind": "ParametrizedConv1d",
+            "input_dtype": "torch.float16",
+            "weight_dtype": "torch.float32",
+            "count": 5
+          }
+        ],
+        "observed_forward_calls": 5
+      },
+      "directions": {
+        "fwd": {
+          "cold_s": 0.010810193984070793,
+          "event_ms_rounds": [
+            0.8499400019645691
+          ],
+          "wall_ms_rounds": [
+            0.8843530085869133
+          ],
+          "event_median_ms": 0.8499400019645691,
+          "wall_median_ms": 0.8843530085869133,
+          "db_key": "64-1-6400-1x7-64-1-6400-8-0x15-1x1-1x5-0-NCHW-FP16-F",
+          "db_entries_before": [],
+          "requested_single_solver": null,
+          "reference_error": {
+            "finite": true,
+            "reference_finite": true,
+            "screen_pass": true,
+            "nrmse": 0.00020773449990841198,
+            "max_over_reference_rms": 0.0019566805094849283,
+            "max_abs": 0.0019478797912597656,
+            "rmse": 0.000206800155854553,
+            "reference_rms": 0.9955022201210154
+          },
+          "db_entries_after": [
+            {
+              "solver": "GemmFwdRest",
+              "recorded_ms": 0.845552,
+              "workspace_bytes": 5734400,
+              "algorithm": "miopenConvolutionFwdAlgoGEMM",
+              "raw": "GemmFwdRest:0.845552,5734400,miopenConvolutionFwdAlgoGEMM"
+            }
+          ],
+          "db_target_entry_unchanged": false
+        },
+        "dx": {
+          "cold_s": 0.007704428018769249,
+          "event_ms_rounds": [
+            0.6205499768257141
+          ],
+          "wall_ms_rounds": [
+            0.6462939782068133
+          ],
+          "event_median_ms": 0.6205499768257141,
+          "wall_median_ms": 0.6462939782068133,
+          "db_key": "64-1-6400-1x7-64-1-6400-8-0x15-1x1-1x5-0-NCHW-FP16-B",
+          "db_entries_before": [],
+          "requested_single_solver": null,
+          "reference_error": {
+            "finite": true,
+            "reference_finite": true,
+            "screen_pass": true,
+            "nrmse": 0.00029413350438869257,
+            "max_over_reference_rms": 0.0023737413282873027,
+            "max_abs": 2.3663043975830078e-05,
+            "rmse": 2.9321198422814145e-06,
+            "reference_rms": 0.009968670003695555
+          },
+          "db_entries_after": [
+            {
+              "solver": "GemmBwdRest",
+              "recorded_ms": 0.592373,
+              "workspace_bytes": 5734400,
+              "algorithm": "miopenConvolutionBwdDataAlgoGEMM",
+              "raw": "GemmBwdRest:0.592373,5734400,miopenConvolutionBwdDataAlgoGEMM"
+            }
+          ],
+          "db_target_entry_unchanged": false
+        },
+        "dw": {
+          "cold_s": 0.07894531299825758,
+          "event_ms_rounds": [
+            4.05649995803833
+          ],
+          "wall_ms_rounds": [
+            4.090467002242804
+          ],
+          "event_median_ms": 4.05649995803833,
+          "wall_median_ms": 4.090467002242804,
+          "db_key": "64-1-6400-1x7-64-1-6400-8-0x15-1x1-1x5-0-NCHW-FP16-W",
+          "db_entries_before": [],
+          "requested_single_solver": null,
+          "reference_error": {
+            "finite": true,
+            "reference_finite": true,
+            "screen_pass": true,
+            "nrmse": 0.0004369535507180365,
+            "max_over_reference_rms": 0.003058707092904959,
+            "max_abs": 0.006961822509765625,
+            "rmse": 0.0009945355905987576,
+            "reference_rms": 2.27606707615594
+          },
+          "db_entries_after": [
+            {
+              "solver": "GemmWrwUniversal",
+              "recorded_ms": 4.05489,
+              "workspace_bytes": 5734400,
+              "algorithm": "miopenConvolutionBwdWeightsAlgoGEMM",
+              "raw": "GemmWrwUniversal:4.05489,5734400,miopenConvolutionBwdWeightsAlgoGEMM"
+            },
+            {
+              "solver": "ConvHipImplicitGemmV4R1WrW",
+              "recorded_ms": 4.14431,
+              "workspace_bytes": 0,
+              "algorithm": "miopenConvolutionBwdWeightsAlgoImplicitGEMM",
+              "raw": "ConvHipImplicitGemmV4R1WrW:4.14431,0,miopenConvolutionBwdWeightsAlgoImplicitGEMM"
+            }
+          ],
+          "db_target_entry_unchanged": false
+        }
+      },
+      "all_gates_pass": true
+    }
+  ],
+  "warmup": 1,
+  "rounds": 1,
+  "reps": 1,
+  "logging_enabled": false,
+  "probe_only": false,
+  "timing_scope": "each direction alone; no bias, allocation included; GPU event and wall separate",
+  "reference": "FP32 MIOpen on exactly FP16-rounded input/weight/grad-output; both safety blockers active",
+  "status": "completed",
+  "device": "AMD Radeon RX 6900 XT",
+  "gpu_audit": {
+    "available": true,
+    "valid_for_timing": true,
+    "method": "KFD client PID snapshots and periodic polling; research flock",
+    "limitation": "Detects observed KFD clients, not graphics load or sub-poll transient clients",
+    "allowed_pids": [
+      1777583
+    ],
+    "interval_s": 0.25,
+    "sample_count": 53,
+    "started_unix_s": 1794076061.9581716,
+    "ended_unix_s": 1794076069.1665795,
+    "foreign_clients": [],
+    "errors": [],
+    "transitions": [
+      {
+        "unix_s": 1794076061.9581718,
+        "kfd_pids": [],
+        "foreign_or_error": []
+      }
+    ]
+  },
+  "valid_for_timing": true,
+  "db_file_after": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/applio_v08/solver_workspace_seed_db24/gfx1030_40.HIP.3_6_0_8d1ae90e.ufdb.txt",
+  "db_sha256_after": "2ad80c8b505d65bf95ff3d12a944f3d12d005bee36fac5d494cb3a0aef6b1e49"
+}

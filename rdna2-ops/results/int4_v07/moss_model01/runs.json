@@ -1,0 +1,418 @@
+{
+  "spec": {
+    "sampler": [
+      "KSampler",
+      "sample"
+    ],
+    "sampler_node": "8",
+    "model": "moss",
+    "runtime": "~/DevSpace/moss-image-rdna2-lab01/runtime/ComfyUI",
+    "workflow": "~/DevSpace/moss-image-rdna2-lab01/workflows/sft_fast4_int8_512.json",
+    "decoder": [
+      "VAEDecode",
+      "decode"
+    ],
+    "save_node": "11",
+    "attention_target": "comfy.ops:scaled_dot_product_attention",
+    "env": {
+      "MOSS_RDNA2_INT8_PATCH": "1",
+      "MOSS_RDNA2_INT8_LAYOUT": "view",
+      "MOSS_RDNA2_ATTENTION": "auto",
+      "MIOPEN_DEBUG_CONV_IMPLICIT_GEMM_HIP_FWD_V4R1": "0",
+      "MIOPEN_DEBUG_CONV_DIRECT_HIP_WRW53": "0"
+    },
+    "server_args": [
+      "--base-directory",
+      "~/DevSpace/moss-image-rdna2-lab01",
+      "--models-directory",
+      "~/DevSpace/moss-image-rdna2-lab01/models",
+      "--use-pytorch-cross-attention",
+      "--disable-comfy-compiler"
+    ],
+    "int8_config": {
+      "tile": [
+        64,
+        128,
+        64
+      ],
+      "num_warps": 4,
+      "num_stages": 2,
+      "group_m": 8,
+      "wrapped": false
+    },
+    "switch_module": "int4_model_switches_v07",
+    "gpu_audit": true,
+    "save_reference_tensors": true,
+    "comparison_reference_modes": [
+      "int8_fused",
+      "int4_reference"
+    ],
+    "require_bitwise_modes": [
+      "int8_fused"
+    ],
+    "int4_config": {
+      "group_size": 32,
+      "symmetric": false,
+      "layout": "kn",
+      "order": "low",
+      "tile": [
+        32,
+        64
+      ]
+    }
+  },
+  "seed": 20261105,
+  "rgb_gate": {
+    "max_abs": 0.00784313725490196,
+    "rmse": 0.000980392156862745
+  },
+  "runs": [
+    {
+      "index": 0,
+      "mode": "warm",
+      "success": true,
+      "wall": {
+        "denoise_s": 8.755817682002089,
+        "vae_s": 0.26962726599595044
+      },
+      "request_wall_s": 14.397715572995367,
+      "conditioning_first_embedding_sha256": {
+        "positive": "55a7df454fe46394f7af0ba43cbbf3a06c0eba2f170242400dc7e7526172530c",
+        "negative": "0c73098786d944b8ad40d518610df02be392a5fa0e58eee56b4d973d21d8a45c"
+      },
+      "candidate": {},
+      "stage_calls": {
+        "denoise": 1,
+        "vae": 1
+      },
+      "profile_artifacts": [],
+      "latent_error": {
+        "finite": true,
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "byte_equal": true
+      },
+      "image_error": {
+        "finite": true,
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "byte_equal": true
+      },
+      "comparison_errors": {},
+      "image_gate": true,
+      "latent_sha256": "a36c9b2b5e8926f4426d4f90e220abdd8b81f007cd378668bcd6be97479a5396",
+      "image_sha256": "62dcd98312d66cc1820b06d3fe016dcd17412d53947c3f588046aabd5996cad7"
+    },
+    {
+      "index": 1,
+      "mode": "int8_fused",
+      "success": true,
+      "wall": {
+        "denoise_s": 2.0866402889951132,
+        "vae_s": 0.04780366399791092
+      },
+      "request_wall_s": 2.210297270998126,
+      "conditioning_first_embedding_sha256": {
+        "positive": "55a7df454fe46394f7af0ba43cbbf3a06c0eba2f170242400dc7e7526172530c",
+        "negative": "0c73098786d944b8ad40d518610df02be392a5fa0e58eee56b4d973d21d8a45c"
+      },
+      "candidate": {
+        "hits": 672,
+        "fallbacks": 0,
+        "shapes": {
+          "(1061, 9216, 3072)": 168,
+          "(1061, 3072, 3072)": 168,
+          "(1061, 16384, 3072)": 168,
+          "(1061, 3072, 8192)": 168
+        },
+        "scope": "Actual requested MOSS v0.5 INT8 fused baseline"
+      },
+      "stage_calls": {
+        "denoise": 1,
+        "vae": 1
+      },
+      "profile_artifacts": [],
+      "latent_error": {
+        "finite": true,
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "byte_equal": true
+      },
+      "image_error": {
+        "finite": true,
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "byte_equal": true
+      },
+      "comparison_errors": {},
+      "image_gate": true,
+      "latent_sha256": "a36c9b2b5e8926f4426d4f90e220abdd8b81f007cd378668bcd6be97479a5396",
+      "image_sha256": "62dcd98312d66cc1820b06d3fe016dcd17412d53947c3f588046aabd5996cad7",
+      "required_bitwise_gate": true
+    },
+    {
+      "index": 2,
+      "mode": "int4_reference",
+      "success": true,
+      "wall": {
+        "denoise_s": 66.35660981299588,
+        "vae_s": 0.04818699099996593
+      },
+      "request_wall_s": 66.64112658399972,
+      "conditioning_first_embedding_sha256": {
+        "positive": "55a7df454fe46394f7af0ba43cbbf3a06c0eba2f170242400dc7e7526172530c",
+        "negative": "0c73098786d944b8ad40d518610df02be392a5fa0e58eee56b4d973d21d8a45c"
+      },
+      "candidate": {
+        "mode": "int4_reference",
+        "hits": 672,
+        "shapes": {
+          "(1061, 9216, 3072)": 168,
+          "(1061, 3072, 3072)": 168,
+          "(1061, 16384, 3072)": 168,
+          "(1061, 3072, 8192)": 168
+        },
+        "bias_dtype": {
+          "none": 672
+        },
+        "max_transient_packed_bytes": 44040192,
+        "group_size": 32,
+        "symmetric": false,
+        "layout": "kn",
+        "order": "low",
+        "tile": [
+          32,
+          64
+        ],
+        "preparations": 672,
+        "source": "original checkpoint W8 reconstructed in FP32 within call; no new checkpoint",
+        "activation": "existing A8 and row scale preserved",
+        "weight_lifetime": "fresh per-call owned W4; no persistent pointer cache",
+        "preparation_in_stage_time": true,
+        "performance_adoption": false,
+        "same_stored_reference": "sequential group FP32 torch.mm on exact integers, explicit scale mul/add; integer sum bound 245760",
+        "protected_original_export_restored": true,
+        "source_sha256": {
+          "int4_model_switches_v07.py": "79085f271771cd35ebb44479d7d767bc61f82f3640ebdc95f092628ac13fe6e4",
+          "rdna2_ops/int4_weight_gemm_v07.py": "9876326b9585f81816c2f695c7b1a5c0a01e1a8205d15e35130004833c73e1ab",
+          "rdna2_ops/int8_gemm.py": "0b2d0970af17ddf61aa19d242bfebbb6f42add330e07387442dbe97ab316109d"
+        },
+        "outer_adapter_hits": 672,
+        "outer_adapter_fallbacks": 0
+      },
+      "stage_calls": {
+        "denoise": 1,
+        "vae": 1
+      },
+      "profile_artifacts": [],
+      "latent_error": {
+        "finite": true,
+        "max_abs": 5.881277084350586,
+        "rmse": 0.7191626796828324,
+        "byte_equal": false
+      },
+      "image_error": {
+        "finite": true,
+        "max_abs": 0.942626953125,
+        "rmse": 0.17760117436294914,
+        "byte_equal": false
+      },
+      "comparison_errors": {
+        "int8_fused": {
+          "latent": {
+            "finite": true,
+            "max_abs": 5.881277084350586,
+            "rmse": 0.7191626796828324,
+            "byte_equal": false
+          },
+          "image": {
+            "finite": true,
+            "max_abs": 0.942626953125,
+            "rmse": 0.17760117436294914,
+            "byte_equal": false
+          }
+        }
+      },
+      "image_gate": false,
+      "latent_sha256": "09f39e0744529ebcec74d21b8cc827476fbc88dc3ab8ebc209d3d85eede236a5",
+      "image_sha256": "a7edb8abb07fc8524adbc15294bfe999a32e0bcfe6ada88f8947bc1c1e5c29b7"
+    },
+    {
+      "index": 3,
+      "mode": "int4_dot4",
+      "success": true,
+      "wall": {
+        "denoise_s": 10.47944679200009,
+        "vae_s": 0.04684310000448022
+      },
+      "request_wall_s": 10.744363481004257,
+      "conditioning_first_embedding_sha256": {
+        "positive": "55a7df454fe46394f7af0ba43cbbf3a06c0eba2f170242400dc7e7526172530c",
+        "negative": "0c73098786d944b8ad40d518610df02be392a5fa0e58eee56b4d973d21d8a45c"
+      },
+      "candidate": {
+        "mode": "int4_dot4",
+        "hits": 672,
+        "shapes": {
+          "(1061, 9216, 3072)": 168,
+          "(1061, 3072, 3072)": 168,
+          "(1061, 16384, 3072)": 168,
+          "(1061, 3072, 8192)": 168
+        },
+        "bias_dtype": {
+          "none": 672
+        },
+        "max_transient_packed_bytes": 44040192,
+        "group_size": 32,
+        "symmetric": false,
+        "layout": "kn",
+        "order": "low",
+        "tile": [
+          32,
+          64
+        ],
+        "preparations": 672,
+        "source": "original checkpoint W8 reconstructed in FP32 within call; no new checkpoint",
+        "activation": "existing A8 and row scale preserved",
+        "weight_lifetime": "fresh per-call owned W4; no persistent pointer cache",
+        "preparation_in_stage_time": true,
+        "performance_adoption": false,
+        "same_stored_reference": "sequential group FP32 torch.mm on exact integers, explicit scale mul/add; integer sum bound 245760",
+        "protected_original_export_restored": true,
+        "source_sha256": {
+          "int4_model_switches_v07.py": "79085f271771cd35ebb44479d7d767bc61f82f3640ebdc95f092628ac13fe6e4",
+          "rdna2_ops/int4_weight_gemm_v07.py": "9876326b9585f81816c2f695c7b1a5c0a01e1a8205d15e35130004833c73e1ab",
+          "rdna2_ops/int8_gemm.py": "0b2d0970af17ddf61aa19d242bfebbb6f42add330e07387442dbe97ab316109d"
+        },
+        "outer_adapter_hits": 672,
+        "outer_adapter_fallbacks": 0
+      },
+      "stage_calls": {
+        "denoise": 1,
+        "vae": 1
+      },
+      "profile_artifacts": [],
+      "latent_error": {
+        "finite": true,
+        "max_abs": 5.881277084350586,
+        "rmse": 0.7191626796828324,
+        "byte_equal": false
+      },
+      "image_error": {
+        "finite": true,
+        "max_abs": 0.942626953125,
+        "rmse": 0.17760117436294914,
+        "byte_equal": false
+      },
+      "comparison_errors": {
+        "int8_fused": {
+          "latent": {
+            "finite": true,
+            "max_abs": 5.881277084350586,
+            "rmse": 0.7191626796828324,
+            "byte_equal": false
+          },
+          "image": {
+            "finite": true,
+            "max_abs": 0.942626953125,
+            "rmse": 0.17760117436294914,
+            "byte_equal": false
+          }
+        },
+        "int4_reference": {
+          "latent": {
+            "finite": true,
+            "max_abs": 0.0,
+            "rmse": 0.0,
+            "byte_equal": true
+          },
+          "image": {
+            "finite": true,
+            "max_abs": 0.0,
+            "rmse": 0.0,
+            "byte_equal": true
+          }
+        }
+      },
+      "image_gate": false,
+      "latent_sha256": "09f39e0744529ebcec74d21b8cc827476fbc88dc3ab8ebc209d3d85eede236a5",
+      "image_sha256": "a7edb8abb07fc8524adbc15294bfe999a32e0bcfe6ada88f8947bc1c1e5c29b7"
+    },
+    {
+      "index": 4,
+      "mode": "int8_fused",
+      "success": true,
+      "wall": {
+        "denoise_s": 2.095776696005487,
+        "vae_s": 0.047115929002757184
+      },
+      "request_wall_s": 2.2116104919987265,
+      "conditioning_first_embedding_sha256": {
+        "positive": "55a7df454fe46394f7af0ba43cbbf3a06c0eba2f170242400dc7e7526172530c",
+        "negative": "0c73098786d944b8ad40d518610df02be392a5fa0e58eee56b4d973d21d8a45c"
+      },
+      "candidate": {
+        "hits": 672,
+        "fallbacks": 0,
+        "shapes": {
+          "(1061, 9216, 3072)": 168,
+          "(1061, 3072, 3072)": 168,
+          "(1061, 16384, 3072)": 168,
+          "(1061, 3072, 8192)": 168
+        },
+        "scope": "Actual requested MOSS v0.5 INT8 fused baseline"
+      },
+      "stage_calls": {
+        "denoise": 1,
+        "vae": 1
+      },
+      "profile_artifacts": [],
+      "latent_error": {
+        "finite": true,
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "byte_equal": true
+      },
+      "image_error": {
+        "finite": true,
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "byte_equal": true
+      },
+      "comparison_errors": {
+        "int8_fused": {
+          "latent": {
+            "finite": true,
+            "max_abs": 0.0,
+            "rmse": 0.0,
+            "byte_equal": true
+          },
+          "image": {
+            "finite": true,
+            "max_abs": 0.0,
+            "rmse": 0.0,
+            "byte_equal": true
+          }
+        },
+        "int4_reference": {
+          "latent": {
+            "finite": true,
+            "max_abs": 5.881277084350586,
+            "rmse": 0.7191626796828324,
+            "byte_equal": false
+          },
+          "image": {
+            "finite": true,
+            "max_abs": 0.942626953125,
+            "rmse": 0.17760117436294914,
+            "byte_equal": false
+          }
+        }
+      },
+      "image_gate": true,
+      "latent_sha256": "a36c9b2b5e8926f4426d4f90e220abdd8b81f007cd378668bcd6be97479a5396",
+      "image_sha256": "62dcd98312d66cc1820b06d3fe016dcd17412d53947c3f588046aabd5996cad7",
+      "required_bitwise_gate": true
+    }
+  ]
+}

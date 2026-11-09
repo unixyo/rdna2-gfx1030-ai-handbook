@@ -1,0 +1,3675 @@
+{
+  "schema": "conv_catalog_v06",
+  "mode": "FAST",
+  "candidate": "native",
+  "dtype": "fp16",
+  "torch": "2.11.0+rocm10.0.0",
+  "hip": "7.15.26333",
+  "cases": [
+    {
+      "case": {
+        "name": "period_C32_O128_H2134_P2",
+        "shape": [
+          8,
+          32,
+          2134,
+          2
+        ],
+        "weight": [
+          128,
+          32,
+          5,
+          1
+        ],
+        "kind": "conv2d",
+        "groups": 1,
+        "dilation": 1,
+        "stride": [
+          3,
+          1
+        ],
+        "padding": [
+          2,
+          0
+        ],
+        "origin": "Applio HiFi-GAN 40k, segment=12800, B=8"
+      },
+      "cold_s": 0.5303946799976984,
+      "ms_rounds": [
+        1.0570551426748611,
+        1.0568681422487967,
+        1.0557009996513702
+      ],
+      "event_ms_rounds": [
+        1.0517894199916296,
+        1.0536067145211356,
+        1.052732263292585
+      ],
+      "median_ms": 1.0568681422487967,
+      "event_median_ms": 1.052732263292585,
+      "peak_extra_allocated_bytes": 5598208,
+      "device_activities": {
+        "denominator_ms": 0.935991,
+        "rows": [
+          {
+            "name": "Cijk_Alik_Bljk_HHS_BH_MT128x64x8_SN_AMAS3_BL1_BS1_EPS1_GLVWA8_GLVWB4_GRVW8_GSU1_GSUASB_ISA1030_IU2_K1_KLA_LDL2_LRVW8_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU0_SUM0_SUS0_SVW4_TT8_8_USFGROn1_VAW2_VSn1_VW8_VWB8_WS32_WG16_8_1_WGM4",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.409072,
+            "count": 8,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.43704693741713324
+          },
+          {
+            "name": "Im2d2Col_v2",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.311224,
+            "count": 16,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.33250747069149167
+          },
+          {
+            "name": "Cijk_Ailk_Bjlk_HHS_BH_MT128x128x16_SN_AMAS3_BL1_BS1_EPS0_GLVWA8_GLVWB8_GRVW8_GSU1_GSUASB_ISA1030_IU2_K1_KLA_LDL2_LRVW8_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU0_SUM0_SUS0_SVW4_TT8_16_USFGROn1_VAW2_VSn1_VW8_VWB8_WS32_WG16_8_1_WGM1",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.10739200000000002,
+            "count": 8,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.11473614596721551
+          },
+          {
+            "name": "Cijk_Ailk_Bljk_HHS_BH_MT64x32x16_SN_AMAS3_BL1_BS1_EPS1_GLVWA2_GLVWB2_GRVW2_GSU1_GSUASB_ISA1030_IU2_K1_KLA_LDL2_LRVW2_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU0_SUM0_SUS0_SVW4_TT4_4_USFGROn1_VAW2_VSn1_VW2_VWB2_WS32_WG16_8_1_WGM4",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.055911999999999996,
+            "count": 8,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.05973561711597654
+          },
+          {
+            "name": "Col2Im2dU",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.050671999999999995,
+            "count": 8,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.05413727268745105
+          },
+          {
+            "name": "SubTensorOpWithScalar1d",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.001719,
+            "count": 1,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.0018365561207319301
+          }
+        ],
+        "top10": [
+          {
+            "name": "Cijk_Alik_Bljk_HHS_BH_MT128x64x8_SN_AMAS3_BL1_BS1_EPS1_GLVWA8_GLVWB4_GRVW8_GSU1_GSUASB_ISA1030_IU2_K1_KLA_LDL2_LRVW8_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU0_SUM0_SUS0_SVW4_TT8_8_USFGROn1_VAW2_VSn1_VW8_VWB8_WS32_WG16_8_1_WGM4",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.409072,
+            "count": 8,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.43704693741713324
+          },
+          {
+            "name": "Im2d2Col_v2",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.311224,
+            "count": 16,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.33250747069149167
+          },
+          {
+            "name": "Cijk_Ailk_Bjlk_HHS_BH_MT128x128x16_SN_AMAS3_BL1_BS1_EPS0_GLVWA8_GLVWB8_GRVW8_GSU1_GSUASB_ISA1030_IU2_K1_KLA_LDL2_LRVW8_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU0_SUM0_SUS0_SVW4_TT8_16_USFGROn1_VAW2_VSn1_VW8_VWB8_WS32_WG16_8_1_WGM1",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.10739200000000002,
+            "count": 8,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.11473614596721551
+          },
+          {
+            "name": "Cijk_Ailk_Bljk_HHS_BH_MT64x32x16_SN_AMAS3_BL1_BS1_EPS1_GLVWA2_GLVWB2_GRVW2_GSU1_GSUASB_ISA1030_IU2_K1_KLA_LDL2_LRVW2_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU0_SUM0_SUS0_SVW4_TT4_4_USFGROn1_VAW2_VSn1_VW2_VWB2_WS32_WG16_8_1_WGM4",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.055911999999999996,
+            "count": 8,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.05973561711597654
+          },
+          {
+            "name": "Col2Im2dU",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.050671999999999995,
+            "count": 8,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.05413727268745105
+          },
+          {
+            "name": "SubTensorOpWithScalar1d",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.001719,
+            "count": 1,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.0018365561207319301
+          }
+        ],
+        "aggregation": "sum Chrome trace complete events (ph=X), grouped by category/name/device",
+        "included_categories": [
+          "kernel",
+          "gpu_memcpy",
+          "gpu_memset"
+        ],
+        "category_totals": {
+          "kernel": {
+            "count": 49,
+            "duration_ms": 0.9359910000000002
+          },
+          "gpu_memcpy": {
+            "count": 0,
+            "duration_ms": 0.0
+          },
+          "gpu_memset": {
+            "count": 0,
+            "duration_ms": 0.0
+          }
+        },
+        "excluded_complete_event_categories": {
+          "Trace": {
+            "count": 1,
+            "duration_ms": 2.967378
+          },
+          "cpu_op": {
+            "count": 11,
+            "duration_ms": 2.020626
+          },
+          "cuda_runtime": {
+            "count": 78,
+            "duration_ms": 2.192295
+          }
+        },
+        "trace_file": "period_C32_O128_H2134_P2_trace.json",
+        "trace_sha256": "72f5f281c9fc7d59fcf4f784e622f92e943065afe8745e8c38f5f3e83a578bc2",
+        "trace_retained": true,
+        "trace_duration_unit": "microseconds",
+        "denominator_semantics": "summed kernel/memcpy/memset work; never add CPU attribution or GPU annotations; may overlap across streams"
+      },
+      "reference": "GPU FP32 native convolution, identical rounded inputs",
+      "reference_error": {
+        "y": {
+          "bitwise": false,
+          "value_equal": false,
+          "finite": true,
+          "max_abs": 0.0019521713256835938,
+          "rmse": 0.00020793466382716845,
+          "reference_rms": 1.0015124888592302,
+          "nrmse": 0.00020762063992233967,
+          "max_over_reference_rms": 0.0019492231473890143,
+          "screen_pass": true
+        },
+        "dx": {
+          "bitwise": false,
+          "value_equal": false,
+          "finite": true,
+          "max_abs": 3.511086106300354e-05,
+          "rmse": 3.3470928911481552e-06,
+          "reference_rms": 0.011609710325982089,
+          "nrmse": 0.00028830115456519954,
+          "max_over_reference_rms": 0.0030242667626621807,
+          "screen_pass": true
+        },
+        "dw": {
+          "bitwise": false,
+          "value_equal": false,
+          "finite": true,
+          "max_abs": 0.0035996437072753906,
+          "rmse": 0.0004758322517124851,
+          "reference_rms": 1.0761911624868652,
+          "nrmse": 0.000442144730693505,
+          "max_over_reference_rms": 0.003344799541893027,
+          "screen_pass": true
+        }
+      }
+    },
+    {
+      "case": {
+        "name": "period_C128_O512_H712_P2",
+        "shape": [
+          8,
+          128,
+          712,
+          2
+        ],
+        "weight": [
+          512,
+          128,
+          5,
+          1
+        ],
+        "kind": "conv2d",
+        "groups": 1,
+        "dilation": 1,
+        "stride": [
+          3,
+          1
+        ],
+        "padding": [
+          2,
+          0
+        ],
+        "origin": "Applio HiFi-GAN 40k, segment=12800, B=8"
+      },
+      "cold_s": 0.053012708987807855,
+      "ms_rounds": [
+        1.3323747157950752,
+        1.330736284476838,
+        1.330228998475442
+      ],
+      "event_ms_rounds": [
+        1.3273634229387556,
+        1.3267262322562081,
+        1.3270320892333984
+      ],
+      "median_ms": 1.330736284476838,
+      "event_median_ms": 1.3270320892333984,
+      "peak_extra_allocated_bytes": 8604672,
+      "device_activities": {
+        "denominator_ms": 1.07603,
+        "rows": [
+          {
+            "name": "Im2d2Col_v2",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.403064,
+            "count": 16,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.37458435173740506
+          },
+          {
+            "name": "Cijk_Alik_Bljk_HHS_BH_MT128x256x16_SN_AMAS3_BL1_BS1_EPS0_GLVWA8_GLVWB8_GRVW8_GSU1_GSUASB_ISA1030_IU2_K1_KLA_LDL2_LRVW8_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU0_SUM0_SUS0_SVW4_TT8_16_USFGROn1_VAW2_VSn1_VW8_VWB8_WS32_WG16_16_1_WGM8",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.297072,
+            "count": 8,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.2760815218906536
+          },
+          {
+            "name": "Cijk_Ailk_Bljk_HHS_BH_MT64x32x8_SN_AMAS3_BL1_BS1_EPS1_GLVWA2_GLVWB2_GRVW2_GSU1_GSUASB_ISA1030_IU2_K1_KLA_LDL2_LRVW2_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU0_SUM0_SUS0_SVW4_TT4_4_USFGROn1_VAW2_VSn1_VW2_VWB2_WS32_WG16_8_1_WGM8",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.18379200000000004,
+            "count": 8,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.17080564668271334
+          },
+          {
+            "name": "Cijk_Ailk_Bjlk_HHS_BH_MT64x64x16_SN_AMAS3_BL1_BS1_EPS1_GLVWA2_GLVWB2_GRVW2_GSU1_GSUASB_ISA1030_IU2_K1_KLA_LDL2_LRVW2_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU0_SUM0_SUS0_SVW4_TT4_4_USFGROn1_VAW2_VSn1_VW2_VWB2_WS32_WG16_16_1_WGM4",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.12927100000000002,
+            "count": 8,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.12013698502829849
+          },
+          {
+            "name": "Col2Im2dU",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.060911999999999994,
+            "count": 8,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.056608087135117044
+          },
+          {
+            "name": "SubTensorOpWithScalar1d",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.0019190000000000001,
+            "count": 1,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.0017834075258124774
+          }
+        ],
+        "top10": [
+          {
+            "name": "Im2d2Col_v2",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.403064,
+            "count": 16,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.37458435173740506
+          },
+          {
+            "name": "Cijk_Alik_Bljk_HHS_BH_MT128x256x16_SN_AMAS3_BL1_BS1_EPS0_GLVWA8_GLVWB8_GRVW8_GSU1_GSUASB_ISA1030_IU2_K1_KLA_LDL2_LRVW8_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU0_SUM0_SUS0_SVW4_TT8_16_USFGROn1_VAW2_VSn1_VW8_VWB8_WS32_WG16_16_1_WGM8",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.297072,
+            "count": 8,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.2760815218906536
+          },
+          {
+            "name": "Cijk_Ailk_Bljk_HHS_BH_MT64x32x8_SN_AMAS3_BL1_BS1_EPS1_GLVWA2_GLVWB2_GRVW2_GSU1_GSUASB_ISA1030_IU2_K1_KLA_LDL2_LRVW2_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU0_SUM0_SUS0_SVW4_TT4_4_USFGROn1_VAW2_VSn1_VW2_VWB2_WS32_WG16_8_1_WGM8",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.18379200000000004,
+            "count": 8,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.17080564668271334
+          },
+          {
+            "name": "Cijk_Ailk_Bjlk_HHS_BH_MT64x64x16_SN_AMAS3_BL1_BS1_EPS1_GLVWA2_GLVWB2_GRVW2_GSU1_GSUASB_ISA1030_IU2_K1_KLA_LDL2_LRVW2_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU0_SUM0_SUS0_SVW4_TT4_4_USFGROn1_VAW2_VSn1_VW2_VWB2_WS32_WG16_16_1_WGM4",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.12927100000000002,
+            "count": 8,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.12013698502829849
+          },
+          {
+            "name": "Col2Im2dU",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.060911999999999994,
+            "count": 8,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.056608087135117044
+          },
+          {
+            "name": "SubTensorOpWithScalar1d",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.0019190000000000001,
+            "count": 1,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.0017834075258124774
+          }
+        ],
+        "aggregation": "sum Chrome trace complete events (ph=X), grouped by category/name/device",
+        "included_categories": [
+          "kernel",
+          "gpu_memcpy",
+          "gpu_memset"
+        ],
+        "category_totals": {
+          "kernel": {
+            "count": 49,
+            "duration_ms": 1.0760299999999998
+          },
+          "gpu_memcpy": {
+            "count": 0,
+            "duration_ms": 0.0
+          },
+          "gpu_memset": {
+            "count": 0,
+            "duration_ms": 0.0
+          }
+        },
+        "excluded_complete_event_categories": {
+          "Trace": {
+            "count": 1,
+            "duration_ms": 1.658468
+          },
+          "cpu_op": {
+            "count": 11,
+            "duration_ms": 1.39935
+          },
+          "cuda_runtime": {
+            "count": 78,
+            "duration_ms": 1.1347530000000001
+          }
+        },
+        "trace_file": "period_C128_O512_H712_P2_trace.json",
+        "trace_sha256": "62f1ff842d76d10566f4ce8ac4ce37e98be2eca1fba6b78c53f927b8eb752652",
+        "trace_retained": true,
+        "trace_duration_unit": "microseconds",
+        "denominator_semantics": "summed kernel/memcpy/memset work; never add CPU attribution or GPU annotations; may overlap across streams"
+      },
+      "reference": "GPU FP32 native convolution, identical rounded inputs",
+      "reference_error": {
+        "y": {
+          "bitwise": false,
+          "value_equal": false,
+          "finite": true,
+          "max_abs": 0.001922607421875,
+          "rmse": 0.00020763566684066175,
+          "reference_rms": 0.9982143403179916,
+          "nrmse": 0.00020800709672685853,
+          "max_over_reference_rms": 0.0019260466857874766,
+          "screen_pass": true
+        },
+        "dx": {
+          "bitwise": false,
+          "value_equal": false,
+          "finite": true,
+          "max_abs": 3.1735748052597046e-05,
+          "rmse": 3.3342455714909187e-06,
+          "reference_rms": 0.011536951252220954,
+          "nrmse": 0.0002890057779215328,
+          "max_over_reference_rms": 0.0027507915530532957,
+          "screen_pass": true
+        },
+        "dw": {
+          "bitwise": false,
+          "value_equal": false,
+          "finite": true,
+          "max_abs": 0.0027616024017333984,
+          "rmse": 0.00027099311164027805,
+          "reference_rms": 0.6151165659005798,
+          "nrmse": 0.00044055570385024905,
+          "max_over_reference_rms": 0.004489559466977111,
+          "screen_pass": true
+        }
+      }
+    },
+    {
+      "case": {
+        "name": "period_C512_O1024_H238_P2",
+        "shape": [
+          8,
+          512,
+          238,
+          2
+        ],
+        "weight": [
+          1024,
+          512,
+          5,
+          1
+        ],
+        "kind": "conv2d",
+        "groups": 1,
+        "dilation": 1,
+        "stride": [
+          3,
+          1
+        ],
+        "padding": [
+          2,
+          0
+        ],
+        "origin": "Applio HiFi-GAN 40k, segment=12800, B=8"
+      },
+      "cold_s": 0.009482802008278668,
+      "ms_rounds": [
+        2.0475365703792443,
+        2.0497938572329337,
+        2.0489738568098153
+      ],
+      "event_ms_rounds": [
+        2.0423330579485213,
+        2.046417372567313,
+        2.045181546892439
+      ],
+      "median_ms": 2.0489738568098153,
+      "event_median_ms": 2.045181546892439,
+      "peak_extra_allocated_bytes": 12582912,
+      "device_activities": {
+        "denominator_ms": 1.7964299999999997,
+        "rows": [
+          {
+            "name": "Cijk_Ailk_Bljk_HHS_BH_MT64x32x16_SN_AMAS3_BL1_BS1_EPS1_GLVWA2_GLVWB2_GRVW2_GSU1_GSUASB_ISA1030_IU2_K1_KLA_LDL2_LRVW2_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU32_SUM3_SUS128_SVW4_TT4_4_USFGROn1_VAW2_VSn1_VW2_VWB2_WS32_WG16_8_1_WGM1",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.600112,
+            "count": 8,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.33405810412874426
+          },
+          {
+            "name": "Im2d2Col_v2",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.5266239999999999,
+            "count": 16,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.2931503036578102
+          },
+          {
+            "name": "Cijk_Ailk_Bjlk_HHS_BH_MT32x32x16_SN_AMAS3_BL1_BS1_EPS1_GLVWA2_GLVWB2_GRVW2_GSU1_GSUASB_ISA1030_IU2_K1_KLA_LDL2_LRVW2_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU0_SUM0_SUS0_SVW4_TT4_4_USFGROn1_VAW2_VSn1_VW2_VWB2_WS32_WG8_8_1_WGM1",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.358031,
+            "count": 8,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.19930139220565235
+          },
+          {
+            "name": "Cijk_Alik_Bljk_HHS_BH_MT128x128x16_SN_AMAS3_BL1_BS1_EPS0_GLVWA8_GLVWB8_GRVW8_GSU1_GSUASB_ISA1030_IU2_K1_KLA_LDL2_LRVW8_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU0_SUM0_SUS0_SVW4_TT8_8_USFGROn1_VAW2_VSn1_VW8_VWB8_WS32_WG16_16_1_WGM4",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.227832,
+            "count": 8,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.1268248693241596
+          },
+          {
+            "name": "Col2Im2dU",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.077552,
+            "count": 8,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.0431700650735069
+          },
+          {
+            "name": "SubTensorOpWithScalar1d",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.006279,
+            "count": 1,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.0034952656101267516
+          }
+        ],
+        "top10": [
+          {
+            "name": "Cijk_Ailk_Bljk_HHS_BH_MT64x32x16_SN_AMAS3_BL1_BS1_EPS1_GLVWA2_GLVWB2_GRVW2_GSU1_GSUASB_ISA1030_IU2_K1_KLA_LDL2_LRVW2_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU32_SUM3_SUS128_SVW4_TT4_4_USFGROn1_VAW2_VSn1_VW2_VWB2_WS32_WG16_8_1_WGM1",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.600112,
+            "count": 8,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.33405810412874426
+          },
+          {
+            "name": "Im2d2Col_v2",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.5266239999999999,
+            "count": 16,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.2931503036578102
+          },
+          {
+            "name": "Cijk_Ailk_Bjlk_HHS_BH_MT32x32x16_SN_AMAS3_BL1_BS1_EPS1_GLVWA2_GLVWB2_GRVW2_GSU1_GSUASB_ISA1030_IU2_K1_KLA_LDL2_LRVW2_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU0_SUM0_SUS0_SVW4_TT4_4_USFGROn1_VAW2_VSn1_VW2_VWB2_WS32_WG8_8_1_WGM1",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.358031,
+            "count": 8,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.19930139220565235
+          },
+          {
+            "name": "Cijk_Alik_Bljk_HHS_BH_MT128x128x16_SN_AMAS3_BL1_BS1_EPS0_GLVWA8_GLVWB8_GRVW8_GSU1_GSUASB_ISA1030_IU2_K1_KLA_LDL2_LRVW8_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU0_SUM0_SUS0_SVW4_TT8_8_USFGROn1_VAW2_VSn1_VW8_VWB8_WS32_WG16_16_1_WGM4",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.227832,
+            "count": 8,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.1268248693241596
+          },
+          {
+            "name": "Col2Im2dU",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.077552,
+            "count": 8,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.0431700650735069
+          },
+          {
+            "name": "SubTensorOpWithScalar1d",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.006279,
+            "count": 1,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.0034952656101267516
+          }
+        ],
+        "aggregation": "sum Chrome trace complete events (ph=X), grouped by category/name/device",
+        "included_categories": [
+          "kernel",
+          "gpu_memcpy",
+          "gpu_memset"
+        ],
+        "category_totals": {
+          "kernel": {
+            "count": 49,
+            "duration_ms": 1.79643
+          },
+          "gpu_memcpy": {
+            "count": 0,
+            "duration_ms": 0.0
+          },
+          "gpu_memset": {
+            "count": 0,
+            "duration_ms": 0.0
+          }
+        },
+        "excluded_complete_event_categories": {
+          "Trace": {
+            "count": 1,
+            "duration_ms": 2.6402710000000003
+          },
+          "cpu_op": {
+            "count": 11,
+            "duration_ms": 1.36705
+          },
+          "cuda_runtime": {
+            "count": 78,
+            "duration_ms": 2.133236
+          }
+        },
+        "trace_file": "period_C512_O1024_H238_P2_trace.json",
+        "trace_sha256": "244635200eb65b5ae220f28c22fc68c20d77e0e2f94d7dc1f7e1136930a915b9",
+        "trace_retained": true,
+        "trace_duration_unit": "microseconds",
+        "denominator_semantics": "summed kernel/memcpy/memset work; never add CPU attribution or GPU annotations; may overlap across streams"
+      },
+      "reference": "GPU FP32 native convolution, identical rounded inputs",
+      "reference_error": {
+        "y": {
+          "bitwise": false,
+          "value_equal": false,
+          "finite": true,
+          "max_abs": 0.0019378662109375,
+          "rmse": 0.00020611720385467388,
+          "reference_rms": 0.9929585819697472,
+          "nrmse": 0.0002075788533352479,
+          "max_over_reference_rms": 0.0019516083008148488,
+          "screen_pass": true
+        },
+        "dx": {
+          "bitwise": false,
+          "value_equal": false,
+          "finite": true,
+          "max_abs": 2.7157366275787354e-05,
+          "rmse": 2.357969133253746e-06,
+          "reference_rms": 0.008152473490115813,
+          "nrmse": 0.00028923358488838817,
+          "max_over_reference_rms": 0.0033311811818478613,
+          "screen_pass": true
+        },
+        "dw": {
+          "bitwise": false,
+          "value_equal": false,
+          "finite": true,
+          "max_abs": 0.0019290447235107422,
+          "rmse": 0.00015647900062162287,
+          "reference_rms": 0.35578886866596054,
+          "nrmse": 0.00043980858987619506,
+          "max_over_reference_rms": 0.005421880484186435,
+          "screen_pass": true
+        }
+      }
+    },
+    {
+      "case": {
+        "name": "grouped_C16_O64_T12800_G4",
+        "shape": [
+          8,
+          16,
+          12800
+        ],
+        "weight": [
+          64,
+          4,
+          41
+        ],
+        "kind": "conv1d",
+        "groups": 4,
+        "dilation": 1,
+        "stride": 4,
+        "padding": 20,
+        "origin": "Applio HiFi-GAN 40k, segment=12800, B=8"
+      },
+      "cold_s": 0.07967115700012073,
+      "ms_rounds": [
+        1.4614024278541495,
+        1.4787664279408221,
+        1.4615152841932806
+      ],
+      "event_ms_rounds": [
+        1.4573075430733817,
+        1.4760633196149553,
+        1.4590420041765486
+      ],
+      "median_ms": 1.4615152841932806,
+      "event_median_ms": 1.4590420041765486,
+      "peak_extra_allocated_bytes": 10772992,
+      "device_activities": {
+        "denominator_ms": 1.2405110000000001,
+        "rows": [
+          {
+            "name": "Cijk_Alik_Bljk_HHS_BH_MT64x64x16_SN_AMAS3_BL1_BS1_EPS1_GLVWA8_GLVWB8_GRVW8_GSU1_GSUASB_ISA1030_IU2_K1_KLA_LDL2_LRVW8_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU0_SUM0_SUS0_SVW4_TT8_8_USFGROn1_VAW2_VSn1_VW8_VWB8_WS32_WG8_8_1_WGM4",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.658312,
+            "count": 8,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.5306780834672162
+          },
+          {
+            "name": "Im2d2Col_v2",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.324624,
+            "count": 16,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.26168570855075046
+          },
+          {
+            "name": "Col2Im2dU",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.115872,
+            "count": 8,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.0934066687034617
+          },
+          {
+            "name": "Cijk_Ailk_Bjlk_HHS_BH_MT128x64x16_SN_AMAS3_BL1_BS1_EPS0_GLVWA8_GLVWB8_GRVW8_GSU1_GSUASB_ISA1030_IU2_K1_KLA_LDL2_LRVW8_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU0_SUM0_SUS0_SVW4_TT8_8_USFGROn1_VAW2_VSn1_VW8_VWB8_WS32_WG16_8_1_WGM4",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.08343200000000002,
+            "count": 8,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.0672561549232534
+          },
+          {
+            "name": "Cijk_Ailk_Bljk_HHS_BH_MT64x16x16_SN_AMAS3_BL1_BS1_EPS1_GLVWA2_GLVWB2_GRVW2_GSU1_GSUASB_ISA1030_IU2_K1_KLA_LDL2_LRVW2_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU0_SUM0_SUS0_SVW4_TT4_2_USFGROn1_VAW2_VSn1_VW2_VWB2_WS32_WG16_8_1_WGM1",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.05667200000000001,
+            "count": 8,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.04568439941282262
+          },
+          {
+            "name": "SubTensorOpWithScalar1d",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.001599,
+            "count": 1,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.0012889849424954714
+          }
+        ],
+        "top10": [
+          {
+            "name": "Cijk_Alik_Bljk_HHS_BH_MT64x64x16_SN_AMAS3_BL1_BS1_EPS1_GLVWA8_GLVWB8_GRVW8_GSU1_GSUASB_ISA1030_IU2_K1_KLA_LDL2_LRVW8_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU0_SUM0_SUS0_SVW4_TT8_8_USFGROn1_VAW2_VSn1_VW8_VWB8_WS32_WG8_8_1_WGM4",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.658312,
+            "count": 8,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.5306780834672162
+          },
+          {
+            "name": "Im2d2Col_v2",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.324624,
+            "count": 16,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.26168570855075046
+          },
+          {
+            "name": "Col2Im2dU",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.115872,
+            "count": 8,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.0934066687034617
+          },
+          {
+            "name": "Cijk_Ailk_Bjlk_HHS_BH_MT128x64x16_SN_AMAS3_BL1_BS1_EPS0_GLVWA8_GLVWB8_GRVW8_GSU1_GSUASB_ISA1030_IU2_K1_KLA_LDL2_LRVW8_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU0_SUM0_SUS0_SVW4_TT8_8_USFGROn1_VAW2_VSn1_VW8_VWB8_WS32_WG16_8_1_WGM4",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.08343200000000002,
+            "count": 8,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.0672561549232534
+          },
+          {
+            "name": "Cijk_Ailk_Bljk_HHS_BH_MT64x16x16_SN_AMAS3_BL1_BS1_EPS1_GLVWA2_GLVWB2_GRVW2_GSU1_GSUASB_ISA1030_IU2_K1_KLA_LDL2_LRVW2_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU0_SUM0_SUS0_SVW4_TT4_2_USFGROn1_VAW2_VSn1_VW2_VWB2_WS32_WG16_8_1_WGM1",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.05667200000000001,
+            "count": 8,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.04568439941282262
+          },
+          {
+            "name": "SubTensorOpWithScalar1d",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.001599,
+            "count": 1,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.0012889849424954714
+          }
+        ],
+        "aggregation": "sum Chrome trace complete events (ph=X), grouped by category/name/device",
+        "included_categories": [
+          "kernel",
+          "gpu_memcpy",
+          "gpu_memset"
+        ],
+        "category_totals": {
+          "kernel": {
+            "count": 49,
+            "duration_ms": 1.2405109999999997
+          },
+          "gpu_memcpy": {
+            "count": 0,
+            "duration_ms": 0.0
+          },
+          "gpu_memset": {
+            "count": 0,
+            "duration_ms": 0.0
+          }
+        },
+        "excluded_complete_event_categories": {
+          "Trace": {
+            "count": 1,
+            "duration_ms": 1.706468
+          },
+          "cpu_op": {
+            "count": 27,
+            "duration_ms": 1.2783
+          },
+          "cuda_runtime": {
+            "count": 78,
+            "duration_ms": 1.23668
+          }
+        },
+        "trace_file": "grouped_C16_O64_T12800_G4_trace.json",
+        "trace_sha256": "f87497c0c6d03f59fa63ad71588d718815d890252b473e98d9f5e7c1546be3fd",
+        "trace_retained": true,
+        "trace_duration_unit": "microseconds",
+        "denominator_semantics": "summed kernel/memcpy/memset work; never add CPU attribution or GPU annotations; may overlap across streams"
+      },
+      "reference": "GPU FP32 native convolution, identical rounded inputs",
+      "reference_error": {
+        "y": {
+          "bitwise": false,
+          "value_equal": false,
+          "finite": true,
+          "max_abs": 0.0019464492797851562,
+          "rmse": 0.00020706517411783748,
+          "reference_rms": 0.997026836679702,
+          "nrmse": 0.00020768264855077097,
+          "max_over_reference_rms": 0.0019522536487254646,
+          "screen_pass": true
+        },
+        "dx": {
+          "bitwise": false,
+          "value_equal": false,
+          "finite": true,
+          "max_abs": 2.5715678930282593e-05,
+          "rmse": 2.926176842298245e-06,
+          "reference_rms": 0.0099693657989022,
+          "nrmse": 0.00029351684964960036,
+          "max_over_reference_rms": 0.0025794698929709585,
+          "screen_pass": true
+        },
+        "dw": {
+          "bitwise": false,
+          "value_equal": false,
+          "finite": true,
+          "max_abs": 0.006090641021728516,
+          "rmse": 0.0006925974433871334,
+          "reference_rms": 1.585066963732227,
+          "nrmse": 0.00043695153531957484,
+          "max_over_reference_rms": 0.0038425133834014075,
+          "screen_pass": true
+        }
+      }
+    },
+    {
+      "case": {
+        "name": "grouped_C64_O256_T3200_G16",
+        "shape": [
+          8,
+          64,
+          3200
+        ],
+        "weight": [
+          256,
+          4,
+          41
+        ],
+        "kind": "conv1d",
+        "groups": 16,
+        "dilation": 1,
+        "stride": 4,
+        "padding": 20,
+        "origin": "Applio HiFi-GAN 40k, segment=12800, B=8"
+      },
+      "cold_s": 0.007369956991169602,
+      "ms_rounds": [
+        0.9629315713287464,
+        0.9690258572975706,
+        0.9633159996675593
+      ],
+      "event_ms_rounds": [
+        0.958592278616769,
+        0.9662065505981445,
+        0.9605935641697475
+      ],
+      "median_ms": 0.9633159996675593,
+      "event_median_ms": 0.9605935641697475,
+      "peak_extra_allocated_bytes": 10835968,
+      "device_activities": {
+        "denominator_ms": 0.774511,
+        "rows": [
+          {
+            "name": "Im2d2Col_v2",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.32306399999999996,
+            "count": 16,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.41711996343499314
+          },
+          {
+            "name": "Cijk_Alik_Bljk_HHS_BH_MT16x16x32_SN_AMAS3_BL1_BS1_EPS1_GLVWA2_GLVWB2_GRVW2_GSU1_GSUASB_ISA1030_IU2_K1_KLA_LDL2_LRVW2_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU32_SUM3_SUS128_SVW4_TT2_2_USFGROn1_VAW2_VSn1_VW2_VWB2_WS32_WG8_8_1_WGM1",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.17227199999999998,
+            "count": 8,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.222426795745961
+          },
+          {
+            "name": "Col2Im2dU",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.115032,
+            "count": 8,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.1485220997506814
+          },
+          {
+            "name": "Cijk_Ailk_Bjlk_HHS_BH_MT128x64x16_SN_AMAS3_BL1_BS1_EPS1_GLVWA8_GLVWB8_GRVW8_GSU1_GSUASB_ISA1030_IU2_K1_KLA_LDL2_LRVW8_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU0_SUM0_SUS0_SVW4_TT8_8_USFGROn1_VAW2_VSn1_VW8_VWB8_WS32_WG16_8_1_WGM4",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.08183199999999999,
+            "count": 8,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.10565634316362194
+          },
+          {
+            "name": "Cijk_Ailk_Bljk_HHS_BH_MT32x16x32_SN_AMAS3_BL1_BS1_EPS1_GLVWA2_GLVWB2_GRVW2_GSU1_GSUASB_ISA1030_IU2_K1_KLA_LDL2_LRVW2_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU0_SUM0_SUS0_SVW4_TT2_2_USFGROn1_VAW2_VSn1_VW2_VWB2_WS32_WG16_8_1_WGM1",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.080832,
+            "count": 8,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.10436520591702378
+          },
+          {
+            "name": "SubTensorOpWithScalar1d",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.001479,
+            "count": 1,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.0019095919877187028
+          }
+        ],
+        "top10": [
+          {
+            "name": "Im2d2Col_v2",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.32306399999999996,
+            "count": 16,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.41711996343499314
+          },
+          {
+            "name": "Cijk_Alik_Bljk_HHS_BH_MT16x16x32_SN_AMAS3_BL1_BS1_EPS1_GLVWA2_GLVWB2_GRVW2_GSU1_GSUASB_ISA1030_IU2_K1_KLA_LDL2_LRVW2_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU32_SUM3_SUS128_SVW4_TT2_2_USFGROn1_VAW2_VSn1_VW2_VWB2_WS32_WG8_8_1_WGM1",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.17227199999999998,
+            "count": 8,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.222426795745961
+          },
+          {
+            "name": "Col2Im2dU",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.115032,
+            "count": 8,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.1485220997506814
+          },
+          {
+            "name": "Cijk_Ailk_Bjlk_HHS_BH_MT128x64x16_SN_AMAS3_BL1_BS1_EPS1_GLVWA8_GLVWB8_GRVW8_GSU1_GSUASB_ISA1030_IU2_K1_KLA_LDL2_LRVW8_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU0_SUM0_SUS0_SVW4_TT8_8_USFGROn1_VAW2_VSn1_VW8_VWB8_WS32_WG16_8_1_WGM4",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.08183199999999999,
+            "count": 8,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.10565634316362194
+          },
+          {
+            "name": "Cijk_Ailk_Bljk_HHS_BH_MT32x16x32_SN_AMAS3_BL1_BS1_EPS1_GLVWA2_GLVWB2_GRVW2_GSU1_GSUASB_ISA1030_IU2_K1_KLA_LDL2_LRVW2_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU0_SUM0_SUS0_SVW4_TT2_2_USFGROn1_VAW2_VSn1_VW2_VWB2_WS32_WG16_8_1_WGM1",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.080832,
+            "count": 8,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.10436520591702378
+          },
+          {
+            "name": "SubTensorOpWithScalar1d",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.001479,
+            "count": 1,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.0019095919877187028
+          }
+        ],
+        "aggregation": "sum Chrome trace complete events (ph=X), grouped by category/name/device",
+        "included_categories": [
+          "kernel",
+          "gpu_memcpy",
+          "gpu_memset"
+        ],
+        "category_totals": {
+          "kernel": {
+            "count": 49,
+            "duration_ms": 0.774511
+          },
+          "gpu_memcpy": {
+            "count": 0,
+            "duration_ms": 0.0
+          },
+          "gpu_memset": {
+            "count": 0,
+            "duration_ms": 0.0
+          }
+        },
+        "excluded_complete_event_categories": {
+          "Trace": {
+            "count": 1,
+            "duration_ms": 1.270341
+          },
+          "cpu_op": {
+            "count": 27,
+            "duration_ms": 1.41664
+          },
+          "cuda_runtime": {
+            "count": 78,
+            "duration_ms": 0.758696
+          }
+        },
+        "trace_file": "grouped_C64_O256_T3200_G16_trace.json",
+        "trace_sha256": "b04d9009733bde89c8dad32e28db84e16665bad63f367a7229d5dbe7ee55272e",
+        "trace_retained": true,
+        "trace_duration_unit": "microseconds",
+        "denominator_semantics": "summed kernel/memcpy/memset work; never add CPU attribution or GPU annotations; may overlap across streams"
+      },
+      "reference": "GPU FP32 native convolution, identical rounded inputs",
+      "reference_error": {
+        "y": {
+          "bitwise": false,
+          "value_equal": false,
+          "finite": true,
+          "max_abs": 0.001949310302734375,
+          "rmse": 0.00020750599360107124,
+          "reference_rms": 0.9985584165170315,
+          "nrmse": 0.00020780556266788224,
+          "max_over_reference_rms": 0.0019521244531026667,
+          "screen_pass": true
+        },
+        "dx": {
+          "bitwise": false,
+          "value_equal": false,
+          "finite": true,
+          "max_abs": 2.2798776626586914e-05,
+          "rmse": 2.925247677218071e-06,
+          "reference_rms": 0.009972384445923852,
+          "nrmse": 0.0002933348281025956,
+          "max_over_reference_rms": 0.0022861911060705013,
+          "screen_pass": true
+        },
+        "dw": {
+          "bitwise": false,
+          "value_equal": false,
+          "finite": true,
+          "max_abs": 0.0029344558715820312,
+          "rmse": 0.00035104987304072796,
+          "reference_rms": 0.8004415243032629,
+          "nrmse": 0.0004385702919976524,
+          "max_over_reference_rms": 0.003666046528678409,
+          "screen_pass": true
+        }
+      }
+    },
+    {
+      "case": {
+        "name": "grouped_C256_O1024_T800_G64",
+        "shape": [
+          8,
+          256,
+          800
+        ],
+        "weight": [
+          1024,
+          4,
+          41
+        ],
+        "kind": "conv1d",
+        "groups": 64,
+        "dilation": 1,
+        "stride": 4,
+        "padding": 20,
+        "origin": "Applio HiFi-GAN 40k, segment=12800, B=8"
+      },
+      "cold_s": 0.009023514998261817,
+      "ms_rounds": [
+        0.93885042796111,
+        0.9375432855449617,
+        0.9395247138205117
+      ],
+      "event_ms_rounds": [
+        0.9340951102120536,
+        0.9349665641784668,
+        0.9369151251656669
+      ],
+      "median_ms": 0.93885042796111,
+      "event_median_ms": 0.9349665641784668,
+      "peak_extra_allocated_bytes": 11087872,
+      "device_activities": {
+        "denominator_ms": 0.78935,
+        "rows": [
+          {
+            "name": "Im2d2Col_v2",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.358583,
+            "count": 16,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.454276303287515
+          },
+          {
+            "name": "Cijk_Alik_Bljk_HHS_BH_MT16x16x16_SN_AMAS3_BL1_BS1_EPS1_GLVWA2_GLVWB2_GRVW2_GSU1_GSUASB_ISA1030_IU2_K1_KLA_LDL2_LRVW2_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU0_SUM0_SUS0_SVW4_TT2_2_USFGROn1_VAW2_VSn1_VW2_VWB2_WS32_WG8_8_1_WGM1",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.11707200000000001,
+            "count": 8,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.14831443592829543
+          },
+          {
+            "name": "Col2Im2dU",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.115952,
+            "count": 8,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.14689554696902515
+          },
+          {
+            "name": "Cijk_Ailk_Bjlk_HHS_BH_MT32x32x8_SN_AMAS3_BL1_BS1_EPS1_GLVWA1_GLVWB1_GRVW2_GSU1_GSUASB_ISA1030_IU2_K1_KLA_LDL2_LRVW2_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU0_SUM0_SUS0_SVW4_TT2_2_USFGROn1_VAW2_VSn1_VW2_VWB2_WS32_WG16_16_1_WGM8",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.09967200000000001,
+            "count": 8,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.1262709824539178
+          },
+          {
+            "name": "Cijk_Ailk_Bljk_HHS_BH_MT16x16x16_SN_AMAS3_BL1_BS1_EPS1_GLVWA2_GLVWB2_GRVW2_GSU1_GSUASB_ISA1030_IU2_K1_KLA_LDL2_LRVW2_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU32_SUM3_SUS128_SVW4_TT2_2_USFGROn1_VAW2_VSn1_VW2_VWB2_WS32_WG8_8_1_WGM8",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.096472,
+            "count": 8,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.12221701399885983
+          },
+          {
+            "name": "SubTensorOpWithScalar1d",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.001599,
+            "count": 1,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.002025717362386774
+          }
+        ],
+        "top10": [
+          {
+            "name": "Im2d2Col_v2",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.358583,
+            "count": 16,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.454276303287515
+          },
+          {
+            "name": "Cijk_Alik_Bljk_HHS_BH_MT16x16x16_SN_AMAS3_BL1_BS1_EPS1_GLVWA2_GLVWB2_GRVW2_GSU1_GSUASB_ISA1030_IU2_K1_KLA_LDL2_LRVW2_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU0_SUM0_SUS0_SVW4_TT2_2_USFGROn1_VAW2_VSn1_VW2_VWB2_WS32_WG8_8_1_WGM1",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.11707200000000001,
+            "count": 8,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.14831443592829543
+          },
+          {
+            "name": "Col2Im2dU",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.115952,
+            "count": 8,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.14689554696902515
+          },
+          {
+            "name": "Cijk_Ailk_Bjlk_HHS_BH_MT32x32x8_SN_AMAS3_BL1_BS1_EPS1_GLVWA1_GLVWB1_GRVW2_GSU1_GSUASB_ISA1030_IU2_K1_KLA_LDL2_LRVW2_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU0_SUM0_SUS0_SVW4_TT2_2_USFGROn1_VAW2_VSn1_VW2_VWB2_WS32_WG16_16_1_WGM8",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.09967200000000001,
+            "count": 8,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.1262709824539178
+          },
+          {
+            "name": "Cijk_Ailk_Bljk_HHS_BH_MT16x16x16_SN_AMAS3_BL1_BS1_EPS1_GLVWA2_GLVWB2_GRVW2_GSU1_GSUASB_ISA1030_IU2_K1_KLA_LDL2_LRVW2_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU32_SUM3_SUS128_SVW4_TT2_2_USFGROn1_VAW2_VSn1_VW2_VWB2_WS32_WG8_8_1_WGM8",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.096472,
+            "count": 8,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.12221701399885983
+          },
+          {
+            "name": "SubTensorOpWithScalar1d",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.001599,
+            "count": 1,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.002025717362386774
+          }
+        ],
+        "aggregation": "sum Chrome trace complete events (ph=X), grouped by category/name/device",
+        "included_categories": [
+          "kernel",
+          "gpu_memcpy",
+          "gpu_memset"
+        ],
+        "category_totals": {
+          "kernel": {
+            "count": 49,
+            "duration_ms": 0.7893500000000001
+          },
+          "gpu_memcpy": {
+            "count": 0,
+            "duration_ms": 0.0
+          },
+          "gpu_memset": {
+            "count": 0,
+            "duration_ms": 0.0
+          }
+        },
+        "excluded_complete_event_categories": {
+          "Trace": {
+            "count": 1,
+            "duration_ms": 1.3308499999999999
+          },
+          "cpu_op": {
+            "count": 27,
+            "duration_ms": 1.4983360000000001
+          },
+          "cuda_runtime": {
+            "count": 78,
+            "duration_ms": 0.806315
+          }
+        },
+        "trace_file": "grouped_C256_O1024_T800_G64_trace.json",
+        "trace_sha256": "4891ff58c3093fe5a7b5714f128563164094dec599df60fc2a6d595872309da2",
+        "trace_retained": true,
+        "trace_duration_unit": "microseconds",
+        "denominator_semantics": "summed kernel/memcpy/memset work; never add CPU attribution or GPU annotations; may overlap across streams"
+      },
+      "reference": "GPU FP32 native convolution, identical rounded inputs",
+      "reference_error": {
+        "y": {
+          "bitwise": false,
+          "value_equal": false,
+          "finite": true,
+          "max_abs": 0.0019311904907226562,
+          "rmse": 0.00020611106019540135,
+          "reference_rms": 0.9915709316553748,
+          "nrmse": 0.0002078631529176737,
+          "max_over_reference_rms": 0.0019476070032616191,
+          "screen_pass": true
+        },
+        "dx": {
+          "bitwise": false,
+          "value_equal": false,
+          "finite": true,
+          "max_abs": 2.361088991165161e-05,
+          "rmse": 2.9134136244929213e-06,
+          "reference_rms": 0.009920047374198066,
+          "nrmse": 0.0002936894870150195,
+          "max_over_reference_rms": 0.0023801186648627582,
+          "screen_pass": true
+        },
+        "dw": {
+          "bitwise": false,
+          "value_equal": false,
+          "finite": true,
+          "max_abs": 0.001590132713317871,
+          "rmse": 0.0001754435660659854,
+          "reference_rms": 0.3983173093273792,
+          "nrmse": 0.0004404618176454576,
+          "max_over_reference_rms": 0.003992125564422641,
+          "screen_pass": true
+        }
+      }
+    },
+    {
+      "case": {
+        "name": "depthwise_C32_T12800_k3",
+        "shape": [
+          8,
+          32,
+          12800
+        ],
+        "weight": [
+          32,
+          1,
+          3
+        ],
+        "kind": "conv1d",
+        "groups": 32,
+        "dilation": 1,
+        "stride": 1,
+        "padding": 1,
+        "origin": "Synthetic depthwise analog of Applio residual shapes; model A/B not covered"
+      },
+      "cold_s": 0.29745934400125407,
+      "ms_rounds": [
+        5.82830242845895,
+        5.853273714559951,
+        5.863313571483429
+      ],
+      "event_ms_rounds": [
+        5.8233795166015625,
+        5.849546160016741,
+        5.85963385445731
+      ],
+      "median_ms": 5.853273714559951,
+      "event_median_ms": 5.849546160016741,
+      "peak_extra_allocated_bytes": 15565312,
+      "device_activities": {
+        "denominator_ms": 5.63482,
+        "rows": [
+          {
+            "name": "Cijk_Alik_Bljk_HHS_BH_MT128x128x32_SN_AMAS3_BL1_BS1_EPS0_GLVWA8_GLVWB8_GRVW8_GSU4_GSUAMB_ISA1030_IU2_K1_KLA_LDL2_LRVW8_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU32_SUM3_SUS128_SVW4_TT8_16_USFGROn1_VAW1_VSn1_VW8_VWB8_WS32_WG16_8_1_WGM4",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 4.407430000000001,
+            "count": 8,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.7821776028338084
+          },
+          {
+            "name": "Im2d2Col_v2",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.679704,
+            "count": 16,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.12062568103328943
+          },
+          {
+            "name": "Cijk_Ailk_Bjlk_HHS_BH_MT64x64x16_SN_AMAS3_BL1_BS1_EPS1_GLVWA2_GLVWB2_GRVW2_GSU1_GSUASB_ISA1030_IU2_K1_KLA_LDL2_LRVW2_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU0_SUM0_SUS0_SVW4_TT4_4_USFGROn1_VAW2_VSn1_VW2_VWB2_WS32_WG16_16_1_WGM1",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.33491200000000004,
+            "count": 8,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.05943614880333356
+          },
+          {
+            "name": "Col2Im2dU",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.12939099999999998,
+            "count": 8,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.022962756574300504
+          },
+          {
+            "name": "Cijk_Ailk_Bljk_HHS_BH_MT64x8x8_SN_AMAS3_BL1_BS1_EPS1_GLVWA2_GLVWB1_GRVW2_GSU1_GSUASB_ISA1030_IU2_K1_KLA_LDL2_LRVW2_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU0_SUM0_SUS0_SVW4_TT4_2_USFGROn1_VAW2_VSn1_VW2_VWB2_WS32_WG16_4_1_WGM1",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.06759200000000001,
+            "count": 8,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.011995414227961142
+          },
+          {
+            "name": "Cijk_H_PostGSU4",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.014192000000000001,
+            "count": 8,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.0025186252622089083
+          },
+          {
+            "name": "SubTensorOpWithScalar1d",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.001599,
+            "count": 1,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.0002837712650980865
+          }
+        ],
+        "top10": [
+          {
+            "name": "Cijk_Alik_Bljk_HHS_BH_MT128x128x32_SN_AMAS3_BL1_BS1_EPS0_GLVWA8_GLVWB8_GRVW8_GSU4_GSUAMB_ISA1030_IU2_K1_KLA_LDL2_LRVW8_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU32_SUM3_SUS128_SVW4_TT8_16_USFGROn1_VAW1_VSn1_VW8_VWB8_WS32_WG16_8_1_WGM4",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 4.407430000000001,
+            "count": 8,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.7821776028338084
+          },
+          {
+            "name": "Im2d2Col_v2",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.679704,
+            "count": 16,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.12062568103328943
+          },
+          {
+            "name": "Cijk_Ailk_Bjlk_HHS_BH_MT64x64x16_SN_AMAS3_BL1_BS1_EPS1_GLVWA2_GLVWB2_GRVW2_GSU1_GSUASB_ISA1030_IU2_K1_KLA_LDL2_LRVW2_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU0_SUM0_SUS0_SVW4_TT4_4_USFGROn1_VAW2_VSn1_VW2_VWB2_WS32_WG16_16_1_WGM1",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.33491200000000004,
+            "count": 8,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.05943614880333356
+          },
+          {
+            "name": "Col2Im2dU",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.12939099999999998,
+            "count": 8,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.022962756574300504
+          },
+          {
+            "name": "Cijk_Ailk_Bljk_HHS_BH_MT64x8x8_SN_AMAS3_BL1_BS1_EPS1_GLVWA2_GLVWB1_GRVW2_GSU1_GSUASB_ISA1030_IU2_K1_KLA_LDL2_LRVW2_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU0_SUM0_SUS0_SVW4_TT4_2_USFGROn1_VAW2_VSn1_VW2_VWB2_WS32_WG16_4_1_WGM1",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.06759200000000001,
+            "count": 8,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.011995414227961142
+          },
+          {
+            "name": "Cijk_H_PostGSU4",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.014192000000000001,
+            "count": 8,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.0025186252622089083
+          },
+          {
+            "name": "SubTensorOpWithScalar1d",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.001599,
+            "count": 1,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.0002837712650980865
+          }
+        ],
+        "aggregation": "sum Chrome trace complete events (ph=X), grouped by category/name/device",
+        "included_categories": [
+          "kernel",
+          "gpu_memcpy",
+          "gpu_memset"
+        ],
+        "category_totals": {
+          "kernel": {
+            "count": 57,
+            "duration_ms": 5.634820000000002
+          },
+          "gpu_memcpy": {
+            "count": 0,
+            "duration_ms": 0.0
+          },
+          "gpu_memset": {
+            "count": 0,
+            "duration_ms": 0.0
+          }
+        },
+        "excluded_complete_event_categories": {
+          "Trace": {
+            "count": 1,
+            "duration_ms": 6.482963
+          },
+          "cpu_op": {
+            "count": 27,
+            "duration_ms": 1.6360500000000002
+          },
+          "cuda_runtime": {
+            "count": 86,
+            "duration_ms": 5.903618
+          }
+        },
+        "trace_file": "depthwise_C32_T12800_k3_trace.json",
+        "trace_sha256": "a89011cc16e7662c0b5d5c376902a80426ccc9c45ec9c26c90cf3ead47fd8c64",
+        "trace_retained": true,
+        "trace_duration_unit": "microseconds",
+        "denominator_semantics": "summed kernel/memcpy/memset work; never add CPU attribution or GPU annotations; may overlap across streams"
+      },
+      "reference": "GPU FP32 native convolution, identical rounded inputs",
+      "reference_error": {
+        "y": {
+          "bitwise": false,
+          "value_equal": false,
+          "finite": true,
+          "max_abs": 0.0019526481628417969,
+          "rmse": 0.00019195727136454496,
+          "reference_rms": 0.9264622983584954,
+          "nrmse": 0.00020719382937077374,
+          "max_over_reference_rms": 0.002107639097998371,
+          "screen_pass": true
+        },
+        "dx": {
+          "bitwise": false,
+          "value_equal": false,
+          "finite": true,
+          "max_abs": 4.1604042053222656e-05,
+          "rmse": 2.738040714880905e-06,
+          "reference_rms": 0.009266893447853825,
+          "nrmse": 0.0002954647887437428,
+          "max_over_reference_rms": 0.004489534954441284,
+          "screen_pass": true
+        },
+        "dw": {
+          "bitwise": false,
+          "value_equal": false,
+          "finite": true,
+          "max_abs": 0.009181022644042969,
+          "rmse": 0.0014862591772831974,
+          "reference_rms": 3.076742006801368,
+          "nrmse": 0.00048306265978678443,
+          "max_over_reference_rms": 0.00298400796158652,
+          "screen_pass": true
+        }
+      }
+    },
+    {
+      "case": {
+        "name": "depthwise_C64_T6400_k7",
+        "shape": [
+          8,
+          64,
+          6400
+        ],
+        "weight": [
+          64,
+          1,
+          7
+        ],
+        "kind": "conv1d",
+        "groups": 64,
+        "dilation": 1,
+        "stride": 1,
+        "padding": 3,
+        "origin": "Synthetic depthwise analog of Applio residual shapes; model A/B not covered"
+      },
+      "cold_s": 0.31920838699443266,
+      "ms_rounds": [
+        2.8595795717722337,
+        2.860993714421056,
+        2.8598537132243758
+      ],
+      "event_ms_rounds": [
+        2.8537867409842357,
+        2.8570567539760043,
+        2.8554483141217912
+      ],
+      "median_ms": 2.8598537132243758,
+      "event_median_ms": 2.8554483141217912,
+      "peak_extra_allocated_bytes": 18842624,
+      "device_activities": {
+        "denominator_ms": 2.57259,
+        "rows": [
+          {
+            "name": "Cijk_Alik_Bljk_HHS_BH_MT32x32x8_SN_AMAS3_BL1_BS1_EPS1_GLVWA2_GLVWB2_GRVW2_GSU1_GSUASB_ISA1030_IU2_K1_KLA_LDL2_LRVW2_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU0_SUM0_SUS0_SVW4_TT4_4_USFGROn1_VAW2_VSn1_VW2_VWB2_WS32_WG8_8_1_WGM4",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 1.0317919999999998,
+            "count": 8,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.4010712939100284
+          },
+          {
+            "name": "Im2d2Col_v2",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.744783,
+            "count": 16,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.2895070726388581
+          },
+          {
+            "name": "Cijk_Ailk_Bjlk_HHS_BH_MT64x64x16_SN_AMAS3_BL1_BS1_EPS1_GLVWA2_GLVWB2_GRVW2_GSU1_GSUASB_ISA1030_IU2_K1_KLA_LDL2_LRVW2_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU0_SUM0_SUS0_SVW4_TT4_4_USFGROn1_VAW2_VSn1_VW2_VWB2_WS32_WG16_16_1_WGM1",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.30923199999999995,
+            "count": 8,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.12020259738240449
+          },
+          {
+            "name": "Cijk_Ailk_Bljk_HHS_BH_MT128x64x16_SN_AMAS3_BL1_BS1_EPS1_GLVWA8_GLVWB8_GRVW8_GSU1_GSUASB_ISA1030_IU2_K1_KLA_LDL2_LRVW8_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU0_SUM0_SUS0_SVW4_TT8_8_USFGROn1_VAW2_VSn1_VW8_VWB8_WS32_WG16_8_1_WGM8",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.30311200000000005,
+            "count": 8,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.11782367186376377
+          },
+          {
+            "name": "Col2Im2dU",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.182272,
+            "count": 8,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.07085155427021017
+          },
+          {
+            "name": "SubTensorOpWithScalar1d",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.001399,
+            "count": 1,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.0005438099347350336
+          }
+        ],
+        "top10": [
+          {
+            "name": "Cijk_Alik_Bljk_HHS_BH_MT32x32x8_SN_AMAS3_BL1_BS1_EPS1_GLVWA2_GLVWB2_GRVW2_GSU1_GSUASB_ISA1030_IU2_K1_KLA_LDL2_LRVW2_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU0_SUM0_SUS0_SVW4_TT4_4_USFGROn1_VAW2_VSn1_VW2_VWB2_WS32_WG8_8_1_WGM4",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 1.0317919999999998,
+            "count": 8,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.4010712939100284
+          },
+          {
+            "name": "Im2d2Col_v2",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.744783,
+            "count": 16,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.2895070726388581
+          },
+          {
+            "name": "Cijk_Ailk_Bjlk_HHS_BH_MT64x64x16_SN_AMAS3_BL1_BS1_EPS1_GLVWA2_GLVWB2_GRVW2_GSU1_GSUASB_ISA1030_IU2_K1_KLA_LDL2_LRVW2_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU0_SUM0_SUS0_SVW4_TT4_4_USFGROn1_VAW2_VSn1_VW2_VWB2_WS32_WG16_16_1_WGM1",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.30923199999999995,
+            "count": 8,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.12020259738240449
+          },
+          {
+            "name": "Cijk_Ailk_Bljk_HHS_BH_MT128x64x16_SN_AMAS3_BL1_BS1_EPS1_GLVWA8_GLVWB8_GRVW8_GSU1_GSUASB_ISA1030_IU2_K1_KLA_LDL2_LRVW8_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU0_SUM0_SUS0_SVW4_TT8_8_USFGROn1_VAW2_VSn1_VW8_VWB8_WS32_WG16_8_1_WGM8",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.30311200000000005,
+            "count": 8,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.11782367186376377
+          },
+          {
+            "name": "Col2Im2dU",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.182272,
+            "count": 8,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.07085155427021017
+          },
+          {
+            "name": "SubTensorOpWithScalar1d",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.001399,
+            "count": 1,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.0005438099347350336
+          }
+        ],
+        "aggregation": "sum Chrome trace complete events (ph=X), grouped by category/name/device",
+        "included_categories": [
+          "kernel",
+          "gpu_memcpy",
+          "gpu_memset"
+        ],
+        "category_totals": {
+          "kernel": {
+            "count": 49,
+            "duration_ms": 2.572590000000001
+          },
+          "gpu_memcpy": {
+            "count": 0,
+            "duration_ms": 0.0
+          },
+          "gpu_memset": {
+            "count": 0,
+            "duration_ms": 0.0
+          }
+        },
+        "excluded_complete_event_categories": {
+          "Trace": {
+            "count": 1,
+            "duration_ms": 3.4337750000000002
+          },
+          "cpu_op": {
+            "count": 27,
+            "duration_ms": 1.6200099999999997
+          },
+          "cuda_runtime": {
+            "count": 78,
+            "duration_ms": 2.8560389999999996
+          }
+        },
+        "trace_file": "depthwise_C64_T6400_k7_trace.json",
+        "trace_sha256": "382aecd88ee2eb13cdb8c7c3e4c60a5521d5c041209d8e27e4d185c217a20616",
+        "trace_retained": true,
+        "trace_duration_unit": "microseconds",
+        "denominator_semantics": "summed kernel/memcpy/memset work; never add CPU attribution or GPU annotations; may overlap across streams"
+      },
+      "reference": "GPU FP32 native convolution, identical rounded inputs",
+      "reference_error": {
+        "y": {
+          "bitwise": false,
+          "value_equal": false,
+          "finite": true,
+          "max_abs": 0.0019521713256835938,
+          "rmse": 0.00019626301064266992,
+          "reference_rms": 0.9463733208075054,
+          "nrmse": 0.0002073843443464847,
+          "max_over_reference_rms": 0.0020627920111039037,
+          "screen_pass": true
+        },
+        "dx": {
+          "bitwise": false,
+          "value_equal": false,
+          "finite": true,
+          "max_abs": 3.079324960708618e-05,
+          "rmse": 2.778709348967693e-06,
+          "reference_rms": 0.009478899058671766,
+          "nrmse": 0.00029314684456161524,
+          "max_over_reference_rms": 0.0032486103519495753,
+          "screen_pass": true
+        },
+        "dw": {
+          "bitwise": false,
+          "value_equal": false,
+          "finite": true,
+          "max_abs": 0.00438690185546875,
+          "rmse": 0.0010186888300984397,
+          "reference_rms": 2.2473419844071345,
+          "nrmse": 0.0004532860762476154,
+          "max_over_reference_rms": 0.0019520401816486542,
+          "screen_pass": true
+        }
+      }
+    },
+    {
+      "case": {
+        "name": "depthwise_C128_T3200_k11",
+        "shape": [
+          8,
+          128,
+          3200
+        ],
+        "weight": [
+          128,
+          1,
+          11
+        ],
+        "kind": "conv1d",
+        "groups": 128,
+        "dilation": 1,
+        "stride": 1,
+        "padding": 5,
+        "origin": "Synthetic depthwise analog of Applio residual shapes; model A/B not covered"
+      },
+      "cold_s": 0.327388207995682,
+      "ms_rounds": [
+        4.3122120010333935,
+        4.318294714071921,
+        4.32192328610524
+      ],
+      "event_ms_rounds": [
+        4.306494304112026,
+        4.3140989031110495,
+        4.318817138671875
+      ],
+      "median_ms": 4.318294714071921,
+      "event_median_ms": 4.3140989031110495,
+      "peak_extra_allocated_bytes": 22121472,
+      "device_activities": {
+        "denominator_ms": 4.095068,
+        "rows": [
+          {
+            "name": "Cijk_Alik_Bljk_HHS_BH_MT64x64x8_SN_AMAS3_BL1_BS1_EPS1_GLVWA2_GLVWB2_GRVW2_GSU1_GSUASB_ISA1030_IU2_K1_KLA_LDL2_LRVW2_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU0_SUM0_SUS0_SVW4_TT4_4_USFGROn1_VAW2_VSn1_VW2_VWB2_WS32_WG16_16_1_WGM4",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 2.36455,
+            "count": 8,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.577414099106535
+          },
+          {
+            "name": "Im2d2Col_v2",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.809663,
+            "count": 16,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.19771661911352875
+          },
+          {
+            "name": "Cijk_Ailk_Bljk_HHS_BH_MT64x64x8_SN_AMAS3_BL1_BS1_EPS1_GLVWA8_GLVWB8_GRVW8_GSU1_GSUASB_ISA1030_IU2_K1_KLA_LDL2_LRVW8_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU32_SUM3_SUS128_SVW4_TT8_8_USFGROn1_VAW2_VSn1_VW8_VWB8_WS32_WG8_8_1_WGM8",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.330712,
+            "count": 8,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.080758610113434
+          },
+          {
+            "name": "Cijk_Ailk_Bjlk_HHS_BH_MT64x64x16_SN_AMAS3_BL1_BS1_EPS1_GLVWA8_GLVWB8_GRVW8_GSU1_GSUASB_ISA1030_IU2_K1_KLA_LDL2_LRVW8_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU0_SUM0_SUS0_SVW4_TT8_8_USFGROn1_VAW2_VSn1_VW8_VWB8_WS32_WG8_8_1_WGM1",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.321952,
+            "count": 8,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.07861945149628773
+          },
+          {
+            "name": "Col2Im2dU",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.266712,
+            "count": 8,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.0651300540064292
+          },
+          {
+            "name": "SubTensorOpWithScalar1d",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.001479,
+            "count": 1,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.0003611661637853144
+          }
+        ],
+        "top10": [
+          {
+            "name": "Cijk_Alik_Bljk_HHS_BH_MT64x64x8_SN_AMAS3_BL1_BS1_EPS1_GLVWA2_GLVWB2_GRVW2_GSU1_GSUASB_ISA1030_IU2_K1_KLA_LDL2_LRVW2_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU0_SUM0_SUS0_SVW4_TT4_4_USFGROn1_VAW2_VSn1_VW2_VWB2_WS32_WG16_16_1_WGM4",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 2.36455,
+            "count": 8,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.577414099106535
+          },
+          {
+            "name": "Im2d2Col_v2",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.809663,
+            "count": 16,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.19771661911352875
+          },
+          {
+            "name": "Cijk_Ailk_Bljk_HHS_BH_MT64x64x8_SN_AMAS3_BL1_BS1_EPS1_GLVWA8_GLVWB8_GRVW8_GSU1_GSUASB_ISA1030_IU2_K1_KLA_LDL2_LRVW8_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU32_SUM3_SUS128_SVW4_TT8_8_USFGROn1_VAW2_VSn1_VW8_VWB8_WS32_WG8_8_1_WGM8",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.330712,
+            "count": 8,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.080758610113434
+          },
+          {
+            "name": "Cijk_Ailk_Bjlk_HHS_BH_MT64x64x16_SN_AMAS3_BL1_BS1_EPS1_GLVWA8_GLVWB8_GRVW8_GSU1_GSUASB_ISA1030_IU2_K1_KLA_LDL2_LRVW8_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU0_SUM0_SUS0_SVW4_TT8_8_USFGROn1_VAW2_VSn1_VW8_VWB8_WS32_WG8_8_1_WGM1",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.321952,
+            "count": 8,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.07861945149628773
+          },
+          {
+            "name": "Col2Im2dU",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.266712,
+            "count": 8,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.0651300540064292
+          },
+          {
+            "name": "SubTensorOpWithScalar1d",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.001479,
+            "count": 1,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.0003611661637853144
+          }
+        ],
+        "aggregation": "sum Chrome trace complete events (ph=X), grouped by category/name/device",
+        "included_categories": [
+          "kernel",
+          "gpu_memcpy",
+          "gpu_memset"
+        ],
+        "category_totals": {
+          "kernel": {
+            "count": 49,
+            "duration_ms": 4.095068
+          },
+          "gpu_memcpy": {
+            "count": 0,
+            "duration_ms": 0.0
+          },
+          "gpu_memset": {
+            "count": 0,
+            "duration_ms": 0.0
+          }
+        },
+        "excluded_complete_event_categories": {
+          "Trace": {
+            "count": 1,
+            "duration_ms": 4.935155
+          },
+          "cpu_op": {
+            "count": 27,
+            "duration_ms": 1.3212100000000002
+          },
+          "cuda_runtime": {
+            "count": 78,
+            "duration_ms": 4.453269000000001
+          }
+        },
+        "trace_file": "depthwise_C128_T3200_k11_trace.json",
+        "trace_sha256": "73c881668df49af39c4ac301c16c2bfd498432a2dc6dd29082db5fde1334ac87",
+        "trace_retained": true,
+        "trace_duration_unit": "microseconds",
+        "denominator_semantics": "summed kernel/memcpy/memset work; never add CPU attribution or GPU annotations; may overlap across streams"
+      },
+      "reference": "GPU FP32 native convolution, identical rounded inputs",
+      "reference_error": {
+        "y": {
+          "bitwise": false,
+          "value_equal": false,
+          "finite": true,
+          "max_abs": 0.001953125,
+          "rmse": 0.0002033053482801512,
+          "reference_rms": 0.9802862304463389,
+          "nrmse": 0.00020739386310423156,
+          "max_over_reference_rms": 0.0019924027690470703,
+          "screen_pass": true
+        },
+        "dx": {
+          "bitwise": false,
+          "value_equal": false,
+          "finite": true,
+          "max_abs": 3.1851232051849365e-05,
+          "rmse": 2.875579966507385e-06,
+          "reference_rms": 0.009799806528490837,
+          "nrmse": 0.0002934323201327753,
+          "max_over_reference_rms": 0.003250189884795045,
+          "screen_pass": true
+        },
+        "dw": {
+          "bitwise": false,
+          "value_equal": false,
+          "finite": true,
+          "max_abs": 0.004894733428955078,
+          "rmse": 0.0006912223393542267,
+          "reference_rms": 1.6017143809280416,
+          "nrmse": 0.0004315515597442091,
+          "max_over_reference_rms": 0.0030559339962465994,
+          "screen_pass": true
+        }
+      }
+    },
+    {
+      "case": {
+        "name": "transpose_C512_O256_T32_k16",
+        "shape": [
+          8,
+          512,
+          32
+        ],
+        "weight": [
+          512,
+          256,
+          16
+        ],
+        "kind": "conv_transpose1d",
+        "groups": 1,
+        "dilation": 1,
+        "stride": 10,
+        "padding": 3,
+        "origin": "Applio HiFi-GAN 40k, segment=12800, B=8"
+      },
+      "cold_s": 0.04599196900380775,
+      "ms_rounds": [
+        0.7437845716984677,
+        0.745473284041509,
+        0.7441875724388021
+      ],
+      "event_ms_rounds": [
+        0.7383895601545062,
+        0.741995130266462,
+        0.7408767427716937
+      ],
+      "median_ms": 0.7441875724388021,
+      "event_median_ms": 0.7408767427716937,
+      "peak_extra_allocated_bytes": 6029312,
+      "device_activities": {
+        "denominator_ms": 0.5652229999999999,
+        "rows": [
+          {
+            "name": "Cijk_Ailk_Bljk_HHS_BH_MT64x32x16_SN_AMAS3_BL1_BS1_EPS1_GLVWA2_GLVWB2_GRVW2_GSU4_GSUAMB_ISA1030_IU2_K1_KLA_LDL2_LRVW2_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU32_SUM3_SUS128_SVW4_TT4_4_USFGROn1_VAW1_VSn1_VW2_VWB2_WS32_WG16_8_1_WGM8",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.18287199999999998,
+            "count": 8,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.32353955872284035
+          },
+          {
+            "name": "Cijk_Ailk_Bjlk_HHS_BH_MT64x64x16_SN_AMAS3_BL1_BS1_EPS1_GLVWA2_GLVWB2_GRVW2_GSU1_GSUASB_ISA1030_IU2_K1_KLA_LDL2_LRVW2_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU0_SUM0_SUS0_SVW4_TT4_4_USFGROn1_VAW2_VSn1_VW2_VWB2_WS32_WG16_16_1_WGM1",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.132072,
+            "count": 8,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.23366352749268876
+          },
+          {
+            "name": "Cijk_Alik_Bljk_HHS_BH_MT128x64x8_SN_AMAS3_BL1_BS1_EPS0_GLVWA8_GLVWB4_GRVW8_GSU1_GSUASB_ISA1030_IU2_K1_KLA_LDL2_LRVW8_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU0_SUM0_SUS0_SVW4_TT8_8_USFGROn1_VAW2_VSn1_VW8_VWB8_WS32_WG16_8_1_WGM1",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.107032,
+            "count": 8,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.18936242863436203
+          },
+          {
+            "name": "Im2d2Col_v2",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.088944,
+            "count": 16,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.15736090003414582
+          },
+          {
+            "name": "Col2Im2dU",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.034912,
+            "count": 8,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.061766771698957765
+          },
+          {
+            "name": "Cijk_H_PostGSU4",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.013512,
+            "count": 8,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.023905608936649784
+          },
+          {
+            "name": "SubTensorOpWithScalar1d",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.005879,
+            "count": 1,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.010401204480355543
+          }
+        ],
+        "top10": [
+          {
+            "name": "Cijk_Ailk_Bljk_HHS_BH_MT64x32x16_SN_AMAS3_BL1_BS1_EPS1_GLVWA2_GLVWB2_GRVW2_GSU4_GSUAMB_ISA1030_IU2_K1_KLA_LDL2_LRVW2_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU32_SUM3_SUS128_SVW4_TT4_4_USFGROn1_VAW1_VSn1_VW2_VWB2_WS32_WG16_8_1_WGM8",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.18287199999999998,
+            "count": 8,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.32353955872284035
+          },
+          {
+            "name": "Cijk_Ailk_Bjlk_HHS_BH_MT64x64x16_SN_AMAS3_BL1_BS1_EPS1_GLVWA2_GLVWB2_GRVW2_GSU1_GSUASB_ISA1030_IU2_K1_KLA_LDL2_LRVW2_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU0_SUM0_SUS0_SVW4_TT4_4_USFGROn1_VAW2_VSn1_VW2_VWB2_WS32_WG16_16_1_WGM1",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.132072,
+            "count": 8,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.23366352749268876
+          },
+          {
+            "name": "Cijk_Alik_Bljk_HHS_BH_MT128x64x8_SN_AMAS3_BL1_BS1_EPS0_GLVWA8_GLVWB4_GRVW8_GSU1_GSUASB_ISA1030_IU2_K1_KLA_LDL2_LRVW8_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU0_SUM0_SUS0_SVW4_TT8_8_USFGROn1_VAW2_VSn1_VW8_VWB8_WS32_WG16_8_1_WGM1",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.107032,
+            "count": 8,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.18936242863436203
+          },
+          {
+            "name": "Im2d2Col_v2",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.088944,
+            "count": 16,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.15736090003414582
+          },
+          {
+            "name": "Col2Im2dU",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.034912,
+            "count": 8,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.061766771698957765
+          },
+          {
+            "name": "Cijk_H_PostGSU4",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.013512,
+            "count": 8,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.023905608936649784
+          },
+          {
+            "name": "SubTensorOpWithScalar1d",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.005879,
+            "count": 1,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.010401204480355543
+          }
+        ],
+        "aggregation": "sum Chrome trace complete events (ph=X), grouped by category/name/device",
+        "included_categories": [
+          "kernel",
+          "gpu_memcpy",
+          "gpu_memset"
+        ],
+        "category_totals": {
+          "kernel": {
+            "count": 57,
+            "duration_ms": 0.565223
+          },
+          "gpu_memcpy": {
+            "count": 0,
+            "duration_ms": 0.0
+          },
+          "gpu_memset": {
+            "count": 0,
+            "duration_ms": 0.0
+          }
+        },
+        "excluded_complete_event_categories": {
+          "Trace": {
+            "count": 1,
+            "duration_ms": 1.0776130000000002
+          },
+          "cpu_op": {
+            "count": 26,
+            "duration_ms": 1.3138400000000001
+          },
+          "cuda_runtime": {
+            "count": 86,
+            "duration_ms": 0.597547
+          }
+        },
+        "trace_file": "transpose_C512_O256_T32_k16_trace.json",
+        "trace_sha256": "54fba8aade4d8f2d1d6d3a0f616fe5389022ced501b7eba30d0ab8e288720a83",
+        "trace_retained": true,
+        "trace_duration_unit": "microseconds",
+        "denominator_semantics": "summed kernel/memcpy/memset work; never add CPU attribution or GPU annotations; may overlap across streams"
+      },
+      "reference": "GPU FP32 native convolution, identical rounded inputs",
+      "reference_error": {
+        "y": {
+          "bitwise": false,
+          "value_equal": false,
+          "finite": true,
+          "max_abs": 0.0015366077423095703,
+          "rmse": 0.00012661846530594454,
+          "reference_rms": 0.4457867324058131,
+          "nrmse": 0.00028403372308236384,
+          "max_over_reference_rms": 0.003446957099904781,
+          "screen_pass": true
+        },
+        "dx": {
+          "bitwise": false,
+          "value_equal": false,
+          "finite": true,
+          "max_abs": 1.5269964933395386e-05,
+          "rmse": 2.063816908592075e-06,
+          "reference_rms": 0.00993015202229168,
+          "nrmse": 0.00020783336488294644,
+          "max_over_reference_rms": 0.0015377372772457701,
+          "screen_pass": true
+        },
+        "dw": {
+          "bitwise": false,
+          "value_equal": false,
+          "finite": true,
+          "max_abs": 0.0007396936416625977,
+          "rmse": 7.036405965471668e-05,
+          "reference_rms": 0.15979738346087374,
+          "nrmse": 0.0004403329900075946,
+          "max_over_reference_rms": 0.0046289471432034495,
+          "screen_pass": true
+        }
+      }
+    },
+    {
+      "case": {
+        "name": "transpose_C256_O128_T320_k16",
+        "shape": [
+          8,
+          256,
+          320
+        ],
+        "weight": [
+          256,
+          128,
+          16
+        ],
+        "kind": "conv_transpose1d",
+        "groups": 1,
+        "dilation": 1,
+        "stride": 10,
+        "padding": 3,
+        "origin": "Applio HiFi-GAN 40k, segment=12800, B=8"
+      },
+      "cold_s": 0.05177149799419567,
+      "ms_rounds": [
+        1.2088355703911344,
+        1.180478571248906,
+        1.239951142841684
+      ],
+      "event_ms_rounds": [
+        1.2040221350533622,
+        1.1778978620256697,
+        1.2370477403913225
+      ],
+      "median_ms": 1.2088355703911344,
+      "event_median_ms": 1.2040221350533622,
+      "peak_extra_allocated_bytes": 10223616,
+      "device_activities": {
+        "denominator_ms": 0.9840699999999999,
+        "rows": [
+          {
+            "name": "Cijk_Ailk_Bljk_HHS_BH_MT64x32x16_SN_AMAS3_BL1_BS1_EPS1_GLVWA2_GLVWB2_GRVW2_GSU1_GSUASB_ISA1030_IU2_K1_KLA_LDL2_LRVW2_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU0_SUM0_SUS0_SVW4_TT4_4_USFGROn1_VAW2_VSn1_VW2_VWB2_WS32_WG16_8_1_WGM1",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.281831,
+            "count": 8,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.28639324438302155
+          },
+          {
+            "name": "Im2d2Col_v2",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.27890399999999993,
+            "count": 16,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.28341886247929515
+          },
+          {
+            "name": "Cijk_Ailk_Bjlk_HHS_BH_MT128x128x16_SN_AMAS3_BL1_BS1_EPS1_GLVWA8_GLVWB8_GRVW8_GSU1_GSUASB_ISA1030_IU2_K1_KLA_LDL2_LRVW8_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU0_SUM0_SUS0_SVW4_TT8_8_USFGROn1_VAW2_VSn1_VW8_VWB8_WS32_WG16_16_1_WGM4",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.166992,
+            "count": 8,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.16969524525694313
+          },
+          {
+            "name": "Cijk_Alik_Bljk_HHS_BH_MT128x128x16_SN_AMAS3_BL1_BS1_EPS1_GLVWA8_GLVWB8_GRVW8_GSU1_GSUASB_ISA1030_IU2_K1_KLA_LDL2_LRVW8_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU32_SUM3_SUS128_SVW4_TT8_8_USFGROn1_VAW2_VSn1_VW8_VWB8_WS32_WG16_16_1_WGM8",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.13407199999999997,
+            "count": 8,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.13624234048390865
+          },
+          {
+            "name": "Col2Im2dU",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.119112,
+            "count": 8,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.12104016990661234
+          },
+          {
+            "name": "SubTensorOpWithScalar1d",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.003159,
+            "count": 1,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.003210137490219192
+          }
+        ],
+        "top10": [
+          {
+            "name": "Cijk_Ailk_Bljk_HHS_BH_MT64x32x16_SN_AMAS3_BL1_BS1_EPS1_GLVWA2_GLVWB2_GRVW2_GSU1_GSUASB_ISA1030_IU2_K1_KLA_LDL2_LRVW2_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU0_SUM0_SUS0_SVW4_TT4_4_USFGROn1_VAW2_VSn1_VW2_VWB2_WS32_WG16_8_1_WGM1",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.281831,
+            "count": 8,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.28639324438302155
+          },
+          {
+            "name": "Im2d2Col_v2",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.27890399999999993,
+            "count": 16,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.28341886247929515
+          },
+          {
+            "name": "Cijk_Ailk_Bjlk_HHS_BH_MT128x128x16_SN_AMAS3_BL1_BS1_EPS1_GLVWA8_GLVWB8_GRVW8_GSU1_GSUASB_ISA1030_IU2_K1_KLA_LDL2_LRVW8_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU0_SUM0_SUS0_SVW4_TT8_8_USFGROn1_VAW2_VSn1_VW8_VWB8_WS32_WG16_16_1_WGM4",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.166992,
+            "count": 8,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.16969524525694313
+          },
+          {
+            "name": "Cijk_Alik_Bljk_HHS_BH_MT128x128x16_SN_AMAS3_BL1_BS1_EPS1_GLVWA8_GLVWB8_GRVW8_GSU1_GSUASB_ISA1030_IU2_K1_KLA_LDL2_LRVW8_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU32_SUM3_SUS128_SVW4_TT8_8_USFGROn1_VAW2_VSn1_VW8_VWB8_WS32_WG16_16_1_WGM8",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.13407199999999997,
+            "count": 8,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.13624234048390865
+          },
+          {
+            "name": "Col2Im2dU",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.119112,
+            "count": 8,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.12104016990661234
+          },
+          {
+            "name": "SubTensorOpWithScalar1d",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.003159,
+            "count": 1,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.003210137490219192
+          }
+        ],
+        "aggregation": "sum Chrome trace complete events (ph=X), grouped by category/name/device",
+        "included_categories": [
+          "kernel",
+          "gpu_memcpy",
+          "gpu_memset"
+        ],
+        "category_totals": {
+          "kernel": {
+            "count": 49,
+            "duration_ms": 0.9840700000000002
+          },
+          "gpu_memcpy": {
+            "count": 0,
+            "duration_ms": 0.0
+          },
+          "gpu_memset": {
+            "count": 0,
+            "duration_ms": 0.0
+          }
+        },
+        "excluded_complete_event_categories": {
+          "Trace": {
+            "count": 1,
+            "duration_ms": 1.485959
+          },
+          "cpu_op": {
+            "count": 26,
+            "duration_ms": 1.34235
+          },
+          "cuda_runtime": {
+            "count": 78,
+            "duration_ms": 0.992123
+          }
+        },
+        "trace_file": "transpose_C256_O128_T320_k16_trace.json",
+        "trace_sha256": "1979bf5b301c84b95103ea5070324227252cfedfb87c3cc59f4a01bfd4e5463d",
+        "trace_retained": true,
+        "trace_duration_unit": "microseconds",
+        "denominator_semantics": "summed kernel/memcpy/memset work; never add CPU attribution or GPU annotations; may overlap across streams"
+      },
+      "reference": "GPU FP32 native convolution, identical rounded inputs",
+      "reference_error": {
+        "y": {
+          "bitwise": false,
+          "value_equal": false,
+          "finite": true,
+          "max_abs": 0.0016827583312988281,
+          "rmse": 0.00012695414295063799,
+          "reference_rms": 0.4454605707384464,
+          "nrmse": 0.0002849952415321165,
+          "max_over_reference_rms": 0.003777569647767692,
+          "screen_pass": true
+        },
+        "dx": {
+          "bitwise": false,
+          "value_equal": false,
+          "finite": true,
+          "max_abs": 1.5247613191604614e-05,
+          "rmse": 2.067141829349337e-06,
+          "reference_rms": 0.009974468339075702,
+          "nrmse": 0.00020724330952569763,
+          "max_over_reference_rms": 0.0015286642528976693,
+          "screen_pass": true
+        },
+        "dw": {
+          "bitwise": false,
+          "value_equal": false,
+          "finite": true,
+          "max_abs": 0.0021439790725708008,
+          "rmse": 0.00022273521266203314,
+          "reference_rms": 0.5043209202679237,
+          "nrmse": 0.00044165372426688867,
+          "max_over_reference_rms": 0.004251219781705264,
+          "screen_pass": true
+        }
+      }
+    },
+    {
+      "case": {
+        "name": "transpose_C128_O64_T3200_k4",
+        "shape": [
+          8,
+          128,
+          3200
+        ],
+        "weight": [
+          128,
+          64,
+          4
+        ],
+        "kind": "conv_transpose1d",
+        "groups": 1,
+        "dilation": 1,
+        "stride": 2,
+        "padding": 1,
+        "origin": "Applio HiFi-GAN 40k, segment=12800, B=8"
+      },
+      "cold_s": 0.04385028500109911,
+      "ms_rounds": [
+        1.2828807126165234,
+        1.2781465712967994,
+        1.279696570626194
+      ],
+      "event_ms_rounds": [
+        1.2786436080932617,
+        1.275580678667341,
+        1.2772547858101981
+      ],
+      "median_ms": 1.279696570626194,
+      "event_median_ms": 1.2772547858101981,
+      "peak_extra_allocated_bytes": 14811136,
+      "device_activities": {
+        "denominator_ms": 1.0935110000000001,
+        "rows": [
+          {
+            "name": "Im2d2Col_v2",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.4253840000000001,
+            "count": 16,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.3890075179856444
+          },
+          {
+            "name": "Cijk_Alik_Bljk_HHS_BH_MT16x16x16_SN_AMAS3_BL1_BS1_EPS1_GLVWA2_GLVWB2_GRVW2_GSU1_GSUASB_ISA1030_IU2_K1_KLA_LDL2_LRVW2_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU0_SUM0_SUS0_SVW4_TT2_2_USFGROn1_VAW2_VSn1_VW2_VWB2_WS32_WG8_8_1_WGM4",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.353112,
+            "count": 8,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.32291581886236165
+          },
+          {
+            "name": "Col2Im2dU",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.119752,
+            "count": 8,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.10951147267837268
+          },
+          {
+            "name": "Cijk_Ailk_Bljk_HHS_BH_MT128x128x16_SN_AMAS3_BL1_BS1_EPS0_GLVWA8_GLVWB8_GRVW8_GSU1_GSUASB_ISA1030_IU2_K1_KLA_LDL2_LRVW8_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU0_SUM0_SUS0_SVW4_TT8_16_USFGROn1_VAW2_VSn1_VW8_VWB8_WS32_WG16_8_1_WGM8",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.10731199999999999,
+            "count": 8,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.0981352725304089
+          },
+          {
+            "name": "Cijk_Ailk_Bjlk_HHS_BH_MT128x128x32_SN_AMAS3_BL1_BS1_EPS0_GLVWA8_GLVWB8_GRVW8_GSU1_GSUASB_ISA1030_IU2_K1_KLA_LDL2_LRVW8_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU0_SUM0_SUS0_SVW4_TT8_8_USFGROn1_VAW2_VSn1_VW8_VWB8_WS32_WG16_16_1_WGM1",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.086312,
+            "count": 8,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.07893107613915176
+          },
+          {
+            "name": "SubTensorOpWithScalar1d",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.001639,
+            "count": 1,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.0014988418040604986
+          }
+        ],
+        "top10": [
+          {
+            "name": "Im2d2Col_v2",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.4253840000000001,
+            "count": 16,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.3890075179856444
+          },
+          {
+            "name": "Cijk_Alik_Bljk_HHS_BH_MT16x16x16_SN_AMAS3_BL1_BS1_EPS1_GLVWA2_GLVWB2_GRVW2_GSU1_GSUASB_ISA1030_IU2_K1_KLA_LDL2_LRVW2_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU0_SUM0_SUS0_SVW4_TT2_2_USFGROn1_VAW2_VSn1_VW2_VWB2_WS32_WG8_8_1_WGM4",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.353112,
+            "count": 8,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.32291581886236165
+          },
+          {
+            "name": "Col2Im2dU",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.119752,
+            "count": 8,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.10951147267837268
+          },
+          {
+            "name": "Cijk_Ailk_Bljk_HHS_BH_MT128x128x16_SN_AMAS3_BL1_BS1_EPS0_GLVWA8_GLVWB8_GRVW8_GSU1_GSUASB_ISA1030_IU2_K1_KLA_LDL2_LRVW8_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU0_SUM0_SUS0_SVW4_TT8_16_USFGROn1_VAW2_VSn1_VW8_VWB8_WS32_WG16_8_1_WGM8",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.10731199999999999,
+            "count": 8,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.0981352725304089
+          },
+          {
+            "name": "Cijk_Ailk_Bjlk_HHS_BH_MT128x128x32_SN_AMAS3_BL1_BS1_EPS0_GLVWA8_GLVWB8_GRVW8_GSU1_GSUASB_ISA1030_IU2_K1_KLA_LDL2_LRVW8_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU0_SUM0_SUS0_SVW4_TT8_8_USFGROn1_VAW2_VSn1_VW8_VWB8_WS32_WG16_16_1_WGM1",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.086312,
+            "count": 8,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.07893107613915176
+          },
+          {
+            "name": "SubTensorOpWithScalar1d",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.001639,
+            "count": 1,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.0014988418040604986
+          }
+        ],
+        "aggregation": "sum Chrome trace complete events (ph=X), grouped by category/name/device",
+        "included_categories": [
+          "kernel",
+          "gpu_memcpy",
+          "gpu_memset"
+        ],
+        "category_totals": {
+          "kernel": {
+            "count": 49,
+            "duration_ms": 1.093511
+          },
+          "gpu_memcpy": {
+            "count": 0,
+            "duration_ms": 0.0
+          },
+          "gpu_memset": {
+            "count": 0,
+            "duration_ms": 0.0
+          }
+        },
+        "excluded_complete_event_categories": {
+          "Trace": {
+            "count": 1,
+            "duration_ms": 1.882087
+          },
+          "cpu_op": {
+            "count": 26,
+            "duration_ms": 1.2988100000000005
+          },
+          "cuda_runtime": {
+            "count": 78,
+            "duration_ms": 1.395531
+          }
+        },
+        "trace_file": "transpose_C128_O64_T3200_k4_trace.json",
+        "trace_sha256": "600b967f24ee52aa1295f67404b89fbea3f6c83e8208befcdb7b1073b64c0a61",
+        "trace_retained": true,
+        "trace_duration_unit": "microseconds",
+        "denominator_semantics": "summed kernel/memcpy/memset work; never add CPU attribution or GPU annotations; may overlap across streams"
+      },
+      "reference": "GPU FP32 native convolution, identical rounded inputs",
+      "reference_error": {
+        "y": {
+          "bitwise": false,
+          "value_equal": false,
+          "finite": true,
+          "max_abs": 0.0032944679260253906,
+          "rmse": 0.000305075600631209,
+          "reference_rms": 0.9961842251709676,
+          "nrmse": 0.0003062441593861328,
+          "max_over_reference_rms": 0.0033070870254545397,
+          "screen_pass": true
+        },
+        "dx": {
+          "bitwise": false,
+          "value_equal": false,
+          "finite": true,
+          "max_abs": 1.527741551399231e-05,
+          "rmse": 2.0666626934807083e-06,
+          "reference_rms": 0.009972085545857016,
+          "nrmse": 0.00020724478184398648,
+          "max_over_reference_rms": 0.0015320180962887383,
+          "screen_pass": true
+        },
+        "dw": {
+          "bitwise": false,
+          "value_equal": false,
+          "finite": true,
+          "max_abs": 0.007243156433105469,
+          "rmse": 0.0007042750784262316,
+          "reference_rms": 1.6022595240524,
+          "nrmse": 0.000439551188714419,
+          "max_over_reference_rms": 0.004520588783760969,
+          "screen_pass": true
+        }
+      }
+    },
+    {
+      "case": {
+        "name": "conv3d_C16_O32_D1_H32_W32",
+        "shape": [
+          1,
+          16,
+          1,
+          32,
+          32
+        ],
+        "weight": [
+          32,
+          16,
+          3,
+          3,
+          3
+        ],
+        "kind": "conv3d",
+        "groups": 1,
+        "dilation": 1,
+        "stride": 1,
+        "padding": 1,
+        "origin": "Synthetic bounded Conv3D survey; no new model; model A/B not covered"
+      },
+      "cold_s": 0.4996980900032213,
+      "ms_rounds": [
+        0.21874557257563407,
+        0.20133857157946164,
+        0.22009971559912497
+      ],
+      "event_ms_rounds": [
+        0.2146669966833932,
+        0.198950001171657,
+        0.2176255668912615
+      ],
+      "median_ms": 0.21874557257563407,
+      "event_median_ms": 0.2146669966833932,
+      "peak_extra_allocated_bytes": 1010688,
+      "device_activities": {
+        "denominator_ms": 0.057593,
+        "rows": [
+          {
+            "name": "Im3d2Col",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.021518000000000002,
+            "count": 2,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.3736217943152814
+          },
+          {
+            "name": "Cijk_Alik_Bljk_HHS_BH_MT16x16x32_SN_AMAS3_BL1_BS1_EPS1_GLVWA2_GLVWB2_GRVW2_GSU1_GSUASB_ISA1030_IU2_K1_KLA_LDL2_LRVW2_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU0_SUM0_SUS0_SVW4_TT2_2_USFGROn1_VAW2_VSn1_VW2_VWB2_WS32_WG8_8_1_WGM4",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.016279,
+            "count": 1,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.28265587831854566
+          },
+          {
+            "name": "Cijk_Ailk_Bjlk_HHS_BH_MT128x64x16_SN_AMAS3_BL1_BS1_EPS1_GLVWA8_GLVWB8_GRVW8_GSU1_GSUASB_ISA1030_IU2_K1_KLA_LDL2_LRVW8_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU0_SUM0_SUS0_SVW4_TT8_8_USFGROn1_VAW2_VSn1_VW8_VWB8_WS32_WG16_8_1_WGM4",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.007279,
+            "count": 1,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.12638688729533104
+          },
+          {
+            "name": "Cijk_Ailk_Bljk_HHS_BH_MT32x16x32_SN_AMAS3_BL1_BS1_EPS1_GLVWA2_GLVWB2_GRVW2_GSU1_GSUASB_ISA1030_IU2_K1_KLA_LDL2_LRVW2_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU0_SUM0_SUS0_SVW4_TT2_2_USFGROn1_VAW2_VSn1_VW2_VWB2_WS32_WG16_8_1_WGM4",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.007199,
+            "count": 1,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.1249978295973469
+          },
+          {
+            "name": "Col2Im3dU",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.003839,
+            "count": 1,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.06665740628201344
+          },
+          {
+            "name": "SubTensorOpWithScalar1d",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.001479,
+            "count": 1,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.025680204191481606
+          }
+        ],
+        "top10": [
+          {
+            "name": "Im3d2Col",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.021518000000000002,
+            "count": 2,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.3736217943152814
+          },
+          {
+            "name": "Cijk_Alik_Bljk_HHS_BH_MT16x16x32_SN_AMAS3_BL1_BS1_EPS1_GLVWA2_GLVWB2_GRVW2_GSU1_GSUASB_ISA1030_IU2_K1_KLA_LDL2_LRVW2_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU0_SUM0_SUS0_SVW4_TT2_2_USFGROn1_VAW2_VSn1_VW2_VWB2_WS32_WG8_8_1_WGM4",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.016279,
+            "count": 1,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.28265587831854566
+          },
+          {
+            "name": "Cijk_Ailk_Bjlk_HHS_BH_MT128x64x16_SN_AMAS3_BL1_BS1_EPS1_GLVWA8_GLVWB8_GRVW8_GSU1_GSUASB_ISA1030_IU2_K1_KLA_LDL2_LRVW8_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU0_SUM0_SUS0_SVW4_TT8_8_USFGROn1_VAW2_VSn1_VW8_VWB8_WS32_WG16_8_1_WGM4",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.007279,
+            "count": 1,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.12638688729533104
+          },
+          {
+            "name": "Cijk_Ailk_Bljk_HHS_BH_MT32x16x32_SN_AMAS3_BL1_BS1_EPS1_GLVWA2_GLVWB2_GRVW2_GSU1_GSUASB_ISA1030_IU2_K1_KLA_LDL2_LRVW2_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU0_SUM0_SUS0_SVW4_TT2_2_USFGROn1_VAW2_VSn1_VW2_VWB2_WS32_WG16_8_1_WGM4",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.007199,
+            "count": 1,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.1249978295973469
+          },
+          {
+            "name": "Col2Im3dU",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.003839,
+            "count": 1,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.06665740628201344
+          },
+          {
+            "name": "SubTensorOpWithScalar1d",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.001479,
+            "count": 1,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.025680204191481606
+          }
+        ],
+        "aggregation": "sum Chrome trace complete events (ph=X), grouped by category/name/device",
+        "included_categories": [
+          "kernel",
+          "gpu_memcpy",
+          "gpu_memset"
+        ],
+        "category_totals": {
+          "kernel": {
+            "count": 7,
+            "duration_ms": 0.05759299999999999
+          },
+          "gpu_memcpy": {
+            "count": 0,
+            "duration_ms": 0.0
+          },
+          "gpu_memset": {
+            "count": 0,
+            "duration_ms": 0.0
+          }
+        },
+        "excluded_complete_event_categories": {
+          "Trace": {
+            "count": 1,
+            "duration_ms": 0.396667
+          },
+          "cpu_op": {
+            "count": 11,
+            "duration_ms": 0.698023
+          },
+          "cuda_runtime": {
+            "count": 15,
+            "duration_ms": 0.047080000000000004
+          }
+        },
+        "trace_file": "conv3d_C16_O32_D1_H32_W32_trace.json",
+        "trace_sha256": "08a3996cd4c8ce41a69db693c496f86ce701101ab965aba5956e99a1aa292983",
+        "trace_retained": true,
+        "trace_duration_unit": "microseconds",
+        "denominator_semantics": "summed kernel/memcpy/memset work; never add CPU attribution or GPU annotations; may overlap across streams"
+      },
+      "reference": "GPU FP32 native convolution, identical rounded inputs",
+      "reference_error": {
+        "y": {
+          "bitwise": false,
+          "value_equal": false,
+          "finite": true,
+          "max_abs": 0.0009522438049316406,
+          "rmse": 0.00011709364395568344,
+          "reference_rms": 0.5619360809715941,
+          "nrmse": 0.00020837537919477807,
+          "max_over_reference_rms": 0.0016945767270989253,
+          "screen_pass": true
+        },
+        "dx": {
+          "bitwise": false,
+          "value_equal": false,
+          "finite": true,
+          "max_abs": 1.1496245861053467e-05,
+          "rmse": 2.3666811063979005e-06,
+          "reference_rms": 0.008016099904020446,
+          "nrmse": 0.0002952409693909753,
+          "max_over_reference_rms": 0.0014341445339631517,
+          "screen_pass": true
+        },
+        "dw": {
+          "bitwise": false,
+          "value_equal": false,
+          "finite": true,
+          "max_abs": 0.0004175901412963867,
+          "rmse": 3.762425926524072e-05,
+          "reference_rms": 0.18249018928930058,
+          "nrmse": 0.0002061714079631712,
+          "max_over_reference_rms": 0.0022882881700253136,
+          "screen_pass": true
+        }
+      }
+    },
+    {
+      "case": {
+        "name": "conv3d_C32_O32_D4_H32_W32",
+        "shape": [
+          1,
+          32,
+          4,
+          32,
+          32
+        ],
+        "weight": [
+          32,
+          32,
+          3,
+          3,
+          3
+        ],
+        "kind": "conv3d",
+        "groups": 1,
+        "dilation": 1,
+        "stride": 1,
+        "padding": 1,
+        "origin": "Synthetic bounded Conv3D survey; no new model; model A/B not covered"
+      },
+      "cold_s": 0.0020243350008968264,
+      "ms_rounds": [
+        0.3669845713635108,
+        0.3670359999107729,
+        0.36928871538423536
+      ],
+      "event_ms_rounds": [
+        0.36304129873003277,
+        0.3641368661608015,
+        0.3665240151541574
+      ],
+      "median_ms": 0.3670359999107729,
+      "event_median_ms": 0.3641368661608015,
+      "peak_extra_allocated_bytes": 7657472,
+      "device_activities": {
+        "denominator_ms": 0.331193,
+        "rows": [
+          {
+            "name": "Im3d2Col",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.147518,
+            "count": 2,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.44541400331528747
+          },
+          {
+            "name": "Cijk_Alik_Bljk_HHS_BH_MT32x32x8_SN_AMAS3_BL1_BS1_EPS1_GLVWA2_GLVWB2_GRVW2_GSU1_GSUASB_ISA1030_IU2_K1_KLA_LDL2_LRVW2_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU0_SUM0_SUS0_SVW4_TT4_4_USFGROn1_VAW2_VSn1_VW2_VWB2_WS32_WG8_8_1_WGM1",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.114679,
+            "count": 1,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.3462603376279088
+          },
+          {
+            "name": "Cijk_Ailk_Bjlk_HHS_BH_MT128x128x8_SN_AMAS3_BL1_BS1_EPS0_GLVWA8_GLVWB8_GRVW8_GSU1_GSUASB_ISA1030_IU2_K1_KLA_LDL2_LRVW8_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU0_SUM0_SUS0_SVW4_TT8_16_USFGROn1_VAW2_VSn1_VW8_VWB8_WS32_WG16_8_1_WGM1",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.025079,
+            "count": 1,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.0757232187878367
+          },
+          {
+            "name": "Col2Im3dU",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.023279,
+            "count": 1,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.07028832131113882
+          },
+          {
+            "name": "Cijk_Ailk_Bljk_HHS_BH_MT64x32x32_SN_AMAS3_BL1_BS1_EPS0_GLVWA4_GLVWB4_GRVW4_GSU1_GSUASB_ISA1030_IU2_K1_KLA_LDL2_LRVW4_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU0_SUM0_SUS0_SVW4_TT4_4_USFGROn1_VAW2_VSn1_VW4_VWB4_WS32_WG16_8_1_WGM4",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.019079000000000002,
+            "count": 1,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.05760689386551045
+          },
+          {
+            "name": "SubTensorOpWithScalar1d",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.0015589999999999998,
+            "count": 1,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.004707225092317772
+          }
+        ],
+        "top10": [
+          {
+            "name": "Im3d2Col",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.147518,
+            "count": 2,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.44541400331528747
+          },
+          {
+            "name": "Cijk_Alik_Bljk_HHS_BH_MT32x32x8_SN_AMAS3_BL1_BS1_EPS1_GLVWA2_GLVWB2_GRVW2_GSU1_GSUASB_ISA1030_IU2_K1_KLA_LDL2_LRVW2_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU0_SUM0_SUS0_SVW4_TT4_4_USFGROn1_VAW2_VSn1_VW2_VWB2_WS32_WG8_8_1_WGM1",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.114679,
+            "count": 1,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.3462603376279088
+          },
+          {
+            "name": "Cijk_Ailk_Bjlk_HHS_BH_MT128x128x8_SN_AMAS3_BL1_BS1_EPS0_GLVWA8_GLVWB8_GRVW8_GSU1_GSUASB_ISA1030_IU2_K1_KLA_LDL2_LRVW8_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU0_SUM0_SUS0_SVW4_TT8_16_USFGROn1_VAW2_VSn1_VW8_VWB8_WS32_WG16_8_1_WGM1",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.025079,
+            "count": 1,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.0757232187878367
+          },
+          {
+            "name": "Col2Im3dU",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.023279,
+            "count": 1,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.07028832131113882
+          },
+          {
+            "name": "Cijk_Ailk_Bljk_HHS_BH_MT64x32x32_SN_AMAS3_BL1_BS1_EPS0_GLVWA4_GLVWB4_GRVW4_GSU1_GSUASB_ISA1030_IU2_K1_KLA_LDL2_LRVW4_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU0_SUM0_SUS0_SVW4_TT4_4_USFGROn1_VAW2_VSn1_VW4_VWB4_WS32_WG16_8_1_WGM4",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.019079000000000002,
+            "count": 1,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.05760689386551045
+          },
+          {
+            "name": "SubTensorOpWithScalar1d",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.0015589999999999998,
+            "count": 1,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.004707225092317772
+          }
+        ],
+        "aggregation": "sum Chrome trace complete events (ph=X), grouped by category/name/device",
+        "included_categories": [
+          "kernel",
+          "gpu_memcpy",
+          "gpu_memset"
+        ],
+        "category_totals": {
+          "kernel": {
+            "count": 7,
+            "duration_ms": 0.33119299999999996
+          },
+          "gpu_memcpy": {
+            "count": 0,
+            "duration_ms": 0.0
+          },
+          "gpu_memset": {
+            "count": 0,
+            "duration_ms": 0.0
+          }
+        },
+        "excluded_complete_event_categories": {
+          "Trace": {
+            "count": 1,
+            "duration_ms": 0.6098060000000001
+          },
+          "cpu_op": {
+            "count": 11,
+            "duration_ms": 0.726043
+          },
+          "cuda_runtime": {
+            "count": 15,
+            "duration_ms": 0.237989
+          }
+        },
+        "trace_file": "conv3d_C32_O32_D4_H32_W32_trace.json",
+        "trace_sha256": "c82ea3c681ca4001bf50cdcf2af52e7b38d41b5ac4a202d8a4d17504feeb5f56",
+        "trace_retained": true,
+        "trace_duration_unit": "microseconds",
+        "denominator_semantics": "summed kernel/memcpy/memset work; never add CPU attribution or GPU annotations; may overlap across streams"
+      },
+      "reference": "GPU FP32 native convolution, identical rounded inputs",
+      "reference_error": {
+        "y": {
+          "bitwise": false,
+          "value_equal": false,
+          "finite": true,
+          "max_abs": 0.0016984939575195312,
+          "rmse": 0.00018550244330448897,
+          "reference_rms": 0.8929794015125154,
+          "nrmse": 0.00020773429150805457,
+          "max_over_reference_rms": 0.0019020527849160317,
+          "screen_pass": true
+        },
+        "dx": {
+          "bitwise": false,
+          "value_equal": false,
+          "finite": true,
+          "max_abs": 1.7311424016952515e-05,
+          "rmse": 2.6085664610425813e-06,
+          "reference_rms": 0.008875799740233012,
+          "nrmse": 0.0002938964980494366,
+          "max_over_reference_rms": 0.0019504072335568541,
+          "screen_pass": true
+        },
+        "dw": {
+          "bitwise": false,
+          "value_equal": false,
+          "finite": true,
+          "max_abs": 0.0009260177612304688,
+          "rmse": 0.00011789470219929957,
+          "reference_rms": 0.5711229952565268,
+          "nrmse": 0.00020642611692836101,
+          "max_over_reference_rms": 0.0016213981382671113,
+          "screen_pass": true
+        }
+      }
+    },
+    {
+      "case": {
+        "name": "conv3d_C64_O32_D8_H16_W16",
+        "shape": [
+          1,
+          64,
+          8,
+          16,
+          16
+        ],
+        "weight": [
+          32,
+          64,
+          3,
+          3,
+          3
+        ],
+        "kind": "conv3d",
+        "groups": 1,
+        "dilation": 1,
+        "stride": 1,
+        "padding": 1,
+        "origin": "Synthetic bounded Conv3D survey; no new model; model A/B not covered"
+      },
+      "cold_s": 0.01201123399368953,
+      "ms_rounds": [
+        0.3930157150274941,
+        0.39571285638625603,
+        0.40049285702739973
+      ],
+      "event_ms_rounds": [
+        0.38912272453308105,
+        0.3927854129246303,
+        0.3972611427307129
+      ],
+      "median_ms": 0.39571285638625603,
+      "event_median_ms": 0.3927854129246303,
+      "peak_extra_allocated_bytes": 7581696,
+      "device_activities": {
+        "denominator_ms": 0.341472,
+        "rows": [
+          {
+            "name": "Im3d2Col",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.149597,
+            "count": 2,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.4380944850529473
+          },
+          {
+            "name": "Cijk_Alik_Bljk_HHS_BH_MT32x16x8_SN_AMAS3_BL1_BS1_EPS1_GLVWA2_GLVWB1_GRVW2_GSU1_GSUASB_ISA1030_IU2_K1_KLA_LDL2_LRVW2_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU0_SUM0_SUS0_SVW4_TT2_2_USFGROn1_VAW2_VSn1_VW2_VWB2_WS32_WG16_8_1_WGM8",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.11279900000000001,
+            "count": 1,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.3303316230906195
+          },
+          {
+            "name": "Cijk_Ailk_Bljk_HHS_BH_MT32x8x16_SN_AMAS3_BL1_BS1_EPS1_GLVWA2_GLVWB2_GRVW2_GSU1_GSUASB_ISA1030_IU2_K1_KLA_LDL2_LRVW2_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU0_SUM0_SUS0_SVW4_TT2_2_USFGROn1_VAW2_VSn1_VW2_VWB2_WS32_WG16_4_1_WGM1",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.031799,
+            "count": 1,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.0931233014712773
+          },
+          {
+            "name": "Col2Im3dU",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.025439,
+            "count": 1,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.07449805547746229
+          },
+          {
+            "name": "Cijk_Ailk_Bjlk_HHS_BH_MT128x128x8_SN_AMAS3_BL1_BS1_EPS0_GLVWA8_GLVWB8_GRVW8_GSU1_GSUASB_ISA1030_IU2_K1_KLA_LDL2_LRVW8_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU32_SUM3_SUS128_SVW4_TT8_16_USFGROn1_VAW2_VSn1_VW8_VWB8_WS32_WG16_8_1_WGM1",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.020239,
+            "count": 1,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.05926986692906007
+          },
+          {
+            "name": "SubTensorOpWithScalar1d",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.001599,
+            "count": 1,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.00468266797863368
+          }
+        ],
+        "top10": [
+          {
+            "name": "Im3d2Col",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.149597,
+            "count": 2,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.4380944850529473
+          },
+          {
+            "name": "Cijk_Alik_Bljk_HHS_BH_MT32x16x8_SN_AMAS3_BL1_BS1_EPS1_GLVWA2_GLVWB1_GRVW2_GSU1_GSUASB_ISA1030_IU2_K1_KLA_LDL2_LRVW2_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU0_SUM0_SUS0_SVW4_TT2_2_USFGROn1_VAW2_VSn1_VW2_VWB2_WS32_WG16_8_1_WGM8",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.11279900000000001,
+            "count": 1,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.3303316230906195
+          },
+          {
+            "name": "Cijk_Ailk_Bljk_HHS_BH_MT32x8x16_SN_AMAS3_BL1_BS1_EPS1_GLVWA2_GLVWB2_GRVW2_GSU1_GSUASB_ISA1030_IU2_K1_KLA_LDL2_LRVW2_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU0_SUM0_SUS0_SVW4_TT2_2_USFGROn1_VAW2_VSn1_VW2_VWB2_WS32_WG16_4_1_WGM1",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.031799,
+            "count": 1,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.0931233014712773
+          },
+          {
+            "name": "Col2Im3dU",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.025439,
+            "count": 1,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.07449805547746229
+          },
+          {
+            "name": "Cijk_Ailk_Bjlk_HHS_BH_MT128x128x8_SN_AMAS3_BL1_BS1_EPS0_GLVWA8_GLVWB8_GRVW8_GSU1_GSUASB_ISA1030_IU2_K1_KLA_LDL2_LRVW8_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU32_SUM3_SUS128_SVW4_TT8_16_USFGROn1_VAW2_VSn1_VW8_VWB8_WS32_WG16_8_1_WGM1",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.020239,
+            "count": 1,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.05926986692906007
+          },
+          {
+            "name": "SubTensorOpWithScalar1d",
+            "category": "kernel",
+            "device": 1,
+            "self_gpu_ms": 0.001599,
+            "count": 1,
+            "device_type": "CUDA",
+            "input_shapes": [],
+            "share_of_this_table": 0.00468266797863368
+          }
+        ],
+        "aggregation": "sum Chrome trace complete events (ph=X), grouped by category/name/device",
+        "included_categories": [
+          "kernel",
+          "gpu_memcpy",
+          "gpu_memset"
+        ],
+        "category_totals": {
+          "kernel": {
+            "count": 7,
+            "duration_ms": 0.341472
+          },
+          "gpu_memcpy": {
+            "count": 0,
+            "duration_ms": 0.0
+          },
+          "gpu_memset": {
+            "count": 0,
+            "duration_ms": 0.0
+          }
+        },
+        "excluded_complete_event_categories": {
+          "Trace": {
+            "count": 1,
+            "duration_ms": 0.6070650000000001
+          },
+          "cpu_op": {
+            "count": 11,
+            "duration_ms": 0.804223
+          },
+          "cuda_runtime": {
+            "count": 15,
+            "duration_ms": 0.217159
+          }
+        },
+        "trace_file": "conv3d_C64_O32_D8_H16_W16_trace.json",
+        "trace_sha256": "0e7e1ff328f9215182353d4c3af99ef3bcac53716bd39e3152f8f23c475a2a29",
+        "trace_retained": true,
+        "trace_duration_unit": "microseconds",
+        "denominator_semantics": "summed kernel/memcpy/memset work; never add CPU attribution or GPU annotations; may overlap across streams"
+      },
+      "reference": "GPU FP32 native convolution, identical rounded inputs",
+      "reference_error": {
+        "y": {
+          "bitwise": false,
+          "value_equal": false,
+          "finite": true,
+          "max_abs": 0.0014982223510742188,
+          "rmse": 0.00019016966986374633,
+          "reference_rms": 0.9158523907887058,
+          "nrmse": 0.00020764227049729886,
+          "max_over_reference_rms": 0.0016358775345708195,
+          "screen_pass": true
+        },
+        "dx": {
+          "bitwise": false,
+          "value_equal": false,
+          "finite": true,
+          "max_abs": 1.259148120880127e-05,
+          "rmse": 1.8911148028620048e-06,
+          "reference_rms": 0.006465302215824339,
+          "nrmse": 0.0002925021506702891,
+          "max_over_reference_rms": 0.001947547197095075,
+          "screen_pass": true
+        },
+        "dw": {
+          "bitwise": false,
+          "value_equal": false,
+          "finite": true,
+          "max_abs": 0.0004884004592895508,
+          "rmse": 8.618748461699434e-05,
+          "reference_rms": 0.41565319817206353,
+          "nrmse": 0.00020735431604045117,
+          "max_over_reference_rms": 0.0011750191299800196,
+          "screen_pass": true
+        }
+      }
+    }
+  ],
+  "db_before": [],
+  "gate": {
+    "finite": true,
+    "reference": "FP32 same native operation on identical rounded inputs",
+    "max_over_reference_rms": 0.02,
+    "nrmse": 0.002,
+    "scope": "operator screening only; no model quality claim"
+  },
+  "device": "AMD Radeon RX 6900 XT",
+  "active_case": "conv3d_C64_O32_D8_H16_W16",
+  "gpu_audit": {
+    "available": true,
+    "valid_for_timing": true,
+    "method": "KFD client PID snapshots and periodic polling; research flock",
+    "limitation": "Detects observed KFD clients, not graphics load or sub-poll transient clients",
+    "allowed_pids": [
+      779744
+    ],
+    "interval_s": 0.25,
+    "sample_count": 52,
+    "started_unix_s": 1793991260.180575,
+    "ended_unix_s": 1793991269.0308218,
+    "foreign_clients": [],
+    "errors": [],
+    "transitions": [
+      {
+        "unix_s": 1793991260.1805751,
+        "kfd_pids": [],
+        "foreign_or_error": []
+      }
+    ]
+  },
+  "db_after": [],
+  "valid_for_timing": true
+}

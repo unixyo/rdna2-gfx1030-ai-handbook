@@ -1,0 +1,24 @@
+{
+  "schema": "v08_direct_selection_cpu_check",
+  "gpu_executed": false,
+  "torch_imported": false,
+  "provisional_manifest": "direct_provisional_current/dispatch.json",
+  "entries": 18,
+  "directions": 50,
+  "excluded_fp32_input_cases": 3,
+  "direct_source_unchanged": true,
+  "direct_source_sha256": "6ef607af92b0ffd561a633093ff9bd62ae8428deb6f613aa2d38fca3a674b4e3",
+  "negative_cases": [
+    {
+      "case": "fp32_solver",
+      "rejected": true,
+      "reason": "Direct FP16 candidates require an FP16 solver baseline"
+    },
+    {
+      "case": "partial_solver",
+      "rejected": true,
+      "reason": "Solver evidence must be a completed valid FAST replay"
+    }
+  ],
+  "status": "passed_cpu_only_final_solver_replay_pending"
+}

@@ -1,0 +1,138 @@
+[
+  {
+    "idx": 0,
+    "mode": "base",
+    "success": true,
+    "wall": {
+      "denoise": 29.638998559996253,
+      "vae": 2.775214410001354
+    },
+    "request_wall_s": 42.07835976500064
+  },
+  {
+    "idx": 1,
+    "mode": "cand",
+    "success": true,
+    "wall": {
+      "denoise": 17.99154566600191,
+      "vae": 2.6730677129962714
+    },
+    "request_wall_s": 21.030653540998173,
+    "latent_err": {
+      "max_abs": 0.0,
+      "rmse": 0.0
+    },
+    "image_err": {
+      "max_abs": 0.0,
+      "rmse": 0.0
+    }
+  },
+  {
+    "idx": 2,
+    "mode": "base",
+    "success": true,
+    "wall": {
+      "denoise": 19.742211067001335,
+      "vae": 2.668238950005616
+    },
+    "request_wall_s": 22.765229567005008,
+    "latent_err": {
+      "max_abs": 0.0,
+      "rmse": 0.0
+    },
+    "image_err": {
+      "max_abs": 0.0,
+      "rmse": 0.0
+    }
+  },
+  {
+    "idx": 3,
+    "mode": "cand",
+    "success": true,
+    "wall": {
+      "denoise": 18.176479062,
+      "vae": 2.6555394180031726
+    },
+    "request_wall_s": 21.14386829399882,
+    "latent_err": {
+      "max_abs": 0.0,
+      "rmse": 0.0
+    },
+    "image_err": {
+      "max_abs": 0.0,
+      "rmse": 0.0
+    }
+  },
+  {
+    "idx": 4,
+    "mode": "cand",
+    "success": true,
+    "wall": {
+      "denoise": 18.00839861499844,
+      "vae": 2.6434835809996002
+    },
+    "request_wall_s": 20.950860080003622,
+    "latent_err": {
+      "max_abs": 0.0,
+      "rmse": 0.0
+    },
+    "image_err": {
+      "max_abs": 0.0,
+      "rmse": 0.0
+    }
+  },
+  {
+    "idx": 5,
+    "mode": "base",
+    "success": true,
+    "wall": {
+      "denoise": 19.76960841500113,
+      "vae": 2.6454953550055507
+    },
+    "request_wall_s": 22.7240169459983,
+    "latent_err": {
+      "max_abs": 0.0,
+      "rmse": 0.0
+    },
+    "image_err": {
+      "max_abs": 0.0,
+      "rmse": 0.0
+    }
+  },
+  {
+    "idx": 6,
+    "mode": "base",
+    "success": true,
+    "wall": {
+      "denoise": 19.78763439499744,
+      "vae": 2.6582326170027955
+    },
+    "request_wall_s": 22.770505546002823,
+    "latent_err": {
+      "max_abs": 0.0,
+      "rmse": 0.0
+    },
+    "image_err": {
+      "max_abs": 0.0,
+      "rmse": 0.0
+    }
+  },
+  {
+    "idx": 7,
+    "mode": "cand",
+    "success": true,
+    "wall": {
+      "denoise": 18.015463281000848,
+      "vae": 2.6711895170010393
+    },
+    "request_wall_s": 20.983329777001927,
+    "latent_err": {
+      "max_abs": 0.0,
+      "rmse": 0.0
+    },
+    "image_err": {
+      "max_abs": 0.0,
+      "rmse": 0.0
+    }
+  }
+]

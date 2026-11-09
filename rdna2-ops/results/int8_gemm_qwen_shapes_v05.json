@@ -1,0 +1,721 @@
+{
+  "purpose": "Operator microbenchmark, synthetic data at observed model GEMM shapes",
+  "gpu": "AMD Radeon RX 6900 XT",
+  "arch": "gfx1030",
+  "torch": "2.12.0+rocm10.2.0a20261011",
+  "hip": "7.17.26405",
+  "triton": "3.8.0",
+  "sources": {
+    "~/DevSpace/moss-image-rdna2-lab01/scripts/rdna2_int8_matmul.py": "ae2936084d332c12b71bd49af06f665c03cbdfd8a3e4081f656b7f13ac1a6d88",
+    "~/DevSpace/qwen-image-21-rdna2-lab01/custom_nodes/RDNA2-Qwen21-INT8/int8_fused_kernel.py": "70c014d3c394b69cc907c60dd7086e367861c6bf03031320524c3ba2dcf86603",
+    "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/bench_int8_gemm.py": "98458580af12886b9c7d3a01eeb994507e64ed85289b6f431eaca75ba0918788",
+    "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/rdna2_ops/int8_gemm.py": "0b2d0970af17ddf61aa19d242bfebbb6f42add330e07387442dbe97ab316109d"
+  },
+  "contract": "FP32 output; exact integer dot. MOSS separate FP32 scale multiply then bias. Qwen permits FMA as in native patientx.",
+  "timing": {
+    "unit": "milliseconds",
+    "method": "synchronized ordinary wall, alternating rounds",
+    "rounds": 3,
+    "iters": 5,
+    "warmups": 2,
+    "excluded": [
+      "JIT/autotune",
+      "input generation",
+      "correctness checks"
+    ],
+    "included": [
+      "dispatch",
+      "output allocation",
+      "MOSS separate dequant/bias if native"
+    ],
+    "quantization": "excluded from GEMM rows; included separately in pipeline rows",
+    "weight_layout": "Prepared once before timing; preparation cost and resident bytes reported"
+  },
+  "gate": {
+    "integer": "bitwise CPU INT64 oracle",
+    "backend_fp32": "bitwise native output",
+    "nonfinite": 0
+  },
+  "small_checks": [],
+  "rows": [
+    {
+      "backend": "qwen",
+      "m": 2400,
+      "n": 4096,
+      "k": 4096,
+      "layout": "weight_nk",
+      "bias_mode": "none",
+      "wrapped_loads": true,
+      "partial_dot": false,
+      "a_stride": [
+        4096,
+        1
+      ],
+      "b_stride": [
+        1,
+        4096
+      ],
+      "weight_prepare_ms": 0.02675999712664634,
+      "extra_weight_resident_bytes": 0,
+      "native_cold_autotune_s": 1.398256397995283,
+      "native_kernel": {
+        "n_regs": 256,
+        "n_spills": 57,
+        "shared": 49152,
+        "v_dot4": 6144,
+        "v_dot2": 0,
+        "mfma_wmma": 0,
+        "assembly_sha256": "753edfc5158a23cf27ef79a04edaa3104a21f4d8dc50bd657ab0c7dbc5483de7"
+      },
+      "native_config": "BLOCK_M: 128, BLOCK_N: 256, BLOCK_K: 64, GROUP_SIZE_M: 8, num_warps: 8, num_ctas: 1, num_stages: 3, maxnreg: None",
+      "native": {
+        "samples_wall_ms": [
+          2.3416858006385155,
+          2.3131840003770776,
+          2.321309999388177
+        ],
+        "median_wall_ms": 2.321309999388177,
+        "additional_peak_bytes": 39321600
+      },
+      "candidates": [
+        {
+          "config": [
+            64,
+            128,
+            64,
+            4,
+            2,
+            8
+          ],
+          "key": "64,128,64,4,2,8",
+          "error": {
+            "bitwise": true,
+            "finite": true,
+            "max_abs": 0.0,
+            "rmse": 0.0
+          },
+          "integer_sample_exact": true,
+          "kernel": {
+            "n_regs": 188,
+            "n_spills": 0,
+            "shared": 12288,
+            "v_dot4": 2048,
+            "v_dot2": 0,
+            "mfma_wmma": 0,
+            "assembly_sha256": "dbe085b10fb17d0ba641300696f47a9e799abc6d3f61021054c0d80b44e645a6"
+          },
+          "accepted": true,
+          "samples_wall_ms": [
+            2.6002418002462946,
+            2.614221799012739,
+            2.614057800383307
+          ],
+          "median_wall_ms": 2.614057800383307,
+          "speedup": 0.8880102035417107,
+          "additional_peak_bytes": 39321600
+        }
+      ],
+      "best_config": [
+        64,
+        128,
+        64,
+        4,
+        2,
+        8
+      ],
+      "pipeline": {
+        "scope": "row quantization + GEMM/dequant; no ConvRot/input-act/residual",
+        "error": {
+          "bitwise": true,
+          "finite": true,
+          "max_abs": 0.0,
+          "rmse": 0.0
+        },
+        "samples_wall_ms": {
+          "native": [
+            2.3572478006826714,
+            2.3613637997186743,
+            2.3625715999514796
+          ],
+          "candidate": [
+            2.626885598874651,
+            2.6180596003541723,
+            2.6380996001535095
+          ]
+        },
+        "median_wall_ms": {
+          "native": 2.3613637997186743,
+          "candidate": 2.626885598874651
+        },
+        "speedup": 0.8989214455057635
+      }
+    },
+    {
+      "backend": "qwen",
+      "m": 2400,
+      "n": 24576,
+      "k": 4096,
+      "layout": "weight_nk",
+      "bias_mode": "none",
+      "wrapped_loads": true,
+      "partial_dot": false,
+      "a_stride": [
+        4096,
+        1
+      ],
+      "b_stride": [
+        1,
+        4096
+      ],
+      "weight_prepare_ms": 0.014040000678505749,
+      "extra_weight_resident_bytes": 0,
+      "native_cold_autotune_s": 1.3335027789944434,
+      "native_kernel": {
+        "n_regs": 256,
+        "n_spills": 57,
+        "shared": 49152,
+        "v_dot4": 6144,
+        "v_dot2": 0,
+        "mfma_wmma": 0,
+        "assembly_sha256": "753edfc5158a23cf27ef79a04edaa3104a21f4d8dc50bd657ab0c7dbc5483de7"
+      },
+      "native_config": "BLOCK_M: 128, BLOCK_N: 256, BLOCK_K: 64, GROUP_SIZE_M: 8, num_warps: 8, num_ctas: 1, num_stages: 3, maxnreg: None",
+      "native": {
+        "samples_wall_ms": [
+          13.308040800620802,
+          13.819953000347596,
+          13.845468600629829
+        ],
+        "median_wall_ms": 13.819953000347596,
+        "additional_peak_bytes": 236978176
+      },
+      "candidates": [
+        {
+          "config": [
+            64,
+            128,
+            64,
+            4,
+            2,
+            8
+          ],
+          "key": "64,128,64,4,2,8",
+          "error": {
+            "bitwise": true,
+            "finite": true,
+            "max_abs": 0.0,
+            "rmse": 0.0
+          },
+          "integer_sample_exact": true,
+          "kernel": {
+            "n_regs": 188,
+            "n_spills": 0,
+            "shared": 12288,
+            "v_dot4": 2048,
+            "v_dot2": 0,
+            "mfma_wmma": 0,
+            "assembly_sha256": "a5cb6e8b573f5acd4378728b92cb549df9cebf05efe7463174a4d058bee6efb9"
+          },
+          "accepted": true,
+          "samples_wall_ms": [
+            14.960226199764293,
+            15.346513199619949,
+            15.400296599545982
+          ],
+          "median_wall_ms": 15.346513199619949,
+          "speedup": 0.9005272286013374,
+          "additional_peak_bytes": 236978176
+        }
+      ],
+      "best_config": [
+        64,
+        128,
+        64,
+        4,
+        2,
+        8
+      ],
+      "pipeline": {
+        "scope": "row quantization + GEMM/dequant; no ConvRot/input-act/residual",
+        "error": {
+          "bitwise": true,
+          "finite": true,
+          "max_abs": 0.0,
+          "rmse": 0.0
+        },
+        "samples_wall_ms": {
+          "native": [
+            13.857932599785272,
+            13.786017200618517,
+            13.827181000669952
+          ],
+          "candidate": [
+            15.249375799612608,
+            15.228257999115158,
+            15.229262001230381
+          ]
+        },
+        "median_wall_ms": {
+          "native": 13.827181000669952,
+          "candidate": 15.229262001230381
+        },
+        "speedup": 0.9079350660296505
+      }
+    },
+    {
+      "backend": "qwen",
+      "m": 2400,
+      "n": 4096,
+      "k": 12288,
+      "layout": "weight_nk",
+      "bias_mode": "none",
+      "wrapped_loads": true,
+      "partial_dot": false,
+      "a_stride": [
+        12288,
+        1
+      ],
+      "b_stride": [
+        1,
+        12288
+      ],
+      "weight_prepare_ms": 0.014149998605716974,
+      "extra_weight_resident_bytes": 0,
+      "native_cold_autotune_s": 1.0582630009957938,
+      "native_kernel": {
+        "n_regs": 256,
+        "n_spills": 57,
+        "shared": 49152,
+        "v_dot4": 6144,
+        "v_dot2": 0,
+        "mfma_wmma": 0,
+        "assembly_sha256": "753edfc5158a23cf27ef79a04edaa3104a21f4d8dc50bd657ab0c7dbc5483de7"
+      },
+      "native_config": "BLOCK_M: 128, BLOCK_N: 256, BLOCK_K: 64, GROUP_SIZE_M: 8, num_warps: 8, num_ctas: 1, num_stages: 3, maxnreg: None",
+      "native": {
+        "samples_wall_ms": [
+          6.931602199620102,
+          6.954396200308111,
+          6.906266599253286
+        ],
+        "median_wall_ms": 6.931602199620102,
+        "additional_peak_bytes": 39321600
+      },
+      "candidates": [
+        {
+          "config": [
+            64,
+            128,
+            64,
+            4,
+            2,
+            8
+          ],
+          "key": "64,128,64,4,2,8",
+          "error": {
+            "bitwise": true,
+            "finite": true,
+            "max_abs": 0.0,
+            "rmse": 0.0
+          },
+          "integer_sample_exact": true,
+          "kernel": {
+            "n_regs": 188,
+            "n_spills": 0,
+            "shared": 12288,
+            "v_dot4": 2048,
+            "v_dot2": 0,
+            "mfma_wmma": 0,
+            "assembly_sha256": "9ea0a632e7f56b7876d662505f1bbf3ceff6780c5a82241afa1b0110b8a1b886"
+          },
+          "accepted": true,
+          "samples_wall_ms": [
+            7.884816998557653,
+            7.879126799525693,
+            7.929238599899691
+          ],
+          "median_wall_ms": 7.884816998557653,
+          "speedup": 0.8791075558111342,
+          "additional_peak_bytes": 39321600
+        }
+      ],
+      "best_config": [
+        64,
+        128,
+        64,
+        4,
+        2,
+        8
+      ],
+      "pipeline": {
+        "scope": "row quantization + GEMM/dequant; no ConvRot/input-act/residual",
+        "error": {
+          "bitwise": true,
+          "finite": true,
+          "max_abs": 0.0,
+          "rmse": 0.0
+        },
+        "samples_wall_ms": {
+          "native": [
+            7.385270799568389,
+            7.418198400409892,
+            7.412994600599632
+          ],
+          "candidate": [
+            8.188676601275802,
+            8.227846199588384,
+            8.265323800151236
+          ]
+        },
+        "median_wall_ms": {
+          "native": 7.412994600599632,
+          "candidate": 8.227846199588384
+        },
+        "speedup": 0.9009641673869017
+      }
+    },
+    {
+      "backend": "qwen",
+      "m": 4964,
+      "n": 4096,
+      "k": 4096,
+      "layout": "weight_nk",
+      "bias_mode": "none",
+      "wrapped_loads": true,
+      "partial_dot": false,
+      "a_stride": [
+        4096,
+        1
+      ],
+      "b_stride": [
+        1,
+        4096
+      ],
+      "weight_prepare_ms": 0.014238998119253665,
+      "extra_weight_resident_bytes": 0,
+      "native_cold_autotune_s": 5.021546659001615,
+      "native_kernel": {
+        "n_regs": 256,
+        "n_spills": 49,
+        "shared": 49152,
+        "v_dot4": 6144,
+        "v_dot2": 0,
+        "mfma_wmma": 0,
+        "assembly_sha256": "5c3db68a1896aa71398096473b80e33ebd67f0299b4f72109ec93c0330bb3474"
+      },
+      "native_config": "BLOCK_M: 128, BLOCK_N: 256, BLOCK_K: 64, GROUP_SIZE_M: 8, num_warps: 8, num_ctas: 1, num_stages: 3, maxnreg: None",
+      "native": {
+        "samples_wall_ms": [
+          4.719525600376073,
+          4.760178999276832,
+          4.769685000064783
+        ],
+        "median_wall_ms": 4.760178999276832,
+        "additional_peak_bytes": 81330176
+      },
+      "candidates": [
+        {
+          "config": [
+            64,
+            128,
+            64,
+            4,
+            2,
+            8
+          ],
+          "key": "64,128,64,4,2,8",
+          "error": {
+            "bitwise": true,
+            "finite": true,
+            "max_abs": 0.0,
+            "rmse": 0.0
+          },
+          "integer_sample_exact": true,
+          "kernel": {
+            "n_regs": 188,
+            "n_spills": 0,
+            "shared": 12288,
+            "v_dot4": 2048,
+            "v_dot2": 0,
+            "mfma_wmma": 0,
+            "assembly_sha256": "f5202f4a7e94e5b1188752d225ebc5040edfc01235e1970b4bec6960094802e5"
+          },
+          "accepted": true,
+          "samples_wall_ms": [
+            5.3999581999960355,
+            5.415641999570653,
+            5.3812304002349265
+          ],
+          "median_wall_ms": 5.3999581999960355,
+          "speedup": 0.8815214531253828,
+          "additional_peak_bytes": 81330176
+        }
+      ],
+      "best_config": [
+        64,
+        128,
+        64,
+        4,
+        2,
+        8
+      ],
+      "pipeline": {
+        "scope": "row quantization + GEMM/dequant; no ConvRot/input-act/residual",
+        "error": {
+          "bitwise": true,
+          "finite": true,
+          "max_abs": 0.0,
+          "rmse": 0.0
+        },
+        "samples_wall_ms": {
+          "native": [
+            5.006667200359516,
+            5.082302600203548,
+            5.069948799791746
+          ],
+          "candidate": [
+            5.532411199237686,
+            5.620028400153387,
+            5.637970200041309
+          ]
+        },
+        "median_wall_ms": {
+          "native": 5.069948799791746,
+          "candidate": 5.620028400153387
+        },
+        "speedup": 0.9021215621709976
+      }
+    },
+    {
+      "backend": "qwen",
+      "m": 4964,
+      "n": 24576,
+      "k": 4096,
+      "layout": "weight_nk",
+      "bias_mode": "none",
+      "wrapped_loads": true,
+      "partial_dot": false,
+      "a_stride": [
+        4096,
+        1
+      ],
+      "b_stride": [
+        1,
+        4096
+      ],
+      "weight_prepare_ms": 0.012500000593718141,
+      "extra_weight_resident_bytes": 0,
+      "native_cold_autotune_s": 2.0688099330000114,
+      "native_kernel": {
+        "n_regs": 256,
+        "n_spills": 49,
+        "shared": 49152,
+        "v_dot4": 6144,
+        "v_dot2": 0,
+        "mfma_wmma": 0,
+        "assembly_sha256": "5c3db68a1896aa71398096473b80e33ebd67f0299b4f72109ec93c0330bb3474"
+      },
+      "native_config": "BLOCK_M: 128, BLOCK_N: 256, BLOCK_K: 64, GROUP_SIZE_M: 8, num_warps: 8, num_ctas: 1, num_stages: 3, maxnreg: None",
+      "native": {
+        "samples_wall_ms": [
+          27.4014715992962,
+          27.8002065999317,
+          27.686721600184683
+        ],
+        "median_wall_ms": 27.686721600184683,
+        "additional_peak_bytes": 488636416
+      },
+      "candidates": [
+        {
+          "config": [
+            64,
+            128,
+            64,
+            4,
+            2,
+            8
+          ],
+          "key": "64,128,64,4,2,8",
+          "error": {
+            "bitwise": true,
+            "finite": true,
+            "max_abs": 0.0,
+            "rmse": 0.0
+          },
+          "integer_sample_exact": true,
+          "kernel": {
+            "n_regs": 188,
+            "n_spills": 0,
+            "shared": 12288,
+            "v_dot4": 2048,
+            "v_dot2": 0,
+            "mfma_wmma": 0,
+            "assembly_sha256": "ebf3e8ae2ff1e2c4f37d189deb735f158a2b519d8d12ef4a6fcc9177d61ff7b6"
+          },
+          "accepted": true,
+          "samples_wall_ms": [
+            31.158010600483976,
+            31.163920598919503,
+            31.217762200685684
+          ],
+          "median_wall_ms": 31.163920598919503,
+          "speedup": 0.8884222866728977,
+          "additional_peak_bytes": 488636416
+        }
+      ],
+      "best_config": [
+        64,
+        128,
+        64,
+        4,
+        2,
+        8
+      ],
+      "pipeline": {
+        "scope": "row quantization + GEMM/dequant; no ConvRot/input-act/residual",
+        "error": {
+          "bitwise": true,
+          "finite": true,
+          "max_abs": 0.0,
+          "rmse": 0.0
+        },
+        "samples_wall_ms": {
+          "native": [
+            27.61450599937234,
+            27.697163399716374,
+            27.629777799302246
+          ],
+          "candidate": [
+            30.776465599774383,
+            30.727106000995263,
+            30.717472000105772
+          ]
+        },
+        "median_wall_ms": {
+          "native": 27.629777799302246,
+          "candidate": 30.727106000995263
+        },
+        "speedup": 0.8991988311039545
+      }
+    },
+    {
+      "backend": "qwen",
+      "m": 4964,
+      "n": 4096,
+      "k": 12288,
+      "layout": "weight_nk",
+      "bias_mode": "none",
+      "wrapped_loads": true,
+      "partial_dot": false,
+      "a_stride": [
+        12288,
+        1
+      ],
+      "b_stride": [
+        1,
+        12288
+      ],
+      "weight_prepare_ms": 0.015050005458761007,
+      "extra_weight_resident_bytes": 0,
+      "native_cold_autotune_s": 1.410217004995502,
+      "native_kernel": {
+        "n_regs": 256,
+        "n_spills": 49,
+        "shared": 49152,
+        "v_dot4": 6144,
+        "v_dot2": 0,
+        "mfma_wmma": 0,
+        "assembly_sha256": "5c3db68a1896aa71398096473b80e33ebd67f0299b4f72109ec93c0330bb3474"
+      },
+      "native_config": "BLOCK_M: 128, BLOCK_N: 256, BLOCK_K: 64, GROUP_SIZE_M: 8, num_warps: 8, num_ctas: 1, num_stages: 3, maxnreg: None",
+      "native": {
+        "samples_wall_ms": [
+          13.266435200057458,
+          13.691574000404216,
+          13.730423599190544
+        ],
+        "median_wall_ms": 13.691574000404216,
+        "additional_peak_bytes": 81330176
+      },
+      "candidates": [
+        {
+          "config": [
+            64,
+            128,
+            64,
+            4,
+            2,
+            8
+          ],
+          "key": "64,128,64,4,2,8",
+          "error": {
+            "bitwise": true,
+            "finite": true,
+            "max_abs": 0.0,
+            "rmse": 0.0
+          },
+          "integer_sample_exact": true,
+          "kernel": {
+            "n_regs": 188,
+            "n_spills": 0,
+            "shared": 12288,
+            "v_dot4": 2048,
+            "v_dot2": 0,
+            "mfma_wmma": 0,
+            "assembly_sha256": "ab4bc031f513e36224aa77610faf24296959476c8fd17fb134f9699ec8e6921b"
+          },
+          "accepted": true,
+          "samples_wall_ms": [
+            15.510793800058309,
+            15.881426999112591,
+            15.986898200935684
+          ],
+          "median_wall_ms": 15.881426999112591,
+          "speedup": 0.8621123278890028,
+          "additional_peak_bytes": 81330176
+        }
+      ],
+      "best_config": [
+        64,
+        128,
+        64,
+        4,
+        2,
+        8
+      ],
+      "pipeline": {
+        "scope": "row quantization + GEMM/dequant; no ConvRot/input-act/residual",
+        "error": {
+          "bitwise": true,
+          "finite": true,
+          "max_abs": 0.0,
+          "rmse": 0.0
+        },
+        "samples_wall_ms": {
+          "native": [
+            14.741993798816111,
+            14.764563800417818,
+            14.695220200519543
+          ],
+          "candidate": [
+            16.339145599340554,
+            16.32945559977088,
+            16.33836160035571
+          ]
+        },
+        "median_wall_ms": {
+          "native": 14.741993798816111,
+          "candidate": 16.33836160035571
+        },
+        "speedup": 0.9022932751405842
+      }
+    }
+  ],
+  "failures": [],
+  "fp16_bmm_fp32_output_probe": {
+    "supported": true,
+    "dtype": "torch.float32",
+    "finite": true,
+    "max_abs_vs_fp32_input_roundtrip": 0.0
+  }
+}

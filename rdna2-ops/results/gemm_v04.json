@@ -1,0 +1,747 @@
+{
+  "status": "passed",
+  "seed": 20261106,
+  "tolerance": {
+    "atol": 0.002,
+    "rtol": 0.002,
+    "relative_l2": 0.001
+  },
+  "error_definition": "max_normalized_error = max(abs(error)/(atol+rtol*abs(reference))); also require relative L2 <= fixed threshold",
+  "environment_before": {
+    "ROCBLAS_USE_HIPBLASLT": null,
+    "ROCBLAS_USE_HIPBLASLT_BATCHED": null,
+    "TORCH_BLAS_PREFER_HIPBLASLT": null,
+    "TORCH_BLAS_PREFER_CUBLASLT": null,
+    "HSA_OVERRIDE_GFX_VERSION": null,
+    "HIP_VISIBLE_DEVICES": "0",
+    "ROCR_VISIBLE_DEVICES": "0"
+  },
+  "protocol": {
+    "warmup": 3,
+    "rounds": 5,
+    "iterations_per_round": 10,
+    "alternating_order": true,
+    "allocation_included": true,
+    "graph_capture": false,
+    "memory_scope": "PyTorch allocator; external library allocations may be absent"
+  },
+  "rows": [
+    {
+      "shape_mnk": [
+        1024,
+        1024,
+        1024
+      ],
+      "rhs_layout": "transposed",
+      "a_stride": [
+        1024,
+        1
+      ],
+      "b_stride": [
+        1,
+        1024
+      ],
+      "dtype": "float16",
+      "triton_accumulator": "float32",
+      "fp64_sample_shape": [
+        32,
+        32
+      ],
+      "checks": {
+        "triton_vs_rocblas_full": {
+          "finite": true,
+          "max_absolute": 0.0625,
+          "rms_error": 0.0004944066340426279,
+          "reference_rms": 31.992463123696783,
+          "relative_l2": 1.5453847118023995e-05,
+          "max_normalized_error": 0.4789272030651341,
+          "passed": true
+        },
+        "rocblas_vs_fp64_sample": {
+          "finite": true,
+          "max_absolute": 0.042728290194645524,
+          "rms_error": 0.006547201226600741,
+          "reference_rms": 32.166021850565016,
+          "relative_l2": 0.00020354401476866914,
+          "max_normalized_error": 0.2277795603233291,
+          "passed": true
+        },
+        "triton_vs_fp64_sample": {
+          "finite": true,
+          "max_absolute": 0.042728290194645524,
+          "rms_error": 0.00654720316135092,
+          "reference_rms": 32.166021850565016,
+          "relative_l2": 0.0002035440749175489,
+          "max_normalized_error": 0.2277795603233291,
+          "passed": true
+        }
+      },
+      "kernel": {
+        "target": "gfx1030",
+        "assembly_available": true,
+        "assembly_sha256": "2728f12707f7c426cb0e06bc8190ca8fc8a6ea72ef6a69316a355bba7fe10aee",
+        "instruction_counts_static": {
+          "v_dot2c_f32_f16": 256
+        },
+        "dot2_present": true,
+        "matrix_instructions_present": false,
+        "registers": 104,
+        "spills": 0,
+        "shared_bytes": 4096,
+        "tile": [
+          32,
+          64,
+          32
+        ],
+        "num_warps": 4,
+        "num_stages": 1,
+        "matrix_instr_nonkdim": 0
+      },
+      "first_call_wall_ms_including_jit_or_library_init": {
+        "rocblas": 0.18436800019117072,
+        "triton": 75.86499299941352
+      },
+      "timings": {
+        "rocblas": {
+          "event_ms": 0.08588799834251404,
+          "wall_ms": 0.09464329996262677,
+          "event_tflops": 25.00330301605141,
+          "wall_tflops": 22.69028709742802,
+          "peak_extra_allocated_bytes": 2097152,
+          "peak_allocated_bytes": 39845888,
+          "peak_reserved_bytes": 56623104,
+          "samples": [
+            {
+              "wall_ms": 0.10121119994437322,
+              "event_ms": 0.08588799834251404,
+              "baseline_allocated_bytes": 37748736,
+              "baseline_reserved_bytes": 56623104,
+              "peak_allocated_bytes": 39845888,
+              "peak_reserved_bytes": 56623104,
+              "peak_extra_allocated_bytes": 2097152,
+              "peak_extra_reserved_bytes": 0
+            },
+            {
+              "wall_ms": 0.09464329996262677,
+              "event_ms": 0.0859000027179718,
+              "baseline_allocated_bytes": 37748736,
+              "baseline_reserved_bytes": 56623104,
+              "peak_allocated_bytes": 39845888,
+              "peak_reserved_bytes": 56623104,
+              "peak_extra_allocated_bytes": 2097152,
+              "peak_extra_reserved_bytes": 0
+            },
+            {
+              "wall_ms": 0.09405220007465687,
+              "event_ms": 0.08550800085067749,
+              "baseline_allocated_bytes": 37748736,
+              "baseline_reserved_bytes": 56623104,
+              "peak_allocated_bytes": 39845888,
+              "peak_reserved_bytes": 56623104,
+              "peak_extra_allocated_bytes": 2097152,
+              "peak_extra_reserved_bytes": 0
+            },
+            {
+              "wall_ms": 0.09467119998589624,
+              "event_ms": 0.085971999168396,
+              "baseline_allocated_bytes": 37748736,
+              "baseline_reserved_bytes": 56623104,
+              "peak_allocated_bytes": 39845888,
+              "peak_reserved_bytes": 56623104,
+              "peak_extra_allocated_bytes": 2097152,
+              "peak_extra_reserved_bytes": 0
+            },
+            {
+              "wall_ms": 0.09446229996683542,
+              "event_ms": 0.08578400015830993,
+              "baseline_allocated_bytes": 37748736,
+              "baseline_reserved_bytes": 56623104,
+              "peak_allocated_bytes": 39845888,
+              "peak_reserved_bytes": 56623104,
+              "peak_extra_allocated_bytes": 2097152,
+              "peak_extra_reserved_bytes": 0
+            }
+          ]
+        },
+        "triton": {
+          "event_ms": 0.3929879903793335,
+          "wall_ms": 0.40154390007955953,
+          "event_tflops": 5.464501970981686,
+          "wall_tflops": 5.348066917650872,
+          "peak_extra_allocated_bytes": 2097152,
+          "peak_allocated_bytes": 39845888,
+          "peak_reserved_bytes": 56623104,
+          "samples": [
+            {
+              "wall_ms": 0.4014698999526445,
+              "event_ms": 0.3925920009613037,
+              "baseline_allocated_bytes": 37748736,
+              "baseline_reserved_bytes": 56623104,
+              "peak_allocated_bytes": 39845888,
+              "peak_reserved_bytes": 56623104,
+              "peak_extra_allocated_bytes": 2097152,
+              "peak_extra_reserved_bytes": 0
+            },
+            {
+              "wall_ms": 0.4020978998596547,
+              "event_ms": 0.3929879903793335,
+              "baseline_allocated_bytes": 37748736,
+              "baseline_reserved_bytes": 56623104,
+              "peak_allocated_bytes": 39845888,
+              "peak_reserved_bytes": 56623104,
+              "peak_extra_allocated_bytes": 2097152,
+              "peak_extra_reserved_bytes": 0
+            },
+            {
+              "wall_ms": 0.40154390007955953,
+              "event_ms": 0.3930079936981201,
+              "baseline_allocated_bytes": 37748736,
+              "baseline_reserved_bytes": 56623104,
+              "peak_allocated_bytes": 39845888,
+              "peak_reserved_bytes": 56623104,
+              "peak_extra_allocated_bytes": 2097152,
+              "peak_extra_reserved_bytes": 0
+            },
+            {
+              "wall_ms": 0.40182590018957853,
+              "event_ms": 0.3930720090866089,
+              "baseline_allocated_bytes": 37748736,
+              "baseline_reserved_bytes": 56623104,
+              "peak_allocated_bytes": 39845888,
+              "peak_reserved_bytes": 56623104,
+              "peak_extra_allocated_bytes": 2097152,
+              "peak_extra_reserved_bytes": 0
+            },
+            {
+              "wall_ms": 0.401370899999165,
+              "event_ms": 0.3927799940109253,
+              "baseline_allocated_bytes": 37748736,
+              "baseline_reserved_bytes": 56623104,
+              "peak_allocated_bytes": 39845888,
+              "peak_reserved_bytes": 56623104,
+              "peak_extra_allocated_bytes": 2097152,
+              "peak_extra_reserved_bytes": 0
+            }
+          ]
+        }
+      },
+      "event_speedup": 0.21855120371391054,
+      "wall_speedup": 0.23569851252596466,
+      "status": "passed"
+    },
+    {
+      "shape_mnk": [
+        2048,
+        2048,
+        2048
+      ],
+      "rhs_layout": "transposed",
+      "a_stride": [
+        2048,
+        1
+      ],
+      "b_stride": [
+        1,
+        2048
+      ],
+      "dtype": "float16",
+      "triton_accumulator": "float32",
+      "fp64_sample_shape": [
+        32,
+        32
+      ],
+      "checks": {
+        "triton_vs_rocblas_full": {
+          "finite": true,
+          "max_absolute": 0.125,
+          "rms_error": 0.0008379207427030466,
+          "reference_rms": 45.26993060425799,
+          "relative_l2": 1.8509432895491323e-05,
+          "max_normalized_error": 0.4793863854266539,
+          "passed": true
+        },
+        "rocblas_vs_fp64_sample": {
+          "finite": true,
+          "max_absolute": 0.052668957636342384,
+          "rms_error": 0.009717113630034902,
+          "reference_rms": 44.981475301554184,
+          "relative_l2": 0.0002160247872016585,
+          "max_normalized_error": 0.2313496768590226,
+          "passed": true
+        },
+        "triton_vs_fp64_sample": {
+          "finite": true,
+          "max_absolute": 0.052668957636342384,
+          "rms_error": 0.009717118830637791,
+          "reference_rms": 44.981475301554184,
+          "relative_l2": 0.00021602490281820636,
+          "max_normalized_error": 0.2313496768590226,
+          "passed": true
+        }
+      },
+      "kernel": {
+        "target": "gfx1030",
+        "assembly_available": true,
+        "assembly_sha256": "cef712772cd21c525ff11be68997698b4a5ba1150c95e9747864f1a23c4b55e9",
+        "instruction_counts_static": {
+          "v_dot2c_f32_f16": 256
+        },
+        "dot2_present": true,
+        "matrix_instructions_present": false,
+        "registers": 105,
+        "spills": 0,
+        "shared_bytes": 4096,
+        "tile": [
+          32,
+          64,
+          32
+        ],
+        "num_warps": 4,
+        "num_stages": 1,
+        "matrix_instr_nonkdim": 0
+      },
+      "first_call_wall_ms_including_jit_or_library_init": {
+        "rocblas": 0.960072000452783,
+        "triton": 88.65763399808202
+      },
+      "timings": {
+        "rocblas": {
+          "event_ms": 0.5123280048370361,
+          "wall_ms": 0.5212849002418807,
+          "event_tflops": 33.53294963734153,
+          "wall_tflops": 32.95677503036899,
+          "peak_extra_allocated_bytes": 8388608,
+          "peak_allocated_bytes": 58720256,
+          "peak_reserved_bytes": 77594624,
+          "samples": [
+            {
+              "wall_ms": 0.5241150000074413,
+              "event_ms": 0.5096759796142578,
+              "baseline_allocated_bytes": 50331648,
+              "baseline_reserved_bytes": 77594624,
+              "peak_allocated_bytes": 58720256,
+              "peak_reserved_bytes": 77594624,
+              "peak_extra_allocated_bytes": 8388608,
+              "peak_extra_reserved_bytes": 0
+            },
+            {
+              "wall_ms": 0.5209220002143411,
+              "event_ms": 0.5109839916229248,
+              "baseline_allocated_bytes": 50331648,
+              "baseline_reserved_bytes": 77594624,
+              "peak_allocated_bytes": 58720256,
+              "peak_reserved_bytes": 77594624,
+              "peak_extra_allocated_bytes": 8388608,
+              "peak_extra_reserved_bytes": 0
+            },
+            {
+              "wall_ms": 0.5210369999986142,
+              "event_ms": 0.5123280048370361,
+              "baseline_allocated_bytes": 50331648,
+              "baseline_reserved_bytes": 77594624,
+              "peak_allocated_bytes": 58720256,
+              "peak_reserved_bytes": 77594624,
+              "peak_extra_allocated_bytes": 8388608,
+              "peak_extra_reserved_bytes": 0
+            },
+            {
+              "wall_ms": 0.5224218999501318,
+              "event_ms": 0.5130439758300781,
+              "baseline_allocated_bytes": 50331648,
+              "baseline_reserved_bytes": 77594624,
+              "peak_allocated_bytes": 58720256,
+              "peak_reserved_bytes": 77594624,
+              "peak_extra_allocated_bytes": 8388608,
+              "peak_extra_reserved_bytes": 0
+            },
+            {
+              "wall_ms": 0.5212849002418807,
+              "event_ms": 0.5124080181121826,
+              "baseline_allocated_bytes": 50331648,
+              "baseline_reserved_bytes": 77594624,
+              "peak_allocated_bytes": 58720256,
+              "peak_reserved_bytes": 77594624,
+              "peak_extra_allocated_bytes": 8388608,
+              "peak_extra_reserved_bytes": 0
+            }
+          ]
+        },
+        "triton": {
+          "event_ms": 3.0299680709838865,
+          "wall_ms": 3.0387524999241577,
+          "event_tflops": 5.6699835712860756,
+          "wall_tflops": 5.653592776782177,
+          "peak_extra_allocated_bytes": 8388608,
+          "peak_allocated_bytes": 58720256,
+          "peak_reserved_bytes": 77594624,
+          "samples": [
+            {
+              "wall_ms": 3.0274696000560652,
+              "event_ms": 3.0185239791870115,
+              "baseline_allocated_bytes": 50331648,
+              "baseline_reserved_bytes": 77594624,
+              "peak_allocated_bytes": 58720256,
+              "peak_reserved_bytes": 77594624,
+              "peak_extra_allocated_bytes": 8388608,
+              "peak_extra_reserved_bytes": 0
+            },
+            {
+              "wall_ms": 3.0272126001364086,
+              "event_ms": 3.0176000595092773,
+              "baseline_allocated_bytes": 50331648,
+              "baseline_reserved_bytes": 77594624,
+              "peak_allocated_bytes": 58720256,
+              "peak_reserved_bytes": 77594624,
+              "peak_extra_allocated_bytes": 8388608,
+              "peak_extra_reserved_bytes": 0
+            },
+            {
+              "wall_ms": 3.03951940004481,
+              "event_ms": 3.030655860900879,
+              "baseline_allocated_bytes": 50331648,
+              "baseline_reserved_bytes": 77594624,
+              "peak_allocated_bytes": 58720256,
+              "peak_reserved_bytes": 77594624,
+              "peak_extra_allocated_bytes": 8388608,
+              "peak_extra_reserved_bytes": 0
+            },
+            {
+              "wall_ms": 3.0392824999580625,
+              "event_ms": 3.0299680709838865,
+              "baseline_allocated_bytes": 50331648,
+              "baseline_reserved_bytes": 77594624,
+              "peak_allocated_bytes": 58720256,
+              "peak_reserved_bytes": 77594624,
+              "peak_extra_allocated_bytes": 8388608,
+              "peak_extra_reserved_bytes": 0
+            },
+            {
+              "wall_ms": 3.0387524999241577,
+              "event_ms": 3.0300878524780273,
+              "baseline_allocated_bytes": 50331648,
+              "baseline_reserved_bytes": 77594624,
+              "peak_allocated_bytes": 58720256,
+              "peak_reserved_bytes": 77594624,
+              "peak_extra_allocated_bytes": 8388608,
+              "peak_extra_reserved_bytes": 0
+            }
+          ]
+        }
+      },
+      "event_speedup": 0.1690869318866036,
+      "wall_speedup": 0.17154569194262814,
+      "status": "passed"
+    },
+    {
+      "shape_mnk": [
+        1061,
+        3072,
+        3072
+      ],
+      "rhs_layout": "transposed",
+      "a_stride": [
+        3072,
+        1
+      ],
+      "b_stride": [
+        1,
+        3072
+      ],
+      "dtype": "float16",
+      "triton_accumulator": "float32",
+      "fp64_sample_shape": [
+        32,
+        32
+      ],
+      "checks": {
+        "triton_vs_rocblas_full": {
+          "finite": true,
+          "max_absolute": 0.125,
+          "rms_error": 0.0011339842893361707,
+          "reference_rms": 55.43324929756588,
+          "relative_l2": 2.0456753008451046e-05,
+          "max_normalized_error": 0.48402710551790906,
+          "passed": true
+        },
+        "rocblas_vs_fp64_sample": {
+          "finite": true,
+          "max_absolute": 0.059764207448097295,
+          "rms_error": 0.011928737174935089,
+          "reference_rms": 56.830489974852625,
+          "relative_l2": 0.0002099003049281034,
+          "max_normalized_error": 0.2371419084519362,
+          "passed": true
+        },
+        "triton_vs_fp64_sample": {
+          "finite": true,
+          "max_absolute": 0.059764207448097295,
+          "rms_error": 0.011928737188448732,
+          "reference_rms": 56.830489974852625,
+          "relative_l2": 0.000209900305165892,
+          "max_normalized_error": 0.2371419084519362,
+          "passed": true
+        }
+      },
+      "kernel": {
+        "target": "gfx1030",
+        "assembly_available": true,
+        "assembly_sha256": "66d3287efe58c2c67fdab4ab8e6858ca17dbfb2711fc94a97d3f3a53368c0a6d",
+        "instruction_counts_static": {
+          "v_dot2c_f32_f16": 256
+        },
+        "dot2_present": true,
+        "matrix_instructions_present": false,
+        "registers": 104,
+        "spills": 0,
+        "shared_bytes": 4096,
+        "tile": [
+          32,
+          64,
+          32
+        ],
+        "num_warps": 4,
+        "num_stages": 1,
+        "matrix_instr_nonkdim": 0
+      },
+      "first_call_wall_ms_including_jit_or_library_init": {
+        "rocblas": 0.8005939998838585,
+        "triton": 92.22910600146861
+      },
+      "timings": {
+        "rocblas": {
+          "event_ms": 0.6716479778289794,
+          "wall_ms": 0.680356700104312,
+          "event_tflops": 29.815774198756106,
+          "wall_tflops": 29.434125429983517,
+          "peak_extra_allocated_bytes": 6518784,
+          "peak_allocated_bytes": 65466368,
+          "peak_reserved_bytes": 77594624,
+          "samples": [
+            {
+              "wall_ms": 0.6778417999157682,
+              "event_ms": 0.6631760120391845,
+              "baseline_allocated_bytes": 58947584,
+              "baseline_reserved_bytes": 77594624,
+              "peak_allocated_bytes": 65466368,
+              "peak_reserved_bytes": 77594624,
+              "peak_extra_allocated_bytes": 6518784,
+              "peak_extra_reserved_bytes": 0
+            },
+            {
+              "wall_ms": 0.6926795998879243,
+              "event_ms": 0.68401198387146,
+              "baseline_allocated_bytes": 58947584,
+              "baseline_reserved_bytes": 77594624,
+              "peak_allocated_bytes": 65466368,
+              "peak_reserved_bytes": 77594624,
+              "peak_extra_allocated_bytes": 6518784,
+              "peak_extra_reserved_bytes": 0
+            },
+            {
+              "wall_ms": 0.6987406002735952,
+              "event_ms": 0.6899718761444091,
+              "baseline_allocated_bytes": 58947584,
+              "baseline_reserved_bytes": 77594624,
+              "peak_allocated_bytes": 65466368,
+              "peak_reserved_bytes": 77594624,
+              "peak_extra_allocated_bytes": 6518784,
+              "peak_extra_reserved_bytes": 0
+            },
+            {
+              "wall_ms": 0.6797886999265756,
+              "event_ms": 0.670904016494751,
+              "baseline_allocated_bytes": 58947584,
+              "baseline_reserved_bytes": 77594624,
+              "peak_allocated_bytes": 65466368,
+              "peak_reserved_bytes": 77594624,
+              "peak_extra_allocated_bytes": 6518784,
+              "peak_extra_reserved_bytes": 0
+            },
+            {
+              "wall_ms": 0.680356700104312,
+              "event_ms": 0.6716479778289794,
+              "baseline_allocated_bytes": 58947584,
+              "baseline_reserved_bytes": 77594624,
+              "peak_allocated_bytes": 65466368,
+              "peak_reserved_bytes": 77594624,
+              "peak_extra_allocated_bytes": 6518784,
+              "peak_extra_reserved_bytes": 0
+            }
+          ]
+        },
+        "triton": {
+          "event_ms": 3.5865001678466797,
+          "wall_ms": 3.595172099812771,
+          "event_tflops": 5.583634047345759,
+          "wall_tflops": 5.5701657367231165,
+          "peak_extra_allocated_bytes": 6518784,
+          "peak_allocated_bytes": 65466368,
+          "peak_reserved_bytes": 77594624,
+          "samples": [
+            {
+              "wall_ms": 3.5943811999459285,
+              "event_ms": 3.585580062866211,
+              "baseline_allocated_bytes": 58947584,
+              "baseline_reserved_bytes": 77594624,
+              "peak_allocated_bytes": 65466368,
+              "peak_reserved_bytes": 77594624,
+              "peak_extra_allocated_bytes": 6518784,
+              "peak_extra_reserved_bytes": 0
+            },
+            {
+              "wall_ms": 3.595172099812771,
+              "event_ms": 3.5865001678466797,
+              "baseline_allocated_bytes": 58947584,
+              "baseline_reserved_bytes": 77594624,
+              "peak_allocated_bytes": 65466368,
+              "peak_reserved_bytes": 77594624,
+              "peak_extra_allocated_bytes": 6518784,
+              "peak_extra_reserved_bytes": 0
+            },
+            {
+              "wall_ms": 3.594583200174384,
+              "event_ms": 3.5858360290527345,
+              "baseline_allocated_bytes": 58947584,
+              "baseline_reserved_bytes": 77594624,
+              "peak_allocated_bytes": 65466368,
+              "peak_reserved_bytes": 77594624,
+              "peak_extra_allocated_bytes": 6518784,
+              "peak_extra_reserved_bytes": 0
+            },
+            {
+              "wall_ms": 3.6061079998034984,
+              "event_ms": 3.5973560333251955,
+              "baseline_allocated_bytes": 58947584,
+              "baseline_reserved_bytes": 77594624,
+              "peak_allocated_bytes": 65466368,
+              "peak_reserved_bytes": 77594624,
+              "peak_extra_allocated_bytes": 6518784,
+              "peak_extra_reserved_bytes": 0
+            },
+            {
+              "wall_ms": 3.607682000074419,
+              "event_ms": 3.5990234375,
+              "baseline_allocated_bytes": 58947584,
+              "baseline_reserved_bytes": 77594624,
+              "peak_allocated_bytes": 65466368,
+              "peak_reserved_bytes": 77594624,
+              "peak_extra_allocated_bytes": 6518784,
+              "peak_extra_reserved_bytes": 0
+            }
+          ]
+        }
+      },
+      "event_speedup": 0.187271140776841,
+      "wall_speedup": 0.1892417612330001,
+      "status": "passed"
+    }
+  ],
+  "hipblaslt_probe": {
+    "requested": "cublaslt (hipBLASLt on ROCm)",
+    "environment": {
+      "ROCBLAS_USE_HIPBLASLT": null,
+      "ROCBLAS_USE_HIPBLASLT_BATCHED": null,
+      "TORCH_BLAS_PREFER_HIPBLASLT": "1",
+      "TORCH_BLAS_PREFER_CUBLASLT": "1",
+      "HSA_OVERRIDE_GFX_VERSION": null,
+      "HIP_VISIBLE_DEVICES": "0",
+      "ROCR_VISIBLE_DEVICES": "0"
+    },
+    "direct_hipblaslt_support_confirmed": false,
+    "torch_version": "2.12.0+rocm10.2.0a20261011",
+    "hip_version": "7.17.26405",
+    "preferred_before": "_BlasBackend.Cublas",
+    "preferred_after_request": "_BlasBackend.Cublas",
+    "numeric_check": true,
+    "preferred_after_mm": "_BlasBackend.Cublas",
+    "status": "preference_fell_back",
+    "reason": "A successful torch.mm does not establish that its internal library path avoided fallback; do not label hipBLASLt supported from this result alone.",
+    "warnings": [],
+    "returncode": 0,
+    "stderr_tail": "[W1106 14:56:40.358305829 Context.cpp:491] Warning: Attempting to use hipBLASLt on an unsupported architecture! Overriding blas backend to hipblas (function operator())\n[W1106 14:56:40.358337579 Context.cpp:512] Warning: Attempting to use CK on an unsupported architecture! Cannot set backend to CK (function operator())\n[W1106 14:56:40.358340579 Context.cpp:541] Warning: torch.backends.cuda.preferred_blas_library is an experimental feature. If you see any error or unexpected behavior when this flag is set please file an issue on GitHub. (function operator())\n",
+    "stdout_tail": "{\"requested\": \"cublaslt (hipBLASLt on ROCm)\", \"environment\": {\"ROCBLAS_USE_HIPBLASLT\": null, \"ROCBLAS_USE_HIPBLASLT_BATCHED\": null, \"TORCH_BLAS_PREFER_HIPBLASLT\": \"1\", \"TORCH_BLAS_PREFER_CUBLASLT\": \"1\", \"HSA_OVERRIDE_GFX_VERSION\": null, \"HIP_VISIBLE_DEVICES\": \"0\", \"ROCR_VISIBLE_DEVICES\": \"0\"}, \"direct_hipblaslt_support_confirmed\": false, \"torch_version\": \"2.12.0+rocm10.2.0a20261011\", \"hip_version\": \"7.17.26405\", \"preferred_before\": \"_BlasBackend.Cublas\", \"preferred_after_request\": \"_BlasBackend.Cublas\", \"numeric_check\": true, \"preferred_after_mm\": \"_BlasBackend.Cublas\", \"status\": \"preference_fell_back\", \"reason\": \"A successful torch.mm does not establish that its internal library path avoided fallback; do not label hipBLASLt supported from this result alone.\", \"warnings\": []}\n"
+  },
+  "torch_version": "2.12.0+rocm10.2.0a20261011",
+  "hip_version": "7.17.26405",
+  "triton_version": "3.8.0",
+  "gpu": "AMD Radeon RX 6900 XT",
+  "architecture": "gfx1030",
+  "python": "3.12.14 (main, Sep  1 2026, 14:16:52) [Clang 22.1.3 ]",
+  "environment_during": {
+    "ROCBLAS_USE_HIPBLASLT": "0",
+    "ROCBLAS_USE_HIPBLASLT_BATCHED": null,
+    "TORCH_BLAS_PREFER_HIPBLASLT": null,
+    "TORCH_BLAS_PREFER_CUBLASLT": null,
+    "HSA_OVERRIDE_GFX_VERSION": null,
+    "HIP_VISIBLE_DEVICES": "0",
+    "ROCR_VISIBLE_DEVICES": "0"
+  },
+  "blas_selection": {
+    "preferred_before": "_BlasBackend.Cublas",
+    "preferred_during": "_BlasBackend.Cublas",
+    "precision_before": {
+      "allow_fp16_reduced_precision_reduction": true,
+      "allow_fp16_accumulation": false
+    },
+    "precision_during": {
+      "allow_fp16_reduced_precision_reduction": false,
+      "allow_fp16_accumulation": false
+    },
+    "selection": "PyTorch cublas enum -> hipBLAS/rocBLAS; rocBLAS Tensile forced in this process"
+  },
+  "small_fp64_reference": [
+    {
+      "shape_mnk": [
+        37,
+        53,
+        79
+      ],
+      "rhs_layout": "contiguous",
+      "rocblas_vs_fp64": {
+        "finite": true,
+        "max_absolute": 0.007798647508025169,
+        "rms_error": 0.0018722817536832438,
+        "reference_rms": 9.097088371327708,
+        "relative_l2": 0.000205811098810947,
+        "max_normalized_error": 0.21500782772347563,
+        "passed": true
+      },
+      "triton_vs_fp64": {
+        "finite": true,
+        "max_absolute": 0.007798647508025169,
+        "rms_error": 0.0018722817536832438,
+        "reference_rms": 9.097088371327708,
+        "relative_l2": 0.000205811098810947,
+        "max_normalized_error": 0.21500782772347563,
+        "passed": true
+      }
+    },
+    {
+      "shape_mnk": [
+        37,
+        53,
+        79
+      ],
+      "rhs_layout": "transposed",
+      "rocblas_vs_fp64": {
+        "finite": true,
+        "max_absolute": 0.015514080412685871,
+        "rms_error": 0.001879123574480747,
+        "reference_rms": 9.041105602888463,
+        "relative_l2": 0.00020784223268893154,
+        "max_normalized_error": 0.2245373890384431,
+        "passed": true
+      },
+      "triton_vs_fp64": {
+        "finite": true,
+        "max_absolute": 0.015514080412685871,
+        "rms_error": 0.001879123574480747,
+        "reference_rms": 9.041105602888463,
+        "relative_l2": 0.00020784223268893154,
+        "max_normalized_error": 0.2245373890384431,
+        "passed": true
+      }
+    }
+  ],
+  "preferred_blas_after_restore": "_BlasBackend.Cublas"
+}

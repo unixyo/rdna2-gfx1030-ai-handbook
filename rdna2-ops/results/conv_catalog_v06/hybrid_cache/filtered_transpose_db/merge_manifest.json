@@ -1,0 +1,101 @@
+{
+  "status": "prepared_cpu_only",
+  "base_path": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/conv_catalog_v06/hybrid_cache/filtered_db/gfx1030_40.HIP.3_6_0_8d1ae90e.ufdb.txt",
+  "base_sha256": "d81ef3d8330bce40526dc885c744b8914de49d679cd33fd2493ef46ce1da1bbf",
+  "verified_source_path": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/conv_catalog_v06/family_normal_cache/miopen_db/gfx1030_40.HIP.3_6_0_8d1ae90e.ufdb.txt",
+  "verified_source_sha256": "3a623f38cbaee04720c683db5fd58d39ef1b400b481f17400f8efc279129831b",
+  "output": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/conv_catalog_v06/hybrid_cache/filtered_transpose_db/gfx1030_40.HIP.3_6_0_8d1ae90e.ufdb.txt",
+  "output_sha256": "b8bd35b3f4d39c44c67fa8b6c7073927cb5bd8b15ab7809947336b0ba2caf33b",
+  "base_key_count": 36,
+  "added_key_count": 9,
+  "total_key_count": 45,
+  "direction_note": "ConvTranspose forward uses MIOpen B, dX uses F, dW uses W",
+  "mappings": [
+    {
+      "input": [
+        8,
+        512,
+        32
+      ],
+      "weight": [
+        512,
+        256,
+        16
+      ],
+      "stride": 10,
+      "padding": 3,
+      "output": [
+        8,
+        256,
+        320
+      ],
+      "keys": {
+        "transpose_forward": "512-1-32-1x16-256-1-320-8-0x3-1x10-1x1-0-NCHW-FP16-B",
+        "transpose_dX": "256-1-320-1x16-512-1-32-8-0x3-1x10-1x1-0-NCHW-FP16-F",
+        "transpose_dW": "512-1-32-1x16-256-1-320-8-0x3-1x10-1x1-0-NCHW-FP16-W"
+      }
+    },
+    {
+      "input": [
+        8,
+        256,
+        320
+      ],
+      "weight": [
+        256,
+        128,
+        16
+      ],
+      "stride": 10,
+      "padding": 3,
+      "output": [
+        8,
+        128,
+        3200
+      ],
+      "keys": {
+        "transpose_forward": "256-1-320-1x16-128-1-3200-8-0x3-1x10-1x1-0-NCHW-FP16-B",
+        "transpose_dX": "128-1-3200-1x16-256-1-320-8-0x3-1x10-1x1-0-NCHW-FP16-F",
+        "transpose_dW": "256-1-320-1x16-128-1-3200-8-0x3-1x10-1x1-0-NCHW-FP16-W"
+      }
+    },
+    {
+      "input": [
+        8,
+        128,
+        3200
+      ],
+      "weight": [
+        128,
+        64,
+        4
+      ],
+      "stride": 2,
+      "padding": 1,
+      "output": [
+        8,
+        64,
+        6400
+      ],
+      "keys": {
+        "transpose_forward": "128-1-3200-1x4-64-1-6400-8-0x1-1x2-1x1-0-NCHW-FP16-B",
+        "transpose_dX": "64-1-6400-1x4-128-1-3200-8-0x1-1x2-1x1-0-NCHW-FP16-F",
+        "transpose_dW": "128-1-3200-1x4-64-1-6400-8-0x1-1x2-1x1-0-NCHW-FP16-W"
+      }
+    }
+  ],
+  "selected_source_entries": [
+    "512-1-32-1x16-256-1-320-8-0x3-1x10-1x1-0-NCHW-FP16-B=GemmBwdRest:0.282988,262144,miopenConvolutionBwdDataAlgoGEMM",
+    "256-1-320-1x16-512-1-32-8-0x3-1x10-1x1-0-NCHW-FP16-F=GemmFwdRest:0.374384,262144,miopenConvolutionFwdAlgoGEMM;ConvHipImplicitGemmV4R1Fwd:0.469125,0,miopenConvolutionFwdAlgoImplicitGEMM",
+    "512-1-32-1x16-256-1-320-8-0x3-1x10-1x1-0-NCHW-FP16-W=GemmWrwUniversal:0.24866,262144,miopenConvolutionBwdWeightsAlgoGEMM;ConvHipImplicitGemmV4R1WrW:0.117232,0,miopenConvolutionBwdWeightsAlgoImplicitGEMM",
+    "256-1-320-1x16-128-1-3200-8-0x3-1x10-1x1-0-NCHW-FP16-B=GemmBwdRest:0.393886,1310720,miopenConvolutionBwdDataAlgoGEMM",
+    "128-1-3200-1x16-256-1-320-8-0x3-1x10-1x1-0-NCHW-FP16-F=GemmFwdRest:0.645473,1310720,miopenConvolutionFwdAlgoGEMM;ConvHipImplicitGemmV4R1Fwd:0.242588,0,miopenConvolutionFwdAlgoImplicitGEMM",
+    "256-1-320-1x16-128-1-3200-8-0x3-1x10-1x1-0-NCHW-FP16-W=GemmWrwUniversal:0.41404,1310720,miopenConvolutionBwdWeightsAlgoGEMM;ConvHipImplicitGemmV4R1WrW:0.303868,0,miopenConvolutionBwdWeightsAlgoImplicitGEMM",
+    "128-1-3200-1x4-64-1-6400-8-0x1-1x2-1x1-0-NCHW-FP16-B=GemmBwdRest:0.29272,1638400,miopenConvolutionBwdDataAlgoGEMM",
+    "64-1-6400-1x4-128-1-3200-8-0x1-1x2-1x1-0-NCHW-FP16-F=GemmFwdRest:0.440584,1638400,miopenConvolutionFwdAlgoGEMM;ConvHipImplicitGemmV4R1Fwd:0.133513,0,miopenConvolutionFwdAlgoImplicitGEMM",
+    "128-1-3200-1x4-64-1-6400-8-0x1-1x2-1x1-0-NCHW-FP16-W=GemmWrwUniversal:0.724844,1638400,miopenConvolutionBwdWeightsAlgoGEMM;ConvHipImplicitGemmV4R1WrW:2.89556,0,miopenConvolutionBwdWeightsAlgoImplicitGEMM"
+  ],
+  "source_unchanged": true,
+  "operator_evidence": "family_normal/result.json: these exact 3 cases passed y/dX/dW vs FP32 and FAST",
+  "next_gpu_gate": "FAST replay --set transpose before one actual 4epoch; GPU lease required"
+}

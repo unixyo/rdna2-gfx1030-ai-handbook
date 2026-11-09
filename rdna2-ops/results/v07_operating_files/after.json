@@ -1,0 +1,200 @@
+{
+  "schema": "rdna2-v07-operating-audit-1",
+  "phase": "after",
+  "checked_utc": "2026-11-06T23:24:16.254684+00:00",
+  "scope": "15 MOSS/Qwen/Anima +16 Applio operating paths; Strata audited separately",
+  "count": 31,
+  "files": [
+    {
+      "path": "~/DevSpace/anima-rdna2-lab01/extra_model_paths.yaml",
+      "sha256": "076320464a7166bb322c173c968827bc6ca1d6e4772413b84f24e0b601eef056",
+      "bytes": 149,
+      "v06_after_sha256": "076320464a7166bb322c173c968827bc6ca1d6e4772413b84f24e0b601eef056"
+    },
+    {
+      "path": "~/DevSpace/anima-rdna2-lab01/scripts/anima_lab.py",
+      "sha256": "c83fbb8f7580ce2e71a22aa14f6d439ceecd15a2a70abfaf771c722b691da334",
+      "bytes": 10831,
+      "v06_after_sha256": "36d5948a25552e1553afb02feb774a72875b88b4e2ea9745f809e2e02b7c4386"
+    },
+    {
+      "path": "~/DevSpace/anima-rdna2-lab01/workflows/anima_t2i_1024_api.json",
+      "sha256": "ff2e96430dac62b2bf6a76e2b8de79024921bb2702988505953e5ff0ae8bf804",
+      "bytes": 2114,
+      "v06_after_sha256": "ff2e96430dac62b2bf6a76e2b8de79024921bb2702988505953e5ff0ae8bf804"
+    },
+    {
+      "path": "~/DevSpace/applio-lab/assets/config.json",
+      "sha256": "308b2af4c1b96775d2a3279ebe1532425e2df55647cd5a8be50cb8d48b2f047a",
+      "bytes": 587,
+      "v06_after_sha256": "308b2af4c1b96775d2a3279ebe1532425e2df55647cd5a8be50cb8d48b2f047a"
+    },
+    {
+      "path": "~/DevSpace/applio-lab/core.py",
+      "sha256": "fd288f0d20f7796723f72e9075c8dc274a058b8b772b3bf2420b5a449159dd5b",
+      "bytes": 40953,
+      "v06_after_sha256": "fd288f0d20f7796723f72e9075c8dc274a058b8b772b3bf2420b5a449159dd5b"
+    },
+    {
+      "path": "~/DevSpace/applio-lab/lab/train_bench.sh",
+      "sha256": "28e3438b6722cd9215a7e3d8e76057f52a03c9ff7fa524040f3813487458d6f5",
+      "bytes": 1466,
+      "v06_after_sha256": "28e3438b6722cd9215a7e3d8e76057f52a03c9ff7fa524040f3813487458d6f5"
+    },
+    {
+      "path": "~/DevSpace/applio-lab/logs/bench40k/config.json",
+      "sha256": "3e76c57835d482099bd692b069495011cc5860307d9427960268e9da497f2a6d",
+      "bytes": 1600,
+      "v06_after_sha256": "3e76c57835d482099bd692b069495011cc5860307d9427960268e9da497f2a6d"
+    },
+    {
+      "path": "~/DevSpace/applio-lab/logs/bench40k/filelist.txt",
+      "sha256": "01ce3e7c233f3292e7635c19fc5c85a255f8781bff6f80997ce159cb34499afa",
+      "bytes": 16576,
+      "v06_after_sha256": "01ce3e7c233f3292e7635c19fc5c85a255f8781bff6f80997ce159cb34499afa"
+    },
+    {
+      "path": "~/DevSpace/applio-lab/logs/bench40k/model_info.json",
+      "sha256": "9352d604b3ae3dd8ce95730665ce99a5eea95cb03288e6db2d2230a86a5bbe40",
+      "bytes": 168,
+      "v06_after_sha256": "9352d604b3ae3dd8ce95730665ce99a5eea95cb03288e6db2d2230a86a5bbe40"
+    },
+    {
+      "path": "~/DevSpace/applio-lab/rvc/lib/algorithm/discriminators.py",
+      "sha256": "f269a5c7cb79d0a40f614703cd3ef4d51348466912771b7decae33478723bce5",
+      "bytes": 8392,
+      "v06_after_sha256": "f269a5c7cb79d0a40f614703cd3ef4d51348466912771b7decae33478723bce5"
+    },
+    {
+      "path": "~/DevSpace/applio-lab/rvc/lib/algorithm/fold_conv.py",
+      "sha256": "de5fa14073500187b9feeb8202f1d5c28f97dd463929647d601008a5198398b2",
+      "bytes": 1703,
+      "v06_after_sha256": "de5fa14073500187b9feeb8202f1d5c28f97dd463929647d601008a5198398b2"
+    },
+    {
+      "path": "~/DevSpace/applio-lab/rvc/lib/algorithm/residuals.py",
+      "sha256": "bb34c5746642cb9e7265beba6df5ce890a8cabbf553c63a79084778934572f7f",
+      "bytes": 8744,
+      "v06_after_sha256": "bb34c5746642cb9e7265beba6df5ce890a8cabbf553c63a79084778934572f7f"
+    },
+    {
+      "path": "~/DevSpace/applio-lab/rvc/lib/algorithm/synthesizers.py",
+      "sha256": "d373936c510fdc80abd5213ae6b18bd0ad35650a7bc338bc1f7ea6916bc82f0d",
+      "bytes": 9324,
+      "v06_after_sha256": "d373936c510fdc80abd5213ae6b18bd0ad35650a7bc338bc1f7ea6916bc82f0d"
+    },
+    {
+      "path": "~/DevSpace/applio-lab/rvc/lib/zluda.py",
+      "sha256": "d0a403ab827e1e66c18a6b40db6fb88efbf818bf8dfc79aa8f991551d344b637",
+      "bytes": 6258,
+      "v06_after_sha256": "d0a403ab827e1e66c18a6b40db6fb88efbf818bf8dfc79aa8f991551d344b637"
+    },
+    {
+      "path": "~/DevSpace/applio-lab/rvc/models/pretraineds/hifi-gan/f0D40k.pth",
+      "sha256": "6b6ab091e70801b28e3f41f335f2fc5f3f35c75b39ae2628d419644ec2b0fa09",
+      "bytes": 142875703,
+      "v06_after_sha256": "6b6ab091e70801b28e3f41f335f2fc5f3f35c75b39ae2628d419644ec2b0fa09"
+    },
+    {
+      "path": "~/DevSpace/applio-lab/rvc/models/pretraineds/hifi-gan/f0G40k.pth",
+      "sha256": "3b2c44035e782c4b14ddc0bede9e2f4a724d025cd073f736d4f43708453adfcb",
+      "bytes": 73106273,
+      "v06_after_sha256": "3b2c44035e782c4b14ddc0bede9e2f4a724d025cd073f736d4f43708453adfcb"
+    },
+    {
+      "path": "~/DevSpace/applio-lab/rvc/train/data_utils.py",
+      "sha256": "e736d02dc9b677aad1db9e2ac143d559f9b486ec7ecfa75f6e996ebe0a235c65",
+      "bytes": 11877,
+      "v06_after_sha256": "e736d02dc9b677aad1db9e2ac143d559f9b486ec7ecfa75f6e996ebe0a235c65"
+    },
+    {
+      "path": "~/DevSpace/applio-lab/rvc/train/lab_hooks.py",
+      "sha256": "c337ac89703ec81cfb84d05a24ddbbada11eea0e1401869e96605d55eb77aa62",
+      "bytes": 4532,
+      "v06_after_sha256": "c337ac89703ec81cfb84d05a24ddbbada11eea0e1401869e96605d55eb77aa62"
+    },
+    {
+      "path": "~/DevSpace/applio-lab/rvc/train/train.py",
+      "sha256": "66d370f6cf4b2c4e5085a16da3183321c7514d5c6a1b6321291ac87f83985cc9",
+      "bytes": 34264,
+      "v06_after_sha256": "66d370f6cf4b2c4e5085a16da3183321c7514d5c6a1b6321291ac87f83985cc9"
+    },
+    {
+      "path": "~/DevSpace/moss-image-rdna2-lab01/custom_nodes/MOSS_RDNA2_INT8/__init__.py",
+      "sha256": "9f35d44120d0e8a05e7e1ba7a5e90cd96cacdc05f8b71032f37a68ca727455f6",
+      "bytes": 2337,
+      "v06_after_sha256": "9f35d44120d0e8a05e7e1ba7a5e90cd96cacdc05f8b71032f37a68ca727455f6"
+    },
+    {
+      "path": "~/DevSpace/moss-image-rdna2-lab01/custom_nodes/MOSS_RDNA2_INT8/attention_dispatch.py",
+      "sha256": "8304438ae4001903e97b7ef451ea089bfb5aa4280a7b11241534a8360b0285dc",
+      "bytes": 3114,
+      "v06_after_sha256": "8304438ae4001903e97b7ef451ea089bfb5aa4280a7b11241534a8360b0285dc"
+    },
+    {
+      "path": "~/DevSpace/moss-image-rdna2-lab01/custom_nodes/MOSS_RDNA2_INT8/backend.py",
+      "sha256": "f7815a94624980ab9ed5e5a45e9bc16abf629c18c08c5672110be1ce522b1e47",
+      "bytes": 8381,
+      "v06_after_sha256": "f7815a94624980ab9ed5e5a45e9bc16abf629c18c08c5672110be1ce522b1e47"
+    },
+    {
+      "path": "~/DevSpace/moss-image-rdna2-lab01/runtime/ComfyUI/comfy/ldm/modules/attention.py",
+      "sha256": "2e688c4c96ba10915c7ca847ea692faea3be4b9c2605d74d785b7abb23ee2502",
+      "bytes": 54976,
+      "v06_after_sha256": "2e688c4c96ba10915c7ca847ea692faea3be4b9c2605d74d785b7abb23ee2502"
+    },
+    {
+      "path": "~/DevSpace/moss-image-rdna2-lab01/runtime/ComfyUI/comfy/ops.py",
+      "sha256": "fa87356b1dd5aa8ecc5b1e71d5bcd43f5cd7e9eba4a469f72e4f099b00e6cb39",
+      "bytes": 91713,
+      "v06_after_sha256": "fa87356b1dd5aa8ecc5b1e71d5bcd43f5cd7e9eba4a469f72e4f099b00e6cb39"
+    },
+    {
+      "path": "~/DevSpace/moss-image-rdna2-lab01/scripts/start_moss_comfy.sh",
+      "sha256": "607c4febce9608ba5eb31ba96d1c1b503a05fda12577ea9b567a1100c50ab54e",
+      "bytes": 1704,
+      "v06_after_sha256": "607c4febce9608ba5eb31ba96d1c1b503a05fda12577ea9b567a1100c50ab54e"
+    },
+    {
+      "path": "~/DevSpace/moss-image-rdna2-lab01/workflows/sft_fast4_int8_512.json",
+      "sha256": "5d83f8c4b282dadd5c09dd0840062c9d5500616f001137c3dd6b30ca0942d27d",
+      "bytes": 1955,
+      "v06_after_sha256": "5d83f8c4b282dadd5c09dd0840062c9d5500616f001137c3dd6b30ca0942d27d"
+    },
+    {
+      "path": "~/DevSpace/qwen-image-21-rdna2-lab01/custom_nodes/RDNA2-Qwen21-INT8/__init__.py",
+      "sha256": "26689d43a57d8088ef883bce905ccc4712dd626bbf7e1a57fbee20bc4c0a1bd1",
+      "bytes": 1992,
+      "v06_after_sha256": "26689d43a57d8088ef883bce905ccc4712dd626bbf7e1a57fbee20bc4c0a1bd1"
+    },
+    {
+      "path": "~/DevSpace/qwen-image-21-rdna2-lab01/custom_nodes/RDNA2-Qwen21-INT8/int8_fused_kernel.py",
+      "sha256": "70c014d3c394b69cc907c60dd7086e367861c6bf03031320524c3ba2dcf86603",
+      "bytes": 13616,
+      "v06_after_sha256": "70c014d3c394b69cc907c60dd7086e367861c6bf03031320524c3ba2dcf86603"
+    },
+    {
+      "path": "~/DevSpace/qwen-image-21-rdna2-lab01/custom_nodes/RDNA2-Qwen21-INT8/rocm_int8_kitchen_patch.py",
+      "sha256": "e30de1392612bbce0c5b370222d7eae42403babcf4f3f932de95fc982278ed3f",
+      "bytes": 16127,
+      "v06_after_sha256": "e30de1392612bbce0c5b370222d7eae42403babcf4f3f932de95fc982278ed3f"
+    },
+    {
+      "path": "~/DevSpace/qwen-image-21-rdna2-lab01/extra_model_paths.yaml",
+      "sha256": "df24f84c3d58923a690a7c4ea2daab6935dac6758a5a95b57dcffa8b86d4bada",
+      "bytes": 298,
+      "v06_after_sha256": "df24f84c3d58923a690a7c4ea2daab6935dac6758a5a95b57dcffa8b86d4bada"
+    },
+    {
+      "path": "~/DevSpace/qwen-image-21-rdna2-lab01/workflows/request-gemini-edit-640x960-api.json",
+      "sha256": "9d256b3127980229e02bf7801c32cb65ac127e122a377dcf13f092386e5ab466",
+      "bytes": 3501,
+      "v06_after_sha256": "9d256b3127980229e02bf7801c32cb65ac127e122a377dcf13f092386e5ab466"
+    }
+  ],
+  "preexisting_changes_vs_v06": [
+    "~/DevSpace/anima-rdna2-lab01/scripts/anima_lab.py"
+  ],
+  "unchanged_since_v07_before": true,
+  "changed_since_v07_before": []
+}

@@ -1,0 +1,75 @@
+{
+  "operator": {
+    "finite": [
+      "y",
+      "dX",
+      "dW"
+    ],
+    "nrmse_max": 0.002,
+    "max_abs_div_reference_rms_max": 0.02,
+    "reference": "FP32 same fixedseed stored input"
+  },
+  "epoch": {
+    "same_session_alternating": true,
+    "metrics": [
+      "steady_epoch_median",
+      "first_epoch",
+      "scale_decreases",
+      "nonfinite_losses",
+      "loss_median_relative_delta"
+    ],
+    "quality_not_proven_by_short_epoch": true
+  },
+  "final": {
+    "runs": [
+      "A current",
+      "A_prime current repeat",
+      "B candidate"
+    ],
+    "epochs_each": 100,
+    "batch": 8,
+    "dataset": "voice_model_A",
+    "pretrain": "KLM HFG 40k",
+    "perceptual": "anonymous A/B/C same input sentences; user rejects B-only artifacts beyond A/A-prime variation",
+    "objective_reference_only": [
+      "last25percent mel/fm/kl/adv medians",
+      "audio saturation"
+    ]
+  },
+  "safety_env": {
+    "MIOPEN_DEBUG_CONV_IMPLICIT_GEMM_HIP_FWD_V4R1": "0",
+    "MIOPEN_DEBUG_CONV_DIRECT_HIP_WRW53": "0"
+  },
+  "dataset_filelist_lines": 233,
+  "dataset_unique_wavs": 232,
+  "operating_config": {
+    "theme": {
+      "file": "Applio.py",
+      "class": "Applio"
+    },
+    "plugins": [],
+    "discord_presence": true,
+    "lang": {
+      "override": false,
+      "selected_lang": "en_US"
+    },
+    "version": "3.6.5",
+    "model_author": "None",
+    "precision": "fp16",
+    "rmvpe_high_register": {
+      "enabled": false,
+      "mode": "true_pitch",
+      "f0_ceil": 1250
+    },
+    "realtime": {
+      "input_device": "",
+      "output_device": "",
+      "monitor_device": "",
+      "model_file": "",
+      "index_file": "",
+      "client_input_device": "",
+      "client_output_device": "",
+      "client_monitor_device": ""
+    }
+  }
+}

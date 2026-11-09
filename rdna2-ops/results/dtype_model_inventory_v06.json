@@ -1,0 +1,506 @@
+{
+  "evidence_grade": "A: CPU safetensors header inspection on the existing PC; not GPU compute evidence",
+  "scope": "Default diffusion, encoder and VAE checkpoints in existing MOSS, Qwen and Anima projects; no exhaustive LoRA scan",
+  "method": "Read 8-byte safetensors header length then JSON header only with /usr/bin/python3; HIP_VISIBLE_DEVICES=-1 and ROCR_VISIBLE_DEVICES=-1",
+  "job_ids": [
+    "ed8d1f9e-f70c-46cd-a1c7-4c74e9cb3612",
+    "37836fb6-16b2-4444-8d90-542e8316b290"
+  ],
+  "files": [
+    {
+      "file": "anima-rdna2-lab01/models/diffusion_models/anima-base-v1.0.safetensors",
+      "bytes": 4182218328,
+      "header_bytes": 80464,
+      "dtype_tensor_counts": {
+        "BF16": 685
+      },
+      "matrix_examples": [
+        {
+          "name": "net.blocks.0.adaln_modulation_cross_attn.1.weight",
+          "dtype": "BF16",
+          "shape": [
+            256,
+            2048
+          ]
+        },
+        {
+          "name": "net.blocks.0.adaln_modulation_cross_attn.2.weight",
+          "dtype": "BF16",
+          "shape": [
+            6144,
+            256
+          ]
+        },
+        {
+          "name": "net.blocks.0.adaln_modulation_mlp.1.weight",
+          "dtype": "BF16",
+          "shape": [
+            256,
+            2048
+          ]
+        },
+        {
+          "name": "net.blocks.0.adaln_modulation_mlp.2.weight",
+          "dtype": "BF16",
+          "shape": [
+            6144,
+            256
+          ]
+        },
+        {
+          "name": "net.blocks.0.adaln_modulation_self_attn.1.weight",
+          "dtype": "BF16",
+          "shape": [
+            256,
+            2048
+          ]
+        },
+        {
+          "name": "net.blocks.0.adaln_modulation_self_attn.2.weight",
+          "dtype": "BF16",
+          "shape": [
+            6144,
+            256
+          ]
+        },
+        {
+          "name": "net.blocks.0.cross_attn.k_proj.weight",
+          "dtype": "BF16",
+          "shape": [
+            2048,
+            1024
+          ]
+        },
+        {
+          "name": "net.blocks.0.cross_attn.output_proj.weight",
+          "dtype": "BF16",
+          "shape": [
+            2048,
+            2048
+          ]
+        }
+      ]
+    },
+    {
+      "file": "anima-rdna2-lab01/models/text_encoders/qwen_3_06b_base.safetensors",
+      "bytes": 1192135096,
+      "header_bytes": 35248,
+      "dtype_tensor_counts": {
+        "BF16": 310
+      },
+      "matrix_examples": [
+        {
+          "name": "model.embed_tokens.weight",
+          "dtype": "BF16",
+          "shape": [
+            151936,
+            1024
+          ]
+        },
+        {
+          "name": "model.layers.0.mlp.down_proj.weight",
+          "dtype": "BF16",
+          "shape": [
+            1024,
+            3072
+          ]
+        },
+        {
+          "name": "model.layers.0.mlp.gate_proj.weight",
+          "dtype": "BF16",
+          "shape": [
+            3072,
+            1024
+          ]
+        },
+        {
+          "name": "model.layers.0.mlp.up_proj.weight",
+          "dtype": "BF16",
+          "shape": [
+            3072,
+            1024
+          ]
+        },
+        {
+          "name": "model.layers.0.self_attn.k_proj.weight",
+          "dtype": "BF16",
+          "shape": [
+            1024,
+            1024
+          ]
+        },
+        {
+          "name": "model.layers.0.self_attn.o_proj.weight",
+          "dtype": "BF16",
+          "shape": [
+            1024,
+            2048
+          ]
+        },
+        {
+          "name": "model.layers.0.self_attn.q_proj.weight",
+          "dtype": "BF16",
+          "shape": [
+            2048,
+            1024
+          ]
+        },
+        {
+          "name": "model.layers.0.self_attn.v_proj.weight",
+          "dtype": "BF16",
+          "shape": [
+            1024,
+            1024
+          ]
+        }
+      ]
+    },
+    {
+      "file": "anima-rdna2-lab01/models/vae/qwen_image_vae.safetensors",
+      "bytes": 253806246,
+      "header_bytes": 21176,
+      "dtype_tensor_counts": {
+        "BF16": 194
+      },
+      "matrix_examples": []
+    },
+    {
+      "file": "qwen-image-21-rdna2-lab01/models/diffusion_models/qwen_image_2.1_int8_convrot.safetensors",
+      "bytes": 7256783064,
+      "header_bytes": 74448,
+      "dtype_tensor_counts": {
+        "F32": 192,
+        "BF16": 73,
+        "I8": 192,
+        "U8": 192
+      },
+      "matrix_examples": [
+        {
+          "name": "transformer_blocks.0.attn.to_k.weight_scale",
+          "dtype": "F32",
+          "shape": [
+            4096,
+            1
+          ]
+        },
+        {
+          "name": "transformer_blocks.0.attn.to_out.0.weight_scale",
+          "dtype": "F32",
+          "shape": [
+            4096,
+            1
+          ]
+        },
+        {
+          "name": "transformer_blocks.0.attn.to_q.weight_scale",
+          "dtype": "F32",
+          "shape": [
+            4096,
+            1
+          ]
+        },
+        {
+          "name": "transformer_blocks.0.attn.to_v.weight_scale",
+          "dtype": "F32",
+          "shape": [
+            4096,
+            1
+          ]
+        },
+        {
+          "name": "transformer_blocks.0.img_mlp.gate_up.weight_scale",
+          "dtype": "F32",
+          "shape": [
+            24576,
+            1
+          ]
+        },
+        {
+          "name": "transformer_blocks.0.img_mlp.out.weight_scale",
+          "dtype": "F32",
+          "shape": [
+            4096,
+            1
+          ]
+        },
+        {
+          "name": "transformer_blocks.1.attn.to_k.weight_scale",
+          "dtype": "F32",
+          "shape": [
+            4096,
+            1
+          ]
+        },
+        {
+          "name": "transformer_blocks.1.attn.to_out.0.weight_scale",
+          "dtype": "F32",
+          "shape": [
+            4096,
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "file": "qwen-image-21-rdna2-lab01/models/text_encoders/qwen3vl_8b_int8_convrot.safetensors",
+      "bytes": 9350798360,
+      "header_bytes": 140992,
+      "dtype_tensor_counts": {
+        "F32": 254,
+        "BF16": 496,
+        "I8": 254,
+        "U8": 254
+      },
+      "matrix_examples": [
+        {
+          "name": "lm_head.weight_scale",
+          "dtype": "F32",
+          "shape": [
+            151936,
+            1
+          ]
+        },
+        {
+          "name": "model.embed_tokens.weight_scale",
+          "dtype": "F32",
+          "shape": [
+            151936,
+            1
+          ]
+        },
+        {
+          "name": "model.layers.0.mlp.down_proj.weight_scale",
+          "dtype": "F32",
+          "shape": [
+            4096,
+            1
+          ]
+        },
+        {
+          "name": "model.layers.0.mlp.gate_proj.weight_scale",
+          "dtype": "F32",
+          "shape": [
+            12288,
+            1
+          ]
+        },
+        {
+          "name": "model.layers.0.mlp.up_proj.weight_scale",
+          "dtype": "F32",
+          "shape": [
+            12288,
+            1
+          ]
+        },
+        {
+          "name": "model.layers.0.self_attn.k_proj.weight_scale",
+          "dtype": "F32",
+          "shape": [
+            1024,
+            1
+          ]
+        },
+        {
+          "name": "model.layers.0.self_attn.o_proj.weight_scale",
+          "dtype": "F32",
+          "shape": [
+            4096,
+            1
+          ]
+        },
+        {
+          "name": "model.layers.0.self_attn.q_proj.weight_scale",
+          "dtype": "F32",
+          "shape": [
+            4096,
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "file": "qwen-image-21-rdna2-lab01/models/vae/qwen_image_2.1_vae_bf16.safetensors",
+      "bytes": 675509688,
+      "header_bytes": 28872,
+      "dtype_tensor_counts": {
+        "BF16": 238
+      },
+      "matrix_examples": []
+    },
+    {
+      "file": "~/DevSpace/moss-image-rdna2-lab01/models/diffusion_models/moss_image_base_int8_convrot.safetensors",
+      "header_bytes": 75848,
+      "dtype_tensor_counts": {
+        "F32": 169,
+        "BF16": 210,
+        "I8": 168,
+        "U8": 210
+      },
+      "matrix_examples": [
+        {
+          "name": "layers.0.proj.ffn_down.weight_scale",
+          "dtype": "F32",
+          "shape": [
+            3072,
+            1
+          ]
+        },
+        {
+          "name": "layers.0.proj.ffn_up_gate.weight_scale",
+          "dtype": "F32",
+          "shape": [
+            16384,
+            1
+          ]
+        },
+        {
+          "name": "layers.0.proj.o.weight_scale",
+          "dtype": "F32",
+          "shape": [
+            3072,
+            1
+          ]
+        },
+        {
+          "name": "layers.0.proj.qkv.weight_scale",
+          "dtype": "F32",
+          "shape": [
+            9216,
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "file": "~/DevSpace/moss-image-rdna2-lab01/models/diffusion_models/moss_image_sft_int8_convrot.safetensors",
+      "header_bytes": 75848,
+      "dtype_tensor_counts": {
+        "F32": 169,
+        "BF16": 210,
+        "I8": 168,
+        "U8": 210
+      },
+      "matrix_examples": [
+        {
+          "name": "layers.0.proj.ffn_down.weight_scale",
+          "dtype": "F32",
+          "shape": [
+            3072,
+            1
+          ]
+        },
+        {
+          "name": "layers.0.proj.ffn_up_gate.weight_scale",
+          "dtype": "F32",
+          "shape": [
+            16384,
+            1
+          ]
+        },
+        {
+          "name": "layers.0.proj.o.weight_scale",
+          "dtype": "F32",
+          "shape": [
+            3072,
+            1
+          ]
+        },
+        {
+          "name": "layers.0.proj.qkv.weight_scale",
+          "dtype": "F32",
+          "shape": [
+            9216,
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "file": "~/DevSpace/moss-image-rdna2-lab01/models/text_encoders/qwen3.5_9b_int8_convrot.safetensors",
+      "header_bytes": 171352,
+      "dtype_tensor_counts": {
+        "F32": 365,
+        "BF16": 410,
+        "I8": 317,
+        "U8": 317
+      },
+      "matrix_examples": [
+        {
+          "name": "lm_head.weight_scale",
+          "dtype": "F32",
+          "shape": [
+            248320,
+            1
+          ]
+        },
+        {
+          "name": "model.language_model.embed_tokens.weight_scale",
+          "dtype": "F32",
+          "shape": [
+            248320,
+            1
+          ]
+        },
+        {
+          "name": "model.language_model.layers.0.linear_attn.in_proj_qkv.weight_scale",
+          "dtype": "F32",
+          "shape": [
+            8192,
+            1
+          ]
+        },
+        {
+          "name": "model.language_model.layers.0.linear_attn.in_proj_z.weight_scale",
+          "dtype": "F32",
+          "shape": [
+            4096,
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "file": "~/DevSpace/moss-image-rdna2-lab01/models/vae/flux2-vae_small.safetensors",
+      "header_bytes": 27936,
+      "dtype_tensor_counts": {
+        "I64": 1,
+        "F32": 250
+      },
+      "matrix_examples": [
+        {
+          "name": "decoder.mid_block.attentions.0.to_k.weight",
+          "dtype": "F32",
+          "shape": [
+            384,
+            384
+          ]
+        },
+        {
+          "name": "decoder.mid_block.attentions.0.to_out.0.weight",
+          "dtype": "F32",
+          "shape": [
+            384,
+            384
+          ]
+        },
+        {
+          "name": "decoder.mid_block.attentions.0.to_q.weight",
+          "dtype": "F32",
+          "shape": [
+            384,
+            384
+          ]
+        },
+        {
+          "name": "decoder.mid_block.attentions.0.to_v.weight",
+          "dtype": "F32",
+          "shape": [
+            384,
+            384
+          ]
+        }
+      ]
+    }
+  ],
+  "conclusion": "No FP8 tensor among these checkpoints. FP8 actual-model A/B derives FP8 storage from the existing Anima checkpoint in an owned research request."
+}

@@ -1,0 +1,46 @@
+{
+  "scope": "Same-session completed clean runs; mode-first success excluded, metadata-only analysis during next GPU job.",
+  "baseline": {
+    "directory": "results/v10/tunable_anima_off_p0",
+    "completed": true,
+    "valid_for_timing": true,
+    "valid_for_speed_comparison": true,
+    "audit": true,
+    "source_unchanged": true,
+    "finite": true,
+    "tunable_enabled": [
+      false,
+      false,
+      false
+    ],
+    "base_times_s": [
+      81.1312511980068,
+      80.66606773500098,
+      80.76569513499271
+    ],
+    "warm_samples_s": [
+      80.66606773500098,
+      80.76569513499271
+    ],
+    "warm_median_s": 80.71588143499685,
+    "rgb_distinct": 1
+  },
+  "same_input_controls_as_original": {
+    "model": true,
+    "runner_sha256": true,
+    "workflow_sha256": true,
+    "runtime_torch": true,
+    "--seed": true,
+    "--steps": true
+  },
+  "original_cand_warm_median_s": 45.231108354986645,
+  "filtered_cand_warm_samples_s": [
+    45.07621221098816,
+    45.09923094100668,
+    45.116619003005326,
+    45.11401108899736
+  ],
+  "filtered_cand_warm_median_s": 45.10662101500202,
+  "original_speedup": 1.784521413924142,
+  "filtered_speedup": 1.7894464187009604
+}

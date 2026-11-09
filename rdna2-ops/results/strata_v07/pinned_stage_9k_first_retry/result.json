@@ -1,0 +1,799 @@
+{
+  "arm": "pinned-stage-first",
+  "started_utc": "2026-11-06T22:35:10.466220+00:00",
+  "service_before": {
+    "ActiveState": "inactive",
+    "SubState": "dead",
+    "FragmentPath": "~/.config/systemd/user/strata-verified-256k.service",
+    "DropInPaths": "",
+    "MainPID": "0"
+  },
+  "before": {
+    "memory_psi": "some avg10=0.00 avg60=0.00 avg300=0.14 total=4978891\nfull avg10=0.00 avg60=0.00 avg300=0.13 total=4917155",
+    "io_psi": "some avg10=0.00 avg60=0.00 avg300=0.33 total=78295463\nfull avg10=0.00 avg60=0.00 avg300=0.32 total=71295665",
+    "mem_available": 39811739648,
+    "swap_used": 2593562624,
+    "pswpin": 92,
+    "pswpout": 584869
+  },
+  "timing_enabled": true,
+  "exe": "~/DevSpace/strata-prefill-v07-lab-20261107/build-v07-gfx1030/strata-pinned-baseline",
+  "exe_sha256": "dd6753203cec325a2a89bc1c9a96d2a847c0bbcf3e08622d9cebb62484977466",
+  "config_sha256": "6fbedd89b840c3e43d16af1e189809f4cda61e7e95fe7bacb9334c13b2b0efad",
+  "requests": [
+    {
+      "label": "rows390_r0",
+      "rows": 390,
+      "repeat": 0,
+      "first_request": true,
+      "before": {
+        "memory_psi": "some avg10=0.54 avg60=0.12 avg300=0.16 total=5244524\nfull avg10=0.54 avg60=0.12 avg300=0.16 total=5182436",
+        "io_psi": "some avg10=0.64 avg60=0.18 avg300=0.35 total=78453832\nfull avg10=0.64 avg60=0.18 avg300=0.35 total=71450562",
+        "mem_available": 37883236352,
+        "swap_used": 2593554432,
+        "pswpin": 94,
+        "pswpout": 584870
+      },
+      "started_unix_s": 1794004520.5042167,
+      "request_sha256": "c0a5eea71bf287480f1ed8fa36744289bc4ad0dfaf0cddbdc39836525b163f57",
+      "api_s": 49.14101333299186,
+      "after": {
+        "memory_psi": "some avg10=7.47 avg60=7.12 avg300=2.23 total=12088367\nfull avg10=6.31 avg60=5.68 avg300=1.79 total=10614440",
+        "io_psi": "some avg10=36.37 avg60=18.22 avg300=5.22 total=94374953\nfull avg10=24.50 avg60=6.72 avg300=1.85 total=76562398",
+        "mem_available": 44581818368,
+        "swap_used": 9151688704,
+        "pswpin": 6697,
+        "pswpout": 2082464
+      },
+      "usage": {
+        "prompt_tokens": 9716,
+        "completion_tokens": 8,
+        "total_tokens": 9724,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      }
+    }
+  ],
+  "owned_pids": [
+    {
+      "pid": 932103,
+      "ppid": 932100,
+      "exe": "~/DevSpace/strata-rocm-feasibility/vision_canary/build-hip/bin/strata-vision",
+      "requested_unix_s": 1794004510.7893474
+    },
+    {
+      "pid": 932248,
+      "ppid": 932100,
+      "exe": "~/DevSpace/strata-prefill-v07-lab-20261107/build-v07-gfx1030/strata-pinned-baseline",
+      "requested_unix_s": 1794004514.2607462
+    }
+  ],
+  "ownership_errors": [],
+  "resources": [
+    {
+      "memory_psi": "some avg10=0.00 avg60=0.00 avg300=0.13 total=4978891\nfull avg10=0.00 avg60=0.00 avg300=0.13 total=4917155",
+      "io_psi": "some avg10=0.00 avg60=0.00 avg300=0.32 total=78379063\nfull avg10=0.00 avg60=0.00 avg300=0.32 total=71378833",
+      "mem_available": 39620759552,
+      "swap_used": 2593562624,
+      "pswpin": 92,
+      "pswpout": 584869,
+      "unix_s": 1794004511.4845076
+    },
+    {
+      "memory_psi": "some avg10=0.00 avg60=0.00 avg300=0.13 total=4978946\nfull avg10=0.00 avg60=0.00 avg300=0.13 total=4917183",
+      "io_psi": "some avg10=0.00 avg60=0.00 avg300=0.32 total=78396147\nfull avg10=0.00 avg60=0.00 avg300=0.32 total=71395469",
+      "mem_available": 39267659776,
+      "swap_used": 2593554432,
+      "pswpin": 93,
+      "pswpout": 584869,
+      "unix_s": 1794004512.4848497
+    },
+    {
+      "memory_psi": "some avg10=0.00 avg60=0.00 avg300=0.13 total=5046292\nfull avg10=0.00 avg60=0.00 avg300=0.13 total=4984449",
+      "io_psi": "some avg10=0.90 avg60=0.16 avg300=0.36 total=78407178\nfull avg10=0.90 avg60=0.16 avg300=0.35 total=71405839",
+      "mem_available": 39028465664,
+      "swap_used": 2593550336,
+      "pswpin": 94,
+      "pswpout": 584869,
+      "unix_s": 1794004513.4851825
+    },
+    {
+      "memory_psi": "some avg10=0.00 avg60=0.00 avg300=0.13 total=5050152\nfull avg10=0.00 avg60=0.00 avg300=0.13 total=4988306",
+      "io_psi": "some avg10=0.90 avg60=0.16 avg300=0.36 total=78413693\nfull avg10=0.90 avg60=0.16 avg300=0.35 total=71412040",
+      "mem_available": 38566973440,
+      "swap_used": 2593554432,
+      "pswpin": 94,
+      "pswpout": 584870,
+      "unix_s": 1794004514.4855626
+    },
+    {
+      "memory_psi": "some avg10=0.54 avg60=0.09 avg300=0.15 total=5050152\nfull avg10=0.54 avg60=0.09 avg300=0.15 total=4988306",
+      "io_psi": "some avg10=0.74 avg60=0.15 avg300=0.35 total=78419955\nfull avg10=0.74 avg60=0.15 avg300=0.35 total=71418076",
+      "mem_available": 38441267200,
+      "swap_used": 2593554432,
+      "pswpin": 94,
+      "pswpout": 584870,
+      "unix_s": 1794004515.4858894,
+      "operating_service": {
+        "ActiveState": "inactive",
+        "SubState": "dead",
+        "FragmentPath": "~/.config/systemd/user/strata-verified-256k.service",
+        "DropInPaths": "",
+        "MainPID": "0"
+      }
+    },
+    {
+      "memory_psi": "some avg10=0.54 avg60=0.09 avg300=0.15 total=5050864\nfull avg10=0.54 avg60=0.09 avg300=0.15 total=4989018",
+      "io_psi": "some avg10=0.74 avg60=0.15 avg300=0.35 total=78422572\nfull avg10=0.74 avg60=0.15 avg300=0.35 total=71420681",
+      "mem_available": 38597017600,
+      "swap_used": 2593554432,
+      "pswpin": 94,
+      "pswpout": 584870,
+      "unix_s": 1794004516.5051026
+    },
+    {
+      "memory_psi": "some avg10=0.44 avg60=0.09 avg300=0.15 total=5060171\nfull avg10=0.44 avg60=0.09 avg300=0.15 total=4998316",
+      "io_psi": "some avg10=0.78 avg60=0.18 avg300=0.36 total=78450426\nfull avg10=0.78 avg60=0.18 avg300=0.35 total=71447434",
+      "mem_available": 38478688256,
+      "swap_used": 2593554432,
+      "pswpin": 94,
+      "pswpout": 584870,
+      "unix_s": 1794004517.5054266
+    },
+    {
+      "memory_psi": "some avg10=0.44 avg60=0.09 avg300=0.15 total=5078174\nfull avg10=0.44 avg60=0.09 avg300=0.15 total=5016315",
+      "io_psi": "some avg10=0.78 avg60=0.18 avg300=0.36 total=78450726\nfull avg10=0.78 avg60=0.18 avg300=0.35 total=71447726",
+      "mem_available": 38506995712,
+      "swap_used": 2593554432,
+      "pswpin": 94,
+      "pswpout": 584870,
+      "unix_s": 1794004518.5057628
+    },
+    {
+      "memory_psi": "some avg10=0.54 avg60=0.12 avg300=0.16 total=5101088\nfull avg10=0.54 avg60=0.12 avg300=0.16 total=5039133",
+      "io_psi": "some avg10=0.64 avg60=0.18 avg300=0.35 total=78450830\nfull avg10=0.64 avg60=0.18 avg300=0.35 total=71447828",
+      "mem_available": 38328229888,
+      "swap_used": 2593554432,
+      "pswpin": 94,
+      "pswpout": 584870,
+      "unix_s": 1794004519.5060937
+    },
+    {
+      "memory_psi": "some avg10=0.54 avg60=0.12 avg300=0.16 total=5245377\nfull avg10=0.54 avg60=0.12 avg300=0.16 total=5183289",
+      "io_psi": "some avg10=0.64 avg60=0.18 avg300=0.35 total=78453896\nfull avg10=0.64 avg60=0.18 avg300=0.35 total=71450626",
+      "mem_available": 37881995264,
+      "swap_used": 2593554432,
+      "pswpin": 94,
+      "pswpout": 584870,
+      "unix_s": 1794004520.5063837,
+      "operating_service": {
+        "ActiveState": "inactive",
+        "SubState": "dead",
+        "FragmentPath": "~/.config/systemd/user/strata-verified-256k.service",
+        "DropInPaths": "",
+        "MainPID": "0"
+      }
+    },
+    {
+      "memory_psi": "some avg10=2.43 avg60=0.48 avg300=0.23 total=5530388\nfull avg10=2.43 avg60=0.48 avg300=0.23 total=5450306",
+      "io_psi": "some avg10=0.89 avg60=0.23 avg300=0.37 total=78608267\nfull avg10=0.70 avg60=0.20 avg300=0.35 total=71480120",
+      "mem_available": 37955342336,
+      "swap_used": 2593554432,
+      "pswpin": 94,
+      "pswpout": 584870,
+      "unix_s": 1794004521.5135853
+    },
+    {
+      "memory_psi": "some avg10=2.43 avg60=0.48 avg300=0.23 total=5763789\nfull avg10=2.43 avg60=0.48 avg300=0.23 total=5616914",
+      "io_psi": "some avg10=0.89 avg60=0.23 avg300=0.37 total=78901448\nfull avg10=0.70 avg60=0.20 avg300=0.35 total=71544912",
+      "mem_available": 37680967680,
+      "swap_used": 2856710144,
+      "pswpin": 114,
+      "pswpout": 638665,
+      "unix_s": 1794004522.5139344
+    },
+    {
+      "memory_psi": "some avg10=6.16 avg60=1.21 avg300=0.39 total=5951482\nfull avg10=5.43 avg60=1.08 avg300=0.36 total=5776804",
+      "io_psi": "some avg10=5.25 avg60=1.04 avg300=0.53 total=79198443\nfull avg10=1.12 avg60=0.29 avg300=0.37 total=71597342",
+      "mem_available": 38601355264,
+      "swap_used": 3111968768,
+      "pswpin": 114,
+      "pswpout": 693088,
+      "unix_s": 1794004523.51427
+    },
+    {
+      "memory_psi": "some avg10=6.16 avg60=1.21 avg300=0.39 total=6131494\nfull avg10=5.43 avg60=1.08 avg300=0.36 total=5910688",
+      "io_psi": "some avg10=5.25 avg60=1.04 avg300=0.53 total=79495357\nfull avg10=1.12 avg60=0.29 avg300=0.37 total=71658031",
+      "mem_available": 38769246208,
+      "swap_used": 3304947712,
+      "pswpin": 114,
+      "pswpout": 734927,
+      "unix_s": 1794004524.5145802
+    },
+    {
+      "memory_psi": "some avg10=8.48 avg60=1.79 avg300=0.52 total=6315703\nfull avg10=6.99 avg60=1.50 avg300=0.45 total=6035730",
+      "io_psi": "some avg10=9.55 avg60=1.96 avg300=0.73 total=79859866\nfull avg10=1.82 avg60=0.45 avg300=0.40 total=71702174",
+      "mem_available": 38663884800,
+      "swap_used": 3549736960,
+      "pswpin": 114,
+      "pswpout": 789532,
+      "unix_s": 1794004525.5149002,
+      "operating_service": {
+        "ActiveState": "inactive",
+        "SubState": "dead",
+        "FragmentPath": "~/.config/systemd/user/strata-verified-256k.service",
+        "DropInPaths": "",
+        "MainPID": "0"
+      }
+    },
+    {
+      "memory_psi": "some avg10=8.48 avg60=1.79 avg300=0.52 total=6601854\nfull avg10=6.99 avg60=1.50 avg300=0.45 total=6189601",
+      "io_psi": "some avg10=9.55 avg60=1.96 avg300=0.73 total=80259163\nfull avg10=1.82 avg60=0.45 avg300=0.40 total=71774960",
+      "mem_available": 38804398080,
+      "swap_used": 3787923456,
+      "pswpin": 114,
+      "pswpout": 846113,
+      "unix_s": 1794004526.5351536
+    },
+    {
+      "memory_psi": "some avg10=11.66 avg60=2.59 avg300=0.69 total=6831395\nfull avg10=8.62 avg60=1.98 avg300=0.56 total=6343938",
+      "io_psi": "some avg10=14.71 avg60=3.14 avg300=0.98 total=80660602\nfull avg10=2.76 avg60=0.66 avg300=0.45 total=71849763",
+      "mem_available": 39570976768,
+      "swap_used": 4020563968,
+      "pswpin": 114,
+      "pswpout": 901615,
+      "unix_s": 1794004527.5355444
+    },
+    {
+      "memory_psi": "some avg10=11.66 avg60=2.59 avg300=0.69 total=7062476\nfull avg10=8.62 avg60=1.98 avg300=0.56 total=6486400",
+      "io_psi": "some avg10=14.71 avg60=3.14 avg300=0.98 total=81044808\nfull avg10=2.76 avg60=0.66 avg300=0.45 total=71909780",
+      "mem_available": 39384985600,
+      "swap_used": 4285788160,
+      "pswpin": 115,
+      "pswpout": 963774,
+      "unix_s": 1794004528.5359297
+    },
+    {
+      "memory_psi": "some avg10=12.81 avg60=3.09 avg300=0.81 total=7285138\nfull avg10=9.05 avg60=2.27 avg300=0.63 total=6680958",
+      "io_psi": "some avg10=18.56 avg60=4.21 avg300=1.22 total=81408192\nfull avg10=2.98 avg60=0.77 avg300=0.47 total=71978645",
+      "mem_available": 39510450176,
+      "swap_used": 4471037952,
+      "pswpin": 141,
+      "pswpout": 1006925,
+      "unix_s": 1794004529.5362663
+    },
+    {
+      "memory_psi": "some avg10=12.81 avg60=3.09 avg300=0.81 total=7443731\nfull avg10=9.05 avg60=2.27 avg300=0.63 total=6814224",
+      "io_psi": "some avg10=18.56 avg60=4.21 avg300=1.22 total=81718479\nfull avg10=2.98 avg60=0.77 avg300=0.47 total=72010775",
+      "mem_available": 39663407104,
+      "swap_used": 4636160000,
+      "pswpin": 150,
+      "pswpout": 1044883,
+      "unix_s": 1794004530.5366204,
+      "operating_service": {
+        "ActiveState": "inactive",
+        "SubState": "dead",
+        "FragmentPath": "~/.config/systemd/user/strata-verified-256k.service",
+        "DropInPaths": "",
+        "MainPID": "0"
+      }
+    },
+    {
+      "memory_psi": "some avg10=13.93 avg60=3.61 avg300=0.93 total=7524843\nfull avg10=10.31 avg60=2.72 avg300=0.74 total=6892775",
+      "io_psi": "some avg10=20.82 avg60=5.09 avg300=1.43 total=81965993\nfull avg10=3.17 avg60=0.88 avg300=0.50 total=72010943",
+      "mem_available": 40295624704,
+      "swap_used": 4667371520,
+      "pswpin": 150,
+      "pswpout": 1051582,
+      "unix_s": 1794004531.5453088
+    },
+    {
+      "memory_psi": "some avg10=13.93 avg60=3.61 avg300=0.93 total=7622721\nfull avg10=10.31 avg60=2.72 avg300=0.74 total=6988083",
+      "io_psi": "some avg10=20.82 avg60=5.09 avg300=1.43 total=82189720\nfull avg10=3.17 avg60=0.88 avg300=0.50 total=72011389",
+      "mem_available": 40359268352,
+      "swap_used": 4746657792,
+      "pswpin": 329,
+      "pswpout": 1069587,
+      "unix_s": 1794004532.5456274
+    },
+    {
+      "memory_psi": "some avg10=12.85 avg60=3.75 avg300=0.98 total=7722775\nfull avg10=9.89 avg60=2.90 avg300=0.79 total=7077717",
+      "io_psi": "some avg10=21.03 avg60=5.64 avg300=1.57 total=82476239\nfull avg10=2.59 avg60=0.85 avg300=0.50 total=72021621",
+      "mem_available": 40074440704,
+      "swap_used": 4878954496,
+      "pswpin": 330,
+      "pswpout": 1097139,
+      "unix_s": 1794004533.5459588
+    },
+    {
+      "memory_psi": "some avg10=12.85 avg60=3.75 avg300=0.98 total=7766338\nfull avg10=9.89 avg60=2.90 avg300=0.79 total=7114834",
+      "io_psi": "some avg10=21.03 avg60=5.64 avg300=1.57 total=82786046\nfull avg10=2.59 avg60=0.85 avg300=0.50 total=72030206",
+      "mem_available": 40494612480,
+      "swap_used": 4979994624,
+      "pswpin": 339,
+      "pswpout": 1120080,
+      "unix_s": 1794004534.5462961
+    },
+    {
+      "memory_psi": "some avg10=11.61 avg60=3.83 avg300=1.02 total=7952697\nfull avg10=9.18 avg60=3.00 avg300=0.82 total=7242846",
+      "io_psi": "some avg10=22.84 avg60=6.47 avg300=1.77 total=83087099\nfull avg10=2.12 avg60=0.82 avg300=0.49 total=72056463",
+      "mem_available": 40467582976,
+      "swap_used": 5171523584,
+      "pswpin": 340,
+      "pswpout": 1165085,
+      "unix_s": 1794004535.5466356,
+      "operating_service": {
+        "ActiveState": "inactive",
+        "SubState": "dead",
+        "FragmentPath": "~/.config/systemd/user/strata-verified-256k.service",
+        "DropInPaths": "",
+        "MainPID": "0"
+      }
+    },
+    {
+      "memory_psi": "some avg10=11.61 avg60=3.83 avg300=1.02 total=8056687\nfull avg10=9.18 avg60=3.00 avg300=0.82 total=7346012",
+      "io_psi": "some avg10=22.84 avg60=6.47 avg300=1.77 total=83379495\nfull avg10=2.12 avg60=0.82 avg300=0.49 total=72077022",
+      "mem_available": 40968331264,
+      "swap_used": 5360177152,
+      "pswpin": 340,
+      "pswpout": 1209548,
+      "unix_s": 1794004536.5551982
+    },
+    {
+      "memory_psi": "some avg10=11.86 avg60=4.13 avg300=1.10 total=8097241\nfull avg10=9.33 avg60=3.23 avg300=0.88 total=7385863",
+      "io_psi": "some avg10=23.77 avg60=7.18 avg300=1.95 total=83562086\nfull avg10=2.10 avg60=0.86 avg300=0.50 total=72078342",
+      "mem_available": 41014779904,
+      "swap_used": 5371449344,
+      "pswpin": 349,
+      "pswpout": 1212352,
+      "unix_s": 1794004537.555577
+    },
+    {
+      "memory_psi": "some avg10=11.86 avg60=4.13 avg300=1.10 total=8121126\nfull avg10=9.33 avg60=3.23 avg300=0.88 total=7409405",
+      "io_psi": "some avg10=23.77 avg60=7.18 avg300=1.95 total=83803190\nfull avg10=2.10 avg60=0.86 avg300=0.50 total=72078584",
+      "mem_available": 41042223104,
+      "swap_used": 5382053888,
+      "pswpin": 353,
+      "pswpout": 1214934,
+      "unix_s": 1794004538.5559335
+    },
+    {
+      "memory_psi": "some avg10=10.25 avg60=4.09 avg300=1.11 total=8161645\nfull avg10=8.18 avg60=3.22 avg300=0.90 total=7449335",
+      "io_psi": "some avg10=23.63 avg60=7.69 avg300=2.09 total=84119427\nfull avg10=1.72 avg60=0.83 avg300=0.50 total=72078683",
+      "mem_available": 41101131776,
+      "swap_used": 5397827584,
+      "pswpin": 362,
+      "pswpout": 1218782,
+      "unix_s": 1794004539.556295
+    },
+    {
+      "memory_psi": "some avg10=10.25 avg60=4.09 avg300=1.11 total=8194800\nfull avg10=8.18 avg60=3.22 avg300=0.90 total=7482108",
+      "io_psi": "some avg10=23.63 avg60=7.69 avg300=2.09 total=84378825\nfull avg10=1.72 avg60=0.83 avg300=0.50 total=72079224",
+      "mem_available": 41111343104,
+      "swap_used": 5411487744,
+      "pswpin": 369,
+      "pswpout": 1222098,
+      "unix_s": 1794004540.556645,
+      "operating_service": {
+        "ActiveState": "inactive",
+        "SubState": "dead",
+        "FragmentPath": "~/.config/systemd/user/strata-verified-256k.service",
+        "DropInPaths": "",
+        "MainPID": "0"
+      }
+    },
+    {
+      "memory_psi": "some avg10=8.94 avg60=4.06 avg300=1.12 total=8294328\nfull avg10=7.24 avg60=3.21 avg300=0.91 total=7578553",
+      "io_psi": "some avg10=24.42 avg60=8.36 avg300=2.27 total=84692481\nfull avg10=1.41 avg60=0.80 avg300=0.49 total=72082879",
+      "mem_available": 41178243072,
+      "swap_used": 5468000256,
+      "pswpin": 369,
+      "pswpout": 1235707,
+      "unix_s": 1794004541.5652473
+    },
+    {
+      "memory_psi": "some avg10=8.94 avg60=4.06 avg300=1.12 total=8501797\nfull avg10=7.24 avg60=3.21 avg300=0.91 total=7768697",
+      "io_psi": "some avg10=24.42 avg60=8.36 avg300=2.27 total=84932260\nfull avg10=1.41 avg60=0.80 avg300=0.49 total=72110980",
+      "mem_available": 41368252416,
+      "swap_used": 5704306688,
+      "pswpin": 373,
+      "pswpout": 1291789,
+      "unix_s": 1794004542.5656095
+    },
+    {
+      "memory_psi": "some avg10=10.58 avg60=4.51 avg300=1.24 total=8724782\nfull avg10=8.65 avg60=3.60 avg300=1.01 total=7923776",
+      "io_psi": "some avg10=24.89 avg60=8.97 avg300=2.44 total=85240414\nfull avg10=1.51 avg60=0.84 avg300=0.51 total=72166272",
+      "mem_available": 41224462336,
+      "swap_used": 6022365184,
+      "pswpin": 502,
+      "pswpout": 1361762,
+      "unix_s": 1794004543.5659506
+    },
+    {
+      "memory_psi": "some avg10=10.58 avg60=4.51 avg300=1.24 total=8970925\nfull avg10=8.65 avg60=3.60 avg300=1.01 total=8078276",
+      "io_psi": "some avg10=24.89 avg60=8.97 avg300=2.44 total=85565096\nfull avg10=1.51 avg60=0.84 avg300=0.51 total=72234457",
+      "mem_available": 41574481920,
+      "swap_used": 6330896384,
+      "pswpin": 507,
+      "pswpout": 1432585,
+      "unix_s": 1794004544.5662966
+    },
+    {
+      "memory_psi": "some avg10=12.83 avg60=5.12 avg300=1.39 total=9209255\nfull avg10=9.80 avg60=3.97 avg300=1.11 total=8246379",
+      "io_psi": "some avg10=26.18 avg60=9.72 avg300=2.64 total=85890355\nfull avg10=2.32 avg60=1.01 avg300=0.54 total=72312859",
+      "mem_available": 41882157056,
+      "swap_used": 6680162304,
+      "pswpin": 535,
+      "pswpout": 1506536,
+      "unix_s": 1794004545.5666044,
+      "operating_service": {
+        "ActiveState": "inactive",
+        "SubState": "dead",
+        "FragmentPath": "~/.config/systemd/user/strata-verified-256k.service",
+        "DropInPaths": "",
+        "MainPID": "0"
+      }
+    },
+    {
+      "memory_psi": "some avg10=12.83 avg60=5.12 avg300=1.39 total=9493312\nfull avg10=9.80 avg60=3.97 avg300=1.11 total=8448852",
+      "io_psi": "some avg10=26.18 avg60=9.72 avg300=2.64 total=86177627\nfull avg10=2.32 avg60=1.01 avg300=0.54 total=72375006",
+      "mem_available": 42364579840,
+      "swap_used": 6927224832,
+      "pswpin": 620,
+      "pswpout": 1562294,
+      "unix_s": 1794004546.577416
+    },
+    {
+      "memory_psi": "some avg10=15.40 avg60=5.83 avg300=1.56 total=9871607\nfull avg10=11.46 avg60=4.46 avg300=1.23 total=8696340",
+      "io_psi": "some avg10=27.05 avg60=10.42 avg300=2.84 total=86627008\nfull avg10=3.17 avg60=1.21 avg300=0.59 total=72503672",
+      "mem_available": 42566148096,
+      "swap_used": 7245238272,
+      "pswpin": 636,
+      "pswpout": 1636747,
+      "unix_s": 1794004547.5777555
+    },
+    {
+      "memory_psi": "some avg10=15.40 avg60=5.83 avg300=1.56 total=10091673\nfull avg10=11.46 avg60=4.46 avg300=1.23 total=8832044",
+      "io_psi": "some avg10=27.05 avg60=10.42 avg300=2.84 total=86977283\nfull avg10=3.17 avg60=1.21 avg300=0.59 total=72569326",
+      "mem_available": 42934403072,
+      "swap_used": 7481274368,
+      "pswpin": 1033,
+      "pswpout": 1691202,
+      "unix_s": 1794004548.57809
+    },
+    {
+      "memory_psi": "some avg10=17.50 avg60=6.52 avg300=1.74 total=10249899\nfull avg10=12.47 avg60=4.87 avg300=1.34 total=8956749",
+      "io_psi": "some avg10=29.21 avg60=11.35 avg300=3.08 total=87375673\nfull avg10=4.23 avg60=1.46 avg300=0.64 total=72618865",
+      "mem_available": 43304640512,
+      "swap_used": 7649501184,
+      "pswpin": 1094,
+      "pswpout": 1731082,
+      "unix_s": 1794004549.578448
+    },
+    {
+      "memory_psi": "some avg10=17.50 avg60=6.52 avg300=1.74 total=10451553\nfull avg10=12.47 avg60=4.87 avg300=1.34 total=9135821",
+      "io_psi": "some avg10=29.21 avg60=11.35 avg300=3.08 total=87739917\nfull avg10=4.23 avg60=1.46 avg300=0.64 total=72682163",
+      "mem_available": 43167383552,
+      "swap_used": 7861833728,
+      "pswpin": 1223,
+      "pswpout": 1778027,
+      "unix_s": 1794004550.5798736,
+      "operating_service": {
+        "ActiveState": "inactive",
+        "SubState": "dead",
+        "FragmentPath": "~/.config/systemd/user/strata-verified-256k.service",
+        "DropInPaths": "",
+        "MainPID": "0"
+      }
+    },
+    {
+      "memory_psi": "some avg10=17.22 avg60=6.83 avg300=1.84 total=10697621\nfull avg10=12.74 avg60=5.17 avg300=1.42 total=9341876",
+      "io_psi": "some avg10=30.44 avg60=12.16 avg300=3.31 total=88125325\nfull avg10=4.18 avg60=1.54 avg300=0.67 total=72792460",
+      "mem_available": 43436228608,
+      "swap_used": 8126996480,
+      "pswpin": 1439,
+      "pswpout": 1840443,
+      "unix_s": 1794004551.5901442
+    },
+    {
+      "memory_psi": "some avg10=17.22 avg60=6.83 avg300=1.84 total=10858881\nfull avg10=12.74 avg60=5.17 avg300=1.42 total=9461374",
+      "io_psi": "some avg10=30.44 avg60=12.16 avg300=3.31 total=88382006\nfull avg10=4.18 avg60=1.54 avg300=0.67 total=72871132",
+      "mem_available": 43651952640,
+      "swap_used": 8369332224,
+      "pswpin": 4634,
+      "pswpout": 1898220,
+      "unix_s": 1794004552.5905023
+    },
+    {
+      "memory_psi": "some avg10=17.73 avg60=7.27 avg300=1.96 total=10896568\nfull avg10=13.15 avg60=5.49 avg300=1.52 total=9498600",
+      "io_psi": "some avg10=30.72 avg60=12.81 avg300=3.50 total=88798276\nfull avg10=5.06 avg60=1.79 avg300=0.72 total=72882335",
+      "mem_available": 44013223936,
+      "swap_used": 8425439232,
+      "pswpin": 4639,
+      "pswpout": 1911210,
+      "unix_s": 1794004553.5908322
+    },
+    {
+      "memory_psi": "some avg10=17.73 avg60=7.27 avg300=1.96 total=10962209\nfull avg10=13.15 avg60=5.49 avg300=1.52 total=9562873",
+      "io_psi": "some avg10=30.72 avg60=12.81 avg300=3.50 total=89195023\nfull avg10=5.06 avg60=1.79 avg300=0.72 total=72885637",
+      "mem_available": 43676012544,
+      "swap_used": 8488050688,
+      "pswpin": 4676,
+      "pswpout": 1925662,
+      "unix_s": 1794004554.591135
+    },
+    {
+      "memory_psi": "some avg10=15.60 avg60=7.22 avg300=1.99 total=11096668\nfull avg10=11.85 avg60=5.51 avg300=1.55 total=9686950",
+      "io_psi": "some avg10=32.40 avg60=13.70 avg300=3.75 total=89542783\nfull avg10=4.14 avg60=1.73 avg300=0.72 total=72898019",
+      "mem_available": 44067168256,
+      "swap_used": 8672919552,
+      "pswpin": 4679,
+      "pswpout": 1969523,
+      "unix_s": 1794004555.591546,
+      "operating_service": {
+        "ActiveState": "inactive",
+        "SubState": "dead",
+        "FragmentPath": "~/.config/systemd/user/strata-verified-256k.service",
+        "DropInPaths": "",
+        "MainPID": "0"
+      }
+    },
+    {
+      "memory_psi": "some avg10=15.60 avg60=7.22 avg300=1.99 total=11211958\nfull avg10=11.85 avg60=5.51 avg300=1.55 total=9799896",
+      "io_psi": "some avg10=32.40 avg60=13.70 avg300=3.75 total=89857459\nfull avg10=4.14 avg60=1.73 avg300=0.72 total=72901375",
+      "mem_available": 44515807232,
+      "swap_used": 8841854976,
+      "pswpin": 4694,
+      "pswpout": 2008614,
+      "unix_s": 1794004556.6001627
+    },
+    {
+      "memory_psi": "some avg10=14.95 avg60=7.38 avg300=2.06 total=11416714\nfull avg10=11.88 avg60=5.72 avg300=1.62 total=10000693",
+      "io_psi": "some avg10=32.33 avg60=14.30 avg300=3.95 total=90141368\nfull avg10=3.39 avg60=1.67 avg300=0.71 total=72910565",
+      "mem_available": 44601688064,
+      "swap_used": 8983834624,
+      "pswpin": 4698,
+      "pswpout": 2041772,
+      "unix_s": 1794004557.6004713
+    },
+    {
+      "memory_psi": "some avg10=14.95 avg60=7.38 avg300=2.06 total=11623637\nfull avg10=11.88 avg60=5.72 avg300=1.62 total=10193094",
+      "io_psi": "some avg10=32.33 avg60=14.30 avg300=3.95 total=90397887\nfull avg10=3.39 avg60=1.67 avg300=0.71 total=72918830",
+      "mem_available": 44463935488,
+      "swap_used": 9074348032,
+      "pswpin": 5365,
+      "pswpout": 2063365,
+      "unix_s": 1794004558.600818
+    },
+    {
+      "memory_psi": "some avg10=16.04 avg60=7.83 avg300=2.19 total=11792691\nfull avg10=13.35 avg60=6.19 avg300=1.75 total=10361614",
+      "io_psi": "some avg10=30.82 avg60=14.61 avg300=4.08 total=90614873\nfull avg10=2.77 avg60=1.62 avg300=0.71 total=72919307",
+      "mem_available": 44691701760,
+      "swap_used": 9127243776,
+      "pswpin": 5657,
+      "pswpout": 2076038,
+      "unix_s": 1794004559.601169
+    },
+    {
+      "memory_psi": "some avg10=16.04 avg60=7.83 avg300=2.19 total=11853739\nfull avg10=13.35 avg60=6.19 avg300=1.75 total=10383400",
+      "io_psi": "some avg10=30.82 avg60=14.61 avg300=4.08 total=90760123\nfull avg10=2.77 avg60=1.62 avg300=0.71 total=72974870",
+      "mem_available": 44672950272,
+      "swap_used": 9145847808,
+      "pswpin": 5923,
+      "pswpout": 2080658,
+      "unix_s": 1794004560.6014903,
+      "operating_service": {
+        "ActiveState": "inactive",
+        "SubState": "dead",
+        "FragmentPath": "~/.config/systemd/user/strata-verified-256k.service",
+        "DropInPaths": "",
+        "MainPID": "0"
+      }
+    },
+    {
+      "memory_psi": "some avg10=14.40 avg60=7.80 avg300=2.22 total=12066759\nfull avg10=11.84 avg60=6.15 avg300=1.77 total=10594268",
+      "io_psi": "some avg10=28.50 avg60=14.73 avg300=4.18 total=91061988\nfull avg10=2.81 avg60=1.66 avg300=0.72 total=73273987",
+      "mem_available": 44646957056,
+      "swap_used": 9145843712,
+      "pswpin": 5926,
+      "pswpout": 2080658,
+      "unix_s": 1794004561.6097682
+    },
+    {
+      "memory_psi": "some avg10=14.40 avg60=7.80 avg300=2.22 total=12067557\nfull avg10=11.84 avg60=6.15 avg300=1.77 total=10595052",
+      "io_psi": "some avg10=28.50 avg60=14.73 avg300=4.18 total=91540324\nfull avg10=2.81 avg60=1.66 avg300=0.72 total=73750276",
+      "mem_available": 44660322304,
+      "swap_used": 9145765888,
+      "pswpin": 5931,
+      "pswpout": 2080658,
+      "unix_s": 1794004562.610148
+    },
+    {
+      "memory_psi": "some avg10=13.61 avg60=7.87 avg300=2.27 total=12067637\nfull avg10=11.50 avg60=6.28 avg300=1.82 total=10595132",
+      "io_psi": "some avg10=31.12 avg60=15.65 avg300=4.45 total=91969586\nfull avg10=10.09 avg60=3.01 avg300=1.01 total=74175187",
+      "mem_available": 44695666688,
+      "swap_used": 9145102336,
+      "pswpin": 6345,
+      "pswpout": 2080658,
+      "unix_s": 1794004563.6104827
+    },
+    {
+      "memory_psi": "some avg10=13.61 avg60=7.87 avg300=2.27 total=12068119\nfull avg10=11.50 avg60=6.28 avg300=1.82 total=10595613",
+      "io_psi": "some avg10=31.12 avg60=15.65 avg300=4.45 total=92442032\nfull avg10=10.09 avg60=3.01 avg300=1.01 total=74644691",
+      "mem_available": 44660051968,
+      "swap_used": 9145647104,
+      "pswpin": 6354,
+      "pswpout": 2080792,
+      "unix_s": 1794004564.6108603
+    },
+    {
+      "memory_psi": "some avg10=11.14 avg60=7.61 avg300=2.26 total=12068606\nfull avg10=9.42 avg60=6.07 avg300=1.81 total=10596098",
+      "io_psi": "some avg10=33.64 avg60=16.61 avg300=4.72 total=92881428\nfull avg10=16.42 avg60=4.39 avg300=1.31 total=75080562",
+      "mem_available": 44657348608,
+      "swap_used": 9146699776,
+      "pswpin": 6356,
+      "pswpout": 2081051,
+      "unix_s": 1794004565.611232,
+      "operating_service": {
+        "ActiveState": "inactive",
+        "SubState": "dead",
+        "FragmentPath": "~/.config/systemd/user/strata-verified-256k.service",
+        "DropInPaths": "",
+        "MainPID": "0"
+      }
+    },
+    {
+      "memory_psi": "some avg10=11.14 avg60=7.61 avg300=2.26 total=12071154\nfull avg10=9.42 avg60=6.07 avg300=1.81 total=10598646",
+      "io_psi": "some avg10=33.64 avg60=16.61 avg300=4.72 total=93242964\nfull avg10=16.42 avg60=4.39 avg300=1.31 total=75437527",
+      "mem_available": 44625412096,
+      "swap_used": 9148121088,
+      "pswpin": 6463,
+      "pswpout": 2081463,
+      "unix_s": 1794004566.6186707
+    },
+    {
+      "memory_psi": "some avg10=9.12 avg60=7.36 avg300=2.24 total=12071726\nfull avg10=7.71 avg60=5.87 avg300=1.80 total=10599216",
+      "io_psi": "some avg10=34.25 avg60=17.28 avg300=4.94 total=93682075\nfull avg10=19.96 avg60=5.42 avg300=1.55 total=75873860",
+      "mem_available": 44624793600,
+      "swap_used": 9148477440,
+      "pswpin": 6601,
+      "pswpout": 2081648,
+      "unix_s": 1794004567.6189697
+    },
+    {
+      "memory_psi": "some avg10=9.12 avg60=7.36 avg300=2.24 total=12072411\nfull avg10=7.71 avg60=5.87 avg300=1.80 total=10599896",
+      "io_psi": "some avg10=34.25 avg60=17.28 avg300=4.94 total=94147557\nfull avg10=19.96 avg60=5.42 avg300=1.55 total=76337393",
+      "mem_available": 44602187776,
+      "swap_used": 9149628416,
+      "pswpin": 6645,
+      "pswpout": 2081935,
+      "unix_s": 1794004568.6192982
+    },
+    {
+      "memory_psi": "some avg10=7.47 avg60=7.12 avg300=2.23 total=12088367\nfull avg10=6.31 avg60=5.68 avg300=1.79 total=10614440",
+      "io_psi": "some avg10=36.37 avg60=18.22 avg300=5.22 total=94374609\nfull avg10=24.50 avg60=6.72 avg300=1.85 total=76562084",
+      "mem_available": 44582313984,
+      "swap_used": 9151688704,
+      "pswpin": 6697,
+      "pswpout": 2082464,
+      "unix_s": 1794004569.6196768
+    },
+    {
+      "memory_psi": "some avg10=7.47 avg60=7.12 avg300=2.23 total=12088371\nfull avg10=6.31 avg60=5.68 avg300=1.79 total=10614444",
+      "io_psi": "some avg10=36.37 avg60=18.22 avg300=5.22 total=94375756\nfull avg10=24.50 avg60=6.72 avg300=1.85 total=76563167",
+      "mem_available": 46053974016,
+      "swap_used": 9147944960,
+      "pswpin": 6740,
+      "pswpout": 2082464,
+      "unix_s": 1794004570.6200302,
+      "operating_service": {
+        "ActiveState": "inactive",
+        "SubState": "dead",
+        "FragmentPath": "~/.config/systemd/user/strata-verified-256k.service",
+        "DropInPaths": "",
+        "MainPID": "0"
+      }
+    }
+  ],
+  "ready_s": 10.01189184600662,
+  "owned_pids_remaining": [],
+  "after": {
+    "memory_psi": "some avg10=7.47 avg60=7.12 avg300=2.23 total=12088371\nfull avg10=6.31 avg60=5.68 avg300=1.79 total=10614444",
+    "io_psi": "some avg10=36.37 avg60=18.22 avg300=5.22 total=94375861\nfull avg10=24.50 avg60=6.72 avg300=1.85 total=76563271",
+    "mem_available": 46226309120,
+    "swap_used": 9147944960,
+    "pswpin": 6740,
+    "pswpout": 2082464
+  },
+  "service_after": {
+    "ActiveState": "inactive",
+    "SubState": "dead",
+    "FragmentPath": "~/.config/systemd/user/strata-verified-256k.service",
+    "DropInPaths": "",
+    "MainPID": "0"
+  },
+  "guard": {
+    "available": true,
+    "valid_for_timing": true,
+    "method": "KFD client PID snapshots and periodic polling; research flock",
+    "limitation": "Detects observed KFD clients, not graphics load or sub-poll transient clients",
+    "allowed_pids": [
+      932097,
+      932100,
+      932103,
+      932248
+    ],
+    "interval_s": 0.25,
+    "sample_count": 245,
+    "started_unix_s": 1794004510.4836426,
+    "ended_unix_s": 1794004570.7111814,
+    "foreign_clients": [],
+    "errors": [],
+    "transitions": [
+      {
+        "unix_s": 1794004510.483643,
+        "kfd_pids": [],
+        "foreign_or_error": []
+      }
+    ]
+  },
+  "wall_s": 60.23575620300835,
+  "ended_utc": "2026-11-06T22:36:10.719377+00:00",
+  "native_requests": [
+    {
+      "started_unix_s": 1794004520.5166848,
+      "ended_unix_s": 1794004569.6443653,
+      "prompt_tokens": 9716,
+      "prompt_ids_sha256": "aa9b921b90100355d2a3464b43baac81b587d382c0ff52a2abfd393eef9c8198",
+      "max_new": 8,
+      "sampling": {
+        "temperature": 0,
+        "top_p": 1,
+        "top_k": 20,
+        "presence_penalty": 0.0,
+        "model": "qwen3.8-flash-next-sc117-iq3s-strata-v01403-stable",
+        "messages": [
+          {
+            "role": "system",
+            "content": "v07-390-0: You are a GPU performance engineer. Answer in English, with detailed technical explanations."
+          },
+          {
+            "role": "user",
+            "content": "Analyze the synthetic expert-cache trace. Explain at least 20 distinct optimizations, tradeoffs and cautions in detail. Use numbered sections.\nTEST-00000 expert=0 group=0 miss=0 data_pages=0\nTEST-00001 expert=17 group=1 miss=1 data_pages=37\nTEST-00002 expert=34 group=2 miss=2 data_pages=74\nTEST-00003 expert=51 group=3 miss=3 data_pages=111\nTEST-00004 expert=68 group=0 miss=4 data_pages=148\nTEST-00005 expert=85 group=1 miss=5 data_pages=185\nTEST-00006 expert=102 group=2 miss=6 data_pages=222\nTEST-00007 expert=119 group=3 miss=0 data_pages=259\nTEST-00008 expert=136 group=0 miss=1 data_pages=296\nTEST-00009 expert=153 group=1 miss=2 data_pages=333\nTEST-00010 expert=170 group=2 miss=3 data_pages=370\nTEST-00011 expert=187 group=3 miss=4 data_pages=407\nTEST-00012 expert=204 group=0 miss=5 data_pages=444\nTEST-00013 expert=221 group=1 miss=6 data_pages=481\nTEST-00014 expert=238 group=2 miss=0 data_pages=518\nTEST-00015 expert=255 group=3 miss=1 data_pages=555\nTEST-00016 expert=272 group=0 miss=2 data_pages=592\nTEST-00017 expert=289 group=1 miss=3 data_pages=629\nTEST-00018 expert=306 group=2 miss=4 data_pages=666\nTEST-00019 expert=323 group=3 miss=5 data_pages=703\nTEST-00020 expert=340 group=0 miss=6 data_pages=740\nTEST-00021 expert=357 group=1 miss=0 data_pages=777\nTEST-00022 expert=374 group=2 miss=1 data_pages=814\nTEST-00023 expert=391 group=3 miss=2 data_pages=851\nTEST-00024 expert=408 group=0 miss=3 data_pages=888\nTEST-00025 expert=425 group=1 miss=4 data_pages=925\nTEST-00026 expert=442 group=2 miss=5 data_pages=962\nTEST-00027 expert=459 group=3 miss=6 data_pages=0\nTEST-00028 expert=476 group=0 miss=0 data_pages=37\nTEST-00029 expert=493 group=1 miss=1 data_pages=74\nTEST-00030 expert=510 group=2 miss=2 data_pages=111\nTEST-00031 expert=15 group=3 miss=3 data_pages=148\nTEST-00032 expert=32 group=0 miss=4 data_pages=185\nTEST-00033 expert=49 group=1 miss=5 data_pages=222\nTEST-00034 expert=66 group=2 miss=6 data_pages=259\nTEST-00035 expert=83 group=3 miss=0 data_pages=296\nTEST-00036 expert=100 group=0 miss=1 data_pages=333\nTEST-00037 expert=117 group=1 miss=2 data_pages=370\nTEST-00038 expert=134 group=2 miss=3 data_pages=407\nTEST-00039 expert=151 group=3 miss=4 data_pages=444\nTEST-00040 expert=168 group=0 miss=5 data_pages=481\nTEST-00041 expert=185 group=1 miss=6 data_pages=518\nTEST-00042 expert=202 group=2 miss=0 data_pages=555\nTEST-00043 expert=219 group=3 miss=1 data_pages=592\nTEST-00044 expert=236 group=0 miss=2 data_pages=629\nTEST-00045 expert=253 group=1 miss=3 data_pages=666\nTEST-00046 expert=270 group=2 miss=4 data_pages=703\nTEST-00047 expert=287 group=3 miss=5 data_pages=740\nTEST-00048 expert=304 group=0 miss=6 data_pages=777\nTEST-00049 expert=321 group=1 miss=0 data_pages=814\nTEST-00050 expert=338 group=2 miss=1 data_pages=851\nTEST-00051 expert=355 group=3 miss=2 data_pages=888\nTEST-00052 expert=372 group=0 miss=3 data_pages=925\nTEST-00053 expert=389 group=1 miss=4 data_pages=962\nTEST-00054 expert=406 group=2 miss=5 data_pages=0\nTEST-00055 expert=423 group=3 miss=6 data_pages=37\nTEST-00056 expert=440 group=0 miss=0 data_pages=74\nTEST-00057 expert=457 group=1 miss=1 data_pages=111\nTEST-00058 expert=474 group=2 miss=2 data_pages=148\nTEST-00059 expert=491 group=3 miss=3 data_pages=185\nTEST-00060 expert=508 group=0 miss=4 data_pages=222\nTEST-00061 expert=13 group=1 miss=5 data_pages=259\nTEST-00062 expert=30 group=2 miss=6 data_pages=296\nTEST-00063 expert=47 group=3 miss=0 data_pages=333\nTEST-00064 expert=64 group=0 miss=1 data_pages=370\nTEST-00065 expert=81 group=1 miss=2 data_pages=407\nTEST-00066 expert=98 group=2 miss=3 data_pages=444\nTEST-00067 expert=115 group=3 miss=4 data_pages=481\nTEST-00068 expert=132 group=0 miss=5 data_pages=518\nTEST-00069 expert=149 group=1 miss=6 data_pages=555\nTEST-00070 expert=166 group=2 miss=0 data_pages=592\nTEST-00071 expert=183 group=3 miss=1 data_pages=629\nTEST-00072 expert=200 group=0 miss=2 data_pages=666\nTEST-00073 expert=217 group=1 miss=3 data_pages=703\nTEST-00074 expert=234 group=2 miss=4 data_pages=740\nTEST-00075 expert=251 group=3 miss=5 data_pages=777\nTEST-00076 expert=268 group=0 miss=6 data_pages=814\nTEST-00077 expert=285 group=1 miss=0 data_pages=851\nTEST-00078 expert=302 group=2 miss=1 data_pages=888\nTEST-00079 expert=319 group=3 miss=2 data_pages=925\nTEST-00080 expert=336 group=0 miss=3 data_pages=962\nTEST-00081 expert=353 group=1 miss=4 data_pages=0\nTEST-00082 expert=370 group=2 miss=5 data_pages=37\nTEST-00083 expert=387 group=3 miss=6 data_pages=74\nTEST-00084 expert=404 group=0 miss=0 data_pages=111\nTEST-00085 expert=421 group=1 miss=1 data_pages=148\nTEST-00086 expert=438 group=2 miss=2 data_pages=185\nTEST-00087 expert=455 group=3 miss=3 data_pages=222\nTEST-00088 expert=472 group=0 miss=4 data_pages=259\nTEST-00089 expert=489 group=1 miss=5 data_pages=296\nTEST-00090 expert=506 group=2 miss=6 data_pages=333\nTEST-00091 expert=11 group=3 miss=0 data_pages=370\nTEST-00092 expert=28 group=0 miss=1 data_pages=407\nTEST-00093 expert=45 group=1 miss=2 data_pages=444\nTEST-00094 expert=62 group=2 miss=3 data_pages=481\nTEST-00095 expert=79 group=3 miss=4 data_pages=518\nTEST-00096 expert=96 group=0 miss=5 data_pages=555\nTEST-00097 expert=113 group=1 miss=6 data_pages=592\nTEST-00098 expert=130 group=2 miss=0 data_pages=629\nTEST-00099 expert=147 group=3 miss=1 data_pages=666\nTEST-00100 expert=164 group=0 miss=2 data_pages=703\nTEST-00101 expert=181 group=1 miss=3 data_pages=740\nTEST-00102 expert=198 group=2 miss=4 data_pages=777\nTEST-00103 expert=215 group=3 miss=5 data_pages=814\nTEST-00104 expert=232 group=0 miss=6 data_pages=851\nTEST-00105 expert=249 group=1 miss=0 data_pages=888\nTEST-00106 expert=266 group=2 miss=1 data_pages=925\nTEST-00107 expert=283 group=3 miss=2 data_pages=962\nTEST-00108 expert=300 group=0 miss=3 data_pages=0\nTEST-00109 expert=317 group=1 miss=4 data_pages=37\nTEST-00110 expert=334 group=2 miss=5 data_pages=74\nTEST-00111 expert=351 group=3 miss=6 data_pages=111\nTEST-00112 expert=368 group=0 miss=0 data_pages=148\nTEST-00113 expert=385 group=1 miss=1 data_pages=185\nTEST-00114 expert=402 group=2 miss=2 data_pages=222\nTEST-00115 expert=419 group=3 miss=3 data_pages=259\nTEST-00116 expert=436 group=0 miss=4 data_pages=296\nTEST-00117 expert=453 group=1 miss=5 data_pages=333\nTEST-00118 expert=470 group=2 miss=6 data_pages=370\nTEST-00119 expert=487 group=3 miss=0 data_pages=407\nTEST-00120 expert=504 group=0 miss=1 data_pages=444\nTEST-00121 expert=9 group=1 miss=2 data_pages=481\nTEST-00122 expert=26 group=2 miss=3 data_pages=518\nTEST-00123 expert=43 group=3 miss=4 data_pages=555\nTEST-00124 expert=60 group=0 miss=5 data_pages=592\nTEST-00125 expert=77 group=1 miss=6 data_pages=629\nTEST-00126 expert=94 group=2 miss=0 data_pages=666\nTEST-00127 expert=111 group=3 miss=1 data_pages=703\nTEST-00128 expert=128 group=0 miss=2 data_pages=740\nTEST-00129 expert=145 group=1 miss=3 data_pages=777\nTEST-00130 expert=162 group=2 miss=4 data_pages=814\nTEST-00131 expert=179 group=3 miss=5 data_pages=851\nTEST-00132 expert=196 group=0 miss=6 data_pages=888\nTEST-00133 expert=213 group=1 miss=0 data_pages=925\nTEST-00134 expert=230 group=2 miss=1 data_pages=962\nTEST-00135 expert=247 group=3 miss=2 data_pages=0\nTEST-00136 expert=264 group=0 miss=3 data_pages=37\nTEST-00137 expert=281 group=1 miss=4 data_pages=74\nTEST-00138 expert=298 group=2 miss=5 data_pages=111\nTEST-00139 expert=315 group=3 miss=6 data_pages=148\nTEST-00140 expert=332 group=0 miss=0 data_pages=185\nTEST-00141 expert=349 group=1 miss=1 data_pages=222\nTEST-00142 expert=366 group=2 miss=2 data_pages=259\nTEST-00143 expert=383 group=3 miss=3 data_pages=296\nTEST-00144 expert=400 group=0 miss=4 data_pages=333\nTEST-00145 expert=417 group=1 miss=5 data_pages=370\nTEST-00146 expert=434 group=2 miss=6 data_pages=407\nTEST-00147 expert=451 group=3 miss=0 data_pages=444\nTEST-00148 expert=468 group=0 miss=1 data_pages=481\nTEST-00149 expert=485 group=1 miss=2 data_pages=518\nTEST-00150 expert=502 group=2 miss=3 data_pages=555\nTEST-00151 expert=7 group=3 miss=4 data_pages=592\nTEST-00152 expert=24 group=0 miss=5 data_pages=629\nTEST-00153 expert=41 group=1 miss=6 data_pages=666\nTEST-00154 expert=58 group=2 miss=0 data_pages=703\nTEST-00155 expert=75 group=3 miss=1 data_pages=740\nTEST-00156 expert=92 group=0 miss=2 data_pages=777\nTEST-00157 expert=109 group=1 miss=3 data_pages=814\nTEST-00158 expert=126 group=2 miss=4 data_pages=851\nTEST-00159 expert=143 group=3 miss=5 data_pages=888\nTEST-00160 expert=160 group=0 miss=6 data_pages=925\nTEST-00161 expert=177 group=1 miss=0 data_pages=962\nTEST-00162 expert=194 group=2 miss=1 data_pages=0\nTEST-00163 expert=211 group=3 miss=2 data_pages=37\nTEST-00164 expert=228 group=0 miss=3 data_pages=74\nTEST-00165 expert=245 group=1 miss=4 data_pages=111\nTEST-00166 expert=262 group=2 miss=5 data_pages=148\nTEST-00167 expert=279 group=3 miss=6 data_pages=185\nTEST-00168 expert=296 group=0 miss=0 data_pages=222\nTEST-00169 expert=313 group=1 miss=1 data_pages=259\nTEST-00170 expert=330 group=2 miss=2 data_pages=296\nTEST-00171 expert=347 group=3 miss=3 data_pages=333\nTEST-00172 expert=364 group=0 miss=4 data_pages=370\nTEST-00173 expert=381 group=1 miss=5 data_pages=407\nTEST-00174 expert=398 group=2 miss=6 data_pages=444\nTEST-00175 expert=415 group=3 miss=0 data_pages=481\nTEST-00176 expert=432 group=0 miss=1 data_pages=518\nTEST-00177 expert=449 group=1 miss=2 data_pages=555\nTEST-00178 expert=466 group=2 miss=3 data_pages=592\nTEST-00179 expert=483 group=3 miss=4 data_pages=629\nTEST-00180 expert=500 group=0 miss=5 data_pages=666\nTEST-00181 expert=5 group=1 miss=6 data_pages=703\nTEST-00182 expert=22 group=2 miss=0 data_pages=740\nTEST-00183 expert=39 group=3 miss=1 data_pages=777\nTEST-00184 expert=56 group=0 miss=2 data_pages=814\nTEST-00185 expert=73 group=1 miss=3 data_pages=851\nTEST-00186 expert=90 group=2 miss=4 data_pages=888\nTEST-00187 expert=107 group=3 miss=5 data_pages=925\nTEST-00188 expert=124 group=0 miss=6 data_pages=962\nTEST-00189 expert=141 group=1 miss=0 data_pages=0\nTEST-00190 expert=158 group=2 miss=1 data_pages=37\nTEST-00191 expert=175 group=3 miss=2 data_pages=74\nTEST-00192 expert=192 group=0 miss=3 data_pages=111\nTEST-00193 expert=209 group=1 miss=4 data_pages=148\nTEST-00194 expert=226 group=2 miss=5 data_pages=185\nTEST-00195 expert=243 group=3 miss=6 data_pages=222\nTEST-00196 expert=260 group=0 miss=0 data_pages=259\nTEST-00197 expert=277 group=1 miss=1 data_pages=296\nTEST-00198 expert=294 group=2 miss=2 data_pages=333\nTEST-00199 expert=311 group=3 miss=3 data_pages=370\nTEST-00200 expert=328 group=0 miss=4 data_pages=407\nTEST-00201 expert=345 group=1 miss=5 data_pages=444\nTEST-00202 expert=362 group=2 miss=6 data_pages=481\nTEST-00203 expert=379 group=3 miss=0 data_pages=518\nTEST-00204 expert=396 group=0 miss=1 data_pages=555\nTEST-00205 expert=413 group=1 miss=2 data_pages=592\nTEST-00206 expert=430 group=2 miss=3 data_pages=629\nTEST-00207 expert=447 group=3 miss=4 data_pages=666\nTEST-00208 expert=464 group=0 miss=5 data_pages=703\nTEST-00209 expert=481 group=1 miss=6 data_pages=740\nTEST-00210 expert=498 group=2 miss=0 data_pages=777\nTEST-00211 expert=3 group=3 miss=1 data_pages=814\nTEST-00212 expert=20 group=0 miss=2 data_pages=851\nTEST-00213 expert=37 group=1 miss=3 data_pages=888\nTEST-00214 expert=54 group=2 miss=4 data_pages=925\nTEST-00215 expert=71 group=3 miss=5 data_pages=962\nTEST-00216 expert=88 group=0 miss=6 data_pages=0\nTEST-00217 expert=105 group=1 miss=0 data_pages=37\nTEST-00218 expert=122 group=2 miss=1 data_pages=74\nTEST-00219 expert=139 group=3 miss=2 data_pages=111\nTEST-00220 expert=156 group=0 miss=3 data_pages=148\nTEST-00221 expert=173 group=1 miss=4 data_pages=185\nTEST-00222 expert=190 group=2 miss=5 data_pages=222\nTEST-00223 expert=207 group=3 miss=6 data_pages=259\nTEST-00224 expert=224 group=0 miss=0 data_pages=296\nTEST-00225 expert=241 group=1 miss=1 data_pages=333\nTEST-00226 expert=258 group=2 miss=2 data_pages=370\nTEST-00227 expert=275 group=3 miss=3 data_pages=407\nTEST-00228 expert=292 group=0 miss=4 data_pages=444\nTEST-00229 expert=309 group=1 miss=5 data_pages=481\nTEST-00230 expert=326 group=2 miss=6 data_pages=518\nTEST-00231 expert=343 group=3 miss=0 data_pages=555\nTEST-00232 expert=360 group=0 miss=1 data_pages=592\nTEST-00233 expert=377 group=1 miss=2 data_pages=629\nTEST-00234 expert=394 group=2 miss=3 data_pages=666\nTEST-00235 expert=411 group=3 miss=4 data_pages=703\nTEST-00236 expert=428 group=0 miss=5 data_pages=740\nTEST-00237 expert=445 group=1 miss=6 data_pages=777\nTEST-00238 expert=462 group=2 miss=0 data_pages=814\nTEST-00239 expert=479 group=3 miss=1 data_pages=851\nTEST-00240 expert=496 group=0 miss=2 data_pages=888\nTEST-00241 expert=1 group=1 miss=3 data_pages=925\nTEST-00242 expert=18 group=2 miss=4 data_pages=962\nTEST-00243 expert=35 group=3 miss=5 data_pages=0\nTEST-00244 expert=52 group=0 miss=6 data_pages=37\nTEST-00245 expert=69 group=1 miss=0 data_pages=74\nTEST-00246 expert=86 group=2 miss=1 data_pages=111\nTEST-00247 expert=103 group=3 miss=2 data_pages=148\nTEST-00248 expert=120 group=0 miss=3 data_pages=185\nTEST-00249 expert=137 group=1 miss=4 data_pages=222\nTEST-00250 expert=154 group=2 miss=5 data_pages=259\nTEST-00251 expert=171 group=3 miss=6 data_pages=296\nTEST-00252 expert=188 group=0 miss=0 data_pages=333\nTEST-00253 expert=205 group=1 miss=1 data_pages=370\nTEST-00254 expert=222 group=2 miss=2 data_pages=407\nTEST-00255 expert=239 group=3 miss=3 data_pages=444\nTEST-00256 expert=256 group=0 miss=4 data_pages=481\nTEST-00257 expert=273 group=1 miss=5 data_pages=518\nTEST-00258 expert=290 group=2 miss=6 data_pages=555\nTEST-00259 expert=307 group=3 miss=0 data_pages=592\nTEST-00260 expert=324 group=0 miss=1 data_pages=629\nTEST-00261 expert=341 group=1 miss=2 data_pages=666\nTEST-00262 expert=358 group=2 miss=3 data_pages=703\nTEST-00263 expert=375 group=3 miss=4 data_pages=740\nTEST-00264 expert=392 group=0 miss=5 data_pages=777\nTEST-00265 expert=409 group=1 miss=6 data_pages=814\nTEST-00266 expert=426 group=2 miss=0 data_pages=851\nTEST-00267 expert=443 group=3 miss=1 data_pages=888\nTEST-00268 expert=460 group=0 miss=2 data_pages=925\nTEST-00269 expert=477 group=1 miss=3 data_pages=962\nTEST-00270 expert=494 group=2 miss=4 data_pages=0\nTEST-00271 expert=511 group=3 miss=5 data_pages=37\nTEST-00272 expert=16 group=0 miss=6 data_pages=74\nTEST-00273 expert=33 group=1 miss=0 data_pages=111\nTEST-00274 expert=50 group=2 miss=1 data_pages=148\nTEST-00275 expert=67 group=3 miss=2 data_pages=185\nTEST-00276 expert=84 group=0 miss=3 data_pages=222\nTEST-00277 expert=101 group=1 miss=4 data_pages=259\nTEST-00278 expert=118 group=2 miss=5 data_pages=296\nTEST-00279 expert=135 group=3 miss=6 data_pages=333\nTEST-00280 expert=152 group=0 miss=0 data_pages=370\nTEST-00281 expert=169 group=1 miss=1 data_pages=407\nTEST-00282 expert=186 group=2 miss=2 data_pages=444\nTEST-00283 expert=203 group=3 miss=3 data_pages=481\nTEST-00284 expert=220 group=0 miss=4 data_pages=518\nTEST-00285 expert=237 group=1 miss=5 data_pages=555\nTEST-00286 expert=254 group=2 miss=6 data_pages=592\nTEST-00287 expert=271 group=3 miss=0 data_pages=629\nTEST-00288 expert=288 group=0 miss=1 data_pages=666\nTEST-00289 expert=305 group=1 miss=2 data_pages=703\nTEST-00290 expert=322 group=2 miss=3 data_pages=740\nTEST-00291 expert=339 group=3 miss=4 data_pages=777\nTEST-00292 expert=356 group=0 miss=5 data_pages=814\nTEST-00293 expert=373 group=1 miss=6 data_pages=851\nTEST-00294 expert=390 group=2 miss=0 data_pages=888\nTEST-00295 expert=407 group=3 miss=1 data_pages=925\nTEST-00296 expert=424 group=0 miss=2 data_pages=962\nTEST-00297 expert=441 group=1 miss=3 data_pages=0\nTEST-00298 expert=458 group=2 miss=4 data_pages=37\nTEST-00299 expert=475 group=3 miss=5 data_pages=74\nTEST-00300 expert=492 group=0 miss=6 data_pages=111\nTEST-00301 expert=509 group=1 miss=0 data_pages=148\nTEST-00302 expert=14 group=2 miss=1 data_pages=185\nTEST-00303 expert=31 group=3 miss=2 data_pages=222\nTEST-00304 expert=48 group=0 miss=3 data_pages=259\nTEST-00305 expert=65 group=1 miss=4 data_pages=296\nTEST-00306 expert=82 group=2 miss=5 data_pages=333\nTEST-00307 expert=99 group=3 miss=6 data_pages=370\nTEST-00308 expert=116 group=0 miss=0 data_pages=407\nTEST-00309 expert=133 group=1 miss=1 data_pages=444\nTEST-00310 expert=150 group=2 miss=2 data_pages=481\nTEST-00311 expert=167 group=3 miss=3 data_pages=518\nTEST-00312 expert=184 group=0 miss=4 data_pages=555\nTEST-00313 expert=201 group=1 miss=5 data_pages=592\nTEST-00314 expert=218 group=2 miss=6 data_pages=629\nTEST-00315 expert=235 group=3 miss=0 data_pages=666\nTEST-00316 expert=252 group=0 miss=1 data_pages=703\nTEST-00317 expert=269 group=1 miss=2 data_pages=740\nTEST-00318 expert=286 group=2 miss=3 data_pages=777\nTEST-00319 expert=303 group=3 miss=4 data_pages=814\nTEST-00320 expert=320 group=0 miss=5 data_pages=851\nTEST-00321 expert=337 group=1 miss=6 data_pages=888\nTEST-00322 expert=354 group=2 miss=0 data_pages=925\nTEST-00323 expert=371 group=3 miss=1 data_pages=962\nTEST-00324 expert=388 group=0 miss=2 data_pages=0\nTEST-00325 expert=405 group=1 miss=3 data_pages=37\nTEST-00326 expert=422 group=2 miss=4 data_pages=74\nTEST-00327 expert=439 group=3 miss=5 data_pages=111\nTEST-00328 expert=456 group=0 miss=6 data_pages=148\nTEST-00329 expert=473 group=1 miss=0 data_pages=185\nTEST-00330 expert=490 group=2 miss=1 data_pages=222\nTEST-00331 expert=507 group=3 miss=2 data_pages=259\nTEST-00332 expert=12 group=0 miss=3 data_pages=296\nTEST-00333 expert=29 group=1 miss=4 data_pages=333\nTEST-00334 expert=46 group=2 miss=5 data_pages=370\nTEST-00335 expert=63 group=3 miss=6 data_pages=407\nTEST-00336 expert=80 group=0 miss=0 data_pages=444\nTEST-00337 expert=97 group=1 miss=1 data_pages=481\nTEST-00338 expert=114 group=2 miss=2 data_pages=518\nTEST-00339 expert=131 group=3 miss=3 data_pages=555\nTEST-00340 expert=148 group=0 miss=4 data_pages=592\nTEST-00341 expert=165 group=1 miss=5 data_pages=629\nTEST-00342 expert=182 group=2 miss=6 data_pages=666\nTEST-00343 expert=199 group=3 miss=0 data_pages=703\nTEST-00344 expert=216 group=0 miss=1 data_pages=740\nTEST-00345 expert=233 group=1 miss=2 data_pages=777\nTEST-00346 expert=250 group=2 miss=3 data_pages=814\nTEST-00347 expert=267 group=3 miss=4 data_pages=851\nTEST-00348 expert=284 group=0 miss=5 data_pages=888\nTEST-00349 expert=301 group=1 miss=6 data_pages=925\nTEST-00350 expert=318 group=2 miss=0 data_pages=962\nTEST-00351 expert=335 group=3 miss=1 data_pages=0\nTEST-00352 expert=352 group=0 miss=2 data_pages=37\nTEST-00353 expert=369 group=1 miss=3 data_pages=74\nTEST-00354 expert=386 group=2 miss=4 data_pages=111\nTEST-00355 expert=403 group=3 miss=5 data_pages=148\nTEST-00356 expert=420 group=0 miss=6 data_pages=185\nTEST-00357 expert=437 group=1 miss=0 data_pages=222\nTEST-00358 expert=454 group=2 miss=1 data_pages=259\nTEST-00359 expert=471 group=3 miss=2 data_pages=296\nTEST-00360 expert=488 group=0 miss=3 data_pages=333\nTEST-00361 expert=505 group=1 miss=4 data_pages=370\nTEST-00362 expert=10 group=2 miss=5 data_pages=407\nTEST-00363 expert=27 group=3 miss=6 data_pages=444\nTEST-00364 expert=44 group=0 miss=0 data_pages=481\nTEST-00365 expert=61 group=1 miss=1 data_pages=518\nTEST-00366 expert=78 group=2 miss=2 data_pages=555\nTEST-00367 expert=95 group=3 miss=3 data_pages=592\nTEST-00368 expert=112 group=0 miss=4 data_pages=629\nTEST-00369 expert=129 group=1 miss=5 data_pages=666\nTEST-00370 expert=146 group=2 miss=6 data_pages=703\nTEST-00371 expert=163 group=3 miss=0 data_pages=740\nTEST-00372 expert=180 group=0 miss=1 data_pages=777\nTEST-00373 expert=197 group=1 miss=2 data_pages=814\nTEST-00374 expert=214 group=2 miss=3 data_pages=851\nTEST-00375 expert=231 group=3 miss=4 data_pages=888\nTEST-00376 expert=248 group=0 miss=5 data_pages=925\nTEST-00377 expert=265 group=1 miss=6 data_pages=962\nTEST-00378 expert=282 group=2 miss=0 data_pages=0\nTEST-00379 expert=299 group=3 miss=1 data_pages=37\nTEST-00380 expert=316 group=0 miss=2 data_pages=74\nTEST-00381 expert=333 group=1 miss=3 data_pages=111\nTEST-00382 expert=350 group=2 miss=4 data_pages=148\nTEST-00383 expert=367 group=3 miss=5 data_pages=185\nTEST-00384 expert=384 group=0 miss=6 data_pages=222\nTEST-00385 expert=401 group=1 miss=0 data_pages=259\nTEST-00386 expert=418 group=2 miss=1 data_pages=296\nTEST-00387 expert=435 group=3 miss=2 data_pages=333\nTEST-00388 expert=452 group=0 miss=3 data_pages=370\nTEST-00389 expert=469 group=1 miss=4 data_pages=407\n"
+          }
+        ],
+        "max_tokens": 8,
+        "seed": 20261107
+      },
+      "token_ids": [
+        1596,
+        1144,
+        4087,
+        1156,
+        579,
+        1622,
+        13,
+        14235
+      ],
+      "token_ids_sha256": "81802c2bbb8d772572f54c5cf1b6e5b74ad03996a545aff52769dfc34f311975",
+      "native": {
+        "generated": 8,
+        "prompt_tokens": 9716,
+        "prompt_ms": 48773.8,
+        "decode_ms": 349.8,
+        "finish": "length",
+        "drafts_accepted": 5,
+        "drafts_offered": 5,
+        "reused": 0,
+        "hits": 2915,
+        "lookups": 4320,
+        "ram_blobs": 0,
+        "file_blobs": 0,
+        "file_mb": 2155.5,
+        "prompt_read": 9716,
+        "offloaded": 0
+      }
+    }
+  ]
+}

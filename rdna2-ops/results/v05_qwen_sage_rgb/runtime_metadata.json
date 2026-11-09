@@ -1,0 +1,41 @@
+{
+  "python": "3.12.14 (main, Sep  1 2026, 14:16:52) [Clang 22.1.3 ]",
+  "python_executable": "~/DevSpace/qwen-image-21-rdna2-lab01/.venv/bin/python",
+  "torch": "2.12.0+rocm10.2.0a20261011",
+  "hip": "7.17.26405",
+  "triton": "3.8.0",
+  "gpu": {
+    "ordinal": 0,
+    "name": "AMD Radeon RX 6900 XT",
+    "gcn_arch_name": "gfx1030",
+    "total_memory_bytes": 17163091968
+  },
+  "comfy_root": "~/DevSpace/qwen-image-21-rdna2-lab01/runtime/ComfyUI",
+  "harness_sha256": "0d215a63e8eae2fbf1617260ba232639b565c9a31b1dfe4797fa9f92ae4e95ab",
+  "research_source_files_sha256": {
+    "research_switches_v05.py": "5f12249822cce3aab8a569dd93a8eef00a3ee9fd6ebd6d741c2e1c0027a5fdb1",
+    "rdna2_ops/int8_gemm.py": "0b2d0970af17ddf61aa19d242bfebbb6f42add330e07387442dbe97ab316109d",
+    "rdna2_ops/fp32_attention.py": "e64bf1223bd3ed91c8e89c4762b40d75e79a3878c5f2f6722d1542218dab1308",
+    "rdna2_ops/mixed_attention.py": "35c6cc7fe4dd2a140496f8cac49060d16298d542b57144e0d13e85c1d209e06d",
+    "rdna2_ops/sage_attention_v05.py": "ce3197e0639790f57ffdad95df918b52c598dc7d3f9ffd01af7c66431b3bca47"
+  },
+  "startup_precision_flags": {
+    "fp16_bf16_reduction_math_sdp_allowed": true,
+    "allow_fp16_reduced_precision_reduction": true
+  },
+  "timing_contract": "synchronized stage wall; profile setup/collection included; report and trace export excluded",
+  "profile_views": "operator attribution and device activities have separate denominators; device activities include memcpy",
+  "node_contract": "KSampler-family synchronous sample -> ({samples: Tensor},); VAE decode -> (RGB Tensor,)",
+  "node_sources": {
+    "sampler": {
+      "module": "nodes",
+      "name": "KSampler.sample",
+      "path": "~/DevSpace/qwen-image-21-rdna2-lab01/runtime/ComfyUI/nodes.py"
+    },
+    "decoder": {
+      "module": "nodes",
+      "name": "VAEDecodeTiled.decode",
+      "path": "~/DevSpace/qwen-image-21-rdna2-lab01/runtime/ComfyUI/nodes.py"
+    }
+  }
+}

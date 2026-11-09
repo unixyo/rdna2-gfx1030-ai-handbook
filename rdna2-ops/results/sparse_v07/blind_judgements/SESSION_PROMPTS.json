@@ -1,0 +1,77 @@
+{
+  "schema": "rdna2_v07_independent_visual_sessions",
+  "protocol": "results/sparse_v07/BLIND_JUDGE_PROMPT_V07.json",
+  "protocol_sha256": "858c0f96463437c8725ab91985afee6ff88f8fe06e0da4482357716ef7b9f771",
+  "public_prompt": "blind_panels/JUDGE_PROMPT_KO.txt",
+  "public_prompt_sha256": "8c685691e5d8379c59149c517d5d72c7f7250f5b09f73df2b7c453f9e854b22c",
+  "public_task_sha256": "b6f698ae70bdeba4247a83d5d7f05fab4009ecb7e8763dc2fcc8cf9bc4ccaf14",
+  "public_cases_sha256": "813f6d7272b6b23e0fceb7e580f56730d5b956785705e9ff51b6101fe38b2db6",
+  "independence": "four fork_turns=none sessions, two logical reviewers by two opposite side orders; same available base model, no architectural independence claimed",
+  "image_rule": "Each session opens the common input and all 3 full + 9 fixed crop panels. Source side/candidate/method/timing/error/seed are withheld. No history is passed.",
+  "session_assignment": [
+    {
+      "id": "J1/session-A",
+      "agent": "/root/v07_judge_j1_session_a",
+      "sets": [
+        "p05c2321271f549cb",
+        "p27c6e8b55e1db2fe",
+        "p9f8880d85a773938"
+      ]
+    },
+    {
+      "id": "J2/session-B",
+      "agent": "/root/v07_judge_j2_session_b",
+      "sets": [
+        "p506af831a3e94ea5",
+        "p77e54ad28ee8a89d",
+        "p37d12c010e3506f1"
+      ]
+    },
+    {
+      "id": "J1/session-B",
+      "agent": "/root/v07_judge_j1_session_b",
+      "sets": [
+        "p506af831a3e94ea5",
+        "p77e54ad28ee8a89d",
+        "p37d12c010e3506f1"
+      ]
+    },
+    {
+      "id": "J2/session-A",
+      "agent": "/root/v07_judge_j2_session_a",
+      "sets": [
+        "p05c2321271f549cb",
+        "p27c6e8b55e1db2fe",
+        "p9f8880d85a773938"
+      ]
+    }
+  ],
+  "notes": [
+    "Sessions do not share replies or source mapping. Internal model revision is not exposed.",
+    "The public packet wording was aligned with the frozen per-reviewer/per-order fresh-context protocol before judging; no criterion or image changed."
+  ],
+  "coordinator_requests": [
+    {
+      "task_name": "v07_judge_j1_session_a",
+      "fork_turns": "none",
+      "message": "독립 익명 이미지 품질 판정 세션이야. reviewer_label은 J1/session-A. 아래 공개 파일과 배정된 이미지밖에 읽지 말고, 연구 보고서·다른 판정·private mapping·실행 결과는 열지 마. 파일 수정/GPU/브라우징은 하지 마. 이 세션은 새 문맥의 판정이며 전체 지시문은 공개 JUDGE_PROMPT_KO.txt를 그대로 따라.\n\nCodexPro2 workspace_id=ws_6cac9f528eb957faf52fdab8. workspace-relative base=rdna2-pro-research-20261102/rdna2-ops/results/sparse_v07/blind_panels/. tools discovery는 functions.exec의 ALL_TOOLS에서 codexpro2_read_bytes, codexpro2_view_image 이름만 찾아. 먼저 base+JUDGE_PROMPT_KO.txt와 PUBLIC_TASK.json을 읽고 공통 입력 a0024.png를 실제로 봐.\n\n배정된 세 비교 set:\n1. p05c2321271f549cb: full a0000.png, crop a0001.png/a0002.png/a0003.png\n2. p27c6e8b55e1db2fe: full a0004.png, crop a0005.png/a0006.png/a0007.png\n3. p9f8880d85a773938: full a0008.png, crop a0009.png/a0010.png/a0011.png\n\n각 이미지 도구 max_bytes=2000000. MCP 결과의 image content만 image(content)로 출력해서 시각적으로 확인해. base64를 text로 출력하지 마. 모든 full/crop 12개와 공통 입력을 실제 열고, 왼쪽 A/오른쪽 B로 판단해. 최종 응답은 공개 지시문의 JSON 객체 하나만, sets는 위 ID 세 개. 확인 가능한 모델 표시명만 쓰고 내부 revision은 unknown. root가 이 최종 원응답을 그대로 보존할 거야. 다른 agent를 만들거나 다른 세트/매핑을 읽지 마."
+    },
+    {
+      "task_name": "v07_judge_j2_session_b",
+      "fork_turns": "none",
+      "message": "독립 익명 이미지 품질 판정 세션이야. reviewer_label은 J2/session-B. 아래 공개 파일과 배정된 이미지밖에 읽지 말고, 연구 보고서·다른 판정·private mapping·실행 결과는 열지 마. 파일 수정/GPU/브라우징은 하지 마. 이 세션은 새 문맥의 판정이며 전체 지시문은 공개 JUDGE_PROMPT_KO.txt를 그대로 따라.\n\nCodexPro2 workspace_id=ws_6cac9f528eb957faf52fdab8. workspace-relative base=rdna2-pro-research-20261102/rdna2-ops/results/sparse_v07/blind_panels/. tools discovery는 functions.exec의 ALL_TOOLS에서 codexpro2_read_bytes, codexpro2_view_image 이름만 찾아. 먼저 base+JUDGE_PROMPT_KO.txt와 PUBLIC_TASK.json을 읽고 공통 입력 a0024.png를 실제로 봐.\n\n배정된 세 비교 set:\n1. p506af831a3e94ea5: full a0012.png, crop a0013.png/a0014.png/a0015.png\n2. p77e54ad28ee8a89d: full a0016.png, crop a0017.png/a0018.png/a0019.png\n3. p37d12c010e3506f1: full a0020.png, crop a0021.png/a0022.png/a0023.png\n\n각 이미지 도구 max_bytes=2000000. MCP 결과의 image content만 image(content)로 출력해서 시각적으로 확인해. base64를 text로 출력하지 마. 모든 full/crop 12개와 공통 입력을 실제 열고, 왼쪽 A/오른쪽 B로 판단해. 최종 응답은 공개 지시문의 JSON 객체 하나만, sets는 위 ID 세 개. 확인 가능한 모델 표시명만 쓰고 내부 revision은 unknown. root가 이 최종 원응답을 그대로 보존할 거야. 다른 agent를 만들거나 다른 세트/매핑을 읽지 마."
+    },
+    {
+      "task_name": "v07_judge_j1_session_b",
+      "fork_turns": "none",
+      "message": "독립 익명 이미지 품질 판정 세션이야. reviewer_label은 J1/session-B. 아래 공개 파일과 배정된 이미지밖에 읽지 말고, 연구 보고서·다른 판정·private mapping·실행 결과는 열지 마. 파일 수정/GPU/브라우징은 하지 마. 이 세션은 새 문맥의 판정이며 전체 지시문은 공개 JUDGE_PROMPT_KO.txt를 그대로 따라.\n\nCodexPro2 workspace_id=ws_6cac9f528eb957faf52fdab8. workspace-relative base=rdna2-pro-research-20261102/rdna2-ops/results/sparse_v07/blind_panels/. tools discovery는 functions.exec의 ALL_TOOLS에서 codexpro2_read_bytes, codexpro2_view_image 이름만 찾아. 먼저 base+JUDGE_PROMPT_KO.txt와 PUBLIC_TASK.json을 읽고 공통 입력 a0024.png를 실제로 봐.\n\n배정된 세 비교 set:\n1. p506af831a3e94ea5: full a0012.png, crop a0013.png/a0014.png/a0015.png\n2. p77e54ad28ee8a89d: full a0016.png, crop a0017.png/a0018.png/a0019.png\n3. p37d12c010e3506f1: full a0020.png, crop a0021.png/a0022.png/a0023.png\n\n각 이미지 도구 max_bytes=2000000. MCP 결과의 image content만 image(content)로 출력해서 시각적으로 확인해. base64를 text로 출력하지 마. 모든 full/crop 12개와 공통 입력을 실제 열고, 왼쪽 A/오른쪽 B로 판단해. 최종 응답은 공개 지시문의 JSON 객체 하나만, sets는 위 ID 세 개. 확인 가능한 모델 표시명만 쓰고 내부 revision은 unknown. root가 이 최종 원응답을 그대로 보존할 거야. 다른 agent를 만들거나 다른 세트/매핑을 읽지 마."
+    },
+    {
+      "task_name": "v07_judge_j2_session_a",
+      "fork_turns": "none",
+      "message": "독립 익명 이미지 품질 판정 세션이야. reviewer_label은 J2/session-A. 아래 공개 파일과 배정된 이미지밖에 읽지 말고, 연구 보고서·다른 판정·private mapping·실행 결과는 열지 마. 파일 수정/GPU/브라우징은 하지 마. 이 세션은 새 문맥의 판정이며 전체 지시문은 공개 JUDGE_PROMPT_KO.txt를 그대로 따라.\n\nCodexPro2 workspace_id=ws_6cac9f528eb957faf52fdab8. workspace-relative base=rdna2-pro-research-20261102/rdna2-ops/results/sparse_v07/blind_panels/. tools discovery는 functions.exec의 ALL_TOOLS에서 codexpro2_read_bytes, codexpro2_view_image 이름만 찾아. 먼저 base+JUDGE_PROMPT_KO.txt와 PUBLIC_TASK.json을 읽고 공통 입력 a0024.png를 실제로 봐.\n\n배정된 세 비교 set:\n1. p05c2321271f549cb: full a0000.png, crop a0001.png/a0002.png/a0003.png\n2. p27c6e8b55e1db2fe: full a0004.png, crop a0005.png/a0006.png/a0007.png\n3. p9f8880d85a773938: full a0008.png, crop a0009.png/a0010.png/a0011.png\n\n각 이미지 도구 max_bytes=2000000. MCP 결과의 image content만 image(content)로 출력해서 시각적으로 확인해. base64를 text로 출력하지 마. 모든 full/crop 12개와 공통 입력을 실제 열고, 왼쪽 A/오른쪽 B로 판단해. 최종 응답은 공개 지시문의 JSON 객체 하나만, sets는 위 ID 세 개. 확인 가능한 모델 표시명만 쓰고 내부 revision은 unknown. root가 이 최종 원응답을 그대로 보존할 거야. 다른 agent를 만들거나 다른 세트/매핑을 읽지 마."
+    }
+  ],
+  "frozen_judge_prompt": "너는 이 작업의 구현·최적화 담당자와 독립된 이미지 품질 판정자야. 제공되는 공통 지시문/입력과 익명 이미지 파일만 보고 판단해. 어떤 경로가 원본이나 후보인지, 실행 시간이나 수치 오차는 알려지지 않았어. 파일 이름으로 처리 방식을 추측하지 마.\n\n제공된 3개 비교 세트 각각에서 두 전체 이미지와 같은 좌표의 1:1 crop을 모두 실제로 열어 봐. 왼쪽을 A, 오른쪽을 B로 부른다. crop이 분리 파일이면 파일에 표시된 A/B 표기를 그대로 따른다. 공유된 원본 입력은 공통 조건일 뿐 평가할 A/B 중 하나가 아니다.\n\n판정 항목:\n- 공통 지시/의미와 구도에 맞는가\n- 얼굴·손·신체 구조\n- 텍스트가 있다면 읽힘과 형태\n- 경계·가느다란 선\n- 질감·반복 무늬\n- 색과 조명\n\n단순히 픽셀이 다르다는 이유로 열화라 하지 마. 눈으로 확인되는 차이와 품질 판단을 구분하고, 위치와 구체적인 형태를 설명해. 잘 보이지 않으면 불확실하다고 해. 어느 쪽이 기준 이미지일 것이라고 가정하지 마.\n\n각 세트에서 preferred를 A/B/equivalent/uncertain 중 하나로 고르고, A가 B에 비해 가진 열화와 B가 A에 비해 가진 열화의 심각도를 각각 0(없음), 1(작음), 2(명확한 열화), 3(심한 파손)으로 판정해. 좌우 모두 비슷한 결함이면 한쪽만의 열화로 세지 말고 common_defects에 적어. 그 차이가 공통 지시를 달성하는 데 실제로 영향을 주는지도 적어.\n\n응답은 JSON 객체 하나로 작성해:\n{\n \"reviewer_label\": \"<배정된 익명 판정자 ID>\",\n \"model_label_visible\": \"<실제로 확인 가능한 모델명; 내부 revision은 알 수 없으면 unknown>\",\n \"internal_revision\": \"unknown\",\n \"sets\": [\n   {\n    \"set_id\": \"<제공된 ID>\",\n    \"viewed_files\": [\"<실제로 연 파일>\"],\n    \"preferred\": \"A|B|equivalent|uncertain\",\n    \"a_relative_degradation_severity\": 0,\n    \"b_relative_degradation_severity\": 0,\n    \"a_relative_defects\": [{\"category\":\"...\", \"location\":\"...\", \"observation\":\"...\", \"severity\":0}],\n    \"b_relative_defects\": [{\"category\":\"...\", \"location\":\"...\", \"observation\":\"...\", \"severity\":0}],\n    \"common_defects\": [],\n    \"instruction_fidelity\": \"...\",\n    \"confidence\": \"high|medium|low\",\n    \"reason\": \"전체 이미지와 crop에 근거한 짧고 구체적인 설명\"\n   }\n ]\n}\n0인 상대 결함 목록은 빈 배열이어도 돼. 네 판단만 보고하고 다른 판정자·연구 보고서·private mapping을 읽거나 비교하지 마. 파일을 수정하거나 GPU 작업을 실행하지 마.",
+  "all_four_sessions_started": true
+}

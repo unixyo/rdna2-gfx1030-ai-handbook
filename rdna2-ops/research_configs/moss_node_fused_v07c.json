@@ -1,0 +1,57 @@
+{
+  "sampler": [
+    "KSampler",
+    "sample"
+  ],
+  "sampler_node": "8",
+  "model": "moss",
+  "runtime": "~/DevSpace/moss-image-rdna2-lab01/runtime/ComfyUI",
+  "workflow": "~/DevSpace/moss-image-rdna2-lab01/workflows/sft_fast4_int8_512.json",
+  "decoder": [
+    "VAEDecode",
+    "decode"
+  ],
+  "save_node": "11",
+  "attention_target": "comfy.ops:scaled_dot_product_attention",
+  "env": {
+    "MOSS_RDNA2_INT8_PATCH": "1",
+    "MOSS_RDNA2_INT8_LAYOUT": "fused",
+    "MOSS_RDNA2_ATTENTION": "auto",
+    "MIOPEN_DEBUG_CONV_IMPLICIT_GEMM_HIP_FWD_V4R1": "0",
+    "MIOPEN_DEBUG_CONV_DIRECT_HIP_WRW53": "0"
+  },
+  "server_args": [
+    "--base-directory",
+    "~/DevSpace/moss-image-rdna2-lab01",
+    "--models-directory",
+    "~/DevSpace/moss-image-rdna2-lab01/models",
+    "--use-pytorch-cross-attention",
+    "--disable-comfy-compiler"
+  ],
+  "int8_config": {
+    "tile": [
+      64,
+      128,
+      64
+    ],
+    "num_warps": 4,
+    "num_stages": 2,
+    "group_m": 8,
+    "wrapped": false
+  },
+  "switch_module": "moss_node_fused_check_v07c",
+  "gpu_audit": true,
+  "save_reference_tensors": true,
+  "comparison_reference_modes": [],
+  "require_bitwise_modes": [],
+  "int4_config": {
+    "group_size": 32,
+    "symmetric": false,
+    "layout": "kn",
+    "order": "low",
+    "tile": [
+      32,
+      64
+    ]
+  }
+}

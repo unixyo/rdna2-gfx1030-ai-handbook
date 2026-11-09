@@ -1,0 +1,11 @@
+{
+  "command": [
+    "~/DevSpace/rocm10-gfx1030/install/lib/llvm/bin/llvm-objdump",
+    "--offloading",
+    "~/DevSpace/strata-prefill-v07-lab-20261107/build-v07-gfx1030/CMakeFiles/strata_mmq.dir~/DevSpace/strata_v01403_port/build-hip-gfx1030-rocm10-juud/_deps/strata_llamacpp-src/ggml/src/ggml-cuda/template-instances/mmq-instance-iq3_xxs.cu.o"
+  ],
+  "code": 0,
+  "stdout": "\n~/DevSpace/strata-prefill-v07-lab-20261107/build-v07-gfx1030/CMakeFiles/strata_mmq.dir~/DevSpace/strata_v01403_port/build-hip-gfx1030-rocm10-juud/_deps/strata_llamacpp-src/ggml/src/ggml-cuda/template-instances/mmq-instance-iq3_xxs.cu.o:\tfile format elf64-x86-64\nExtracting offload bundle: ~/DevSpace/strata-prefill-v07-lab-20261107/build-v07-gfx1030/CMakeFiles/strata_mmq.dir~/DevSpace/strata_v01403_port/build-hip-gfx1030-rocm10-juud/_deps/strata_llamacpp-src/ggml/src/ggml-cuda/template-instances/mmq-instance-iq3_xxs.cu.o.0.host-x86_64-unknown-linux-gnu-\nExtracting offload bundle: ~/DevSpace/strata-prefill-v07-lab-20261107/build-v07-gfx1030/CMakeFiles/strata_mmq.dir~/DevSpace/strata_v01403_port/build-hip-gfx1030-rocm10-juud/_deps/strata_llamacpp-src/ggml/src/ggml-cuda/template-instances/mmq-instance-iq3_xxs.cu.o.0.hipv4-amdgcn-amd-amdhsa--gfx1030\n",
+  "stderr": "",
+  "sha256": "708920e0501609f547853233f48dc426cc473b13635aeea300819b260257e47a"
+}

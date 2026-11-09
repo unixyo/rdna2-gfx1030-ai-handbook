@@ -1,0 +1,457 @@
+{
+  "purpose": "Operator microbenchmark, synthetic data at observed model GEMM shapes",
+  "gpu": "AMD Radeon RX 6900 XT",
+  "arch": "gfx1030",
+  "torch": "2.12.0+rocm10.2.0a20261011",
+  "hip": "7.17.26405",
+  "triton": "3.8.0",
+  "sources": {
+    "~/DevSpace/moss-image-rdna2-lab01/scripts/rdna2_int8_matmul.py": "ae2936084d332c12b71bd49af06f665c03cbdfd8a3e4081f656b7f13ac1a6d88",
+    "~/DevSpace/qwen-image-21-rdna2-lab01/custom_nodes/RDNA2-Qwen21-INT8/int8_fused_kernel.py": "70c014d3c394b69cc907c60dd7086e367861c6bf03031320524c3ba2dcf86603",
+    "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/bench_int8_gemm.py": "7f52117ab3a2f5c1818a17a0a9d33d46b7346c4f1bd2f3420540d5302d029a19",
+    "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/rdna2_ops/int8_gemm.py": "f1b6cd7a87d9ae12207c73dd0d0e821ca83e26b3aec517cc7920ae89d638584b"
+  },
+  "contract": "FP32 output; exact integer dot. MOSS separate FP32 scale multiply then bias. Qwen permits FMA as in native patientx.",
+  "timing": {
+    "unit": "milliseconds",
+    "method": "synchronized ordinary wall, alternating rounds",
+    "rounds": 3,
+    "iters": 5,
+    "warmups": 2,
+    "excluded": [
+      "JIT/autotune",
+      "input generation",
+      "correctness checks"
+    ],
+    "included": [
+      "dispatch",
+      "output allocation",
+      "MOSS separate dequant/bias if native"
+    ],
+    "quantization": "excluded from GEMM rows; included separately in pipeline rows",
+    "weight_layout": "Prepared once before timing; preparation cost and resident bytes reported"
+  },
+  "gate": {
+    "integer": "bitwise CPU INT64 oracle",
+    "backend_fp32": "bitwise native output",
+    "nonfinite": 0
+  },
+  "small_checks": [],
+  "rows": [
+    {
+      "backend": "qwen",
+      "m": 2400,
+      "n": 4096,
+      "k": 4096,
+      "layout": "weight_nk",
+      "bias_mode": "none",
+      "a_stride": [
+        4096,
+        1
+      ],
+      "b_stride": [
+        1,
+        4096
+      ],
+      "weight_prepare_ms": 0.02926900197053328,
+      "extra_weight_resident_bytes": 0,
+      "native_cold_autotune_s": 1.3493017670043628,
+      "native_kernel": {
+        "n_regs": 256,
+        "n_spills": 57,
+        "shared": 49152,
+        "v_dot4": 6144,
+        "v_dot2": 0,
+        "mfma_wmma": 0,
+        "assembly_sha256": "753edfc5158a23cf27ef79a04edaa3104a21f4d8dc50bd657ab0c7dbc5483de7"
+      },
+      "native_config": "BLOCK_M: 128, BLOCK_N: 256, BLOCK_K: 64, GROUP_SIZE_M: 8, num_warps: 8, num_ctas: 1, num_stages: 3, maxnreg: None",
+      "native": {
+        "samples_wall_ms": [
+          2.376167599868495,
+          2.362395598902367,
+          2.3379237987683155
+        ],
+        "median_wall_ms": 2.362395598902367,
+        "additional_peak_bytes": 39321600
+      },
+      "candidates": [
+        {
+          "config": [
+            64,
+            128,
+            32,
+            4,
+            1,
+            8
+          ],
+          "key": "64,128,32,4,1,8",
+          "error": {
+            "bitwise": true,
+            "finite": true,
+            "max_abs": 0.0,
+            "rmse": 0.0
+          },
+          "integer_sample_exact": true,
+          "kernel": {
+            "n_regs": 233,
+            "n_spills": 0,
+            "shared": 8192,
+            "v_dot4": 512,
+            "v_dot2": 0,
+            "mfma_wmma": 0,
+            "assembly_sha256": "670300d15e5e6cf27f96deb8cb77607e22434b8e5dac7ae7c0b09d594ba6d9c3"
+          },
+          "accepted": true,
+          "samples_wall_ms": [
+            3.299356398929376,
+            3.3258121999097057,
+            3.3266702012042515
+          ],
+          "median_wall_ms": 3.3258121999097057,
+          "speedup": 0.710321406291824,
+          "additional_peak_bytes": 39321600
+        },
+        {
+          "config": [
+            64,
+            128,
+            64,
+            4,
+            1,
+            8
+          ],
+          "key": "64,128,64,4,1,8",
+          "error": {
+            "bitwise": true,
+            "finite": true,
+            "max_abs": 0.0,
+            "rmse": 0.0
+          },
+          "integer_sample_exact": true,
+          "kernel": {
+            "n_regs": 256,
+            "n_spills": 113,
+            "shared": 8192,
+            "v_dot4": 1024,
+            "v_dot2": 0,
+            "mfma_wmma": 0,
+            "assembly_sha256": "2e88665ab4e818424fbaf3357180d8da8cd720773aa42ee5169e9bd3616eca98"
+          },
+          "accepted": true,
+          "samples_wall_ms": [
+            7.573461400170345,
+            7.719614199595526,
+            7.559363599284552
+          ],
+          "median_wall_ms": 7.573461400170345,
+          "speedup": 0.31193076376532813,
+          "additional_peak_bytes": 39321600
+        },
+        {
+          "config": [
+            128,
+            64,
+            32,
+            4,
+            1,
+            8
+          ],
+          "key": "128,64,32,4,1,8",
+          "error": {
+            "bitwise": true,
+            "finite": true,
+            "max_abs": 0.0,
+            "rmse": 0.0
+          },
+          "integer_sample_exact": true,
+          "kernel": {
+            "n_regs": 233,
+            "n_spills": 0,
+            "shared": 8192,
+            "v_dot4": 512,
+            "v_dot2": 0,
+            "mfma_wmma": 0,
+            "assembly_sha256": "8bdc72bb609eaa3ecafd8e740c177b842696885c1ae93a338e958cbbc766e68a"
+          },
+          "accepted": true,
+          "samples_wall_ms": [
+            3.9384033996611834,
+            3.967361401009839,
+            4.039052799635101
+          ],
+          "median_wall_ms": 3.967361401009839,
+          "speedup": 0.595457625388262,
+          "additional_peak_bytes": 39321600
+        },
+        {
+          "config": [
+            128,
+            64,
+            64,
+            4,
+            1,
+            8
+          ],
+          "key": "128,64,64,4,1,8",
+          "error": {
+            "bitwise": true,
+            "finite": true,
+            "max_abs": 0.0,
+            "rmse": 0.0
+          },
+          "integer_sample_exact": true,
+          "kernel": {
+            "n_regs": 256,
+            "n_spills": 110,
+            "shared": 8192,
+            "v_dot4": 1024,
+            "v_dot2": 0,
+            "mfma_wmma": 0,
+            "assembly_sha256": "f69ebfe0e9bfd6c290f8a9dc2da6d22e09a1cd7bc1ed034f0263c9572bb76909"
+          },
+          "accepted": true,
+          "samples_wall_ms": [
+            7.78951579995919,
+            7.698454199999105,
+            7.702154401340522
+          ],
+          "median_wall_ms": 7.702154401340522,
+          "speedup": 0.30671880564887194,
+          "additional_peak_bytes": 39321600
+        },
+        {
+          "config": [
+            128,
+            128,
+            32,
+            4,
+            1,
+            8
+          ],
+          "key": "128,128,32,4,1,8",
+          "error": {
+            "bitwise": true,
+            "finite": true,
+            "max_abs": 0.0,
+            "rmse": 0.0
+          },
+          "integer_sample_exact": true,
+          "kernel": {
+            "n_regs": 256,
+            "n_spills": 171,
+            "shared": 8192,
+            "v_dot4": 1024,
+            "v_dot2": 0,
+            "mfma_wmma": 0,
+            "assembly_sha256": "a9a96583131384da394f7c74d4b31e41d30a2fbef608a6baed84b553e915d8a8"
+          },
+          "accepted": true,
+          "samples_wall_ms": [
+            12.926171999424696,
+            12.862028399831615,
+            12.89880000113044
+          ],
+          "median_wall_ms": 12.89880000113044,
+          "speedup": 0.18314847882712568,
+          "additional_peak_bytes": 39321600
+        },
+        {
+          "config": [
+            128,
+            128,
+            64,
+            8,
+            1,
+            8
+          ],
+          "key": "128,128,64,8,1,8",
+          "error": {
+            "bitwise": true,
+            "finite": true,
+            "max_abs": 0.0,
+            "rmse": 0.0
+          },
+          "integer_sample_exact": true,
+          "kernel": {
+            "n_regs": 256,
+            "n_spills": 93,
+            "shared": 16384,
+            "v_dot4": 1024,
+            "v_dot2": 0,
+            "mfma_wmma": 0,
+            "assembly_sha256": "795a411905b5b3e1136d8c0ffc5e5e6f32a507dd51ff1f43358a2a73c8d8a86e"
+          },
+          "accepted": true,
+          "samples_wall_ms": [
+            6.747303799784277,
+            6.828211000538431,
+            6.961548000981566
+          ],
+          "median_wall_ms": 6.828211000538431,
+          "speedup": 0.3459757758973885,
+          "additional_peak_bytes": 39321600
+        },
+        {
+          "config": [
+            128,
+            256,
+            32,
+            8,
+            1,
+            8
+          ],
+          "key": "128,256,32,8,1,8",
+          "error": {
+            "bitwise": true,
+            "finite": true,
+            "max_abs": 0.0,
+            "rmse": 0.0
+          },
+          "integer_sample_exact": true,
+          "kernel": {
+            "n_regs": 256,
+            "n_spills": 158,
+            "shared": 16384,
+            "v_dot4": 1024,
+            "v_dot2": 0,
+            "mfma_wmma": 0,
+            "assembly_sha256": "d28d562f906df39b3c3b10502736e77f1f9f97aeb670c2d4cfdff5e9c565f281"
+          },
+          "accepted": true,
+          "samples_wall_ms": [
+            11.76288879942149,
+            11.788662799517624,
+            11.773668800015002
+          ],
+          "median_wall_ms": 11.773668800015002,
+          "speedup": 0.20065076052584024,
+          "additional_peak_bytes": 39321600
+        },
+        {
+          "config": [
+            128,
+            256,
+            64,
+            8,
+            1,
+            8
+          ],
+          "key": "128,256,64,8,1,8",
+          "error": {
+            "bitwise": true,
+            "finite": true,
+            "max_abs": 0.0,
+            "rmse": 0.0
+          },
+          "integer_sample_exact": true,
+          "kernel": {
+            "n_regs": 256,
+            "n_spills": 426,
+            "shared": 16384,
+            "v_dot4": 2048,
+            "v_dot2": 0,
+            "mfma_wmma": 0,
+            "assembly_sha256": "8e51ec54e8bf32a85a7ed722ba022e55f95d939f94df0c7b6b25358051ce12d8"
+          },
+          "accepted": true,
+          "samples_wall_ms": [
+            12.311496598704252,
+            12.400480000360403,
+            12.346328199782874
+          ],
+          "median_wall_ms": 12.346328199782874,
+          "speedup": 0.19134398184424684,
+          "additional_peak_bytes": 39321600
+        },
+        {
+          "config": [
+            128,
+            256,
+            64,
+            8,
+            3,
+            8
+          ],
+          "key": "128,256,64,8,3,8",
+          "error": {
+            "bitwise": true,
+            "finite": true,
+            "max_abs": 0.0,
+            "rmse": 0.0
+          },
+          "integer_sample_exact": true,
+          "kernel": {
+            "n_regs": 256,
+            "n_spills": 107,
+            "shared": 49152,
+            "v_dot4": 6144,
+            "v_dot2": 0,
+            "mfma_wmma": 0,
+            "assembly_sha256": "bb622e52c1d3516aff689cf4ea422d515c372c41139031294ca7d83a6dc1923e"
+          },
+          "accepted": true,
+          "samples_wall_ms": [
+            11.005418600689154,
+            10.963142999389675,
+            10.933495400240645
+          ],
+          "median_wall_ms": 10.963142999389675,
+          "speedup": 0.21548524898689028,
+          "additional_peak_bytes": 39321600
+        },
+        {
+          "config": [
+            64,
+            128,
+            64,
+            4,
+            2,
+            8
+          ],
+          "key": "64,128,64,4,2,8",
+          "error": {
+            "bitwise": true,
+            "finite": true,
+            "max_abs": 0.0,
+            "rmse": 0.0
+          },
+          "integer_sample_exact": true,
+          "kernel": {
+            "n_regs": 203,
+            "n_spills": 0,
+            "shared": 12288,
+            "v_dot4": 2048,
+            "v_dot2": 0,
+            "mfma_wmma": 0,
+            "assembly_sha256": "7445561c74c1d6c747b39633294a0af5d1537ed3f1a0e603e2ecea12360d00de"
+          },
+          "accepted": true,
+          "samples_wall_ms": [
+            2.7300447996822186,
+            2.6517894002608955,
+            2.6896489987848327
+          ],
+          "median_wall_ms": 2.6896489987848327,
+          "speedup": 0.8783285848709936,
+          "additional_peak_bytes": 39321600
+        }
+      ],
+      "best_config": [
+        64,
+        128,
+        64,
+        4,
+        2,
+        8
+      ]
+    }
+  ],
+  "failures": [],
+  "fp16_bmm_fp32_output_probe": {
+    "supported": true,
+    "dtype": "torch.float32",
+    "finite": true,
+    "max_abs_vs_fp32_input_roundtrip": 0.0
+  }
+}

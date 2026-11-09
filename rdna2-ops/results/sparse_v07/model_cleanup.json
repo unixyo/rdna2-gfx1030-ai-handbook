@@ -1,0 +1,25 @@
+{
+  "gpu_guard": {
+    "available": true,
+    "valid_for_timing": true,
+    "method": "KFD client PID snapshots and periodic polling; research flock",
+    "limitation": "Detects observed KFD clients, not graphics load or sub-poll transient clients",
+    "allowed_pids": [
+      966527
+    ],
+    "interval_s": 0.25,
+    "sample_count": 3,
+    "started_unix_s": 1794007443.20624,
+    "ended_unix_s": 1794007443.2064507,
+    "foreign_clients": [],
+    "errors": [],
+    "transitions": [
+      {
+        "unix_s": 1794007443.2062402,
+        "kfd_pids": [],
+        "foreign_or_error": []
+      }
+    ]
+  },
+  "owned_pids_remaining": []
+}
