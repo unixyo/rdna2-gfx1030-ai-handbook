@@ -1,0 +1,641 @@
+{
+  "spec": {
+    "sampler": [
+      "KSampler",
+      "sample"
+    ],
+    "sampler_node": "8",
+    "model": "qwen",
+    "runtime": "~/DevSpace/qwen-image-21-rdna2-lab01/runtime/ComfyUI",
+    "workflow": "~/DevSpace/qwen-image-21-rdna2-lab01/workflows/request-gemini-edit-640x960-api.json",
+    "decoder": [
+      "VAEDecodeTiled",
+      "decode"
+    ],
+    "save_node": "10",
+    "attention_target": "comfy.ldm.qwen_image21.model:optimized_attention",
+    "env": {
+      "Q21_RDNA2_INT8_PATCH": "1",
+      "Q21_RDNA2_ENCODER_CPU": "0",
+      "Q21_RDNA2_CONV3D_PATCH": "0",
+      "Q21_CFG1_PROBE": "0"
+    },
+    "server_args": [
+      "--extra-model-paths-config",
+      "~/DevSpace/qwen-image-21-rdna2-lab01/extra_model_paths.yaml",
+      "--disable-auto-launch",
+      "--disable-triton-backend",
+      "--use-split-cross-attention",
+      "--reserve-vram",
+      "1",
+      "--vram-headroom",
+      "3"
+    ],
+    "input_files": [
+      "~/DevSpace/rdna2-pro-research-20261102/rehearsal_qwen_20261106/images/ref_image.png"
+    ],
+    "inputs": {
+      "11": {
+        "image": "ref_image.png"
+      },
+      "3": {
+        "resolution": 0,
+        "prompt": "[private prompt removed: two-character anime illustration edit with a reference image]",
+        "negative_prompt": "low quality, blurry, extra fingers, deformed hands, text, watermark"
+      }
+    },
+    "instrument_module": "qwen_conv3d_v06",
+    "switch_module": "qwen_conv3d_v06",
+    "gpu_audit": true,
+    "qwen_conv3d_allowed_rows": [
+      128,
+      512,
+      2400
+    ],
+    "require_bitwise_modes": [
+      "baseline"
+    ],
+    "qwen_conv3d_original_spec": {
+      "path": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/research_configs/qwen_v05.json",
+      "sha256": "e536a0b06d856f7300a0e20afec2f6acdaa1995a8a0131f132f9725142bf7774"
+    }
+  },
+  "seed": 20261106,
+  "rgb_gate": {
+    "max_abs": 0.00784313725490196,
+    "rmse": 0.000980392156862745
+  },
+  "runs": [
+    {
+      "index": 0,
+      "mode": "warm",
+      "success": true,
+      "wall": {
+        "conditioning_s": 9.031125129986322,
+        "denoise_s": 17.456700857001124,
+        "vae_s": 3.002842141999281
+      },
+      "request_wall_s": 30.695303858999978,
+      "conditioning_first_embedding_sha256": {
+        "positive": "aae0e69f5cf0cdfaa108ad2e560984f00c7178449a84c10a2ed0759e22e7cf21",
+        "negative": "ff4c8bcca86ece1e89634e7fda2f777c1b79bec95ea8e38d87fcca805b11cbb8"
+      },
+      "candidate": {
+        "qwen_conv3d": {
+          "mode": "warm",
+          "request_index": 0,
+          "node": "TextEncodeQwenImage21",
+          "scope": "conditioning only",
+          "backend_state": {
+            "cudnn_enabled": true,
+            "cudnn_benchmark": false,
+            "environment": {
+              "MIOPEN_FIND_MODE": null,
+              "MIOPEN_USER_DB_PATH": null,
+              "MIOPEN_CUSTOM_CACHE_DIR": null,
+              "COMFYUI_ENABLE_MIOPEN": null
+            },
+            "preferred_blas_library": "_BlasBackend.Cublas"
+          },
+          "native_calls": 2,
+          "candidate_calls": 0,
+          "calls": [
+            {
+              "input": {
+                "shape": [
+                  2400,
+                  3,
+                  2,
+                  16,
+                  16
+                ],
+                "stride": [
+                  1536,
+                  512,
+                  256,
+                  16,
+                  1
+                ],
+                "dtype": "torch.float32",
+                "device": "cuda:0",
+                "contiguous": true
+              },
+              "weight": {
+                "shape": [
+                  1152,
+                  3,
+                  2,
+                  16,
+                  16
+                ],
+                "stride": [
+                  1536,
+                  512,
+                  256,
+                  16,
+                  1
+                ],
+                "dtype": "torch.float32",
+                "device": "cuda:0",
+                "contiguous": true
+              },
+              "bias": {
+                "shape": [
+                  1152
+                ],
+                "stride": [
+                  1
+                ],
+                "dtype": "torch.float32",
+                "device": "cuda:0",
+                "contiguous": true
+              },
+              "arch": "gfx1030",
+              "eligible": true,
+              "backend_state": {
+                "cudnn_enabled": true,
+                "cudnn_benchmark": false,
+                "environment": {
+                  "MIOPEN_FIND_MODE": null,
+                  "MIOPEN_USER_DB_PATH": null,
+                  "MIOPEN_CUSTOM_CACHE_DIR": null,
+                  "COMFYUI_ENABLE_MIOPEN": null
+                },
+                "preferred_blas_library": "_BlasBackend.Cublas"
+              },
+              "implementation": "original Conv3d._conv_forward",
+              "original_function": "disable_weight_init.Conv3d._conv_forward",
+              "autopad": null,
+              "stride": [
+                2,
+                16,
+                16
+              ],
+              "padding": [
+                0,
+                0,
+                0
+              ],
+              "dilation": [
+                1,
+                1,
+                1
+              ],
+              "groups": 1,
+              "output": {
+                "shape": [
+                  2400,
+                  1152,
+                  1,
+                  1,
+                  1
+                ],
+                "stride": [
+                  1152,
+                  1,
+                  1,
+                  1,
+                  1
+                ],
+                "dtype": "torch.float32",
+                "device": "cuda:0",
+                "contiguous": true
+              },
+              "gpu_event_ms": 1781.3800048828125
+            },
+            {
+              "input": {
+                "shape": [
+                  2400,
+                  3,
+                  2,
+                  16,
+                  16
+                ],
+                "stride": [
+                  1536,
+                  512,
+                  256,
+                  16,
+                  1
+                ],
+                "dtype": "torch.float32",
+                "device": "cuda:0",
+                "contiguous": true
+              },
+              "weight": {
+                "shape": [
+                  1152,
+                  3,
+                  2,
+                  16,
+                  16
+                ],
+                "stride": [
+                  1536,
+                  512,
+                  256,
+                  16,
+                  1
+                ],
+                "dtype": "torch.float32",
+                "device": "cuda:0",
+                "contiguous": true
+              },
+              "bias": {
+                "shape": [
+                  1152
+                ],
+                "stride": [
+                  1
+                ],
+                "dtype": "torch.float32",
+                "device": "cuda:0",
+                "contiguous": true
+              },
+              "arch": "gfx1030",
+              "eligible": true,
+              "backend_state": {
+                "cudnn_enabled": true,
+                "cudnn_benchmark": false,
+                "environment": {
+                  "MIOPEN_FIND_MODE": null,
+                  "MIOPEN_USER_DB_PATH": null,
+                  "MIOPEN_CUSTOM_CACHE_DIR": null,
+                  "COMFYUI_ENABLE_MIOPEN": null
+                },
+                "preferred_blas_library": "_BlasBackend.Cublas"
+              },
+              "implementation": "original Conv3d._conv_forward",
+              "original_function": "disable_weight_init.Conv3d._conv_forward",
+              "autopad": null,
+              "stride": [
+                2,
+                16,
+                16
+              ],
+              "padding": [
+                0,
+                0,
+                0
+              ],
+              "dilation": [
+                1,
+                1,
+                1
+              ],
+              "groups": 1,
+              "output": {
+                "shape": [
+                  2400,
+                  1152,
+                  1,
+                  1,
+                  1
+                ],
+                "stride": [
+                  1152,
+                  1,
+                  1,
+                  1,
+                  1
+                ],
+                "dtype": "torch.float32",
+                "device": "cuda:0",
+                "contiguous": true
+              },
+              "gpu_event_ms": 1765.7025146484375
+            }
+          ],
+          "allowed_rows": [
+            128,
+            512,
+            2400
+          ],
+          "source_sha256": {
+            "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/qwen_conv3d_v06.py": "c718a4b53bcd91dc3a58d5ff827df0367edab2d6553e85c49aafc0c3cb4abc4b",
+            "~/DevSpace/qwen-image-21-rdna2-lab01/runtime/ComfyUI/comfy_extras/nodes_qwen.py": "54ce02aa9e167c0b497ce026ac6b558f539427d2d1ed4fc1fcc2ec8e6bc529da",
+            "~/DevSpace/qwen-image-21-rdna2-lab01/runtime/ComfyUI/comfy/text_encoders/qwen35.py": "5fe8c3e0d13b821c16108faeebf55622c1a70eeca373fea5697efbb315d07572",
+            "~/DevSpace/qwen-image-21-rdna2-lab01/runtime/ComfyUI/comfy/ops.py": "e13f918c6a64f1dc2b9ce836868734396849db3eeb80313579afbfa90dd6ae89",
+            "~/DevSpace/qwen-image-21-rdna2-lab01/runtime/ComfyUI/comfy/text_encoders/qwen3vl.py": "86c9edf603f53fa0c6bab43ce6ec3d908948c50a7060fc706f8481585d7ea890",
+            "~/DevSpace/qwen-image-21-rdna2-lab01/runtime/ComfyUI/comfy/text_encoders/qwen_image21.py": "c64016aa703f913859c9afb7efe5d1e5120c8fa2820f9f7acc00792987d39136"
+          },
+          "cache_invalidation": "V3 fingerprint_inputs returns a fresh NaN",
+          "scope_restored": true,
+          "completed": true,
+          "bias_contract": "original cast bias passed to native Conv3D or F.linear; no bit-equivalence assumption",
+          "timing_contract": "conditioning synchronized wall includes VAE encode and both text encodes; per-call GPU events exclude outer weight staging",
+          "sum_conv_gpu_event_ms": 3547.08251953125
+        }
+      },
+      "stage_calls": {
+        "conditioning": 1,
+        "denoise": 1,
+        "vae": 1
+      },
+      "profile_artifacts": [],
+      "latent_error": {
+        "finite": true,
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "byte_equal": true
+      },
+      "image_error": {
+        "finite": true,
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "byte_equal": true
+      },
+      "comparison_errors": {},
+      "image_gate": true,
+      "latent_sha256": "cb855453267ea08907fac328337e4eea7c8bb605e0353aa282a86118fb654200",
+      "image_sha256": "eedb053336de2b7ec8e354c2ea6fe9df26909257c6cf9633897b9351b9a4bf50"
+    },
+    {
+      "index": 1,
+      "mode": "baseline",
+      "success": true,
+      "wall": {
+        "conditioning_s": 8.061772574001225,
+        "denoise_s": 7.954810683004325,
+        "vae_s": 2.636949009989621
+      },
+      "request_wall_s": 18.98176713200519,
+      "conditioning_first_embedding_sha256": {
+        "positive": "8c4ea0b943170a57737be20b93200092279a724b620961e86eadbc15fda67b78",
+        "negative": "a9b843232e2151b917d1f97dee975e9eda228acb05421fe6e4c4a3e50280bde3"
+      },
+      "candidate": {
+        "qwen_conv3d": {
+          "mode": "baseline",
+          "request_index": 1,
+          "node": "TextEncodeQwenImage21",
+          "scope": "conditioning only",
+          "backend_state": {
+            "cudnn_enabled": true,
+            "cudnn_benchmark": false,
+            "environment": {
+              "MIOPEN_FIND_MODE": null,
+              "MIOPEN_USER_DB_PATH": null,
+              "MIOPEN_CUSTOM_CACHE_DIR": null,
+              "COMFYUI_ENABLE_MIOPEN": null
+            },
+            "preferred_blas_library": "_BlasBackend.Cublas"
+          },
+          "native_calls": 2,
+          "candidate_calls": 0,
+          "calls": [
+            {
+              "input": {
+                "shape": [
+                  2400,
+                  3,
+                  2,
+                  16,
+                  16
+                ],
+                "stride": [
+                  1536,
+                  512,
+                  256,
+                  16,
+                  1
+                ],
+                "dtype": "torch.float32",
+                "device": "cuda:0",
+                "contiguous": true
+              },
+              "weight": {
+                "shape": [
+                  1152,
+                  3,
+                  2,
+                  16,
+                  16
+                ],
+                "stride": [
+                  1536,
+                  512,
+                  256,
+                  16,
+                  1
+                ],
+                "dtype": "torch.float32",
+                "device": "cuda:0",
+                "contiguous": true
+              },
+              "bias": {
+                "shape": [
+                  1152
+                ],
+                "stride": [
+                  1
+                ],
+                "dtype": "torch.float32",
+                "device": "cuda:0",
+                "contiguous": true
+              },
+              "arch": "gfx1030",
+              "eligible": true,
+              "backend_state": {
+                "cudnn_enabled": true,
+                "cudnn_benchmark": false,
+                "environment": {
+                  "MIOPEN_FIND_MODE": null,
+                  "MIOPEN_USER_DB_PATH": null,
+                  "MIOPEN_CUSTOM_CACHE_DIR": null,
+                  "COMFYUI_ENABLE_MIOPEN": null
+                },
+                "preferred_blas_library": "_BlasBackend.Cublas"
+              },
+              "implementation": "original Conv3d._conv_forward",
+              "original_function": "disable_weight_init.Conv3d._conv_forward",
+              "autopad": null,
+              "stride": [
+                2,
+                16,
+                16
+              ],
+              "padding": [
+                0,
+                0,
+                0
+              ],
+              "dilation": [
+                1,
+                1,
+                1
+              ],
+              "groups": 1,
+              "output": {
+                "shape": [
+                  2400,
+                  1152,
+                  1,
+                  1,
+                  1
+                ],
+                "stride": [
+                  1152,
+                  1,
+                  1,
+                  1,
+                  1
+                ],
+                "dtype": "torch.float32",
+                "device": "cuda:0",
+                "contiguous": true
+              },
+              "gpu_event_ms": 1778.7535400390625
+            },
+            {
+              "input": {
+                "shape": [
+                  2400,
+                  3,
+                  2,
+                  16,
+                  16
+                ],
+                "stride": [
+                  1536,
+                  512,
+                  256,
+                  16,
+                  1
+                ],
+                "dtype": "torch.float32",
+                "device": "cuda:0",
+                "contiguous": true
+              },
+              "weight": {
+                "shape": [
+                  1152,
+                  3,
+                  2,
+                  16,
+                  16
+                ],
+                "stride": [
+                  1536,
+                  512,
+                  256,
+                  16,
+                  1
+                ],
+                "dtype": "torch.float32",
+                "device": "cuda:0",
+                "contiguous": true
+              },
+              "bias": {
+                "shape": [
+                  1152
+                ],
+                "stride": [
+                  1
+                ],
+                "dtype": "torch.float32",
+                "device": "cuda:0",
+                "contiguous": true
+              },
+              "arch": "gfx1030",
+              "eligible": true,
+              "backend_state": {
+                "cudnn_enabled": true,
+                "cudnn_benchmark": false,
+                "environment": {
+                  "MIOPEN_FIND_MODE": null,
+                  "MIOPEN_USER_DB_PATH": null,
+                  "MIOPEN_CUSTOM_CACHE_DIR": null,
+                  "COMFYUI_ENABLE_MIOPEN": null
+                },
+                "preferred_blas_library": "_BlasBackend.Cublas"
+              },
+              "implementation": "original Conv3d._conv_forward",
+              "original_function": "disable_weight_init.Conv3d._conv_forward",
+              "autopad": null,
+              "stride": [
+                2,
+                16,
+                16
+              ],
+              "padding": [
+                0,
+                0,
+                0
+              ],
+              "dilation": [
+                1,
+                1,
+                1
+              ],
+              "groups": 1,
+              "output": {
+                "shape": [
+                  2400,
+                  1152,
+                  1,
+                  1,
+                  1
+                ],
+                "stride": [
+                  1152,
+                  1,
+                  1,
+                  1,
+                  1
+                ],
+                "dtype": "torch.float32",
+                "device": "cuda:0",
+                "contiguous": true
+              },
+              "gpu_event_ms": 1774.879150390625
+            }
+          ],
+          "allowed_rows": [
+            128,
+            512,
+            2400
+          ],
+          "source_sha256": {
+            "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/qwen_conv3d_v06.py": "c718a4b53bcd91dc3a58d5ff827df0367edab2d6553e85c49aafc0c3cb4abc4b",
+            "~/DevSpace/qwen-image-21-rdna2-lab01/runtime/ComfyUI/comfy_extras/nodes_qwen.py": "54ce02aa9e167c0b497ce026ac6b558f539427d2d1ed4fc1fcc2ec8e6bc529da",
+            "~/DevSpace/qwen-image-21-rdna2-lab01/runtime/ComfyUI/comfy/text_encoders/qwen35.py": "5fe8c3e0d13b821c16108faeebf55622c1a70eeca373fea5697efbb315d07572",
+            "~/DevSpace/qwen-image-21-rdna2-lab01/runtime/ComfyUI/comfy/ops.py": "e13f918c6a64f1dc2b9ce836868734396849db3eeb80313579afbfa90dd6ae89",
+            "~/DevSpace/qwen-image-21-rdna2-lab01/runtime/ComfyUI/comfy/text_encoders/qwen3vl.py": "86c9edf603f53fa0c6bab43ce6ec3d908948c50a7060fc706f8481585d7ea890",
+            "~/DevSpace/qwen-image-21-rdna2-lab01/runtime/ComfyUI/comfy/text_encoders/qwen_image21.py": "c64016aa703f913859c9afb7efe5d1e5120c8fa2820f9f7acc00792987d39136"
+          },
+          "cache_invalidation": "V3 fingerprint_inputs returns a fresh NaN",
+          "scope_restored": true,
+          "completed": true,
+          "bias_contract": "original cast bias passed to native Conv3D or F.linear; no bit-equivalence assumption",
+          "timing_contract": "conditioning synchronized wall includes VAE encode and both text encodes; per-call GPU events exclude outer weight staging",
+          "sum_conv_gpu_event_ms": 3553.6326904296875
+        }
+      },
+      "stage_calls": {
+        "conditioning": 1,
+        "denoise": 1,
+        "vae": 1
+      },
+      "profile_artifacts": [],
+      "latent_error": {
+        "finite": true,
+        "max_abs": 0.7908940315246582,
+        "rmse": 0.07806443604312152,
+        "byte_equal": false
+      },
+      "image_error": {
+        "finite": true,
+        "max_abs": 0.1381734311580658,
+        "rmse": 0.0037544189740479606,
+        "byte_equal": false
+      },
+      "comparison_errors": {},
+      "image_gate": false,
+      "latent_sha256": "2bfe157b1e7e6588f3690625d6c8cb4e74fdc6fc78578c0412da8965889fc9cc",
+      "image_sha256": "58a9a11e3c9b8eba8bf5408164769819ced78c76e78b13cbd59487037bbf43b0",
+      "required_bitwise_gate": false
+    }
+  ]
+}

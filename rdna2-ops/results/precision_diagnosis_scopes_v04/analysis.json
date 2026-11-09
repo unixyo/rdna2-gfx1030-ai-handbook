@@ -1,0 +1,509 @@
+{
+  "source": "results/precision_diagnosis_scopes_v04/precision_diagnosis.json",
+  "source_sha256": "112f172ee75b1a9c8a38e4bc5de691e5fb06f09ac979b95eb0e3f87cf8385257",
+  "comparison_scope": "Each row compares only with native in this JSON; no cross-process baseline equivalence is assumed.",
+  "native_image_sha256": "20e92e4f80181f8ce6c7db92410f3976ad3cb176abc18579fcb5e60ba8ee1028",
+  "native_metadata": {
+    "seed": 20261106,
+    "conditioning_sha256": {
+      "positive": "8da651f3179ce09c8b8201ff8dfb0bc840c5ad784c617ebac68eb6380033da40",
+      "negative": "4052ad24764a7a26a29ff20d417815eb78645f8148a83b27029ca2ac0932777b"
+    }
+  },
+  "fixed_rgb_gate": {
+    "rgb_max": 0.00784313725490196,
+    "rgb_rmse": 0.000980392156862745
+  },
+  "runs": [
+    {
+      "label": "native",
+      "status": "complete",
+      "scope": "all",
+      "metadata_matches_native": true,
+      "attention_calls": 176,
+      "modified_calls": 0,
+      "modified_lengths": {},
+      "modified_per_denoiser": {},
+      "changed_output_hashes": 0,
+      "first_modified": null,
+      "first_attention_difference": null,
+      "first_denoiser_difference": null,
+      "denoiser": [
+        {
+          "index": 0,
+          "timestep": [
+            1.0
+          ],
+          "input": null,
+          "output": null
+        },
+        {
+          "index": 1,
+          "timestep": [
+            0.9375
+          ],
+          "input": null,
+          "output": null
+        },
+        {
+          "index": 2,
+          "timestep": [
+            0.8333333134651184
+          ],
+          "input": null,
+          "output": null
+        },
+        {
+          "index": 3,
+          "timestep": [
+            0.625
+          ],
+          "input": null,
+          "output": null
+        }
+      ],
+      "quantizer": {
+        "activation_calls": 672,
+        "raw_calls": 840,
+        "excluded_shapes": {
+          "[9216,3072]": 42,
+          "[3072,3072]": 42,
+          "[16384,3072]": 42,
+          "[3072,8192]": 42
+        },
+        "first_difference": null
+      },
+      "latent": {
+        "byte_equal": true,
+        "finite": true,
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "relative_rms": 0.0
+      },
+      "image": {
+        "byte_equal": true,
+        "finite": true,
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "relative_rms": 0.0
+      },
+      "passes_fixed_rgb_gate": true,
+      "restore_conflicts": [],
+      "flag_restored": true
+    },
+    {
+      "label": "fp16_math:short",
+      "status": "complete",
+      "scope": "short",
+      "metadata_matches_native": true,
+      "attention_calls": 176,
+      "modified_calls": 8,
+      "modified_lengths": {
+        "37": 8
+      },
+      "modified_per_denoiser": {
+        "0": 2,
+        "1": 2,
+        "2": 2,
+        "3": 2
+      },
+      "changed_output_hashes": 176,
+      "first_modified": {
+        "index": 0,
+        "denoiser_call": 0,
+        "S": 37,
+        "mode_used": "fp16_math",
+        "input_hash_equal": {
+          "q": true,
+          "k": true,
+          "v": true
+        },
+        "same_input_local_error": {
+          "byte_equal": false,
+          "finite": true,
+          "max_abs": 0.0034546852111816406,
+          "rmse": 0.00019383500672605754,
+          "relative_rms": 0.0003230006562717647
+        }
+      },
+      "first_attention_difference": {
+        "index": 0,
+        "denoiser_call": 0,
+        "S": 37,
+        "mode_used": "fp16_math",
+        "input_hash_equal": {
+          "q": true,
+          "k": true,
+          "v": true
+        },
+        "same_input_local_error": {
+          "byte_equal": false,
+          "finite": true,
+          "max_abs": 0.0034546852111816406,
+          "rmse": 0.00019383500672605754,
+          "relative_rms": 0.0003230006562717647
+        }
+      },
+      "first_denoiser_difference": 0,
+      "denoiser": [
+        {
+          "index": 0,
+          "timestep": [
+            1.0
+          ],
+          "input": {
+            "byte_equal": true,
+            "finite": true,
+            "max_abs": 0.0,
+            "rmse": 0.0,
+            "relative_rms": 0.0
+          },
+          "output": {
+            "byte_equal": false,
+            "finite": true,
+            "max_abs": 1.4166557490825653,
+            "rmse": 0.13207405077074633,
+            "relative_rms": 0.1786438109199185
+          }
+        },
+        {
+          "index": 1,
+          "timestep": [
+            0.9375
+          ],
+          "input": {
+            "byte_equal": false,
+            "finite": true,
+            "max_abs": 0.08854098618030548,
+            "rmse": 0.008254628343680185,
+            "relative_rms": 0.008797185546424082
+          },
+          "output": {
+            "byte_equal": false,
+            "finite": true,
+            "max_abs": 4.854944229125977,
+            "rmse": 0.49971681798272466,
+            "relative_rms": 0.5323807163518403
+          }
+        },
+        {
+          "index": 2,
+          "timestep": [
+            0.8333333134651184
+          ],
+          "input": {
+            "byte_equal": false,
+            "finite": true,
+            "max_abs": 0.5470943450927734,
+            "rmse": 0.05629732462945992,
+            "relative_rms": 0.06624304406494698
+          },
+          "output": {
+            "byte_equal": false,
+            "finite": true,
+            "max_abs": 4.905869245529175,
+            "rmse": 0.5851985917765868,
+            "relative_rms": 0.5991852071646712
+          }
+        },
+        {
+          "index": 3,
+          "timestep": [
+            0.625
+          ],
+          "input": {
+            "byte_equal": false,
+            "finite": true,
+            "max_abs": 1.6367879509925842,
+            "rmse": 0.16826370268465404,
+            "relative_rms": 0.2296987648186471
+          },
+          "output": {
+            "byte_equal": false,
+            "finite": true,
+            "max_abs": 4.901073694229126,
+            "rmse": 0.5864234506544648,
+            "relative_rms": 0.5876125550591338
+          }
+        }
+      ],
+      "quantizer": {
+        "activation_calls": 672,
+        "raw_calls": 672,
+        "excluded_shapes": {},
+        "first_difference": {
+          "index": 0,
+          "denoiser_call": 0,
+          "input_shape": [
+            1061,
+            3072
+          ],
+          "input_comparison_to_native": {
+            "byte_equal": false,
+            "finite": true,
+            "same_shape": true,
+            "max_abs": 0.0008781552314758301,
+            "rmse": 2.8995292954660387e-05,
+            "relative_rms": 5.130982606398295e-05,
+            "changed_fraction": 0.03486110292962614
+          },
+          "codes_comparison_to_native": {
+            "byte_equal": false,
+            "finite": true,
+            "same_shape": true,
+            "max_abs": 1.0,
+            "rmse": 0.011525921318353836,
+            "relative_rms": 0.0003424466048831803,
+            "changed_fraction": 0.00013284686223688345
+          },
+          "scales_comparison_to_native": {
+            "byte_equal": false,
+            "finite": true,
+            "same_shape": true,
+            "max_abs": 3.3918768167495728e-06,
+            "rmse": 2.565838119245529e-07,
+            "relative_rms": 1.5039127170048697e-05,
+            "changed_fraction": 0.034872761545711596
+          },
+          "dequantized_comparison_to_native": {
+            "byte_equal": false,
+            "finite": true,
+            "same_shape": true,
+            "max_abs": 0.046221375465393066,
+            "rmse": 0.0003870096400211906,
+            "relative_rms": 0.000684823223167123,
+            "changed_fraction": 0.03446808484527176
+          },
+          "changed_code_count": 433,
+          "changed_row_fraction": 0.034872762858867645,
+          "local_rmse_amplification": 13.34732643075389,
+          "paired_input_unavailable": null
+        }
+      },
+      "latent": {
+        "byte_equal": false,
+        "finite": true,
+        "max_abs": 4.901073694229126,
+        "rmse": 0.5864234506398519,
+        "relative_rms": 0.5876125550552599
+      },
+      "image": {
+        "byte_equal": false,
+        "finite": true,
+        "max_abs": 0.972900390625,
+        "rmse": 0.1313471373476157,
+        "relative_rms": 0.30851270093263017
+      },
+      "passes_fixed_rgb_gate": false,
+      "restore_conflicts": [],
+      "flag_restored": true
+    },
+    {
+      "label": "fp16_math:long",
+      "status": "complete",
+      "scope": "long",
+      "metadata_matches_native": true,
+      "attention_calls": 176,
+      "modified_calls": 168,
+      "modified_lengths": {
+        "1061": 168
+      },
+      "modified_per_denoiser": {
+        "0": 42,
+        "1": 42,
+        "2": 42,
+        "3": 42
+      },
+      "changed_output_hashes": 168,
+      "first_modified": {
+        "index": 2,
+        "denoiser_call": 0,
+        "S": 1061,
+        "mode_used": "fp16_math",
+        "input_hash_equal": {
+          "q": true,
+          "k": true,
+          "v": true
+        },
+        "same_input_local_error": {
+          "byte_equal": false,
+          "finite": true,
+          "max_abs": 0.013986587524414062,
+          "rmse": 0.0001540292155359923,
+          "relative_rms": 0.0002827289672919633
+        }
+      },
+      "first_attention_difference": {
+        "index": 2,
+        "denoiser_call": 0,
+        "S": 1061,
+        "mode_used": "fp16_math",
+        "input_hash_equal": {
+          "q": true,
+          "k": true,
+          "v": true
+        },
+        "same_input_local_error": {
+          "byte_equal": false,
+          "finite": true,
+          "max_abs": 0.013986587524414062,
+          "rmse": 0.0001540292155359923,
+          "relative_rms": 0.0002827289672919633
+        }
+      },
+      "first_denoiser_difference": 0,
+      "denoiser": [
+        {
+          "index": 0,
+          "timestep": [
+            1.0
+          ],
+          "input": {
+            "byte_equal": true,
+            "finite": true,
+            "max_abs": 0.0,
+            "rmse": 0.0,
+            "relative_rms": 0.0
+          },
+          "output": {
+            "byte_equal": false,
+            "finite": true,
+            "max_abs": 2.8492822647094727,
+            "rmse": 0.15621887291102282,
+            "relative_rms": 0.21130217958470388
+          }
+        },
+        {
+          "index": 1,
+          "timestep": [
+            0.9375
+          ],
+          "input": {
+            "byte_equal": false,
+            "finite": true,
+            "max_abs": 0.17808014154434204,
+            "rmse": 0.009763679539131896,
+            "relative_rms": 0.010405423108761525
+          },
+          "output": {
+            "byte_equal": false,
+            "finite": true,
+            "max_abs": 5.078406572341919,
+            "rmse": 0.60850423789337,
+            "relative_rms": 0.648279006058992
+          }
+        },
+        {
+          "index": 2,
+          "timestep": [
+            0.8333333134651184
+          ],
+          "input": {
+            "byte_equal": false,
+            "finite": true,
+            "max_abs": 0.6219435930252075,
+            "rmse": 0.06928391093052087,
+            "relative_rms": 0.0815238946960664
+          },
+          "output": {
+            "byte_equal": false,
+            "finite": true,
+            "max_abs": 5.781720876693726,
+            "rmse": 0.7147193360753271,
+            "relative_rms": 0.7318015789320034
+          }
+        },
+        {
+          "index": 3,
+          "timestep": [
+            0.625
+          ],
+          "input": {
+            "byte_equal": false,
+            "finite": true,
+            "max_abs": 1.7259185314178467,
+            "rmse": 0.21061487205268248,
+            "relative_rms": 0.2875128455576933
+          },
+          "output": {
+            "byte_equal": false,
+            "finite": true,
+            "max_abs": 5.550387024879456,
+            "rmse": 0.7150450569384185,
+            "relative_rms": 0.7164949703513172
+          }
+        }
+      ],
+      "quantizer": {
+        "activation_calls": 672,
+        "raw_calls": 672,
+        "excluded_shapes": {},
+        "first_difference": {
+          "index": 1,
+          "denoiser_call": 0,
+          "input_shape": [
+            1061,
+            3072
+          ],
+          "input_comparison_to_native": {
+            "byte_equal": false,
+            "finite": true,
+            "same_shape": true,
+            "max_abs": 0.007846832275390625,
+            "rmse": 0.0001540293507225457,
+            "relative_rms": 0.000282729215449894,
+            "changed_fraction": 0.9998861750903236
+          },
+          "codes_comparison_to_native": {
+            "byte_equal": false,
+            "finite": true,
+            "same_shape": true,
+            "max_abs": 1.0,
+            "rmse": 0.07613864620315204,
+            "relative_rms": 0.002762438255678555,
+            "changed_fraction": 0.005797093445648759
+          },
+          "scales_comparison_to_native": {
+            "byte_equal": false,
+            "finite": true,
+            "same_shape": true,
+            "max_abs": 5.420297384262085e-05,
+            "rmse": 3.516371988257493e-06,
+            "relative_rms": 0.00016242130843594724,
+            "changed_fraction": 0.9990574929311969
+          },
+          "dequantized_comparison_to_native": {
+            "byte_equal": false,
+            "finite": true,
+            "same_shape": true,
+            "max_abs": 0.12920904159545898,
+            "rmse": 0.001608356364310882,
+            "relative_rms": 0.002952018100147391,
+            "changed_fraction": 0.9827283738807728
+          },
+          "changed_code_count": 18895,
+          "changed_row_fraction": 1.0,
+          "local_rmse_amplification": 10.44188238648118,
+          "paired_input_unavailable": null
+        }
+      },
+      "latent": {
+        "byte_equal": false,
+        "finite": true,
+        "max_abs": 5.550387024879456,
+        "rmse": 0.7150450569342086,
+        "relative_rms": 0.7164949703602292
+      },
+      "image": {
+        "byte_equal": false,
+        "finite": true,
+        "max_abs": 0.9970703125,
+        "rmse": 0.16502891648504958,
+        "relative_rms": 0.387625629190862
+      },
+      "passes_fixed_rgb_gate": false,
+      "restore_conflicts": [],
+      "flag_restored": true
+    }
+  ]
+}

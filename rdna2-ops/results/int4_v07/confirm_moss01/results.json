@@ -1,0 +1,309 @@
+{
+  "schema": 1,
+  "purpose": "W4 real model Linear shapes; actual checkpoint weight, synthetic activation; no model quality claim",
+  "command": [
+    "bench_int4_v07.py",
+    "--mode",
+    "sweep",
+    "--cases",
+    "moss_proj",
+    "--groups",
+    "32",
+    "--quant",
+    "aff",
+    "--layouts",
+    "kn",
+    "--methods",
+    "fp16_dequant,fp16_prepared_w",
+    "--rounds",
+    "7",
+    "--iters",
+    "10",
+    "--out",
+    "results/int4_v07/confirm_moss01"
+  ],
+  "mode": "sweep",
+  "sources": {
+    "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/bench_int4_v07.py": "b65e21b6abda44405c7e2608b0de06ab5deba5120ea277a32fc75473de207391",
+    "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/rdna2_ops/int4_weight_gemm_v07.py": "a4fc124619e3a8fa7525411f5abb1f2f1f350cfe4a95d25d34090d220c52dee8",
+    "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/rdna2_ops/int8_gemm.py": "0b2d0970af17ddf61aa19d242bfebbb6f42add330e07387442dbe97ab316109d",
+    "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/gpu_guard_v06.py": "7409f98dbf2c1975f5727338346af248657d98229c4a92732809379207b4b329",
+    "~/DevSpace/qwen-image-21-rdna2-lab01/custom_nodes/RDNA2-Qwen21-INT8/int8_fused_kernel.py": "70c014d3c394b69cc907c60dd7086e367861c6bf03031320524c3ba2dcf86603"
+  },
+  "criteria_file": "source/INT4_PLAN_V07_KO.md",
+  "criteria_sha256": "151db7c72107459b68572902c77ea5a57b3809f27b7752a73c628e44d2c46f99",
+  "started_unix_s": 1794005490.3270497,
+  "criteria": {
+    "fp32_relative_l2": 2e-05,
+    "fp32_max_abs": "1e-4 + 1e-4*reference_max_abs",
+    "fp16_relative_l2": 0.001,
+    "fp16_max_abs": "2e-3 + 2e-3*reference_max_abs",
+    "model_rgb_max_abs": 0.00784313725490196,
+    "model_rgb_rmse": 0.000980392156862745,
+    "performance_promotion": 1.05
+  },
+  "timing": {
+    "rounds": 7,
+    "iterations": 10,
+    "warmups": 2,
+    "interleaved_forward_reverse": true,
+    "wall_scope": "synchronized ordinary call with output allocation and documented activation/weight conversion",
+    "event_scope": "HIP events around repeated ordinary calls; may contain host launch gaps",
+    "weight_cache": "explicit caller owned; resident bytes include sums and zeros",
+    "cold": "first compile/autotune/preparation separately; never warm throughput"
+  },
+  "success": true,
+  "runtime": {
+    "torch": "2.12.0+rocm10.2.0a20261011",
+    "triton": "3.8.0",
+    "hip": "7.17.26405",
+    "gpu": "AMD Radeon RX 6900 XT",
+    "arch": "gfx1030"
+  },
+  "rows": [
+    {
+      "case": "moss_proj",
+      "model": "moss",
+      "shape": [
+        1061,
+        3072,
+        3072
+      ],
+      "weight": {
+        "file": "~/DevSpace/moss-image-rdna2-lab01/models/diffusion_models/moss_image_sft_int8_convrot.safetensors",
+        "name": "layers.0.proj.o.weight",
+        "dtype": "torch.int8",
+        "shape": [
+          3072,
+          3072
+        ],
+        "tensor_sha256": "78f4a92c3a1ade013c5671fea82ce812ee77d8ba1bf1ecf14c84c6b8e5f9d21c",
+        "scale_sha256": "10372561e22931d59f25abd27b7a1dcc7189d13c88f1718e5d783f08b56ccc4a"
+      },
+      "input_values": "synthetic seeded activations at actual observed shape",
+      "unit_scope": "Bias-free GEMM at actual Linear weight/shape; not full Linear pipeline",
+      "bias_in_unit": false,
+      "baseline": "MOSS v0.5 fused INT8",
+      "native_first_compile_autotune_s": 0.5219237109995447,
+      "native_profile": {
+        "trace": "profile_moss_proj_native.json",
+        "kernels": [
+          {
+            "name": "_int8_dot_dequant.kd",
+            "duration_us": 1150.607
+          }
+        ]
+      },
+      "candidates": [
+        {
+          "method": "fp16_dequant",
+          "error_same_stored_values": {
+            "finite": true,
+            "max_abs": 0.00181864831706946,
+            "rmse": 0.00040108969665103805,
+            "reference_max_abs": 3.9557145391417436,
+            "relative_l2": 0.00037427719597001084
+          },
+          "compute_gate": true,
+          "kernel": null,
+          "weight_prepare_excluded": false,
+          "activation_prepare_excluded_from_core": false,
+          "candidate_core_dtype": "torch.float16",
+          "prepared_core_sample": {
+            "event_ms": 0.7994225978851318,
+            "wall_ms": 0.8041694003622979
+          },
+          "additional_peak_bytes": 31911936,
+          "samples": [
+            {
+              "event_ms": 0.892513370513916,
+              "wall_ms": 0.8958176986197941
+            },
+            {
+              "event_ms": 0.8724173545837403,
+              "wall_ms": 0.8754769005463459
+            },
+            {
+              "event_ms": 0.872944450378418,
+              "wall_ms": 0.8763478996115737
+            },
+            {
+              "event_ms": 0.9415543556213379,
+              "wall_ms": 0.9446712996577844
+            },
+            {
+              "event_ms": 0.9042434692382812,
+              "wall_ms": 0.9074375993805006
+            },
+            {
+              "event_ms": 0.9851202964782715,
+              "wall_ms": 0.9884560000500642
+            },
+            {
+              "event_ms": 0.9192954063415527,
+              "wall_ms": 0.9224074994563125
+            }
+          ],
+          "median_wall_ms": 0.9074375993805006,
+          "median_event_ms": 0.9042434692382812,
+          "speedup_wall": 0.7557535646585732,
+          "speedup_event": 0.7542634322187629,
+          "model_candidate": false
+        },
+        {
+          "method": "fp16_prepared_w",
+          "error_same_stored_values": {
+            "finite": true,
+            "max_abs": 0.00181864831706946,
+            "rmse": 0.00040108969665103805,
+            "reference_max_abs": 3.9557145391417436,
+            "relative_l2": 0.00037427719597001084
+          },
+          "compute_gate": true,
+          "kernel": null,
+          "weight_prepare_excluded": true,
+          "activation_prepare_excluded_from_core": false,
+          "candidate_core_dtype": "torch.float16",
+          "prepared_core_sample": {
+            "event_ms": 0.6171488761901855,
+            "wall_ms": 0.6199226001626812
+          },
+          "additional_peak_bytes": 26075136,
+          "samples": [
+            {
+              "event_ms": 0.7129178047180176,
+              "wall_ms": 0.7164289010688663
+            },
+            {
+              "event_ms": 0.7147128105163574,
+              "wall_ms": 0.7178048996138386
+            },
+            {
+              "event_ms": 0.7161458015441895,
+              "wall_ms": 0.7196039994596504
+            },
+            {
+              "event_ms": 0.7331266880035401,
+              "wall_ms": 0.7366837991867214
+            },
+            {
+              "event_ms": 0.7703957080841064,
+              "wall_ms": 0.7735684994258918
+            },
+            {
+              "event_ms": 0.8122976303100586,
+              "wall_ms": 0.8156932992278598
+            },
+            {
+              "event_ms": 0.7783845901489258,
+              "wall_ms": 0.78201949945651
+            }
+          ],
+          "median_wall_ms": 0.7366837991867214,
+          "median_event_ms": 0.7331266880035401,
+          "speedup_wall": 0.9309274904567402,
+          "speedup_event": 0.9303136740614385,
+          "model_candidate": false
+        }
+      ],
+      "weight_packing_s": 0.0032186870084842667,
+      "weight_packing_scope": "Single first preparation; may include JIT; excluded from warm call comparison",
+      "storage": {
+        "group_size": 32,
+        "symmetric": false,
+        "layout": "kn",
+        "order": "low",
+        "packed_bytes": 4718592,
+        "scale_bytes": 1179648,
+        "zero_bytes": 1179648,
+        "sum_bytes": 1179648,
+        "total_resident_bytes": 8257536,
+        "logical_stride": [
+          1,
+          3072
+        ]
+      },
+      "weight_representation_error": {
+        "finite": true,
+        "max_abs": 0.27707817645317023,
+        "rmse": 0.08776825538098863,
+        "reference_max_abs": 4.103521042647197,
+        "relative_l2": 0.08189604807932008
+      },
+      "activation_representation_error": {
+        "relative_l2": 0.0,
+        "max_abs": 0.0,
+        "reason": "Existing A8 and row scales retained"
+      },
+      "native_compute_error": {
+        "finite": true,
+        "max_abs": 2.958426001953285e-07,
+        "rmse": 4.78500763299398e-08,
+        "reference_max_abs": 4.103521042647197,
+        "relative_l2": 4.4648627624022674e-08
+      },
+      "weight_dequant_fp16_error": {
+        "finite": true,
+        "max_abs": 3.0258670449256897e-05,
+        "rmse": 4.050820576811533e-06,
+        "reference_max_abs": 0.10061931610107422,
+        "relative_l2": 0.00020846568089916725
+      },
+      "native_samples": [
+        {
+          "event_ms": 0.6814288139343262,
+          "wall_ms": 0.6857992004370317
+        },
+        {
+          "event_ms": 0.6820377826690673,
+          "wall_ms": 0.6848742006695829
+        },
+        {
+          "event_ms": 0.6804588794708252,
+          "wall_ms": 0.6839752008090727
+        },
+        {
+          "event_ms": 0.6927127838134766,
+          "wall_ms": 0.6958051002584398
+        },
+        {
+          "event_ms": 0.6816658973693848,
+          "wall_ms": 0.6848631994216703
+        },
+        {
+          "event_ms": 0.724217700958252,
+          "wall_ms": 0.7275408992427401
+        },
+        {
+          "event_ms": 0.6966067790985108,
+          "wall_ms": 0.7004059996688738
+        }
+      ],
+      "native_median_wall_ms": 0.6857992004370317,
+      "native_median_event_ms": 0.6820377826690673
+    }
+  ],
+  "gpu_audit": {
+    "available": true,
+    "valid_for_timing": true,
+    "method": "KFD client PID snapshots and periodic polling; research flock",
+    "limitation": "Detects observed KFD clients, not graphics load or sub-poll transient clients",
+    "allowed_pids": [
+      945023
+    ],
+    "interval_s": 0.25,
+    "sample_count": 10,
+    "started_unix_s": 1794005490.3270974,
+    "ended_unix_s": 1794005491.9011366,
+    "foreign_clients": [],
+    "errors": [],
+    "transitions": [
+      {
+        "unix_s": 1794005490.3270977,
+        "kfd_pids": [],
+        "foreign_or_error": []
+      }
+    ]
+  },
+  "ended_unix_s": 1794005491.9011576
+}

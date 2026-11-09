@@ -1,0 +1,216 @@
+{
+  "schema": "v08_solver_direction_bench",
+  "label": "normal_explicit_range_smoke",
+  "torch": "2.11.0+rocm10.0.0",
+  "hip": "7.15.26333",
+  "mode": "NORMAL",
+  "benchmark": false,
+  "dtype": "fp16",
+  "gate": {
+    "finite": true,
+    "reference_finite": true,
+    "nrmse": 0.002,
+    "max_over_reference_rms": 0.02
+  },
+  "safety": {
+    "MIOPEN_DEBUG_CONV_IMPLICIT_GEMM_HIP_FWD_V4R1": "0",
+    "MIOPEN_DEBUG_CONV_DIRECT_HIP_WRW53": "0"
+  },
+  "seed": 63117,
+  "db": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/applio_v08/solver_workspace_seed_db24",
+  "db_file_before": null,
+  "db_sha256_before": null,
+  "cases": [
+    {
+      "case": {
+        "kind": "conv1d",
+        "shape": [
+          8,
+          64,
+          6400
+        ],
+        "weight": [
+          64,
+          64,
+          7
+        ],
+        "stride": [
+          1
+        ],
+        "padding": [
+          9
+        ],
+        "dilation": [
+          3
+        ],
+        "groups": 1,
+        "output_padding": [
+          0
+        ],
+        "name": "conv1d_B8_C64_T6400_O64_K7_S1_D3_G1_P9",
+        "origin": "Actual voice_model_A KLM49 HFG FP16 AMP B8 training capture",
+        "benchmark_dtype": "fp16",
+        "physical_dtype_basis": "FP16 training autocast contract; module hook records logical boundary dtypes",
+        "source_capture_keys": [
+          "9835179fb5b4"
+        ],
+        "logical_boundary_variants": [
+          {
+            "capture_key": "9835179fb5b4",
+            "module_kind": "ParametrizedConv1d",
+            "input_dtype": "torch.float16",
+            "weight_dtype": "torch.float32",
+            "count": 5
+          }
+        ],
+        "observed_forward_calls": 5
+      },
+      "directions": {
+        "fwd": {
+          "cold_s": 0.16628783900523558,
+          "event_ms_rounds": [
+            0.9536700248718262
+          ],
+          "wall_ms_rounds": [
+            0.9988420060835779
+          ],
+          "event_median_ms": 0.9536700248718262,
+          "wall_median_ms": 0.9988420060835779,
+          "db_key": "64-1-6400-1x7-64-1-6400-8-0x9-1x1-1x3-0-NCHW-FP16-F",
+          "db_entries_before": [],
+          "requested_single_solver": null,
+          "reference_error": {
+            "finite": true,
+            "reference_finite": true,
+            "screen_pass": true,
+            "nrmse": 0.0002077307270098524,
+            "max_over_reference_rms": 0.0019392655429188738,
+            "max_abs": 0.0019321441650390625,
+            "rmse": 0.00020696789748932243,
+            "reference_rms": 0.996327796414568
+          },
+          "db_entries_after": [
+            {
+              "solver": "GemmFwdRest",
+              "recorded_ms": 0.855344,
+              "workspace_bytes": 5734400,
+              "algorithm": "miopenConvolutionFwdAlgoGEMM",
+              "raw": "GemmFwdRest:0.855344,5734400,miopenConvolutionFwdAlgoGEMM"
+            }
+          ],
+          "db_target_entry_unchanged": false
+        },
+        "dx": {
+          "cold_s": 0.041757247992791235,
+          "event_ms_rounds": [
+            0.6615599989891052
+          ],
+          "wall_ms_rounds": [
+            0.6960540194995701
+          ],
+          "event_median_ms": 0.6615599989891052,
+          "wall_median_ms": 0.6960540194995701,
+          "db_key": "64-1-6400-1x7-64-1-6400-8-0x9-1x1-1x3-0-NCHW-FP16-B",
+          "db_entries_before": [],
+          "requested_single_solver": null,
+          "reference_error": {
+            "finite": true,
+            "reference_finite": true,
+            "screen_pass": true,
+            "nrmse": 0.0002938961888652869,
+            "max_over_reference_rms": 0.002424755718948392,
+            "max_abs": 2.417340874671936e-05,
+            "rmse": 2.929974614360244e-06,
+            "reference_rms": 0.009969420242136096
+          },
+          "db_entries_after": [
+            {
+              "solver": "GemmBwdRest",
+              "recorded_ms": 0.508652,
+              "workspace_bytes": 5734400,
+              "algorithm": "miopenConvolutionBwdDataAlgoGEMM",
+              "raw": "GemmBwdRest:0.508652,5734400,miopenConvolutionBwdDataAlgoGEMM"
+            }
+          ],
+          "db_target_entry_unchanged": false
+        },
+        "dw": {
+          "cold_s": 0.13295549398753792,
+          "event_ms_rounds": [
+            4.258011817932129
+          ],
+          "wall_ms_rounds": [
+            4.293636011425406
+          ],
+          "event_median_ms": 4.258011817932129,
+          "wall_median_ms": 4.293636011425406,
+          "db_key": "64-1-6400-1x7-64-1-6400-8-0x9-1x1-1x3-0-NCHW-FP16-W",
+          "db_entries_before": [],
+          "requested_single_solver": null,
+          "reference_error": {
+            "finite": true,
+            "reference_finite": true,
+            "screen_pass": true,
+            "nrmse": 0.0004401357703003125,
+            "max_over_reference_rms": 0.003724231721735352,
+            "max_abs": 0.008365154266357422,
+            "rmse": 0.0009886075550069658,
+            "reference_rms": 2.24614226272139
+          },
+          "db_entries_after": [
+            {
+              "solver": "GemmWrwUniversal",
+              "recorded_ms": 4.12379,
+              "workspace_bytes": 5734400,
+              "algorithm": "miopenConvolutionBwdWeightsAlgoGEMM",
+              "raw": "GemmWrwUniversal:4.12379,5734400,miopenConvolutionBwdWeightsAlgoGEMM"
+            },
+            {
+              "solver": "ConvHipImplicitGemmV4R1WrW",
+              "recorded_ms": 4.17123,
+              "workspace_bytes": 0,
+              "algorithm": "miopenConvolutionBwdWeightsAlgoImplicitGEMM",
+              "raw": "ConvHipImplicitGemmV4R1WrW:4.17123,0,miopenConvolutionBwdWeightsAlgoImplicitGEMM"
+            }
+          ],
+          "db_target_entry_unchanged": false
+        }
+      },
+      "all_gates_pass": true
+    }
+  ],
+  "warmup": 1,
+  "rounds": 1,
+  "reps": 1,
+  "logging_enabled": true,
+  "probe_only": false,
+  "timing_scope": "each direction alone; no bias, allocation included; GPU event and wall separate",
+  "reference": "FP32 MIOpen on exactly FP16-rounded input/weight/grad-output; both safety blockers active",
+  "status": "completed",
+  "device": "AMD Radeon RX 6900 XT",
+  "gpu_audit": {
+    "available": true,
+    "valid_for_timing": true,
+    "method": "KFD client PID snapshots and periodic polling; research flock",
+    "limitation": "Detects observed KFD clients, not graphics load or sub-poll transient clients",
+    "allowed_pids": [
+      1777078
+    ],
+    "interval_s": 0.25,
+    "sample_count": 8,
+    "started_unix_s": 1794076038.1379495,
+    "ended_unix_s": 1794076039.5465612,
+    "foreign_clients": [],
+    "errors": [],
+    "transitions": [
+      {
+        "unix_s": 1794076038.1379497,
+        "kfd_pids": [],
+        "foreign_or_error": []
+      }
+    ]
+  },
+  "valid_for_timing": false,
+  "db_file_after": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/applio_v08/solver_workspace_seed_db24/gfx1030_40.HIP.3_6_0_8d1ae90e.ufdb.txt",
+  "db_sha256_after": "0ddc3856c9765efcc51cdc185197e79ae429a64ee7ea5fa466ba6ced6f2feedd"
+}

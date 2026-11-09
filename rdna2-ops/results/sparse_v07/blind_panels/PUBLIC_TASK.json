@@ -1,0 +1,25 @@
+{
+  "prompt": "[private prompt removed: two-character anime illustration edit with a reference image]",
+  "negative_prompt": "low quality, blurry, extra fingers, deformed hands, text, watermark",
+  "common_input_label": "공통 입력: 생성 결과가 아님",
+  "common_input_assets": [
+    {
+      "path": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/sparse_v07/blind_panels/a0024.png",
+      "sha256": "21ccf570ae37d0f71ec1bc501a39fee7b0aea98eda5d926ce2f58c6f7c55a238",
+      "bytes": 386153,
+      "view": "common_input",
+      "source_region": [
+        0,
+        0,
+        960,
+        640
+      ],
+      "size": [
+        960,
+        688
+      ],
+      "pixel_identity_verified": true,
+      "resized": false
+    }
+  ]
+}

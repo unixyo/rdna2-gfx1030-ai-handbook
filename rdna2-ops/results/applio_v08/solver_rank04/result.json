@@ -1,0 +1,3654 @@
+{
+  "schema": "v08_solver_direction_bench",
+  "label": "rank04",
+  "torch": "2.11.0+rocm10.0.0",
+  "hip": "7.15.26333",
+  "mode": "FAST",
+  "benchmark": false,
+  "dtype": "fp16",
+  "gate": {
+    "finite": true,
+    "reference_finite": true,
+    "nrmse": 0.002,
+    "max_over_reference_rms": 0.02
+  },
+  "safety": {
+    "MIOPEN_DEBUG_CONV_IMPLICIT_GEMM_HIP_FWD_V4R1": "0",
+    "MIOPEN_DEBUG_CONV_DIRECT_HIP_WRW53": "0"
+  },
+  "seed": 63117,
+  "db": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/applio_v08/solver_ranks47/rank_04",
+  "db_file_before": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/applio_v08/solver_ranks47/rank_04/gfx1030_40.HIP.3_6_0_8d1ae90e.ufdb.txt",
+  "db_sha256_before": "92bf3ac36dd0d0f49ada2e7aedb9837145069382e661c1dc336556bb3478336a",
+  "cases": [
+    {
+      "case": {
+        "kind": "conv1d",
+        "shape": [
+          8,
+          128,
+          3200
+        ],
+        "weight": [
+          128,
+          128,
+          11
+        ],
+        "stride": [
+          1
+        ],
+        "padding": [
+          5
+        ],
+        "dilation": [
+          1
+        ],
+        "groups": 1,
+        "output_padding": [
+          0
+        ],
+        "name": "conv1d_B8_C128_T3200_O128_K11_S1_D1_G1_P5",
+        "origin": "Actual voice_model_A KLM49 HFG FP16 AMP B8 training capture",
+        "benchmark_dtype": "fp16",
+        "physical_dtype_basis": "FP16 training autocast contract; module hook records logical boundary dtypes",
+        "source_capture_keys": [
+          "e2f6ccf4fb0c"
+        ],
+        "logical_boundary_variants": [
+          {
+            "capture_key": "e2f6ccf4fb0c",
+            "module_kind": "ParametrizedConv1d",
+            "input_dtype": "torch.float16",
+            "weight_dtype": "torch.float32",
+            "count": 20
+          }
+        ],
+        "observed_forward_calls": 20
+      },
+      "directions": {
+        "fwd": {
+          "cold_s": 0.13118669699179009,
+          "event_ms_rounds": [
+            0.9420782497950962,
+            0.9439068521772113,
+            0.9451511246817452
+          ],
+          "wall_ms_rounds": [
+            0.9480652848391661,
+            0.9473710004905505,
+            0.9484825714025646
+          ],
+          "event_median_ms": 0.9439068521772113,
+          "wall_median_ms": 0.9480652848391661,
+          "db_key": "128-1-3200-1x11-128-1-3200-8-0x5-1x1-1x1-0-NCHW-FP16-F",
+          "db_entries_before": [],
+          "requested_single_solver": null,
+          "device_activities": {
+            "denominator_ms": 0.936704,
+            "rows": [
+              {
+                "name": "Cijk_Ailk_Bljk_HHS_BH_MT128x128x16_SN_AMAS3_BL1_BS1_EPS1_GLVWA8_GLVWB8_GRVW8_GSU1_GSUASB_ISA1030_IU2_K1_KLA_LDL2_LRVW8_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU0_SUM0_SUS0_SVW4_TT8_8_USFGROn1_VAW2_VSn1_VW8_VWB8_WS32_WG16_16_1_WGM1",
+                "category": "kernel",
+                "device": 1,
+                "self_gpu_ms": 0.5294719999999999,
+                "count": 8,
+                "device_type": "CUDA",
+                "input_shapes": [],
+                "share_of_this_table": 0.5652500683246788
+              },
+              {
+                "name": "Im2d2Col_v2",
+                "category": "kernel",
+                "device": 1,
+                "self_gpu_ms": 0.407232,
+                "count": 8,
+                "device_type": "CUDA",
+                "input_shapes": [],
+                "share_of_this_table": 0.4347499316753211
+              }
+            ],
+            "top10": [
+              {
+                "name": "Cijk_Ailk_Bljk_HHS_BH_MT128x128x16_SN_AMAS3_BL1_BS1_EPS1_GLVWA8_GLVWB8_GRVW8_GSU1_GSUASB_ISA1030_IU2_K1_KLA_LDL2_LRVW8_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU0_SUM0_SUS0_SVW4_TT8_8_USFGROn1_VAW2_VSn1_VW8_VWB8_WS32_WG16_16_1_WGM1",
+                "category": "kernel",
+                "device": 1,
+                "self_gpu_ms": 0.5294719999999999,
+                "count": 8,
+                "device_type": "CUDA",
+                "input_shapes": [],
+                "share_of_this_table": 0.5652500683246788
+              },
+              {
+                "name": "Im2d2Col_v2",
+                "category": "kernel",
+                "device": 1,
+                "self_gpu_ms": 0.407232,
+                "count": 8,
+                "device_type": "CUDA",
+                "input_shapes": [],
+                "share_of_this_table": 0.4347499316753211
+              }
+            ],
+            "aggregation": "sum Chrome trace complete events (ph=X), grouped by category/name/device",
+            "included_categories": [
+              "kernel",
+              "gpu_memcpy",
+              "gpu_memset"
+            ],
+            "category_totals": {
+              "kernel": {
+                "count": 16,
+                "duration_ms": 0.936704
+              },
+              "gpu_memcpy": {
+                "count": 0,
+                "duration_ms": 0.0
+              },
+              "gpu_memset": {
+                "count": 0,
+                "duration_ms": 0.0
+              }
+            },
+            "excluded_complete_event_categories": {
+              "Trace": {
+                "count": 1,
+                "duration_ms": 3.310824
+              },
+              "cpu_op": {
+                "count": 10,
+                "duration_ms": 1.3185989999999999
+              },
+              "cuda_runtime": {
+                "count": 27,
+                "duration_ms": 2.873517
+              }
+            },
+            "trace_file": "conv1d_B8_C128_T3200_O128_K11_S1_D1_G1_P5_fwd.trace.json",
+            "trace_sha256": "7b433e6c544505edd4e55089fdbf0199393c3bb53322980cf75ae93c1d352f3b",
+            "trace_retained": true,
+            "trace_duration_unit": "microseconds",
+            "denominator_semantics": "summed kernel/memcpy/memset work; never add CPU attribution or GPU annotations; may overlap across streams"
+          },
+          "trace": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/applio_v08/solver_rank04/conv1d_B8_C128_T3200_O128_K11_S1_D1_G1_P5_fwd.trace.json",
+          "reference_error": {
+            "finite": true,
+            "reference_finite": true,
+            "screen_pass": true,
+            "nrmse": 0.00020753943536832542,
+            "max_over_reference_rms": 0.0019457873524157878,
+            "max_abs": 0.0019402503967285156,
+            "rmse": 0.00020694885867680299,
+            "reference_rms": 0.9971543880782257
+          },
+          "db_entries_after": [],
+          "db_target_entry_unchanged": true
+        },
+        "dx": {
+          "cold_s": 0.03825776599114761,
+          "event_ms_rounds": [
+            0.5385171345302037,
+            0.5426885741097587,
+            0.540198564529419
+          ],
+          "wall_ms_rounds": [
+            0.5432541407312134,
+            0.5461014308301466,
+            0.5437212863138744
+          ],
+          "event_median_ms": 0.540198564529419,
+          "wall_median_ms": 0.5437212863138744,
+          "db_key": "128-1-3200-1x11-128-1-3200-8-0x5-1x1-1x1-0-NCHW-FP16-B",
+          "db_entries_before": [],
+          "requested_single_solver": null,
+          "device_activities": {
+            "denominator_ms": 0.467904,
+            "rows": [
+              {
+                "name": "Cijk_Ailk_Bjlk_HHS_BH_MT128x128x8_SN_AMAS3_BL1_BS1_EPS0_GLVWA8_GLVWB8_GRVW8_GSU1_GSUASB_ISA1030_IU2_K1_KLA_LDL2_LRVW8_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU32_SUM3_SUS128_SVW4_TT8_16_USFGROn1_VAW2_VSn1_VW8_VWB8_WS32_WG16_8_1_WGM4",
+                "category": "kernel",
+                "device": 1,
+                "self_gpu_ms": 0.24087199999999998,
+                "count": 8,
+                "device_type": "CUDA",
+                "input_shapes": [],
+                "share_of_this_table": 0.514789358500889
+              },
+              {
+                "name": "Col2Im2dU",
+                "category": "kernel",
+                "device": 1,
+                "self_gpu_ms": 0.227032,
+                "count": 8,
+                "device_type": "CUDA",
+                "input_shapes": [],
+                "share_of_this_table": 0.485210641499111
+              }
+            ],
+            "top10": [
+              {
+                "name": "Cijk_Ailk_Bjlk_HHS_BH_MT128x128x8_SN_AMAS3_BL1_BS1_EPS0_GLVWA8_GLVWB8_GRVW8_GSU1_GSUASB_ISA1030_IU2_K1_KLA_LDL2_LRVW8_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU32_SUM3_SUS128_SVW4_TT8_16_USFGROn1_VAW2_VSn1_VW8_VWB8_WS32_WG16_8_1_WGM4",
+                "category": "kernel",
+                "device": 1,
+                "self_gpu_ms": 0.24087199999999998,
+                "count": 8,
+                "device_type": "CUDA",
+                "input_shapes": [],
+                "share_of_this_table": 0.514789358500889
+              },
+              {
+                "name": "Col2Im2dU",
+                "category": "kernel",
+                "device": 1,
+                "self_gpu_ms": 0.227032,
+                "count": 8,
+                "device_type": "CUDA",
+                "input_shapes": [],
+                "share_of_this_table": 0.485210641499111
+              }
+            ],
+            "aggregation": "sum Chrome trace complete events (ph=X), grouped by category/name/device",
+            "included_categories": [
+              "kernel",
+              "gpu_memcpy",
+              "gpu_memset"
+            ],
+            "category_totals": {
+              "kernel": {
+                "count": 16,
+                "duration_ms": 0.46790400000000004
+              },
+              "gpu_memcpy": {
+                "count": 0,
+                "duration_ms": 0.0
+              },
+              "gpu_memset": {
+                "count": 0,
+                "duration_ms": 0.0
+              }
+            },
+            "excluded_complete_event_categories": {
+              "Trace": {
+                "count": 1,
+                "duration_ms": 0.8138529999999999
+              },
+              "cpu_op": {
+                "count": 10,
+                "duration_ms": 0.158179
+              },
+              "cuda_runtime": {
+                "count": 27,
+                "duration_ms": 0.5931360000000001
+              }
+            },
+            "trace_file": "conv1d_B8_C128_T3200_O128_K11_S1_D1_G1_P5_dx.trace.json",
+            "trace_sha256": "8923bfeafafab2811ad2dca567577a8288e810d6b5b66aabac8024a9b59eea04",
+            "trace_retained": true,
+            "trace_duration_unit": "microseconds",
+            "denominator_semantics": "summed kernel/memcpy/memset work; never add CPU attribution or GPU annotations; may overlap across streams"
+          },
+          "trace": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/applio_v08/solver_rank04/conv1d_B8_C128_T3200_O128_K11_S1_D1_G1_P5_dx.trace.json",
+          "reference_error": {
+            "finite": true,
+            "reference_finite": true,
+            "screen_pass": true,
+            "nrmse": 0.0002933747657232924,
+            "max_over_reference_rms": 0.0025090339090295525,
+            "max_abs": 2.504885196685791e-05,
+            "rmse": 2.9288966765127186e-06,
+            "reference_rms": 0.009983464901256093
+          },
+          "db_entries_after": [],
+          "db_target_entry_unchanged": true
+        },
+        "dw": {
+          "cold_s": 1.8829741190129425,
+          "event_ms_rounds": [
+            2.8287972041538785,
+            2.828611373901367,
+            2.826634270804269
+          ],
+          "wall_ms_rounds": [
+            2.835637428298859,
+            2.832317429627957,
+            2.829403288030465
+          ],
+          "event_median_ms": 2.828611373901367,
+          "wall_median_ms": 2.832317429627957,
+          "db_key": "128-1-3200-1x11-128-1-3200-8-0x5-1x1-1x1-0-NCHW-FP16-W",
+          "db_entries_before": [
+            {
+              "solver": "ConvHipImplicitGemmV4R1WrW",
+              "recorded_ms": 2.83764,
+              "workspace_bytes": 0,
+              "algorithm": "miopenConvolutionBwdWeightsAlgoImplicitGEMM",
+              "raw": "ConvHipImplicitGemmV4R1WrW:2.83764,0,miopenConvolutionBwdWeightsAlgoImplicitGEMM"
+            }
+          ],
+          "requested_single_solver": "ConvHipImplicitGemmV4R1WrW",
+          "device_activities": {
+            "denominator_ms": 2.812558,
+            "rows": [
+              {
+                "name": "gridwise_convolution_implicit_gemm_v4r1_nchw_kcyx_nkhw_lds_double_buffer",
+                "category": "kernel",
+                "device": 1,
+                "self_gpu_ms": 2.812558,
+                "count": 1,
+                "device_type": "CUDA",
+                "input_shapes": [],
+                "share_of_this_table": 1.0
+              }
+            ],
+            "top10": [
+              {
+                "name": "gridwise_convolution_implicit_gemm_v4r1_nchw_kcyx_nkhw_lds_double_buffer",
+                "category": "kernel",
+                "device": 1,
+                "self_gpu_ms": 2.812558,
+                "count": 1,
+                "device_type": "CUDA",
+                "input_shapes": [],
+                "share_of_this_table": 1.0
+              }
+            ],
+            "aggregation": "sum Chrome trace complete events (ph=X), grouped by category/name/device",
+            "included_categories": [
+              "kernel",
+              "gpu_memcpy",
+              "gpu_memset"
+            ],
+            "category_totals": {
+              "kernel": {
+                "count": 1,
+                "duration_ms": 2.812558
+              },
+              "gpu_memcpy": {
+                "count": 0,
+                "duration_ms": 0.0
+              },
+              "gpu_memset": {
+                "count": 0,
+                "duration_ms": 0.0
+              }
+            },
+            "excluded_complete_event_categories": {
+              "Trace": {
+                "count": 1,
+                "duration_ms": 3.065386
+              },
+              "cpu_op": {
+                "count": 11,
+                "duration_ms": 0.08832899999999999
+              },
+              "cuda_runtime": {
+                "count": 4,
+                "duration_ms": 2.890578
+              }
+            },
+            "trace_file": "conv1d_B8_C128_T3200_O128_K11_S1_D1_G1_P5_dw.trace.json",
+            "trace_sha256": "05166b071f7d54eaa2a13e110c6600ab3d795c2d9b052a8e4f815016ee3608de",
+            "trace_retained": true,
+            "trace_duration_unit": "microseconds",
+            "denominator_semantics": "summed kernel/memcpy/memset work; never add CPU attribution or GPU annotations; may overlap across streams"
+          },
+          "trace": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/applio_v08/solver_rank04/conv1d_B8_C128_T3200_O128_K11_S1_D1_G1_P5_dw.trace.json",
+          "reference_error": {
+            "finite": true,
+            "reference_finite": true,
+            "screen_pass": true,
+            "nrmse": 0.00020648094323177788,
+            "max_over_reference_rms": 0.001227303213394752,
+            "max_abs": 0.0019626617431640625,
+            "rmse": 0.00033019733310442735,
+            "reference_rms": 1.599166140643672
+          },
+          "db_entries_after": [
+            {
+              "solver": "ConvHipImplicitGemmV4R1WrW",
+              "recorded_ms": 2.83764,
+              "workspace_bytes": 0,
+              "algorithm": "miopenConvolutionBwdWeightsAlgoImplicitGEMM",
+              "raw": "ConvHipImplicitGemmV4R1WrW:2.83764,0,miopenConvolutionBwdWeightsAlgoImplicitGEMM"
+            }
+          ],
+          "db_target_entry_unchanged": true
+        }
+      },
+      "all_gates_pass": true
+    },
+    {
+      "case": {
+        "kind": "conv1d",
+        "shape": [
+          8,
+          128,
+          3200
+        ],
+        "weight": [
+          128,
+          128,
+          3
+        ],
+        "stride": [
+          1
+        ],
+        "padding": [
+          1
+        ],
+        "dilation": [
+          1
+        ],
+        "groups": 1,
+        "output_padding": [
+          0
+        ],
+        "name": "conv1d_B8_C128_T3200_O128_K3_S1_D1_G1_P1",
+        "origin": "Actual voice_model_A KLM49 HFG FP16 AMP B8 training capture",
+        "benchmark_dtype": "fp16",
+        "physical_dtype_basis": "FP16 training autocast contract; module hook records logical boundary dtypes",
+        "source_capture_keys": [
+          "98f1895a6839"
+        ],
+        "logical_boundary_variants": [
+          {
+            "capture_key": "98f1895a6839",
+            "module_kind": "ParametrizedConv1d",
+            "input_dtype": "torch.float16",
+            "weight_dtype": "torch.float32",
+            "count": 20
+          }
+        ],
+        "observed_forward_calls": 20
+      },
+      "directions": {
+        "fwd": {
+          "cold_s": 0.002588108996860683,
+          "event_ms_rounds": [
+            0.5801642962864467,
+            0.5819085666111538,
+            0.5832185745239258
+          ],
+          "wall_ms_rounds": [
+            0.5846452841069549,
+            0.5847340008975672,
+            0.587011142800163
+          ],
+          "event_median_ms": 0.5819085666111538,
+          "wall_median_ms": 0.5847340008975672,
+          "db_key": "128-1-3200-1x3-128-1-3200-8-0x1-1x1-1x1-0-NCHW-FP16-F",
+          "db_entries_before": [],
+          "requested_single_solver": null,
+          "device_activities": {
+            "denominator_ms": 0.481464,
+            "rows": [
+              {
+                "name": "Im2d2Col_v2",
+                "category": "kernel",
+                "device": 1,
+                "self_gpu_ms": 0.33715199999999995,
+                "count": 8,
+                "device_type": "CUDA",
+                "input_shapes": [],
+                "share_of_this_table": 0.7002641942076665
+              },
+              {
+                "name": "Cijk_Ailk_Bljk_HHS_BH_MT128x128x16_SN_AMAS3_BL1_BS1_EPS0_GLVWA8_GLVWB8_GRVW8_GSU1_GSUASB_ISA1030_IU2_K1_KLA_LDL2_LRVW8_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU32_SUM3_SUS128_SVW4_TT8_16_USFGROn1_VAW2_VSn1_VW8_VWB8_WS32_WG16_8_1_WGM1",
+                "category": "kernel",
+                "device": 1,
+                "self_gpu_ms": 0.14431200000000002,
+                "count": 8,
+                "device_type": "CUDA",
+                "input_shapes": [],
+                "share_of_this_table": 0.29973580579233344
+              }
+            ],
+            "top10": [
+              {
+                "name": "Im2d2Col_v2",
+                "category": "kernel",
+                "device": 1,
+                "self_gpu_ms": 0.33715199999999995,
+                "count": 8,
+                "device_type": "CUDA",
+                "input_shapes": [],
+                "share_of_this_table": 0.7002641942076665
+              },
+              {
+                "name": "Cijk_Ailk_Bljk_HHS_BH_MT128x128x16_SN_AMAS3_BL1_BS1_EPS0_GLVWA8_GLVWB8_GRVW8_GSU1_GSUASB_ISA1030_IU2_K1_KLA_LDL2_LRVW8_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU32_SUM3_SUS128_SVW4_TT8_16_USFGROn1_VAW2_VSn1_VW8_VWB8_WS32_WG16_8_1_WGM1",
+                "category": "kernel",
+                "device": 1,
+                "self_gpu_ms": 0.14431200000000002,
+                "count": 8,
+                "device_type": "CUDA",
+                "input_shapes": [],
+                "share_of_this_table": 0.29973580579233344
+              }
+            ],
+            "aggregation": "sum Chrome trace complete events (ph=X), grouped by category/name/device",
+            "included_categories": [
+              "kernel",
+              "gpu_memcpy",
+              "gpu_memset"
+            ],
+            "category_totals": {
+              "kernel": {
+                "count": 16,
+                "duration_ms": 0.48146399999999995
+              },
+              "gpu_memcpy": {
+                "count": 0,
+                "duration_ms": 0.0
+              },
+              "gpu_memset": {
+                "count": 0,
+                "duration_ms": 0.0
+              }
+            },
+            "excluded_complete_event_categories": {
+              "Trace": {
+                "count": 1,
+                "duration_ms": 0.823973
+              },
+              "cpu_op": {
+                "count": 10,
+                "duration_ms": 0.6680830000000001
+              },
+              "cuda_runtime": {
+                "count": 27,
+                "duration_ms": 0.589886
+              }
+            },
+            "trace_file": "conv1d_B8_C128_T3200_O128_K3_S1_D1_G1_P1_fwd.trace.json",
+            "trace_sha256": "113128918a3fe58ef5ff890d24c7d88201d82cee80ae383fe6c2a2ed95ef7ffb",
+            "trace_retained": true,
+            "trace_duration_unit": "microseconds",
+            "denominator_semantics": "summed kernel/memcpy/memset work; never add CPU attribution or GPU annotations; may overlap across streams"
+          },
+          "trace": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/applio_v08/solver_rank04/conv1d_B8_C128_T3200_O128_K3_S1_D1_G1_P1_fwd.trace.json",
+          "reference_error": {
+            "finite": true,
+            "reference_finite": true,
+            "screen_pass": true,
+            "nrmse": 0.000207524970581435,
+            "max_over_reference_rms": 0.0019572302371843567,
+            "max_abs": 0.0019474029541015625,
+            "rmse": 0.00020648298451668556,
+            "reference_rms": 0.9949789846405951
+          },
+          "db_entries_after": [],
+          "db_target_entry_unchanged": true
+        },
+        "dx": {
+          "cold_s": 0.000618885998846963,
+          "event_ms_rounds": [
+            0.24827143124171666,
+            0.24945570741380965,
+            0.25092571122305735
+          ],
+          "wall_ms_rounds": [
+            0.2513635720658515,
+            0.2521708582727505,
+            0.2536894254652517
+          ],
+          "event_median_ms": 0.24945570741380965,
+          "wall_median_ms": 0.2521708582727505,
+          "db_key": "128-1-3200-1x3-128-1-3200-8-0x1-1x1-1x1-0-NCHW-FP16-B",
+          "db_entries_before": [],
+          "requested_single_solver": null,
+          "device_activities": {
+            "denominator_ms": 0.21266400000000002,
+            "rows": [
+              {
+                "name": "Col2Im2dU",
+                "category": "kernel",
+                "device": 1,
+                "self_gpu_ms": 0.122752,
+                "count": 8,
+                "device_type": "CUDA",
+                "input_shapes": [],
+                "share_of_this_table": 0.5772109995109656
+              },
+              {
+                "name": "Cijk_Ailk_Bjlk_HHS_BH_MT128x128x8_SN_AMAS3_BL1_BS1_EPS0_GLVWA8_GLVWB8_GRVW8_GSU1_GSUASB_ISA1030_IU2_K1_KLA_LDL2_LRVW8_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU0_SUM0_SUS0_SVW4_TT8_16_USFGROn1_VAW2_VSn1_VW8_VWB8_WS32_WG16_8_1_WGM1",
+                "category": "kernel",
+                "device": 1,
+                "self_gpu_ms": 0.089912,
+                "count": 8,
+                "device_type": "CUDA",
+                "input_shapes": [],
+                "share_of_this_table": 0.42278900048903434
+              }
+            ],
+            "top10": [
+              {
+                "name": "Col2Im2dU",
+                "category": "kernel",
+                "device": 1,
+                "self_gpu_ms": 0.122752,
+                "count": 8,
+                "device_type": "CUDA",
+                "input_shapes": [],
+                "share_of_this_table": 0.5772109995109656
+              },
+              {
+                "name": "Cijk_Ailk_Bjlk_HHS_BH_MT128x128x8_SN_AMAS3_BL1_BS1_EPS0_GLVWA8_GLVWB8_GRVW8_GSU1_GSUASB_ISA1030_IU2_K1_KLA_LDL2_LRVW8_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU0_SUM0_SUS0_SVW4_TT8_16_USFGROn1_VAW2_VSn1_VW8_VWB8_WS32_WG16_8_1_WGM1",
+                "category": "kernel",
+                "device": 1,
+                "self_gpu_ms": 0.089912,
+                "count": 8,
+                "device_type": "CUDA",
+                "input_shapes": [],
+                "share_of_this_table": 0.42278900048903434
+              }
+            ],
+            "aggregation": "sum Chrome trace complete events (ph=X), grouped by category/name/device",
+            "included_categories": [
+              "kernel",
+              "gpu_memcpy",
+              "gpu_memset"
+            ],
+            "category_totals": {
+              "kernel": {
+                "count": 16,
+                "duration_ms": 0.212664
+              },
+              "gpu_memcpy": {
+                "count": 0,
+                "duration_ms": 0.0
+              },
+              "gpu_memset": {
+                "count": 0,
+                "duration_ms": 0.0
+              }
+            },
+            "excluded_complete_event_categories": {
+              "Trace": {
+                "count": 1,
+                "duration_ms": 0.487336
+              },
+              "cpu_op": {
+                "count": 10,
+                "duration_ms": 0.14769900000000002
+              },
+              "cuda_runtime": {
+                "count": 27,
+                "duration_ms": 0.305828
+              }
+            },
+            "trace_file": "conv1d_B8_C128_T3200_O128_K3_S1_D1_G1_P1_dx.trace.json",
+            "trace_sha256": "8b4d917e15cdf984f035ec1dba487473016644e8b7bb95ca317421e81e34c245",
+            "trace_retained": true,
+            "trace_duration_unit": "microseconds",
+            "denominator_semantics": "summed kernel/memcpy/memset work; never add CPU attribution or GPU annotations; may overlap across streams"
+          },
+          "trace": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/applio_v08/solver_rank04/conv1d_B8_C128_T3200_O128_K3_S1_D1_G1_P1_dx.trace.json",
+          "reference_error": {
+            "finite": true,
+            "reference_finite": true,
+            "screen_pass": true,
+            "nrmse": 0.00029732745575915764,
+            "max_over_reference_rms": 0.0029212452805270944,
+            "max_abs": 2.9105693101882935e-05,
+            "rmse": 2.9624084412823595e-06,
+            "reference_rms": 0.009963454043349368
+          },
+          "db_entries_after": [],
+          "db_target_entry_unchanged": true
+        },
+        "dw": {
+          "cold_s": 1.7871474109997507,
+          "event_ms_rounds": [
+            2.839569636753627,
+            2.8373955317905972,
+            2.832278387887137
+          ],
+          "wall_ms_rounds": [
+            2.8468258595759317,
+            2.84147314128599,
+            2.8361617171737765
+          ],
+          "event_median_ms": 2.8373955317905972,
+          "wall_median_ms": 2.84147314128599,
+          "db_key": "128-1-3200-1x3-128-1-3200-8-0x1-1x1-1x1-0-NCHW-FP16-W",
+          "db_entries_before": [
+            {
+              "solver": "ConvHipImplicitGemmV4R1WrW",
+              "recorded_ms": 2.86034,
+              "workspace_bytes": 0,
+              "algorithm": "miopenConvolutionBwdWeightsAlgoImplicitGEMM",
+              "raw": "ConvHipImplicitGemmV4R1WrW:2.86034,0,miopenConvolutionBwdWeightsAlgoImplicitGEMM"
+            }
+          ],
+          "requested_single_solver": "ConvHipImplicitGemmV4R1WrW",
+          "device_activities": {
+            "denominator_ms": 2.818679,
+            "rows": [
+              {
+                "name": "gridwise_convolution_implicit_gemm_v4r1_nchw_kcyx_nkhw_lds_double_buffer",
+                "category": "kernel",
+                "device": 1,
+                "self_gpu_ms": 2.818679,
+                "count": 1,
+                "device_type": "CUDA",
+                "input_shapes": [],
+                "share_of_this_table": 1.0
+              }
+            ],
+            "top10": [
+              {
+                "name": "gridwise_convolution_implicit_gemm_v4r1_nchw_kcyx_nkhw_lds_double_buffer",
+                "category": "kernel",
+                "device": 1,
+                "self_gpu_ms": 2.818679,
+                "count": 1,
+                "device_type": "CUDA",
+                "input_shapes": [],
+                "share_of_this_table": 1.0
+              }
+            ],
+            "aggregation": "sum Chrome trace complete events (ph=X), grouped by category/name/device",
+            "included_categories": [
+              "kernel",
+              "gpu_memcpy",
+              "gpu_memset"
+            ],
+            "category_totals": {
+              "kernel": {
+                "count": 1,
+                "duration_ms": 2.818679
+              },
+              "gpu_memcpy": {
+                "count": 0,
+                "duration_ms": 0.0
+              },
+              "gpu_memset": {
+                "count": 0,
+                "duration_ms": 0.0
+              }
+            },
+            "excluded_complete_event_categories": {
+              "Trace": {
+                "count": 1,
+                "duration_ms": 3.092986
+              },
+              "cpu_op": {
+                "count": 11,
+                "duration_ms": 0.08993899999999999
+              },
+              "cuda_runtime": {
+                "count": 4,
+                "duration_ms": 2.9005769999999997
+              }
+            },
+            "trace_file": "conv1d_B8_C128_T3200_O128_K3_S1_D1_G1_P1_dw.trace.json",
+            "trace_sha256": "d1127679c441270052172e11e991ca9e0353a2863f528c5bd155691a413f66c7",
+            "trace_retained": true,
+            "trace_duration_unit": "microseconds",
+            "denominator_semantics": "summed kernel/memcpy/memset work; never add CPU attribution or GPU annotations; may overlap across streams"
+          },
+          "trace": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/applio_v08/solver_rank04/conv1d_B8_C128_T3200_O128_K3_S1_D1_G1_P1_dw.trace.json",
+          "reference_error": {
+            "finite": true,
+            "reference_finite": true,
+            "screen_pass": true,
+            "nrmse": 0.00020570795244971964,
+            "max_over_reference_rms": 0.001217160355829398,
+            "max_abs": 0.001953125,
+            "rmse": 0.0003300907252722523,
+            "reference_rms": 1.6046570943966547
+          },
+          "db_entries_after": [
+            {
+              "solver": "ConvHipImplicitGemmV4R1WrW",
+              "recorded_ms": 2.86034,
+              "workspace_bytes": 0,
+              "algorithm": "miopenConvolutionBwdWeightsAlgoImplicitGEMM",
+              "raw": "ConvHipImplicitGemmV4R1WrW:2.86034,0,miopenConvolutionBwdWeightsAlgoImplicitGEMM"
+            }
+          ],
+          "db_target_entry_unchanged": true
+        }
+      },
+      "all_gates_pass": true
+    },
+    {
+      "case": {
+        "kind": "conv1d",
+        "shape": [
+          8,
+          128,
+          3200
+        ],
+        "weight": [
+          128,
+          128,
+          7
+        ],
+        "stride": [
+          1
+        ],
+        "padding": [
+          3
+        ],
+        "dilation": [
+          1
+        ],
+        "groups": 1,
+        "output_padding": [
+          0
+        ],
+        "name": "conv1d_B8_C128_T3200_O128_K7_S1_D1_G1_P3",
+        "origin": "Actual voice_model_A KLM49 HFG FP16 AMP B8 training capture",
+        "benchmark_dtype": "fp16",
+        "physical_dtype_basis": "FP16 training autocast contract; module hook records logical boundary dtypes",
+        "source_capture_keys": [
+          "f99c3e3185dd"
+        ],
+        "logical_boundary_variants": [
+          {
+            "capture_key": "f99c3e3185dd",
+            "module_kind": "ParametrizedConv1d",
+            "input_dtype": "torch.float16",
+            "weight_dtype": "torch.float32",
+            "count": 20
+          }
+        ],
+        "observed_forward_calls": 20
+      },
+      "directions": {
+        "fwd": {
+          "cold_s": 0.002743969002040103,
+          "event_ms_rounds": [
+            0.761185714176723,
+            0.7618557385035923,
+            0.7627641132899693
+          ],
+          "wall_ms_rounds": [
+            0.7670709996351174,
+            0.7662281443897102,
+            0.7666367164347321
+          ],
+          "event_median_ms": 0.7618557385035923,
+          "wall_median_ms": 0.7666367164347321,
+          "db_key": "128-1-3200-1x7-128-1-3200-8-0x3-1x1-1x1-0-NCHW-FP16-F",
+          "db_entries_before": [],
+          "requested_single_solver": null,
+          "device_activities": {
+            "denominator_ms": 0.660504,
+            "rows": [
+              {
+                "name": "Im2d2Col_v2",
+                "category": "kernel",
+                "device": 1,
+                "self_gpu_ms": 0.37131200000000003,
+                "count": 8,
+                "device_type": "CUDA",
+                "input_shapes": [],
+                "share_of_this_table": 0.5621646500248296
+              },
+              {
+                "name": "Cijk_Ailk_Bljk_HHS_BH_MT128x128x16_SN_AMAS3_BL1_BS1_EPS1_GLVWA8_GLVWB8_GRVW8_GSU1_GSUASB_ISA1030_IU2_K1_KLA_LDL2_LRVW8_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU0_SUM0_SUS0_SVW4_TT8_8_USFGROn1_VAW2_VSn1_VW8_VWB8_WS32_WG16_16_1_WGM4",
+                "category": "kernel",
+                "device": 1,
+                "self_gpu_ms": 0.289192,
+                "count": 8,
+                "device_type": "CUDA",
+                "input_shapes": [],
+                "share_of_this_table": 0.4378353499751705
+              }
+            ],
+            "top10": [
+              {
+                "name": "Im2d2Col_v2",
+                "category": "kernel",
+                "device": 1,
+                "self_gpu_ms": 0.37131200000000003,
+                "count": 8,
+                "device_type": "CUDA",
+                "input_shapes": [],
+                "share_of_this_table": 0.5621646500248296
+              },
+              {
+                "name": "Cijk_Ailk_Bljk_HHS_BH_MT128x128x16_SN_AMAS3_BL1_BS1_EPS1_GLVWA8_GLVWB8_GRVW8_GSU1_GSUASB_ISA1030_IU2_K1_KLA_LDL2_LRVW8_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU0_SUM0_SUS0_SVW4_TT8_8_USFGROn1_VAW2_VSn1_VW8_VWB8_WS32_WG16_16_1_WGM4",
+                "category": "kernel",
+                "device": 1,
+                "self_gpu_ms": 0.289192,
+                "count": 8,
+                "device_type": "CUDA",
+                "input_shapes": [],
+                "share_of_this_table": 0.4378353499751705
+              }
+            ],
+            "aggregation": "sum Chrome trace complete events (ph=X), grouped by category/name/device",
+            "included_categories": [
+              "kernel",
+              "gpu_memcpy",
+              "gpu_memset"
+            ],
+            "category_totals": {
+              "kernel": {
+                "count": 16,
+                "duration_ms": 0.660504
+              },
+              "gpu_memcpy": {
+                "count": 0,
+                "duration_ms": 0.0
+              },
+              "gpu_memset": {
+                "count": 0,
+                "duration_ms": 0.0
+              }
+            },
+            "excluded_complete_event_categories": {
+              "Trace": {
+                "count": 1,
+                "duration_ms": 1.0327709999999999
+              },
+              "cpu_op": {
+                "count": 10,
+                "duration_ms": 0.703296
+              },
+              "cuda_runtime": {
+                "count": 27,
+                "duration_ms": 0.786555
+              }
+            },
+            "trace_file": "conv1d_B8_C128_T3200_O128_K7_S1_D1_G1_P3_fwd.trace.json",
+            "trace_sha256": "08bd1810ce857c9e8ff7aa6e5b8db83993f6cfed7799d0a0de9e8f0fad36896d",
+            "trace_retained": true,
+            "trace_duration_unit": "microseconds",
+            "denominator_semantics": "summed kernel/memcpy/memset work; never add CPU attribution or GPU annotations; may overlap across streams"
+          },
+          "trace": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/applio_v08/solver_rank04/conv1d_B8_C128_T3200_O128_K7_S1_D1_G1_P3_fwd.trace.json",
+          "reference_error": {
+            "finite": true,
+            "reference_finite": true,
+            "screen_pass": true,
+            "nrmse": 0.00020773134247474857,
+            "max_over_reference_rms": 0.001960197924175903,
+            "max_abs": 0.0019526481628417969,
+            "rmse": 0.00020693125895361275,
+            "reference_rms": 0.9961484698861315
+          },
+          "db_entries_after": [],
+          "db_target_entry_unchanged": true
+        },
+        "dx": {
+          "cold_s": 0.0007886530074756593,
+          "event_ms_rounds": [
+            0.4575771263667515,
+            0.46073572976248606,
+            0.45823713711329866
+          ],
+          "wall_ms_rounds": [
+            0.460964856236907,
+            0.46433485528853324,
+            0.4615578592555331
+          ],
+          "event_median_ms": 0.45823713711329866,
+          "wall_median_ms": 0.4615578592555331,
+          "db_key": "128-1-3200-1x7-128-1-3200-8-0x3-1x1-1x1-0-NCHW-FP16-B",
+          "db_entries_before": [],
+          "requested_single_solver": null,
+          "device_activities": {
+            "denominator_ms": 0.388424,
+            "rows": [
+              {
+                "name": "Col2Im2dU",
+                "category": "kernel",
+                "device": 1,
+                "self_gpu_ms": 0.208872,
+                "count": 8,
+                "device_type": "CUDA",
+                "input_shapes": [],
+                "share_of_this_table": 0.5377422610343336
+              },
+              {
+                "name": "Cijk_Ailk_Bjlk_HHS_BH_MT128x128x8_SN_AMAS3_BL1_BS1_EPS0_GLVWA8_GLVWB8_GRVW8_GSU1_GSUASB_ISA1030_IU2_K1_KLA_LDL2_LRVW8_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU32_SUM3_SUS128_SVW4_TT8_16_USFGROn1_VAW2_VSn1_VW8_VWB8_WS32_WG16_8_1_WGM4",
+                "category": "kernel",
+                "device": 1,
+                "self_gpu_ms": 0.17955200000000002,
+                "count": 8,
+                "device_type": "CUDA",
+                "input_shapes": [],
+                "share_of_this_table": 0.46225773896566646
+              }
+            ],
+            "top10": [
+              {
+                "name": "Col2Im2dU",
+                "category": "kernel",
+                "device": 1,
+                "self_gpu_ms": 0.208872,
+                "count": 8,
+                "device_type": "CUDA",
+                "input_shapes": [],
+                "share_of_this_table": 0.5377422610343336
+              },
+              {
+                "name": "Cijk_Ailk_Bjlk_HHS_BH_MT128x128x8_SN_AMAS3_BL1_BS1_EPS0_GLVWA8_GLVWB8_GRVW8_GSU1_GSUASB_ISA1030_IU2_K1_KLA_LDL2_LRVW8_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU32_SUM3_SUS128_SVW4_TT8_16_USFGROn1_VAW2_VSn1_VW8_VWB8_WS32_WG16_8_1_WGM4",
+                "category": "kernel",
+                "device": 1,
+                "self_gpu_ms": 0.17955200000000002,
+                "count": 8,
+                "device_type": "CUDA",
+                "input_shapes": [],
+                "share_of_this_table": 0.46225773896566646
+              }
+            ],
+            "aggregation": "sum Chrome trace complete events (ph=X), grouped by category/name/device",
+            "included_categories": [
+              "kernel",
+              "gpu_memcpy",
+              "gpu_memset"
+            ],
+            "category_totals": {
+              "kernel": {
+                "count": 16,
+                "duration_ms": 0.38842400000000005
+              },
+              "gpu_memcpy": {
+                "count": 0,
+                "duration_ms": 0.0
+              },
+              "gpu_memset": {
+                "count": 0,
+                "duration_ms": 0.0
+              }
+            },
+            "excluded_complete_event_categories": {
+              "Trace": {
+                "count": 1,
+                "duration_ms": 0.710645
+              },
+              "cpu_op": {
+                "count": 10,
+                "duration_ms": 0.152559
+              },
+              "cuda_runtime": {
+                "count": 27,
+                "duration_ms": 0.503266
+              }
+            },
+            "trace_file": "conv1d_B8_C128_T3200_O128_K7_S1_D1_G1_P3_dx.trace.json",
+            "trace_sha256": "6e63875e74cf9a8f1091468501b47cfba927db1d26895a7510b275ff1ebc1618",
+            "trace_retained": true,
+            "trace_duration_unit": "microseconds",
+            "denominator_semantics": "summed kernel/memcpy/memset work; never add CPU attribution or GPU annotations; may overlap across streams"
+          },
+          "trace": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/applio_v08/solver_rank04/conv1d_B8_C128_T3200_O128_K7_S1_D1_G1_P3_dx.trace.json",
+          "reference_error": {
+            "finite": true,
+            "reference_finite": true,
+            "screen_pass": true,
+            "nrmse": 0.00029417197819130305,
+            "max_over_reference_rms": 0.002484457011350502,
+            "max_abs": 2.4743378162384033e-05,
+            "rmse": 2.9297381552226508e-06,
+            "reference_rms": 0.009959269993137865
+          },
+          "db_entries_after": [],
+          "db_target_entry_unchanged": true
+        },
+        "dw": {
+          "cold_s": 1.7601589340192731,
+          "event_ms_rounds": [
+            2.8236440931047713,
+            2.8227571759905135,
+            2.820517131260463
+          ],
+          "wall_ms_rounds": [
+            2.829980429461492,
+            2.826587571429887,
+            2.8240790000251894
+          ],
+          "event_median_ms": 2.8227571759905135,
+          "wall_median_ms": 2.826587571429887,
+          "db_key": "128-1-3200-1x7-128-1-3200-8-0x3-1x1-1x1-0-NCHW-FP16-W",
+          "db_entries_before": [
+            {
+              "solver": "ConvHipImplicitGemmV4R1WrW",
+              "recorded_ms": 2.84355,
+              "workspace_bytes": 0,
+              "algorithm": "miopenConvolutionBwdWeightsAlgoImplicitGEMM",
+              "raw": "ConvHipImplicitGemmV4R1WrW:2.84355,0,miopenConvolutionBwdWeightsAlgoImplicitGEMM"
+            }
+          ],
+          "requested_single_solver": "ConvHipImplicitGemmV4R1WrW",
+          "device_activities": {
+            "denominator_ms": 2.806679,
+            "rows": [
+              {
+                "name": "gridwise_convolution_implicit_gemm_v4r1_nchw_kcyx_nkhw_lds_double_buffer",
+                "category": "kernel",
+                "device": 1,
+                "self_gpu_ms": 2.806679,
+                "count": 1,
+                "device_type": "CUDA",
+                "input_shapes": [],
+                "share_of_this_table": 1.0
+              }
+            ],
+            "top10": [
+              {
+                "name": "gridwise_convolution_implicit_gemm_v4r1_nchw_kcyx_nkhw_lds_double_buffer",
+                "category": "kernel",
+                "device": 1,
+                "self_gpu_ms": 2.806679,
+                "count": 1,
+                "device_type": "CUDA",
+                "input_shapes": [],
+                "share_of_this_table": 1.0
+              }
+            ],
+            "aggregation": "sum Chrome trace complete events (ph=X), grouped by category/name/device",
+            "included_categories": [
+              "kernel",
+              "gpu_memcpy",
+              "gpu_memset"
+            ],
+            "category_totals": {
+              "kernel": {
+                "count": 1,
+                "duration_ms": 2.806679
+              },
+              "gpu_memcpy": {
+                "count": 0,
+                "duration_ms": 0.0
+              },
+              "gpu_memset": {
+                "count": 0,
+                "duration_ms": 0.0
+              }
+            },
+            "excluded_complete_event_categories": {
+              "Trace": {
+                "count": 1,
+                "duration_ms": 3.081766
+              },
+              "cpu_op": {
+                "count": 11,
+                "duration_ms": 0.10157899999999997
+              },
+              "cuda_runtime": {
+                "count": 4,
+                "duration_ms": 2.8855779999999998
+              }
+            },
+            "trace_file": "conv1d_B8_C128_T3200_O128_K7_S1_D1_G1_P3_dw.trace.json",
+            "trace_sha256": "09f56f25ef055d880cf9282eaaefdb639127f3d20dd1b94a33c8c02d1a82fe2d",
+            "trace_retained": true,
+            "trace_duration_unit": "microseconds",
+            "denominator_semantics": "summed kernel/memcpy/memset work; never add CPU attribution or GPU annotations; may overlap across streams"
+          },
+          "trace": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/applio_v08/solver_rank04/conv1d_B8_C128_T3200_O128_K7_S1_D1_G1_P3_dw.trace.json",
+          "reference_error": {
+            "finite": true,
+            "reference_finite": true,
+            "screen_pass": true,
+            "nrmse": 0.0002070127118078994,
+            "max_over_reference_rms": 0.0013689761876251427,
+            "max_abs": 0.0021820068359375,
+            "rmse": 0.00032995690967744054,
+            "reference_rms": 1.5938968520137502
+          },
+          "db_entries_after": [
+            {
+              "solver": "ConvHipImplicitGemmV4R1WrW",
+              "recorded_ms": 2.84355,
+              "workspace_bytes": 0,
+              "algorithm": "miopenConvolutionBwdWeightsAlgoImplicitGEMM",
+              "raw": "ConvHipImplicitGemmV4R1WrW:2.84355,0,miopenConvolutionBwdWeightsAlgoImplicitGEMM"
+            }
+          ],
+          "db_target_entry_unchanged": true
+        }
+      },
+      "all_gates_pass": true
+    },
+    {
+      "case": {
+        "kind": "conv1d",
+        "shape": [
+          8,
+          256,
+          320
+        ],
+        "weight": [
+          256,
+          256,
+          11
+        ],
+        "stride": [
+          1
+        ],
+        "padding": [
+          5
+        ],
+        "dilation": [
+          1
+        ],
+        "groups": 1,
+        "output_padding": [
+          0
+        ],
+        "name": "conv1d_B8_C256_T320_O256_K11_S1_D1_G1_P5",
+        "origin": "Actual voice_model_A KLM49 HFG FP16 AMP B8 training capture",
+        "benchmark_dtype": "fp16",
+        "physical_dtype_basis": "FP16 training autocast contract; module hook records logical boundary dtypes",
+        "source_capture_keys": [
+          "ff53041a95bd"
+        ],
+        "logical_boundary_variants": [
+          {
+            "capture_key": "ff53041a95bd",
+            "module_kind": "ParametrizedConv1d",
+            "input_dtype": "torch.float16",
+            "weight_dtype": "torch.float32",
+            "count": 20
+          }
+        ],
+        "observed_forward_calls": 20
+      },
+      "directions": {
+        "fwd": {
+          "cold_s": 0.0011413799948059022,
+          "event_ms_rounds": [
+            0.4805514131273542,
+            0.4840571539742606,
+            0.4837057249886649
+          ],
+          "wall_ms_rounds": [
+            0.4853932893768485,
+            0.48769328610173296,
+            0.48800757420914515
+          ],
+          "event_median_ms": 0.4837057249886649,
+          "wall_median_ms": 0.48769328610173296,
+          "db_key": "256-1-320-1x11-256-1-320-8-0x5-1x1-1x1-0-NCHW-FP16-F",
+          "db_entries_before": [],
+          "requested_single_solver": null,
+          "device_activities": {
+            "denominator_ms": 0.41614399999999996,
+            "rows": [
+              {
+                "name": "Cijk_Ailk_Bljk_HHS_BH_MT64x32x16_SN_AMAS3_BL1_BS1_EPS0_GLVWA4_GLVWB4_GRVW4_GSU1_GSUASB_ISA1030_IU2_K1_KLA_LDL2_LRVW4_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU0_SUM0_SUS0_SVW4_TT4_4_USFGROn1_VAW2_VSn1_VW4_VWB4_WS32_WG16_8_1_WGM1",
+                "category": "kernel",
+                "device": 1,
+                "self_gpu_ms": 0.32235199999999997,
+                "count": 8,
+                "device_type": "CUDA",
+                "input_shapes": [],
+                "share_of_this_table": 0.7746164789111462
+              },
+              {
+                "name": "Im2d2Col_v2",
+                "category": "kernel",
+                "device": 1,
+                "self_gpu_ms": 0.093792,
+                "count": 8,
+                "device_type": "CUDA",
+                "input_shapes": [],
+                "share_of_this_table": 0.22538352108885387
+              }
+            ],
+            "top10": [
+              {
+                "name": "Cijk_Ailk_Bljk_HHS_BH_MT64x32x16_SN_AMAS3_BL1_BS1_EPS0_GLVWA4_GLVWB4_GRVW4_GSU1_GSUASB_ISA1030_IU2_K1_KLA_LDL2_LRVW4_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU0_SUM0_SUS0_SVW4_TT4_4_USFGROn1_VAW2_VSn1_VW4_VWB4_WS32_WG16_8_1_WGM1",
+                "category": "kernel",
+                "device": 1,
+                "self_gpu_ms": 0.32235199999999997,
+                "count": 8,
+                "device_type": "CUDA",
+                "input_shapes": [],
+                "share_of_this_table": 0.7746164789111462
+              },
+              {
+                "name": "Im2d2Col_v2",
+                "category": "kernel",
+                "device": 1,
+                "self_gpu_ms": 0.093792,
+                "count": 8,
+                "device_type": "CUDA",
+                "input_shapes": [],
+                "share_of_this_table": 0.22538352108885387
+              }
+            ],
+            "aggregation": "sum Chrome trace complete events (ph=X), grouped by category/name/device",
+            "included_categories": [
+              "kernel",
+              "gpu_memcpy",
+              "gpu_memset"
+            ],
+            "category_totals": {
+              "kernel": {
+                "count": 16,
+                "duration_ms": 0.41614399999999996
+              },
+              "gpu_memcpy": {
+                "count": 0,
+                "duration_ms": 0.0
+              },
+              "gpu_memset": {
+                "count": 0,
+                "duration_ms": 0.0
+              }
+            },
+            "excluded_complete_event_categories": {
+              "Trace": {
+                "count": 1,
+                "duration_ms": 0.7521939999999999
+              },
+              "cpu_op": {
+                "count": 10,
+                "duration_ms": 0.7096660000000001
+              },
+              "cuda_runtime": {
+                "count": 27,
+                "duration_ms": 0.509137
+              }
+            },
+            "trace_file": "conv1d_B8_C256_T320_O256_K11_S1_D1_G1_P5_fwd.trace.json",
+            "trace_sha256": "d9614d9489451c9363e3eef0ed322fbdf0ec873d2af751120b3aa325e5b1a109",
+            "trace_retained": true,
+            "trace_duration_unit": "microseconds",
+            "denominator_semantics": "summed kernel/memcpy/memset work; never add CPU attribution or GPU annotations; may overlap across streams"
+          },
+          "trace": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/applio_v08/solver_rank04/conv1d_B8_C256_T320_O256_K11_S1_D1_G1_P5_fwd.trace.json",
+          "reference_error": {
+            "finite": true,
+            "reference_finite": true,
+            "screen_pass": true,
+            "nrmse": 0.00020799037589416586,
+            "max_over_reference_rms": 0.0019380892173561281,
+            "max_abs": 0.0019249916076660156,
+            "rmse": 0.00020658477663776126,
+            "reference_rms": 0.9932419985763196
+          },
+          "db_entries_after": [],
+          "db_target_entry_unchanged": true
+        },
+        "dx": {
+          "cold_s": 0.00066764498478733,
+          "event_ms_rounds": [
+            0.3005714416503906,
+            0.300267151423863,
+            0.30046285901750835
+          ],
+          "wall_ms_rounds": [
+            0.30384042682791396,
+            0.303496140986681,
+            0.3037232880680157
+          ],
+          "event_median_ms": 0.30046285901750835,
+          "wall_median_ms": 0.3037232880680157,
+          "db_key": "256-1-320-1x11-256-1-320-8-0x5-1x1-1x1-0-NCHW-FP16-B",
+          "db_entries_before": [],
+          "requested_single_solver": null,
+          "device_activities": {
+            "denominator_ms": 0.22674400000000003,
+            "rows": [
+              {
+                "name": "Cijk_Ailk_Bjlk_HHS_BH_MT64x32x16_SN_AMAS3_BL1_BS1_EPS1_GLVWA2_GLVWB2_GRVW2_GSU1_GSUASB_ISA1030_IU2_K1_KLA_LDL2_LRVW2_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU0_SUM0_SUS0_SVW4_TT4_4_USFGROn1_VAW2_VSn1_VW2_VWB2_WS32_WG16_8_1_WGM1",
+                "category": "kernel",
+                "device": 1,
+                "self_gpu_ms": 0.16987200000000002,
+                "count": 8,
+                "device_type": "CUDA",
+                "input_shapes": [],
+                "share_of_this_table": 0.7491796916346188
+              },
+              {
+                "name": "Col2Im2dU",
+                "category": "kernel",
+                "device": 1,
+                "self_gpu_ms": 0.056872,
+                "count": 8,
+                "device_type": "CUDA",
+                "input_shapes": [],
+                "share_of_this_table": 0.25082030836538116
+              }
+            ],
+            "top10": [
+              {
+                "name": "Cijk_Ailk_Bjlk_HHS_BH_MT64x32x16_SN_AMAS3_BL1_BS1_EPS1_GLVWA2_GLVWB2_GRVW2_GSU1_GSUASB_ISA1030_IU2_K1_KLA_LDL2_LRVW2_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU0_SUM0_SUS0_SVW4_TT4_4_USFGROn1_VAW2_VSn1_VW2_VWB2_WS32_WG16_8_1_WGM1",
+                "category": "kernel",
+                "device": 1,
+                "self_gpu_ms": 0.16987200000000002,
+                "count": 8,
+                "device_type": "CUDA",
+                "input_shapes": [],
+                "share_of_this_table": 0.7491796916346188
+              },
+              {
+                "name": "Col2Im2dU",
+                "category": "kernel",
+                "device": 1,
+                "self_gpu_ms": 0.056872,
+                "count": 8,
+                "device_type": "CUDA",
+                "input_shapes": [],
+                "share_of_this_table": 0.25082030836538116
+              }
+            ],
+            "aggregation": "sum Chrome trace complete events (ph=X), grouped by category/name/device",
+            "included_categories": [
+              "kernel",
+              "gpu_memcpy",
+              "gpu_memset"
+            ],
+            "category_totals": {
+              "kernel": {
+                "count": 16,
+                "duration_ms": 0.22674399999999997
+              },
+              "gpu_memcpy": {
+                "count": 0,
+                "duration_ms": 0.0
+              },
+              "gpu_memset": {
+                "count": 0,
+                "duration_ms": 0.0
+              }
+            },
+            "excluded_complete_event_categories": {
+              "Trace": {
+                "count": 1,
+                "duration_ms": 0.5487960000000001
+              },
+              "cpu_op": {
+                "count": 10,
+                "duration_ms": 0.14775899999999997
+              },
+              "cuda_runtime": {
+                "count": 27,
+                "duration_ms": 0.35916699999999996
+              }
+            },
+            "trace_file": "conv1d_B8_C256_T320_O256_K11_S1_D1_G1_P5_dx.trace.json",
+            "trace_sha256": "bd6855844f5ce16120c9aea86965f8b2f132bf1598c090bcc3c8355012b2f394",
+            "trace_retained": true,
+            "trace_duration_unit": "microseconds",
+            "denominator_semantics": "summed kernel/memcpy/memset work; never add CPU attribution or GPU annotations; may overlap across streams"
+          },
+          "trace": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/applio_v08/solver_rank04/conv1d_B8_C256_T320_O256_K11_S1_D1_G1_P5_dx.trace.json",
+          "reference_error": {
+            "finite": true,
+            "reference_finite": true,
+            "screen_pass": true,
+            "nrmse": 0.0002928337718377195,
+            "max_over_reference_rms": 0.0021505508323066014,
+            "max_abs": 2.1360814571380615e-05,
+            "rmse": 2.908635223355517e-06,
+            "reference_rms": 0.009932717818378557
+          },
+          "db_entries_after": [],
+          "db_target_entry_unchanged": true
+        },
+        "dw": {
+          "cold_s": 1.8235924399923533,
+          "event_ms_rounds": [
+            0.5002471378871373,
+            0.4999185630253383,
+            0.49991001401628765
+          ],
+          "wall_ms_rounds": [
+            0.5062917147630027,
+            0.5029374276221331,
+            0.5027874264799591
+          ],
+          "event_median_ms": 0.4999185630253383,
+          "wall_median_ms": 0.5029374276221331,
+          "db_key": "256-1-320-1x11-256-1-320-8-0x5-1x1-1x1-0-NCHW-FP16-W",
+          "db_entries_before": [
+            {
+              "solver": "ConvHipImplicitGemmV4R1WrW",
+              "recorded_ms": 0.495326,
+              "workspace_bytes": 0,
+              "algorithm": "miopenConvolutionBwdWeightsAlgoImplicitGEMM",
+              "raw": "ConvHipImplicitGemmV4R1WrW:0.495326,0,miopenConvolutionBwdWeightsAlgoImplicitGEMM"
+            }
+          ],
+          "requested_single_solver": "ConvHipImplicitGemmV4R1WrW",
+          "device_activities": {
+            "denominator_ms": 0.485159,
+            "rows": [
+              {
+                "name": "gridwise_convolution_implicit_gemm_v4r1_nchw_kcyx_nkhw_lds_double_buffer",
+                "category": "kernel",
+                "device": 1,
+                "self_gpu_ms": 0.485159,
+                "count": 1,
+                "device_type": "CUDA",
+                "input_shapes": [],
+                "share_of_this_table": 1.0
+              }
+            ],
+            "top10": [
+              {
+                "name": "gridwise_convolution_implicit_gemm_v4r1_nchw_kcyx_nkhw_lds_double_buffer",
+                "category": "kernel",
+                "device": 1,
+                "self_gpu_ms": 0.485159,
+                "count": 1,
+                "device_type": "CUDA",
+                "input_shapes": [],
+                "share_of_this_table": 1.0
+              }
+            ],
+            "aggregation": "sum Chrome trace complete events (ph=X), grouped by category/name/device",
+            "included_categories": [
+              "kernel",
+              "gpu_memcpy",
+              "gpu_memset"
+            ],
+            "category_totals": {
+              "kernel": {
+                "count": 1,
+                "duration_ms": 0.485159
+              },
+              "gpu_memcpy": {
+                "count": 0,
+                "duration_ms": 0.0
+              },
+              "gpu_memset": {
+                "count": 0,
+                "duration_ms": 0.0
+              }
+            },
+            "excluded_complete_event_categories": {
+              "Trace": {
+                "count": 1,
+                "duration_ms": 0.740294
+              },
+              "cpu_op": {
+                "count": 11,
+                "duration_ms": 0.090459
+              },
+              "cuda_runtime": {
+                "count": 4,
+                "duration_ms": 0.5635560000000001
+              }
+            },
+            "trace_file": "conv1d_B8_C256_T320_O256_K11_S1_D1_G1_P5_dw.trace.json",
+            "trace_sha256": "fd243bcc30557ecb377034160ef6f52e7e6907f5546160db86f813bcd96aa967",
+            "trace_retained": true,
+            "trace_duration_unit": "microseconds",
+            "denominator_semantics": "summed kernel/memcpy/memset work; never add CPU attribution or GPU annotations; may overlap across streams"
+          },
+          "trace": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/applio_v08/solver_rank04/conv1d_B8_C256_T320_O256_K11_S1_D1_G1_P5_dw.trace.json",
+          "reference_error": {
+            "finite": true,
+            "reference_finite": true,
+            "screen_pass": true,
+            "nrmse": 0.00020778331361662913,
+            "max_over_reference_rms": 0.0019322150542567657,
+            "max_abs": 0.0009713172912597656,
+            "rmse": 0.00010445189571753689,
+            "reference_rms": 0.5026962651594632
+          },
+          "db_entries_after": [
+            {
+              "solver": "ConvHipImplicitGemmV4R1WrW",
+              "recorded_ms": 0.495326,
+              "workspace_bytes": 0,
+              "algorithm": "miopenConvolutionBwdWeightsAlgoImplicitGEMM",
+              "raw": "ConvHipImplicitGemmV4R1WrW:0.495326,0,miopenConvolutionBwdWeightsAlgoImplicitGEMM"
+            }
+          ],
+          "db_target_entry_unchanged": true
+        }
+      },
+      "all_gates_pass": true
+    },
+    {
+      "case": {
+        "kind": "conv1d",
+        "shape": [
+          8,
+          256,
+          320
+        ],
+        "weight": [
+          256,
+          256,
+          3
+        ],
+        "stride": [
+          1
+        ],
+        "padding": [
+          1
+        ],
+        "dilation": [
+          1
+        ],
+        "groups": 1,
+        "output_padding": [
+          0
+        ],
+        "name": "conv1d_B8_C256_T320_O256_K3_S1_D1_G1_P1",
+        "origin": "Actual voice_model_A KLM49 HFG FP16 AMP B8 training capture",
+        "benchmark_dtype": "fp16",
+        "physical_dtype_basis": "FP16 training autocast contract; module hook records logical boundary dtypes",
+        "source_capture_keys": [
+          "503803ef6635"
+        ],
+        "logical_boundary_variants": [
+          {
+            "capture_key": "503803ef6635",
+            "module_kind": "ParametrizedConv1d",
+            "input_dtype": "torch.float16",
+            "weight_dtype": "torch.float32",
+            "count": 20
+          }
+        ],
+        "observed_forward_calls": 20
+      },
+      "directions": {
+        "fwd": {
+          "cold_s": 0.0009936919959727675,
+          "event_ms_rounds": [
+            0.3452485629490444,
+            0.34809000151497976,
+            0.3470314230237688
+          ],
+          "wall_ms_rounds": [
+            0.3501372827616121,
+            0.35077857319265604,
+            0.3496844271597053
+          ],
+          "event_median_ms": 0.3470314230237688,
+          "wall_median_ms": 0.3501372827616121,
+          "db_key": "256-1-320-1x3-256-1-320-8-0x1-1x1-1x1-0-NCHW-FP16-F",
+          "db_entries_before": [],
+          "requested_single_solver": null,
+          "device_activities": {
+            "denominator_ms": 0.27326399999999995,
+            "rows": [
+              {
+                "name": "Cijk_Ailk_Bljk_HHS_BH_MT128x64x16_SN_AMAS3_BL1_BS1_EPS0_GLVWA8_GLVWB8_GRVW8_GSU1_GSUASB_ISA1030_IU2_K1_KLA_LDL2_LRVW8_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU0_SUM0_SUS0_SVW4_TT8_8_USFGROn1_VAW2_VSn1_VW8_VWB8_WS32_WG16_8_1_WGM1",
+                "category": "kernel",
+                "device": 1,
+                "self_gpu_ms": 0.189152,
+                "count": 8,
+                "device_type": "CUDA",
+                "input_shapes": [],
+                "share_of_this_table": 0.6921950933895428
+              },
+              {
+                "name": "Im2d2Col_v2",
+                "category": "kernel",
+                "device": 1,
+                "self_gpu_ms": 0.08411199999999999,
+                "count": 8,
+                "device_type": "CUDA",
+                "input_shapes": [],
+                "share_of_this_table": 0.30780490661045734
+              }
+            ],
+            "top10": [
+              {
+                "name": "Cijk_Ailk_Bljk_HHS_BH_MT128x64x16_SN_AMAS3_BL1_BS1_EPS0_GLVWA8_GLVWB8_GRVW8_GSU1_GSUASB_ISA1030_IU2_K1_KLA_LDL2_LRVW8_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU0_SUM0_SUS0_SVW4_TT8_8_USFGROn1_VAW2_VSn1_VW8_VWB8_WS32_WG16_8_1_WGM1",
+                "category": "kernel",
+                "device": 1,
+                "self_gpu_ms": 0.189152,
+                "count": 8,
+                "device_type": "CUDA",
+                "input_shapes": [],
+                "share_of_this_table": 0.6921950933895428
+              },
+              {
+                "name": "Im2d2Col_v2",
+                "category": "kernel",
+                "device": 1,
+                "self_gpu_ms": 0.08411199999999999,
+                "count": 8,
+                "device_type": "CUDA",
+                "input_shapes": [],
+                "share_of_this_table": 0.30780490661045734
+              }
+            ],
+            "aggregation": "sum Chrome trace complete events (ph=X), grouped by category/name/device",
+            "included_categories": [
+              "kernel",
+              "gpu_memcpy",
+              "gpu_memset"
+            ],
+            "category_totals": {
+              "kernel": {
+                "count": 16,
+                "duration_ms": 0.273264
+              },
+              "gpu_memcpy": {
+                "count": 0,
+                "duration_ms": 0.0
+              },
+              "gpu_memset": {
+                "count": 0,
+                "duration_ms": 0.0
+              }
+            },
+            "excluded_complete_event_categories": {
+              "Trace": {
+                "count": 1,
+                "duration_ms": 0.630125
+              },
+              "cpu_op": {
+                "count": 10,
+                "duration_ms": 0.706644
+              },
+              "cuda_runtime": {
+                "count": 27,
+                "duration_ms": 0.384518
+              }
+            },
+            "trace_file": "conv1d_B8_C256_T320_O256_K3_S1_D1_G1_P1_fwd.trace.json",
+            "trace_sha256": "faf58f85814deb8fbefd790f7c14ece301d377fd62009e9155adee2694dad5b9",
+            "trace_retained": true,
+            "trace_duration_unit": "microseconds",
+            "denominator_semantics": "summed kernel/memcpy/memset work; never add CPU attribution or GPU annotations; may overlap across streams"
+          },
+          "trace": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/applio_v08/solver_rank04/conv1d_B8_C256_T320_O256_K3_S1_D1_G1_P1_fwd.trace.json",
+          "reference_error": {
+            "finite": true,
+            "reference_finite": true,
+            "screen_pass": true,
+            "nrmse": 0.00020755824662308526,
+            "max_over_reference_rms": 0.0019449444094310892,
+            "max_abs": 0.0019421577453613281,
+            "rmse": 0.00020726086274648576,
+            "reference_rms": 0.9985672268799826
+          },
+          "db_entries_after": [],
+          "db_target_entry_unchanged": true
+        },
+        "dx": {
+          "cold_s": 0.0005902860139030963,
+          "event_ms_rounds": [
+            0.20582713399614608,
+            0.20783000332968576,
+            0.20828143187931605
+          ],
+          "wall_ms_rounds": [
+            0.20924271250675833,
+            0.21056414282481586,
+            0.21162557199464313
+          ],
+          "event_median_ms": 0.20783000332968576,
+          "wall_median_ms": 0.21056414282481586,
+          "db_key": "256-1-320-1x3-256-1-320-8-0x1-1x1-1x1-0-NCHW-FP16-B",
+          "db_entries_before": [],
+          "requested_single_solver": null,
+          "device_activities": {
+            "denominator_ms": 0.18130400000000002,
+            "rows": [
+              {
+                "name": "Cijk_Ailk_Bjlk_HHS_BH_MT128x128x8_SN_AMAS3_BL1_BS1_EPS0_GLVWA8_GLVWB8_GRVW8_GSU1_GSUASB_ISA1030_IU2_K1_KLA_LDL2_LRVW8_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU0_SUM0_SUS0_SVW4_TT8_16_USFGROn1_VAW2_VSn1_VW8_VWB8_WS32_WG16_8_1_WGM8",
+                "category": "kernel",
+                "device": 1,
+                "self_gpu_ms": 0.146232,
+                "count": 8,
+                "device_type": "CUDA",
+                "input_shapes": [],
+                "share_of_this_table": 0.8065569430349027
+              },
+              {
+                "name": "Col2Im2dU",
+                "category": "kernel",
+                "device": 1,
+                "self_gpu_ms": 0.035072000000000006,
+                "count": 8,
+                "device_type": "CUDA",
+                "input_shapes": [],
+                "share_of_this_table": 0.1934430569650973
+              }
+            ],
+            "top10": [
+              {
+                "name": "Cijk_Ailk_Bjlk_HHS_BH_MT128x128x8_SN_AMAS3_BL1_BS1_EPS0_GLVWA8_GLVWB8_GRVW8_GSU1_GSUASB_ISA1030_IU2_K1_KLA_LDL2_LRVW8_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU0_SUM0_SUS0_SVW4_TT8_16_USFGROn1_VAW2_VSn1_VW8_VWB8_WS32_WG16_8_1_WGM8",
+                "category": "kernel",
+                "device": 1,
+                "self_gpu_ms": 0.146232,
+                "count": 8,
+                "device_type": "CUDA",
+                "input_shapes": [],
+                "share_of_this_table": 0.8065569430349027
+              },
+              {
+                "name": "Col2Im2dU",
+                "category": "kernel",
+                "device": 1,
+                "self_gpu_ms": 0.035072000000000006,
+                "count": 8,
+                "device_type": "CUDA",
+                "input_shapes": [],
+                "share_of_this_table": 0.1934430569650973
+              }
+            ],
+            "aggregation": "sum Chrome trace complete events (ph=X), grouped by category/name/device",
+            "included_categories": [
+              "kernel",
+              "gpu_memcpy",
+              "gpu_memset"
+            ],
+            "category_totals": {
+              "kernel": {
+                "count": 16,
+                "duration_ms": 0.18130399999999997
+              },
+              "gpu_memcpy": {
+                "count": 0,
+                "duration_ms": 0.0
+              },
+              "gpu_memset": {
+                "count": 0,
+                "duration_ms": 0.0
+              }
+            },
+            "excluded_complete_event_categories": {
+              "Trace": {
+                "count": 1,
+                "duration_ms": 0.44643700000000003
+              },
+              "cpu_op": {
+                "count": 10,
+                "duration_ms": 0.127089
+              },
+              "cuda_runtime": {
+                "count": 27,
+                "duration_ms": 0.287269
+              }
+            },
+            "trace_file": "conv1d_B8_C256_T320_O256_K3_S1_D1_G1_P1_dx.trace.json",
+            "trace_sha256": "daa0d50c871b644ad352ade65ad79e2bfd2ddfb5c4ca05a35f58cc1c3c13be03",
+            "trace_retained": true,
+            "trace_duration_unit": "microseconds",
+            "denominator_semantics": "summed kernel/memcpy/memset work; never add CPU attribution or GPU annotations; may overlap across streams"
+          },
+          "trace": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/applio_v08/solver_rank04/conv1d_B8_C256_T320_O256_K3_S1_D1_G1_P1_dx.trace.json",
+          "reference_error": {
+            "finite": true,
+            "reference_finite": true,
+            "screen_pass": true,
+            "nrmse": 0.00029773810230024946,
+            "max_over_reference_rms": 0.002529704694149451,
+            "max_abs": 2.5257468223571777e-05,
+            "rmse": 2.972722735261224e-06,
+            "reference_rms": 0.009984354411795864
+          },
+          "db_entries_after": [],
+          "db_target_entry_unchanged": true
+        },
+        "dw": {
+          "cold_s": 1.8591231880127452,
+          "event_ms_rounds": [
+            0.30814998490469797,
+            0.3096428598676409,
+            0.3055156980242048
+          ],
+          "wall_ms_rounds": [
+            0.31457885883615483,
+            0.3130018594674766,
+            0.30842185619154144
+          ],
+          "event_median_ms": 0.30814998490469797,
+          "wall_median_ms": 0.3130018594674766,
+          "db_key": "256-1-320-1x3-256-1-320-8-0x1-1x1-1x1-0-NCHW-FP16-W",
+          "db_entries_before": [
+            {
+              "solver": "ConvHipImplicitGemmV4R1WrW",
+              "recorded_ms": 0.305288,
+              "workspace_bytes": 0,
+              "algorithm": "miopenConvolutionBwdWeightsAlgoImplicitGEMM",
+              "raw": "ConvHipImplicitGemmV4R1WrW:0.305288,0,miopenConvolutionBwdWeightsAlgoImplicitGEMM"
+            }
+          ],
+          "requested_single_solver": "ConvHipImplicitGemmV4R1WrW",
+          "device_activities": {
+            "denominator_ms": 0.298039,
+            "rows": [
+              {
+                "name": "gridwise_convolution_implicit_gemm_v4r1_nchw_kcyx_nkhw_lds_double_buffer",
+                "category": "kernel",
+                "device": 1,
+                "self_gpu_ms": 0.298039,
+                "count": 1,
+                "device_type": "CUDA",
+                "input_shapes": [],
+                "share_of_this_table": 1.0
+              }
+            ],
+            "top10": [
+              {
+                "name": "gridwise_convolution_implicit_gemm_v4r1_nchw_kcyx_nkhw_lds_double_buffer",
+                "category": "kernel",
+                "device": 1,
+                "self_gpu_ms": 0.298039,
+                "count": 1,
+                "device_type": "CUDA",
+                "input_shapes": [],
+                "share_of_this_table": 1.0
+              }
+            ],
+            "aggregation": "sum Chrome trace complete events (ph=X), grouped by category/name/device",
+            "included_categories": [
+              "kernel",
+              "gpu_memcpy",
+              "gpu_memset"
+            ],
+            "category_totals": {
+              "kernel": {
+                "count": 1,
+                "duration_ms": 0.298039
+              },
+              "gpu_memcpy": {
+                "count": 0,
+                "duration_ms": 0.0
+              },
+              "gpu_memset": {
+                "count": 0,
+                "duration_ms": 0.0
+              }
+            },
+            "excluded_complete_event_categories": {
+              "Trace": {
+                "count": 1,
+                "duration_ms": 0.554115
+              },
+              "cpu_op": {
+                "count": 11,
+                "duration_ms": 0.08787899999999997
+              },
+              "cuda_runtime": {
+                "count": 4,
+                "duration_ms": 0.377176
+              }
+            },
+            "trace_file": "conv1d_B8_C256_T320_O256_K3_S1_D1_G1_P1_dw.trace.json",
+            "trace_sha256": "8d31db65ed6e93cf195f4e9df187930e828b99276ae49e4e28212a4fe9cbcf05",
+            "trace_retained": true,
+            "trace_duration_unit": "microseconds",
+            "denominator_semantics": "summed kernel/memcpy/memset work; never add CPU attribution or GPU annotations; may overlap across streams"
+          },
+          "trace": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/applio_v08/solver_rank04/conv1d_B8_C256_T320_O256_K3_S1_D1_G1_P1_dw.trace.json",
+          "reference_error": {
+            "finite": true,
+            "reference_finite": true,
+            "screen_pass": true,
+            "nrmse": 0.00020808324823890994,
+            "max_over_reference_rms": 0.001815102451103986,
+            "max_abs": 0.0009150505065917969,
+            "rmse": 0.00010490134129810224,
+            "reference_rms": 0.5041316020675541
+          },
+          "db_entries_after": [
+            {
+              "solver": "ConvHipImplicitGemmV4R1WrW",
+              "recorded_ms": 0.305288,
+              "workspace_bytes": 0,
+              "algorithm": "miopenConvolutionBwdWeightsAlgoImplicitGEMM",
+              "raw": "ConvHipImplicitGemmV4R1WrW:0.305288,0,miopenConvolutionBwdWeightsAlgoImplicitGEMM"
+            }
+          ],
+          "db_target_entry_unchanged": true
+        }
+      },
+      "all_gates_pass": true
+    },
+    {
+      "case": {
+        "kind": "conv1d",
+        "shape": [
+          8,
+          256,
+          320
+        ],
+        "weight": [
+          256,
+          256,
+          7
+        ],
+        "stride": [
+          1
+        ],
+        "padding": [
+          3
+        ],
+        "dilation": [
+          1
+        ],
+        "groups": 1,
+        "output_padding": [
+          0
+        ],
+        "name": "conv1d_B8_C256_T320_O256_K7_S1_D1_G1_P3",
+        "origin": "Actual voice_model_A KLM49 HFG FP16 AMP B8 training capture",
+        "benchmark_dtype": "fp16",
+        "physical_dtype_basis": "FP16 training autocast contract; module hook records logical boundary dtypes",
+        "source_capture_keys": [
+          "e67b882fac43"
+        ],
+        "logical_boundary_variants": [
+          {
+            "capture_key": "e67b882fac43",
+            "module_kind": "ParametrizedConv1d",
+            "input_dtype": "torch.float16",
+            "weight_dtype": "torch.float32",
+            "count": 20
+          }
+        ],
+        "observed_forward_calls": 20
+      },
+      "directions": {
+        "fwd": {
+          "cold_s": 0.0008570630161557347,
+          "event_ms_rounds": [
+            0.4026743003300258,
+            0.4020857129778181,
+            0.4005028520311628
+          ],
+          "wall_ms_rounds": [
+            0.40723528530049535,
+            0.40503385909167783,
+            0.40333685631464633
+          ],
+          "event_median_ms": 0.4020857129778181,
+          "wall_median_ms": 0.40503385909167783,
+          "db_key": "256-1-320-1x7-256-1-320-8-0x3-1x1-1x1-0-NCHW-FP16-F",
+          "db_entries_before": [],
+          "requested_single_solver": null,
+          "device_activities": {
+            "denominator_ms": 0.333424,
+            "rows": [
+              {
+                "name": "Cijk_Ailk_Bljk_HHS_BH_MT64x32x16_SN_AMAS3_BL1_BS1_EPS1_GLVWA2_GLVWB2_GRVW2_GSU1_GSUASB_ISA1030_IU2_K1_KLA_LDL2_LRVW2_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU0_SUM0_SUS0_SVW4_TT4_4_USFGROn1_VAW2_VSn1_VW2_VWB2_WS32_WG16_8_1_WGM1",
+                "category": "kernel",
+                "device": 1,
+                "self_gpu_ms": 0.247032,
+                "count": 8,
+                "device_type": "CUDA",
+                "input_shapes": [],
+                "share_of_this_table": 0.740894476702337
+              },
+              {
+                "name": "Im2d2Col_v2",
+                "category": "kernel",
+                "device": 1,
+                "self_gpu_ms": 0.086392,
+                "count": 8,
+                "device_type": "CUDA",
+                "input_shapes": [],
+                "share_of_this_table": 0.259105523297663
+              }
+            ],
+            "top10": [
+              {
+                "name": "Cijk_Ailk_Bljk_HHS_BH_MT64x32x16_SN_AMAS3_BL1_BS1_EPS1_GLVWA2_GLVWB2_GRVW2_GSU1_GSUASB_ISA1030_IU2_K1_KLA_LDL2_LRVW2_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU0_SUM0_SUS0_SVW4_TT4_4_USFGROn1_VAW2_VSn1_VW2_VWB2_WS32_WG16_8_1_WGM1",
+                "category": "kernel",
+                "device": 1,
+                "self_gpu_ms": 0.247032,
+                "count": 8,
+                "device_type": "CUDA",
+                "input_shapes": [],
+                "share_of_this_table": 0.740894476702337
+              },
+              {
+                "name": "Im2d2Col_v2",
+                "category": "kernel",
+                "device": 1,
+                "self_gpu_ms": 0.086392,
+                "count": 8,
+                "device_type": "CUDA",
+                "input_shapes": [],
+                "share_of_this_table": 0.259105523297663
+              }
+            ],
+            "aggregation": "sum Chrome trace complete events (ph=X), grouped by category/name/device",
+            "included_categories": [
+              "kernel",
+              "gpu_memcpy",
+              "gpu_memset"
+            ],
+            "category_totals": {
+              "kernel": {
+                "count": 16,
+                "duration_ms": 0.333424
+              },
+              "gpu_memcpy": {
+                "count": 0,
+                "duration_ms": 0.0
+              },
+              "gpu_memset": {
+                "count": 0,
+                "duration_ms": 0.0
+              }
+            },
+            "excluded_complete_event_categories": {
+              "Trace": {
+                "count": 1,
+                "duration_ms": 0.668355
+              },
+              "cpu_op": {
+                "count": 10,
+                "duration_ms": 0.6909460000000001
+              },
+              "cuda_runtime": {
+                "count": 27,
+                "duration_ms": 0.429947
+              }
+            },
+            "trace_file": "conv1d_B8_C256_T320_O256_K7_S1_D1_G1_P3_fwd.trace.json",
+            "trace_sha256": "4e821ed567f09201ae088788f6993f3fea57703a46a109cc5677c3265bd37047",
+            "trace_retained": true,
+            "trace_duration_unit": "microseconds",
+            "denominator_semantics": "summed kernel/memcpy/memset work; never add CPU attribution or GPU annotations; may overlap across streams"
+          },
+          "trace": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/applio_v08/solver_rank04/conv1d_B8_C256_T320_O256_K7_S1_D1_G1_P3_fwd.trace.json",
+          "reference_error": {
+            "finite": true,
+            "reference_finite": true,
+            "screen_pass": true,
+            "nrmse": 0.0002072721713188044,
+            "max_over_reference_rms": 0.0019343431812791868,
+            "max_abs": 0.0019240379333496094,
+            "rmse": 0.00020616792511522766,
+            "reference_rms": 0.9946724820966037
+          },
+          "db_entries_after": [],
+          "db_target_entry_unchanged": true
+        },
+        "dx": {
+          "cold_s": 0.0005591649969574064,
+          "event_ms_rounds": [
+            0.21206142221178328,
+            0.21317713601248606,
+            0.21260714530944824
+          ],
+          "wall_ms_rounds": [
+            0.21531828263375377,
+            0.2157954274610217,
+            0.2153297162814332
+          ],
+          "event_median_ms": 0.21260714530944824,
+          "wall_median_ms": 0.2153297162814332,
+          "db_key": "256-1-320-1x7-256-1-320-8-0x3-1x1-1x1-0-NCHW-FP16-B",
+          "db_entries_before": [],
+          "requested_single_solver": null,
+          "device_activities": {
+            "denominator_ms": 0.17710399999999998,
+            "rows": [
+              {
+                "name": "Cijk_Ailk_Bjlk_HHS_BH_MT32x32x16_SN_AMAS3_BL1_BS1_EPS1_GLVWA2_GLVWB2_GRVW2_GSU1_GSUASB_ISA1030_IU2_K1_KLA_LDL2_LRVW2_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU32_SUM3_SUS128_SVW4_TT4_4_USFGROn1_VAW2_VSn1_VW2_VWB2_WS32_WG8_8_1_WGM1",
+                "category": "kernel",
+                "device": 1,
+                "self_gpu_ms": 0.131512,
+                "count": 8,
+                "device_type": "CUDA",
+                "input_shapes": [],
+                "share_of_this_table": 0.7425693377902249
+              },
+              {
+                "name": "Col2Im2dU",
+                "category": "kernel",
+                "device": 1,
+                "self_gpu_ms": 0.04559200000000001,
+                "count": 8,
+                "device_type": "CUDA",
+                "input_shapes": [],
+                "share_of_this_table": 0.2574306622097751
+              }
+            ],
+            "top10": [
+              {
+                "name": "Cijk_Ailk_Bjlk_HHS_BH_MT32x32x16_SN_AMAS3_BL1_BS1_EPS1_GLVWA2_GLVWB2_GRVW2_GSU1_GSUASB_ISA1030_IU2_K1_KLA_LDL2_LRVW2_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU32_SUM3_SUS128_SVW4_TT4_4_USFGROn1_VAW2_VSn1_VW2_VWB2_WS32_WG8_8_1_WGM1",
+                "category": "kernel",
+                "device": 1,
+                "self_gpu_ms": 0.131512,
+                "count": 8,
+                "device_type": "CUDA",
+                "input_shapes": [],
+                "share_of_this_table": 0.7425693377902249
+              },
+              {
+                "name": "Col2Im2dU",
+                "category": "kernel",
+                "device": 1,
+                "self_gpu_ms": 0.04559200000000001,
+                "count": 8,
+                "device_type": "CUDA",
+                "input_shapes": [],
+                "share_of_this_table": 0.2574306622097751
+              }
+            ],
+            "aggregation": "sum Chrome trace complete events (ph=X), grouped by category/name/device",
+            "included_categories": [
+              "kernel",
+              "gpu_memcpy",
+              "gpu_memset"
+            ],
+            "category_totals": {
+              "kernel": {
+                "count": 16,
+                "duration_ms": 0.17710399999999998
+              },
+              "gpu_memcpy": {
+                "count": 0,
+                "duration_ms": 0.0
+              },
+              "gpu_memset": {
+                "count": 0,
+                "duration_ms": 0.0
+              }
+            },
+            "excluded_complete_event_categories": {
+              "Trace": {
+                "count": 1,
+                "duration_ms": 0.463777
+              },
+              "cpu_op": {
+                "count": 10,
+                "duration_ms": 0.145339
+              },
+              "cuda_runtime": {
+                "count": 27,
+                "duration_ms": 0.27500899999999995
+              }
+            },
+            "trace_file": "conv1d_B8_C256_T320_O256_K7_S1_D1_G1_P3_dx.trace.json",
+            "trace_sha256": "8bc5e4dcc7ba03b123663735b4bdec69bca2d5aa9ea3924413f2e9463ce71323",
+            "trace_retained": true,
+            "trace_duration_unit": "microseconds",
+            "denominator_semantics": "summed kernel/memcpy/memset work; never add CPU attribution or GPU annotations; may overlap across streams"
+          },
+          "trace": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/applio_v08/solver_rank04/conv1d_B8_C256_T320_O256_K7_S1_D1_G1_P3_dx.trace.json",
+          "reference_error": {
+            "finite": true,
+            "reference_finite": true,
+            "screen_pass": true,
+            "nrmse": 0.00029422291873568157,
+            "max_over_reference_rms": 0.002398593591037063,
+            "max_abs": 2.392008900642395e-05,
+            "rmse": 2.934152092370281e-06,
+            "reference_rms": 0.009972547702873579
+          },
+          "db_entries_after": [],
+          "db_target_entry_unchanged": true
+        },
+        "dw": {
+          "cold_s": 0.042943817999912426,
+          "event_ms_rounds": [
+            0.25893713746752056,
+            0.25942143372126986,
+            0.2603114332471575
+          ],
+          "wall_ms_rounds": [
+            0.2638378563070936,
+            0.26231085731914,
+            0.2633522838420634
+          ],
+          "event_median_ms": 0.25942143372126986,
+          "wall_median_ms": 0.2633522838420634,
+          "db_key": "256-1-320-1x7-256-1-320-8-0x3-1x1-1x1-0-NCHW-FP16-W",
+          "db_entries_before": [
+            {
+              "solver": "GemmWrwUniversal",
+              "recorded_ms": 0.353707,
+              "workspace_bytes": 1146880,
+              "algorithm": "miopenConvolutionBwdWeightsAlgoGEMM",
+              "raw": "GemmWrwUniversal:0.353707,1146880,miopenConvolutionBwdWeightsAlgoGEMM"
+            }
+          ],
+          "requested_single_solver": "GemmWrwUniversal",
+          "device_activities": {
+            "denominator_ms": 0.219943,
+            "rows": [
+              {
+                "name": "Cijk_Alik_Bljk_HHS_BH_MT64x64x16_SN_AMAS3_BL1_BS1_EPS1_GLVWA8_GLVWB8_GRVW8_GSU1_GSUASB_ISA1030_IU2_K1_KLA_LDL2_LRVW8_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU32_SUM3_SUS128_SVW4_TT8_8_USFGROn1_VAW2_VSn1_VW8_VWB8_WS32_WG8_8_1_WGM1",
+                "category": "kernel",
+                "device": 1,
+                "self_gpu_ms": 0.131872,
+                "count": 8,
+                "device_type": "CUDA",
+                "input_shapes": [],
+                "share_of_this_table": 0.5995735258680658
+              },
+              {
+                "name": "Im2d2Col_v2",
+                "category": "kernel",
+                "device": 1,
+                "self_gpu_ms": 0.085952,
+                "count": 8,
+                "device_type": "CUDA",
+                "input_shapes": [],
+                "share_of_this_table": 0.3907921597868539
+              },
+              {
+                "name": "SubTensorOpWithScalar1d",
+                "category": "kernel",
+                "device": 1,
+                "self_gpu_ms": 0.0021190000000000002,
+                "count": 1,
+                "device_type": "CUDA",
+                "input_shapes": [],
+                "share_of_this_table": 0.009634314345080316
+              }
+            ],
+            "top10": [
+              {
+                "name": "Cijk_Alik_Bljk_HHS_BH_MT64x64x16_SN_AMAS3_BL1_BS1_EPS1_GLVWA8_GLVWB8_GRVW8_GSU1_GSUASB_ISA1030_IU2_K1_KLA_LDL2_LRVW8_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU32_SUM3_SUS128_SVW4_TT8_8_USFGROn1_VAW2_VSn1_VW8_VWB8_WS32_WG8_8_1_WGM1",
+                "category": "kernel",
+                "device": 1,
+                "self_gpu_ms": 0.131872,
+                "count": 8,
+                "device_type": "CUDA",
+                "input_shapes": [],
+                "share_of_this_table": 0.5995735258680658
+              },
+              {
+                "name": "Im2d2Col_v2",
+                "category": "kernel",
+                "device": 1,
+                "self_gpu_ms": 0.085952,
+                "count": 8,
+                "device_type": "CUDA",
+                "input_shapes": [],
+                "share_of_this_table": 0.3907921597868539
+              },
+              {
+                "name": "SubTensorOpWithScalar1d",
+                "category": "kernel",
+                "device": 1,
+                "self_gpu_ms": 0.0021190000000000002,
+                "count": 1,
+                "device_type": "CUDA",
+                "input_shapes": [],
+                "share_of_this_table": 0.009634314345080316
+              }
+            ],
+            "aggregation": "sum Chrome trace complete events (ph=X), grouped by category/name/device",
+            "included_categories": [
+              "kernel",
+              "gpu_memcpy",
+              "gpu_memset"
+            ],
+            "category_totals": {
+              "kernel": {
+                "count": 17,
+                "duration_ms": 0.219943
+              },
+              "gpu_memcpy": {
+                "count": 0,
+                "duration_ms": 0.0
+              },
+              "gpu_memset": {
+                "count": 0,
+                "duration_ms": 0.0
+              }
+            },
+            "excluded_complete_event_categories": {
+              "Trace": {
+                "count": 1,
+                "duration_ms": 0.504626
+              },
+              "cpu_op": {
+                "count": 11,
+                "duration_ms": 0.16800899999999996
+              },
+              "cuda_runtime": {
+                "count": 28,
+                "duration_ms": 0.291348
+              }
+            },
+            "trace_file": "conv1d_B8_C256_T320_O256_K7_S1_D1_G1_P3_dw.trace.json",
+            "trace_sha256": "5f57d353d567de858c4292c534fcf6c04d16cb85bf7b665e6afd42f1543b1b24",
+            "trace_retained": true,
+            "trace_duration_unit": "microseconds",
+            "denominator_semantics": "summed kernel/memcpy/memset work; never add CPU attribution or GPU annotations; may overlap across streams"
+          },
+          "trace": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/applio_v08/solver_rank04/conv1d_B8_C256_T320_O256_K7_S1_D1_G1_P3_dw.trace.json",
+          "reference_error": {
+            "finite": true,
+            "reference_finite": true,
+            "screen_pass": true,
+            "nrmse": 0.00044072368226178907,
+            "max_over_reference_rms": 0.0053993397176157615,
+            "max_abs": 0.00272369384765625,
+            "rmse": 0.0002223228106904363,
+            "reference_rms": 0.5044494308757771
+          },
+          "db_entries_after": [
+            {
+              "solver": "GemmWrwUniversal",
+              "recorded_ms": 0.353707,
+              "workspace_bytes": 1146880,
+              "algorithm": "miopenConvolutionBwdWeightsAlgoGEMM",
+              "raw": "GemmWrwUniversal:0.353707,1146880,miopenConvolutionBwdWeightsAlgoGEMM"
+            }
+          ],
+          "db_target_entry_unchanged": true
+        }
+      },
+      "all_gates_pass": true
+    },
+    {
+      "case": {
+        "kind": "conv1d",
+        "shape": [
+          8,
+          64,
+          6400
+        ],
+        "weight": [
+          64,
+          64,
+          11
+        ],
+        "stride": [
+          1
+        ],
+        "padding": [
+          5
+        ],
+        "dilation": [
+          1
+        ],
+        "groups": 1,
+        "output_padding": [
+          0
+        ],
+        "name": "conv1d_B8_C64_T6400_O64_K11_S1_D1_G1_P5",
+        "origin": "Actual voice_model_A KLM49 HFG FP16 AMP B8 training capture",
+        "benchmark_dtype": "fp16",
+        "physical_dtype_basis": "FP16 training autocast contract; module hook records logical boundary dtypes",
+        "source_capture_keys": [
+          "f9901f687881"
+        ],
+        "logical_boundary_variants": [
+          {
+            "capture_key": "f9901f687881",
+            "module_kind": "ParametrizedConv1d",
+            "input_dtype": "torch.float16",
+            "weight_dtype": "torch.float32",
+            "count": 20
+          }
+        ],
+        "observed_forward_calls": 20
+      },
+      "directions": {
+        "fwd": {
+          "cold_s": 0.0018982549954671413,
+          "event_ms_rounds": [
+            0.9312985965183803,
+            0.9332728385925293,
+            0.9347014427185059
+          ],
+          "wall_ms_rounds": [
+            0.9363382871794913,
+            0.936916858855901,
+            0.9412439997374479
+          ],
+          "event_median_ms": 0.9332728385925293,
+          "wall_median_ms": 0.936916858855901,
+          "db_key": "64-1-6400-1x11-64-1-6400-8-0x5-1x1-1x1-0-NCHW-FP16-F",
+          "db_entries_before": [],
+          "requested_single_solver": null,
+          "device_activities": {
+            "denominator_ms": 0.8367039999999999,
+            "rows": [
+              {
+                "name": "Cijk_Ailk_Bljk_HHS_BH_MT128x128x16_SN_AMAS3_BL1_BS1_EPS0_GLVWA8_GLVWB8_GRVW8_GSU1_GSUASB_ISA1030_IU2_K1_KLA_LDL2_LRVW8_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU0_SUM0_SUS0_SVW4_TT8_8_USFGROn1_VAW2_VSn1_VW8_VWB8_WS32_WG16_16_1_WGM1",
+                "category": "kernel",
+                "device": 1,
+                "self_gpu_ms": 0.43435199999999996,
+                "count": 8,
+                "device_type": "CUDA",
+                "input_shapes": [],
+                "share_of_this_table": 0.5191226526943817
+              },
+              {
+                "name": "Im2d2Col_v2",
+                "category": "kernel",
+                "device": 1,
+                "self_gpu_ms": 0.402352,
+                "count": 8,
+                "device_type": "CUDA",
+                "input_shapes": [],
+                "share_of_this_table": 0.48087734730561826
+              }
+            ],
+            "top10": [
+              {
+                "name": "Cijk_Ailk_Bljk_HHS_BH_MT128x128x16_SN_AMAS3_BL1_BS1_EPS0_GLVWA8_GLVWB8_GRVW8_GSU1_GSUASB_ISA1030_IU2_K1_KLA_LDL2_LRVW8_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU0_SUM0_SUS0_SVW4_TT8_8_USFGROn1_VAW2_VSn1_VW8_VWB8_WS32_WG16_16_1_WGM1",
+                "category": "kernel",
+                "device": 1,
+                "self_gpu_ms": 0.43435199999999996,
+                "count": 8,
+                "device_type": "CUDA",
+                "input_shapes": [],
+                "share_of_this_table": 0.5191226526943817
+              },
+              {
+                "name": "Im2d2Col_v2",
+                "category": "kernel",
+                "device": 1,
+                "self_gpu_ms": 0.402352,
+                "count": 8,
+                "device_type": "CUDA",
+                "input_shapes": [],
+                "share_of_this_table": 0.48087734730561826
+              }
+            ],
+            "aggregation": "sum Chrome trace complete events (ph=X), grouped by category/name/device",
+            "included_categories": [
+              "kernel",
+              "gpu_memcpy",
+              "gpu_memset"
+            ],
+            "category_totals": {
+              "kernel": {
+                "count": 16,
+                "duration_ms": 0.836704
+              },
+              "gpu_memcpy": {
+                "count": 0,
+                "duration_ms": 0.0
+              },
+              "gpu_memset": {
+                "count": 0,
+                "duration_ms": 0.0
+              }
+            },
+            "excluded_complete_event_categories": {
+              "Trace": {
+                "count": 1,
+                "duration_ms": 1.21024
+              },
+              "cpu_op": {
+                "count": 10,
+                "duration_ms": 0.745582
+              },
+              "cuda_runtime": {
+                "count": 27,
+                "duration_ms": 0.9487030000000001
+              }
+            },
+            "trace_file": "conv1d_B8_C64_T6400_O64_K11_S1_D1_G1_P5_fwd.trace.json",
+            "trace_sha256": "e5eaa327dce69c7471525ab42c920e54ef4fee00bc76d784702a081c957663ad",
+            "trace_retained": true,
+            "trace_duration_unit": "microseconds",
+            "denominator_semantics": "summed kernel/memcpy/memset work; never add CPU attribution or GPU annotations; may overlap across streams"
+          },
+          "trace": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/applio_v08/solver_rank04/conv1d_B8_C64_T6400_O64_K11_S1_D1_G1_P5_fwd.trace.json",
+          "reference_error": {
+            "finite": true,
+            "reference_finite": true,
+            "screen_pass": true,
+            "nrmse": 0.000207813691223178,
+            "max_over_reference_rms": 0.001953217319732275,
+            "max_abs": 0.0019412040710449219,
+            "rmse": 0.00020653553465141305,
+            "reference_rms": 0.9938495073917325
+          },
+          "db_entries_after": [],
+          "db_target_entry_unchanged": true
+        },
+        "dx": {
+          "cold_s": 0.0009662029915489256,
+          "event_ms_rounds": [
+            0.4892941543034145,
+            0.4922557217734201,
+            0.4970057010650635
+          ],
+          "wall_ms_rounds": [
+            0.49261471472813617,
+            0.49563743024399237,
+            0.5014445715849953
+          ],
+          "event_median_ms": 0.4922557217734201,
+          "wall_median_ms": 0.49563743024399237,
+          "db_key": "64-1-6400-1x11-64-1-6400-8-0x5-1x1-1x1-0-NCHW-FP16-B",
+          "db_entries_before": [],
+          "requested_single_solver": null,
+          "device_activities": {
+            "denominator_ms": 0.423624,
+            "rows": [
+              {
+                "name": "Col2Im2dU",
+                "category": "kernel",
+                "device": 1,
+                "self_gpu_ms": 0.230072,
+                "count": 8,
+                "device_type": "CUDA",
+                "input_shapes": [],
+                "share_of_this_table": 0.5431042622703152
+              },
+              {
+                "name": "Cijk_Ailk_Bjlk_HHS_BH_MT128x128x16_SN_AMAS3_BL1_BS1_EPS0_GLVWA8_GLVWB8_GRVW8_GSU1_GSUASB_ISA1030_IU2_K1_KLA_LDL2_LRVW8_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU0_SUM0_SUS0_SVW4_TT8_8_USFGROn1_VAW2_VSn1_VW8_VWB8_WS32_WG16_16_1_WGM1",
+                "category": "kernel",
+                "device": 1,
+                "self_gpu_ms": 0.19355200000000003,
+                "count": 8,
+                "device_type": "CUDA",
+                "input_shapes": [],
+                "share_of_this_table": 0.4568957377296849
+              }
+            ],
+            "top10": [
+              {
+                "name": "Col2Im2dU",
+                "category": "kernel",
+                "device": 1,
+                "self_gpu_ms": 0.230072,
+                "count": 8,
+                "device_type": "CUDA",
+                "input_shapes": [],
+                "share_of_this_table": 0.5431042622703152
+              },
+              {
+                "name": "Cijk_Ailk_Bjlk_HHS_BH_MT128x128x16_SN_AMAS3_BL1_BS1_EPS0_GLVWA8_GLVWB8_GRVW8_GSU1_GSUASB_ISA1030_IU2_K1_KLA_LDL2_LRVW8_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU0_SUM0_SUS0_SVW4_TT8_8_USFGROn1_VAW2_VSn1_VW8_VWB8_WS32_WG16_16_1_WGM1",
+                "category": "kernel",
+                "device": 1,
+                "self_gpu_ms": 0.19355200000000003,
+                "count": 8,
+                "device_type": "CUDA",
+                "input_shapes": [],
+                "share_of_this_table": 0.4568957377296849
+              }
+            ],
+            "aggregation": "sum Chrome trace complete events (ph=X), grouped by category/name/device",
+            "included_categories": [
+              "kernel",
+              "gpu_memcpy",
+              "gpu_memset"
+            ],
+            "category_totals": {
+              "kernel": {
+                "count": 16,
+                "duration_ms": 0.42362399999999995
+              },
+              "gpu_memcpy": {
+                "count": 0,
+                "duration_ms": 0.0
+              },
+              "gpu_memset": {
+                "count": 0,
+                "duration_ms": 0.0
+              }
+            },
+            "excluded_complete_event_categories": {
+              "Trace": {
+                "count": 1,
+                "duration_ms": 0.745914
+              },
+              "cpu_op": {
+                "count": 10,
+                "duration_ms": 0.149899
+              },
+              "cuda_runtime": {
+                "count": 27,
+                "duration_ms": 0.546046
+              }
+            },
+            "trace_file": "conv1d_B8_C64_T6400_O64_K11_S1_D1_G1_P5_dx.trace.json",
+            "trace_sha256": "9244daf5501a3b04337b623570728aeb62114153bc8352a21020a58c79948e1c",
+            "trace_retained": true,
+            "trace_duration_unit": "microseconds",
+            "denominator_semantics": "summed kernel/memcpy/memset work; never add CPU attribution or GPU annotations; may overlap across streams"
+          },
+          "trace": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/applio_v08/solver_rank04/conv1d_B8_C64_T6400_O64_K11_S1_D1_G1_P5_dx.trace.json",
+          "reference_error": {
+            "finite": true,
+            "reference_finite": true,
+            "screen_pass": true,
+            "nrmse": 0.00029342316549505127,
+            "max_over_reference_rms": 0.0024967941212067648,
+            "max_abs": 2.4840235710144043e-05,
+            "rmse": 2.9192237084373066e-06,
+            "reference_rms": 0.009948852209784169
+          },
+          "db_entries_after": [],
+          "db_target_entry_unchanged": true
+        },
+        "dw": {
+          "cold_s": 1.8469922950025648,
+          "event_ms_rounds": [
+            4.398702893938337,
+            4.4032600947788785,
+            4.365606852940151
+          ],
+          "wall_ms_rounds": [
+            4.441598999879456,
+            4.443679000749918,
+            4.40530785791842
+          ],
+          "event_median_ms": 4.398702893938337,
+          "wall_median_ms": 4.441598999879456,
+          "db_key": "64-1-6400-1x11-64-1-6400-8-0x5-1x1-1x1-0-NCHW-FP16-W",
+          "db_entries_before": [
+            {
+              "solver": "ConvHipImplicitGemmV4R1WrW",
+              "recorded_ms": 4.24089,
+              "workspace_bytes": 0,
+              "algorithm": "miopenConvolutionBwdWeightsAlgoImplicitGEMM",
+              "raw": "ConvHipImplicitGemmV4R1WrW:4.24089,0,miopenConvolutionBwdWeightsAlgoImplicitGEMM"
+            }
+          ],
+          "requested_single_solver": "ConvHipImplicitGemmV4R1WrW",
+          "device_activities": {
+            "denominator_ms": 4.185118999999999,
+            "rows": [
+              {
+                "name": "gridwise_convolution_implicit_gemm_v4r1_nchw_kcyx_nkhw_lds_double_buffer",
+                "category": "kernel",
+                "device": 1,
+                "self_gpu_ms": 4.185118999999999,
+                "count": 1,
+                "device_type": "CUDA",
+                "input_shapes": [],
+                "share_of_this_table": 1.0
+              }
+            ],
+            "top10": [
+              {
+                "name": "gridwise_convolution_implicit_gemm_v4r1_nchw_kcyx_nkhw_lds_double_buffer",
+                "category": "kernel",
+                "device": 1,
+                "self_gpu_ms": 4.185118999999999,
+                "count": 1,
+                "device_type": "CUDA",
+                "input_shapes": [],
+                "share_of_this_table": 1.0
+              }
+            ],
+            "aggregation": "sum Chrome trace complete events (ph=X), grouped by category/name/device",
+            "included_categories": [
+              "kernel",
+              "gpu_memcpy",
+              "gpu_memset"
+            ],
+            "category_totals": {
+              "kernel": {
+                "count": 1,
+                "duration_ms": 4.185118999999999
+              },
+              "gpu_memcpy": {
+                "count": 0,
+                "duration_ms": 0.0
+              },
+              "gpu_memset": {
+                "count": 0,
+                "duration_ms": 0.0
+              }
+            },
+            "excluded_complete_event_categories": {
+              "Trace": {
+                "count": 1,
+                "duration_ms": 4.724983
+              },
+              "cpu_op": {
+                "count": 11,
+                "duration_ms": 0.097399
+              },
+              "cuda_runtime": {
+                "count": 4,
+                "duration_ms": 4.520364
+              }
+            },
+            "trace_file": "conv1d_B8_C64_T6400_O64_K11_S1_D1_G1_P5_dw.trace.json",
+            "trace_sha256": "41c903d28582e38ac50cd7c8c0c3ba07008ce0ade74d9803daa3ab09c566923f",
+            "trace_retained": true,
+            "trace_duration_unit": "microseconds",
+            "denominator_semantics": "summed kernel/memcpy/memset work; never add CPU attribution or GPU annotations; may overlap across streams"
+          },
+          "trace": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/applio_v08/solver_rank04/conv1d_B8_C64_T6400_O64_K11_S1_D1_G1_P5_dw.trace.json",
+          "reference_error": {
+            "finite": true,
+            "reference_finite": true,
+            "screen_pass": true,
+            "nrmse": 0.0002079560766985312,
+            "max_over_reference_rms": 0.0017080238456717305,
+            "max_abs": 0.0038576126098632812,
+            "rmse": 0.0004696737611730798,
+            "reference_rms": 2.2585238605648166
+          },
+          "db_entries_after": [
+            {
+              "solver": "ConvHipImplicitGemmV4R1WrW",
+              "recorded_ms": 4.24089,
+              "workspace_bytes": 0,
+              "algorithm": "miopenConvolutionBwdWeightsAlgoImplicitGEMM",
+              "raw": "ConvHipImplicitGemmV4R1WrW:4.24089,0,miopenConvolutionBwdWeightsAlgoImplicitGEMM"
+            }
+          ],
+          "db_target_entry_unchanged": true
+        }
+      },
+      "all_gates_pass": true
+    },
+    {
+      "case": {
+        "kind": "conv1d",
+        "shape": [
+          8,
+          64,
+          6400
+        ],
+        "weight": [
+          64,
+          64,
+          3
+        ],
+        "stride": [
+          1
+        ],
+        "padding": [
+          1
+        ],
+        "dilation": [
+          1
+        ],
+        "groups": 1,
+        "output_padding": [
+          0
+        ],
+        "name": "conv1d_B8_C64_T6400_O64_K3_S1_D1_G1_P1",
+        "origin": "Actual voice_model_A KLM49 HFG FP16 AMP B8 training capture",
+        "benchmark_dtype": "fp16",
+        "physical_dtype_basis": "FP16 training autocast contract; module hook records logical boundary dtypes",
+        "source_capture_keys": [
+          "8ed6bb3b4c5c"
+        ],
+        "logical_boundary_variants": [
+          {
+            "capture_key": "8ed6bb3b4c5c",
+            "module_kind": "ParametrizedConv1d",
+            "input_dtype": "torch.float16",
+            "weight_dtype": "torch.float32",
+            "count": 20
+          }
+        ],
+        "observed_forward_calls": 20
+      },
+      "directions": {
+        "fwd": {
+          "cold_s": 0.0012516099959611893,
+          "event_ms_rounds": [
+            0.5924000058855329,
+            0.5934128761291504,
+            0.5936628750392369
+          ],
+          "wall_ms_rounds": [
+            0.5975067158163127,
+            0.596878002397716,
+            0.5971424314858658
+          ],
+          "event_median_ms": 0.5934128761291504,
+          "wall_median_ms": 0.5971424314858658,
+          "db_key": "64-1-6400-1x3-64-1-6400-8-0x1-1x1-1x1-0-NCHW-FP16-F",
+          "db_entries_before": [],
+          "requested_single_solver": null,
+          "device_activities": {
+            "denominator_ms": 0.49106400000000006,
+            "rows": [
+              {
+                "name": "Im2d2Col_v2",
+                "category": "kernel",
+                "device": 1,
+                "self_gpu_ms": 0.33735200000000004,
+                "count": 8,
+                "device_type": "CUDA",
+                "input_shapes": [],
+                "share_of_this_table": 0.686981737614649
+              },
+              {
+                "name": "Cijk_Ailk_Bljk_HHS_BH_MT128x128x16_SN_AMAS3_BL1_BS1_EPS0_GLVWA8_GLVWB8_GRVW8_GSU1_GSUASB_ISA1030_IU2_K1_KLA_LDL2_LRVW8_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU0_SUM0_SUS0_SVW4_TT8_8_USFGROn1_VAW2_VSn1_VW8_VWB8_WS32_WG16_16_1_WGM1",
+                "category": "kernel",
+                "device": 1,
+                "self_gpu_ms": 0.15371200000000002,
+                "count": 8,
+                "device_type": "CUDA",
+                "input_shapes": [],
+                "share_of_this_table": 0.31301826238535096
+              }
+            ],
+            "top10": [
+              {
+                "name": "Im2d2Col_v2",
+                "category": "kernel",
+                "device": 1,
+                "self_gpu_ms": 0.33735200000000004,
+                "count": 8,
+                "device_type": "CUDA",
+                "input_shapes": [],
+                "share_of_this_table": 0.686981737614649
+              },
+              {
+                "name": "Cijk_Ailk_Bljk_HHS_BH_MT128x128x16_SN_AMAS3_BL1_BS1_EPS0_GLVWA8_GLVWB8_GRVW8_GSU1_GSUASB_ISA1030_IU2_K1_KLA_LDL2_LRVW8_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU0_SUM0_SUS0_SVW4_TT8_8_USFGROn1_VAW2_VSn1_VW8_VWB8_WS32_WG16_16_1_WGM1",
+                "category": "kernel",
+                "device": 1,
+                "self_gpu_ms": 0.15371200000000002,
+                "count": 8,
+                "device_type": "CUDA",
+                "input_shapes": [],
+                "share_of_this_table": 0.31301826238535096
+              }
+            ],
+            "aggregation": "sum Chrome trace complete events (ph=X), grouped by category/name/device",
+            "included_categories": [
+              "kernel",
+              "gpu_memcpy",
+              "gpu_memset"
+            ],
+            "category_totals": {
+              "kernel": {
+                "count": 16,
+                "duration_ms": 0.491064
+              },
+              "gpu_memcpy": {
+                "count": 0,
+                "duration_ms": 0.0
+              },
+              "gpu_memset": {
+                "count": 0,
+                "duration_ms": 0.0
+              }
+            },
+            "excluded_complete_event_categories": {
+              "Trace": {
+                "count": 1,
+                "duration_ms": 0.863173
+              },
+              "cpu_op": {
+                "count": 10,
+                "duration_ms": 0.738842
+              },
+              "cuda_runtime": {
+                "count": 27,
+                "duration_ms": 0.616636
+              }
+            },
+            "trace_file": "conv1d_B8_C64_T6400_O64_K3_S1_D1_G1_P1_fwd.trace.json",
+            "trace_sha256": "bb7c539cd91747b21d038978c104be8d6b81f1f1ccfc9332e9758b31b0f31f32",
+            "trace_retained": true,
+            "trace_duration_unit": "microseconds",
+            "denominator_semantics": "summed kernel/memcpy/memset work; never add CPU attribution or GPU annotations; may overlap across streams"
+          },
+          "trace": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/applio_v08/solver_rank04/conv1d_B8_C64_T6400_O64_K3_S1_D1_G1_P1_fwd.trace.json",
+          "reference_error": {
+            "finite": true,
+            "reference_finite": true,
+            "screen_pass": true,
+            "nrmse": 0.00020778540741619108,
+            "max_over_reference_rms": 0.0019445867055287553,
+            "max_abs": 0.0019388198852539062,
+            "rmse": 0.00020716920393351856,
+            "reference_rms": 0.9970344236857872
+          },
+          "db_entries_after": [],
+          "db_target_entry_unchanged": true
+        },
+        "dx": {
+          "cold_s": 0.0006850739882793278,
+          "event_ms_rounds": [
+            0.3327599934169224,
+            0.33868428639003206,
+            0.3405900001525879
+          ],
+          "wall_ms_rounds": [
+            0.33587314205111135,
+            0.34179999991985305,
+            0.34414157354538993
+          ],
+          "event_median_ms": 0.33868428639003206,
+          "wall_median_ms": 0.34179999991985305,
+          "db_key": "64-1-6400-1x3-64-1-6400-8-0x1-1x1-1x1-0-NCHW-FP16-B",
+          "db_entries_before": [],
+          "requested_single_solver": null,
+          "device_activities": {
+            "denominator_ms": 0.25406399999999996,
+            "rows": [
+              {
+                "name": "Cijk_Ailk_Bjlk_HHS_BH_MT128x128x8_SN_AMAS3_BL1_BS1_EPS0_GLVWA8_GLVWB8_GRVW8_GSU1_GSUASB_ISA1030_IU2_K1_KLA_LDL2_LRVW8_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU32_SUM3_SUS128_SVW4_TT8_16_USFGROn1_VAW2_VSn1_VW8_VWB8_WS32_WG16_8_1_WGM1",
+                "category": "kernel",
+                "device": 1,
+                "self_gpu_ms": 0.13291199999999997,
+                "count": 8,
+                "device_type": "CUDA",
+                "input_shapes": [],
+                "share_of_this_table": 0.5231437747969016
+              },
+              {
+                "name": "Col2Im2dU",
+                "category": "kernel",
+                "device": 1,
+                "self_gpu_ms": 0.121152,
+                "count": 8,
+                "device_type": "CUDA",
+                "input_shapes": [],
+                "share_of_this_table": 0.4768562252030985
+              }
+            ],
+            "top10": [
+              {
+                "name": "Cijk_Ailk_Bjlk_HHS_BH_MT128x128x8_SN_AMAS3_BL1_BS1_EPS0_GLVWA8_GLVWB8_GRVW8_GSU1_GSUASB_ISA1030_IU2_K1_KLA_LDL2_LRVW8_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU32_SUM3_SUS128_SVW4_TT8_16_USFGROn1_VAW2_VSn1_VW8_VWB8_WS32_WG16_8_1_WGM1",
+                "category": "kernel",
+                "device": 1,
+                "self_gpu_ms": 0.13291199999999997,
+                "count": 8,
+                "device_type": "CUDA",
+                "input_shapes": [],
+                "share_of_this_table": 0.5231437747969016
+              },
+              {
+                "name": "Col2Im2dU",
+                "category": "kernel",
+                "device": 1,
+                "self_gpu_ms": 0.121152,
+                "count": 8,
+                "device_type": "CUDA",
+                "input_shapes": [],
+                "share_of_this_table": 0.4768562252030985
+              }
+            ],
+            "aggregation": "sum Chrome trace complete events (ph=X), grouped by category/name/device",
+            "included_categories": [
+              "kernel",
+              "gpu_memcpy",
+              "gpu_memset"
+            ],
+            "category_totals": {
+              "kernel": {
+                "count": 16,
+                "duration_ms": 0.254064
+              },
+              "gpu_memcpy": {
+                "count": 0,
+                "duration_ms": 0.0
+              },
+              "gpu_memset": {
+                "count": 0,
+                "duration_ms": 0.0
+              }
+            },
+            "excluded_complete_event_categories": {
+              "Trace": {
+                "count": 1,
+                "duration_ms": 0.5864550000000001
+              },
+              "cpu_op": {
+                "count": 10,
+                "duration_ms": 0.14990899999999996
+              },
+              "cuda_runtime": {
+                "count": 27,
+                "duration_ms": 0.392177
+              }
+            },
+            "trace_file": "conv1d_B8_C64_T6400_O64_K3_S1_D1_G1_P1_dx.trace.json",
+            "trace_sha256": "a7b9e0f24ace1270008d2a59374d25bd8551e547fcf151792c276cc4783e9efc",
+            "trace_retained": true,
+            "trace_duration_unit": "microseconds",
+            "denominator_semantics": "summed kernel/memcpy/memset work; never add CPU attribution or GPU annotations; may overlap across streams"
+          },
+          "trace": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/applio_v08/solver_rank04/conv1d_B8_C64_T6400_O64_K3_S1_D1_G1_P1_dx.trace.json",
+          "reference_error": {
+            "finite": true,
+            "reference_finite": true,
+            "screen_pass": true,
+            "nrmse": 0.0002974672426699619,
+            "max_over_reference_rms": 0.002843413949862328,
+            "max_abs": 2.8371810913085938e-05,
+            "rmse": 2.968151845171133e-06,
+            "reference_rms": 0.00997807966527689
+          },
+          "db_entries_after": [],
+          "db_target_entry_unchanged": true
+        },
+        "dw": {
+          "cold_s": 1.833701880008448,
+          "event_ms_rounds": [
+            4.374028614589146,
+            4.377644402640207,
+            4.371571404593332
+          ],
+          "wall_ms_rounds": [
+            4.416197717156527,
+            4.41755771420763,
+            4.411059286212549
+          ],
+          "event_median_ms": 4.374028614589146,
+          "wall_median_ms": 4.416197717156527,
+          "db_key": "64-1-6400-1x3-64-1-6400-8-0x1-1x1-1x1-0-NCHW-FP16-W",
+          "db_entries_before": [
+            {
+              "solver": "ConvHipImplicitGemmV4R1WrW",
+              "recorded_ms": 4.15919,
+              "workspace_bytes": 0,
+              "algorithm": "miopenConvolutionBwdWeightsAlgoImplicitGEMM",
+              "raw": "ConvHipImplicitGemmV4R1WrW:4.15919,0,miopenConvolutionBwdWeightsAlgoImplicitGEMM"
+            }
+          ],
+          "requested_single_solver": "ConvHipImplicitGemmV4R1WrW",
+          "device_activities": {
+            "denominator_ms": 4.196519,
+            "rows": [
+              {
+                "name": "gridwise_convolution_implicit_gemm_v4r1_nchw_kcyx_nkhw_lds_double_buffer",
+                "category": "kernel",
+                "device": 1,
+                "self_gpu_ms": 4.196519,
+                "count": 1,
+                "device_type": "CUDA",
+                "input_shapes": [],
+                "share_of_this_table": 1.0
+              }
+            ],
+            "top10": [
+              {
+                "name": "gridwise_convolution_implicit_gemm_v4r1_nchw_kcyx_nkhw_lds_double_buffer",
+                "category": "kernel",
+                "device": 1,
+                "self_gpu_ms": 4.196519,
+                "count": 1,
+                "device_type": "CUDA",
+                "input_shapes": [],
+                "share_of_this_table": 1.0
+              }
+            ],
+            "aggregation": "sum Chrome trace complete events (ph=X), grouped by category/name/device",
+            "included_categories": [
+              "kernel",
+              "gpu_memcpy",
+              "gpu_memset"
+            ],
+            "category_totals": {
+              "kernel": {
+                "count": 1,
+                "duration_ms": 4.196519
+              },
+              "gpu_memcpy": {
+                "count": 0,
+                "duration_ms": 0.0
+              },
+              "gpu_memset": {
+                "count": 0,
+                "duration_ms": 0.0
+              }
+            },
+            "excluded_complete_event_categories": {
+              "Trace": {
+                "count": 1,
+                "duration_ms": 4.710462000000001
+              },
+              "cpu_op": {
+                "count": 11,
+                "duration_ms": 0.086519
+              },
+              "cuda_runtime": {
+                "count": 4,
+                "duration_ms": 4.534014
+              }
+            },
+            "trace_file": "conv1d_B8_C64_T6400_O64_K3_S1_D1_G1_P1_dw.trace.json",
+            "trace_sha256": "3cec18a701265a34c998e26e97e637ceca2703bcded1e23c0047b429a07b7f8a",
+            "trace_retained": true,
+            "trace_duration_unit": "microseconds",
+            "denominator_semantics": "summed kernel/memcpy/memset work; never add CPU attribution or GPU annotations; may overlap across streams"
+          },
+          "trace": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/applio_v08/solver_rank04/conv1d_B8_C64_T6400_O64_K3_S1_D1_G1_P1_dw.trace.json",
+          "reference_error": {
+            "finite": true,
+            "reference_finite": true,
+            "screen_pass": true,
+            "nrmse": 0.00020856918819057963,
+            "max_over_reference_rms": 0.0016147888269676537,
+            "max_abs": 0.0036668777465820312,
+            "rmse": 0.00047362088591788116,
+            "reference_rms": 2.270809461487241
+          },
+          "db_entries_after": [
+            {
+              "solver": "ConvHipImplicitGemmV4R1WrW",
+              "recorded_ms": 4.15919,
+              "workspace_bytes": 0,
+              "algorithm": "miopenConvolutionBwdWeightsAlgoImplicitGEMM",
+              "raw": "ConvHipImplicitGemmV4R1WrW:4.15919,0,miopenConvolutionBwdWeightsAlgoImplicitGEMM"
+            }
+          ],
+          "db_target_entry_unchanged": true
+        }
+      },
+      "all_gates_pass": true
+    },
+    {
+      "case": {
+        "kind": "conv1d",
+        "shape": [
+          8,
+          64,
+          6400
+        ],
+        "weight": [
+          64,
+          64,
+          7
+        ],
+        "stride": [
+          1
+        ],
+        "padding": [
+          3
+        ],
+        "dilation": [
+          1
+        ],
+        "groups": 1,
+        "output_padding": [
+          0
+        ],
+        "name": "conv1d_B8_C64_T6400_O64_K7_S1_D1_G1_P3",
+        "origin": "Actual voice_model_A KLM49 HFG FP16 AMP B8 training capture",
+        "benchmark_dtype": "fp16",
+        "physical_dtype_basis": "FP16 training autocast contract; module hook records logical boundary dtypes",
+        "source_capture_keys": [
+          "3198433fc5cd"
+        ],
+        "logical_boundary_variants": [
+          {
+            "capture_key": "3198433fc5cd",
+            "module_kind": "ParametrizedConv1d",
+            "input_dtype": "torch.float16",
+            "weight_dtype": "torch.float32",
+            "count": 20
+          }
+        ],
+        "observed_forward_calls": 20
+      },
+      "directions": {
+        "fwd": {
+          "cold_s": 0.0014091189950704575,
+          "event_ms_rounds": [
+            0.7601971626281738,
+            0.7592328616550991,
+            0.7601985931396484
+          ],
+          "wall_ms_rounds": [
+            0.7651452823275966,
+            0.7628597127872386,
+            0.7637754315510392
+          ],
+          "event_median_ms": 0.7601971626281738,
+          "wall_median_ms": 0.7637754315510392,
+          "db_key": "64-1-6400-1x7-64-1-6400-8-0x3-1x1-1x1-0-NCHW-FP16-F",
+          "db_entries_before": [],
+          "requested_single_solver": null,
+          "device_activities": {
+            "denominator_ms": 0.659624,
+            "rows": [
+              {
+                "name": "Im2d2Col_v2",
+                "category": "kernel",
+                "device": 1,
+                "self_gpu_ms": 0.370792,
+                "count": 8,
+                "device_type": "CUDA",
+                "input_shapes": [],
+                "share_of_this_table": 0.5621263022570434
+              },
+              {
+                "name": "Cijk_Ailk_Bljk_HHS_BH_MT128x128x16_SN_AMAS3_BL1_BS1_EPS0_GLVWA8_GLVWB8_GRVW8_GSU1_GSUASB_ISA1030_IU2_K1_KLA_LDL2_LRVW8_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU0_SUM0_SUS0_SVW4_TT8_8_USFGROn1_VAW2_VSn1_VW8_VWB8_WS32_WG16_16_1_WGM1",
+                "category": "kernel",
+                "device": 1,
+                "self_gpu_ms": 0.288832,
+                "count": 8,
+                "device_type": "CUDA",
+                "input_shapes": [],
+                "share_of_this_table": 0.4378736977429566
+              }
+            ],
+            "top10": [
+              {
+                "name": "Im2d2Col_v2",
+                "category": "kernel",
+                "device": 1,
+                "self_gpu_ms": 0.370792,
+                "count": 8,
+                "device_type": "CUDA",
+                "input_shapes": [],
+                "share_of_this_table": 0.5621263022570434
+              },
+              {
+                "name": "Cijk_Ailk_Bljk_HHS_BH_MT128x128x16_SN_AMAS3_BL1_BS1_EPS0_GLVWA8_GLVWB8_GRVW8_GSU1_GSUASB_ISA1030_IU2_K1_KLA_LDL2_LRVW8_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU0_SUM0_SUS0_SVW4_TT8_8_USFGROn1_VAW2_VSn1_VW8_VWB8_WS32_WG16_16_1_WGM1",
+                "category": "kernel",
+                "device": 1,
+                "self_gpu_ms": 0.288832,
+                "count": 8,
+                "device_type": "CUDA",
+                "input_shapes": [],
+                "share_of_this_table": 0.4378736977429566
+              }
+            ],
+            "aggregation": "sum Chrome trace complete events (ph=X), grouped by category/name/device",
+            "included_categories": [
+              "kernel",
+              "gpu_memcpy",
+              "gpu_memset"
+            ],
+            "category_totals": {
+              "kernel": {
+                "count": 16,
+                "duration_ms": 0.6596239999999999
+              },
+              "gpu_memcpy": {
+                "count": 0,
+                "duration_ms": 0.0
+              },
+              "gpu_memset": {
+                "count": 0,
+                "duration_ms": 0.0
+              }
+            },
+            "excluded_complete_event_categories": {
+              "Trace": {
+                "count": 1,
+                "duration_ms": 1.0383019999999998
+              },
+              "cpu_op": {
+                "count": 10,
+                "duration_ms": 0.7270939999999999
+              },
+              "cuda_runtime": {
+                "count": 27,
+                "duration_ms": 0.7858450000000001
+              }
+            },
+            "trace_file": "conv1d_B8_C64_T6400_O64_K7_S1_D1_G1_P3_fwd.trace.json",
+            "trace_sha256": "e28440b83be33ae0a1e1fdb0a8384ea3b9f56e88223ca6dbad0c4dab64fd355f",
+            "trace_retained": true,
+            "trace_duration_unit": "microseconds",
+            "denominator_semantics": "summed kernel/memcpy/memset work; never add CPU attribution or GPU annotations; may overlap across streams"
+          },
+          "trace": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/applio_v08/solver_rank04/conv1d_B8_C64_T6400_O64_K7_S1_D1_G1_P3_fwd.trace.json",
+          "reference_error": {
+            "finite": true,
+            "reference_finite": true,
+            "screen_pass": true,
+            "nrmse": 0.000207682034725445,
+            "max_over_reference_rms": 0.0019603161435227806,
+            "max_abs": 0.001953601837158203,
+            "rmse": 0.00020697070007048493,
+            "reference_rms": 0.9965748859505327
+          },
+          "db_entries_after": [],
+          "db_target_entry_unchanged": true
+        },
+        "dx": {
+          "cold_s": 0.0007216240046545863,
+          "event_ms_rounds": [
+            0.4254342828478132,
+            0.4277899946485247,
+            0.42542426926749094
+          ],
+          "wall_ms_rounds": [
+            0.4286408574054284,
+            0.4311408556532115,
+            0.42898799957973616
+          ],
+          "event_median_ms": 0.4254342828478132,
+          "wall_median_ms": 0.42898799957973616,
+          "db_key": "64-1-6400-1x7-64-1-6400-8-0x3-1x1-1x1-0-NCHW-FP16-B",
+          "db_entries_before": [],
+          "requested_single_solver": null,
+          "device_activities": {
+            "denominator_ms": 0.34218400000000004,
+            "rows": [
+              {
+                "name": "Col2Im2dU",
+                "category": "kernel",
+                "device": 1,
+                "self_gpu_ms": 0.19675200000000004,
+                "count": 8,
+                "device_type": "CUDA",
+                "input_shapes": [],
+                "share_of_this_table": 0.5749888948635822
+              },
+              {
+                "name": "Cijk_Ailk_Bjlk_HHS_BH_MT128x128x16_SN_AMAS3_BL1_BS1_EPS0_GLVWA8_GLVWB8_GRVW8_GSU1_GSUASB_ISA1030_IU2_K1_KLA_LDL2_LRVW8_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU0_SUM0_SUS0_SVW4_TT8_8_USFGROn1_VAW2_VSn1_VW8_VWB8_WS32_WG16_16_1_WGM1",
+                "category": "kernel",
+                "device": 1,
+                "self_gpu_ms": 0.145432,
+                "count": 8,
+                "device_type": "CUDA",
+                "input_shapes": [],
+                "share_of_this_table": 0.4250111051364178
+              }
+            ],
+            "top10": [
+              {
+                "name": "Col2Im2dU",
+                "category": "kernel",
+                "device": 1,
+                "self_gpu_ms": 0.19675200000000004,
+                "count": 8,
+                "device_type": "CUDA",
+                "input_shapes": [],
+                "share_of_this_table": 0.5749888948635822
+              },
+              {
+                "name": "Cijk_Ailk_Bjlk_HHS_BH_MT128x128x16_SN_AMAS3_BL1_BS1_EPS0_GLVWA8_GLVWB8_GRVW8_GSU1_GSUASB_ISA1030_IU2_K1_KLA_LDL2_LRVW8_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU0_SUM0_SUS0_SVW4_TT8_8_USFGROn1_VAW2_VSn1_VW8_VWB8_WS32_WG16_16_1_WGM1",
+                "category": "kernel",
+                "device": 1,
+                "self_gpu_ms": 0.145432,
+                "count": 8,
+                "device_type": "CUDA",
+                "input_shapes": [],
+                "share_of_this_table": 0.4250111051364178
+              }
+            ],
+            "aggregation": "sum Chrome trace complete events (ph=X), grouped by category/name/device",
+            "included_categories": [
+              "kernel",
+              "gpu_memcpy",
+              "gpu_memset"
+            ],
+            "category_totals": {
+              "kernel": {
+                "count": 16,
+                "duration_ms": 0.34218400000000004
+              },
+              "gpu_memcpy": {
+                "count": 0,
+                "duration_ms": 0.0
+              },
+              "gpu_memset": {
+                "count": 0,
+                "duration_ms": 0.0
+              }
+            },
+            "excluded_complete_event_categories": {
+              "Trace": {
+                "count": 1,
+                "duration_ms": 0.680274
+              },
+              "cpu_op": {
+                "count": 10,
+                "duration_ms": 0.162059
+              },
+              "cuda_runtime": {
+                "count": 27,
+                "duration_ms": 0.47135600000000005
+              }
+            },
+            "trace_file": "conv1d_B8_C64_T6400_O64_K7_S1_D1_G1_P3_dx.trace.json",
+            "trace_sha256": "67cc417d05cfbc871e812297a58228f4e7fc63ec4473d3827bf5aef0f4ed1946",
+            "trace_retained": true,
+            "trace_duration_unit": "microseconds",
+            "denominator_semantics": "summed kernel/memcpy/memset work; never add CPU attribution or GPU annotations; may overlap across streams"
+          },
+          "trace": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/applio_v08/solver_rank04/conv1d_B8_C64_T6400_O64_K7_S1_D1_G1_P3_dx.trace.json",
+          "reference_error": {
+            "finite": true,
+            "reference_finite": true,
+            "screen_pass": true,
+            "nrmse": 0.00029414924563352785,
+            "max_over_reference_rms": 0.0027674064582181557,
+            "max_abs": 2.7611851692199707e-05,
+            "rmse": 2.9348798119936787e-06,
+            "reference_rms": 0.009977519424442657
+          },
+          "db_entries_after": [],
+          "db_target_entry_unchanged": true
+        },
+        "dw": {
+          "cold_s": 1.9550799559801817,
+          "event_ms_rounds": [
+            4.421104158673968,
+            4.421852929251535,
+            4.397461482456753
+          ],
+          "wall_ms_rounds": [
+            4.466333143812205,
+            4.464790287394343,
+            4.439193285569282
+          ],
+          "event_median_ms": 4.421104158673968,
+          "wall_median_ms": 4.464790287394343,
+          "db_key": "64-1-6400-1x7-64-1-6400-8-0x3-1x1-1x1-0-NCHW-FP16-W",
+          "db_entries_before": [
+            {
+              "solver": "ConvHipImplicitGemmV4R1WrW",
+              "recorded_ms": 4.17324,
+              "workspace_bytes": 0,
+              "algorithm": "miopenConvolutionBwdWeightsAlgoImplicitGEMM",
+              "raw": "ConvHipImplicitGemmV4R1WrW:4.17324,0,miopenConvolutionBwdWeightsAlgoImplicitGEMM"
+            }
+          ],
+          "requested_single_solver": "ConvHipImplicitGemmV4R1WrW",
+          "device_activities": {
+            "denominator_ms": 4.212238999999999,
+            "rows": [
+              {
+                "name": "gridwise_convolution_implicit_gemm_v4r1_nchw_kcyx_nkhw_lds_double_buffer",
+                "category": "kernel",
+                "device": 1,
+                "self_gpu_ms": 4.212238999999999,
+                "count": 1,
+                "device_type": "CUDA",
+                "input_shapes": [],
+                "share_of_this_table": 1.0
+              }
+            ],
+            "top10": [
+              {
+                "name": "gridwise_convolution_implicit_gemm_v4r1_nchw_kcyx_nkhw_lds_double_buffer",
+                "category": "kernel",
+                "device": 1,
+                "self_gpu_ms": 4.212238999999999,
+                "count": 1,
+                "device_type": "CUDA",
+                "input_shapes": [],
+                "share_of_this_table": 1.0
+              }
+            ],
+            "aggregation": "sum Chrome trace complete events (ph=X), grouped by category/name/device",
+            "included_categories": [
+              "kernel",
+              "gpu_memcpy",
+              "gpu_memset"
+            ],
+            "category_totals": {
+              "kernel": {
+                "count": 1,
+                "duration_ms": 4.212238999999999
+              },
+              "gpu_memcpy": {
+                "count": 0,
+                "duration_ms": 0.0
+              },
+              "gpu_memset": {
+                "count": 0,
+                "duration_ms": 0.0
+              }
+            },
+            "excluded_complete_event_categories": {
+              "Trace": {
+                "count": 1,
+                "duration_ms": 4.777342
+              },
+              "cpu_op": {
+                "count": 11,
+                "duration_ms": 0.13661799999999996
+              },
+              "cuda_runtime": {
+                "count": 4,
+                "duration_ms": 4.549464000000001
+              }
+            },
+            "trace_file": "conv1d_B8_C64_T6400_O64_K7_S1_D1_G1_P3_dw.trace.json",
+            "trace_sha256": "62bd583aa9540331d3254734db8bedb94857437558f63bef0a08014c2e55fb27",
+            "trace_retained": true,
+            "trace_duration_unit": "microseconds",
+            "denominator_semantics": "summed kernel/memcpy/memset work; never add CPU attribution or GPU annotations; may overlap across streams"
+          },
+          "trace": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/applio_v08/solver_rank04/conv1d_B8_C64_T6400_O64_K7_S1_D1_G1_P3_dw.trace.json",
+          "reference_error": {
+            "finite": true,
+            "reference_finite": true,
+            "screen_pass": true,
+            "nrmse": 0.00020763734147614574,
+            "max_over_reference_rms": 0.0016621715887462228,
+            "max_abs": 0.003753662109375,
+            "rmse": 0.0004689049111820451,
+            "reference_rms": 2.2582879738706096
+          },
+          "db_entries_after": [
+            {
+              "solver": "ConvHipImplicitGemmV4R1WrW",
+              "recorded_ms": 4.17324,
+              "workspace_bytes": 0,
+              "algorithm": "miopenConvolutionBwdWeightsAlgoImplicitGEMM",
+              "raw": "ConvHipImplicitGemmV4R1WrW:4.17324,0,miopenConvolutionBwdWeightsAlgoImplicitGEMM"
+            }
+          ],
+          "db_target_entry_unchanged": true
+        }
+      },
+      "all_gates_pass": true
+    }
+  ],
+  "warmup": 3,
+  "rounds": 3,
+  "reps": 7,
+  "logging_enabled": false,
+  "probe_only": false,
+  "timing_scope": "each direction alone; no bias, allocation included; GPU event and wall separate",
+  "reference": "FP32 MIOpen on exactly FP16-rounded input/weight/grad-output; both safety blockers active",
+  "status": "completed",
+  "device": "AMD Radeon RX 6900 XT",
+  "gpu_audit": {
+    "available": true,
+    "valid_for_timing": true,
+    "method": "KFD client PID snapshots and periodic polling; research flock",
+    "limitation": "Detects observed KFD clients, not graphics load or sub-poll transient clients",
+    "allowed_pids": [
+      1774911
+    ],
+    "interval_s": 0.25,
+    "sample_count": 82,
+    "started_unix_s": 1794075911.102341,
+    "ended_unix_s": 1794075928.751334,
+    "foreign_clients": [],
+    "errors": [],
+    "transitions": [
+      {
+        "unix_s": 1794075911.1023412,
+        "kfd_pids": [],
+        "foreign_or_error": []
+      }
+    ]
+  },
+  "valid_for_timing": true,
+  "db_file_after": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/applio_v08/solver_ranks47/rank_04/gfx1030_40.HIP.3_6_0_8d1ae90e.ufdb.txt",
+  "db_sha256_after": "92bf3ac36dd0d0f49ada2e7aedb9837145069382e661c1dc336556bb3478336a"
+}

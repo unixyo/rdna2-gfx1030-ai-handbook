@@ -1,0 +1,29 @@
+{
+  "schema": "rdna2_v10_predeclared_gates",
+  "declared_before_gpu_execution": true,
+  "operator": {
+    "seed": 20261108,
+    "reference": "same fixed input, independent FP32 reference",
+    "finite": ["y", "dX", "dW"],
+    "nrmse_max": 0.002,
+    "max_abs_div_reference_rms_max": 0.02,
+    "amp_contract": "native AMP, weight_norm, FP32 master/gradient; preserve FP16 conv-before-bias rounding"
+  },
+  "candidate_direction": {"event_speedup_min": 1.10, "wall_speedup_min": 1.05, "reference": "fastest accurate native direction or adopted B direction"},
+  "fusion_pair": {"event_speedup_min": 1.03, "wall_speedup_min": 1.03, "reference": "adopted B two-Conv residual pair including forward/backward", "declared_before_fusion_execution": true},
+  "epoch": {
+    "entrypoint": "actual applio-lab python core.py train; original files read only; new model names",
+    "arms": ["B", "B_prime", "B", "B_prime"],
+    "epochs_per_short_run": 8,
+    "steady_epochs": [3, 4, 5, 6, 7, 8],
+    "meaningful_speedup_min": 1.02,
+    "both_adjacent_pairs_must_improve": true,
+    "profile_epochs_excluded_from_speedup": true,
+    "kfd_queue_max": 7,
+    "gpu_overlap_invalidates_timing": true,
+    "finite_losses": true
+  },
+  "final": {"conditional": "B_prime passes operator/contract gates and meaningful operating epoch speedup", "epochs_each": 100, "arms": ["B", "B_prime"], "batch": 8, "dataset": "voice_model_A", "pretrain": "KLM HFG 40k", "training_seed": 1234, "announce_estimate_before_start": true, "perceptual": "same four sentences, anonymous user A/B listening", "strict_audio_metrics": "reference only"},
+  "safety_env": {"MIOPEN_DEBUG_CONV_IMPLICIT_GEMM_HIP_FWD_V4R1": "0", "MIOPEN_DEBUG_CONV_DIRECT_HIP_WRW53": "0", "HSA_DISABLE_COREDUMP_ON_EXCEPTION": "1"},
+  "strata": {"operating_service_must_already_be_off": true, "service_actions_forbidden": true, "extra_swap_out_limit_MiB": 256, "preserve_original_v07_guard": true}
+}

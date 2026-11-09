@@ -1,0 +1,3118 @@
+{
+  "schema": "v08_safe_normal_seed_comparison",
+  "native_result": "solver_baseline144/result.json",
+  "normal_result": "solver_normal_seed47/result.json",
+  "native_valid": true,
+  "normal_valid": true,
+  "cases": 47,
+  "directions": 141,
+  "pass": 141,
+  "failures": [],
+  "normal_db_keys": 138,
+  "FP16_keys": 69,
+  "matched_shape_baseline_sum_ms": 100.74214501040322,
+  "normal_sum_ms": 784.7574375782694,
+  "wins_over2pct": [
+    {
+      "case": "conv1d_B8_C32_T12800_O32_K3_S1_D1_G1_P1",
+      "direction": "dx",
+      "baseline_ms": 0.08227571419307164,
+      "normal_ms": 0.08034428528376988,
+      "speedup": 1.0240394061939826,
+      "pass": true,
+      "key_present": true,
+      "solver_entries": [
+        "ConvBinWinogradRxSf2x3g1",
+        "ConvBinWinogradRxSf3x2",
+        "GemmBwdRest"
+      ]
+    },
+    {
+      "case": "conv1d_B8_C16_T12800_O64_K41_S4_D1_G4_P20",
+      "direction": "dx",
+      "baseline_ms": 0.23396129267556326,
+      "normal_ms": 0.2283600057874407,
+      "speedup": 1.024528318208821,
+      "pass": true,
+      "key_present": true,
+      "solver_entries": [
+        "GemmBwdRest"
+      ]
+    },
+    {
+      "case": "conv1d_B8_C16_T12800_O64_K41_S4_D1_G4_P20",
+      "direction": "dw",
+      "baseline_ms": 0.9925569806780133,
+      "normal_ms": 0.9097612925938198,
+      "speedup": 1.091008145497304,
+      "pass": true,
+      "key_present": true,
+      "solver_entries": [
+        "GemmWrwUniversal"
+      ]
+    },
+    {
+      "case": "conv2d_B8_C128_H712_W2_O512_K5x1_S3x1_D1x1_G1_P2x0",
+      "direction": "dw",
+      "baseline_ms": 0.5982027053833008,
+      "normal_ms": 0.45639130047389437,
+      "speedup": 1.3107232867106722,
+      "pass": true,
+      "key_present": true,
+      "solver_entries": [
+        "GemmWrwUniversal",
+        "ConvHipImplicitGemmV4R1WrW"
+      ]
+    },
+    {
+      "case": "conv2d_B8_C512_H95_W5_O1024_K5x1_S3x1_D1x1_G1_P2x0",
+      "direction": "dw",
+      "baseline_ms": 0.47330842699323383,
+      "normal_ms": 0.45573415075029644,
+      "speedup": 1.0385625615591987,
+      "pass": true,
+      "key_present": true,
+      "solver_entries": [
+        "GemmWrwUniversal",
+        "ConvHipImplicitGemmV4R1WrW"
+      ]
+    },
+    {
+      "case": "conv_transpose1d_B8_C256_T320_O128_K16_S10_D1_G1_P3",
+      "direction": "fwd",
+      "baseline_ms": 0.3501670019967215,
+      "normal_ms": 0.33819287163870676,
+      "speedup": 1.0354062174640002,
+      "pass": true,
+      "key_present": true,
+      "solver_entries": [
+        "GemmBwdRest"
+      ]
+    },
+    {
+      "case": "conv_transpose1d_B8_C256_T320_O128_K16_S10_D1_G1_P3",
+      "direction": "dw",
+      "baseline_ms": 0.3976470061710903,
+      "normal_ms": 0.312415565763201,
+      "speedup": 1.2728143208859555,
+      "pass": true,
+      "key_present": true,
+      "solver_entries": [
+        "GemmWrwUniversal",
+        "ConvHipImplicitGemmV4R1WrW"
+      ]
+    },
+    {
+      "case": "conv_transpose1d_B8_C512_T32_O256_K16_S10_D1_G1_P3",
+      "direction": "dw",
+      "baseline_ms": 0.19143285070146834,
+      "normal_ms": 0.12476842744009835,
+      "speedup": 1.534305229529127,
+      "pass": true,
+      "key_present": true,
+      "solver_entries": [
+        "GemmWrwUniversal",
+        "ConvHipImplicitGemmV4R1WrW"
+      ]
+    },
+    {
+      "case": "conv_transpose1d_B8_C64_T6400_O32_K4_S2_D1_G1_P1",
+      "direction": "fwd",
+      "baseline_ms": 0.20886714117867605,
+      "normal_ms": 0.20464999335152761,
+      "speedup": 1.0206066355443493,
+      "pass": true,
+      "key_present": true,
+      "solver_entries": [
+        "GemmBwdRest"
+      ]
+    }
+  ],
+  "regressions_over2x": [
+    {
+      "case": "conv1d_B8_C128_T3200_O128_K11_S1_D3_G1_P15",
+      "direction": "fwd",
+      "baseline_ms": 0.98152984891619,
+      "normal_ms": 26.308826991489955,
+      "speedup": 0.03730800499899455,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C128_T3200_O128_K11_S1_D3_G1_P15",
+      "direction": "dx",
+      "baseline_ms": 0.69185699735369,
+      "normal_ms": 42.572540283203125,
+      "speedup": 0.016251250048770528,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C128_T3200_O128_K11_S1_D3_G1_P15",
+      "direction": "dw",
+      "baseline_ms": 1.4208812713623047,
+      "normal_ms": 2.8785781860351562,
+      "speedup": 0.49360523825804864,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C128_T3200_O128_K11_S1_D5_G1_P25",
+      "direction": "fwd",
+      "baseline_ms": 1.0565098353794642,
+      "normal_ms": 26.324872698102677,
+      "speedup": 0.04013352115680356,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C128_T3200_O128_K11_S1_D5_G1_P25",
+      "direction": "dx",
+      "baseline_ms": 0.8384055410112653,
+      "normal_ms": 42.672559465680806,
+      "speedup": 0.01964741631411982,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C128_T3200_O128_K3_S1_D3_G1_P3",
+      "direction": "fwd",
+      "baseline_ms": 0.5904455866132464,
+      "normal_ms": 7.897026606968471,
+      "speedup": 0.07476808880094529,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C128_T3200_O128_K3_S1_D3_G1_P3",
+      "direction": "dx",
+      "baseline_ms": 0.30593415669032503,
+      "normal_ms": 13.187017168317523,
+      "speedup": 0.02319964801633438,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C128_T3200_O128_K3_S1_D3_G1_P3",
+      "direction": "dw",
+      "baseline_ms": 0.9418955530439105,
+      "normal_ms": 2.8526709420340404,
+      "speedup": 0.3301802318539798,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C128_T3200_O128_K3_S1_D5_G1_P5",
+      "direction": "fwd",
+      "baseline_ms": 0.5909984452383858,
+      "normal_ms": 7.907202039446149,
+      "speedup": 0.07474179138083357,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C128_T3200_O128_K3_S1_D5_G1_P5",
+      "direction": "dx",
+      "baseline_ms": 0.33248857089451384,
+      "normal_ms": 13.193261282784599,
+      "speedup": 0.025201393633306264,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C128_T3200_O128_K3_S1_D5_G1_P5",
+      "direction": "dw",
+      "baseline_ms": 0.9428469794137138,
+      "normal_ms": 2.857013702392578,
+      "speedup": 0.33001136068200715,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C128_T3200_O128_K7_S1_D3_G1_P9",
+      "direction": "fwd",
+      "baseline_ms": 0.7913428715297154,
+      "normal_ms": 17.123997279575892,
+      "speedup": 0.046212508598886815,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C128_T3200_O128_K7_S1_D3_G1_P9",
+      "direction": "dx",
+      "baseline_ms": 0.5296857016427177,
+      "normal_ms": 27.96633039202009,
+      "speedup": 0.018940121718431038,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C128_T3200_O128_K7_S1_D3_G1_P9",
+      "direction": "dw",
+      "baseline_ms": 1.1262098721095495,
+      "normal_ms": 2.8471107482910156,
+      "speedup": 0.39556236889821,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C128_T3200_O128_K7_S1_D5_G1_P15",
+      "direction": "fwd",
+      "baseline_ms": 0.7908927372523716,
+      "normal_ms": 17.14721461704799,
+      "speedup": 0.04612368567814247,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C128_T3200_O128_K7_S1_D5_G1_P15",
+      "direction": "dx",
+      "baseline_ms": 0.6162698609488351,
+      "normal_ms": 27.9774169921875,
+      "speedup": 0.022027403785021476,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C128_T3200_O128_K7_S1_D5_G1_P15",
+      "direction": "dw",
+      "baseline_ms": 1.1272598675319128,
+      "normal_ms": 2.846952165876116,
+      "speedup": 0.3959532165813583,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C256_T320_O256_K11_S1_D3_G1_P15",
+      "direction": "fwd",
+      "baseline_ms": 0.4914512974875314,
+      "normal_ms": 12.601670401436943,
+      "speedup": 0.03899890108469209,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C256_T320_O256_K11_S1_D3_G1_P15",
+      "direction": "dx",
+      "baseline_ms": 0.3561271258762905,
+      "normal_ms": 20.59842790876116,
+      "speedup": 0.017289043972371233,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C256_T320_O256_K11_S1_D5_G1_P25",
+      "direction": "fwd",
+      "baseline_ms": 0.5063699994768415,
+      "normal_ms": 12.568303789411273,
+      "speedup": 0.040289446210192294,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C256_T320_O256_K11_S1_D5_G1_P25",
+      "direction": "dx",
+      "baseline_ms": 0.41205286979675293,
+      "normal_ms": 20.593294416155135,
+      "speedup": 0.02000907972614151,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C256_T320_O256_K3_S1_D3_G1_P3",
+      "direction": "fwd",
+      "baseline_ms": 0.34799698420933317,
+      "normal_ms": 3.6113834381103516,
+      "speedup": 0.0963611286846411,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C256_T320_O256_K3_S1_D3_G1_P3",
+      "direction": "dx",
+      "baseline_ms": 0.21181714534759521,
+      "normal_ms": 6.4213458469935825,
+      "speedup": 0.032986409764359,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C256_T320_O256_K3_S1_D5_G1_P5",
+      "direction": "fwd",
+      "baseline_ms": 0.3486028398786272,
+      "normal_ms": 3.6111477443150113,
+      "speedup": 0.09653519173438105,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C256_T320_O256_K3_S1_D5_G1_P5",
+      "direction": "dx",
+      "baseline_ms": 0.221085718699864,
+      "normal_ms": 6.422865731375558,
+      "speedup": 0.03442166284433833,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C256_T320_O256_K7_S1_D3_G1_P9",
+      "direction": "fwd",
+      "baseline_ms": 0.4037312780107771,
+      "normal_ms": 8.186368124825615,
+      "speedup": 0.04931750830828626,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C256_T320_O256_K7_S1_D3_G1_P9",
+      "direction": "dx",
+      "baseline_ms": 0.24255556719643728,
+      "normal_ms": 13.497872488839286,
+      "speedup": 0.0179699109913058,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C256_T320_O256_K7_S1_D5_G1_P15",
+      "direction": "fwd",
+      "baseline_ms": 0.4035628523145403,
+      "normal_ms": 8.177636282784599,
+      "speedup": 0.049349572218577754,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C256_T320_O256_K7_S1_D5_G1_P15",
+      "direction": "dx",
+      "baseline_ms": 0.26904143605913433,
+      "normal_ms": 13.512367248535156,
+      "speedup": 0.019910755170475438,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C32_T12800_O32_K11_S1_D3_G1_P15",
+      "direction": "fwd",
+      "baseline_ms": 0.7136485917227608,
+      "normal_ms": 9.062484741210938,
+      "speedup": 0.07874756340030013,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C32_T12800_O32_K11_S1_D3_G1_P15",
+      "direction": "dx",
+      "baseline_ms": 0.6171085493905204,
+      "normal_ms": 12.659846714564733,
+      "speedup": 0.04874534133818204,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C32_T12800_O32_K11_S1_D3_G1_P15",
+      "direction": "dw",
+      "baseline_ms": 1.466578483581543,
+      "normal_ms": 19.969412667410715,
+      "speedup": 0.0734412427649883,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C32_T12800_O32_K11_S1_D5_G1_P25",
+      "direction": "fwd",
+      "baseline_ms": 0.7870784487043109,
+      "normal_ms": 7.798466273716518,
+      "speedup": 0.10092733892522338,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C32_T12800_O32_K11_S1_D5_G1_P25",
+      "direction": "dx",
+      "baseline_ms": 0.7521484238760812,
+      "normal_ms": 12.682448250906807,
+      "speedup": 0.05930624820978882,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C32_T12800_O32_K11_S1_D5_G1_P25",
+      "direction": "dw",
+      "baseline_ms": 1.5307598114013672,
+      "normal_ms": 19.98805890764509,
+      "speedup": 0.07658371523089107,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C32_T12800_O32_K3_S1_D3_G1_P3",
+      "direction": "fwd",
+      "baseline_ms": 0.4591742924281529,
+      "normal_ms": 2.311932155064174,
+      "speedup": 0.19861062593136833,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C32_T12800_O32_K3_S1_D3_G1_P3",
+      "direction": "dx",
+      "baseline_ms": 0.41601286615644184,
+      "normal_ms": 3.894458770751953,
+      "speedup": 0.10682174100308087,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C32_T12800_O32_K3_S1_D3_G1_P3",
+      "direction": "dw",
+      "baseline_ms": 1.9215854917253767,
+      "normal_ms": 10.303766523088727,
+      "speedup": 0.18649350093671854,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C32_T12800_O32_K3_S1_D5_G1_P5",
+      "direction": "fwd",
+      "baseline_ms": 0.4619971343449184,
+      "normal_ms": 2.316906520298549,
+      "speedup": 0.19940257852327462,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C32_T12800_O32_K3_S1_D5_G1_P5",
+      "direction": "dx",
+      "baseline_ms": 0.4173698425292969,
+      "normal_ms": 3.89413206917899,
+      "speedup": 0.10717916986757259,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C32_T12800_O32_K3_S1_D5_G1_P5",
+      "direction": "dw",
+      "baseline_ms": 1.9215666907174247,
+      "normal_ms": 10.309705461774554,
+      "speedup": 0.1863842471389746,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C32_T12800_O32_K7_S1_D3_G1_P9",
+      "direction": "fwd",
+      "baseline_ms": 0.6464414596557617,
+      "normal_ms": 5.176210130964007,
+      "speedup": 0.12488702029091886,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C32_T12800_O32_K7_S1_D3_G1_P9",
+      "direction": "dx",
+      "baseline_ms": 0.49330142566135954,
+      "normal_ms": 8.393383571079799,
+      "speedup": 0.05877265366032794,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C32_T12800_O32_K7_S1_D3_G1_P9",
+      "direction": "dw",
+      "baseline_ms": 1.4075911385672433,
+      "normal_ms": 11.166907174246651,
+      "speedup": 0.12605022291341855,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C32_T12800_O32_K7_S1_D5_G1_P15",
+      "direction": "fwd",
+      "baseline_ms": 0.6456184387207031,
+      "normal_ms": 5.159218924386161,
+      "speedup": 0.1251387948801801,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C32_T12800_O32_K7_S1_D5_G1_P15",
+      "direction": "dx",
+      "baseline_ms": 0.5775470052446637,
+      "normal_ms": 8.39925765991211,
+      "speedup": 0.0687616725941358,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C32_T12800_O32_K7_S1_D5_G1_P15",
+      "direction": "dw",
+      "baseline_ms": 1.3897141047886439,
+      "normal_ms": 11.247674124581474,
+      "speedup": 0.12355568710436436,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C64_T6400_O64_K11_S1_D3_G1_P15",
+      "direction": "fwd",
+      "baseline_ms": 0.9655298505510602,
+      "normal_ms": 13.641866411481585,
+      "speedup": 0.07077696126231148,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C64_T6400_O64_K11_S1_D3_G1_P15",
+      "direction": "dx",
+      "baseline_ms": 0.6373471532549176,
+      "normal_ms": 22.176487513950892,
+      "speedup": 0.02873977012157458,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C64_T6400_O64_K11_S1_D5_G1_P25",
+      "direction": "fwd",
+      "baseline_ms": 1.0449698311941964,
+      "normal_ms": 13.61883544921875,
+      "speedup": 0.07672974940409766,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C64_T6400_O64_K11_S1_D5_G1_P25",
+      "direction": "dx",
+      "baseline_ms": 0.7808057240077427,
+      "normal_ms": 22.16015407017299,
+      "speedup": 0.03523467036985486,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C64_T6400_O64_K3_S1_D3_G1_P3",
+      "direction": "fwd",
+      "baseline_ms": 0.597632884979248,
+      "normal_ms": 4.00567490713937,
+      "speedup": 0.1491965521001414,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C64_T6400_O64_K3_S1_D3_G1_P3",
+      "direction": "dx",
+      "baseline_ms": 0.4155114378247942,
+      "normal_ms": 6.97541264125279,
+      "speedup": 0.05956800825910251,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C64_T6400_O64_K3_S1_D5_G1_P5",
+      "direction": "fwd",
+      "baseline_ms": 0.5928384235927037,
+      "normal_ms": 4.004349027361188,
+      "speedup": 0.14804863900272353,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C64_T6400_O64_K3_S1_D5_G1_P5",
+      "direction": "dx",
+      "baseline_ms": 0.41937555585588726,
+      "normal_ms": 6.987669808523996,
+      "speedup": 0.06001651013107499,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C64_T6400_O64_K7_S1_D3_G1_P9",
+      "direction": "fwd",
+      "baseline_ms": 0.7920583997453962,
+      "normal_ms": 8.926170349121094,
+      "speedup": 0.08873440330694399,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C64_T6400_O64_K7_S1_D3_G1_P9",
+      "direction": "dx",
+      "baseline_ms": 0.4957341466631208,
+      "normal_ms": 14.554020472935267,
+      "speedup": 0.03406166341355577,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C64_T6400_O64_K7_S1_D5_G1_P15",
+      "direction": "fwd",
+      "baseline_ms": 0.7934741292681012,
+      "normal_ms": 8.920179639543806,
+      "speedup": 0.088952707381651,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C64_T6400_O64_K7_S1_D5_G1_P15",
+      "direction": "dx",
+      "baseline_ms": 0.5808171544756208,
+      "normal_ms": 14.569321768624443,
+      "speedup": 0.039865764769258606,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    }
+  ],
+  "missing_seed_keys": [
+    {
+      "case": "conv1d_B8_C128_T3200_O128_K11_S1_D3_G1_P15",
+      "direction": "fwd",
+      "baseline_ms": 0.98152984891619,
+      "normal_ms": 26.308826991489955,
+      "speedup": 0.03730800499899455,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C128_T3200_O128_K11_S1_D3_G1_P15",
+      "direction": "dx",
+      "baseline_ms": 0.69185699735369,
+      "normal_ms": 42.572540283203125,
+      "speedup": 0.016251250048770528,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C128_T3200_O128_K11_S1_D3_G1_P15",
+      "direction": "dw",
+      "baseline_ms": 1.4208812713623047,
+      "normal_ms": 2.8785781860351562,
+      "speedup": 0.49360523825804864,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C128_T3200_O128_K11_S1_D5_G1_P25",
+      "direction": "fwd",
+      "baseline_ms": 1.0565098353794642,
+      "normal_ms": 26.324872698102677,
+      "speedup": 0.04013352115680356,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C128_T3200_O128_K11_S1_D5_G1_P25",
+      "direction": "dx",
+      "baseline_ms": 0.8384055410112653,
+      "normal_ms": 42.672559465680806,
+      "speedup": 0.01964741631411982,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C128_T3200_O128_K11_S1_D5_G1_P25",
+      "direction": "dw",
+      "baseline_ms": 1.4954027448381697,
+      "normal_ms": 2.8783536638532365,
+      "speedup": 0.5195340529614704,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C128_T3200_O128_K3_S1_D3_G1_P3",
+      "direction": "fwd",
+      "baseline_ms": 0.5904455866132464,
+      "normal_ms": 7.897026606968471,
+      "speedup": 0.07476808880094529,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C128_T3200_O128_K3_S1_D3_G1_P3",
+      "direction": "dx",
+      "baseline_ms": 0.30593415669032503,
+      "normal_ms": 13.187017168317523,
+      "speedup": 0.02319964801633438,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C128_T3200_O128_K3_S1_D3_G1_P3",
+      "direction": "dw",
+      "baseline_ms": 0.9418955530439105,
+      "normal_ms": 2.8526709420340404,
+      "speedup": 0.3301802318539798,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C128_T3200_O128_K3_S1_D5_G1_P5",
+      "direction": "fwd",
+      "baseline_ms": 0.5909984452383858,
+      "normal_ms": 7.907202039446149,
+      "speedup": 0.07474179138083357,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C128_T3200_O128_K3_S1_D5_G1_P5",
+      "direction": "dx",
+      "baseline_ms": 0.33248857089451384,
+      "normal_ms": 13.193261282784599,
+      "speedup": 0.025201393633306264,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C128_T3200_O128_K3_S1_D5_G1_P5",
+      "direction": "dw",
+      "baseline_ms": 0.9428469794137138,
+      "normal_ms": 2.857013702392578,
+      "speedup": 0.33001136068200715,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C128_T3200_O128_K7_S1_D3_G1_P9",
+      "direction": "fwd",
+      "baseline_ms": 0.7913428715297154,
+      "normal_ms": 17.123997279575892,
+      "speedup": 0.046212508598886815,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C128_T3200_O128_K7_S1_D3_G1_P9",
+      "direction": "dx",
+      "baseline_ms": 0.5296857016427177,
+      "normal_ms": 27.96633039202009,
+      "speedup": 0.018940121718431038,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C128_T3200_O128_K7_S1_D3_G1_P9",
+      "direction": "dw",
+      "baseline_ms": 1.1262098721095495,
+      "normal_ms": 2.8471107482910156,
+      "speedup": 0.39556236889821,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C128_T3200_O128_K7_S1_D5_G1_P15",
+      "direction": "fwd",
+      "baseline_ms": 0.7908927372523716,
+      "normal_ms": 17.14721461704799,
+      "speedup": 0.04612368567814247,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C128_T3200_O128_K7_S1_D5_G1_P15",
+      "direction": "dx",
+      "baseline_ms": 0.6162698609488351,
+      "normal_ms": 27.9774169921875,
+      "speedup": 0.022027403785021476,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C128_T3200_O128_K7_S1_D5_G1_P15",
+      "direction": "dw",
+      "baseline_ms": 1.1272598675319128,
+      "normal_ms": 2.846952165876116,
+      "speedup": 0.3959532165813583,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C256_T320_O256_K11_S1_D3_G1_P15",
+      "direction": "fwd",
+      "baseline_ms": 0.4914512974875314,
+      "normal_ms": 12.601670401436943,
+      "speedup": 0.03899890108469209,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C256_T320_O256_K11_S1_D3_G1_P15",
+      "direction": "dx",
+      "baseline_ms": 0.3561271258762905,
+      "normal_ms": 20.59842790876116,
+      "speedup": 0.017289043972371233,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C256_T320_O256_K11_S1_D3_G1_P15",
+      "direction": "dw",
+      "baseline_ms": 0.3568441527230399,
+      "normal_ms": 0.502302714756557,
+      "speedup": 0.7104165321821639,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C256_T320_O256_K11_S1_D5_G1_P25",
+      "direction": "fwd",
+      "baseline_ms": 0.5063699994768415,
+      "normal_ms": 12.568303789411273,
+      "speedup": 0.040289446210192294,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C256_T320_O256_K11_S1_D5_G1_P25",
+      "direction": "dx",
+      "baseline_ms": 0.41205286979675293,
+      "normal_ms": 20.593294416155135,
+      "speedup": 0.02000907972614151,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C256_T320_O256_K11_S1_D5_G1_P25",
+      "direction": "dw",
+      "baseline_ms": 0.3714414324079241,
+      "normal_ms": 0.5038670131138393,
+      "speedup": 0.7371814838849232,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C256_T320_O256_K3_S1_D3_G1_P3",
+      "direction": "fwd",
+      "baseline_ms": 0.34799698420933317,
+      "normal_ms": 3.6113834381103516,
+      "speedup": 0.0963611286846411,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C256_T320_O256_K3_S1_D3_G1_P3",
+      "direction": "dx",
+      "baseline_ms": 0.21181714534759521,
+      "normal_ms": 6.4213458469935825,
+      "speedup": 0.032986409764359,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C256_T320_O256_K3_S1_D3_G1_P3",
+      "direction": "dw",
+      "baseline_ms": 0.22305999483380998,
+      "normal_ms": 0.3075357164655413,
+      "speedup": 0.7253141111458622,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C256_T320_O256_K3_S1_D5_G1_P5",
+      "direction": "fwd",
+      "baseline_ms": 0.3486028398786272,
+      "normal_ms": 3.6111477443150113,
+      "speedup": 0.09653519173438105,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C256_T320_O256_K3_S1_D5_G1_P5",
+      "direction": "dx",
+      "baseline_ms": 0.221085718699864,
+      "normal_ms": 6.422865731375558,
+      "speedup": 0.03442166284433833,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C256_T320_O256_K3_S1_D5_G1_P5",
+      "direction": "dw",
+      "baseline_ms": 0.22250000068119594,
+      "normal_ms": 0.3085085664476667,
+      "speedup": 0.7212117421670989,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C256_T320_O256_K7_S1_D3_G1_P9",
+      "direction": "fwd",
+      "baseline_ms": 0.4037312780107771,
+      "normal_ms": 8.186368124825615,
+      "speedup": 0.04931750830828626,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C256_T320_O256_K7_S1_D3_G1_P9",
+      "direction": "dx",
+      "baseline_ms": 0.24255556719643728,
+      "normal_ms": 13.497872488839286,
+      "speedup": 0.0179699109913058,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C256_T320_O256_K7_S1_D3_G1_P9",
+      "direction": "dw",
+      "baseline_ms": 0.26417999608176096,
+      "normal_ms": 0.31132858140128,
+      "speedup": 0.8485568362939735,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C256_T320_O256_K7_S1_D5_G1_P15",
+      "direction": "fwd",
+      "baseline_ms": 0.4035628523145403,
+      "normal_ms": 8.177636282784599,
+      "speedup": 0.049349572218577754,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C256_T320_O256_K7_S1_D5_G1_P15",
+      "direction": "dx",
+      "baseline_ms": 0.26904143605913433,
+      "normal_ms": 13.512367248535156,
+      "speedup": 0.019910755170475438,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C256_T320_O256_K7_S1_D5_G1_P15",
+      "direction": "dw",
+      "baseline_ms": 0.264568567276001,
+      "normal_ms": 0.311401435307094,
+      "speedup": 0.8496061266226728,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C32_T12800_O32_K11_S1_D3_G1_P15",
+      "direction": "fwd",
+      "baseline_ms": 0.7136485917227608,
+      "normal_ms": 9.062484741210938,
+      "speedup": 0.07874756340030013,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C32_T12800_O32_K11_S1_D3_G1_P15",
+      "direction": "dx",
+      "baseline_ms": 0.6171085493905204,
+      "normal_ms": 12.659846714564733,
+      "speedup": 0.04874534133818204,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C32_T12800_O32_K11_S1_D3_G1_P15",
+      "direction": "dw",
+      "baseline_ms": 1.466578483581543,
+      "normal_ms": 19.969412667410715,
+      "speedup": 0.0734412427649883,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C32_T12800_O32_K11_S1_D5_G1_P25",
+      "direction": "fwd",
+      "baseline_ms": 0.7870784487043109,
+      "normal_ms": 7.798466273716518,
+      "speedup": 0.10092733892522338,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C32_T12800_O32_K11_S1_D5_G1_P25",
+      "direction": "dx",
+      "baseline_ms": 0.7521484238760812,
+      "normal_ms": 12.682448250906807,
+      "speedup": 0.05930624820978882,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C32_T12800_O32_K11_S1_D5_G1_P25",
+      "direction": "dw",
+      "baseline_ms": 1.5307598114013672,
+      "normal_ms": 19.98805890764509,
+      "speedup": 0.07658371523089107,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C32_T12800_O32_K3_S1_D3_G1_P3",
+      "direction": "fwd",
+      "baseline_ms": 0.4591742924281529,
+      "normal_ms": 2.311932155064174,
+      "speedup": 0.19861062593136833,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C32_T12800_O32_K3_S1_D3_G1_P3",
+      "direction": "dx",
+      "baseline_ms": 0.41601286615644184,
+      "normal_ms": 3.894458770751953,
+      "speedup": 0.10682174100308087,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C32_T12800_O32_K3_S1_D3_G1_P3",
+      "direction": "dw",
+      "baseline_ms": 1.9215854917253767,
+      "normal_ms": 10.303766523088727,
+      "speedup": 0.18649350093671854,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C32_T12800_O32_K3_S1_D5_G1_P5",
+      "direction": "fwd",
+      "baseline_ms": 0.4619971343449184,
+      "normal_ms": 2.316906520298549,
+      "speedup": 0.19940257852327462,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C32_T12800_O32_K3_S1_D5_G1_P5",
+      "direction": "dx",
+      "baseline_ms": 0.4173698425292969,
+      "normal_ms": 3.89413206917899,
+      "speedup": 0.10717916986757259,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C32_T12800_O32_K3_S1_D5_G1_P5",
+      "direction": "dw",
+      "baseline_ms": 1.9215666907174247,
+      "normal_ms": 10.309705461774554,
+      "speedup": 0.1863842471389746,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C32_T12800_O32_K7_S1_D3_G1_P9",
+      "direction": "fwd",
+      "baseline_ms": 0.6464414596557617,
+      "normal_ms": 5.176210130964007,
+      "speedup": 0.12488702029091886,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C32_T12800_O32_K7_S1_D3_G1_P9",
+      "direction": "dx",
+      "baseline_ms": 0.49330142566135954,
+      "normal_ms": 8.393383571079799,
+      "speedup": 0.05877265366032794,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C32_T12800_O32_K7_S1_D3_G1_P9",
+      "direction": "dw",
+      "baseline_ms": 1.4075911385672433,
+      "normal_ms": 11.166907174246651,
+      "speedup": 0.12605022291341855,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C32_T12800_O32_K7_S1_D5_G1_P15",
+      "direction": "fwd",
+      "baseline_ms": 0.6456184387207031,
+      "normal_ms": 5.159218924386161,
+      "speedup": 0.1251387948801801,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C32_T12800_O32_K7_S1_D5_G1_P15",
+      "direction": "dx",
+      "baseline_ms": 0.5775470052446637,
+      "normal_ms": 8.39925765991211,
+      "speedup": 0.0687616725941358,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C32_T12800_O32_K7_S1_D5_G1_P15",
+      "direction": "dw",
+      "baseline_ms": 1.3897141047886439,
+      "normal_ms": 11.247674124581474,
+      "speedup": 0.12355568710436436,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C64_T6400_O64_K11_S1_D3_G1_P15",
+      "direction": "fwd",
+      "baseline_ms": 0.9655298505510602,
+      "normal_ms": 13.641866411481585,
+      "speedup": 0.07077696126231148,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C64_T6400_O64_K11_S1_D3_G1_P15",
+      "direction": "dx",
+      "baseline_ms": 0.6373471532549176,
+      "normal_ms": 22.176487513950892,
+      "speedup": 0.02873977012157458,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C64_T6400_O64_K11_S1_D3_G1_P15",
+      "direction": "dw",
+      "baseline_ms": 4.126205171857562,
+      "normal_ms": 4.467007500784738,
+      "speedup": 0.9237067927763036,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C64_T6400_O64_K11_S1_D5_G1_P25",
+      "direction": "fwd",
+      "baseline_ms": 1.0449698311941964,
+      "normal_ms": 13.61883544921875,
+      "speedup": 0.07672974940409766,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C64_T6400_O64_K11_S1_D5_G1_P25",
+      "direction": "dx",
+      "baseline_ms": 0.7808057240077427,
+      "normal_ms": 22.16015407017299,
+      "speedup": 0.03523467036985486,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C64_T6400_O64_K11_S1_D5_G1_P25",
+      "direction": "dw",
+      "baseline_ms": 4.1207122802734375,
+      "normal_ms": 4.48333876473563,
+      "speedup": 0.9191168672520387,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C64_T6400_O64_K3_S1_D3_G1_P3",
+      "direction": "fwd",
+      "baseline_ms": 0.597632884979248,
+      "normal_ms": 4.00567490713937,
+      "speedup": 0.1491965521001414,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C64_T6400_O64_K3_S1_D3_G1_P3",
+      "direction": "dx",
+      "baseline_ms": 0.4155114378247942,
+      "normal_ms": 6.97541264125279,
+      "speedup": 0.05956800825910251,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C64_T6400_O64_K3_S1_D3_G1_P3",
+      "direction": "dw",
+      "baseline_ms": 2.5357567923409596,
+      "normal_ms": 4.459273202078683,
+      "speedup": 0.5686480010148113,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C64_T6400_O64_K3_S1_D5_G1_P5",
+      "direction": "fwd",
+      "baseline_ms": 0.5928384235927037,
+      "normal_ms": 4.004349027361188,
+      "speedup": 0.14804863900272353,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C64_T6400_O64_K3_S1_D5_G1_P5",
+      "direction": "dx",
+      "baseline_ms": 0.41937555585588726,
+      "normal_ms": 6.987669808523996,
+      "speedup": 0.06001651013107499,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C64_T6400_O64_K3_S1_D5_G1_P5",
+      "direction": "dw",
+      "baseline_ms": 2.534848621913365,
+      "normal_ms": 4.448226111275809,
+      "speedup": 0.5698560636312477,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C64_T6400_O64_K7_S1_D3_G1_P9",
+      "direction": "fwd",
+      "baseline_ms": 0.7920583997453962,
+      "normal_ms": 8.926170349121094,
+      "speedup": 0.08873440330694399,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C64_T6400_O64_K7_S1_D3_G1_P9",
+      "direction": "dx",
+      "baseline_ms": 0.4957341466631208,
+      "normal_ms": 14.554020472935267,
+      "speedup": 0.03406166341355577,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C64_T6400_O64_K7_S1_D3_G1_P9",
+      "direction": "dw",
+      "baseline_ms": 4.009179524012974,
+      "normal_ms": 4.460008893694196,
+      "speedup": 0.8989173832548564,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C64_T6400_O64_K7_S1_D5_G1_P15",
+      "direction": "fwd",
+      "baseline_ms": 0.7934741292681012,
+      "normal_ms": 8.920179639543806,
+      "speedup": 0.088952707381651,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C64_T6400_O64_K7_S1_D5_G1_P15",
+      "direction": "dx",
+      "baseline_ms": 0.5808171544756208,
+      "normal_ms": 14.569321768624443,
+      "speedup": 0.039865764769258606,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C64_T6400_O64_K7_S1_D5_G1_P15",
+      "direction": "dw",
+      "baseline_ms": 4.010776519775391,
+      "normal_ms": 4.440250396728516,
+      "speedup": 0.9032771040863928,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    }
+  ],
+  "rows": [
+    {
+      "case": "conv1d_B8_C128_T3200_O128_K11_S1_D1_G1_P5",
+      "direction": "fwd",
+      "baseline_ms": 0.699484143938337,
+      "normal_ms": 0.699608598436628,
+      "speedup": 0.9998221083923652,
+      "pass": true,
+      "key_present": true,
+      "solver_entries": [
+        "ConvBinWinogradRxSf2x3g1",
+        "ConvBinWinogradRxSf3x2",
+        "GemmFwdRest"
+      ]
+    },
+    {
+      "case": "conv1d_B8_C128_T3200_O128_K11_S1_D1_G1_P5",
+      "direction": "dx",
+      "baseline_ms": 0.5445055621010917,
+      "normal_ms": 0.5417357172284808,
+      "speedup": 1.0051129079817396,
+      "pass": true,
+      "key_present": true,
+      "solver_entries": [
+        "ConvBinWinogradRxSf2x3g1",
+        "ConvBinWinogradRxSf3x2",
+        "GemmBwdRest"
+      ]
+    },
+    {
+      "case": "conv1d_B8_C128_T3200_O128_K11_S1_D1_G1_P5",
+      "direction": "dw",
+      "baseline_ms": 1.0516154425484794,
+      "normal_ms": 1.0523157119750977,
+      "speedup": 0.999334544359027,
+      "pass": true,
+      "key_present": true,
+      "solver_entries": [
+        "ConvBinWinogradRxSf2x3g1",
+        "GemmWrwUniversal",
+        "ConvBinWinogradRxSf2x3",
+        "ConvBinWinogradRxSf3x2",
+        "ConvHipImplicitGemmV4R1WrW"
+      ]
+    },
+    {
+      "case": "conv1d_B8_C128_T3200_O128_K3_S1_D1_G1_P1",
+      "direction": "fwd",
+      "baseline_ms": 0.1988657202039446,
+      "normal_ms": 0.20017857210976736,
+      "speedup": 0.9934415962108929,
+      "pass": true,
+      "key_present": true,
+      "solver_entries": [
+        "ConvBinWinogradRxSf2x3g1",
+        "ConvBinWinogradRxSf3x2",
+        "GemmFwdRest"
+      ]
+    },
+    {
+      "case": "conv1d_B8_C128_T3200_O128_K3_S1_D1_G1_P1",
+      "direction": "dx",
+      "baseline_ms": 0.19941142627171107,
+      "normal_ms": 0.20226856640407018,
+      "speedup": 0.9858745222594231,
+      "pass": true,
+      "key_present": true,
+      "solver_entries": [
+        "ConvBinWinogradRxSf2x3g1",
+        "ConvBinWinogradRxSf3x2",
+        "GemmBwdRest"
+      ]
+    },
+    {
+      "case": "conv1d_B8_C128_T3200_O128_K3_S1_D1_G1_P1",
+      "direction": "dw",
+      "baseline_ms": 0.7347912788391113,
+      "normal_ms": 0.7374456950596401,
+      "speedup": 0.9964005265224118,
+      "pass": true,
+      "key_present": true,
+      "solver_entries": [
+        "ConvBinWinogradRxSf2x3g1",
+        "GemmWrwUniversal",
+        "ConvBinWinogradRxSf2x3",
+        "ConvBinWinogradRxSf3x2",
+        "ConvHipImplicitGemmV4R1WrW"
+      ]
+    },
+    {
+      "case": "conv1d_B8_C128_T3200_O128_K7_S1_D1_G1_P3",
+      "direction": "fwd",
+      "baseline_ms": 0.4882471561431885,
+      "normal_ms": 0.4892871379852295,
+      "speedup": 0.9978744958505891,
+      "pass": true,
+      "key_present": true,
+      "solver_entries": [
+        "ConvBinWinogradRxSf2x3g1",
+        "ConvBinWinogradRxSf3x2",
+        "GemmFwdRest"
+      ]
+    },
+    {
+      "case": "conv1d_B8_C128_T3200_O128_K7_S1_D1_G1_P3",
+      "direction": "dx",
+      "baseline_ms": 0.4895071302141462,
+      "normal_ms": 0.4906257220676967,
+      "speedup": 0.9977200709150831,
+      "pass": true,
+      "key_present": true,
+      "solver_entries": [
+        "ConvBinWinogradRxSf2x3g1",
+        "ConvBinWinogradRxSf3x2",
+        "GemmBwdRest"
+      ]
+    },
+    {
+      "case": "conv1d_B8_C128_T3200_O128_K7_S1_D1_G1_P3",
+      "direction": "dw",
+      "baseline_ms": 0.7401112828935895,
+      "normal_ms": 0.7402542659214565,
+      "speedup": 0.9998068460602669,
+      "pass": true,
+      "key_present": true,
+      "solver_entries": [
+        "ConvBinWinogradRxSf2x3g1",
+        "GemmWrwUniversal",
+        "ConvBinWinogradRxSf2x3",
+        "ConvBinWinogradRxSf3x2",
+        "ConvHipImplicitGemmV4R1WrW"
+      ]
+    },
+    {
+      "case": "conv1d_B8_C256_T320_O256_K11_S1_D1_G1_P5",
+      "direction": "fwd",
+      "baseline_ms": 0.28661857332502094,
+      "normal_ms": 0.2861614227294922,
+      "speedup": 1.0015975269872799,
+      "pass": true,
+      "key_present": true,
+      "solver_entries": [
+        "ConvBinWinogradRxSf2x3g1",
+        "ConvBinWinogradRxSf3x2",
+        "GemmFwdRest"
+      ]
+    },
+    {
+      "case": "conv1d_B8_C256_T320_O256_K11_S1_D1_G1_P5",
+      "direction": "dx",
+      "baseline_ms": 0.28697984559195383,
+      "normal_ms": 0.28605570111955914,
+      "speedup": 1.003230645181263,
+      "pass": true,
+      "key_present": true,
+      "solver_entries": [
+        "ConvBinWinogradRxSf2x3g1",
+        "ConvBinWinogradRxSf3x2",
+        "GemmBwdRest"
+      ]
+    },
+    {
+      "case": "conv1d_B8_C256_T320_O256_K11_S1_D1_G1_P5",
+      "direction": "dw",
+      "baseline_ms": 0.38729415621076313,
+      "normal_ms": 0.3856785637991769,
+      "speedup": 1.0041889608685315,
+      "pass": true,
+      "key_present": true,
+      "solver_entries": [
+        "ConvBinWinogradRxSf2x3g1",
+        "GemmWrwUniversal",
+        "ConvBinWinogradRxSf2x3",
+        "ConvBinWinogradRxSf3x2",
+        "ConvHipImplicitGemmV4R1WrW"
+      ]
+    },
+    {
+      "case": "conv1d_B8_C256_T320_O256_K3_S1_D1_G1_P1",
+      "direction": "fwd",
+      "baseline_ms": 0.08586571046284266,
+      "normal_ms": 0.08680142675127302,
+      "speedup": 0.9892200356209395,
+      "pass": true,
+      "key_present": true,
+      "solver_entries": [
+        "ConvBinWinogradRxSf2x3g1",
+        "ConvBinWinogradRxSf3x2",
+        "GemmFwdRest"
+      ]
+    },
+    {
+      "case": "conv1d_B8_C256_T320_O256_K3_S1_D1_G1_P1",
+      "direction": "dx",
+      "baseline_ms": 0.0867214288030352,
+      "normal_ms": 0.08725414105824061,
+      "speedup": 0.993894705182533,
+      "pass": true,
+      "key_present": true,
+      "solver_entries": [
+        "ConvBinWinogradRxSf2x3g1",
+        "ConvBinWinogradRxSf3x2",
+        "GemmBwdRest"
+      ]
+    },
+    {
+      "case": "conv1d_B8_C256_T320_O256_K3_S1_D1_G1_P1",
+      "direction": "dw",
+      "baseline_ms": 0.12381000178200859,
+      "normal_ms": 0.12732857465744019,
+      "speedup": 0.9723661960019749,
+      "pass": true,
+      "key_present": true,
+      "solver_entries": [
+        "ConvBinWinogradRxSf2x3g1",
+        "GemmWrwUniversal",
+        "ConvBinWinogradRxSf2x3",
+        "ConvBinWinogradRxSf3x2",
+        "ConvHipImplicitGemmV4R1WrW"
+      ]
+    },
+    {
+      "case": "conv1d_B8_C256_T320_O256_K7_S1_D1_G1_P3",
+      "direction": "fwd",
+      "baseline_ms": 0.2116628544671195,
+      "normal_ms": 0.21311284814562118,
+      "speedup": 0.9931961226593392,
+      "pass": true,
+      "key_present": true,
+      "solver_entries": [
+        "ConvBinWinogradRxSf2x3g1",
+        "ConvBinWinogradRxSf3x2",
+        "GemmFwdRest"
+      ]
+    },
+    {
+      "case": "conv1d_B8_C256_T320_O256_K7_S1_D1_G1_P3",
+      "direction": "dx",
+      "baseline_ms": 0.21250571523393905,
+      "normal_ms": 0.21455286230359757,
+      "speedup": 0.9904585422553731,
+      "pass": true,
+      "key_present": true,
+      "solver_entries": [
+        "ConvBinWinogradRxSf2x3g1",
+        "ConvBinWinogradRxSf3x2",
+        "GemmBwdRest"
+      ]
+    },
+    {
+      "case": "conv1d_B8_C256_T320_O256_K7_S1_D1_G1_P3",
+      "direction": "dw",
+      "baseline_ms": 0.31302857398986816,
+      "normal_ms": 0.3111957141331264,
+      "speedup": 1.0058897336097556,
+      "pass": true,
+      "key_present": true,
+      "solver_entries": [
+        "ConvBinWinogradRxSf2x3g1",
+        "GemmWrwUniversal",
+        "ConvBinWinogradRxSf2x3",
+        "ConvBinWinogradRxSf3x2",
+        "ConvHipImplicitGemmV4R1WrW"
+      ]
+    },
+    {
+      "case": "conv1d_B8_C32_T12800_O32_K11_S1_D1_G1_P5",
+      "direction": "fwd",
+      "baseline_ms": 0.211215717451913,
+      "normal_ms": 0.21457714693886892,
+      "speedup": 0.984334634256678,
+      "pass": true,
+      "key_present": true,
+      "solver_entries": [
+        "ConvBinWinogradRxSf2x3g1",
+        "ConvBinWinogradRxSf3x2",
+        "GemmFwdRest"
+      ]
+    },
+    {
+      "case": "conv1d_B8_C32_T12800_O32_K11_S1_D1_G1_P5",
+      "direction": "dx",
+      "baseline_ms": 0.21093428134918213,
+      "normal_ms": 0.2147028616496495,
+      "speedup": 0.9824474612424268,
+      "pass": true,
+      "key_present": true,
+      "solver_entries": [
+        "ConvBinWinogradRxSf2x3g1",
+        "ConvBinWinogradRxSf3x2",
+        "GemmBwdRest"
+      ]
+    },
+    {
+      "case": "conv1d_B8_C32_T12800_O32_K11_S1_D1_G1_P5",
+      "direction": "dw",
+      "baseline_ms": 1.4353869301932198,
+      "normal_ms": 1.4424057006835938,
+      "speedup": 0.9951339831178929,
+      "pass": true,
+      "key_present": true,
+      "solver_entries": [
+        "ConvBinWinogradRxSf2x3g1",
+        "ConvBinWinogradRxSf2x3",
+        "ConvBinWinogradRxSf3x2",
+        "GemmWrwUniversal"
+      ]
+    },
+    {
+      "case": "conv1d_B8_C32_T12800_O32_K3_S1_D1_G1_P1",
+      "direction": "fwd",
+      "baseline_ms": 0.08062714338302612,
+      "normal_ms": 0.08197428498949323,
+      "speedup": 0.9835662902501708,
+      "pass": true,
+      "key_present": true,
+      "solver_entries": [
+        "ConvBinWinogradRxSf2x3g1",
+        "ConvBinWinogradRxSf3x2",
+        "GemmFwdRest"
+      ]
+    },
+    {
+      "case": "conv1d_B8_C32_T12800_O32_K3_S1_D1_G1_P1",
+      "direction": "dx",
+      "baseline_ms": 0.08227571419307164,
+      "normal_ms": 0.08034428528376988,
+      "speedup": 1.0240394061939826,
+      "pass": true,
+      "key_present": true,
+      "solver_entries": [
+        "ConvBinWinogradRxSf2x3g1",
+        "ConvBinWinogradRxSf3x2",
+        "GemmBwdRest"
+      ]
+    },
+    {
+      "case": "conv1d_B8_C32_T12800_O32_K3_S1_D1_G1_P1",
+      "direction": "dw",
+      "baseline_ms": 1.9214856284005302,
+      "normal_ms": 1.9328126907348633,
+      "speedup": 0.9941395964603137,
+      "pass": true,
+      "key_present": true,
+      "solver_entries": [
+        "ConvBinWinogradRxSf2x3g1",
+        "ConvBinWinogradRxSf2x3",
+        "ConvBinWinogradRxSf3x2",
+        "GemmWrwUniversal"
+      ]
+    },
+    {
+      "case": "conv1d_B8_C32_T12800_O32_K7_S1_D1_G1_P3",
+      "direction": "fwd",
+      "baseline_ms": 0.16322714941842215,
+      "normal_ms": 0.16349428040640696,
+      "speedup": 0.9983661141703503,
+      "pass": true,
+      "key_present": true,
+      "solver_entries": [
+        "ConvBinWinogradRxSf2x3g1",
+        "ConvBinWinogradRxSf3x2",
+        "GemmFwdRest"
+      ]
+    },
+    {
+      "case": "conv1d_B8_C32_T12800_O32_K7_S1_D1_G1_P3",
+      "direction": "dx",
+      "baseline_ms": 0.16585414750235422,
+      "normal_ms": 0.16557286466870988,
+      "speedup": 1.0016988462101393,
+      "pass": true,
+      "key_present": true,
+      "solver_entries": [
+        "ConvBinWinogradRxSf2x3g1",
+        "ConvBinWinogradRxSf3x2",
+        "GemmBwdRest"
+      ]
+    },
+    {
+      "case": "conv1d_B8_C32_T12800_O32_K7_S1_D1_G1_P3",
+      "direction": "dw",
+      "baseline_ms": 1.3741198948451452,
+      "normal_ms": 1.3825127737862724,
+      "speedup": 0.9939292575806431,
+      "pass": true,
+      "key_present": true,
+      "solver_entries": [
+        "ConvBinWinogradRxSf2x3g1",
+        "ConvBinWinogradRxSf2x3",
+        "ConvBinWinogradRxSf3x2",
+        "GemmWrwUniversal"
+      ]
+    },
+    {
+      "case": "conv1d_B8_C64_T6400_O64_K11_S1_D1_G1_P5",
+      "direction": "fwd",
+      "baseline_ms": 0.3736785820552281,
+      "normal_ms": 0.37567571231297087,
+      "speedup": 0.9946838983935192,
+      "pass": true,
+      "key_present": true,
+      "solver_entries": [
+        "ConvBinWinogradRxSf2x3g1",
+        "ConvBinWinogradRxSf3x2",
+        "GemmFwdRest"
+      ]
+    },
+    {
+      "case": "conv1d_B8_C64_T6400_O64_K11_S1_D1_G1_P5",
+      "direction": "dx",
+      "baseline_ms": 0.37333856310163227,
+      "normal_ms": 0.37452571732657297,
+      "speedup": 0.9968302464423143,
+      "pass": true,
+      "key_present": true,
+      "solver_entries": [
+        "ConvBinWinogradRxSf2x3g1",
+        "ConvBinWinogradRxSf3x2",
+        "GemmBwdRest"
+      ]
+    },
+    {
+      "case": "conv1d_B8_C64_T6400_O64_K11_S1_D1_G1_P5",
+      "direction": "dw",
+      "baseline_ms": 1.44785703931536,
+      "normal_ms": 1.4546726771763392,
+      "speedup": 0.9953146587765648,
+      "pass": true,
+      "key_present": true,
+      "solver_entries": [
+        "ConvBinWinogradRxSf2x3g1",
+        "GemmWrwUniversal",
+        "ConvBinWinogradRxSf2x3",
+        "ConvBinWinogradRxSf3x2",
+        "ConvHipImplicitGemmV4R1WrW"
+      ]
+    },
+    {
+      "case": "conv1d_B8_C64_T6400_O64_K3_S1_D1_G1_P1",
+      "direction": "fwd",
+      "baseline_ms": 0.11882713862827846,
+      "normal_ms": 0.1205800005367824,
+      "speedup": 0.9854630792776515,
+      "pass": true,
+      "key_present": true,
+      "solver_entries": [
+        "ConvBinWinogradRxSf2x3g1",
+        "ConvBinWinogradRxSf3x2",
+        "GemmFwdRest"
+      ]
+    },
+    {
+      "case": "conv1d_B8_C64_T6400_O64_K3_S1_D1_G1_P1",
+      "direction": "dx",
+      "baseline_ms": 0.11928857224328178,
+      "normal_ms": 0.11910285268511091,
+      "speedup": 1.0015593208221627,
+      "pass": true,
+      "key_present": true,
+      "solver_entries": [
+        "ConvBinWinogradRxSf2x3g1",
+        "ConvBinWinogradRxSf3x2",
+        "GemmBwdRest"
+      ]
+    },
+    {
+      "case": "conv1d_B8_C64_T6400_O64_K3_S1_D1_G1_P1",
+      "direction": "dw",
+      "baseline_ms": 1.4499939509800501,
+      "normal_ms": 1.4552055086408342,
+      "speedup": 0.9964186792656855,
+      "pass": true,
+      "key_present": true,
+      "solver_entries": [
+        "ConvBinWinogradRxSf2x3g1",
+        "GemmWrwUniversal",
+        "ConvBinWinogradRxSf2x3",
+        "ConvBinWinogradRxSf3x2",
+        "ConvHipImplicitGemmV4R1WrW"
+      ]
+    },
+    {
+      "case": "conv1d_B8_C64_T6400_O64_K7_S1_D1_G1_P3",
+      "direction": "fwd",
+      "baseline_ms": 0.2719228608267648,
+      "normal_ms": 0.2705014262880598,
+      "speedup": 1.0052548134707109,
+      "pass": true,
+      "key_present": true,
+      "solver_entries": [
+        "ConvBinWinogradRxSf2x3g1",
+        "ConvBinWinogradRxSf3x2",
+        "GemmFwdRest"
+      ]
+    },
+    {
+      "case": "conv1d_B8_C64_T6400_O64_K7_S1_D1_G1_P3",
+      "direction": "dx",
+      "baseline_ms": 0.2729585681642805,
+      "normal_ms": 0.2710828610828945,
+      "speedup": 1.0069193126924112,
+      "pass": true,
+      "key_present": true,
+      "solver_entries": [
+        "ConvBinWinogradRxSf2x3g1",
+        "ConvBinWinogradRxSf3x2",
+        "GemmBwdRest"
+      ]
+    },
+    {
+      "case": "conv1d_B8_C64_T6400_O64_K7_S1_D1_G1_P3",
+      "direction": "dw",
+      "baseline_ms": 1.4520726885114397,
+      "normal_ms": 1.4515770503452845,
+      "speedup": 1.00034144805888,
+      "pass": true,
+      "key_present": true,
+      "solver_entries": [
+        "ConvBinWinogradRxSf2x3g1",
+        "GemmWrwUniversal",
+        "ConvBinWinogradRxSf2x3",
+        "ConvBinWinogradRxSf3x2",
+        "ConvHipImplicitGemmV4R1WrW"
+      ]
+    },
+    {
+      "case": "conv1d_B8_C128_T3200_O128_K11_S1_D3_G1_P15",
+      "direction": "fwd",
+      "baseline_ms": 0.98152984891619,
+      "normal_ms": 26.308826991489955,
+      "speedup": 0.03730800499899455,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C128_T3200_O128_K11_S1_D3_G1_P15",
+      "direction": "dx",
+      "baseline_ms": 0.69185699735369,
+      "normal_ms": 42.572540283203125,
+      "speedup": 0.016251250048770528,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C128_T3200_O128_K11_S1_D3_G1_P15",
+      "direction": "dw",
+      "baseline_ms": 1.4208812713623047,
+      "normal_ms": 2.8785781860351562,
+      "speedup": 0.49360523825804864,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C128_T3200_O128_K11_S1_D5_G1_P25",
+      "direction": "fwd",
+      "baseline_ms": 1.0565098353794642,
+      "normal_ms": 26.324872698102677,
+      "speedup": 0.04013352115680356,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C128_T3200_O128_K11_S1_D5_G1_P25",
+      "direction": "dx",
+      "baseline_ms": 0.8384055410112653,
+      "normal_ms": 42.672559465680806,
+      "speedup": 0.01964741631411982,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C128_T3200_O128_K11_S1_D5_G1_P25",
+      "direction": "dw",
+      "baseline_ms": 1.4954027448381697,
+      "normal_ms": 2.8783536638532365,
+      "speedup": 0.5195340529614704,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C128_T3200_O128_K3_S1_D3_G1_P3",
+      "direction": "fwd",
+      "baseline_ms": 0.5904455866132464,
+      "normal_ms": 7.897026606968471,
+      "speedup": 0.07476808880094529,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C128_T3200_O128_K3_S1_D3_G1_P3",
+      "direction": "dx",
+      "baseline_ms": 0.30593415669032503,
+      "normal_ms": 13.187017168317523,
+      "speedup": 0.02319964801633438,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C128_T3200_O128_K3_S1_D3_G1_P3",
+      "direction": "dw",
+      "baseline_ms": 0.9418955530439105,
+      "normal_ms": 2.8526709420340404,
+      "speedup": 0.3301802318539798,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C128_T3200_O128_K3_S1_D5_G1_P5",
+      "direction": "fwd",
+      "baseline_ms": 0.5909984452383858,
+      "normal_ms": 7.907202039446149,
+      "speedup": 0.07474179138083357,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C128_T3200_O128_K3_S1_D5_G1_P5",
+      "direction": "dx",
+      "baseline_ms": 0.33248857089451384,
+      "normal_ms": 13.193261282784599,
+      "speedup": 0.025201393633306264,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C128_T3200_O128_K3_S1_D5_G1_P5",
+      "direction": "dw",
+      "baseline_ms": 0.9428469794137138,
+      "normal_ms": 2.857013702392578,
+      "speedup": 0.33001136068200715,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C128_T3200_O128_K7_S1_D3_G1_P9",
+      "direction": "fwd",
+      "baseline_ms": 0.7913428715297154,
+      "normal_ms": 17.123997279575892,
+      "speedup": 0.046212508598886815,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C128_T3200_O128_K7_S1_D3_G1_P9",
+      "direction": "dx",
+      "baseline_ms": 0.5296857016427177,
+      "normal_ms": 27.96633039202009,
+      "speedup": 0.018940121718431038,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C128_T3200_O128_K7_S1_D3_G1_P9",
+      "direction": "dw",
+      "baseline_ms": 1.1262098721095495,
+      "normal_ms": 2.8471107482910156,
+      "speedup": 0.39556236889821,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C128_T3200_O128_K7_S1_D5_G1_P15",
+      "direction": "fwd",
+      "baseline_ms": 0.7908927372523716,
+      "normal_ms": 17.14721461704799,
+      "speedup": 0.04612368567814247,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C128_T3200_O128_K7_S1_D5_G1_P15",
+      "direction": "dx",
+      "baseline_ms": 0.6162698609488351,
+      "normal_ms": 27.9774169921875,
+      "speedup": 0.022027403785021476,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C128_T3200_O128_K7_S1_D5_G1_P15",
+      "direction": "dw",
+      "baseline_ms": 1.1272598675319128,
+      "normal_ms": 2.846952165876116,
+      "speedup": 0.3959532165813583,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C256_T320_O256_K11_S1_D3_G1_P15",
+      "direction": "fwd",
+      "baseline_ms": 0.4914512974875314,
+      "normal_ms": 12.601670401436943,
+      "speedup": 0.03899890108469209,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C256_T320_O256_K11_S1_D3_G1_P15",
+      "direction": "dx",
+      "baseline_ms": 0.3561271258762905,
+      "normal_ms": 20.59842790876116,
+      "speedup": 0.017289043972371233,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C256_T320_O256_K11_S1_D3_G1_P15",
+      "direction": "dw",
+      "baseline_ms": 0.3568441527230399,
+      "normal_ms": 0.502302714756557,
+      "speedup": 0.7104165321821639,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C256_T320_O256_K11_S1_D5_G1_P25",
+      "direction": "fwd",
+      "baseline_ms": 0.5063699994768415,
+      "normal_ms": 12.568303789411273,
+      "speedup": 0.040289446210192294,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C256_T320_O256_K11_S1_D5_G1_P25",
+      "direction": "dx",
+      "baseline_ms": 0.41205286979675293,
+      "normal_ms": 20.593294416155135,
+      "speedup": 0.02000907972614151,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C256_T320_O256_K11_S1_D5_G1_P25",
+      "direction": "dw",
+      "baseline_ms": 0.3714414324079241,
+      "normal_ms": 0.5038670131138393,
+      "speedup": 0.7371814838849232,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C256_T320_O256_K3_S1_D3_G1_P3",
+      "direction": "fwd",
+      "baseline_ms": 0.34799698420933317,
+      "normal_ms": 3.6113834381103516,
+      "speedup": 0.0963611286846411,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C256_T320_O256_K3_S1_D3_G1_P3",
+      "direction": "dx",
+      "baseline_ms": 0.21181714534759521,
+      "normal_ms": 6.4213458469935825,
+      "speedup": 0.032986409764359,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C256_T320_O256_K3_S1_D3_G1_P3",
+      "direction": "dw",
+      "baseline_ms": 0.22305999483380998,
+      "normal_ms": 0.3075357164655413,
+      "speedup": 0.7253141111458622,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C256_T320_O256_K3_S1_D5_G1_P5",
+      "direction": "fwd",
+      "baseline_ms": 0.3486028398786272,
+      "normal_ms": 3.6111477443150113,
+      "speedup": 0.09653519173438105,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C256_T320_O256_K3_S1_D5_G1_P5",
+      "direction": "dx",
+      "baseline_ms": 0.221085718699864,
+      "normal_ms": 6.422865731375558,
+      "speedup": 0.03442166284433833,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C256_T320_O256_K3_S1_D5_G1_P5",
+      "direction": "dw",
+      "baseline_ms": 0.22250000068119594,
+      "normal_ms": 0.3085085664476667,
+      "speedup": 0.7212117421670989,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C256_T320_O256_K7_S1_D3_G1_P9",
+      "direction": "fwd",
+      "baseline_ms": 0.4037312780107771,
+      "normal_ms": 8.186368124825615,
+      "speedup": 0.04931750830828626,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C256_T320_O256_K7_S1_D3_G1_P9",
+      "direction": "dx",
+      "baseline_ms": 0.24255556719643728,
+      "normal_ms": 13.497872488839286,
+      "speedup": 0.0179699109913058,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C256_T320_O256_K7_S1_D3_G1_P9",
+      "direction": "dw",
+      "baseline_ms": 0.26417999608176096,
+      "normal_ms": 0.31132858140128,
+      "speedup": 0.8485568362939735,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C256_T320_O256_K7_S1_D5_G1_P15",
+      "direction": "fwd",
+      "baseline_ms": 0.4035628523145403,
+      "normal_ms": 8.177636282784599,
+      "speedup": 0.049349572218577754,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C256_T320_O256_K7_S1_D5_G1_P15",
+      "direction": "dx",
+      "baseline_ms": 0.26904143605913433,
+      "normal_ms": 13.512367248535156,
+      "speedup": 0.019910755170475438,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C256_T320_O256_K7_S1_D5_G1_P15",
+      "direction": "dw",
+      "baseline_ms": 0.264568567276001,
+      "normal_ms": 0.311401435307094,
+      "speedup": 0.8496061266226728,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C32_T12800_O32_K11_S1_D3_G1_P15",
+      "direction": "fwd",
+      "baseline_ms": 0.7136485917227608,
+      "normal_ms": 9.062484741210938,
+      "speedup": 0.07874756340030013,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C32_T12800_O32_K11_S1_D3_G1_P15",
+      "direction": "dx",
+      "baseline_ms": 0.6171085493905204,
+      "normal_ms": 12.659846714564733,
+      "speedup": 0.04874534133818204,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C32_T12800_O32_K11_S1_D3_G1_P15",
+      "direction": "dw",
+      "baseline_ms": 1.466578483581543,
+      "normal_ms": 19.969412667410715,
+      "speedup": 0.0734412427649883,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C32_T12800_O32_K11_S1_D5_G1_P25",
+      "direction": "fwd",
+      "baseline_ms": 0.7870784487043109,
+      "normal_ms": 7.798466273716518,
+      "speedup": 0.10092733892522338,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C32_T12800_O32_K11_S1_D5_G1_P25",
+      "direction": "dx",
+      "baseline_ms": 0.7521484238760812,
+      "normal_ms": 12.682448250906807,
+      "speedup": 0.05930624820978882,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C32_T12800_O32_K11_S1_D5_G1_P25",
+      "direction": "dw",
+      "baseline_ms": 1.5307598114013672,
+      "normal_ms": 19.98805890764509,
+      "speedup": 0.07658371523089107,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C32_T12800_O32_K3_S1_D3_G1_P3",
+      "direction": "fwd",
+      "baseline_ms": 0.4591742924281529,
+      "normal_ms": 2.311932155064174,
+      "speedup": 0.19861062593136833,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C32_T12800_O32_K3_S1_D3_G1_P3",
+      "direction": "dx",
+      "baseline_ms": 0.41601286615644184,
+      "normal_ms": 3.894458770751953,
+      "speedup": 0.10682174100308087,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C32_T12800_O32_K3_S1_D3_G1_P3",
+      "direction": "dw",
+      "baseline_ms": 1.9215854917253767,
+      "normal_ms": 10.303766523088727,
+      "speedup": 0.18649350093671854,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C32_T12800_O32_K3_S1_D5_G1_P5",
+      "direction": "fwd",
+      "baseline_ms": 0.4619971343449184,
+      "normal_ms": 2.316906520298549,
+      "speedup": 0.19940257852327462,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C32_T12800_O32_K3_S1_D5_G1_P5",
+      "direction": "dx",
+      "baseline_ms": 0.4173698425292969,
+      "normal_ms": 3.89413206917899,
+      "speedup": 0.10717916986757259,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C32_T12800_O32_K3_S1_D5_G1_P5",
+      "direction": "dw",
+      "baseline_ms": 1.9215666907174247,
+      "normal_ms": 10.309705461774554,
+      "speedup": 0.1863842471389746,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C32_T12800_O32_K7_S1_D3_G1_P9",
+      "direction": "fwd",
+      "baseline_ms": 0.6464414596557617,
+      "normal_ms": 5.176210130964007,
+      "speedup": 0.12488702029091886,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C32_T12800_O32_K7_S1_D3_G1_P9",
+      "direction": "dx",
+      "baseline_ms": 0.49330142566135954,
+      "normal_ms": 8.393383571079799,
+      "speedup": 0.05877265366032794,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C32_T12800_O32_K7_S1_D3_G1_P9",
+      "direction": "dw",
+      "baseline_ms": 1.4075911385672433,
+      "normal_ms": 11.166907174246651,
+      "speedup": 0.12605022291341855,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C32_T12800_O32_K7_S1_D5_G1_P15",
+      "direction": "fwd",
+      "baseline_ms": 0.6456184387207031,
+      "normal_ms": 5.159218924386161,
+      "speedup": 0.1251387948801801,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C32_T12800_O32_K7_S1_D5_G1_P15",
+      "direction": "dx",
+      "baseline_ms": 0.5775470052446637,
+      "normal_ms": 8.39925765991211,
+      "speedup": 0.0687616725941358,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C32_T12800_O32_K7_S1_D5_G1_P15",
+      "direction": "dw",
+      "baseline_ms": 1.3897141047886439,
+      "normal_ms": 11.247674124581474,
+      "speedup": 0.12355568710436436,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C64_T6400_O64_K11_S1_D3_G1_P15",
+      "direction": "fwd",
+      "baseline_ms": 0.9655298505510602,
+      "normal_ms": 13.641866411481585,
+      "speedup": 0.07077696126231148,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C64_T6400_O64_K11_S1_D3_G1_P15",
+      "direction": "dx",
+      "baseline_ms": 0.6373471532549176,
+      "normal_ms": 22.176487513950892,
+      "speedup": 0.02873977012157458,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C64_T6400_O64_K11_S1_D3_G1_P15",
+      "direction": "dw",
+      "baseline_ms": 4.126205171857562,
+      "normal_ms": 4.467007500784738,
+      "speedup": 0.9237067927763036,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C64_T6400_O64_K11_S1_D5_G1_P25",
+      "direction": "fwd",
+      "baseline_ms": 1.0449698311941964,
+      "normal_ms": 13.61883544921875,
+      "speedup": 0.07672974940409766,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C64_T6400_O64_K11_S1_D5_G1_P25",
+      "direction": "dx",
+      "baseline_ms": 0.7808057240077427,
+      "normal_ms": 22.16015407017299,
+      "speedup": 0.03523467036985486,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C64_T6400_O64_K11_S1_D5_G1_P25",
+      "direction": "dw",
+      "baseline_ms": 4.1207122802734375,
+      "normal_ms": 4.48333876473563,
+      "speedup": 0.9191168672520387,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C64_T6400_O64_K3_S1_D3_G1_P3",
+      "direction": "fwd",
+      "baseline_ms": 0.597632884979248,
+      "normal_ms": 4.00567490713937,
+      "speedup": 0.1491965521001414,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C64_T6400_O64_K3_S1_D3_G1_P3",
+      "direction": "dx",
+      "baseline_ms": 0.4155114378247942,
+      "normal_ms": 6.97541264125279,
+      "speedup": 0.05956800825910251,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C64_T6400_O64_K3_S1_D3_G1_P3",
+      "direction": "dw",
+      "baseline_ms": 2.5357567923409596,
+      "normal_ms": 4.459273202078683,
+      "speedup": 0.5686480010148113,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C64_T6400_O64_K3_S1_D5_G1_P5",
+      "direction": "fwd",
+      "baseline_ms": 0.5928384235927037,
+      "normal_ms": 4.004349027361188,
+      "speedup": 0.14804863900272353,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C64_T6400_O64_K3_S1_D5_G1_P5",
+      "direction": "dx",
+      "baseline_ms": 0.41937555585588726,
+      "normal_ms": 6.987669808523996,
+      "speedup": 0.06001651013107499,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C64_T6400_O64_K3_S1_D5_G1_P5",
+      "direction": "dw",
+      "baseline_ms": 2.534848621913365,
+      "normal_ms": 4.448226111275809,
+      "speedup": 0.5698560636312477,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C64_T6400_O64_K7_S1_D3_G1_P9",
+      "direction": "fwd",
+      "baseline_ms": 0.7920583997453962,
+      "normal_ms": 8.926170349121094,
+      "speedup": 0.08873440330694399,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C64_T6400_O64_K7_S1_D3_G1_P9",
+      "direction": "dx",
+      "baseline_ms": 0.4957341466631208,
+      "normal_ms": 14.554020472935267,
+      "speedup": 0.03406166341355577,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C64_T6400_O64_K7_S1_D3_G1_P9",
+      "direction": "dw",
+      "baseline_ms": 4.009179524012974,
+      "normal_ms": 4.460008893694196,
+      "speedup": 0.8989173832548564,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C64_T6400_O64_K7_S1_D5_G1_P15",
+      "direction": "fwd",
+      "baseline_ms": 0.7934741292681012,
+      "normal_ms": 8.920179639543806,
+      "speedup": 0.088952707381651,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C64_T6400_O64_K7_S1_D5_G1_P15",
+      "direction": "dx",
+      "baseline_ms": 0.5808171544756208,
+      "normal_ms": 14.569321768624443,
+      "speedup": 0.039865764769258606,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C64_T6400_O64_K7_S1_D5_G1_P15",
+      "direction": "dw",
+      "baseline_ms": 4.010776519775391,
+      "normal_ms": 4.440250396728516,
+      "speedup": 0.9032771040863928,
+      "pass": true,
+      "key_present": false,
+      "solver_entries": []
+    },
+    {
+      "case": "conv1d_B8_C1024_T200_O1024_K41_S4_D1_G256_P20",
+      "direction": "fwd",
+      "baseline_ms": 0.4513728618621826,
+      "normal_ms": 0.4490999834878104,
+      "speedup": 1.0050609629435312,
+      "pass": true,
+      "key_present": true,
+      "solver_entries": [
+        "GemmFwdRest"
+      ]
+    },
+    {
+      "case": "conv1d_B8_C1024_T200_O1024_K41_S4_D1_G256_P20",
+      "direction": "dx",
+      "baseline_ms": 0.2586212839399065,
+      "normal_ms": 0.2562612806047712,
+      "speedup": 1.0092093636992907,
+      "pass": true,
+      "key_present": true,
+      "solver_entries": [
+        "GemmBwdRest"
+      ]
+    },
+    {
+      "case": "conv1d_B8_C1024_T200_O1024_K41_S4_D1_G256_P20",
+      "direction": "dw",
+      "baseline_ms": 0.36923285893031527,
+      "normal_ms": 0.3693441322871617,
+      "speedup": 0.999698727156819,
+      "pass": true,
+      "key_present": true,
+      "solver_entries": [
+        "GemmWrwUniversal"
+      ]
+    },
+    {
+      "case": "conv1d_B8_C16_T12800_O64_K41_S4_D1_G4_P20",
+      "direction": "fwd",
+      "baseline_ms": 0.2814412798200335,
+      "normal_ms": 0.28257570947919575,
+      "speedup": 0.9959853956971281,
+      "pass": true,
+      "key_present": true,
+      "solver_entries": [
+        "GemmFwdRest"
+      ]
+    },
+    {
+      "case": "conv1d_B8_C16_T12800_O64_K41_S4_D1_G4_P20",
+      "direction": "dx",
+      "baseline_ms": 0.23396129267556326,
+      "normal_ms": 0.2283600057874407,
+      "speedup": 1.024528318208821,
+      "pass": true,
+      "key_present": true,
+      "solver_entries": [
+        "GemmBwdRest"
+      ]
+    },
+    {
+      "case": "conv1d_B8_C16_T12800_O64_K41_S4_D1_G4_P20",
+      "direction": "dw",
+      "baseline_ms": 0.9925569806780133,
+      "normal_ms": 0.9097612925938198,
+      "speedup": 1.091008145497304,
+      "pass": true,
+      "key_present": true,
+      "solver_entries": [
+        "GemmWrwUniversal"
+      ]
+    },
+    {
+      "case": "conv1d_B8_C256_T800_O1024_K41_S4_D1_G64_P20",
+      "direction": "fwd",
+      "baseline_ms": 0.33799569947378977,
+      "normal_ms": 0.3384242738996233,
+      "speedup": 0.9987336179497553,
+      "pass": true,
+      "key_present": true,
+      "solver_entries": [
+        "GemmFwdRest"
+      ]
+    },
+    {
+      "case": "conv1d_B8_C256_T800_O1024_K41_S4_D1_G64_P20",
+      "direction": "dx",
+      "baseline_ms": 0.24954843521118164,
+      "normal_ms": 0.2617098603929792,
+      "speedup": 0.95353088659504,
+      "pass": true,
+      "key_present": true,
+      "solver_entries": [
+        "GemmBwdRest"
+      ]
+    },
+    {
+      "case": "conv1d_B8_C256_T800_O1024_K41_S4_D1_G64_P20",
+      "direction": "dw",
+      "baseline_ms": 0.36282144274030415,
+      "normal_ms": 0.37057570048740934,
+      "speedup": 0.9790751046630791,
+      "pass": true,
+      "key_present": true,
+      "solver_entries": [
+        "GemmWrwUniversal"
+      ]
+    },
+    {
+      "case": "conv1d_B8_C64_T3200_O256_K41_S4_D1_G16_P20",
+      "direction": "fwd",
+      "baseline_ms": 0.30705714225769043,
+      "normal_ms": 0.3090841429574149,
+      "speedup": 0.9934419130003582,
+      "pass": true,
+      "key_present": true,
+      "solver_entries": [
+        "GemmFwdRest"
+      ]
+    },
+    {
+      "case": "conv1d_B8_C64_T3200_O256_K41_S4_D1_G16_P20",
+      "direction": "dx",
+      "baseline_ms": 0.23160857813698904,
+      "normal_ms": 0.2335885763168335,
+      "speedup": 0.9915235658735346,
+      "pass": true,
+      "key_present": true,
+      "solver_entries": [
+        "GemmBwdRest"
+      ]
+    },
+    {
+      "case": "conv1d_B8_C64_T3200_O256_K41_S4_D1_G16_P20",
+      "direction": "dw",
+      "baseline_ms": 0.4345757280077253,
+      "normal_ms": 0.4323585714612688,
+      "speedup": 1.005128050402616,
+      "pass": true,
+      "key_present": true,
+      "solver_entries": [
+        "GemmWrwUniversal"
+      ]
+    },
+    {
+      "case": "conv2d_B8_C128_H712_W2_O512_K5x1_S3x1_D1x1_G1_P2x0",
+      "direction": "fwd",
+      "baseline_ms": 0.5056898593902588,
+      "normal_ms": 0.5058855669839042,
+      "speedup": 0.9996131386099584,
+      "pass": true,
+      "key_present": true,
+      "solver_entries": [
+        "GemmFwdRest"
+      ]
+    },
+    {
+      "case": "conv2d_B8_C128_H712_W2_O512_K5x1_S3x1_D1x1_G1_P2x0",
+      "direction": "dx",
+      "baseline_ms": 0.22504571505955287,
+      "normal_ms": 0.22821428094591414,
+      "speedup": 0.9861158299418071,
+      "pass": true,
+      "key_present": true,
+      "solver_entries": [
+        "GemmBwdRest"
+      ]
+    },
+    {
+      "case": "conv2d_B8_C128_H712_W2_O512_K5x1_S3x1_D1x1_G1_P2x0",
+      "direction": "dw",
+      "baseline_ms": 0.5982027053833008,
+      "normal_ms": 0.45639130047389437,
+      "speedup": 1.3107232867106722,
+      "pass": true,
+      "key_present": true,
+      "solver_entries": [
+        "GemmWrwUniversal",
+        "ConvHipImplicitGemmV4R1WrW"
+      ]
+    },
+    {
+      "case": "conv2d_B8_C32_H2134_W2_O128_K5x1_S3x1_D1x1_G1_P2x0",
+      "direction": "fwd",
+      "baseline_ms": 0.24326142242976598,
+      "normal_ms": 0.2419928482600621,
+      "speedup": 1.0052421969443517,
+      "pass": true,
+      "key_present": true,
+      "solver_entries": [
+        "GemmFwdRest"
+      ]
+    },
+    {
+      "case": "conv2d_B8_C32_H2134_W2_O128_K5x1_S3x1_D1x1_G1_P2x0",
+      "direction": "dx",
+      "baseline_ms": 0.1678485700062343,
+      "normal_ms": 0.16604128905705043,
+      "speedup": 1.0108845273332159,
+      "pass": true,
+      "key_present": true,
+      "solver_entries": [
+        "GemmBwdRest"
+      ]
+    },
+    {
+      "case": "conv2d_B8_C32_H2134_W2_O128_K5x1_S3x1_D1x1_G1_P2x0",
+      "direction": "dw",
+      "baseline_ms": 0.6209126881190709,
+      "normal_ms": 0.6224169731140137,
+      "speedup": 0.9975831555694622,
+      "pass": true,
+      "key_present": true,
+      "solver_entries": [
+        "GemmWrwUniversal"
+      ]
+    },
+    {
+      "case": "conv2d_B8_C512_H95_W5_O1024_K5x1_S3x1_D1x1_G1_P2x0",
+      "direction": "fwd",
+      "baseline_ms": 0.8220898764474052,
+      "normal_ms": 0.8470484188624791,
+      "speedup": 0.9705346921624725,
+      "pass": true,
+      "key_present": true,
+      "solver_entries": [
+        "GemmFwdRest"
+      ]
+    },
+    {
+      "case": "conv2d_B8_C512_H95_W5_O1024_K5x1_S3x1_D1x1_G1_P2x0",
+      "direction": "dx",
+      "baseline_ms": 0.5030712740761893,
+      "normal_ms": 0.5000641345977783,
+      "speedup": 1.0060135076090386,
+      "pass": true,
+      "key_present": true,
+      "solver_entries": [
+        "GemmBwdRest"
+      ]
+    },
+    {
+      "case": "conv2d_B8_C512_H95_W5_O1024_K5x1_S3x1_D1x1_G1_P2x0",
+      "direction": "dw",
+      "baseline_ms": 0.47330842699323383,
+      "normal_ms": 0.45573415075029644,
+      "speedup": 1.0385625615591987,
+      "pass": true,
+      "key_present": true,
+      "solver_entries": [
+        "GemmWrwUniversal",
+        "ConvHipImplicitGemmV4R1WrW"
+      ]
+    },
+    {
+      "case": "conv_transpose1d_B8_C128_T3200_O64_K4_S2_D1_G1_P1",
+      "direction": "fwd",
+      "baseline_ms": 0.23414570944649832,
+      "normal_ms": 0.2324200017111642,
+      "speedup": 1.00742495362976,
+      "pass": true,
+      "key_present": true,
+      "solver_entries": [
+        "GemmBwdRest"
+      ]
+    },
+    {
+      "case": "conv_transpose1d_B8_C128_T3200_O64_K4_S2_D1_G1_P1",
+      "direction": "dx",
+      "baseline_ms": 0.38411429950169157,
+      "normal_ms": 0.3814528669629778,
+      "speedup": 1.0069770940769258,
+      "pass": true,
+      "key_present": true,
+      "solver_entries": [
+        "GemmFwdRest"
+      ]
+    },
+    {
+      "case": "conv_transpose1d_B8_C128_T3200_O64_K4_S2_D1_G1_P1",
+      "direction": "dw",
+      "baseline_ms": 0.6649312973022461,
+      "normal_ms": 0.6628984042576381,
+      "speedup": 1.0030666736132583,
+      "pass": true,
+      "key_present": true,
+      "solver_entries": [
+        "GemmWrwUniversal",
+        "ConvHipImplicitGemmV4R1WrW"
+      ]
+    },
+    {
+      "case": "conv_transpose1d_B8_C256_T320_O128_K16_S10_D1_G1_P3",
+      "direction": "fwd",
+      "baseline_ms": 0.3501670019967215,
+      "normal_ms": 0.33819287163870676,
+      "speedup": 1.0354062174640002,
+      "pass": true,
+      "key_present": true,
+      "solver_entries": [
+        "GemmBwdRest"
+      ]
+    },
+    {
+      "case": "conv_transpose1d_B8_C256_T320_O128_K16_S10_D1_G1_P3",
+      "direction": "dx",
+      "baseline_ms": 0.49164557456970215,
+      "normal_ms": 0.49067698206220356,
+      "speedup": 1.0019739921433197,
+      "pass": true,
+      "key_present": true,
+      "solver_entries": [
+        "GemmFwdRest"
+      ]
+    },
+    {
+      "case": "conv_transpose1d_B8_C256_T320_O128_K16_S10_D1_G1_P3",
+      "direction": "dw",
+      "baseline_ms": 0.3976470061710903,
+      "normal_ms": 0.312415565763201,
+      "speedup": 1.2728143208859555,
+      "pass": true,
+      "key_present": true,
+      "solver_entries": [
+        "GemmWrwUniversal",
+        "ConvHipImplicitGemmV4R1WrW"
+      ]
+    },
+    {
+      "case": "conv_transpose1d_B8_C512_T32_O256_K16_S10_D1_G1_P3",
+      "direction": "fwd",
+      "baseline_ms": 0.24595999717712402,
+      "normal_ms": 0.24573985167912074,
+      "speedup": 1.0008958477694971,
+      "pass": true,
+      "key_present": true,
+      "solver_entries": [
+        "GemmBwdRest"
+      ]
+    },
+    {
+      "case": "conv_transpose1d_B8_C512_T32_O256_K16_S10_D1_G1_P3",
+      "direction": "dx",
+      "baseline_ms": 0.3225712776184082,
+      "normal_ms": 0.3191442830221994,
+      "speedup": 1.0107380729610953,
+      "pass": true,
+      "key_present": true,
+      "solver_entries": [
+        "GemmFwdRest"
+      ]
+    },
+    {
+      "case": "conv_transpose1d_B8_C512_T32_O256_K16_S10_D1_G1_P3",
+      "direction": "dw",
+      "baseline_ms": 0.19143285070146834,
+      "normal_ms": 0.12476842744009835,
+      "speedup": 1.534305229529127,
+      "pass": true,
+      "key_present": true,
+      "solver_entries": [
+        "GemmWrwUniversal",
+        "ConvHipImplicitGemmV4R1WrW"
+      ]
+    },
+    {
+      "case": "conv_transpose1d_B8_C64_T6400_O32_K4_S2_D1_G1_P1",
+      "direction": "fwd",
+      "baseline_ms": 0.20886714117867605,
+      "normal_ms": 0.20464999335152761,
+      "speedup": 1.0206066355443493,
+      "pass": true,
+      "key_present": true,
+      "solver_entries": [
+        "GemmBwdRest"
+      ]
+    },
+    {
+      "case": "conv_transpose1d_B8_C64_T6400_O32_K4_S2_D1_G1_P1",
+      "direction": "dx",
+      "baseline_ms": 0.3366328648158482,
+      "normal_ms": 0.33543126923697336,
+      "speedup": 1.0035822408018436,
+      "pass": true,
+      "key_present": true,
+      "solver_entries": [
+        "GemmFwdRest"
+      ]
+    },
+    {
+      "case": "conv_transpose1d_B8_C64_T6400_O32_K4_S2_D1_G1_P1",
+      "direction": "dw",
+      "baseline_ms": 2.411053793770926,
+      "normal_ms": 2.402442387172154,
+      "speedup": 1.0035844383385644,
+      "pass": true,
+      "key_present": true,
+      "solver_entries": [
+        "GemmWrwUniversal",
+        "ConvHipImplicitGemmV4R1WrW"
+      ]
+    }
+  ],
+  "normal_db_sha256": "0eec24d58c51afc9bab609c81627bd988dc4b553691b278d841a329bb765f2d3",
+  "gpu_audit": {
+    "available": true,
+    "valid_for_timing": true,
+    "method": "KFD client PID snapshots and periodic polling; research flock",
+    "limitation": "Detects observed KFD clients, not graphics load or sub-poll transient clients",
+    "allowed_pids": [
+      1540452
+    ],
+    "interval_s": 0.25,
+    "sample_count": 819,
+    "started_unix_s": 1794059439.8852124,
+    "ended_unix_s": 1794059632.8766634,
+    "foreign_clients": [],
+    "errors": [],
+    "transitions": [
+      {
+        "unix_s": 1794059439.885213,
+        "kfd_pids": [],
+        "foreign_or_error": []
+      }
+    ]
+  },
+  "note": "NORMAL dilated calls warned that GEMM workspace required>0 but provided0; do not label this a complete fair solver search. Seed-only wins require a new FAST replay and model AB."
+}

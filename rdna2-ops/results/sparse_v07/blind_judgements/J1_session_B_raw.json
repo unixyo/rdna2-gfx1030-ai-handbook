@@ -1,0 +1,116 @@
+{
+  "reviewer_label": "J1/session-B",
+  "model_label_visible": "GPT-6 Astra Pro",
+  "internal_revision": "unknown",
+  "sets": [
+    {
+      "set_id": "p506af831a3e94ea5",
+      "viewed_files": [
+        "a0024.png",
+        "a0012.png",
+        "a0013.png",
+        "a0014.png",
+        "a0015.png"
+      ],
+      "preferred": "A",
+      "a_relative_degradation_severity": 0,
+      "b_relative_degradation_severity": 3,
+      "a_relative_defects": [],
+      "b_relative_defects": [
+        {
+          "category": "의미와 구도",
+          "location": "전체 화면의 위쪽, 중앙 및 아래쪽 인물 배치",
+          "observation": "보라색 머리와 밝은 머리 인물이 여러 크기로 반복되고 겹쳐 있다. 함께 앉아 있는 두 사람의 장면이 아니라 여러 인물과 장면 조각이 포개진 구성이 된다.",
+          "severity": 3
+        },
+        {
+          "category": "얼굴·신체 구조",
+          "location": "중앙의 옆으로 기운 보라색 머리 주변과 오른쪽 밝은 머리 인물의 목·가슴 부근",
+          "observation": "큰 보라색 머리가 다른 인물의 몸 위에 비스듬히 겹치고, 밝은 머리 인물의 얼굴 아래에는 별도의 눈과 얼굴 일부가 나타난다. 머리와 몸의 연결을 따라가기 어렵고, 위쪽에는 머리 위를 가로지르는 팔도 보인다.",
+          "severity": 3
+        },
+        {
+          "category": "인물 특징과 의상",
+          "location": "위쪽 중앙의 보라색 머리 인물",
+          "observation": "보라색 머리 인물에 흰 블라우스와 와인색 크라바트가 결합되어, 공통 지시에서 두 인물에게 각각 부여한 머리와 의상의 대응이 흐트러진다.",
+          "severity": 2
+        }
+      ],
+      "common_defects": [],
+      "instruction_fidelity": "A는 두 인물이 소파에 붙어 앉아 푸딩과 책을 들고 있는 장면을 일관되게 구성하며, 머리색과 의상 및 따뜻한 서재 분위기도 지시에 부합한다. B에도 해당 소재는 나타나지만 인물의 증식과 얼굴·몸의 겹침이 두 사람의 친밀한 상호작용을 표현하는 데 직접적인 지장을 준다.",
+      "confidence": "high",
+      "reason": "전체 화면에서 A는 두 사람의 배치와 소품의 소유 관계가 명확하다. B의 중앙과 하단 크롭에서는 옆으로 겹친 머리, 목 아래의 추가 얼굴 일부, 여러 팔과 몸의 중첩이 확인된다. B의 일부 얼굴과 색감은 선명하고 따뜻하지만 구조적 파손이 크다."
+    },
+    {
+      "set_id": "p77e54ad28ee8a89d",
+      "viewed_files": [
+        "a0024.png",
+        "a0016.png",
+        "a0017.png",
+        "a0018.png",
+        "a0019.png"
+      ],
+      "preferred": "A",
+      "a_relative_degradation_severity": 0,
+      "b_relative_degradation_severity": 3,
+      "a_relative_defects": [],
+      "b_relative_defects": [
+        {
+          "category": "의미와 구도",
+          "location": "전체 화면의 상단·중단·하단",
+          "observation": "보라색 머리와 밝은 머리의 얼굴이 세 층에 걸쳐 반복되어, 두 인물의 장면이 여러 쌍을 쌓아 놓은 형태가 된다. 얼굴과 몸의 크기 및 위치도 층마다 달라 장면의 중심이 분산된다.",
+          "severity": 3
+        },
+        {
+          "category": "신체와 소품의 연결",
+          "location": "하단의 보라색 머리 인물 주변 및 오른쪽 책을 든 인물들",
+          "observation": "입 근처의 컵을 든 보라색 머리 인물 아래에 별도의 숟가락 손과 푸딩 컵이 다시 나타난다. 오른쪽에는 얼굴을 가리는 높이의 책과 무릎 높이의 책이 겹친 인물들 사이에 배치되어, 팔과 소품이 어느 몸에 연결되는지 불명확하다.",
+          "severity": 2
+        }
+      ],
+      "common_defects": [],
+      "instruction_fidelity": "A는 검은 후디를 입은 왼쪽 인물이 기대어 푸딩을 들고, 오른쪽 인물이 책을 펼친 두 사람의 구도를 충실하게 보여 준다. B는 머리색·의상·책·푸딩·조명 같은 요소를 유지하지만 인물과 소품의 반복 때문에 요청된 두 사람의 단일 장면을 달성하지 못한다.",
+      "confidence": "high",
+      "reason": "전체 화면과 얼굴 크롭에서 B의 인물이 여러 층으로 반복되는 것이 명확하다. 하단 크롭에서도 컵과 숟가락, 서로 다른 높이의 책이 반복되며 몸과 겹친다. A는 얼굴, 푸딩을 든 손, 책과 의상 경계가 하나의 장면으로 자연스럽게 이어진다."
+    },
+    {
+      "set_id": "p37d12c010e3506f1",
+      "viewed_files": [
+        "a0024.png",
+        "a0020.png",
+        "a0021.png",
+        "a0022.png",
+        "a0023.png"
+      ],
+      "preferred": "A",
+      "a_relative_degradation_severity": 0,
+      "b_relative_degradation_severity": 3,
+      "a_relative_defects": [],
+      "b_relative_defects": [
+        {
+          "category": "의미와 구도",
+          "location": "전체 화면의 위쪽, 가운데 및 아래쪽 인물군",
+          "observation": "보라색 머리와 밝은 머리 인물이 위·가운데·아래에 반복되어 여섯 개의 얼굴이 보인다. 두 사람이 한 소파에서 함께 시간을 보내는 구성 대신 비슷한 인물 쌍이 층층이 겹친 구성이 된다.",
+          "severity": 3
+        },
+        {
+          "category": "신체와 소품의 연결",
+          "location": "가운데 밝은 머리 인물의 책 주변과 그 아래 인물들의 머리·몸 경계",
+          "observation": "위쪽 인물의 몸 앞에 가운데 인물의 얼굴과 책이 놓이고, 그 아래로 또 다른 머리와 몸이 이어진다. 반복된 푸딩과 책까지 겹쳐 각 인물의 몸과 팔이 차지하는 범위가 불명확해진다.",
+          "severity": 2
+        }
+      ],
+      "common_defects": [
+        {
+          "category": "소품과 지시 충실도",
+          "location": "A 왼쪽 인물의 푸딩 및 B 가운데 층 보라색 머리 인물의 푸딩",
+          "observation": "두 위치 모두 푸딩이 작은 컵에 담긴 형태보다 접시 위에 올린 커스터드 형태로 표현된다.",
+          "severity": 1
+        }
+      ],
+      "instruction_fidelity": "A는 두 인물의 머리·의상 특징, 기대어 앉은 자세, 펼친 책, 차와 따뜻한 밤의 서재를 일관되게 표현한다. 푸딩 용기의 형태에는 작은 지시 차이가 있다. B에는 컵에 담긴 푸딩도 보이지만 인물 쌍과 책·푸딩이 여러 층으로 반복되는 문제가 요청된 장면의 의미와 구도에 훨씬 크게 영향을 준다.",
+      "confidence": "high",
+      "reason": "A는 전체 화면에서 두 사람과 소파·창문·램프·테이블의 공간 관계가 안정적이고, 크롭에서도 머리카락과 금색 의상선, 책과 손의 형태가 이어진다. B는 개별 얼굴과 따뜻한 색감이 유지되지만 전체 화면 및 중앙·하단 크롭에서 인물과 소품의 반복·중첩이 분명하다."
+    }
+  ]
+}

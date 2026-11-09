@@ -1,0 +1,225 @@
+{
+  "note": "Phase intervals on one stream are disjoint. They include idle gaps. Do not add host staging, GPU timeline and wall; host staging is cumulative. First/cold and primed fresh remain separate.",
+  "runs": [
+    {
+      "arm": "pinned-stage-first",
+      "exe_sha256": "dd6753203cec325a2a89bc1c9a96d2a847c0bbcf3e08622d9cebb62484977466",
+      "timing_enabled": true,
+      "ready_s": 10.01189184600662,
+      "error": null,
+      "service_before": {
+        "ActiveState": "inactive",
+        "SubState": "dead",
+        "FragmentPath": "~/.config/systemd/user/strata-verified-256k.service",
+        "DropInPaths": "",
+        "MainPID": "0"
+      },
+      "service_after": {
+        "ActiveState": "inactive",
+        "SubState": "dead",
+        "FragmentPath": "~/.config/systemd/user/strata-verified-256k.service",
+        "DropInPaths": "",
+        "MainPID": "0"
+      },
+      "resource_abort": null,
+      "resource_valid_for_timing": null,
+      "post_observation_swap_gate": null,
+      "path": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/strata_v07/pinned_stage_9k_first_retry",
+      "result_sha256": "60394093e116ae8b7bdd49a5d942874f31582651ee27ee4702822ac2071f251c",
+      "guard_valid": true,
+      "owned_pids_remaining": [],
+      "requests": [
+        {
+          "prompt_tokens": 9716,
+          "reused": 0,
+          "read": 9716,
+          "prompt_ms": 48774.0,
+          "tok_s": 199.2,
+          "stages": [
+            {
+              "tokens": 9711,
+              "timeline_ms": 38989.0,
+              "wall_ms": 39026.0,
+              "host_staging_cumulative_ms": 38758.0,
+              "phases_ms": {
+                "embed+steps": 8.0,
+                "hc read": 921.0,
+                "gdn": 1115.0,
+                "qsa proj": 666.0,
+                "qsa indexer": 1.0,
+                "qsa select": 42.0,
+                "qsa attn": 1019.0,
+                "router+shared": 754.0,
+                "host grouping": 80.0,
+                "gather": 135.0,
+                "wait copy": 476.0,
+                "dequant": 29209.0,
+                "gemm gate/up": 1338.0,
+                "gemm down": 2143.0,
+                "combine": 261.0,
+                "ple": 48.0,
+                "gdn conv+gates": 80.0,
+                "gdn recurrence": 330.0,
+                "gdn out proj": 363.0
+              }
+            },
+            {
+              "tokens": 4,
+              "timeline_ms": 1059.0,
+              "wall_ms": 1076.0,
+              "host_staging_cumulative_ms": 39308.0,
+              "phases_ms": {
+                "embed+steps": 0.0,
+                "hc read": 95.0,
+                "gdn": 91.0,
+                "qsa proj": 36.0,
+                "qsa indexer": 0.0,
+                "qsa select": 1.0,
+                "qsa attn": 1.0,
+                "router+shared": 33.0,
+                "host grouping": 5.0,
+                "gather": 463.0,
+                "wait copy": 39.0,
+                "dequant": 210.0,
+                "gemm gate/up": 7.0,
+                "gemm down": 3.0,
+                "combine": 60.0,
+                "ple": 1.0,
+                "gdn conv+gates": 1.0,
+                "gdn recurrence": 1.0,
+                "gdn out proj": 14.0
+              }
+            }
+          ],
+          "copies": [],
+          "phase_io": {},
+          "legacy_storage_read_MB": 47202.9,
+          "legacy_major_faults": 346096,
+          "legacy_expert_read_MB": 55202.4,
+          "legacy_io_scope": "engine process start to first request completion",
+          "label": "rows390_r0",
+          "phase": null,
+          "first_request": true,
+          "prewarm_in_same_process": null,
+          "api_s": 49.14101333299186,
+          "request_sha256": "c0a5eea71bf287480f1ed8fa36744289bc4ad0dfaf0cddbdc39836525b163f57",
+          "swap_in_pages_delta": 6603,
+          "swap_out_pages_delta": 1497594,
+          "swap_out_bytes_delta": 6134145024,
+          "http_boundary_native_io": [],
+          "generated_ids": [
+            1596,
+            1144,
+            4087,
+            1156,
+            579,
+            1622,
+            13,
+            14235
+          ],
+          "prompt_digest": "aa9b921b90100355d2a3464b43baac81b587d382c0ff52a2abfd393eef9c8198",
+          "phase_total_ms": 40048.0,
+          "phase_rank": [
+            {
+              "phase": "dequant",
+              "ms": 29419.0,
+              "fraction": 0.7345934878146224
+            },
+            {
+              "phase": "gemm down",
+              "ms": 2146.0,
+              "fraction": 0.05358569716340392
+            },
+            {
+              "phase": "gemm gate/up",
+              "ms": 1345.0,
+              "fraction": 0.03358469836196564
+            },
+            {
+              "phase": "gdn",
+              "ms": 1206.0,
+              "fraction": 0.030113863363963243
+            },
+            {
+              "phase": "qsa attn",
+              "ms": 1020.0,
+              "fraction": 0.025469436675988815
+            },
+            {
+              "phase": "hc read",
+              "ms": 1016.0,
+              "fraction": 0.025369556532161407
+            },
+            {
+              "phase": "router+shared",
+              "ms": 787.0,
+              "fraction": 0.019651418298042348
+            },
+            {
+              "phase": "qsa proj",
+              "ms": 702.0,
+              "fraction": 0.017528965241709948
+            },
+            {
+              "phase": "gather",
+              "ms": 598.0,
+              "fraction": 0.014932081502197363
+            },
+            {
+              "phase": "wait copy",
+              "ms": 515.0,
+              "fraction": 0.012859568517778665
+            },
+            {
+              "phase": "gdn out proj",
+              "ms": 377.0,
+              "fraction": 0.00941370355573312
+            },
+            {
+              "phase": "gdn recurrence",
+              "ms": 331.0,
+              "fraction": 0.008265081901717939
+            },
+            {
+              "phase": "combine",
+              "ms": 321.0,
+              "fraction": 0.008015381542149421
+            },
+            {
+              "phase": "host grouping",
+              "ms": 85.0,
+              "fraction": 0.0021224530563324013
+            },
+            {
+              "phase": "gdn conv+gates",
+              "ms": 81.0,
+              "fraction": 0.002022572912504994
+            },
+            {
+              "phase": "ple",
+              "ms": 49.0,
+              "fraction": 0.0012235317618857371
+            },
+            {
+              "phase": "qsa select",
+              "ms": 43.0,
+              "fraction": 0.0010737115461446265
+            },
+            {
+              "phase": "embed+steps",
+              "ms": 8.0,
+              "fraction": 0.00019976028765481422
+            },
+            {
+              "phase": "qsa indexer",
+              "ms": 1.0,
+              "fraction": 2.4970035956851777e-05
+            }
+          ],
+          "issued_h2d_bytes": null
+        }
+      ]
+    }
+  ],
+  "same_prompt_comparisons": []
+}

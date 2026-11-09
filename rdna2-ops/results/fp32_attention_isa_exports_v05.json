@@ -1,0 +1,16 @@
+{
+  "qwen": {
+    "asm_sha256": "11937be724f1d416176fd7ba0cc776cb63184104fb75aa6fac6113dfcec1ac64",
+    "source": "~/.triton/cache/I2T4OATQEURUBIVQ6MTCNDOF4TV6SFISNL3O53YCTCV6AHPGZ2IA/_fp32_stream.amdgcn",
+    ".amdgcn": {
+      "path": "results/fp32_attention_qwen_no_spill.amdgcn",
+      "bytes": 67032,
+      "sha256": "11937be724f1d416176fd7ba0cc776cb63184104fb75aa6fac6113dfcec1ac64"
+    },
+    ".ttgir": {
+      "path": "results/fp32_attention_qwen_no_spill.ttgir",
+      "bytes": 29062,
+      "sha256": "a8daef5ee72c5d7183b5e922bd660581353dd532888af9aa0a17ecd13af76324"
+    }
+  }
+}

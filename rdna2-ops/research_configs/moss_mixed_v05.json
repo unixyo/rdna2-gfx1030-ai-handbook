@@ -1,0 +1,33 @@
+{
+  "sampler": [
+    "KSampler",
+    "sample"
+  ],
+  "sampler_node": "8",
+  "model": "moss",
+  "runtime": "~/DevSpace/moss-image-rdna2-lab01/runtime/ComfyUI",
+  "workflow": "~/DevSpace/moss-image-rdna2-lab01/workflows/sft_fast4_int8_512.json",
+  "decoder": [
+    "VAEDecode",
+    "decode"
+  ],
+  "save_node": "11",
+  "attention_target": "comfy.ops:scaled_dot_product_attention",
+  "env": {
+    "MOSS_RDNA2_INT8_PATCH": "1",
+    "MOSS_RDNA2_INT8_LAYOUT": "view",
+    "MOSS_RDNA2_ATTENTION": "auto"
+  },
+  "server_args": [
+    "--base-directory",
+    "~/DevSpace/moss-image-rdna2-lab01",
+    "--models-directory",
+    "~/DevSpace/moss-image-rdna2-lab01/models",
+    "--use-pytorch-cross-attention",
+    "--disable-comfy-compiler"
+  ],
+  "require_bitwise_modes": [
+    "mixed_control"
+  ],
+  "mixed_probes": true
+}

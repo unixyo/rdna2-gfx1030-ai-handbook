@@ -1,0 +1,2925 @@
+{
+  "schema": "applio_v10_native_dispatch",
+  "strict_gate_pass": true,
+  "source_sha256": "ab69ce5f24f3736fc755f894729325fa8766bb58f4f960f533e802ef1d24b169",
+  "baseline_v08_source_sha256": "6ef607af92b0ffd561a633093ff9bd62ae8428deb6f613aa2d38fca3a674b4e3",
+  "entries": {
+    "{\"dilation\": [1, 1], \"groups\": 1, \"kind\": \"conv2d\", \"output_padding\": [0, 0], \"padding\": [2, 0], \"shape\": [8, 1, 4267, 3], \"stride\": [3, 1], \"weight\": [32, 1, 5, 1]}": {
+      "case": {
+        "kind": "conv2d",
+        "shape": [
+          8,
+          1,
+          4267,
+          3
+        ],
+        "weight": [
+          32,
+          1,
+          5,
+          1
+        ],
+        "stride": [
+          3,
+          1
+        ],
+        "padding": [
+          2,
+          0
+        ],
+        "dilation": [
+          1,
+          1
+        ],
+        "groups": 1,
+        "output_padding": [
+          0,
+          0
+        ],
+        "name": "conv2d_B8_C1_H4267_W3_O32_K5x1_S3x1_D1x1_G1_P2x0",
+        "origin": "Actual voice_model_A KLM49 HFG FP16 AMP B8 training capture",
+        "benchmark_dtype": "fp16",
+        "physical_dtype_basis": "FP16 training autocast contract; module hook records logical boundary dtypes",
+        "source_capture_keys": [
+          "107039b99e14",
+          "9b54da43efda"
+        ],
+        "logical_boundary_variants": [
+          {
+            "capture_key": "107039b99e14",
+            "module_kind": "ParametrizedConv2d",
+            "input_dtype": "torch.float32",
+            "weight_dtype": "torch.float32",
+            "count": 10
+          },
+          {
+            "capture_key": "9b54da43efda",
+            "module_kind": "ParametrizedConv2d",
+            "input_dtype": "torch.float16",
+            "weight_dtype": "torch.float32",
+            "count": 10
+          }
+        ],
+        "observed_forward_calls": 20,
+        "v10_family": "period",
+        "v08_baseline_directions": []
+      },
+      "directions": {
+        "fwd": {
+          "algorithm": "implicit_phase",
+          "bm": 32,
+          "bn": 128,
+          "bk": 32,
+          "num_warps": 4
+        },
+        "dx": {
+          "algorithm": "implicit_phase",
+          "bm": 32,
+          "bn": 128,
+          "bk": 32,
+          "num_warps": 4
+        },
+        "dw": {
+          "algorithm": "flat_dw",
+          "bm": 16,
+          "bn": 16,
+          "bk": 64,
+          "num_warps": 4,
+          "split": 128
+        }
+      },
+      "new_directions": {
+        "fwd": {
+          "algorithm": "implicit_phase",
+          "bm": 32,
+          "bn": 128,
+          "bk": 32,
+          "num_warps": 4
+        },
+        "dx": {
+          "algorithm": "implicit_phase",
+          "bm": 32,
+          "bn": 128,
+          "bk": 32,
+          "num_warps": 4
+        },
+        "dw": {
+          "algorithm": "flat_dw",
+          "bm": 16,
+          "bn": 16,
+          "bk": 64,
+          "num_warps": 4,
+          "split": 128
+        }
+      },
+      "strict_gate_pass": true,
+      "contract_pass": true,
+      "evidence": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/v10/native_family_smoke/result.json"
+    },
+    "{\"dilation\": [1], \"groups\": 1, \"kind\": \"conv_transpose1d\", \"output_padding\": [0], \"padding\": [1], \"shape\": [8, 64, 6400], \"stride\": [2], \"weight\": [64, 32, 4]}": {
+      "case": {
+        "kind": "conv_transpose1d",
+        "shape": [
+          8,
+          64,
+          6400
+        ],
+        "weight": [
+          64,
+          32,
+          4
+        ],
+        "stride": [
+          2
+        ],
+        "padding": [
+          1
+        ],
+        "dilation": [
+          1
+        ],
+        "groups": 1,
+        "output_padding": [
+          0
+        ],
+        "name": "conv_transpose1d_B8_C64_T6400_O32_K4_S2_D1_G1_P1",
+        "origin": "Actual voice_model_A KLM49 HFG FP16 AMP B8 training capture",
+        "benchmark_dtype": "fp16",
+        "physical_dtype_basis": "FP16 training autocast contract; module hook records logical boundary dtypes",
+        "source_capture_keys": [
+          "9863fde5421e"
+        ],
+        "logical_boundary_variants": [
+          {
+            "capture_key": "9863fde5421e",
+            "module_kind": "ParametrizedConvTranspose1d",
+            "input_dtype": "torch.float16",
+            "weight_dtype": "torch.float32",
+            "count": 5
+          }
+        ],
+        "observed_forward_calls": 5,
+        "v10_family": "transpose",
+        "v08_baseline_directions": []
+      },
+      "directions": {
+        "dx": {
+          "algorithm": "implicit_phase",
+          "bm": 32,
+          "bn": 128,
+          "bk": 32,
+          "num_warps": 4
+        },
+        "dw": {
+          "algorithm": "flat_dw",
+          "bm": 32,
+          "bn": 64,
+          "bk": 64,
+          "num_warps": 4,
+          "split": 64
+        }
+      },
+      "new_directions": {
+        "dx": {
+          "algorithm": "implicit_phase",
+          "bm": 32,
+          "bn": 128,
+          "bk": 32,
+          "num_warps": 4
+        },
+        "dw": {
+          "algorithm": "flat_dw",
+          "bm": 32,
+          "bn": 64,
+          "bk": 64,
+          "num_warps": 4,
+          "split": 64
+        }
+      },
+      "strict_gate_pass": true,
+      "contract_pass": true,
+      "evidence": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/v10/native_family_smoke/result.json"
+    },
+    "{\"dilation\": [1], \"groups\": 1, \"kind\": \"conv1d\", \"output_padding\": [0], \"padding\": [2], \"shape\": [8, 192, 220], \"stride\": [1], \"weight\": [384, 192, 5]}": {
+      "case": {
+        "kind": "conv1d",
+        "shape": [
+          8,
+          192,
+          220
+        ],
+        "weight": [
+          384,
+          192,
+          5
+        ],
+        "stride": [
+          1
+        ],
+        "padding": [
+          2
+        ],
+        "dilation": [
+          1
+        ],
+        "groups": 1,
+        "output_padding": [
+          0
+        ],
+        "name": "conv1d_B8_C192_T220_O384_K5_S1_D1_G1_P2",
+        "origin": "Actual voice_model_A KLM49 HFG FP16 AMP B8 training capture",
+        "benchmark_dtype": "fp16",
+        "physical_dtype_basis": "FP16 training autocast contract; module hook records logical boundary dtypes",
+        "source_capture_keys": [
+          "74ad859ddee8"
+        ],
+        "logical_boundary_variants": [
+          {
+            "capture_key": "74ad859ddee8",
+            "module_kind": "ParametrizedConv1d",
+            "input_dtype": "torch.float32",
+            "weight_dtype": "torch.float32",
+            "count": 28
+          }
+        ],
+        "observed_forward_calls": 28,
+        "v10_family": "remaining1d",
+        "v08_baseline_directions": []
+      },
+      "directions": {
+        "fwd": {
+          "algorithm": "implicit_phase",
+          "bm": 64,
+          "bn": 64,
+          "bk": 32,
+          "num_warps": 4
+        }
+      },
+      "new_directions": {
+        "fwd": {
+          "algorithm": "implicit_phase",
+          "bm": 64,
+          "bn": 64,
+          "bk": 32,
+          "num_warps": 4
+        }
+      },
+      "strict_gate_pass": true,
+      "contract_pass": true,
+      "evidence": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/v10/native_full/result.json"
+    },
+    "{\"dilation\": [1], \"groups\": 1, \"kind\": \"conv1d\", \"output_padding\": [0], \"padding\": [2], \"shape\": [8, 192, 298], \"stride\": [1], \"weight\": [384, 192, 5]}": {
+      "case": {
+        "kind": "conv1d",
+        "shape": [
+          8,
+          192,
+          298
+        ],
+        "weight": [
+          384,
+          192,
+          5
+        ],
+        "stride": [
+          1
+        ],
+        "padding": [
+          2
+        ],
+        "dilation": [
+          1
+        ],
+        "groups": 1,
+        "output_padding": [
+          0
+        ],
+        "name": "conv1d_B8_C192_T298_O384_K5_S1_D1_G1_P2",
+        "origin": "Actual voice_model_A KLM49 HFG FP16 AMP B8 training capture",
+        "benchmark_dtype": "fp16",
+        "physical_dtype_basis": "FP16 training autocast contract; module hook records logical boundary dtypes",
+        "source_capture_keys": [
+          "439b1010fce0"
+        ],
+        "logical_boundary_variants": [
+          {
+            "capture_key": "439b1010fce0",
+            "module_kind": "ParametrizedConv1d",
+            "input_dtype": "torch.float32",
+            "weight_dtype": "torch.float32",
+            "count": 28
+          }
+        ],
+        "observed_forward_calls": 28,
+        "v10_family": "remaining1d",
+        "v08_baseline_directions": []
+      },
+      "directions": {
+        "fwd": {
+          "algorithm": "implicit_phase",
+          "bm": 64,
+          "bn": 64,
+          "bk": 32,
+          "num_warps": 4
+        }
+      },
+      "new_directions": {
+        "fwd": {
+          "algorithm": "implicit_phase",
+          "bm": 64,
+          "bn": 64,
+          "bk": 32,
+          "num_warps": 4
+        }
+      },
+      "strict_gate_pass": true,
+      "contract_pass": true,
+      "evidence": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/v10/native_full/result.json"
+    },
+    "{\"dilation\": [1, 1], \"groups\": 1, \"kind\": \"conv2d\", \"output_padding\": [0, 0], \"padding\": [1, 0], \"shape\": [8, 1024, 80, 2], \"stride\": [1, 1], \"weight\": [1, 1024, 3, 1]}": {
+      "case": {
+        "kind": "conv2d",
+        "shape": [
+          8,
+          1024,
+          80,
+          2
+        ],
+        "weight": [
+          1,
+          1024,
+          3,
+          1
+        ],
+        "stride": [
+          1,
+          1
+        ],
+        "padding": [
+          1,
+          0
+        ],
+        "dilation": [
+          1,
+          1
+        ],
+        "groups": 1,
+        "output_padding": [
+          0,
+          0
+        ],
+        "name": "conv2d_B8_C1024_H80_W2_O1_K3x1_S1x1_D1x1_G1_P1x0",
+        "origin": "Actual voice_model_A KLM49 HFG FP16 AMP B8 training capture",
+        "benchmark_dtype": "fp16",
+        "physical_dtype_basis": "FP16 training autocast contract; module hook records logical boundary dtypes",
+        "source_capture_keys": [
+          "2b1180adbbe8"
+        ],
+        "logical_boundary_variants": [
+          {
+            "capture_key": "2b1180adbbe8",
+            "module_kind": "ParametrizedConv2d",
+            "input_dtype": "torch.float16",
+            "weight_dtype": "torch.float32",
+            "count": 20
+          }
+        ],
+        "observed_forward_calls": 20,
+        "v10_family": "period",
+        "v08_baseline_directions": []
+      },
+      "directions": {
+        "dx": {
+          "algorithm": "implicit_phase",
+          "bm": 64,
+          "bn": 64,
+          "bk": 32,
+          "num_warps": 4
+        }
+      },
+      "new_directions": {
+        "dx": {
+          "algorithm": "implicit_phase",
+          "bm": 64,
+          "bn": 64,
+          "bk": 32,
+          "num_warps": 4
+        }
+      },
+      "strict_gate_pass": true,
+      "contract_pass": true,
+      "evidence": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/v10/native_full/result.json"
+    },
+    "{\"dilation\": [1, 1], \"groups\": 1, \"kind\": \"conv2d\", \"output_padding\": [0, 0], \"padding\": [2, 0], \"shape\": [8, 128, 130, 11], \"stride\": [3, 1], \"weight\": [512, 128, 5, 1]}": {
+      "case": {
+        "kind": "conv2d",
+        "shape": [
+          8,
+          128,
+          130,
+          11
+        ],
+        "weight": [
+          512,
+          128,
+          5,
+          1
+        ],
+        "stride": [
+          3,
+          1
+        ],
+        "padding": [
+          2,
+          0
+        ],
+        "dilation": [
+          1,
+          1
+        ],
+        "groups": 1,
+        "output_padding": [
+          0,
+          0
+        ],
+        "name": "conv2d_B8_C128_H130_W11_O512_K5x1_S3x1_D1x1_G1_P2x0",
+        "origin": "Actual voice_model_A KLM49 HFG FP16 AMP B8 training capture",
+        "benchmark_dtype": "fp16",
+        "physical_dtype_basis": "FP16 training autocast contract; module hook records logical boundary dtypes",
+        "source_capture_keys": [
+          "69e5c6559847"
+        ],
+        "logical_boundary_variants": [
+          {
+            "capture_key": "69e5c6559847",
+            "module_kind": "ParametrizedConv2d",
+            "input_dtype": "torch.float16",
+            "weight_dtype": "torch.float32",
+            "count": 20
+          }
+        ],
+        "observed_forward_calls": 20,
+        "v10_family": "period",
+        "v08_baseline_directions": []
+      },
+      "directions": {
+        "fwd": {
+          "algorithm": "implicit_phase",
+          "bm": 32,
+          "bn": 128,
+          "bk": 32,
+          "num_warps": 4
+        }
+      },
+      "new_directions": {
+        "fwd": {
+          "algorithm": "implicit_phase",
+          "bm": 32,
+          "bn": 128,
+          "bk": 32,
+          "num_warps": 4
+        }
+      },
+      "strict_gate_pass": true,
+      "contract_pass": true,
+      "evidence": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/v10/native_full/result.json"
+    },
+    "{\"dilation\": [1, 1], \"groups\": 1, \"kind\": \"conv2d\", \"output_padding\": [0, 0], \"padding\": [2, 0], \"shape\": [8, 128, 204, 7], \"stride\": [3, 1], \"weight\": [512, 128, 5, 1]}": {
+      "case": {
+        "kind": "conv2d",
+        "shape": [
+          8,
+          128,
+          204,
+          7
+        ],
+        "weight": [
+          512,
+          128,
+          5,
+          1
+        ],
+        "stride": [
+          3,
+          1
+        ],
+        "padding": [
+          2,
+          0
+        ],
+        "dilation": [
+          1,
+          1
+        ],
+        "groups": 1,
+        "output_padding": [
+          0,
+          0
+        ],
+        "name": "conv2d_B8_C128_H204_W7_O512_K5x1_S3x1_D1x1_G1_P2x0",
+        "origin": "Actual voice_model_A KLM49 HFG FP16 AMP B8 training capture",
+        "benchmark_dtype": "fp16",
+        "physical_dtype_basis": "FP16 training autocast contract; module hook records logical boundary dtypes",
+        "source_capture_keys": [
+          "6c1a95547e4d"
+        ],
+        "logical_boundary_variants": [
+          {
+            "capture_key": "6c1a95547e4d",
+            "module_kind": "ParametrizedConv2d",
+            "input_dtype": "torch.float16",
+            "weight_dtype": "torch.float32",
+            "count": 20
+          }
+        ],
+        "observed_forward_calls": 20,
+        "v10_family": "period",
+        "v08_baseline_directions": []
+      },
+      "directions": {
+        "fwd": {
+          "algorithm": "implicit_phase",
+          "bm": 32,
+          "bn": 128,
+          "bk": 32,
+          "num_warps": 4
+        }
+      },
+      "new_directions": {
+        "fwd": {
+          "algorithm": "implicit_phase",
+          "bm": 32,
+          "bn": 128,
+          "bk": 32,
+          "num_warps": 4
+        }
+      },
+      "strict_gate_pass": true,
+      "contract_pass": true,
+      "evidence": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/v10/native_full/result.json"
+    },
+    "{\"dilation\": [1, 1], \"groups\": 1, \"kind\": \"conv2d\", \"output_padding\": [0, 0], \"padding\": [2, 0], \"shape\": [8, 128, 285, 5], \"stride\": [3, 1], \"weight\": [512, 128, 5, 1]}": {
+      "case": {
+        "kind": "conv2d",
+        "shape": [
+          8,
+          128,
+          285,
+          5
+        ],
+        "weight": [
+          512,
+          128,
+          5,
+          1
+        ],
+        "stride": [
+          3,
+          1
+        ],
+        "padding": [
+          2,
+          0
+        ],
+        "dilation": [
+          1,
+          1
+        ],
+        "groups": 1,
+        "output_padding": [
+          0,
+          0
+        ],
+        "name": "conv2d_B8_C128_H285_W5_O512_K5x1_S3x1_D1x1_G1_P2x0",
+        "origin": "Actual voice_model_A KLM49 HFG FP16 AMP B8 training capture",
+        "benchmark_dtype": "fp16",
+        "physical_dtype_basis": "FP16 training autocast contract; module hook records logical boundary dtypes",
+        "source_capture_keys": [
+          "3b91db171697"
+        ],
+        "logical_boundary_variants": [
+          {
+            "capture_key": "3b91db171697",
+            "module_kind": "ParametrizedConv2d",
+            "input_dtype": "torch.float16",
+            "weight_dtype": "torch.float32",
+            "count": 20
+          }
+        ],
+        "observed_forward_calls": 20,
+        "v10_family": "period",
+        "v08_baseline_directions": []
+      },
+      "directions": {
+        "fwd": {
+          "algorithm": "implicit_phase",
+          "bm": 32,
+          "bn": 128,
+          "bk": 32,
+          "num_warps": 4
+        }
+      },
+      "new_directions": {
+        "fwd": {
+          "algorithm": "implicit_phase",
+          "bm": 32,
+          "bn": 128,
+          "bk": 32,
+          "num_warps": 4
+        }
+      },
+      "strict_gate_pass": true,
+      "contract_pass": true,
+      "evidence": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/v10/native_full/result.json"
+    },
+    "{\"dilation\": [1, 1], \"groups\": 1, \"kind\": \"conv2d\", \"output_padding\": [0, 0], \"padding\": [2, 0], \"shape\": [8, 128, 39, 37], \"stride\": [3, 1], \"weight\": [512, 128, 5, 1]}": {
+      "case": {
+        "kind": "conv2d",
+        "shape": [
+          8,
+          128,
+          39,
+          37
+        ],
+        "weight": [
+          512,
+          128,
+          5,
+          1
+        ],
+        "stride": [
+          3,
+          1
+        ],
+        "padding": [
+          2,
+          0
+        ],
+        "dilation": [
+          1,
+          1
+        ],
+        "groups": 1,
+        "output_padding": [
+          0,
+          0
+        ],
+        "name": "conv2d_B8_C128_H39_W37_O512_K5x1_S3x1_D1x1_G1_P2x0",
+        "origin": "Actual voice_model_A KLM49 HFG FP16 AMP B8 training capture",
+        "benchmark_dtype": "fp16",
+        "physical_dtype_basis": "FP16 training autocast contract; module hook records logical boundary dtypes",
+        "source_capture_keys": [
+          "8dfe0357517d"
+        ],
+        "logical_boundary_variants": [
+          {
+            "capture_key": "8dfe0357517d",
+            "module_kind": "ParametrizedConv2d",
+            "input_dtype": "torch.float16",
+            "weight_dtype": "torch.float32",
+            "count": 20
+          }
+        ],
+        "observed_forward_calls": 20,
+        "v10_family": "period",
+        "v08_baseline_directions": []
+      },
+      "directions": {
+        "fwd": {
+          "algorithm": "implicit_phase",
+          "bm": 32,
+          "bn": 128,
+          "bk": 32,
+          "num_warps": 4
+        }
+      },
+      "new_directions": {
+        "fwd": {
+          "algorithm": "implicit_phase",
+          "bm": 32,
+          "bn": 128,
+          "bk": 32,
+          "num_warps": 4
+        }
+      },
+      "strict_gate_pass": true,
+      "contract_pass": true,
+      "evidence": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/v10/native_full/result.json"
+    },
+    "{\"dilation\": [1, 1], \"groups\": 1, \"kind\": \"conv2d\", \"output_padding\": [0, 0], \"padding\": [2, 0], \"shape\": [8, 128, 475, 3], \"stride\": [3, 1], \"weight\": [512, 128, 5, 1]}": {
+      "case": {
+        "kind": "conv2d",
+        "shape": [
+          8,
+          128,
+          475,
+          3
+        ],
+        "weight": [
+          512,
+          128,
+          5,
+          1
+        ],
+        "stride": [
+          3,
+          1
+        ],
+        "padding": [
+          2,
+          0
+        ],
+        "dilation": [
+          1,
+          1
+        ],
+        "groups": 1,
+        "output_padding": [
+          0,
+          0
+        ],
+        "name": "conv2d_B8_C128_H475_W3_O512_K5x1_S3x1_D1x1_G1_P2x0",
+        "origin": "Actual voice_model_A KLM49 HFG FP16 AMP B8 training capture",
+        "benchmark_dtype": "fp16",
+        "physical_dtype_basis": "FP16 training autocast contract; module hook records logical boundary dtypes",
+        "source_capture_keys": [
+          "a4b03356c434"
+        ],
+        "logical_boundary_variants": [
+          {
+            "capture_key": "a4b03356c434",
+            "module_kind": "ParametrizedConv2d",
+            "input_dtype": "torch.float16",
+            "weight_dtype": "torch.float32",
+            "count": 20
+          }
+        ],
+        "observed_forward_calls": 20,
+        "v10_family": "period",
+        "v08_baseline_directions": []
+      },
+      "directions": {
+        "fwd": {
+          "algorithm": "implicit_phase",
+          "bm": 32,
+          "bn": 128,
+          "bk": 32,
+          "num_warps": 4
+        }
+      },
+      "new_directions": {
+        "fwd": {
+          "algorithm": "implicit_phase",
+          "bm": 32,
+          "bn": 128,
+          "bk": 32,
+          "num_warps": 4
+        }
+      },
+      "strict_gate_pass": true,
+      "contract_pass": true,
+      "evidence": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/v10/native_full/result.json"
+    },
+    "{\"dilation\": [1, 1], \"groups\": 1, \"kind\": \"conv2d\", \"output_padding\": [0, 0], \"padding\": [2, 0], \"shape\": [8, 128, 712, 2], \"stride\": [3, 1], \"weight\": [512, 128, 5, 1]}": {
+      "case": {
+        "kind": "conv2d",
+        "shape": [
+          8,
+          128,
+          712,
+          2
+        ],
+        "weight": [
+          512,
+          128,
+          5,
+          1
+        ],
+        "stride": [
+          3,
+          1
+        ],
+        "padding": [
+          2,
+          0
+        ],
+        "dilation": [
+          1,
+          1
+        ],
+        "groups": 1,
+        "output_padding": [
+          0,
+          0
+        ],
+        "name": "conv2d_B8_C128_H712_W2_O512_K5x1_S3x1_D1x1_G1_P2x0",
+        "origin": "Actual voice_model_A KLM49 HFG FP16 AMP B8 training capture",
+        "benchmark_dtype": "fp16",
+        "physical_dtype_basis": "FP16 training autocast contract; module hook records logical boundary dtypes",
+        "source_capture_keys": [
+          "36da8b5084f5"
+        ],
+        "logical_boundary_variants": [
+          {
+            "capture_key": "36da8b5084f5",
+            "module_kind": "ParametrizedConv2d",
+            "input_dtype": "torch.float16",
+            "weight_dtype": "torch.float32",
+            "count": 20
+          }
+        ],
+        "observed_forward_calls": 20,
+        "v10_family": "period",
+        "v08_baseline_directions": []
+      },
+      "directions": {
+        "fwd": {
+          "algorithm": "implicit_phase",
+          "bm": 64,
+          "bn": 64,
+          "bk": 32,
+          "num_warps": 4
+        },
+        "dx": {
+          "algorithm": "implicit_phase",
+          "bm": 64,
+          "bn": 64,
+          "bk": 32,
+          "num_warps": 4
+        }
+      },
+      "new_directions": {
+        "fwd": {
+          "algorithm": "implicit_phase",
+          "bm": 64,
+          "bn": 64,
+          "bk": 32,
+          "num_warps": 4
+        },
+        "dx": {
+          "algorithm": "implicit_phase",
+          "bm": 64,
+          "bn": 64,
+          "bk": 32,
+          "num_warps": 4
+        }
+      },
+      "strict_gate_pass": true,
+      "contract_pass": true,
+      "evidence": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/v10/native_full/result.json"
+    },
+    "{\"dilation\": [1, 1], \"groups\": 1, \"kind\": \"conv2d\", \"output_padding\": [0, 0], \"padding\": [2, 0], \"shape\": [8, 128, 84, 17], \"stride\": [3, 1], \"weight\": [512, 128, 5, 1]}": {
+      "case": {
+        "kind": "conv2d",
+        "shape": [
+          8,
+          128,
+          84,
+          17
+        ],
+        "weight": [
+          512,
+          128,
+          5,
+          1
+        ],
+        "stride": [
+          3,
+          1
+        ],
+        "padding": [
+          2,
+          0
+        ],
+        "dilation": [
+          1,
+          1
+        ],
+        "groups": 1,
+        "output_padding": [
+          0,
+          0
+        ],
+        "name": "conv2d_B8_C128_H84_W17_O512_K5x1_S3x1_D1x1_G1_P2x0",
+        "origin": "Actual voice_model_A KLM49 HFG FP16 AMP B8 training capture",
+        "benchmark_dtype": "fp16",
+        "physical_dtype_basis": "FP16 training autocast contract; module hook records logical boundary dtypes",
+        "source_capture_keys": [
+          "0bef1efba6df"
+        ],
+        "logical_boundary_variants": [
+          {
+            "capture_key": "0bef1efba6df",
+            "module_kind": "ParametrizedConv2d",
+            "input_dtype": "torch.float16",
+            "weight_dtype": "torch.float32",
+            "count": 20
+          }
+        ],
+        "observed_forward_calls": 20,
+        "v10_family": "period",
+        "v08_baseline_directions": []
+      },
+      "directions": {
+        "fwd": {
+          "algorithm": "implicit_phase",
+          "bm": 32,
+          "bn": 128,
+          "bk": 32,
+          "num_warps": 4
+        }
+      },
+      "new_directions": {
+        "fwd": {
+          "algorithm": "implicit_phase",
+          "bm": 32,
+          "bn": 128,
+          "bk": 32,
+          "num_warps": 4
+        }
+      },
+      "strict_gate_pass": true,
+      "contract_pass": true,
+      "evidence": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/v10/native_full/result.json"
+    },
+    "{\"dilation\": [1, 1], \"groups\": 1, \"kind\": \"conv2d\", \"output_padding\": [0, 0], \"padding\": [2, 0], \"shape\": [8, 1, 1164, 11], \"stride\": [3, 1], \"weight\": [32, 1, 5, 1]}": {
+      "case": {
+        "kind": "conv2d",
+        "shape": [
+          8,
+          1,
+          1164,
+          11
+        ],
+        "weight": [
+          32,
+          1,
+          5,
+          1
+        ],
+        "stride": [
+          3,
+          1
+        ],
+        "padding": [
+          2,
+          0
+        ],
+        "dilation": [
+          1,
+          1
+        ],
+        "groups": 1,
+        "output_padding": [
+          0,
+          0
+        ],
+        "name": "conv2d_B8_C1_H1164_W11_O32_K5x1_S3x1_D1x1_G1_P2x0",
+        "origin": "Actual voice_model_A KLM49 HFG FP16 AMP B8 training capture",
+        "benchmark_dtype": "fp16",
+        "physical_dtype_basis": "FP16 training autocast contract; module hook records logical boundary dtypes",
+        "source_capture_keys": [
+          "cc191cbf9731",
+          "b8224bd31478"
+        ],
+        "logical_boundary_variants": [
+          {
+            "capture_key": "cc191cbf9731",
+            "module_kind": "ParametrizedConv2d",
+            "input_dtype": "torch.float32",
+            "weight_dtype": "torch.float32",
+            "count": 10
+          },
+          {
+            "capture_key": "b8224bd31478",
+            "module_kind": "ParametrizedConv2d",
+            "input_dtype": "torch.float16",
+            "weight_dtype": "torch.float32",
+            "count": 10
+          }
+        ],
+        "observed_forward_calls": 20,
+        "v10_family": "period",
+        "v08_baseline_directions": []
+      },
+      "directions": {
+        "fwd": {
+          "algorithm": "implicit_phase",
+          "bm": 32,
+          "bn": 128,
+          "bk": 32,
+          "num_warps": 4
+        },
+        "dx": {
+          "algorithm": "implicit_phase",
+          "bm": 32,
+          "bn": 64,
+          "bk": 32,
+          "num_warps": 4
+        },
+        "dw": {
+          "algorithm": "flat_dw",
+          "bm": 16,
+          "bn": 16,
+          "bk": 64,
+          "num_warps": 4,
+          "split": 128
+        }
+      },
+      "new_directions": {
+        "fwd": {
+          "algorithm": "implicit_phase",
+          "bm": 32,
+          "bn": 128,
+          "bk": 32,
+          "num_warps": 4
+        },
+        "dx": {
+          "algorithm": "implicit_phase",
+          "bm": 32,
+          "bn": 64,
+          "bk": 32,
+          "num_warps": 4
+        },
+        "dw": {
+          "algorithm": "flat_dw",
+          "bm": 16,
+          "bn": 16,
+          "bk": 64,
+          "num_warps": 4,
+          "split": 128
+        }
+      },
+      "strict_gate_pass": true,
+      "contract_pass": true,
+      "evidence": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/v10/native_full/result.json"
+    },
+    "{\"dilation\": [1, 1], \"groups\": 1, \"kind\": \"conv2d\", \"output_padding\": [0, 0], \"padding\": [2, 0], \"shape\": [8, 1, 1829, 7], \"stride\": [3, 1], \"weight\": [32, 1, 5, 1]}": {
+      "case": {
+        "kind": "conv2d",
+        "shape": [
+          8,
+          1,
+          1829,
+          7
+        ],
+        "weight": [
+          32,
+          1,
+          5,
+          1
+        ],
+        "stride": [
+          3,
+          1
+        ],
+        "padding": [
+          2,
+          0
+        ],
+        "dilation": [
+          1,
+          1
+        ],
+        "groups": 1,
+        "output_padding": [
+          0,
+          0
+        ],
+        "name": "conv2d_B8_C1_H1829_W7_O32_K5x1_S3x1_D1x1_G1_P2x0",
+        "origin": "Actual voice_model_A KLM49 HFG FP16 AMP B8 training capture",
+        "benchmark_dtype": "fp16",
+        "physical_dtype_basis": "FP16 training autocast contract; module hook records logical boundary dtypes",
+        "source_capture_keys": [
+          "0fe8dececa16",
+          "2b0f5047c935"
+        ],
+        "logical_boundary_variants": [
+          {
+            "capture_key": "0fe8dececa16",
+            "module_kind": "ParametrizedConv2d",
+            "input_dtype": "torch.float32",
+            "weight_dtype": "torch.float32",
+            "count": 10
+          },
+          {
+            "capture_key": "2b0f5047c935",
+            "module_kind": "ParametrizedConv2d",
+            "input_dtype": "torch.float16",
+            "weight_dtype": "torch.float32",
+            "count": 10
+          }
+        ],
+        "observed_forward_calls": 20,
+        "v10_family": "period",
+        "v08_baseline_directions": []
+      },
+      "directions": {
+        "fwd": {
+          "algorithm": "implicit_phase",
+          "bm": 32,
+          "bn": 64,
+          "bk": 32,
+          "num_warps": 4
+        },
+        "dx": {
+          "algorithm": "implicit_phase",
+          "bm": 32,
+          "bn": 64,
+          "bk": 32,
+          "num_warps": 4
+        },
+        "dw": {
+          "algorithm": "flat_dw",
+          "bm": 16,
+          "bn": 16,
+          "bk": 64,
+          "num_warps": 4,
+          "split": 128
+        }
+      },
+      "new_directions": {
+        "fwd": {
+          "algorithm": "implicit_phase",
+          "bm": 32,
+          "bn": 64,
+          "bk": 32,
+          "num_warps": 4
+        },
+        "dx": {
+          "algorithm": "implicit_phase",
+          "bm": 32,
+          "bn": 64,
+          "bk": 32,
+          "num_warps": 4
+        },
+        "dw": {
+          "algorithm": "flat_dw",
+          "bm": 16,
+          "bn": 16,
+          "bk": 64,
+          "num_warps": 4,
+          "split": 128
+        }
+      },
+      "strict_gate_pass": true,
+      "contract_pass": true,
+      "evidence": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/v10/native_full/result.json"
+    },
+    "{\"dilation\": [1, 1], \"groups\": 1, \"kind\": \"conv2d\", \"output_padding\": [0, 0], \"padding\": [2, 0], \"shape\": [8, 1, 2560, 5], \"stride\": [3, 1], \"weight\": [32, 1, 5, 1]}": {
+      "case": {
+        "kind": "conv2d",
+        "shape": [
+          8,
+          1,
+          2560,
+          5
+        ],
+        "weight": [
+          32,
+          1,
+          5,
+          1
+        ],
+        "stride": [
+          3,
+          1
+        ],
+        "padding": [
+          2,
+          0
+        ],
+        "dilation": [
+          1,
+          1
+        ],
+        "groups": 1,
+        "output_padding": [
+          0,
+          0
+        ],
+        "name": "conv2d_B8_C1_H2560_W5_O32_K5x1_S3x1_D1x1_G1_P2x0",
+        "origin": "Actual voice_model_A KLM49 HFG FP16 AMP B8 training capture",
+        "benchmark_dtype": "fp16",
+        "physical_dtype_basis": "FP16 training autocast contract; module hook records logical boundary dtypes",
+        "source_capture_keys": [
+          "72289750bde3",
+          "cdc927848d6d"
+        ],
+        "logical_boundary_variants": [
+          {
+            "capture_key": "72289750bde3",
+            "module_kind": "ParametrizedConv2d",
+            "input_dtype": "torch.float32",
+            "weight_dtype": "torch.float32",
+            "count": 10
+          },
+          {
+            "capture_key": "cdc927848d6d",
+            "module_kind": "ParametrizedConv2d",
+            "input_dtype": "torch.float16",
+            "weight_dtype": "torch.float32",
+            "count": 10
+          }
+        ],
+        "observed_forward_calls": 20,
+        "v10_family": "period",
+        "v08_baseline_directions": []
+      },
+      "directions": {
+        "fwd": {
+          "algorithm": "implicit_phase",
+          "bm": 32,
+          "bn": 128,
+          "bk": 32,
+          "num_warps": 4
+        },
+        "dx": {
+          "algorithm": "implicit_phase",
+          "bm": 32,
+          "bn": 64,
+          "bk": 32,
+          "num_warps": 4
+        },
+        "dw": {
+          "algorithm": "flat_dw",
+          "bm": 16,
+          "bn": 16,
+          "bk": 64,
+          "num_warps": 4,
+          "split": 128
+        }
+      },
+      "new_directions": {
+        "fwd": {
+          "algorithm": "implicit_phase",
+          "bm": 32,
+          "bn": 128,
+          "bk": 32,
+          "num_warps": 4
+        },
+        "dx": {
+          "algorithm": "implicit_phase",
+          "bm": 32,
+          "bn": 64,
+          "bk": 32,
+          "num_warps": 4
+        },
+        "dw": {
+          "algorithm": "flat_dw",
+          "bm": 16,
+          "bn": 16,
+          "bk": 64,
+          "num_warps": 4,
+          "split": 128
+        }
+      },
+      "strict_gate_pass": true,
+      "contract_pass": true,
+      "evidence": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/v10/native_full/result.json"
+    },
+    "{\"dilation\": [1, 1], \"groups\": 1, \"kind\": \"conv2d\", \"output_padding\": [0, 0], \"padding\": [2, 0], \"shape\": [8, 1, 346, 37], \"stride\": [3, 1], \"weight\": [32, 1, 5, 1]}": {
+      "case": {
+        "kind": "conv2d",
+        "shape": [
+          8,
+          1,
+          346,
+          37
+        ],
+        "weight": [
+          32,
+          1,
+          5,
+          1
+        ],
+        "stride": [
+          3,
+          1
+        ],
+        "padding": [
+          2,
+          0
+        ],
+        "dilation": [
+          1,
+          1
+        ],
+        "groups": 1,
+        "output_padding": [
+          0,
+          0
+        ],
+        "name": "conv2d_B8_C1_H346_W37_O32_K5x1_S3x1_D1x1_G1_P2x0",
+        "origin": "Actual voice_model_A KLM49 HFG FP16 AMP B8 training capture",
+        "benchmark_dtype": "fp16",
+        "physical_dtype_basis": "FP16 training autocast contract; module hook records logical boundary dtypes",
+        "source_capture_keys": [
+          "999f8c8ed89a",
+          "eb840d41eee0"
+        ],
+        "logical_boundary_variants": [
+          {
+            "capture_key": "999f8c8ed89a",
+            "module_kind": "ParametrizedConv2d",
+            "input_dtype": "torch.float32",
+            "weight_dtype": "torch.float32",
+            "count": 10
+          },
+          {
+            "capture_key": "eb840d41eee0",
+            "module_kind": "ParametrizedConv2d",
+            "input_dtype": "torch.float16",
+            "weight_dtype": "torch.float32",
+            "count": 10
+          }
+        ],
+        "observed_forward_calls": 20,
+        "v10_family": "period",
+        "v08_baseline_directions": []
+      },
+      "directions": {
+        "fwd": {
+          "algorithm": "implicit_phase",
+          "bm": 32,
+          "bn": 64,
+          "bk": 32,
+          "num_warps": 4
+        },
+        "dx": {
+          "algorithm": "implicit_phase",
+          "bm": 32,
+          "bn": 64,
+          "bk": 32,
+          "num_warps": 4
+        },
+        "dw": {
+          "algorithm": "flat_dw",
+          "bm": 16,
+          "bn": 16,
+          "bk": 64,
+          "num_warps": 4,
+          "split": 128
+        }
+      },
+      "new_directions": {
+        "fwd": {
+          "algorithm": "implicit_phase",
+          "bm": 32,
+          "bn": 64,
+          "bk": 32,
+          "num_warps": 4
+        },
+        "dx": {
+          "algorithm": "implicit_phase",
+          "bm": 32,
+          "bn": 64,
+          "bk": 32,
+          "num_warps": 4
+        },
+        "dw": {
+          "algorithm": "flat_dw",
+          "bm": 16,
+          "bn": 16,
+          "bk": 64,
+          "num_warps": 4,
+          "split": 128
+        }
+      },
+      "strict_gate_pass": true,
+      "contract_pass": true,
+      "evidence": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/v10/native_full/result.json"
+    },
+    "{\"dilation\": [1, 1], \"groups\": 1, \"kind\": \"conv2d\", \"output_padding\": [0, 0], \"padding\": [2, 0], \"shape\": [8, 1, 557, 23], \"stride\": [3, 1], \"weight\": [32, 1, 5, 1]}": {
+      "case": {
+        "kind": "conv2d",
+        "shape": [
+          8,
+          1,
+          557,
+          23
+        ],
+        "weight": [
+          32,
+          1,
+          5,
+          1
+        ],
+        "stride": [
+          3,
+          1
+        ],
+        "padding": [
+          2,
+          0
+        ],
+        "dilation": [
+          1,
+          1
+        ],
+        "groups": 1,
+        "output_padding": [
+          0,
+          0
+        ],
+        "name": "conv2d_B8_C1_H557_W23_O32_K5x1_S3x1_D1x1_G1_P2x0",
+        "origin": "Actual voice_model_A KLM49 HFG FP16 AMP B8 training capture",
+        "benchmark_dtype": "fp16",
+        "physical_dtype_basis": "FP16 training autocast contract; module hook records logical boundary dtypes",
+        "source_capture_keys": [
+          "319c8d9bdd42",
+          "a0f4651b891d"
+        ],
+        "logical_boundary_variants": [
+          {
+            "capture_key": "319c8d9bdd42",
+            "module_kind": "ParametrizedConv2d",
+            "input_dtype": "torch.float32",
+            "weight_dtype": "torch.float32",
+            "count": 10
+          },
+          {
+            "capture_key": "a0f4651b891d",
+            "module_kind": "ParametrizedConv2d",
+            "input_dtype": "torch.float16",
+            "weight_dtype": "torch.float32",
+            "count": 10
+          }
+        ],
+        "observed_forward_calls": 20,
+        "v10_family": "period",
+        "v08_baseline_directions": []
+      },
+      "directions": {
+        "fwd": {
+          "algorithm": "implicit_phase",
+          "bm": 32,
+          "bn": 128,
+          "bk": 32,
+          "num_warps": 4
+        },
+        "dx": {
+          "algorithm": "implicit_phase",
+          "bm": 32,
+          "bn": 128,
+          "bk": 32,
+          "num_warps": 4
+        },
+        "dw": {
+          "algorithm": "flat_dw",
+          "bm": 16,
+          "bn": 16,
+          "bk": 64,
+          "num_warps": 4,
+          "split": 128
+        }
+      },
+      "new_directions": {
+        "fwd": {
+          "algorithm": "implicit_phase",
+          "bm": 32,
+          "bn": 128,
+          "bk": 32,
+          "num_warps": 4
+        },
+        "dx": {
+          "algorithm": "implicit_phase",
+          "bm": 32,
+          "bn": 128,
+          "bk": 32,
+          "num_warps": 4
+        },
+        "dw": {
+          "algorithm": "flat_dw",
+          "bm": 16,
+          "bn": 16,
+          "bk": 64,
+          "num_warps": 4,
+          "split": 128
+        }
+      },
+      "strict_gate_pass": true,
+      "contract_pass": true,
+      "evidence": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/v10/native_full/result.json"
+    },
+    "{\"dilation\": [1, 1], \"groups\": 1, \"kind\": \"conv2d\", \"output_padding\": [0, 0], \"padding\": [2, 0], \"shape\": [8, 1, 6400, 2], \"stride\": [3, 1], \"weight\": [32, 1, 5, 1]}": {
+      "case": {
+        "kind": "conv2d",
+        "shape": [
+          8,
+          1,
+          6400,
+          2
+        ],
+        "weight": [
+          32,
+          1,
+          5,
+          1
+        ],
+        "stride": [
+          3,
+          1
+        ],
+        "padding": [
+          2,
+          0
+        ],
+        "dilation": [
+          1,
+          1
+        ],
+        "groups": 1,
+        "output_padding": [
+          0,
+          0
+        ],
+        "name": "conv2d_B8_C1_H6400_W2_O32_K5x1_S3x1_D1x1_G1_P2x0",
+        "origin": "Actual voice_model_A KLM49 HFG FP16 AMP B8 training capture",
+        "benchmark_dtype": "fp16",
+        "physical_dtype_basis": "FP16 training autocast contract; module hook records logical boundary dtypes",
+        "source_capture_keys": [
+          "c838c4e9e9b8",
+          "c3788b0de521"
+        ],
+        "logical_boundary_variants": [
+          {
+            "capture_key": "c838c4e9e9b8",
+            "module_kind": "ParametrizedConv2d",
+            "input_dtype": "torch.float32",
+            "weight_dtype": "torch.float32",
+            "count": 10
+          },
+          {
+            "capture_key": "c3788b0de521",
+            "module_kind": "ParametrizedConv2d",
+            "input_dtype": "torch.float16",
+            "weight_dtype": "torch.float32",
+            "count": 10
+          }
+        ],
+        "observed_forward_calls": 20,
+        "v10_family": "period",
+        "v08_baseline_directions": []
+      },
+      "directions": {
+        "fwd": {
+          "algorithm": "implicit_phase",
+          "bm": 32,
+          "bn": 128,
+          "bk": 32,
+          "num_warps": 4
+        },
+        "dx": {
+          "algorithm": "implicit_phase",
+          "bm": 32,
+          "bn": 64,
+          "bk": 32,
+          "num_warps": 4
+        },
+        "dw": {
+          "algorithm": "flat_dw",
+          "bm": 32,
+          "bn": 32,
+          "bk": 64,
+          "num_warps": 4,
+          "split": 128
+        }
+      },
+      "new_directions": {
+        "fwd": {
+          "algorithm": "implicit_phase",
+          "bm": 32,
+          "bn": 128,
+          "bk": 32,
+          "num_warps": 4
+        },
+        "dx": {
+          "algorithm": "implicit_phase",
+          "bm": 32,
+          "bn": 64,
+          "bk": 32,
+          "num_warps": 4
+        },
+        "dw": {
+          "algorithm": "flat_dw",
+          "bm": 32,
+          "bn": 32,
+          "bk": 64,
+          "num_warps": 4,
+          "split": 128
+        }
+      },
+      "strict_gate_pass": true,
+      "contract_pass": true,
+      "evidence": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/v10/native_full/result.json"
+    },
+    "{\"dilation\": [1, 1], \"groups\": 1, \"kind\": \"conv2d\", \"output_padding\": [0, 0], \"padding\": [2, 0], \"shape\": [8, 1, 753, 17], \"stride\": [3, 1], \"weight\": [32, 1, 5, 1]}": {
+      "case": {
+        "kind": "conv2d",
+        "shape": [
+          8,
+          1,
+          753,
+          17
+        ],
+        "weight": [
+          32,
+          1,
+          5,
+          1
+        ],
+        "stride": [
+          3,
+          1
+        ],
+        "padding": [
+          2,
+          0
+        ],
+        "dilation": [
+          1,
+          1
+        ],
+        "groups": 1,
+        "output_padding": [
+          0,
+          0
+        ],
+        "name": "conv2d_B8_C1_H753_W17_O32_K5x1_S3x1_D1x1_G1_P2x0",
+        "origin": "Actual voice_model_A KLM49 HFG FP16 AMP B8 training capture",
+        "benchmark_dtype": "fp16",
+        "physical_dtype_basis": "FP16 training autocast contract; module hook records logical boundary dtypes",
+        "source_capture_keys": [
+          "8539ab5d623c",
+          "f2ef7382546a"
+        ],
+        "logical_boundary_variants": [
+          {
+            "capture_key": "8539ab5d623c",
+            "module_kind": "ParametrizedConv2d",
+            "input_dtype": "torch.float32",
+            "weight_dtype": "torch.float32",
+            "count": 10
+          },
+          {
+            "capture_key": "f2ef7382546a",
+            "module_kind": "ParametrizedConv2d",
+            "input_dtype": "torch.float16",
+            "weight_dtype": "torch.float32",
+            "count": 10
+          }
+        ],
+        "observed_forward_calls": 20,
+        "v10_family": "period",
+        "v08_baseline_directions": []
+      },
+      "directions": {
+        "fwd": {
+          "algorithm": "implicit_phase",
+          "bm": 32,
+          "bn": 128,
+          "bk": 32,
+          "num_warps": 4
+        },
+        "dx": {
+          "algorithm": "implicit_phase",
+          "bm": 32,
+          "bn": 64,
+          "bk": 32,
+          "num_warps": 4
+        },
+        "dw": {
+          "algorithm": "flat_dw",
+          "bm": 16,
+          "bn": 16,
+          "bk": 64,
+          "num_warps": 4,
+          "split": 128
+        }
+      },
+      "new_directions": {
+        "fwd": {
+          "algorithm": "implicit_phase",
+          "bm": 32,
+          "bn": 128,
+          "bk": 32,
+          "num_warps": 4
+        },
+        "dx": {
+          "algorithm": "implicit_phase",
+          "bm": 32,
+          "bn": 64,
+          "bk": 32,
+          "num_warps": 4
+        },
+        "dw": {
+          "algorithm": "flat_dw",
+          "bm": 16,
+          "bn": 16,
+          "bk": 64,
+          "num_warps": 4,
+          "split": 128
+        }
+      },
+      "strict_gate_pass": true,
+      "contract_pass": true,
+      "evidence": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/v10/native_full/result.json"
+    },
+    "{\"dilation\": [1, 1], \"groups\": 1, \"kind\": \"conv2d\", \"output_padding\": [0, 0], \"padding\": [2, 0], \"shape\": [8, 32, 116, 37], \"stride\": [3, 1], \"weight\": [128, 32, 5, 1]}": {
+      "case": {
+        "kind": "conv2d",
+        "shape": [
+          8,
+          32,
+          116,
+          37
+        ],
+        "weight": [
+          128,
+          32,
+          5,
+          1
+        ],
+        "stride": [
+          3,
+          1
+        ],
+        "padding": [
+          2,
+          0
+        ],
+        "dilation": [
+          1,
+          1
+        ],
+        "groups": 1,
+        "output_padding": [
+          0,
+          0
+        ],
+        "name": "conv2d_B8_C32_H116_W37_O128_K5x1_S3x1_D1x1_G1_P2x0",
+        "origin": "Actual voice_model_A KLM49 HFG FP16 AMP B8 training capture",
+        "benchmark_dtype": "fp16",
+        "physical_dtype_basis": "FP16 training autocast contract; module hook records logical boundary dtypes",
+        "source_capture_keys": [
+          "e6d39e96639c"
+        ],
+        "logical_boundary_variants": [
+          {
+            "capture_key": "e6d39e96639c",
+            "module_kind": "ParametrizedConv2d",
+            "input_dtype": "torch.float16",
+            "weight_dtype": "torch.float32",
+            "count": 20
+          }
+        ],
+        "observed_forward_calls": 20,
+        "v10_family": "period",
+        "v08_baseline_directions": []
+      },
+      "directions": {
+        "fwd": {
+          "algorithm": "implicit_phase",
+          "bm": 32,
+          "bn": 128,
+          "bk": 32,
+          "num_warps": 4
+        },
+        "dx": {
+          "algorithm": "implicit_phase",
+          "bm": 32,
+          "bn": 128,
+          "bk": 32,
+          "num_warps": 4
+        },
+        "dw": {
+          "algorithm": "flat_dw",
+          "bm": 32,
+          "bn": 32,
+          "bk": 64,
+          "num_warps": 4,
+          "split": 16
+        }
+      },
+      "new_directions": {
+        "fwd": {
+          "algorithm": "implicit_phase",
+          "bm": 32,
+          "bn": 128,
+          "bk": 32,
+          "num_warps": 4
+        },
+        "dx": {
+          "algorithm": "implicit_phase",
+          "bm": 32,
+          "bn": 128,
+          "bk": 32,
+          "num_warps": 4
+        },
+        "dw": {
+          "algorithm": "flat_dw",
+          "bm": 32,
+          "bn": 32,
+          "bk": 64,
+          "num_warps": 4,
+          "split": 16
+        }
+      },
+      "strict_gate_pass": true,
+      "contract_pass": true,
+      "evidence": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/v10/native_full/result.json"
+    },
+    "{\"dilation\": [1, 1], \"groups\": 1, \"kind\": \"conv2d\", \"output_padding\": [0, 0], \"padding\": [2, 0], \"shape\": [8, 32, 1423, 3], \"stride\": [3, 1], \"weight\": [128, 32, 5, 1]}": {
+      "case": {
+        "kind": "conv2d",
+        "shape": [
+          8,
+          32,
+          1423,
+          3
+        ],
+        "weight": [
+          128,
+          32,
+          5,
+          1
+        ],
+        "stride": [
+          3,
+          1
+        ],
+        "padding": [
+          2,
+          0
+        ],
+        "dilation": [
+          1,
+          1
+        ],
+        "groups": 1,
+        "output_padding": [
+          0,
+          0
+        ],
+        "name": "conv2d_B8_C32_H1423_W3_O128_K5x1_S3x1_D1x1_G1_P2x0",
+        "origin": "Actual voice_model_A KLM49 HFG FP16 AMP B8 training capture",
+        "benchmark_dtype": "fp16",
+        "physical_dtype_basis": "FP16 training autocast contract; module hook records logical boundary dtypes",
+        "source_capture_keys": [
+          "3742916cbca3"
+        ],
+        "logical_boundary_variants": [
+          {
+            "capture_key": "3742916cbca3",
+            "module_kind": "ParametrizedConv2d",
+            "input_dtype": "torch.float16",
+            "weight_dtype": "torch.float32",
+            "count": 20
+          }
+        ],
+        "observed_forward_calls": 20,
+        "v10_family": "period",
+        "v08_baseline_directions": []
+      },
+      "directions": {
+        "fwd": {
+          "algorithm": "implicit_phase",
+          "bm": 32,
+          "bn": 128,
+          "bk": 32,
+          "num_warps": 4
+        },
+        "dx": {
+          "algorithm": "implicit_phase",
+          "bm": 32,
+          "bn": 128,
+          "bk": 32,
+          "num_warps": 4
+        },
+        "dw": {
+          "algorithm": "flat_dw",
+          "bm": 32,
+          "bn": 32,
+          "bk": 64,
+          "num_warps": 4,
+          "split": 16
+        }
+      },
+      "new_directions": {
+        "fwd": {
+          "algorithm": "implicit_phase",
+          "bm": 32,
+          "bn": 128,
+          "bk": 32,
+          "num_warps": 4
+        },
+        "dx": {
+          "algorithm": "implicit_phase",
+          "bm": 32,
+          "bn": 128,
+          "bk": 32,
+          "num_warps": 4
+        },
+        "dw": {
+          "algorithm": "flat_dw",
+          "bm": 32,
+          "bn": 32,
+          "bk": 64,
+          "num_warps": 4,
+          "split": 16
+        }
+      },
+      "strict_gate_pass": true,
+      "contract_pass": true,
+      "evidence": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/v10/native_full/result.json"
+    },
+    "{\"dilation\": [1, 1], \"groups\": 1, \"kind\": \"conv2d\", \"output_padding\": [0, 0], \"padding\": [2, 0], \"shape\": [8, 32, 186, 23], \"stride\": [3, 1], \"weight\": [128, 32, 5, 1]}": {
+      "case": {
+        "kind": "conv2d",
+        "shape": [
+          8,
+          32,
+          186,
+          23
+        ],
+        "weight": [
+          128,
+          32,
+          5,
+          1
+        ],
+        "stride": [
+          3,
+          1
+        ],
+        "padding": [
+          2,
+          0
+        ],
+        "dilation": [
+          1,
+          1
+        ],
+        "groups": 1,
+        "output_padding": [
+          0,
+          0
+        ],
+        "name": "conv2d_B8_C32_H186_W23_O128_K5x1_S3x1_D1x1_G1_P2x0",
+        "origin": "Actual voice_model_A KLM49 HFG FP16 AMP B8 training capture",
+        "benchmark_dtype": "fp16",
+        "physical_dtype_basis": "FP16 training autocast contract; module hook records logical boundary dtypes",
+        "source_capture_keys": [
+          "8e9a489b7c95"
+        ],
+        "logical_boundary_variants": [
+          {
+            "capture_key": "8e9a489b7c95",
+            "module_kind": "ParametrizedConv2d",
+            "input_dtype": "torch.float16",
+            "weight_dtype": "torch.float32",
+            "count": 20
+          }
+        ],
+        "observed_forward_calls": 20,
+        "v10_family": "period",
+        "v08_baseline_directions": []
+      },
+      "directions": {
+        "fwd": {
+          "algorithm": "implicit_phase",
+          "bm": 32,
+          "bn": 128,
+          "bk": 32,
+          "num_warps": 4
+        },
+        "dx": {
+          "algorithm": "implicit_phase",
+          "bm": 32,
+          "bn": 128,
+          "bk": 32,
+          "num_warps": 4
+        },
+        "dw": {
+          "algorithm": "flat_dw",
+          "bm": 32,
+          "bn": 32,
+          "bk": 64,
+          "num_warps": 4,
+          "split": 16
+        }
+      },
+      "new_directions": {
+        "fwd": {
+          "algorithm": "implicit_phase",
+          "bm": 32,
+          "bn": 128,
+          "bk": 32,
+          "num_warps": 4
+        },
+        "dx": {
+          "algorithm": "implicit_phase",
+          "bm": 32,
+          "bn": 128,
+          "bk": 32,
+          "num_warps": 4
+        },
+        "dw": {
+          "algorithm": "flat_dw",
+          "bm": 32,
+          "bn": 32,
+          "bk": 64,
+          "num_warps": 4,
+          "split": 16
+        }
+      },
+      "strict_gate_pass": true,
+      "contract_pass": true,
+      "evidence": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/v10/native_full/result.json"
+    },
+    "{\"dilation\": [1, 1], \"groups\": 1, \"kind\": \"conv2d\", \"output_padding\": [0, 0], \"padding\": [2, 0], \"shape\": [8, 32, 2134, 2], \"stride\": [3, 1], \"weight\": [128, 32, 5, 1]}": {
+      "case": {
+        "kind": "conv2d",
+        "shape": [
+          8,
+          32,
+          2134,
+          2
+        ],
+        "weight": [
+          128,
+          32,
+          5,
+          1
+        ],
+        "stride": [
+          3,
+          1
+        ],
+        "padding": [
+          2,
+          0
+        ],
+        "dilation": [
+          1,
+          1
+        ],
+        "groups": 1,
+        "output_padding": [
+          0,
+          0
+        ],
+        "name": "conv2d_B8_C32_H2134_W2_O128_K5x1_S3x1_D1x1_G1_P2x0",
+        "origin": "Actual voice_model_A KLM49 HFG FP16 AMP B8 training capture",
+        "benchmark_dtype": "fp16",
+        "physical_dtype_basis": "FP16 training autocast contract; module hook records logical boundary dtypes",
+        "source_capture_keys": [
+          "9361be4258af"
+        ],
+        "logical_boundary_variants": [
+          {
+            "capture_key": "9361be4258af",
+            "module_kind": "ParametrizedConv2d",
+            "input_dtype": "torch.float16",
+            "weight_dtype": "torch.float32",
+            "count": 20
+          }
+        ],
+        "observed_forward_calls": 20,
+        "v10_family": "period",
+        "v08_baseline_directions": []
+      },
+      "directions": {
+        "fwd": {
+          "algorithm": "implicit_phase",
+          "bm": 32,
+          "bn": 128,
+          "bk": 32,
+          "num_warps": 4
+        },
+        "dx": {
+          "algorithm": "implicit_phase",
+          "bm": 32,
+          "bn": 64,
+          "bk": 32,
+          "num_warps": 4
+        },
+        "dw": {
+          "algorithm": "flat_dw",
+          "bm": 32,
+          "bn": 32,
+          "bk": 64,
+          "num_warps": 4,
+          "split": 16
+        }
+      },
+      "new_directions": {
+        "fwd": {
+          "algorithm": "implicit_phase",
+          "bm": 32,
+          "bn": 128,
+          "bk": 32,
+          "num_warps": 4
+        },
+        "dx": {
+          "algorithm": "implicit_phase",
+          "bm": 32,
+          "bn": 64,
+          "bk": 32,
+          "num_warps": 4
+        },
+        "dw": {
+          "algorithm": "flat_dw",
+          "bm": 32,
+          "bn": 32,
+          "bk": 64,
+          "num_warps": 4,
+          "split": 16
+        }
+      },
+      "strict_gate_pass": true,
+      "contract_pass": true,
+      "evidence": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/v10/native_full/result.json"
+    },
+    "{\"dilation\": [1, 1], \"groups\": 1, \"kind\": \"conv2d\", \"output_padding\": [0, 0], \"padding\": [2, 0], \"shape\": [8, 32, 251, 17], \"stride\": [3, 1], \"weight\": [128, 32, 5, 1]}": {
+      "case": {
+        "kind": "conv2d",
+        "shape": [
+          8,
+          32,
+          251,
+          17
+        ],
+        "weight": [
+          128,
+          32,
+          5,
+          1
+        ],
+        "stride": [
+          3,
+          1
+        ],
+        "padding": [
+          2,
+          0
+        ],
+        "dilation": [
+          1,
+          1
+        ],
+        "groups": 1,
+        "output_padding": [
+          0,
+          0
+        ],
+        "name": "conv2d_B8_C32_H251_W17_O128_K5x1_S3x1_D1x1_G1_P2x0",
+        "origin": "Actual voice_model_A KLM49 HFG FP16 AMP B8 training capture",
+        "benchmark_dtype": "fp16",
+        "physical_dtype_basis": "FP16 training autocast contract; module hook records logical boundary dtypes",
+        "source_capture_keys": [
+          "4119d8403130"
+        ],
+        "logical_boundary_variants": [
+          {
+            "capture_key": "4119d8403130",
+            "module_kind": "ParametrizedConv2d",
+            "input_dtype": "torch.float16",
+            "weight_dtype": "torch.float32",
+            "count": 20
+          }
+        ],
+        "observed_forward_calls": 20,
+        "v10_family": "period",
+        "v08_baseline_directions": []
+      },
+      "directions": {
+        "fwd": {
+          "algorithm": "implicit_phase",
+          "bm": 32,
+          "bn": 128,
+          "bk": 32,
+          "num_warps": 4
+        },
+        "dx": {
+          "algorithm": "implicit_phase",
+          "bm": 32,
+          "bn": 128,
+          "bk": 32,
+          "num_warps": 4
+        },
+        "dw": {
+          "algorithm": "flat_dw",
+          "bm": 32,
+          "bn": 32,
+          "bk": 64,
+          "num_warps": 4,
+          "split": 16
+        }
+      },
+      "new_directions": {
+        "fwd": {
+          "algorithm": "implicit_phase",
+          "bm": 32,
+          "bn": 128,
+          "bk": 32,
+          "num_warps": 4
+        },
+        "dx": {
+          "algorithm": "implicit_phase",
+          "bm": 32,
+          "bn": 128,
+          "bk": 32,
+          "num_warps": 4
+        },
+        "dw": {
+          "algorithm": "flat_dw",
+          "bm": 32,
+          "bn": 32,
+          "bk": 64,
+          "num_warps": 4,
+          "split": 16
+        }
+      },
+      "strict_gate_pass": true,
+      "contract_pass": true,
+      "evidence": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/v10/native_full/result.json"
+    },
+    "{\"dilation\": [1, 1], \"groups\": 1, \"kind\": \"conv2d\", \"output_padding\": [0, 0], \"padding\": [2, 0], \"shape\": [8, 32, 388, 11], \"stride\": [3, 1], \"weight\": [128, 32, 5, 1]}": {
+      "case": {
+        "kind": "conv2d",
+        "shape": [
+          8,
+          32,
+          388,
+          11
+        ],
+        "weight": [
+          128,
+          32,
+          5,
+          1
+        ],
+        "stride": [
+          3,
+          1
+        ],
+        "padding": [
+          2,
+          0
+        ],
+        "dilation": [
+          1,
+          1
+        ],
+        "groups": 1,
+        "output_padding": [
+          0,
+          0
+        ],
+        "name": "conv2d_B8_C32_H388_W11_O128_K5x1_S3x1_D1x1_G1_P2x0",
+        "origin": "Actual voice_model_A KLM49 HFG FP16 AMP B8 training capture",
+        "benchmark_dtype": "fp16",
+        "physical_dtype_basis": "FP16 training autocast contract; module hook records logical boundary dtypes",
+        "source_capture_keys": [
+          "bd47b5237678"
+        ],
+        "logical_boundary_variants": [
+          {
+            "capture_key": "bd47b5237678",
+            "module_kind": "ParametrizedConv2d",
+            "input_dtype": "torch.float16",
+            "weight_dtype": "torch.float32",
+            "count": 20
+          }
+        ],
+        "observed_forward_calls": 20,
+        "v10_family": "period",
+        "v08_baseline_directions": []
+      },
+      "directions": {
+        "fwd": {
+          "algorithm": "implicit_phase",
+          "bm": 32,
+          "bn": 128,
+          "bk": 32,
+          "num_warps": 4
+        },
+        "dx": {
+          "algorithm": "implicit_phase",
+          "bm": 32,
+          "bn": 128,
+          "bk": 32,
+          "num_warps": 4
+        },
+        "dw": {
+          "algorithm": "flat_dw",
+          "bm": 32,
+          "bn": 32,
+          "bk": 64,
+          "num_warps": 4,
+          "split": 16
+        }
+      },
+      "new_directions": {
+        "fwd": {
+          "algorithm": "implicit_phase",
+          "bm": 32,
+          "bn": 128,
+          "bk": 32,
+          "num_warps": 4
+        },
+        "dx": {
+          "algorithm": "implicit_phase",
+          "bm": 32,
+          "bn": 128,
+          "bk": 32,
+          "num_warps": 4
+        },
+        "dw": {
+          "algorithm": "flat_dw",
+          "bm": 32,
+          "bn": 32,
+          "bk": 64,
+          "num_warps": 4,
+          "split": 16
+        }
+      },
+      "strict_gate_pass": true,
+      "contract_pass": true,
+      "evidence": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/v10/native_full/result.json"
+    },
+    "{\"dilation\": [1, 1], \"groups\": 1, \"kind\": \"conv2d\", \"output_padding\": [0, 0], \"padding\": [2, 0], \"shape\": [8, 32, 610, 7], \"stride\": [3, 1], \"weight\": [128, 32, 5, 1]}": {
+      "case": {
+        "kind": "conv2d",
+        "shape": [
+          8,
+          32,
+          610,
+          7
+        ],
+        "weight": [
+          128,
+          32,
+          5,
+          1
+        ],
+        "stride": [
+          3,
+          1
+        ],
+        "padding": [
+          2,
+          0
+        ],
+        "dilation": [
+          1,
+          1
+        ],
+        "groups": 1,
+        "output_padding": [
+          0,
+          0
+        ],
+        "name": "conv2d_B8_C32_H610_W7_O128_K5x1_S3x1_D1x1_G1_P2x0",
+        "origin": "Actual voice_model_A KLM49 HFG FP16 AMP B8 training capture",
+        "benchmark_dtype": "fp16",
+        "physical_dtype_basis": "FP16 training autocast contract; module hook records logical boundary dtypes",
+        "source_capture_keys": [
+          "bcb83f6afea8"
+        ],
+        "logical_boundary_variants": [
+          {
+            "capture_key": "bcb83f6afea8",
+            "module_kind": "ParametrizedConv2d",
+            "input_dtype": "torch.float16",
+            "weight_dtype": "torch.float32",
+            "count": 20
+          }
+        ],
+        "observed_forward_calls": 20,
+        "v10_family": "period",
+        "v08_baseline_directions": []
+      },
+      "directions": {
+        "fwd": {
+          "algorithm": "implicit_phase",
+          "bm": 32,
+          "bn": 128,
+          "bk": 32,
+          "num_warps": 4
+        },
+        "dx": {
+          "algorithm": "implicit_phase",
+          "bm": 32,
+          "bn": 128,
+          "bk": 32,
+          "num_warps": 4
+        },
+        "dw": {
+          "algorithm": "flat_dw",
+          "bm": 32,
+          "bn": 32,
+          "bk": 64,
+          "num_warps": 4,
+          "split": 16
+        }
+      },
+      "new_directions": {
+        "fwd": {
+          "algorithm": "implicit_phase",
+          "bm": 32,
+          "bn": 128,
+          "bk": 32,
+          "num_warps": 4
+        },
+        "dx": {
+          "algorithm": "implicit_phase",
+          "bm": 32,
+          "bn": 128,
+          "bk": 32,
+          "num_warps": 4
+        },
+        "dw": {
+          "algorithm": "flat_dw",
+          "bm": 32,
+          "bn": 32,
+          "bk": 64,
+          "num_warps": 4,
+          "split": 16
+        }
+      },
+      "strict_gate_pass": true,
+      "contract_pass": true,
+      "evidence": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/v10/native_full/result.json"
+    },
+    "{\"dilation\": [1, 1], \"groups\": 1, \"kind\": \"conv2d\", \"output_padding\": [0, 0], \"padding\": [2, 0], \"shape\": [8, 32, 854, 5], \"stride\": [3, 1], \"weight\": [128, 32, 5, 1]}": {
+      "case": {
+        "kind": "conv2d",
+        "shape": [
+          8,
+          32,
+          854,
+          5
+        ],
+        "weight": [
+          128,
+          32,
+          5,
+          1
+        ],
+        "stride": [
+          3,
+          1
+        ],
+        "padding": [
+          2,
+          0
+        ],
+        "dilation": [
+          1,
+          1
+        ],
+        "groups": 1,
+        "output_padding": [
+          0,
+          0
+        ],
+        "name": "conv2d_B8_C32_H854_W5_O128_K5x1_S3x1_D1x1_G1_P2x0",
+        "origin": "Actual voice_model_A KLM49 HFG FP16 AMP B8 training capture",
+        "benchmark_dtype": "fp16",
+        "physical_dtype_basis": "FP16 training autocast contract; module hook records logical boundary dtypes",
+        "source_capture_keys": [
+          "da1cc438c4b0"
+        ],
+        "logical_boundary_variants": [
+          {
+            "capture_key": "da1cc438c4b0",
+            "module_kind": "ParametrizedConv2d",
+            "input_dtype": "torch.float16",
+            "weight_dtype": "torch.float32",
+            "count": 20
+          }
+        ],
+        "observed_forward_calls": 20,
+        "v10_family": "period",
+        "v08_baseline_directions": []
+      },
+      "directions": {
+        "fwd": {
+          "algorithm": "implicit_phase",
+          "bm": 32,
+          "bn": 128,
+          "bk": 32,
+          "num_warps": 4
+        },
+        "dx": {
+          "algorithm": "implicit_phase",
+          "bm": 32,
+          "bn": 128,
+          "bk": 32,
+          "num_warps": 4
+        },
+        "dw": {
+          "algorithm": "flat_dw",
+          "bm": 32,
+          "bn": 32,
+          "bk": 64,
+          "num_warps": 4,
+          "split": 16
+        }
+      },
+      "new_directions": {
+        "fwd": {
+          "algorithm": "implicit_phase",
+          "bm": 32,
+          "bn": 128,
+          "bk": 32,
+          "num_warps": 4
+        },
+        "dx": {
+          "algorithm": "implicit_phase",
+          "bm": 32,
+          "bn": 128,
+          "bk": 32,
+          "num_warps": 4
+        },
+        "dw": {
+          "algorithm": "flat_dw",
+          "bm": 32,
+          "bn": 32,
+          "bk": 64,
+          "num_warps": 4,
+          "split": 16
+        }
+      },
+      "strict_gate_pass": true,
+      "contract_pass": true,
+      "evidence": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/v10/native_full/result.json"
+    },
+    "{\"dilation\": [1, 1], \"groups\": 1, \"kind\": \"conv2d\", \"output_padding\": [0, 0], \"padding\": [2, 0], \"shape\": [8, 512, 238, 2], \"stride\": [3, 1], \"weight\": [1024, 512, 5, 1]}": {
+      "case": {
+        "kind": "conv2d",
+        "shape": [
+          8,
+          512,
+          238,
+          2
+        ],
+        "weight": [
+          1024,
+          512,
+          5,
+          1
+        ],
+        "stride": [
+          3,
+          1
+        ],
+        "padding": [
+          2,
+          0
+        ],
+        "dilation": [
+          1,
+          1
+        ],
+        "groups": 1,
+        "output_padding": [
+          0,
+          0
+        ],
+        "name": "conv2d_B8_C512_H238_W2_O1024_K5x1_S3x1_D1x1_G1_P2x0",
+        "origin": "Actual voice_model_A KLM49 HFG FP16 AMP B8 training capture",
+        "benchmark_dtype": "fp16",
+        "physical_dtype_basis": "FP16 training autocast contract; module hook records logical boundary dtypes",
+        "source_capture_keys": [
+          "429a9ea9bf7c"
+        ],
+        "logical_boundary_variants": [
+          {
+            "capture_key": "429a9ea9bf7c",
+            "module_kind": "ParametrizedConv2d",
+            "input_dtype": "torch.float16",
+            "weight_dtype": "torch.float32",
+            "count": 20
+          }
+        ],
+        "observed_forward_calls": 20,
+        "v10_family": "period",
+        "v08_baseline_directions": []
+      },
+      "directions": {
+        "fwd": {
+          "algorithm": "implicit_phase",
+          "bm": 32,
+          "bn": 128,
+          "bk": 32,
+          "num_warps": 4
+        },
+        "dx": {
+          "algorithm": "implicit_phase",
+          "bm": 64,
+          "bn": 64,
+          "bk": 32,
+          "num_warps": 4
+        }
+      },
+      "new_directions": {
+        "fwd": {
+          "algorithm": "implicit_phase",
+          "bm": 32,
+          "bn": 128,
+          "bk": 32,
+          "num_warps": 4
+        },
+        "dx": {
+          "algorithm": "implicit_phase",
+          "bm": 64,
+          "bn": 64,
+          "bk": 32,
+          "num_warps": 4
+        }
+      },
+      "strict_gate_pass": true,
+      "contract_pass": true,
+      "evidence": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/v10/native_full/result.json"
+    },
+    "{\"dilation\": [1], \"groups\": 1, \"kind\": \"conv_transpose1d\", \"output_padding\": [0], \"padding\": [1], \"shape\": [8, 128, 3200], \"stride\": [2], \"weight\": [128, 64, 4]}": {
+      "case": {
+        "kind": "conv_transpose1d",
+        "shape": [
+          8,
+          128,
+          3200
+        ],
+        "weight": [
+          128,
+          64,
+          4
+        ],
+        "stride": [
+          2
+        ],
+        "padding": [
+          1
+        ],
+        "dilation": [
+          1
+        ],
+        "groups": 1,
+        "output_padding": [
+          0
+        ],
+        "name": "conv_transpose1d_B8_C128_T3200_O64_K4_S2_D1_G1_P1",
+        "origin": "Actual voice_model_A KLM49 HFG FP16 AMP B8 training capture",
+        "benchmark_dtype": "fp16",
+        "physical_dtype_basis": "FP16 training autocast contract; module hook records logical boundary dtypes",
+        "source_capture_keys": [
+          "acfaf5997e37"
+        ],
+        "logical_boundary_variants": [
+          {
+            "capture_key": "acfaf5997e37",
+            "module_kind": "ParametrizedConvTranspose1d",
+            "input_dtype": "torch.float16",
+            "weight_dtype": "torch.float32",
+            "count": 5
+          }
+        ],
+        "observed_forward_calls": 5,
+        "v10_family": "transpose",
+        "v08_baseline_directions": []
+      },
+      "directions": {
+        "dx": {
+          "algorithm": "implicit_phase",
+          "bm": 32,
+          "bn": 128,
+          "bk": 32,
+          "num_warps": 4
+        },
+        "dw": {
+          "algorithm": "flat_dw",
+          "bm": 32,
+          "bn": 64,
+          "bk": 64,
+          "num_warps": 4,
+          "split": 16
+        }
+      },
+      "new_directions": {
+        "dx": {
+          "algorithm": "implicit_phase",
+          "bm": 32,
+          "bn": 128,
+          "bk": 32,
+          "num_warps": 4
+        },
+        "dw": {
+          "algorithm": "flat_dw",
+          "bm": 32,
+          "bn": 64,
+          "bk": 64,
+          "num_warps": 4,
+          "split": 16
+        }
+      },
+      "strict_gate_pass": true,
+      "contract_pass": true,
+      "evidence": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/v10/native_full/result.json"
+    },
+    "{\"dilation\": [1], \"groups\": 1, \"kind\": \"conv_transpose1d\", \"output_padding\": [0], \"padding\": [3], \"shape\": [8, 256, 320], \"stride\": [10], \"weight\": [256, 128, 16]}": {
+      "case": {
+        "kind": "conv_transpose1d",
+        "shape": [
+          8,
+          256,
+          320
+        ],
+        "weight": [
+          256,
+          128,
+          16
+        ],
+        "stride": [
+          10
+        ],
+        "padding": [
+          3
+        ],
+        "dilation": [
+          1
+        ],
+        "groups": 1,
+        "output_padding": [
+          0
+        ],
+        "name": "conv_transpose1d_B8_C256_T320_O128_K16_S10_D1_G1_P3",
+        "origin": "Actual voice_model_A KLM49 HFG FP16 AMP B8 training capture",
+        "benchmark_dtype": "fp16",
+        "physical_dtype_basis": "FP16 training autocast contract; module hook records logical boundary dtypes",
+        "source_capture_keys": [
+          "bcb0cffabbfe"
+        ],
+        "logical_boundary_variants": [
+          {
+            "capture_key": "bcb0cffabbfe",
+            "module_kind": "ParametrizedConvTranspose1d",
+            "input_dtype": "torch.float16",
+            "weight_dtype": "torch.float32",
+            "count": 5
+          }
+        ],
+        "observed_forward_calls": 5,
+        "v10_family": "transpose",
+        "v08_baseline_directions": []
+      },
+      "directions": {
+        "dx": {
+          "algorithm": "implicit_phase",
+          "bm": 64,
+          "bn": 64,
+          "bk": 32,
+          "num_warps": 4
+        },
+        "dw": {
+          "algorithm": "flat_dw",
+          "bm": 32,
+          "bn": 64,
+          "bk": 64,
+          "num_warps": 4,
+          "split": 1
+        }
+      },
+      "new_directions": {
+        "dx": {
+          "algorithm": "implicit_phase",
+          "bm": 64,
+          "bn": 64,
+          "bk": 32,
+          "num_warps": 4
+        },
+        "dw": {
+          "algorithm": "flat_dw",
+          "bm": 32,
+          "bn": 64,
+          "bk": 64,
+          "num_warps": 4,
+          "split": 1
+        }
+      },
+      "strict_gate_pass": true,
+      "contract_pass": true,
+      "evidence": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/v10/native_full/result.json"
+    },
+    "{\"dilation\": [1], \"groups\": 1, \"kind\": \"conv_transpose1d\", \"output_padding\": [0], \"padding\": [3], \"shape\": [8, 512, 32], \"stride\": [10], \"weight\": [512, 256, 16]}": {
+      "case": {
+        "kind": "conv_transpose1d",
+        "shape": [
+          8,
+          512,
+          32
+        ],
+        "weight": [
+          512,
+          256,
+          16
+        ],
+        "stride": [
+          10
+        ],
+        "padding": [
+          3
+        ],
+        "dilation": [
+          1
+        ],
+        "groups": 1,
+        "output_padding": [
+          0
+        ],
+        "name": "conv_transpose1d_B8_C512_T32_O256_K16_S10_D1_G1_P3",
+        "origin": "Actual voice_model_A KLM49 HFG FP16 AMP B8 training capture",
+        "benchmark_dtype": "fp16",
+        "physical_dtype_basis": "FP16 training autocast contract; module hook records logical boundary dtypes",
+        "source_capture_keys": [
+          "3cff049c6aff"
+        ],
+        "logical_boundary_variants": [
+          {
+            "capture_key": "3cff049c6aff",
+            "module_kind": "ParametrizedConvTranspose1d",
+            "input_dtype": "torch.float16",
+            "weight_dtype": "torch.float32",
+            "count": 5
+          }
+        ],
+        "observed_forward_calls": 5,
+        "v10_family": "transpose",
+        "v08_baseline_directions": []
+      },
+      "directions": {
+        "dw": {
+          "algorithm": "flat_dw",
+          "bm": 32,
+          "bn": 64,
+          "bk": 64,
+          "num_warps": 4,
+          "split": 1
+        }
+      },
+      "new_directions": {
+        "dw": {
+          "algorithm": "flat_dw",
+          "bm": 32,
+          "bn": 64,
+          "bk": 64,
+          "num_warps": 4,
+          "split": 1
+        }
+      },
+      "strict_gate_pass": true,
+      "contract_pass": true,
+      "evidence": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/v10/native_full/result.json"
+    }
+  },
+  "gate": {
+    "finite": true,
+    "reference_finite": true,
+    "nrmse": 0.002,
+    "max_over_reference_rms": 0.02,
+    "seed": 20261108,
+    "candidate_event_speedup_min": 1.1,
+    "candidate_wall_speedup_min": 1.05
+  },
+  "source_reports": [
+    {
+      "path": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/v10/native_c192_smoke/result.json",
+      "sha256": "97e25bee7560e696cc0cdc0ecd1da44eb208ec66174a7e9a298fd54b6f34867f",
+      "dispatch_path": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/v10/native_c192_smoke/dispatch.json",
+      "dispatch_sha256": "f220b75f8d50409c1b54090ca1c908b61635d2acb170de5e0b603e2e8d9fbb3c",
+      "native_policy_path": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/v10/native_c192_smoke/native_policy.json",
+      "native_policy_sha256": "08d66727691767c630b0f37296d824f8bcdf8781a9d641c3e258be577a2ce934"
+    },
+    {
+      "path": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/v10/native_family_smoke/result.json",
+      "sha256": "7a8b27ba6ab548a2cc4661491f95faf4e2744dfd7cff52277faa0246b5399705",
+      "dispatch_path": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/v10/native_family_smoke/dispatch.json",
+      "dispatch_sha256": "e5e9d3e12168aa166e0836a9e9023060a1ddd67f64882f4f61c072a912430ee3",
+      "native_policy_path": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/v10/native_family_smoke/native_policy.json",
+      "native_policy_sha256": "8fa040e574594f92ac2753d40aada0929ae208ef0f6375f3aed14ab34b7f512d"
+    },
+    {
+      "path": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/v10/native_full/result.json",
+      "sha256": "54b30355194a14cdfe713b547a8a9f4cfb931ee14481c565457e1972b62065ab",
+      "dispatch_path": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/v10/native_full/dispatch.json",
+      "dispatch_sha256": "ded87dd9070a08f1f16dc82d554dce6552955d949cc345a764dfcf2f75428c89",
+      "native_policy_path": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/v10/native_full/native_policy.json",
+      "native_policy_sha256": "1c10908651400114ec9d0446e165bd0fc204c084759d5d83ee86cd9a02290775"
+    }
+  ],
+  "status": "operator and AMP/weight_norm validated candidate; operating B/B-prime and audio are separate",
+  "summary_path": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/v10/native_selected/summary.json"
+}

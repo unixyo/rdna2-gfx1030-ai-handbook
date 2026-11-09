@@ -1,0 +1,423 @@
+{
+  "schema_version": 1,
+  "started_utc": "2026-11-06T15:24:23.836898+00:00",
+  "seed": 20261106,
+  "tolerance_fixed_before_execution": {
+    "rtol": 0.0003,
+    "atol": 3e-05
+  },
+  "tiles": {
+    "q32k16d16v128w8r": [
+      32,
+      16,
+      16,
+      128,
+      8,
+      1,
+      false
+    ],
+    "q32k64d16v128w8p16": [
+      32,
+      64,
+      16,
+      128,
+      8,
+      1,
+      false,
+      16
+    ]
+  },
+  "rocblas_hybrid_query_blocks": [],
+  "rounds": 3,
+  "iterations": 3,
+  "warmup": 1,
+  "memory_metric": "Incremental peak PyTorch allocated, excluding input/reference and non-allocator driver scratch.",
+  "timing": "Whole ordinary call including validation/output allocation/layout conversion; compilation and input creation excluded.",
+  "correctness": [],
+  "benchmarks": [
+    {
+      "model": "moss",
+      "source": "captured",
+      "capture_path": "results/v05_moss_capture_fixed/actual_qkv_1061_1061.pt",
+      "layout": {
+        "q": {
+          "shape": [
+            1,
+            24,
+            1061,
+            128
+          ],
+          "stride": [
+            3259392,
+            128,
+            3072,
+            1
+          ],
+          "offset": 0,
+          "dtype": "torch.float32"
+        },
+        "k": {
+          "shape": [
+            1,
+            24,
+            1061,
+            128
+          ],
+          "stride": [
+            3259392,
+            128,
+            3072,
+            1
+          ],
+          "offset": 0,
+          "dtype": "torch.float32"
+        },
+        "v": {
+          "shape": [
+            1,
+            24,
+            1061,
+            128
+          ],
+          "stride": [
+            9778176,
+            128,
+            9216,
+            1
+          ],
+          "offset": 0,
+          "dtype": "torch.float32"
+        }
+      },
+      "scale_mode": "sdpa",
+      "accuracy": {
+        "native_math": {
+          "vs_native": {
+            "finite": true,
+            "passed": true,
+            "max_abs": 0.0,
+            "rmse": 0.0
+          },
+          "vs_fp64_rows": {
+            "finite": true,
+            "passed": true,
+            "max_abs": 1.8184204715332442e-06,
+            "rmse": 3.4145211810706754e-07
+          }
+        },
+        "exact_math": {
+          "vs_native": {
+            "finite": true,
+            "passed": true,
+            "max_abs": 0.0,
+            "rmse": 0.0
+          },
+          "vs_fp64_rows": {
+            "finite": true,
+            "passed": true,
+            "max_abs": 1.8184204715332442e-06,
+            "rmse": 3.4145211810706754e-07
+          }
+        },
+        "q32k16d16v128w8r": {
+          "vs_native": {
+            "finite": true,
+            "passed": true,
+            "max_abs": 1.71661376953125e-05,
+            "rmse": 3.1960916740886443e-07
+          },
+          "vs_fp64_rows": {
+            "finite": true,
+            "passed": true,
+            "max_abs": 2.692714094365556e-06,
+            "rmse": 3.953511537923855e-07
+          }
+        },
+        "q32k64d16v128w8p16": {
+          "vs_native": {
+            "finite": true,
+            "passed": true,
+            "max_abs": 1.9073486328125e-05,
+            "rmse": 3.1653985062010693e-07
+          },
+          "vs_fp64_rows": {
+            "finite": true,
+            "passed": true,
+            "max_abs": 2.692714094365556e-06,
+            "rmse": 3.669538632359896e-07
+          }
+        }
+      },
+      "isa": {
+        "q32k16d16v128w8r": [
+          {
+            "n_regs": 127,
+            "n_spills": 0,
+            "shared_bytes": 16384,
+            "asm_sha256": "028d620820000b5a01aac8f375cd04e2952b32cd423c246dcc6f7d1b7c6f8bf1",
+            "instructions": {
+              "\\bv_fmac_f32\\b": 0,
+              "\\bv_fma_f32\\b": 48,
+              "\\bv_dot2c_f32_f16\\b": 0,
+              "\\bv_dot4c_i32_i8\\b": 0,
+              "\\bv_mfma": 0,
+              "\\bv_wmma": 0,
+              "\\bscratch_load": 0,
+              "\\bscratch_store": 0
+            },
+            "private_segment": [
+              "0"
+            ]
+          }
+        ],
+        "q32k64d16v128w8p16": [
+          {
+            "n_regs": 187,
+            "n_spills": 0,
+            "shared_bytes": 16384,
+            "asm_sha256": "221590f3eb38a2e2ac4b0aa3c5136c4899d7c52a5f61535f4959b034a67795e6",
+            "instructions": {
+              "\\bv_fmac_f32\\b": 0,
+              "\\bv_fma_f32\\b": 48,
+              "\\bv_dot2c_f32_f16\\b": 0,
+              "\\bv_dot4c_i32_i8\\b": 0,
+              "\\bv_mfma": 0,
+              "\\bv_wmma": 0,
+              "\\bscratch_load": 0,
+              "\\bscratch_store": 0
+            },
+            "private_segment": [
+              "0"
+            ]
+          }
+        ]
+      },
+      "capture_metadata": {
+        "shapes": [
+          [
+            1,
+            24,
+            1061,
+            128
+          ],
+          [
+            1,
+            24,
+            1061,
+            128
+          ],
+          [
+            1,
+            24,
+            1061,
+            128
+          ]
+        ],
+        "strides": [
+          [
+            3259392,
+            128,
+            3072,
+            1
+          ],
+          [
+            3259392,
+            128,
+            3072,
+            1
+          ],
+          [
+            9778176,
+            128,
+            9216,
+            1
+          ]
+        ],
+        "dtype": "torch.float32",
+        "heads": null,
+        "mask": null,
+        "source": {
+          "module": "~/DevSpace/moss-image-rdna2-lab01/custom_nodes/MOSS_RDNA2_INT8.attention_dispatch",
+          "name": "install.<locals>.dispatch",
+          "path": "~/DevSpace/moss-image-rdna2-lab01/custom_nodes/MOSS_RDNA2_INT8/attention_dispatch.py"
+        }
+      },
+      "fp64_reference": {
+        "heads": [
+          0,
+          1
+        ],
+        "query_rows": [
+          0,
+          353,
+          707,
+          1060
+        ]
+      },
+      "round_order": [
+        [
+          "native_math",
+          "exact_math",
+          "q32k16d16v128w8r",
+          "q32k64d16v128w8p16"
+        ],
+        [
+          "q32k64d16v128w8p16",
+          "q32k16d16v128w8r",
+          "exact_math",
+          "native_math"
+        ],
+        [
+          "native_math",
+          "exact_math",
+          "q32k16d16v128w8r",
+          "q32k64d16v128w8p16"
+        ]
+      ],
+      "methods": {
+        "native_math": {
+          "samples": [
+            {
+              "wall_ms": 2.5536169996485114,
+              "event_ms": 2.538161277770996
+            },
+            {
+              "wall_ms": 2.5686803322363025,
+              "event_ms": 2.5620582898457847
+            },
+            {
+              "wall_ms": 2.5885400003365553,
+              "event_ms": 2.5820350646972656
+            }
+          ],
+          "median": {
+            "wall_ms": 2.5686803322363025,
+            "event_ms": 2.5620582898457847
+          },
+          "memory": {
+            "baseline_allocated_bytes": 112513024,
+            "peak_allocated_bytes": 370943488,
+            "incremental_peak_bytes": 258430464,
+            "output_bytes": 13037568
+          },
+          "speedups": {
+            "native_math": 1.0,
+            "exact_math": 0.7293830903584623
+          }
+        },
+        "exact_math": {
+          "samples": [
+            {
+              "wall_ms": 1.873551998869516,
+              "event_ms": 1.8669956525166829
+            },
+            {
+              "wall_ms": 1.8307693317183293,
+              "event_ms": 1.824539025624593
+            },
+            {
+              "wall_ms": 1.8841853331347618,
+              "event_ms": 1.8780256907145183
+            }
+          ],
+          "median": {
+            "wall_ms": 1.873551998869516,
+            "event_ms": 1.8669956525166829
+          },
+          "memory": {
+            "baseline_allocated_bytes": 112513024,
+            "peak_allocated_bytes": 369729536,
+            "incremental_peak_bytes": 257216512,
+            "output_bytes": 13037568
+          },
+          "speedup_wall": 1.3710216389970604,
+          "peak_allocated_ratio_native_over_tiled": 1.0047195725910474,
+          "speedups": {
+            "native_math": 1.3710216389970604,
+            "exact_math": 1.0
+          }
+        },
+        "q32k16d16v128w8r": {
+          "samples": [
+            {
+              "wall_ms": 4.357996665930841,
+              "event_ms": 4.2648007074991865
+            },
+            {
+              "wall_ms": 4.356916666438337,
+              "event_ms": 4.26460075378418
+            },
+            {
+              "wall_ms": 4.371866334016279,
+              "event_ms": 4.280743916829427
+            }
+          ],
+          "median": {
+            "wall_ms": 4.357996665930841,
+            "event_ms": 4.2648007074991865
+          },
+          "memory": {
+            "baseline_allocated_bytes": 112513024,
+            "peak_allocated_bytes": 125550592,
+            "incremental_peak_bytes": 13037568,
+            "output_bytes": 13037568
+          },
+          "speedup_wall": 0.5894176910040495,
+          "peak_allocated_ratio_native_over_tiled": 19.82198397737983,
+          "speedups": {
+            "native_math": 0.5894176910040495,
+            "exact_math": 0.42991129697648284
+          }
+        },
+        "q32k64d16v128w8p16": {
+          "samples": [
+            {
+              "wall_ms": 3.889350332125711,
+              "event_ms": 3.882997512817383
+            },
+            {
+              "wall_ms": 3.8839200011958988,
+              "event_ms": 3.877447764078776
+            },
+            {
+              "wall_ms": 3.913300000325156,
+              "event_ms": 3.905247688293457
+            }
+          ],
+          "median": {
+            "wall_ms": 3.889350332125711,
+            "event_ms": 3.882997512817383
+          },
+          "memory": {
+            "baseline_allocated_bytes": 112513024,
+            "peak_allocated_bytes": 125550592,
+            "incremental_peak_bytes": 13037568,
+            "output_bytes": 13037568
+          },
+          "speedup_wall": 0.6604394340667171,
+          "peak_allocated_ratio_native_over_tiled": 19.82198397737983,
+          "speedups": {
+            "native_math": 0.6604394340667171,
+            "exact_math": 0.481713355414176
+          }
+        }
+      },
+      "passed": true
+    }
+  ],
+  "status": "passed",
+  "environment": {
+    "torch": "2.12.0+rocm10.2.0a20261011",
+    "torch_git": "9ccf2fd0aab44087b58af23ad20bc961c29bb852",
+    "hip": "7.17.26405",
+    "triton": "3.8.0",
+    "arch": "gfx1030",
+    "gpu": "AMD Radeon RX 6900 XT"
+  },
+  "source_sha256": {
+    "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/bench_fp32_attention.py": "32bddf8aad31ff7c4334edc167aea3fa9f4a1064a30b7d63c35420009c80db74",
+    "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/rdna2_ops/attention.py": "1033fd79c4f7df988c3d1ee0f3166c7f8dcb871f596ad462d71c7f3583c3a311",
+    "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/rdna2_ops/fp32_attention.py": "e64bf1223bd3ed91c8e89c4762b40d75e79a3878c5f2f6722d1542218dab1308"
+  },
+  "exit_status": 0
+}

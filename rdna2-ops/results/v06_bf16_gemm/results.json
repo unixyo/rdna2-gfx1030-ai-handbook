@@ -1,0 +1,4087 @@
+{
+  "status": "measured",
+  "kind": "bf16",
+  "gates_declared_before_run": {
+    "bf16": {
+      "normalized_rmse": 0.004,
+      "normalized_max": 0.04
+    },
+    "fp8_exact": {
+      "normalized_rmse": 0.002,
+      "normalized_max": 0.02
+    },
+    "fp8_int8": {
+      "normalized_rmse": 0.03,
+      "normalized_max": 0.15
+    },
+    "rgb": {
+      "max_abs": 0.00784313725490196,
+      "rmse": 0.000980392156862745
+    }
+  },
+  "timing": {
+    "rounds": 3,
+    "repeats": 3,
+    "conversion_included": "all per-call input/output/quantization; prepared weight setup separately reported",
+    "not_in_timing": "reference, finite/range validation, profiles; no model performance claimed"
+  },
+  "software": {
+    "torch": "2.12.0+rocm10.2.0a20261011",
+    "hip": "7.17.26405",
+    "triton": "3.8.0"
+  },
+  "script_sha256": "3da14d6368e938d364702c5da27670256ceae2d4162d501b3398c5ba1c2b733f",
+  "cases": [
+    {
+      "id": "bf16_square",
+      "kind": "mm",
+      "B": 1,
+      "M": 1024,
+      "N": 1024,
+      "K": 1024,
+      "a_stride": [
+        1024,
+        1
+      ],
+      "b_stride": [
+        1,
+        1024
+      ],
+      "input_source": "seeded synthetic BF16; dimensions chosen for square, attention tall-skinny and MOSS VAE-like P.V",
+      "methods": [
+        {
+          "method": "native",
+          "error_vs_native": {
+            "finite": true,
+            "bit_equal": true,
+            "max_abs": 0.0,
+            "rmse": 0.0,
+            "reference_rms": 0.2500150203704834,
+            "normalized_rmse": 0.0,
+            "normalized_max": 0.0
+          },
+          "error_vs_cpu_fp64": {
+            "method": "CPU FP64 dot over full K, 24x24 selected output coordinates, first batch",
+            "finite": true,
+            "max_abs": 0.0017649967048782855,
+            "rmse": 0.0003885854065961053,
+            "normalized_rmse": 0.0015463090384263657,
+            "reference_rms": 0.25129867118383886,
+            "reference_shape": [
+              24,
+              24
+            ]
+          },
+          "operator_gate": {
+            "normalized_rmse": 0.004,
+            "normalized_max": 0.04
+          },
+          "operator_pass": true,
+          "kernel_metadata": {},
+          "memory": {
+            "additional_peak_allocated_bytes": 2097152,
+            "output_bytes": 2097152
+          },
+          "samples": [
+            {
+              "wall_ms": 0.2865346662777786,
+              "event_ms": 0.27727999289830524
+            },
+            {
+              "wall_ms": 0.272654666332528,
+              "event_ms": 0.26662633816401166
+            },
+            {
+              "wall_ms": 0.2639313364246239,
+              "event_ms": 0.2579230070114136
+            }
+          ],
+          "median_wall_ms": 0.272654666332528,
+          "median_event_ms": 0.26662633816401166,
+          "profile": {
+            "operator_attribution": {
+              "denominator_ms": 0.4952780000000003,
+              "rows": [
+                {
+                  "name": "hipDevicePrimaryCtxGetState",
+                  "self_gpu_ms": 0.24763900000000014,
+                  "count": 1,
+                  "device_type": "DeviceType.CPU",
+                  "input_shapes": [],
+                  "share_of_this_table": 0.5
+                },
+                {
+                  "name": "aten::mm",
+                  "self_gpu_ms": 0.24763900000000014,
+                  "count": 1,
+                  "device_type": "DeviceType.CPU",
+                  "input_shapes": [
+                    [
+                      1024,
+                      1024
+                    ],
+                    [
+                      1024,
+                      1024
+                    ]
+                  ],
+                  "share_of_this_table": 0.5
+                }
+              ],
+              "top10": [
+                {
+                  "name": "hipDevicePrimaryCtxGetState",
+                  "self_gpu_ms": 0.24763900000000014,
+                  "count": 1,
+                  "device_type": "DeviceType.CPU",
+                  "input_shapes": [],
+                  "share_of_this_table": 0.5
+                },
+                {
+                  "name": "aten::mm",
+                  "self_gpu_ms": 0.24763900000000014,
+                  "count": 1,
+                  "device_type": "DeviceType.CPU",
+                  "input_shapes": [
+                    [
+                      1024,
+                      1024
+                    ],
+                    [
+                      1024,
+                      1024
+                    ]
+                  ],
+                  "share_of_this_table": 0.5
+                }
+              ]
+            },
+            "device_activities": {
+              "denominator_ms": 0.247639,
+              "rows": [
+                {
+                  "name": "Cijk_Alik_Bljk_BBS_BH_MT64x32x8_SN_AMAS2_BL0_BS1_EPS0_GLVWA2_GLVWB1_GRVW2_GSU1_GSUASB_ISA000_IU1_K1_KLS_LDL1_LRVW2_MMFSC_NLCA1_NLCB1_PGR0_PLR1_SIA1_SU32_SUM0_SUS256_SVW4_TT4_2_USFGRO0_VAW1_VS1_VW2_VWB2_WS64_WG16_16_1_WGM8.kd",
+                  "category": "kernel",
+                  "device": 0,
+                  "self_gpu_ms": 0.247639,
+                  "count": 1,
+                  "device_type": "CUDA",
+                  "input_shapes": [],
+                  "share_of_this_table": 1.0
+                }
+              ],
+              "top10": [
+                {
+                  "name": "Cijk_Alik_Bljk_BBS_BH_MT64x32x8_SN_AMAS2_BL0_BS1_EPS0_GLVWA2_GLVWB1_GRVW2_GSU1_GSUASB_ISA000_IU1_K1_KLS_LDL1_LRVW2_MMFSC_NLCA1_NLCB1_PGR0_PLR1_SIA1_SU32_SUM0_SUS256_SVW4_TT4_2_USFGRO0_VAW1_VS1_VW2_VWB2_WS64_WG16_16_1_WGM8.kd",
+                  "category": "kernel",
+                  "device": 0,
+                  "self_gpu_ms": 0.247639,
+                  "count": 1,
+                  "device_type": "CUDA",
+                  "input_shapes": [],
+                  "share_of_this_table": 1.0
+                }
+              ],
+              "aggregation": "sum Chrome trace complete events (ph=X), grouped by category/name/device",
+              "included_categories": [
+                "kernel",
+                "gpu_memcpy",
+                "gpu_memset"
+              ],
+              "category_totals": {
+                "kernel": {
+                  "count": 1,
+                  "duration_ms": 0.247639
+                },
+                "gpu_memcpy": {
+                  "count": 0,
+                  "duration_ms": 0.0
+                },
+                "gpu_memset": {
+                  "count": 0,
+                  "duration_ms": 0.0
+                }
+              },
+              "excluded_complete_event_categories": {
+                "Trace": {
+                  "count": 1,
+                  "duration_ms": 2.4698919999999998
+                },
+                "cpu_op": {
+                  "count": 1,
+                  "duration_ms": 0.163129
+                },
+                "cuda_runtime": {
+                  "count": 6,
+                  "duration_ms": 2.1069039999999997
+                }
+              },
+              "trace_file": "bf16_square_native.trace.json",
+              "trace_sha256": "b50f2c38418840c05948f27107970238cad78c4cc763d587b5e55c8882fd6c54",
+              "trace_retained": true,
+              "trace_duration_unit": "microseconds",
+              "denominator_semantics": "summed kernel/memcpy/memset work; never add CPU attribution or GPU annotations; may overlap across streams"
+            }
+          },
+          "status": "measured",
+          "speedup_event": 1.0,
+          "speedup_wall": 1.0
+        },
+        {
+          "method": "fp32",
+          "error_vs_native": {
+            "finite": true,
+            "bit_equal": false,
+            "max_abs": 0.00390625,
+            "rmse": 8.702979357622098e-06,
+            "reference_rms": 0.2500150203704834,
+            "normalized_rmse": 3.480982600455619e-05,
+            "normalized_max": 0.015624061283244282
+          },
+          "error_vs_cpu_fp64": {
+            "method": "CPU FP64 dot over full K, 24x24 selected output coordinates, first batch",
+            "finite": true,
+            "max_abs": 0.0017649967048782855,
+            "rmse": 0.0003885854065961053,
+            "normalized_rmse": 0.0015463090384263657,
+            "reference_rms": 0.25129867118383886,
+            "reference_shape": [
+              24,
+              24
+            ]
+          },
+          "operator_gate": {
+            "normalized_rmse": 0.004,
+            "normalized_max": 0.04
+          },
+          "operator_pass": true,
+          "kernel_metadata": {},
+          "memory": {
+            "additional_peak_allocated_bytes": 12582912,
+            "output_bytes": 2097152
+          },
+          "samples": [
+            {
+              "wall_ms": 0.19057533548523983,
+              "event_ms": 0.18444333473841348
+            },
+            {
+              "wall_ms": 0.16996233413616815,
+              "event_ms": 0.16468666990598044
+            },
+            {
+              "wall_ms": 0.17737533683733395,
+              "event_ms": 0.1721233328183492
+            }
+          ],
+          "median_wall_ms": 0.17737533683733395,
+          "median_event_ms": 0.1721233328183492,
+          "profile": {
+            "operator_attribution": {
+              "denominator_ms": 0.20095600000000002,
+              "rows": [
+                {
+                  "name": "aten::mm",
+                  "self_gpu_ms": 0.17887899999999995,
+                  "count": 1,
+                  "device_type": "DeviceType.CPU",
+                  "input_shapes": [
+                    [
+                      1024,
+                      1024
+                    ],
+                    [
+                      1024,
+                      1024
+                    ]
+                  ],
+                  "share_of_this_table": 0.8901401301777501
+                },
+                {
+                  "name": "aten::copy_",
+                  "self_gpu_ms": 0.022077000000000055,
+                  "count": 3,
+                  "device_type": "DeviceType.CPU",
+                  "input_shapes": [
+                    [
+                      1024,
+                      1024
+                    ],
+                    [
+                      1024,
+                      1024
+                    ],
+                    []
+                  ],
+                  "share_of_this_table": 0.1098598698222499
+                }
+              ],
+              "top10": [
+                {
+                  "name": "aten::mm",
+                  "self_gpu_ms": 0.17887899999999995,
+                  "count": 1,
+                  "device_type": "DeviceType.CPU",
+                  "input_shapes": [
+                    [
+                      1024,
+                      1024
+                    ],
+                    [
+                      1024,
+                      1024
+                    ]
+                  ],
+                  "share_of_this_table": 0.8901401301777501
+                },
+                {
+                  "name": "aten::copy_",
+                  "self_gpu_ms": 0.022077000000000055,
+                  "count": 3,
+                  "device_type": "DeviceType.CPU",
+                  "input_shapes": [
+                    [
+                      1024,
+                      1024
+                    ],
+                    [
+                      1024,
+                      1024
+                    ],
+                    []
+                  ],
+                  "share_of_this_table": 0.1098598698222499
+                }
+              ]
+            },
+            "device_activities": {
+              "denominator_ms": 0.200956,
+              "rows": [
+                {
+                  "name": "Cijk_Alik_Bljk_SB_MT128x128x8_SN_AMAS3_BL1_BS1_EPS1_GLVWA4_GLVWB4_GRVW4_GSU1_GSUASB_ISA1030_IU1_K1_KLA_LDL1_LRVW4_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU32_SUM3_SUS128_SVW4_TT8_8_USFGROn1_VAW1_VSn1_VW4_VWB4_WS32_WG16_16_1_WGM4.kd",
+                  "category": "kernel",
+                  "device": 0,
+                  "self_gpu_ms": 0.17887899999999998,
+                  "count": 1,
+                  "device_type": "CUDA",
+                  "input_shapes": [],
+                  "share_of_this_table": 0.8901401301777503
+                },
+                {
+                  "name": "void at::native::vectorized_elementwise_kernel<4, at::native::bfloat16tofloat32_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda(c10::BFloat16)#1}, std::array<char*, 2ul> >(int, at::native::bfloat16tofloat32_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda(c10::BFloat16)#1}, std::array<char*, 2ul>) [clone .kd]",
+                  "category": "kernel",
+                  "device": 0,
+                  "self_gpu_ms": 0.013318,
+                  "count": 2,
+                  "device_type": "CUDA",
+                  "input_shapes": [],
+                  "share_of_this_table": 0.0662732140369036
+                },
+                {
+                  "name": "void at::native::vectorized_elementwise_kernel<4, at::native::bfloat16_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda(float)#1}, std::array<char*, 2ul> >(int, at::native::bfloat16_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda(float)#1}, std::array<char*, 2ul>) [clone .kd]",
+                  "category": "kernel",
+                  "device": 0,
+                  "self_gpu_ms": 0.008759000000000001,
+                  "count": 1,
+                  "device_type": "CUDA",
+                  "input_shapes": [],
+                  "share_of_this_table": 0.043586655785346054
+                }
+              ],
+              "top10": [
+                {
+                  "name": "Cijk_Alik_Bljk_SB_MT128x128x8_SN_AMAS3_BL1_BS1_EPS1_GLVWA4_GLVWB4_GRVW4_GSU1_GSUASB_ISA1030_IU1_K1_KLA_LDL1_LRVW4_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU32_SUM3_SUS128_SVW4_TT8_8_USFGROn1_VAW1_VSn1_VW4_VWB4_WS32_WG16_16_1_WGM4.kd",
+                  "category": "kernel",
+                  "device": 0,
+                  "self_gpu_ms": 0.17887899999999998,
+                  "count": 1,
+                  "device_type": "CUDA",
+                  "input_shapes": [],
+                  "share_of_this_table": 0.8901401301777503
+                },
+                {
+                  "name": "void at::native::vectorized_elementwise_kernel<4, at::native::bfloat16tofloat32_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda(c10::BFloat16)#1}, std::array<char*, 2ul> >(int, at::native::bfloat16tofloat32_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda(c10::BFloat16)#1}, std::array<char*, 2ul>) [clone .kd]",
+                  "category": "kernel",
+                  "device": 0,
+                  "self_gpu_ms": 0.013318,
+                  "count": 2,
+                  "device_type": "CUDA",
+                  "input_shapes": [],
+                  "share_of_this_table": 0.0662732140369036
+                },
+                {
+                  "name": "void at::native::vectorized_elementwise_kernel<4, at::native::bfloat16_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda(float)#1}, std::array<char*, 2ul> >(int, at::native::bfloat16_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda(float)#1}, std::array<char*, 2ul>) [clone .kd]",
+                  "category": "kernel",
+                  "device": 0,
+                  "self_gpu_ms": 0.008759000000000001,
+                  "count": 1,
+                  "device_type": "CUDA",
+                  "input_shapes": [],
+                  "share_of_this_table": 0.043586655785346054
+                }
+              ],
+              "aggregation": "sum Chrome trace complete events (ph=X), grouped by category/name/device",
+              "included_categories": [
+                "kernel",
+                "gpu_memcpy",
+                "gpu_memset"
+              ],
+              "category_totals": {
+                "kernel": {
+                  "count": 4,
+                  "duration_ms": 0.20095600000000002
+                },
+                "gpu_memcpy": {
+                  "count": 0,
+                  "duration_ms": 0.0
+                },
+                "gpu_memset": {
+                  "count": 0,
+                  "duration_ms": 0.0
+                }
+              },
+              "excluded_complete_event_categories": {
+                "Trace": {
+                  "count": 1,
+                  "duration_ms": 0.557226
+                },
+                "cpu_op": {
+                  "count": 13,
+                  "duration_ms": 0.47363700000000003
+                },
+                "cuda_runtime": {
+                  "count": 9,
+                  "duration_ms": 0.219839
+                }
+              },
+              "trace_file": "bf16_square_fp32.trace.json",
+              "trace_sha256": "6a51651528d9e269019cbccd88c1606cd4fe75e4c2cfec4897b26846bb500647",
+              "trace_retained": true,
+              "trace_duration_unit": "microseconds",
+              "denominator_semantics": "summed kernel/memcpy/memset work; never add CPU attribution or GPU annotations; may overlap across streams"
+            }
+          },
+          "status": "measured",
+          "speedup_event": 1.5490423860511486,
+          "speedup_wall": 1.5371622187957963
+        },
+        {
+          "method": "fp16_f32",
+          "error_vs_native": {
+            "finite": true,
+            "bit_equal": false,
+            "max_abs": 0.0009765625,
+            "rmse": 1.1717359029717045e-06,
+            "reference_rms": 0.2500150203704834,
+            "normalized_rmse": 4.6866620302867165e-06,
+            "normalized_max": 0.0039060153208110705
+          },
+          "error_vs_cpu_fp64": {
+            "method": "CPU FP64 dot over full K, 24x24 selected output coordinates, first batch",
+            "finite": true,
+            "max_abs": 0.0017649967048782855,
+            "rmse": 0.0003885854065961053,
+            "normalized_rmse": 0.0015463090384263657,
+            "reference_rms": 0.25129867118383886,
+            "reference_shape": [
+              24,
+              24
+            ]
+          },
+          "operator_gate": {
+            "normalized_rmse": 0.004,
+            "normalized_max": 0.04
+          },
+          "operator_pass": true,
+          "kernel_metadata": {},
+          "memory": {
+            "additional_peak_allocated_bytes": 8388608,
+            "output_bytes": 2097152
+          },
+          "samples": [
+            {
+              "wall_ms": 0.3064176707994193,
+              "event_ms": 0.30088667074839276
+            },
+            {
+              "wall_ms": 0.28031799593009055,
+              "event_ms": 0.27492666244506836
+            },
+            {
+              "wall_ms": 0.28374799876473844,
+              "event_ms": 0.2784866690635681
+            }
+          ],
+          "median_wall_ms": 0.28374799876473844,
+          "median_event_ms": 0.2784866690635681,
+          "profile": {
+            "operator_attribution": {
+              "denominator_ms": 0.2810359999999999,
+              "rows": [
+                {
+                  "name": "aten::mm",
+                  "self_gpu_ms": 0.24735899999999997,
+                  "count": 1,
+                  "device_type": "DeviceType.CPU",
+                  "input_shapes": [
+                    [
+                      1024,
+                      1024
+                    ],
+                    [
+                      1024,
+                      1024
+                    ],
+                    []
+                  ],
+                  "share_of_this_table": 0.8801683770050814
+                },
+                {
+                  "name": "aten::copy_",
+                  "self_gpu_ms": 0.03367699999999991,
+                  "count": 3,
+                  "device_type": "DeviceType.CPU",
+                  "input_shapes": [
+                    [
+                      1024,
+                      1024
+                    ],
+                    [
+                      1024,
+                      1024
+                    ],
+                    []
+                  ],
+                  "share_of_this_table": 0.11983162299491852
+                }
+              ],
+              "top10": [
+                {
+                  "name": "aten::mm",
+                  "self_gpu_ms": 0.24735899999999997,
+                  "count": 1,
+                  "device_type": "DeviceType.CPU",
+                  "input_shapes": [
+                    [
+                      1024,
+                      1024
+                    ],
+                    [
+                      1024,
+                      1024
+                    ],
+                    []
+                  ],
+                  "share_of_this_table": 0.8801683770050814
+                },
+                {
+                  "name": "aten::copy_",
+                  "self_gpu_ms": 0.03367699999999991,
+                  "count": 3,
+                  "device_type": "DeviceType.CPU",
+                  "input_shapes": [
+                    [
+                      1024,
+                      1024
+                    ],
+                    [
+                      1024,
+                      1024
+                    ],
+                    []
+                  ],
+                  "share_of_this_table": 0.11983162299491852
+                }
+              ]
+            },
+            "device_activities": {
+              "denominator_ms": 0.281036,
+              "rows": [
+                {
+                  "name": "Cijk_Alik_Bljk_HSS_BH_MT64x32x8_SE_AMAS2_BL1_BS1_EPS0_GLVWA2_GLVWB1_GRVW2_GSU1_GSUASB_ISA000_IU1_K1_KLS_LDL1_LRVW2_MMFSC_NLCA1_NLCB1_PGR0_PLR1_SIA1_SU32_SUM0_SUS256_SVW4_TT4_2_USFGROn1_VAW2_VSn1_VW2_VWB2_WS64_WG16_16_1_WGM8.kd",
+                  "category": "kernel",
+                  "device": 0,
+                  "self_gpu_ms": 0.247359,
+                  "count": 1,
+                  "device_type": "CUDA",
+                  "input_shapes": [],
+                  "share_of_this_table": 0.8801683770050811
+                },
+                {
+                  "name": "void at::native::elementwise_kernel_manual_unroll<128, 4, at::native::gpu_kernel_impl<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#10}::operator()() const::{lambda(c10::Half)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#10}::operator()() const::{lambda(c10::Half)#1} const&)::{lambda(int, bool)#1}>(int, at::native::gpu_kernel_impl<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#10}::operator()() const::{lambda(c10::Half)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#10}::operator()() const::{lambda(c10::Half)#1} const&)::{lambda(int, bool)#1}) [clone .kd]",
+                  "category": "kernel",
+                  "device": 0,
+                  "self_gpu_ms": 0.026318,
+                  "count": 2,
+                  "device_type": "CUDA",
+                  "input_shapes": [],
+                  "share_of_this_table": 0.0936463655901735
+                },
+                {
+                  "name": "void at::native::vectorized_elementwise_kernel<4, at::native::bfloat16_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda(float)#1}, std::array<char*, 2ul> >(int, at::native::bfloat16_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda(float)#1}, std::array<char*, 2ul>) [clone .kd]",
+                  "category": "kernel",
+                  "device": 0,
+                  "self_gpu_ms": 0.007359,
+                  "count": 1,
+                  "device_type": "CUDA",
+                  "input_shapes": [],
+                  "share_of_this_table": 0.0261852574047453
+                }
+              ],
+              "top10": [
+                {
+                  "name": "Cijk_Alik_Bljk_HSS_BH_MT64x32x8_SE_AMAS2_BL1_BS1_EPS0_GLVWA2_GLVWB1_GRVW2_GSU1_GSUASB_ISA000_IU1_K1_KLS_LDL1_LRVW2_MMFSC_NLCA1_NLCB1_PGR0_PLR1_SIA1_SU32_SUM0_SUS256_SVW4_TT4_2_USFGROn1_VAW2_VSn1_VW2_VWB2_WS64_WG16_16_1_WGM8.kd",
+                  "category": "kernel",
+                  "device": 0,
+                  "self_gpu_ms": 0.247359,
+                  "count": 1,
+                  "device_type": "CUDA",
+                  "input_shapes": [],
+                  "share_of_this_table": 0.8801683770050811
+                },
+                {
+                  "name": "void at::native::elementwise_kernel_manual_unroll<128, 4, at::native::gpu_kernel_impl<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#10}::operator()() const::{lambda(c10::Half)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#10}::operator()() const::{lambda(c10::Half)#1} const&)::{lambda(int, bool)#1}>(int, at::native::gpu_kernel_impl<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#10}::operator()() const::{lambda(c10::Half)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#10}::operator()() const::{lambda(c10::Half)#1} const&)::{lambda(int, bool)#1}) [clone .kd]",
+                  "category": "kernel",
+                  "device": 0,
+                  "self_gpu_ms": 0.026318,
+                  "count": 2,
+                  "device_type": "CUDA",
+                  "input_shapes": [],
+                  "share_of_this_table": 0.0936463655901735
+                },
+                {
+                  "name": "void at::native::vectorized_elementwise_kernel<4, at::native::bfloat16_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda(float)#1}, std::array<char*, 2ul> >(int, at::native::bfloat16_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda(float)#1}, std::array<char*, 2ul>) [clone .kd]",
+                  "category": "kernel",
+                  "device": 0,
+                  "self_gpu_ms": 0.007359,
+                  "count": 1,
+                  "device_type": "CUDA",
+                  "input_shapes": [],
+                  "share_of_this_table": 0.0261852574047453
+                }
+              ],
+              "aggregation": "sum Chrome trace complete events (ph=X), grouped by category/name/device",
+              "included_categories": [
+                "kernel",
+                "gpu_memcpy",
+                "gpu_memset"
+              ],
+              "category_totals": {
+                "kernel": {
+                  "count": 4,
+                  "duration_ms": 0.281036
+                },
+                "gpu_memcpy": {
+                  "count": 0,
+                  "duration_ms": 0.0
+                },
+                "gpu_memset": {
+                  "count": 0,
+                  "duration_ms": 0.0
+                }
+              },
+              "excluded_complete_event_categories": {
+                "Trace": {
+                  "count": 1,
+                  "duration_ms": 0.5544260000000001
+                },
+                "cpu_op": {
+                  "count": 14,
+                  "duration_ms": 0.279724
+                },
+                "cuda_runtime": {
+                  "count": 9,
+                  "duration_ms": 0.29440900000000003
+                }
+              },
+              "trace_file": "bf16_square_fp16_f32.trace.json",
+              "trace_sha256": "5298d7f094985f44cc8a1b99bd7c0caf92c8d558390a038cfed0ea707aa64060",
+              "trace_retained": true,
+              "trace_duration_unit": "microseconds",
+              "denominator_semantics": "summed kernel/memcpy/memset work; never add CPU attribution or GPU annotations; may overlap across streams"
+            }
+          },
+          "status": "measured",
+          "speedup_event": 0.957411494993862,
+          "speedup_wall": 0.9609042795702388
+        },
+        {
+          "method": "fp16_f16",
+          "error_vs_native": {
+            "finite": true,
+            "bit_equal": false,
+            "max_abs": 0.0078125,
+            "rmse": 0.000359513855073601,
+            "reference_rms": 0.2500150203704834,
+            "normalized_rmse": 0.0014379690249844083,
+            "normalized_max": 0.031248122566488564
+          },
+          "error_vs_cpu_fp64": {
+            "method": "CPU FP64 dot over full K, 24x24 selected output coordinates, first batch",
+            "finite": true,
+            "max_abs": 0.0017649967048782855,
+            "rmse": 0.00039549857298345977,
+            "normalized_rmse": 0.0015738187994401717,
+            "reference_rms": 0.25129867118383886,
+            "reference_shape": [
+              24,
+              24
+            ]
+          },
+          "operator_gate": {
+            "normalized_rmse": 0.004,
+            "normalized_max": 0.04
+          },
+          "operator_pass": true,
+          "kernel_metadata": {},
+          "memory": {
+            "additional_peak_allocated_bytes": 6291456,
+            "output_bytes": 2097152
+          },
+          "samples": [
+            {
+              "wall_ms": 0.1348356696932266,
+              "event_ms": 0.1276633342107137
+            },
+            {
+              "wall_ms": 0.14302233466878533,
+              "event_ms": 0.13719000418980917
+            },
+            {
+              "wall_ms": 0.1334823367263501,
+              "event_ms": 0.1280399958292643
+            }
+          ],
+          "median_wall_ms": 0.1348356696932266,
+          "median_event_ms": 0.1280399958292643,
+          "profile": {
+            "operator_attribution": {
+              "denominator_ms": 0.118955,
+              "rows": [
+                {
+                  "name": "aten::mm",
+                  "self_gpu_ms": 0.080959,
+                  "count": 1,
+                  "device_type": "DeviceType.CPU",
+                  "input_shapes": [
+                    [
+                      1024,
+                      1024
+                    ],
+                    [
+                      1024,
+                      1024
+                    ]
+                  ],
+                  "share_of_this_table": 0.6805850952040687
+                },
+                {
+                  "name": "aten::copy_",
+                  "self_gpu_ms": 0.03799600000000001,
+                  "count": 4,
+                  "device_type": "DeviceType.CPU",
+                  "input_shapes": [
+                    [
+                      1024,
+                      1024
+                    ],
+                    [
+                      1024,
+                      1024
+                    ],
+                    []
+                  ],
+                  "share_of_this_table": 0.3194149047959313
+                }
+              ],
+              "top10": [
+                {
+                  "name": "aten::mm",
+                  "self_gpu_ms": 0.080959,
+                  "count": 1,
+                  "device_type": "DeviceType.CPU",
+                  "input_shapes": [
+                    [
+                      1024,
+                      1024
+                    ],
+                    [
+                      1024,
+                      1024
+                    ]
+                  ],
+                  "share_of_this_table": 0.6805850952040687
+                },
+                {
+                  "name": "aten::copy_",
+                  "self_gpu_ms": 0.03799600000000001,
+                  "count": 4,
+                  "device_type": "DeviceType.CPU",
+                  "input_shapes": [
+                    [
+                      1024,
+                      1024
+                    ],
+                    [
+                      1024,
+                      1024
+                    ],
+                    []
+                  ],
+                  "share_of_this_table": 0.3194149047959313
+                }
+              ]
+            },
+            "device_activities": {
+              "denominator_ms": 0.118955,
+              "rows": [
+                {
+                  "name": "Cijk_Alik_Bljk_HHS_BH_MT128x128x16_SN_AMAS3_BL1_BS1_EPS1_GLVWA8_GLVWB8_GRVW8_GSU1_GSUASB_ISA1030_IU2_K1_KLA_LDL2_LRVW8_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU32_SUM3_SUS128_SVW4_TT8_8_USFGROn1_VAW2_VSn1_VW8_VWB8_WS32_WG16_16_1_WGM4.kd",
+                  "category": "kernel",
+                  "device": 0,
+                  "self_gpu_ms": 0.080959,
+                  "count": 1,
+                  "device_type": "CUDA",
+                  "input_shapes": [],
+                  "share_of_this_table": 0.6805850952040687
+                },
+                {
+                  "name": "void at::native::elementwise_kernel_manual_unroll<128, 4, at::native::gpu_kernel_impl<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#10}::operator()() const::{lambda(c10::Half)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#10}::operator()() const::{lambda(c10::Half)#1} const&)::{lambda(int, bool)#1}>(int, at::native::gpu_kernel_impl<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#10}::operator()() const::{lambda(c10::Half)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#10}::operator()() const::{lambda(c10::Half)#1} const&)::{lambda(int, bool)#1}) [clone .kd]",
+                  "category": "kernel",
+                  "device": 0,
+                  "self_gpu_ms": 0.021598,
+                  "count": 2,
+                  "device_type": "CUDA",
+                  "input_shapes": [],
+                  "share_of_this_table": 0.18156445714766087
+                },
+                {
+                  "name": "void at::native::vectorized_elementwise_kernel<4, at::native::bfloat16_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda(float)#1}, std::array<char*, 2ul> >(int, at::native::bfloat16_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda(float)#1}, std::array<char*, 2ul>) [clone .kd]",
+                  "category": "kernel",
+                  "device": 0,
+                  "self_gpu_ms": 0.008759000000000001,
+                  "count": 1,
+                  "device_type": "CUDA",
+                  "input_shapes": [],
+                  "share_of_this_table": 0.07363288638560801
+                },
+                {
+                  "name": "void at::native::vectorized_elementwise_kernel<4, at::native::float16tofloat32_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda(c10::Half)#1}, std::array<char*, 2ul> >(int, at::native::float16tofloat32_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda(c10::Half)#1}, std::array<char*, 2ul>) [clone .kd]",
+                  "category": "kernel",
+                  "device": 0,
+                  "self_gpu_ms": 0.007639,
+                  "count": 1,
+                  "device_type": "CUDA",
+                  "input_shapes": [],
+                  "share_of_this_table": 0.06421756126266234
+                }
+              ],
+              "top10": [
+                {
+                  "name": "Cijk_Alik_Bljk_HHS_BH_MT128x128x16_SN_AMAS3_BL1_BS1_EPS1_GLVWA8_GLVWB8_GRVW8_GSU1_GSUASB_ISA1030_IU2_K1_KLA_LDL2_LRVW8_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU32_SUM3_SUS128_SVW4_TT8_8_USFGROn1_VAW2_VSn1_VW8_VWB8_WS32_WG16_16_1_WGM4.kd",
+                  "category": "kernel",
+                  "device": 0,
+                  "self_gpu_ms": 0.080959,
+                  "count": 1,
+                  "device_type": "CUDA",
+                  "input_shapes": [],
+                  "share_of_this_table": 0.6805850952040687
+                },
+                {
+                  "name": "void at::native::elementwise_kernel_manual_unroll<128, 4, at::native::gpu_kernel_impl<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#10}::operator()() const::{lambda(c10::Half)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#10}::operator()() const::{lambda(c10::Half)#1} const&)::{lambda(int, bool)#1}>(int, at::native::gpu_kernel_impl<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#10}::operator()() const::{lambda(c10::Half)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#10}::operator()() const::{lambda(c10::Half)#1} const&)::{lambda(int, bool)#1}) [clone .kd]",
+                  "category": "kernel",
+                  "device": 0,
+                  "self_gpu_ms": 0.021598,
+                  "count": 2,
+                  "device_type": "CUDA",
+                  "input_shapes": [],
+                  "share_of_this_table": 0.18156445714766087
+                },
+                {
+                  "name": "void at::native::vectorized_elementwise_kernel<4, at::native::bfloat16_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda(float)#1}, std::array<char*, 2ul> >(int, at::native::bfloat16_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda(float)#1}, std::array<char*, 2ul>) [clone .kd]",
+                  "category": "kernel",
+                  "device": 0,
+                  "self_gpu_ms": 0.008759000000000001,
+                  "count": 1,
+                  "device_type": "CUDA",
+                  "input_shapes": [],
+                  "share_of_this_table": 0.07363288638560801
+                },
+                {
+                  "name": "void at::native::vectorized_elementwise_kernel<4, at::native::float16tofloat32_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda(c10::Half)#1}, std::array<char*, 2ul> >(int, at::native::float16tofloat32_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda(c10::Half)#1}, std::array<char*, 2ul>) [clone .kd]",
+                  "category": "kernel",
+                  "device": 0,
+                  "self_gpu_ms": 0.007639,
+                  "count": 1,
+                  "device_type": "CUDA",
+                  "input_shapes": [],
+                  "share_of_this_table": 0.06421756126266234
+                }
+              ],
+              "aggregation": "sum Chrome trace complete events (ph=X), grouped by category/name/device",
+              "included_categories": [
+                "kernel",
+                "gpu_memcpy",
+                "gpu_memset"
+              ],
+              "category_totals": {
+                "kernel": {
+                  "count": 5,
+                  "duration_ms": 0.118955
+                },
+                "gpu_memcpy": {
+                  "count": 0,
+                  "duration_ms": 0.0
+                },
+                "gpu_memset": {
+                  "count": 0,
+                  "duration_ms": 0.0
+                }
+              },
+              "excluded_complete_event_categories": {
+                "Trace": {
+                  "count": 1,
+                  "duration_ms": 0.413717
+                },
+                "cpu_op": {
+                  "count": 17,
+                  "duration_ms": 0.31324700000000005
+                },
+                "cuda_runtime": {
+                  "count": 10,
+                  "duration_ms": 0.14321
+                }
+              },
+              "trace_file": "bf16_square_fp16_f16.trace.json",
+              "trace_sha256": "31ab4802a4b63b3801030d513b14fc77783f140fc6bb7a4fdb78a8336543f819",
+              "trace_retained": true,
+              "trace_duration_unit": "microseconds",
+              "denominator_semantics": "summed kernel/memcpy/memset work; never add CPU attribution or GPU annotations; may overlap across streams"
+            }
+          },
+          "status": "measured",
+          "speedup_event": 2.08236759488454,
+          "speedup_wall": 2.022125650822682
+        },
+        {
+          "method": "dot2",
+          "error_vs_native": {
+            "finite": true,
+            "bit_equal": false,
+            "max_abs": 0.00390625,
+            "rmse": 9.316266186942812e-06,
+            "reference_rms": 0.2500150203704834,
+            "normalized_rmse": 3.726282594196762e-05,
+            "normalized_max": 0.015624061283244282
+          },
+          "error_vs_cpu_fp64": {
+            "method": "CPU FP64 dot over full K, 24x24 selected output coordinates, first batch",
+            "finite": true,
+            "max_abs": 0.0017649967048782855,
+            "rmse": 0.0003885854065961053,
+            "normalized_rmse": 0.0015463090384263657,
+            "reference_rms": 0.25129867118383886,
+            "reference_shape": [
+              24,
+              24
+            ]
+          },
+          "operator_gate": {
+            "normalized_rmse": 0.004,
+            "normalized_max": 0.04
+          },
+          "operator_pass": true,
+          "kernel_metadata": {
+            "target": "gfx1030",
+            "assembly_available": true,
+            "assembly_sha256": "85d0976c0a67de0412da7ecc027b3d1b8940ccc6c40da140fc4c72a30a078c56",
+            "instruction_counts_static": {
+              "v_dot2c_f32_f16": 512
+            },
+            "dot2_present": true,
+            "matrix_instructions_present": false,
+            "registers": 186,
+            "spills": 0,
+            "shared_bytes": 8192,
+            "method": "dot2",
+            "tile": [
+              64,
+              64,
+              32
+            ],
+            "num_warps": 4,
+            "input_dtype": "bf16",
+            "output_dtype": "bf16",
+            "fp16_range_check_in_call": false,
+            "require_exact_fp16": false
+          },
+          "memory": {
+            "additional_peak_allocated_bytes": 2097152,
+            "output_bytes": 2097152
+          },
+          "samples": [
+            {
+              "wall_ms": 0.29079099961866933,
+              "event_ms": 0.2851399978001912
+            },
+            {
+              "wall_ms": 0.2873846678994596,
+              "event_ms": 0.28139666716257733
+            },
+            {
+              "wall_ms": 0.2871343361524244,
+              "event_ms": 0.2811100085576375
+            }
+          ],
+          "median_wall_ms": 0.2873846678994596,
+          "median_event_ms": 0.28139666716257733,
+          "profile": {
+            "operator_attribution": {
+              "denominator_ms": 0.0,
+              "rows": [],
+              "top10": []
+            },
+            "device_activities": {
+              "denominator_ms": 0.26967899999999995,
+              "rows": [
+                {
+                  "name": "_bf16_mm.kd",
+                  "category": "kernel",
+                  "device": 0,
+                  "self_gpu_ms": 0.26967899999999995,
+                  "count": 1,
+                  "device_type": "CUDA",
+                  "input_shapes": [],
+                  "share_of_this_table": 1.0
+                }
+              ],
+              "top10": [
+                {
+                  "name": "_bf16_mm.kd",
+                  "category": "kernel",
+                  "device": 0,
+                  "self_gpu_ms": 0.26967899999999995,
+                  "count": 1,
+                  "device_type": "CUDA",
+                  "input_shapes": [],
+                  "share_of_this_table": 1.0
+                }
+              ],
+              "aggregation": "sum Chrome trace complete events (ph=X), grouped by category/name/device",
+              "included_categories": [
+                "kernel",
+                "gpu_memcpy",
+                "gpu_memset"
+              ],
+              "category_totals": {
+                "kernel": {
+                  "count": 1,
+                  "duration_ms": 0.26967899999999995
+                },
+                "gpu_memcpy": {
+                  "count": 0,
+                  "duration_ms": 0.0
+                },
+                "gpu_memset": {
+                  "count": 0,
+                  "duration_ms": 0.0
+                }
+              },
+              "excluded_complete_event_categories": {
+                "Trace": {
+                  "count": 1,
+                  "duration_ms": 0.6352559999999999
+                },
+                "cpu_op": {
+                  "count": 1,
+                  "duration_ms": 0.00624
+                },
+                "cuda_runtime": {
+                  "count": 9,
+                  "duration_ms": 0.352937
+                }
+              },
+              "trace_file": "bf16_square_dot2.trace.json",
+              "trace_sha256": "22d4ef856f9256ecd20481927a5cd191074ed6a9f26d8a62e61c998d5bc6516d",
+              "trace_retained": true,
+              "trace_duration_unit": "microseconds",
+              "denominator_semantics": "summed kernel/memcpy/memset work; never add CPU attribution or GPU annotations; may overlap across streams"
+            }
+          },
+          "status": "measured",
+          "speedup_event": 0.9475106469898874,
+          "speedup_wall": 0.948744650594635
+        },
+        {
+          "method": "simt_fp32",
+          "error_vs_native": {
+            "finite": true,
+            "bit_equal": false,
+            "max_abs": 0.00390625,
+            "rmse": 9.548173693474382e-06,
+            "reference_rms": 0.2500150203704834,
+            "normalized_rmse": 3.819040023805559e-05,
+            "normalized_max": 0.015624061283244282
+          },
+          "error_vs_cpu_fp64": {
+            "method": "CPU FP64 dot over full K, 24x24 selected output coordinates, first batch",
+            "finite": true,
+            "max_abs": 0.0017649967048782855,
+            "rmse": 0.0003885854065961053,
+            "normalized_rmse": 0.0015463090384263657,
+            "reference_rms": 0.25129867118383886,
+            "reference_shape": [
+              24,
+              24
+            ]
+          },
+          "operator_gate": {
+            "normalized_rmse": 0.004,
+            "normalized_max": 0.04
+          },
+          "operator_pass": true,
+          "kernel_metadata": {
+            "target": "gfx1030",
+            "assembly_available": true,
+            "assembly_sha256": "dacfdacc878f79a3ddff6ddcede36b054a64b217c3fd75f43a88c0ae2ad8b488",
+            "instruction_counts_static": {
+              "v_fmac_f32_e32": 128
+            },
+            "dot2_present": false,
+            "matrix_instructions_present": false,
+            "registers": 90,
+            "spills": 0,
+            "shared_bytes": 2048,
+            "method": "simt_fp32",
+            "tile": [
+              32,
+              32,
+              16
+            ],
+            "num_warps": 4,
+            "input_dtype": "bf16",
+            "output_dtype": "bf16",
+            "fp16_range_check_in_call": false,
+            "require_exact_fp16": false
+          },
+          "memory": {
+            "additional_peak_allocated_bytes": 2097152,
+            "output_bytes": 2097152
+          },
+          "samples": [
+            {
+              "wall_ms": 0.9232733330766981,
+              "event_ms": 0.9173266887664795
+            },
+            {
+              "wall_ms": 0.9219733328791335,
+              "event_ms": 0.916320006052653
+            },
+            {
+              "wall_ms": 0.920123333344236,
+              "event_ms": 0.9146233399709066
+            }
+          ],
+          "median_wall_ms": 0.9219733328791335,
+          "median_event_ms": 0.916320006052653,
+          "profile": {
+            "operator_attribution": {
+              "denominator_ms": 0.0,
+              "rows": [],
+              "top10": []
+            },
+            "device_activities": {
+              "denominator_ms": 0.923679,
+              "rows": [
+                {
+                  "name": "_bf16_mm.kd",
+                  "category": "kernel",
+                  "device": 0,
+                  "self_gpu_ms": 0.923679,
+                  "count": 1,
+                  "device_type": "CUDA",
+                  "input_shapes": [],
+                  "share_of_this_table": 1.0
+                }
+              ],
+              "top10": [
+                {
+                  "name": "_bf16_mm.kd",
+                  "category": "kernel",
+                  "device": 0,
+                  "self_gpu_ms": 0.923679,
+                  "count": 1,
+                  "device_type": "CUDA",
+                  "input_shapes": [],
+                  "share_of_this_table": 1.0
+                }
+              ],
+              "aggregation": "sum Chrome trace complete events (ph=X), grouped by category/name/device",
+              "included_categories": [
+                "kernel",
+                "gpu_memcpy",
+                "gpu_memset"
+              ],
+              "category_totals": {
+                "kernel": {
+                  "count": 1,
+                  "duration_ms": 0.923679
+                },
+                "gpu_memcpy": {
+                  "count": 0,
+                  "duration_ms": 0.0
+                },
+                "gpu_memset": {
+                  "count": 0,
+                  "duration_ms": 0.0
+                }
+              },
+              "excluded_complete_event_categories": {
+                "Trace": {
+                  "count": 1,
+                  "duration_ms": 1.234601
+                },
+                "cpu_op": {
+                  "count": 1,
+                  "duration_ms": 0.0056
+                },
+                "cuda_runtime": {
+                  "count": 9,
+                  "duration_ms": 1.011713
+                }
+              },
+              "trace_file": "bf16_square_simt_fp32.trace.json",
+              "trace_sha256": "24cd4b5f0bbd31127476acb272693422fcc0b0839bde7cadb27875a21960a10a",
+              "trace_retained": true,
+              "trace_duration_unit": "microseconds",
+              "denominator_semantics": "summed kernel/memcpy/memset work; never add CPU attribution or GPU annotations; may overlap across streams"
+            }
+          },
+          "status": "measured",
+          "speedup_event": 0.29097513576353257,
+          "speedup_wall": 0.2957294496589
+        }
+      ],
+      "fp16_exact_inputs": false,
+      "fp16_finite_inputs": true,
+      "fp16_input_reexpression_error": {
+        "a": {
+          "finite": true,
+          "bit_equal": false,
+          "max_abs": 2.9802322387695312e-08,
+          "rmse": 5.4932274007324366e-11,
+          "reference_rms": 0.49962201714515686,
+          "normalized_rmse": 1.0994766467900615e-10,
+          "normalized_max": 5.964973793185888e-08
+        },
+        "b": {
+          "finite": true,
+          "bit_equal": false,
+          "max_abs": 2.9802322387695312e-08,
+          "rmse": 4.1314296428396347e-10,
+          "reference_rms": 0.01564069651067257,
+          "normalized_rmse": 2.641461420864804e-08,
+          "normalized_max": 1.9054344777650683e-06
+        }
+      },
+      "range_check_timing": {
+        "wall_ms": 0.16154566643914828,
+        "event_ms": 0.14508666594823202
+      },
+      "exact_check_timing": {
+        "wall_ms": 0.14589899607623616,
+        "event_ms": 0.14041333397229513
+      },
+      "baseline_output": "native BF16"
+    },
+    {
+      "id": "bf16_tall_skinny",
+      "kind": "mm",
+      "B": 1,
+      "M": 4096,
+      "N": 128,
+      "K": 4096,
+      "a_stride": [
+        4096,
+        1
+      ],
+      "b_stride": [
+        1,
+        4096
+      ],
+      "input_source": "seeded synthetic BF16; dimensions chosen for square, attention tall-skinny and MOSS VAE-like P.V",
+      "methods": [
+        {
+          "method": "native",
+          "error_vs_native": {
+            "finite": true,
+            "bit_equal": true,
+            "max_abs": 0.0,
+            "rmse": 0.0,
+            "reference_rms": 0.25003916025161743,
+            "normalized_rmse": 0.0,
+            "normalized_max": 0.0
+          },
+          "error_vs_cpu_fp64": {
+            "method": "CPU FP64 dot over full K, 24x24 selected output coordinates, first batch",
+            "finite": true,
+            "max_abs": 0.0019438954695942812,
+            "rmse": 0.0004394142414831121,
+            "normalized_rmse": 0.0017218055669692442,
+            "reference_rms": 0.2552054946927472,
+            "reference_shape": [
+              24,
+              24
+            ]
+          },
+          "operator_gate": {
+            "normalized_rmse": 0.004,
+            "normalized_max": 0.04
+          },
+          "operator_pass": true,
+          "kernel_metadata": {},
+          "memory": {
+            "additional_peak_allocated_bytes": 1048576,
+            "output_bytes": 1048576
+          },
+          "samples": [
+            {
+              "wall_ms": 0.9968363301595673,
+              "event_ms": 0.9871033032735189
+            },
+            {
+              "wall_ms": 0.9383730017968143,
+              "event_ms": 0.9327499866485596
+            },
+            {
+              "wall_ms": 0.9061833310018604,
+              "event_ms": 0.9007996718088785
+            }
+          ],
+          "median_wall_ms": 0.9383730017968143,
+          "median_event_ms": 0.9327499866485596,
+          "profile": {
+            "operator_attribution": {
+              "denominator_ms": 0.9298390000000001,
+              "rows": [
+                {
+                  "name": "aten::mm",
+                  "self_gpu_ms": 0.9298390000000001,
+                  "count": 1,
+                  "device_type": "DeviceType.CPU",
+                  "input_shapes": [
+                    [
+                      4096,
+                      4096
+                    ],
+                    [
+                      4096,
+                      128
+                    ]
+                  ],
+                  "share_of_this_table": 1.0
+                }
+              ],
+              "top10": [
+                {
+                  "name": "aten::mm",
+                  "self_gpu_ms": 0.9298390000000001,
+                  "count": 1,
+                  "device_type": "DeviceType.CPU",
+                  "input_shapes": [
+                    [
+                      4096,
+                      4096
+                    ],
+                    [
+                      4096,
+                      128
+                    ]
+                  ],
+                  "share_of_this_table": 1.0
+                }
+              ]
+            },
+            "device_activities": {
+              "denominator_ms": 0.9298390000000001,
+              "rows": [
+                {
+                  "name": "Cijk_Alik_Bljk_BBS_BH_MT64x32x8_SN_AMAS2_BL0_BS1_EPS0_GLVWA2_GLVWB1_GRVW2_GSU1_GSUASB_ISA000_IU1_K1_KLS_LDL1_LRVW2_MMFSC_NLCA1_NLCB1_PGR0_PLR1_SIA1_SU32_SUM0_SUS256_SVW4_TT4_2_USFGRO0_VAW1_VS1_VW2_VWB2_WS64_WG16_16_1_WGM8.kd",
+                  "category": "kernel",
+                  "device": 0,
+                  "self_gpu_ms": 0.9298390000000001,
+                  "count": 1,
+                  "device_type": "CUDA",
+                  "input_shapes": [],
+                  "share_of_this_table": 1.0
+                }
+              ],
+              "top10": [
+                {
+                  "name": "Cijk_Alik_Bljk_BBS_BH_MT64x32x8_SN_AMAS2_BL0_BS1_EPS0_GLVWA2_GLVWB1_GRVW2_GSU1_GSUASB_ISA000_IU1_K1_KLS_LDL1_LRVW2_MMFSC_NLCA1_NLCB1_PGR0_PLR1_SIA1_SU32_SUM0_SUS256_SVW4_TT4_2_USFGRO0_VAW1_VS1_VW2_VWB2_WS64_WG16_16_1_WGM8.kd",
+                  "category": "kernel",
+                  "device": 0,
+                  "self_gpu_ms": 0.9298390000000001,
+                  "count": 1,
+                  "device_type": "CUDA",
+                  "input_shapes": [],
+                  "share_of_this_table": 1.0
+                }
+              ],
+              "aggregation": "sum Chrome trace complete events (ph=X), grouped by category/name/device",
+              "included_categories": [
+                "kernel",
+                "gpu_memcpy",
+                "gpu_memset"
+              ],
+              "category_totals": {
+                "kernel": {
+                  "count": 1,
+                  "duration_ms": 0.9298390000000001
+                },
+                "gpu_memcpy": {
+                  "count": 0,
+                  "duration_ms": 0.0
+                },
+                "gpu_memset": {
+                  "count": 0,
+                  "duration_ms": 0.0
+                }
+              },
+              "excluded_complete_event_categories": {
+                "Trace": {
+                  "count": 1,
+                  "duration_ms": 1.169362
+                },
+                "cpu_op": {
+                  "count": 1,
+                  "duration_ms": 0.054988999999999996
+                },
+                "cuda_runtime": {
+                  "count": 6,
+                  "duration_ms": 1.011524
+                }
+              },
+              "trace_file": "bf16_tall_skinny_native.trace.json",
+              "trace_sha256": "79749d446473995528ddcb28cbe4db3e22f46b208928df18532ac43042275ec0",
+              "trace_retained": true,
+              "trace_duration_unit": "microseconds",
+              "denominator_semantics": "summed kernel/memcpy/memset work; never add CPU attribution or GPU annotations; may overlap across streams"
+            }
+          },
+          "status": "measured",
+          "speedup_event": 1.0,
+          "speedup_wall": 1.0
+        },
+        {
+          "method": "fp32",
+          "error_vs_native": {
+            "finite": true,
+            "bit_equal": false,
+            "max_abs": 0.00390625,
+            "rmse": 1.0429666872369125e-05,
+            "reference_rms": 0.25003916025161743,
+            "normalized_rmse": 4.171213365887818e-05,
+            "normalized_max": 0.015622552867595193
+          },
+          "error_vs_cpu_fp64": {
+            "method": "CPU FP64 dot over full K, 24x24 selected output coordinates, first batch",
+            "finite": true,
+            "max_abs": 0.0019438954695942812,
+            "rmse": 0.0004394142414831121,
+            "normalized_rmse": 0.0017218055669692442,
+            "reference_rms": 0.2552054946927472,
+            "reference_shape": [
+              24,
+              24
+            ]
+          },
+          "operator_gate": {
+            "normalized_rmse": 0.004,
+            "normalized_max": 0.04
+          },
+          "operator_pass": true,
+          "kernel_metadata": {},
+          "memory": {
+            "additional_peak_allocated_bytes": 71303168,
+            "output_bytes": 1048576
+          },
+          "samples": [
+            {
+              "wall_ms": 0.6944350025150925,
+              "event_ms": 0.6885966459910074
+            },
+            {
+              "wall_ms": 0.5799456654737393,
+              "event_ms": 0.574210007985433
+            },
+            {
+              "wall_ms": 0.5770756639928246,
+              "event_ms": 0.5718499819437662
+            }
+          ],
+          "median_wall_ms": 0.5799456654737393,
+          "median_event_ms": 0.574210007985433,
+          "profile": {
+            "operator_attribution": {
+              "denominator_ms": 0.5907549999999999,
+              "rows": [
+                {
+                  "name": "aten::mm",
+                  "self_gpu_ms": 0.49263799999999996,
+                  "count": 1,
+                  "device_type": "DeviceType.CPU",
+                  "input_shapes": [
+                    [
+                      4096,
+                      4096
+                    ],
+                    [
+                      4096,
+                      128
+                    ]
+                  ],
+                  "share_of_this_table": 0.8339125356535282
+                },
+                {
+                  "name": "aten::copy_",
+                  "self_gpu_ms": 0.09187899999999999,
+                  "count": 1,
+                  "device_type": "DeviceType.CPU",
+                  "input_shapes": [
+                    [
+                      4096,
+                      4096
+                    ],
+                    [
+                      4096,
+                      4096
+                    ],
+                    []
+                  ],
+                  "share_of_this_table": 0.15552809540333978
+                },
+                {
+                  "name": "aten::copy_",
+                  "self_gpu_ms": 0.006238,
+                  "count": 2,
+                  "device_type": "DeviceType.CPU",
+                  "input_shapes": [
+                    [
+                      4096,
+                      128
+                    ],
+                    [
+                      4096,
+                      128
+                    ],
+                    []
+                  ],
+                  "share_of_this_table": 0.010559368943132095
+                }
+              ],
+              "top10": [
+                {
+                  "name": "aten::mm",
+                  "self_gpu_ms": 0.49263799999999996,
+                  "count": 1,
+                  "device_type": "DeviceType.CPU",
+                  "input_shapes": [
+                    [
+                      4096,
+                      4096
+                    ],
+                    [
+                      4096,
+                      128
+                    ]
+                  ],
+                  "share_of_this_table": 0.8339125356535282
+                },
+                {
+                  "name": "aten::copy_",
+                  "self_gpu_ms": 0.09187899999999999,
+                  "count": 1,
+                  "device_type": "DeviceType.CPU",
+                  "input_shapes": [
+                    [
+                      4096,
+                      4096
+                    ],
+                    [
+                      4096,
+                      4096
+                    ],
+                    []
+                  ],
+                  "share_of_this_table": 0.15552809540333978
+                },
+                {
+                  "name": "aten::copy_",
+                  "self_gpu_ms": 0.006238,
+                  "count": 2,
+                  "device_type": "DeviceType.CPU",
+                  "input_shapes": [
+                    [
+                      4096,
+                      128
+                    ],
+                    [
+                      4096,
+                      128
+                    ],
+                    []
+                  ],
+                  "share_of_this_table": 0.010559368943132095
+                }
+              ]
+            },
+            "device_activities": {
+              "denominator_ms": 0.5907549999999999,
+              "rows": [
+                {
+                  "name": "Cijk_Alik_Bljk_SB_MT128x256x16_SN_AMAS3_BL1_BS1_EPS0_GLVWA4_GLVWB4_GRVW4_GSU1_GSUASB_ISA1030_IU1_K1_KLA_LDL1_LRVW4_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU32_SUM3_SUS128_SVW4_TT8_16_USFGROn1_VAW1_VSn1_VW4_VWB4_WS32_WG16_16_1_WGM4.kd",
+                  "category": "kernel",
+                  "device": 0,
+                  "self_gpu_ms": 0.49263799999999996,
+                  "count": 1,
+                  "device_type": "CUDA",
+                  "input_shapes": [],
+                  "share_of_this_table": 0.8339125356535282
+                },
+                {
+                  "name": "void at::native::vectorized_elementwise_kernel<4, at::native::bfloat16tofloat32_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda(c10::BFloat16)#1}, std::array<char*, 2ul> >(int, at::native::bfloat16tofloat32_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda(c10::BFloat16)#1}, std::array<char*, 2ul>) [clone .kd]",
+                  "category": "kernel",
+                  "device": 0,
+                  "self_gpu_ms": 0.09579800000000001,
+                  "count": 2,
+                  "device_type": "CUDA",
+                  "input_shapes": [],
+                  "share_of_this_table": 0.1621619791622585
+                },
+                {
+                  "name": "void at::native::vectorized_elementwise_kernel<4, at::native::bfloat16_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda(float)#1}, std::array<char*, 2ul> >(int, at::native::bfloat16_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda(float)#1}, std::array<char*, 2ul>) [clone .kd]",
+                  "category": "kernel",
+                  "device": 0,
+                  "self_gpu_ms": 0.002319,
+                  "count": 1,
+                  "device_type": "CUDA",
+                  "input_shapes": [],
+                  "share_of_this_table": 0.0039254851842134226
+                }
+              ],
+              "top10": [
+                {
+                  "name": "Cijk_Alik_Bljk_SB_MT128x256x16_SN_AMAS3_BL1_BS1_EPS0_GLVWA4_GLVWB4_GRVW4_GSU1_GSUASB_ISA1030_IU1_K1_KLA_LDL1_LRVW4_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU32_SUM3_SUS128_SVW4_TT8_16_USFGROn1_VAW1_VSn1_VW4_VWB4_WS32_WG16_16_1_WGM4.kd",
+                  "category": "kernel",
+                  "device": 0,
+                  "self_gpu_ms": 0.49263799999999996,
+                  "count": 1,
+                  "device_type": "CUDA",
+                  "input_shapes": [],
+                  "share_of_this_table": 0.8339125356535282
+                },
+                {
+                  "name": "void at::native::vectorized_elementwise_kernel<4, at::native::bfloat16tofloat32_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda(c10::BFloat16)#1}, std::array<char*, 2ul> >(int, at::native::bfloat16tofloat32_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda(c10::BFloat16)#1}, std::array<char*, 2ul>) [clone .kd]",
+                  "category": "kernel",
+                  "device": 0,
+                  "self_gpu_ms": 0.09579800000000001,
+                  "count": 2,
+                  "device_type": "CUDA",
+                  "input_shapes": [],
+                  "share_of_this_table": 0.1621619791622585
+                },
+                {
+                  "name": "void at::native::vectorized_elementwise_kernel<4, at::native::bfloat16_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda(float)#1}, std::array<char*, 2ul> >(int, at::native::bfloat16_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda(float)#1}, std::array<char*, 2ul>) [clone .kd]",
+                  "category": "kernel",
+                  "device": 0,
+                  "self_gpu_ms": 0.002319,
+                  "count": 1,
+                  "device_type": "CUDA",
+                  "input_shapes": [],
+                  "share_of_this_table": 0.0039254851842134226
+                }
+              ],
+              "aggregation": "sum Chrome trace complete events (ph=X), grouped by category/name/device",
+              "included_categories": [
+                "kernel",
+                "gpu_memcpy",
+                "gpu_memset"
+              ],
+              "category_totals": {
+                "kernel": {
+                  "count": 4,
+                  "duration_ms": 0.590755
+                },
+                "gpu_memcpy": {
+                  "count": 0,
+                  "duration_ms": 0.0
+                },
+                "gpu_memset": {
+                  "count": 0,
+                  "duration_ms": 0.0
+                }
+              },
+              "excluded_complete_event_categories": {
+                "Trace": {
+                  "count": 1,
+                  "duration_ms": 0.8240040000000001
+                },
+                "cpu_op": {
+                  "count": 13,
+                  "duration_ms": 0.20712700000000006
+                },
+                "cuda_runtime": {
+                  "count": 9,
+                  "duration_ms": 0.644135
+                }
+              },
+              "trace_file": "bf16_tall_skinny_fp32.trace.json",
+              "trace_sha256": "93a4902d278402002c57ffa79087588ef9186c87c87ba7472cfef363f3c3490e",
+              "trace_retained": true,
+              "trace_duration_unit": "microseconds",
+              "denominator_semantics": "summed kernel/memcpy/memset work; never add CPU attribution or GPU annotations; may overlap across streams"
+            }
+          },
+          "status": "measured",
+          "speedup_event": 1.6244056593876406,
+          "speedup_wall": 1.6180360638272675
+        },
+        {
+          "method": "fp16_f32",
+          "error_vs_native": {
+            "finite": true,
+            "bit_equal": false,
+            "max_abs": 0.001953125,
+            "rmse": 3.2421060041087912e-06,
+            "reference_rms": 0.25003916025161743,
+            "normalized_rmse": 1.2966392947593573e-05,
+            "normalized_max": 0.007811276433797597
+          },
+          "error_vs_cpu_fp64": {
+            "method": "CPU FP64 dot over full K, 24x24 selected output coordinates, first batch",
+            "finite": true,
+            "max_abs": 0.0019438954695942812,
+            "rmse": 0.0004394142414831121,
+            "normalized_rmse": 0.0017218055669692442,
+            "reference_rms": 0.2552054946927472,
+            "reference_shape": [
+              24,
+              24
+            ]
+          },
+          "operator_gate": {
+            "normalized_rmse": 0.004,
+            "normalized_max": 0.04
+          },
+          "operator_pass": true,
+          "kernel_metadata": {},
+          "memory": {
+            "additional_peak_allocated_bytes": 36700160,
+            "output_bytes": 1048576
+          },
+          "samples": [
+            {
+              "wall_ms": 1.0572556687596564,
+              "event_ms": 1.0512996514638264
+            },
+            {
+              "wall_ms": 1.0030159998374681,
+              "event_ms": 0.9972396691640218
+            },
+            {
+              "wall_ms": 1.0267293352323275,
+              "event_ms": 1.0211163361867268
+            }
+          ],
+          "median_wall_ms": 1.0267293352323275,
+          "median_event_ms": 1.0211163361867268,
+          "profile": {
+            "operator_attribution": {
+              "denominator_ms": 1.176996,
+              "rows": [
+                {
+                  "name": "aten::mm",
+                  "self_gpu_ms": 1.024279,
+                  "count": 1,
+                  "device_type": "DeviceType.CPU",
+                  "input_shapes": [
+                    [
+                      4096,
+                      4096
+                    ],
+                    [
+                      4096,
+                      128
+                    ],
+                    []
+                  ],
+                  "share_of_this_table": 0.8702484970212303
+                },
+                {
+                  "name": "aten::copy_",
+                  "self_gpu_ms": 0.143119,
+                  "count": 1,
+                  "device_type": "DeviceType.CPU",
+                  "input_shapes": [
+                    [
+                      4096,
+                      4096
+                    ],
+                    [
+                      4096,
+                      4096
+                    ],
+                    []
+                  ],
+                  "share_of_this_table": 0.1215968448490904
+                },
+                {
+                  "name": "aten::copy_",
+                  "self_gpu_ms": 0.009598000000000013,
+                  "count": 2,
+                  "device_type": "DeviceType.CPU",
+                  "input_shapes": [
+                    [
+                      4096,
+                      128
+                    ],
+                    [
+                      4096,
+                      128
+                    ],
+                    []
+                  ],
+                  "share_of_this_table": 0.008154658129679297
+                }
+              ],
+              "top10": [
+                {
+                  "name": "aten::mm",
+                  "self_gpu_ms": 1.024279,
+                  "count": 1,
+                  "device_type": "DeviceType.CPU",
+                  "input_shapes": [
+                    [
+                      4096,
+                      4096
+                    ],
+                    [
+                      4096,
+                      128
+                    ],
+                    []
+                  ],
+                  "share_of_this_table": 0.8702484970212303
+                },
+                {
+                  "name": "aten::copy_",
+                  "self_gpu_ms": 0.143119,
+                  "count": 1,
+                  "device_type": "DeviceType.CPU",
+                  "input_shapes": [
+                    [
+                      4096,
+                      4096
+                    ],
+                    [
+                      4096,
+                      4096
+                    ],
+                    []
+                  ],
+                  "share_of_this_table": 0.1215968448490904
+                },
+                {
+                  "name": "aten::copy_",
+                  "self_gpu_ms": 0.009598000000000013,
+                  "count": 2,
+                  "device_type": "DeviceType.CPU",
+                  "input_shapes": [
+                    [
+                      4096,
+                      128
+                    ],
+                    [
+                      4096,
+                      128
+                    ],
+                    []
+                  ],
+                  "share_of_this_table": 0.008154658129679297
+                }
+              ]
+            },
+            "device_activities": {
+              "denominator_ms": 1.176996,
+              "rows": [
+                {
+                  "name": "Cijk_Alik_Bljk_HSS_BH_MT64x32x8_SE_AMAS2_BL1_BS1_EPS0_GLVWA2_GLVWB1_GRVW2_GSU1_GSUASB_ISA000_IU1_K1_KLS_LDL1_LRVW2_MMFSC_NLCA1_NLCB1_PGR0_PLR1_SIA1_SU32_SUM0_SUS256_SVW4_TT4_2_USFGROn1_VAW2_VSn1_VW2_VWB2_WS64_WG16_16_1_WGM8.kd",
+                  "category": "kernel",
+                  "device": 0,
+                  "self_gpu_ms": 1.024279,
+                  "count": 1,
+                  "device_type": "CUDA",
+                  "input_shapes": [],
+                  "share_of_this_table": 0.8702484970212303
+                },
+                {
+                  "name": "void at::native::elementwise_kernel_manual_unroll<128, 4, at::native::gpu_kernel_impl<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#10}::operator()() const::{lambda(c10::Half)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#10}::operator()() const::{lambda(c10::Half)#1} const&)::{lambda(int, bool)#1}>(int, at::native::gpu_kernel_impl<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#10}::operator()() const::{lambda(c10::Half)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#10}::operator()() const::{lambda(c10::Half)#1} const&)::{lambda(int, bool)#1}) [clone .kd]",
+                  "category": "kernel",
+                  "device": 0,
+                  "self_gpu_ms": 0.150198,
+                  "count": 2,
+                  "device_type": "CUDA",
+                  "input_shapes": [],
+                  "share_of_this_table": 0.12761130878949462
+                },
+                {
+                  "name": "void at::native::vectorized_elementwise_kernel<4, at::native::bfloat16_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda(float)#1}, std::array<char*, 2ul> >(int, at::native::bfloat16_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda(float)#1}, std::array<char*, 2ul>) [clone .kd]",
+                  "category": "kernel",
+                  "device": 0,
+                  "self_gpu_ms": 0.002519,
+                  "count": 1,
+                  "device_type": "CUDA",
+                  "input_shapes": [],
+                  "share_of_this_table": 0.00214019418927507
+                }
+              ],
+              "top10": [
+                {
+                  "name": "Cijk_Alik_Bljk_HSS_BH_MT64x32x8_SE_AMAS2_BL1_BS1_EPS0_GLVWA2_GLVWB1_GRVW2_GSU1_GSUASB_ISA000_IU1_K1_KLS_LDL1_LRVW2_MMFSC_NLCA1_NLCB1_PGR0_PLR1_SIA1_SU32_SUM0_SUS256_SVW4_TT4_2_USFGROn1_VAW2_VSn1_VW2_VWB2_WS64_WG16_16_1_WGM8.kd",
+                  "category": "kernel",
+                  "device": 0,
+                  "self_gpu_ms": 1.024279,
+                  "count": 1,
+                  "device_type": "CUDA",
+                  "input_shapes": [],
+                  "share_of_this_table": 0.8702484970212303
+                },
+                {
+                  "name": "void at::native::elementwise_kernel_manual_unroll<128, 4, at::native::gpu_kernel_impl<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#10}::operator()() const::{lambda(c10::Half)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#10}::operator()() const::{lambda(c10::Half)#1} const&)::{lambda(int, bool)#1}>(int, at::native::gpu_kernel_impl<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#10}::operator()() const::{lambda(c10::Half)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#10}::operator()() const::{lambda(c10::Half)#1} const&)::{lambda(int, bool)#1}) [clone .kd]",
+                  "category": "kernel",
+                  "device": 0,
+                  "self_gpu_ms": 0.150198,
+                  "count": 2,
+                  "device_type": "CUDA",
+                  "input_shapes": [],
+                  "share_of_this_table": 0.12761130878949462
+                },
+                {
+                  "name": "void at::native::vectorized_elementwise_kernel<4, at::native::bfloat16_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda(float)#1}, std::array<char*, 2ul> >(int, at::native::bfloat16_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda(float)#1}, std::array<char*, 2ul>) [clone .kd]",
+                  "category": "kernel",
+                  "device": 0,
+                  "self_gpu_ms": 0.002519,
+                  "count": 1,
+                  "device_type": "CUDA",
+                  "input_shapes": [],
+                  "share_of_this_table": 0.00214019418927507
+                }
+              ],
+              "aggregation": "sum Chrome trace complete events (ph=X), grouped by category/name/device",
+              "included_categories": [
+                "kernel",
+                "gpu_memcpy",
+                "gpu_memset"
+              ],
+              "category_totals": {
+                "kernel": {
+                  "count": 4,
+                  "duration_ms": 1.1769960000000002
+                },
+                "gpu_memcpy": {
+                  "count": 0,
+                  "duration_ms": 0.0
+                },
+                "gpu_memset": {
+                  "count": 0,
+                  "duration_ms": 0.0
+                }
+              },
+              "excluded_complete_event_categories": {
+                "Trace": {
+                  "count": 1,
+                  "duration_ms": 1.38207
+                },
+                "cpu_op": {
+                  "count": 14,
+                  "duration_ms": 0.17466700000000002
+                },
+                "cuda_runtime": {
+                  "count": 9,
+                  "duration_ms": 1.2321319999999998
+                }
+              },
+              "trace_file": "bf16_tall_skinny_fp16_f32.trace.json",
+              "trace_sha256": "d3c864547ec9b336b57a13cdeeb797c5cf518cbb24149b49ae6ff914603dba18",
+              "trace_retained": true,
+              "trace_duration_unit": "microseconds",
+              "denominator_semantics": "summed kernel/memcpy/memset work; never add CPU attribution or GPU annotations; may overlap across streams"
+            }
+          },
+          "status": "measured",
+          "speedup_event": 0.9134610363123129,
+          "speedup_wall": 0.9139438891988803
+        },
+        {
+          "method": "fp16_f16",
+          "error_vs_native": {
+            "finite": true,
+            "bit_equal": false,
+            "max_abs": 0.0078125,
+            "rmse": 0.00036269912379793823,
+            "reference_rms": 0.25003916025161743,
+            "normalized_rmse": 0.0014505692765603183,
+            "normalized_max": 0.031245105735190386
+          },
+          "error_vs_cpu_fp64": {
+            "method": "CPU FP64 dot over full K, 24x24 selected output coordinates, first batch",
+            "finite": true,
+            "max_abs": 0.0019864940622937866,
+            "rmse": 0.0004461632325282996,
+            "normalized_rmse": 0.001748250887252465,
+            "reference_rms": 0.2552054946927472,
+            "reference_shape": [
+              24,
+              24
+            ]
+          },
+          "operator_gate": {
+            "normalized_rmse": 0.004,
+            "normalized_max": 0.04
+          },
+          "operator_pass": true,
+          "kernel_metadata": {},
+          "memory": {
+            "additional_peak_allocated_bytes": 35651584,
+            "output_bytes": 1048576
+          },
+          "samples": [
+            {
+              "wall_ms": 0.46763999853283167,
+              "event_ms": 0.46215001742045086
+            },
+            {
+              "wall_ms": 0.4655633286650603,
+              "event_ms": 0.46013331413269043
+            },
+            {
+              "wall_ms": 0.46455000119749457,
+              "event_ms": 0.4590799808502197
+            }
+          ],
+          "median_wall_ms": 0.4655633286650603,
+          "median_event_ms": 0.46013331413269043,
+          "profile": {
+            "operator_attribution": {
+              "denominator_ms": 0.454555,
+              "rows": [
+                {
+                  "name": "aten::mm",
+                  "self_gpu_ms": 0.304479,
+                  "count": 1,
+                  "device_type": "DeviceType.CPU",
+                  "input_shapes": [
+                    [
+                      4096,
+                      4096
+                    ],
+                    [
+                      4096,
+                      128
+                    ]
+                  ],
+                  "share_of_this_table": 0.6698397333655993
+                },
+                {
+                  "name": "aten::copy_",
+                  "self_gpu_ms": 0.13763899999999998,
+                  "count": 1,
+                  "device_type": "DeviceType.CPU",
+                  "input_shapes": [
+                    [
+                      4096,
+                      4096
+                    ],
+                    [
+                      4096,
+                      4096
+                    ],
+                    []
+                  ],
+                  "share_of_this_table": 0.3027994412117345
+                },
+                {
+                  "name": "aten::copy_",
+                  "self_gpu_ms": 0.012437000000000012,
+                  "count": 3,
+                  "device_type": "DeviceType.CPU",
+                  "input_shapes": [
+                    [
+                      4096,
+                      128
+                    ],
+                    [
+                      4096,
+                      128
+                    ],
+                    []
+                  ],
+                  "share_of_this_table": 0.02736082542266615
+                }
+              ],
+              "top10": [
+                {
+                  "name": "aten::mm",
+                  "self_gpu_ms": 0.304479,
+                  "count": 1,
+                  "device_type": "DeviceType.CPU",
+                  "input_shapes": [
+                    [
+                      4096,
+                      4096
+                    ],
+                    [
+                      4096,
+                      128
+                    ]
+                  ],
+                  "share_of_this_table": 0.6698397333655993
+                },
+                {
+                  "name": "aten::copy_",
+                  "self_gpu_ms": 0.13763899999999998,
+                  "count": 1,
+                  "device_type": "DeviceType.CPU",
+                  "input_shapes": [
+                    [
+                      4096,
+                      4096
+                    ],
+                    [
+                      4096,
+                      4096
+                    ],
+                    []
+                  ],
+                  "share_of_this_table": 0.3027994412117345
+                },
+                {
+                  "name": "aten::copy_",
+                  "self_gpu_ms": 0.012437000000000012,
+                  "count": 3,
+                  "device_type": "DeviceType.CPU",
+                  "input_shapes": [
+                    [
+                      4096,
+                      128
+                    ],
+                    [
+                      4096,
+                      128
+                    ],
+                    []
+                  ],
+                  "share_of_this_table": 0.02736082542266615
+                }
+              ]
+            },
+            "device_activities": {
+              "denominator_ms": 0.454555,
+              "rows": [
+                {
+                  "name": "Cijk_Alik_Bljk_HHS_BH_MT128x256x16_SN_AMAS3_BL1_BS1_EPS0_GLVWA8_GLVWB8_GRVW8_GSU1_GSUASB_ISA1030_IU2_K1_KLA_LDL2_LRVW8_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU32_SUM3_SUS128_SVW4_TT8_16_USFGROn1_VAW2_VSn1_VW8_VWB8_WS32_WG16_16_1_WGM1.kd",
+                  "category": "kernel",
+                  "device": 0,
+                  "self_gpu_ms": 0.304479,
+                  "count": 1,
+                  "device_type": "CUDA",
+                  "input_shapes": [],
+                  "share_of_this_table": 0.6698397333655993
+                },
+                {
+                  "name": "void at::native::elementwise_kernel_manual_unroll<128, 4, at::native::gpu_kernel_impl<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#10}::operator()() const::{lambda(c10::Half)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#10}::operator()() const::{lambda(c10::Half)#1} const&)::{lambda(int, bool)#1}>(int, at::native::gpu_kernel_impl<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#10}::operator()() const::{lambda(c10::Half)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#10}::operator()() const::{lambda(c10::Half)#1} const&)::{lambda(int, bool)#1}) [clone .kd]",
+                  "category": "kernel",
+                  "device": 0,
+                  "self_gpu_ms": 0.144158,
+                  "count": 2,
+                  "device_type": "CUDA",
+                  "input_shapes": [],
+                  "share_of_this_table": 0.31714094004025917
+                },
+                {
+                  "name": "void at::native::vectorized_elementwise_kernel<4, at::native::bfloat16_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda(float)#1}, std::array<char*, 2ul> >(int, at::native::bfloat16_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda(float)#1}, std::array<char*, 2ul>) [clone .kd]",
+                  "category": "kernel",
+                  "device": 0,
+                  "self_gpu_ms": 0.002999,
+                  "count": 1,
+                  "device_type": "CUDA",
+                  "input_shapes": [],
+                  "share_of_this_table": 0.0065976614491095684
+                },
+                {
+                  "name": "void at::native::vectorized_elementwise_kernel<4, at::native::float16tofloat32_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda(c10::Half)#1}, std::array<char*, 2ul> >(int, at::native::float16tofloat32_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda(c10::Half)#1}, std::array<char*, 2ul>) [clone .kd]",
+                  "category": "kernel",
+                  "device": 0,
+                  "self_gpu_ms": 0.002919,
+                  "count": 1,
+                  "device_type": "CUDA",
+                  "input_shapes": [],
+                  "share_of_this_table": 0.006421665145031955
+                }
+              ],
+              "top10": [
+                {
+                  "name": "Cijk_Alik_Bljk_HHS_BH_MT128x256x16_SN_AMAS3_BL1_BS1_EPS0_GLVWA8_GLVWB8_GRVW8_GSU1_GSUASB_ISA1030_IU2_K1_KLA_LDL2_LRVW8_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU32_SUM3_SUS128_SVW4_TT8_16_USFGROn1_VAW2_VSn1_VW8_VWB8_WS32_WG16_16_1_WGM1.kd",
+                  "category": "kernel",
+                  "device": 0,
+                  "self_gpu_ms": 0.304479,
+                  "count": 1,
+                  "device_type": "CUDA",
+                  "input_shapes": [],
+                  "share_of_this_table": 0.6698397333655993
+                },
+                {
+                  "name": "void at::native::elementwise_kernel_manual_unroll<128, 4, at::native::gpu_kernel_impl<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#10}::operator()() const::{lambda(c10::Half)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#10}::operator()() const::{lambda(c10::Half)#1} const&)::{lambda(int, bool)#1}>(int, at::native::gpu_kernel_impl<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#10}::operator()() const::{lambda(c10::Half)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#10}::operator()() const::{lambda(c10::Half)#1} const&)::{lambda(int, bool)#1}) [clone .kd]",
+                  "category": "kernel",
+                  "device": 0,
+                  "self_gpu_ms": 0.144158,
+                  "count": 2,
+                  "device_type": "CUDA",
+                  "input_shapes": [],
+                  "share_of_this_table": 0.31714094004025917
+                },
+                {
+                  "name": "void at::native::vectorized_elementwise_kernel<4, at::native::bfloat16_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda(float)#1}, std::array<char*, 2ul> >(int, at::native::bfloat16_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda(float)#1}, std::array<char*, 2ul>) [clone .kd]",
+                  "category": "kernel",
+                  "device": 0,
+                  "self_gpu_ms": 0.002999,
+                  "count": 1,
+                  "device_type": "CUDA",
+                  "input_shapes": [],
+                  "share_of_this_table": 0.0065976614491095684
+                },
+                {
+                  "name": "void at::native::vectorized_elementwise_kernel<4, at::native::float16tofloat32_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda(c10::Half)#1}, std::array<char*, 2ul> >(int, at::native::float16tofloat32_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda(c10::Half)#1}, std::array<char*, 2ul>) [clone .kd]",
+                  "category": "kernel",
+                  "device": 0,
+                  "self_gpu_ms": 0.002919,
+                  "count": 1,
+                  "device_type": "CUDA",
+                  "input_shapes": [],
+                  "share_of_this_table": 0.006421665145031955
+                }
+              ],
+              "aggregation": "sum Chrome trace complete events (ph=X), grouped by category/name/device",
+              "included_categories": [
+                "kernel",
+                "gpu_memcpy",
+                "gpu_memset"
+              ],
+              "category_totals": {
+                "kernel": {
+                  "count": 5,
+                  "duration_ms": 0.45455500000000004
+                },
+                "gpu_memcpy": {
+                  "count": 0,
+                  "duration_ms": 0.0
+                },
+                "gpu_memset": {
+                  "count": 0,
+                  "duration_ms": 0.0
+                }
+              },
+              "excluded_complete_event_categories": {
+                "Trace": {
+                  "count": 1,
+                  "duration_ms": 0.669495
+                },
+                "cpu_op": {
+                  "count": 17,
+                  "duration_ms": 0.195619
+                },
+                "cuda_runtime": {
+                  "count": 10,
+                  "duration_ms": 0.518166
+                }
+              },
+              "trace_file": "bf16_tall_skinny_fp16_f16.trace.json",
+              "trace_sha256": "a1756055a3cc36cc185425eb144bc789787728ffc8b0b1c03fb25afaa6f59cd9",
+              "trace_retained": true,
+              "trace_duration_unit": "microseconds",
+              "denominator_semantics": "summed kernel/memcpy/memset work; never add CPU attribution or GPU annotations; may overlap across streams"
+            }
+          },
+          "status": "measured",
+          "speedup_event": 2.0271298730167118,
+          "speedup_wall": 2.01556468050753
+        },
+        {
+          "method": "dot2",
+          "error_vs_native": {
+            "finite": true,
+            "bit_equal": false,
+            "max_abs": 0.00390625,
+            "rmse": 1.3024895451962948e-05,
+            "reference_rms": 0.25003916025161743,
+            "normalized_rmse": 5.2091422155056985e-05,
+            "normalized_max": 0.015622552867595193
+          },
+          "error_vs_cpu_fp64": {
+            "method": "CPU FP64 dot over full K, 24x24 selected output coordinates, first batch",
+            "finite": true,
+            "max_abs": 0.0019438954695942812,
+            "rmse": 0.0004394142414831121,
+            "normalized_rmse": 0.0017218055669692442,
+            "reference_rms": 0.2552054946927472,
+            "reference_shape": [
+              24,
+              24
+            ]
+          },
+          "operator_gate": {
+            "normalized_rmse": 0.004,
+            "normalized_max": 0.04
+          },
+          "operator_pass": true,
+          "kernel_metadata": {
+            "target": "gfx1030",
+            "assembly_available": true,
+            "assembly_sha256": "ebce29f523c93e11300c31e75f0d142baef1710629b0a63a03297bc180238de3",
+            "instruction_counts_static": {
+              "v_dot2c_f32_f16": 512
+            },
+            "dot2_present": true,
+            "matrix_instructions_present": false,
+            "registers": 186,
+            "spills": 0,
+            "shared_bytes": 8192,
+            "method": "dot2",
+            "tile": [
+              64,
+              64,
+              32
+            ],
+            "num_warps": 4,
+            "input_dtype": "bf16",
+            "output_dtype": "bf16",
+            "fp16_range_check_in_call": false,
+            "require_exact_fp16": false
+          },
+          "memory": {
+            "additional_peak_allocated_bytes": 1048576,
+            "output_bytes": 1048576
+          },
+          "samples": [
+            {
+              "wall_ms": 0.6655953329754993,
+              "event_ms": 0.6601399978001913
+            },
+            {
+              "wall_ms": 0.6563386656731988,
+              "event_ms": 0.6510566473007202
+            },
+            {
+              "wall_ms": 0.6578619989644116,
+              "event_ms": 0.652383009592692
+            }
+          ],
+          "median_wall_ms": 0.6578619989644116,
+          "median_event_ms": 0.652383009592692,
+          "profile": {
+            "operator_attribution": {
+              "denominator_ms": 0.0,
+              "rows": [],
+              "top10": []
+            },
+            "device_activities": {
+              "denominator_ms": 0.7017190000000001,
+              "rows": [
+                {
+                  "name": "_bf16_mm.kd",
+                  "category": "kernel",
+                  "device": 0,
+                  "self_gpu_ms": 0.7017190000000001,
+                  "count": 1,
+                  "device_type": "CUDA",
+                  "input_shapes": [],
+                  "share_of_this_table": 1.0
+                }
+              ],
+              "top10": [
+                {
+                  "name": "_bf16_mm.kd",
+                  "category": "kernel",
+                  "device": 0,
+                  "self_gpu_ms": 0.7017190000000001,
+                  "count": 1,
+                  "device_type": "CUDA",
+                  "input_shapes": [],
+                  "share_of_this_table": 1.0
+                }
+              ],
+              "aggregation": "sum Chrome trace complete events (ph=X), grouped by category/name/device",
+              "included_categories": [
+                "kernel",
+                "gpu_memcpy",
+                "gpu_memset"
+              ],
+              "category_totals": {
+                "kernel": {
+                  "count": 1,
+                  "duration_ms": 0.7017190000000001
+                },
+                "gpu_memcpy": {
+                  "count": 0,
+                  "duration_ms": 0.0
+                },
+                "gpu_memset": {
+                  "count": 0,
+                  "duration_ms": 0.0
+                }
+              },
+              "excluded_complete_event_categories": {
+                "Trace": {
+                  "count": 1,
+                  "duration_ms": 0.925813
+                },
+                "cpu_op": {
+                  "count": 1,
+                  "duration_ms": 0.00395
+                },
+                "cuda_runtime": {
+                  "count": 9,
+                  "duration_ms": 0.7879749999999999
+                }
+              },
+              "trace_file": "bf16_tall_skinny_dot2.trace.json",
+              "trace_sha256": "e8367303b0086309368e0d31236cc8f135d4344e9c2af672ddc3166a3dead0c5",
+              "trace_retained": true,
+              "trace_duration_unit": "microseconds",
+              "denominator_semantics": "summed kernel/memcpy/memset work; never add CPU attribution or GPU annotations; may overlap across streams"
+            }
+          },
+          "status": "measured",
+          "speedup_event": 1.4297582446711963,
+          "speedup_wall": 1.4263979425380635
+        },
+        {
+          "method": "simt_fp32",
+          "error_vs_native": {
+            "finite": true,
+            "bit_equal": false,
+            "max_abs": 0.00390625,
+            "rmse": 9.312370821135119e-06,
+            "reference_rms": 0.25003916025161743,
+            "normalized_rmse": 3.724364940181357e-05,
+            "normalized_max": 0.015622552867595193
+          },
+          "error_vs_cpu_fp64": {
+            "method": "CPU FP64 dot over full K, 24x24 selected output coordinates, first batch",
+            "finite": true,
+            "max_abs": 0.0019438954695942812,
+            "rmse": 0.0004394142414831121,
+            "normalized_rmse": 0.0017218055669692442,
+            "reference_rms": 0.2552054946927472,
+            "reference_shape": [
+              24,
+              24
+            ]
+          },
+          "operator_gate": {
+            "normalized_rmse": 0.004,
+            "normalized_max": 0.04
+          },
+          "operator_pass": true,
+          "kernel_metadata": {
+            "target": "gfx1030",
+            "assembly_available": true,
+            "assembly_sha256": "9d0e17fdf5412f41ee76a943329b40b8a9d31547331b8bbfd2fee15ae13f7c60",
+            "instruction_counts_static": {
+              "v_fmac_f32_e32": 128
+            },
+            "dot2_present": false,
+            "matrix_instructions_present": false,
+            "registers": 91,
+            "spills": 0,
+            "shared_bytes": 2048,
+            "method": "simt_fp32",
+            "tile": [
+              32,
+              32,
+              16
+            ],
+            "num_warps": 4,
+            "input_dtype": "bf16",
+            "output_dtype": "bf16",
+            "fp16_range_check_in_call": false,
+            "require_exact_fp16": false
+          },
+          "memory": {
+            "additional_peak_allocated_bytes": 1048576,
+            "output_bytes": 1048576
+          },
+          "samples": [
+            {
+              "wall_ms": 2.100241331694027,
+              "event_ms": 2.0948425928751626
+            },
+            {
+              "wall_ms": 2.12472466713128,
+              "event_ms": 2.119215965270996
+            },
+            {
+              "wall_ms": 2.150797668339995,
+              "event_ms": 2.1448996861775718
+            }
+          ],
+          "median_wall_ms": 2.12472466713128,
+          "median_event_ms": 2.119215965270996,
+          "profile": {
+            "operator_attribution": {
+              "denominator_ms": 0.0,
+              "rows": [],
+              "top10": []
+            },
+            "device_activities": {
+              "denominator_ms": 2.2852390000000002,
+              "rows": [
+                {
+                  "name": "_bf16_mm.kd",
+                  "category": "kernel",
+                  "device": 0,
+                  "self_gpu_ms": 2.2852390000000002,
+                  "count": 1,
+                  "device_type": "CUDA",
+                  "input_shapes": [],
+                  "share_of_this_table": 1.0
+                }
+              ],
+              "top10": [
+                {
+                  "name": "_bf16_mm.kd",
+                  "category": "kernel",
+                  "device": 0,
+                  "self_gpu_ms": 2.2852390000000002,
+                  "count": 1,
+                  "device_type": "CUDA",
+                  "input_shapes": [],
+                  "share_of_this_table": 1.0
+                }
+              ],
+              "aggregation": "sum Chrome trace complete events (ph=X), grouped by category/name/device",
+              "included_categories": [
+                "kernel",
+                "gpu_memcpy",
+                "gpu_memset"
+              ],
+              "category_totals": {
+                "kernel": {
+                  "count": 1,
+                  "duration_ms": 2.2852390000000002
+                },
+                "gpu_memcpy": {
+                  "count": 0,
+                  "duration_ms": 0.0
+                },
+                "gpu_memset": {
+                  "count": 0,
+                  "duration_ms": 0.0
+                }
+              },
+              "excluded_complete_event_categories": {
+                "Trace": {
+                  "count": 1,
+                  "duration_ms": 2.5067820000000003
+                },
+                "cpu_op": {
+                  "count": 1,
+                  "duration_ms": 0.00387
+                },
+                "cuda_runtime": {
+                  "count": 9,
+                  "duration_ms": 2.3719730000000006
+                }
+              },
+              "trace_file": "bf16_tall_skinny_simt_fp32.trace.json",
+              "trace_sha256": "40acb71152623118eb6f5202f075a9ac3afc4b748668316e84a5c842bcb92b54",
+              "trace_retained": true,
+              "trace_duration_unit": "microseconds",
+              "denominator_semantics": "summed kernel/memcpy/memset work; never add CPU attribution or GPU annotations; may overlap across streams"
+            }
+          },
+          "status": "measured",
+          "speedup_event": 0.4401391844597979,
+          "speedup_wall": 0.44164451814068156
+        }
+      ],
+      "fp16_exact_inputs": false,
+      "fp16_finite_inputs": true,
+      "fp16_input_reexpression_error": {
+        "a": {
+          "finite": true,
+          "bit_equal": false,
+          "max_abs": 2.9802322387695312e-08,
+          "rmse": 6.416330661229708e-11,
+          "reference_rms": 0.5000728964805603,
+          "normalized_rmse": 1.283079068349215e-10,
+          "normalized_max": 5.959595610447934e-08
+        },
+        "b": {
+          "finite": true,
+          "bit_equal": false,
+          "max_abs": 2.9802322387695312e-08,
+          "rmse": 5.308216644017705e-10,
+          "reference_rms": 0.0078115263022482395,
+          "normalized_rmse": 6.795364233094811e-08,
+          "normalized_max": 3.815172763243195e-06
+        }
+      },
+      "range_check_timing": {
+        "wall_ms": 0.4778563355406125,
+        "event_ms": 0.4662859837214152
+      },
+      "exact_check_timing": {
+        "wall_ms": 0.6627486679159725,
+        "event_ms": 0.6569600105285645
+      },
+      "baseline_output": "native BF16"
+    },
+    {
+      "id": "bf16_vae_pv",
+      "kind": "bmm",
+      "B": 1,
+      "M": 1024,
+      "N": 384,
+      "K": 1024,
+      "a_stride": [
+        1048576,
+        1024,
+        1
+      ],
+      "b_stride": [
+        393216,
+        1,
+        1024
+      ],
+      "input_source": "seeded synthetic BF16; dimensions chosen for square, attention tall-skinny and MOSS VAE-like P.V",
+      "methods": [
+        {
+          "method": "native",
+          "error_vs_native": {
+            "finite": true,
+            "bit_equal": true,
+            "max_abs": 0.0,
+            "rmse": 0.0,
+            "reference_rms": 0.2502293884754181,
+            "normalized_rmse": 0.0,
+            "normalized_max": 0.0
+          },
+          "error_vs_cpu_fp64": {
+            "method": "CPU FP64 dot over full K, 24x24 selected output coordinates, first batch",
+            "finite": true,
+            "max_abs": 0.001758212922140956,
+            "rmse": 0.0003888368224874557,
+            "normalized_rmse": 0.0015364289973547462,
+            "reference_rms": 0.2530782894340786,
+            "reference_shape": [
+              24,
+              24
+            ]
+          },
+          "operator_gate": {
+            "normalized_rmse": 0.004,
+            "normalized_max": 0.04
+          },
+          "operator_pass": true,
+          "kernel_metadata": {},
+          "memory": {
+            "additional_peak_allocated_bytes": 786432,
+            "output_bytes": 786432
+          },
+          "samples": [
+            {
+              "wall_ms": 0.14002566846708456,
+              "event_ms": 0.13088666399319968
+            },
+            {
+              "wall_ms": 0.11749266802022855,
+              "event_ms": 0.11212666829427083
+            },
+            {
+              "wall_ms": 0.11801566870417446,
+              "event_ms": 0.11250666777292888
+            }
+          ],
+          "median_wall_ms": 0.11801566870417446,
+          "median_event_ms": 0.11250666777292888,
+          "profile": {
+            "operator_attribution": {
+              "denominator_ms": 0.09655899999999996,
+              "rows": [
+                {
+                  "name": "aten::bmm",
+                  "self_gpu_ms": 0.09655899999999996,
+                  "count": 1,
+                  "device_type": "DeviceType.CPU",
+                  "input_shapes": [
+                    [
+                      1,
+                      1024,
+                      1024
+                    ],
+                    [
+                      1,
+                      1024,
+                      384
+                    ]
+                  ],
+                  "share_of_this_table": 1.0
+                }
+              ],
+              "top10": [
+                {
+                  "name": "aten::bmm",
+                  "self_gpu_ms": 0.09655899999999996,
+                  "count": 1,
+                  "device_type": "DeviceType.CPU",
+                  "input_shapes": [
+                    [
+                      1,
+                      1024,
+                      1024
+                    ],
+                    [
+                      1,
+                      1024,
+                      384
+                    ]
+                  ],
+                  "share_of_this_table": 1.0
+                }
+              ]
+            },
+            "device_activities": {
+              "denominator_ms": 0.09655899999999999,
+              "rows": [
+                {
+                  "name": "Cijk_Alik_Bljk_BBS_BH_MT64x32x8_SN_AMAS2_BL0_BS1_EPS0_GLVWA2_GLVWB1_GRVW2_GSU1_GSUASB_ISA000_IU1_K1_KLS_LDL1_LRVW2_MMFSC_NLCA1_NLCB1_PGR0_PLR1_SIA1_SU32_SUM0_SUS256_SVW4_TT4_2_USFGRO0_VAW1_VS1_VW2_VWB2_WS64_WG16_16_1_WGM8.kd",
+                  "category": "kernel",
+                  "device": 0,
+                  "self_gpu_ms": 0.09655899999999999,
+                  "count": 1,
+                  "device_type": "CUDA",
+                  "input_shapes": [],
+                  "share_of_this_table": 1.0
+                }
+              ],
+              "top10": [
+                {
+                  "name": "Cijk_Alik_Bljk_BBS_BH_MT64x32x8_SN_AMAS2_BL0_BS1_EPS0_GLVWA2_GLVWB1_GRVW2_GSU1_GSUASB_ISA000_IU1_K1_KLS_LDL1_LRVW2_MMFSC_NLCA1_NLCB1_PGR0_PLR1_SIA1_SU32_SUM0_SUS256_SVW4_TT4_2_USFGRO0_VAW1_VS1_VW2_VWB2_WS64_WG16_16_1_WGM8.kd",
+                  "category": "kernel",
+                  "device": 0,
+                  "self_gpu_ms": 0.09655899999999999,
+                  "count": 1,
+                  "device_type": "CUDA",
+                  "input_shapes": [],
+                  "share_of_this_table": 1.0
+                }
+              ],
+              "aggregation": "sum Chrome trace complete events (ph=X), grouped by category/name/device",
+              "included_categories": [
+                "kernel",
+                "gpu_memcpy",
+                "gpu_memset"
+              ],
+              "category_totals": {
+                "kernel": {
+                  "count": 1,
+                  "duration_ms": 0.09655899999999999
+                },
+                "gpu_memcpy": {
+                  "count": 0,
+                  "duration_ms": 0.0
+                },
+                "gpu_memset": {
+                  "count": 0,
+                  "duration_ms": 0.0
+                }
+              },
+              "excluded_complete_event_categories": {
+                "Trace": {
+                  "count": 1,
+                  "duration_ms": 0.332837
+                },
+                "cpu_op": {
+                  "count": 1,
+                  "duration_ms": 0.054189
+                },
+                "cuda_runtime": {
+                  "count": 6,
+                  "duration_ms": 0.173429
+                }
+              },
+              "trace_file": "bf16_vae_pv_native.trace.json",
+              "trace_sha256": "e6849393fd94fb10497de260b2ad3e9725d53463c18bb972c52a87b1e5918e76",
+              "trace_retained": true,
+              "trace_duration_unit": "microseconds",
+              "denominator_semantics": "summed kernel/memcpy/memset work; never add CPU attribution or GPU annotations; may overlap across streams"
+            }
+          },
+          "status": "measured",
+          "speedup_event": 1.0,
+          "speedup_wall": 1.0
+        },
+        {
+          "method": "fp32",
+          "error_vs_native": {
+            "finite": true,
+            "bit_equal": false,
+            "max_abs": 0.00390625,
+            "rmse": 9.922461686073802e-06,
+            "reference_rms": 0.2502293884754181,
+            "normalized_rmse": 3.965346255501304e-05,
+            "normalized_max": 0.01561067636299539
+          },
+          "error_vs_cpu_fp64": {
+            "method": "CPU FP64 dot over full K, 24x24 selected output coordinates, first batch",
+            "finite": true,
+            "max_abs": 0.001758212922140956,
+            "rmse": 0.0003888368224874557,
+            "normalized_rmse": 0.0015364289973547462,
+            "reference_rms": 0.2530782894340786,
+            "reference_shape": [
+              24,
+              24
+            ]
+          },
+          "operator_gate": {
+            "normalized_rmse": 0.004,
+            "normalized_max": 0.04
+          },
+          "operator_pass": true,
+          "kernel_metadata": {},
+          "memory": {
+            "additional_peak_allocated_bytes": 7340032,
+            "output_bytes": 786432
+          },
+          "samples": [
+            {
+              "wall_ms": 0.12943933446270725,
+              "event_ms": 0.1238033374150594
+            },
+            {
+              "wall_ms": 0.11544933173960696,
+              "event_ms": 0.11023666461308797
+            },
+            {
+              "wall_ms": 0.11473266446652512,
+              "event_ms": 0.10954333345095317
+            }
+          ],
+          "median_wall_ms": 0.11544933173960696,
+          "median_event_ms": 0.11023666461308797,
+          "profile": {
+            "operator_attribution": {
+              "denominator_ms": 0.089996,
+              "rows": [
+                {
+                  "name": "aten::bmm",
+                  "self_gpu_ms": 0.07847900000000001,
+                  "count": 1,
+                  "device_type": "DeviceType.CPU",
+                  "input_shapes": [
+                    [
+                      1,
+                      1024,
+                      1024
+                    ],
+                    [
+                      1,
+                      1024,
+                      384
+                    ]
+                  ],
+                  "share_of_this_table": 0.8720276456731411
+                },
+                {
+                  "name": "aten::copy_",
+                  "self_gpu_ms": 0.00615900000000002,
+                  "count": 1,
+                  "device_type": "DeviceType.CPU",
+                  "input_shapes": [
+                    [
+                      1,
+                      1024,
+                      1024
+                    ],
+                    [
+                      1,
+                      1024,
+                      1024
+                    ],
+                    []
+                  ],
+                  "share_of_this_table": 0.068436374949998
+                },
+                {
+                  "name": "aten::copy_",
+                  "self_gpu_ms": 0.005357999999999976,
+                  "count": 2,
+                  "device_type": "DeviceType.CPU",
+                  "input_shapes": [
+                    [
+                      1,
+                      1024,
+                      384
+                    ],
+                    [
+                      1,
+                      1024,
+                      384
+                    ],
+                    []
+                  ],
+                  "share_of_this_table": 0.05953597937686092
+                }
+              ],
+              "top10": [
+                {
+                  "name": "aten::bmm",
+                  "self_gpu_ms": 0.07847900000000001,
+                  "count": 1,
+                  "device_type": "DeviceType.CPU",
+                  "input_shapes": [
+                    [
+                      1,
+                      1024,
+                      1024
+                    ],
+                    [
+                      1,
+                      1024,
+                      384
+                    ]
+                  ],
+                  "share_of_this_table": 0.8720276456731411
+                },
+                {
+                  "name": "aten::copy_",
+                  "self_gpu_ms": 0.00615900000000002,
+                  "count": 1,
+                  "device_type": "DeviceType.CPU",
+                  "input_shapes": [
+                    [
+                      1,
+                      1024,
+                      1024
+                    ],
+                    [
+                      1,
+                      1024,
+                      1024
+                    ],
+                    []
+                  ],
+                  "share_of_this_table": 0.068436374949998
+                },
+                {
+                  "name": "aten::copy_",
+                  "self_gpu_ms": 0.005357999999999976,
+                  "count": 2,
+                  "device_type": "DeviceType.CPU",
+                  "input_shapes": [
+                    [
+                      1,
+                      1024,
+                      384
+                    ],
+                    [
+                      1,
+                      1024,
+                      384
+                    ],
+                    []
+                  ],
+                  "share_of_this_table": 0.05953597937686092
+                }
+              ]
+            },
+            "device_activities": {
+              "denominator_ms": 0.08999599999999999,
+              "rows": [
+                {
+                  "name": "Cijk_Alik_Bljk_SB_MT64x64x8_SN_AMAS3_BL1_BS1_EPS1_GLVWA4_GLVWB4_GRVW4_GSU1_GSUASB_ISA1030_IU1_K1_KLA_LDL1_LRVW4_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU32_SUM3_SUS128_SVW4_TT4_8_USFGROn1_VAW1_VSn1_VW4_VWB4_WS32_WG16_8_1_WGM8.kd",
+                  "category": "kernel",
+                  "device": 0,
+                  "self_gpu_ms": 0.078479,
+                  "count": 1,
+                  "device_type": "CUDA",
+                  "input_shapes": [],
+                  "share_of_this_table": 0.8720276456731411
+                },
+                {
+                  "name": "void at::native::vectorized_elementwise_kernel<4, at::native::bfloat16tofloat32_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda(c10::BFloat16)#1}, std::array<char*, 2ul> >(int, at::native::bfloat16tofloat32_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda(c10::BFloat16)#1}, std::array<char*, 2ul>) [clone .kd]",
+                  "category": "kernel",
+                  "device": 0,
+                  "self_gpu_ms": 0.009518,
+                  "count": 2,
+                  "device_type": "CUDA",
+                  "input_shapes": [],
+                  "share_of_this_table": 0.1057602560113783
+                },
+                {
+                  "name": "void at::native::vectorized_elementwise_kernel<4, at::native::bfloat16_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda(float)#1}, std::array<char*, 2ul> >(int, at::native::bfloat16_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda(float)#1}, std::array<char*, 2ul>) [clone .kd]",
+                  "category": "kernel",
+                  "device": 0,
+                  "self_gpu_ms": 0.001999,
+                  "count": 1,
+                  "device_type": "CUDA",
+                  "input_shapes": [],
+                  "share_of_this_table": 0.02221209831548069
+                }
+              ],
+              "top10": [
+                {
+                  "name": "Cijk_Alik_Bljk_SB_MT64x64x8_SN_AMAS3_BL1_BS1_EPS1_GLVWA4_GLVWB4_GRVW4_GSU1_GSUASB_ISA1030_IU1_K1_KLA_LDL1_LRVW4_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU32_SUM3_SUS128_SVW4_TT4_8_USFGROn1_VAW1_VSn1_VW4_VWB4_WS32_WG16_8_1_WGM8.kd",
+                  "category": "kernel",
+                  "device": 0,
+                  "self_gpu_ms": 0.078479,
+                  "count": 1,
+                  "device_type": "CUDA",
+                  "input_shapes": [],
+                  "share_of_this_table": 0.8720276456731411
+                },
+                {
+                  "name": "void at::native::vectorized_elementwise_kernel<4, at::native::bfloat16tofloat32_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda(c10::BFloat16)#1}, std::array<char*, 2ul> >(int, at::native::bfloat16tofloat32_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda(c10::BFloat16)#1}, std::array<char*, 2ul>) [clone .kd]",
+                  "category": "kernel",
+                  "device": 0,
+                  "self_gpu_ms": 0.009518,
+                  "count": 2,
+                  "device_type": "CUDA",
+                  "input_shapes": [],
+                  "share_of_this_table": 0.1057602560113783
+                },
+                {
+                  "name": "void at::native::vectorized_elementwise_kernel<4, at::native::bfloat16_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda(float)#1}, std::array<char*, 2ul> >(int, at::native::bfloat16_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda(float)#1}, std::array<char*, 2ul>) [clone .kd]",
+                  "category": "kernel",
+                  "device": 0,
+                  "self_gpu_ms": 0.001999,
+                  "count": 1,
+                  "device_type": "CUDA",
+                  "input_shapes": [],
+                  "share_of_this_table": 0.02221209831548069
+                }
+              ],
+              "aggregation": "sum Chrome trace complete events (ph=X), grouped by category/name/device",
+              "included_categories": [
+                "kernel",
+                "gpu_memcpy",
+                "gpu_memset"
+              ],
+              "category_totals": {
+                "kernel": {
+                  "count": 4,
+                  "duration_ms": 0.08999599999999999
+                },
+                "gpu_memcpy": {
+                  "count": 0,
+                  "duration_ms": 0.0
+                },
+                "gpu_memset": {
+                  "count": 0,
+                  "duration_ms": 0.0
+                }
+              },
+              "excluded_complete_event_categories": {
+                "Trace": {
+                  "count": 1,
+                  "duration_ms": 0.30265800000000004
+                },
+                "cpu_op": {
+                  "count": 13,
+                  "duration_ms": 0.18788999999999997
+                },
+                "cuda_runtime": {
+                  "count": 9,
+                  "duration_ms": 0.14706
+                }
+              },
+              "trace_file": "bf16_vae_pv_fp32.trace.json",
+              "trace_sha256": "98f070ac85453dab49cc44fad65e649d371180d92216f0e1a176ba200c04b272",
+              "trace_retained": true,
+              "trace_duration_unit": "microseconds",
+              "denominator_semantics": "summed kernel/memcpy/memset work; never add CPU attribution or GPU annotations; may overlap across streams"
+            }
+          },
+          "status": "measured",
+          "speedup_event": 1.020592088556092,
+          "speedup_wall": 1.02222911926728
+        },
+        {
+          "method": "fp16_f32",
+          "error_vs_native": {
+            "finite": true,
+            "bit_equal": false,
+            "max_abs": 0.0009765625,
+            "rmse": 1.655619485063653e-06,
+            "reference_rms": 0.2502293884754181,
+            "normalized_rmse": 6.616407030169028e-06,
+            "normalized_max": 0.0039026690907488473
+          },
+          "error_vs_cpu_fp64": {
+            "method": "CPU FP64 dot over full K, 24x24 selected output coordinates, first batch",
+            "finite": true,
+            "max_abs": 0.001758212922140956,
+            "rmse": 0.0003888368224874557,
+            "normalized_rmse": 0.0015364289973547462,
+            "reference_rms": 0.2530782894340786,
+            "reference_shape": [
+              24,
+              24
+            ]
+          },
+          "operator_gate": {
+            "normalized_rmse": 0.004,
+            "normalized_max": 0.04
+          },
+          "operator_pass": true,
+          "kernel_metadata": {},
+          "memory": {
+            "additional_peak_allocated_bytes": 4456448,
+            "output_bytes": 786432
+          },
+          "samples": [
+            {
+              "wall_ms": 0.1296726695727557,
+              "event_ms": 0.12414999802907307
+            },
+            {
+              "wall_ms": 0.1291023315085719,
+              "event_ms": 0.12360333402951558
+            },
+            {
+              "wall_ms": 0.12537599832285196,
+              "event_ms": 0.12017666300137837
+            }
+          ],
+          "median_wall_ms": 0.1291023315085719,
+          "median_event_ms": 0.12360333402951558,
+          "profile": {
+            "operator_attribution": {
+              "denominator_ms": 0.10955599999999997,
+              "rows": [
+                {
+                  "name": "aten::bmm",
+                  "self_gpu_ms": 0.08823899999999997,
+                  "count": 1,
+                  "device_type": "DeviceType.CPU",
+                  "input_shapes": [
+                    [
+                      1,
+                      1024,
+                      1024
+                    ],
+                    [
+                      1,
+                      1024,
+                      384
+                    ],
+                    []
+                  ],
+                  "share_of_this_table": 0.8054237102486399
+                },
+                {
+                  "name": "aten::copy_",
+                  "self_gpu_ms": 0.013519000000000005,
+                  "count": 1,
+                  "device_type": "DeviceType.CPU",
+                  "input_shapes": [
+                    [
+                      1,
+                      1024,
+                      1024
+                    ],
+                    [
+                      1,
+                      1024,
+                      1024
+                    ],
+                    []
+                  ],
+                  "share_of_this_table": 0.12339807952097565
+                },
+                {
+                  "name": "aten::copy_",
+                  "self_gpu_ms": 0.007798000000000002,
+                  "count": 2,
+                  "device_type": "DeviceType.CPU",
+                  "input_shapes": [
+                    [
+                      1,
+                      1024,
+                      384
+                    ],
+                    [
+                      1,
+                      1024,
+                      384
+                    ],
+                    []
+                  ],
+                  "share_of_this_table": 0.0711782102303845
+                }
+              ],
+              "top10": [
+                {
+                  "name": "aten::bmm",
+                  "self_gpu_ms": 0.08823899999999997,
+                  "count": 1,
+                  "device_type": "DeviceType.CPU",
+                  "input_shapes": [
+                    [
+                      1,
+                      1024,
+                      1024
+                    ],
+                    [
+                      1,
+                      1024,
+                      384
+                    ],
+                    []
+                  ],
+                  "share_of_this_table": 0.8054237102486399
+                },
+                {
+                  "name": "aten::copy_",
+                  "self_gpu_ms": 0.013519000000000005,
+                  "count": 1,
+                  "device_type": "DeviceType.CPU",
+                  "input_shapes": [
+                    [
+                      1,
+                      1024,
+                      1024
+                    ],
+                    [
+                      1,
+                      1024,
+                      1024
+                    ],
+                    []
+                  ],
+                  "share_of_this_table": 0.12339807952097565
+                },
+                {
+                  "name": "aten::copy_",
+                  "self_gpu_ms": 0.007798000000000002,
+                  "count": 2,
+                  "device_type": "DeviceType.CPU",
+                  "input_shapes": [
+                    [
+                      1,
+                      1024,
+                      384
+                    ],
+                    [
+                      1,
+                      1024,
+                      384
+                    ],
+                    []
+                  ],
+                  "share_of_this_table": 0.0711782102303845
+                }
+              ]
+            },
+            "device_activities": {
+              "denominator_ms": 0.109556,
+              "rows": [
+                {
+                  "name": "Cijk_Alik_Bljk_HSS_BH_MT64x32x8_SE_AMAS2_BL1_BS1_EPS0_GLVWA2_GLVWB1_GRVW2_GSU1_GSUASB_ISA000_IU1_K1_KLS_LDL1_LRVW2_MMFSC_NLCA1_NLCB1_PGR0_PLR1_SIA1_SU32_SUM0_SUS256_SVW4_TT4_2_USFGROn1_VAW2_VSn1_VW2_VWB2_WS64_WG16_16_1_WGM8.kd",
+                  "category": "kernel",
+                  "device": 0,
+                  "self_gpu_ms": 0.088239,
+                  "count": 1,
+                  "device_type": "CUDA",
+                  "input_shapes": [],
+                  "share_of_this_table": 0.8054237102486399
+                },
+                {
+                  "name": "void at::native::elementwise_kernel_manual_unroll<128, 4, at::native::gpu_kernel_impl<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#10}::operator()() const::{lambda(c10::Half)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#10}::operator()() const::{lambda(c10::Half)#1} const&)::{lambda(int, bool)#1}>(int, at::native::gpu_kernel_impl<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#10}::operator()() const::{lambda(c10::Half)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#10}::operator()() const::{lambda(c10::Half)#1} const&)::{lambda(int, bool)#1}) [clone .kd]",
+                  "category": "kernel",
+                  "device": 0,
+                  "self_gpu_ms": 0.019438,
+                  "count": 2,
+                  "device_type": "CUDA",
+                  "input_shapes": [],
+                  "share_of_this_table": 0.17742524371097887
+                },
+                {
+                  "name": "void at::native::vectorized_elementwise_kernel<4, at::native::bfloat16_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda(float)#1}, std::array<char*, 2ul> >(int, at::native::bfloat16_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda(float)#1}, std::array<char*, 2ul>) [clone .kd]",
+                  "category": "kernel",
+                  "device": 0,
+                  "self_gpu_ms": 0.001879,
+                  "count": 1,
+                  "device_type": "CUDA",
+                  "input_shapes": [],
+                  "share_of_this_table": 0.017151046040381174
+                }
+              ],
+              "top10": [
+                {
+                  "name": "Cijk_Alik_Bljk_HSS_BH_MT64x32x8_SE_AMAS2_BL1_BS1_EPS0_GLVWA2_GLVWB1_GRVW2_GSU1_GSUASB_ISA000_IU1_K1_KLS_LDL1_LRVW2_MMFSC_NLCA1_NLCB1_PGR0_PLR1_SIA1_SU32_SUM0_SUS256_SVW4_TT4_2_USFGROn1_VAW2_VSn1_VW2_VWB2_WS64_WG16_16_1_WGM8.kd",
+                  "category": "kernel",
+                  "device": 0,
+                  "self_gpu_ms": 0.088239,
+                  "count": 1,
+                  "device_type": "CUDA",
+                  "input_shapes": [],
+                  "share_of_this_table": 0.8054237102486399
+                },
+                {
+                  "name": "void at::native::elementwise_kernel_manual_unroll<128, 4, at::native::gpu_kernel_impl<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#10}::operator()() const::{lambda(c10::Half)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#10}::operator()() const::{lambda(c10::Half)#1} const&)::{lambda(int, bool)#1}>(int, at::native::gpu_kernel_impl<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#10}::operator()() const::{lambda(c10::Half)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#10}::operator()() const::{lambda(c10::Half)#1} const&)::{lambda(int, bool)#1}) [clone .kd]",
+                  "category": "kernel",
+                  "device": 0,
+                  "self_gpu_ms": 0.019438,
+                  "count": 2,
+                  "device_type": "CUDA",
+                  "input_shapes": [],
+                  "share_of_this_table": 0.17742524371097887
+                },
+                {
+                  "name": "void at::native::vectorized_elementwise_kernel<4, at::native::bfloat16_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda(float)#1}, std::array<char*, 2ul> >(int, at::native::bfloat16_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda(float)#1}, std::array<char*, 2ul>) [clone .kd]",
+                  "category": "kernel",
+                  "device": 0,
+                  "self_gpu_ms": 0.001879,
+                  "count": 1,
+                  "device_type": "CUDA",
+                  "input_shapes": [],
+                  "share_of_this_table": 0.017151046040381174
+                }
+              ],
+              "aggregation": "sum Chrome trace complete events (ph=X), grouped by category/name/device",
+              "included_categories": [
+                "kernel",
+                "gpu_memcpy",
+                "gpu_memset"
+              ],
+              "category_totals": {
+                "kernel": {
+                  "count": 4,
+                  "duration_ms": 0.10955600000000001
+                },
+                "gpu_memcpy": {
+                  "count": 0,
+                  "duration_ms": 0.0
+                },
+                "gpu_memset": {
+                  "count": 0,
+                  "duration_ms": 0.0
+                }
+              },
+              "excluded_complete_event_categories": {
+                "Trace": {
+                  "count": 1,
+                  "duration_ms": 0.316938
+                },
+                "cpu_op": {
+                  "count": 14,
+                  "duration_ms": 0.16944700000000004
+                },
+                "cuda_runtime": {
+                  "count": 9,
+                  "duration_ms": 0.16699
+                }
+              },
+              "trace_file": "bf16_vae_pv_fp16_f32.trace.json",
+              "trace_sha256": "0a4c7e1814f2b1299634fc3c2df22bea06f6e8124d8b98998c35294102a13331",
+              "trace_retained": true,
+              "trace_duration_unit": "microseconds",
+              "denominator_semantics": "summed kernel/memcpy/memset work; never add CPU attribution or GPU annotations; may overlap across streams"
+            }
+          },
+          "status": "measured",
+          "speedup_event": 0.9102235684521511,
+          "speedup_wall": 0.9141249993330963
+        },
+        {
+          "method": "fp16_f16",
+          "error_vs_native": {
+            "finite": true,
+            "bit_equal": false,
+            "max_abs": 0.0078125,
+            "rmse": 0.0003603019576985389,
+            "reference_rms": 0.2502293884754181,
+            "normalized_rmse": 0.0014398866571738997,
+            "normalized_max": 0.03122135272599078
+          },
+          "error_vs_cpu_fp64": {
+            "method": "CPU FP64 dot over full K, 24x24 selected output coordinates, first batch",
+            "finite": true,
+            "max_abs": 0.002148037077859044,
+            "rmse": 0.0003994460232370687,
+            "normalized_rmse": 0.0015783496250519572,
+            "reference_rms": 0.2530782894340786,
+            "reference_shape": [
+              24,
+              24
+            ]
+          },
+          "operator_gate": {
+            "normalized_rmse": 0.004,
+            "normalized_max": 0.04
+          },
+          "operator_pass": true,
+          "kernel_metadata": {},
+          "memory": {
+            "additional_peak_allocated_bytes": 3670016,
+            "output_bytes": 786432
+          },
+          "samples": [
+            {
+              "wall_ms": 0.09587600167530279,
+              "event_ms": 0.09055667122205098
+            },
+            {
+              "wall_ms": 0.09709233321094264,
+              "event_ms": 0.09160966674486797
+            },
+            {
+              "wall_ms": 0.1721056663276007,
+              "event_ms": 0.16683334112167358
+            }
+          ],
+          "median_wall_ms": 0.09709233321094264,
+          "median_event_ms": 0.09160966674486797,
+          "profile": {
+            "operator_attribution": {
+              "denominator_ms": 0.07335499999999999,
+              "rows": [
+                {
+                  "name": "aten::bmm",
+                  "self_gpu_ms": 0.052519,
+                  "count": 1,
+                  "device_type": "DeviceType.CPU",
+                  "input_shapes": [
+                    [
+                      1,
+                      1024,
+                      1024
+                    ],
+                    [
+                      1,
+                      1024,
+                      384
+                    ]
+                  ],
+                  "share_of_this_table": 0.7159566491718358
+                },
+                {
+                  "name": "aten::copy_",
+                  "self_gpu_ms": 0.010438999999999993,
+                  "count": 1,
+                  "device_type": "DeviceType.CPU",
+                  "input_shapes": [
+                    [
+                      1,
+                      1024,
+                      1024
+                    ],
+                    [
+                      1,
+                      1024,
+                      1024
+                    ],
+                    []
+                  ],
+                  "share_of_this_table": 0.14230795446799802
+                },
+                {
+                  "name": "aten::copy_",
+                  "self_gpu_ms": 0.010396999999999991,
+                  "count": 3,
+                  "device_type": "DeviceType.CPU",
+                  "input_shapes": [
+                    [
+                      1,
+                      1024,
+                      384
+                    ],
+                    [
+                      1,
+                      1024,
+                      384
+                    ],
+                    []
+                  ],
+                  "share_of_this_table": 0.14173539636016622
+                }
+              ],
+              "top10": [
+                {
+                  "name": "aten::bmm",
+                  "self_gpu_ms": 0.052519,
+                  "count": 1,
+                  "device_type": "DeviceType.CPU",
+                  "input_shapes": [
+                    [
+                      1,
+                      1024,
+                      1024
+                    ],
+                    [
+                      1,
+                      1024,
+                      384
+                    ]
+                  ],
+                  "share_of_this_table": 0.7159566491718358
+                },
+                {
+                  "name": "aten::copy_",
+                  "self_gpu_ms": 0.010438999999999993,
+                  "count": 1,
+                  "device_type": "DeviceType.CPU",
+                  "input_shapes": [
+                    [
+                      1,
+                      1024,
+                      1024
+                    ],
+                    [
+                      1,
+                      1024,
+                      1024
+                    ],
+                    []
+                  ],
+                  "share_of_this_table": 0.14230795446799802
+                },
+                {
+                  "name": "aten::copy_",
+                  "self_gpu_ms": 0.010396999999999991,
+                  "count": 3,
+                  "device_type": "DeviceType.CPU",
+                  "input_shapes": [
+                    [
+                      1,
+                      1024,
+                      384
+                    ],
+                    [
+                      1,
+                      1024,
+                      384
+                    ],
+                    []
+                  ],
+                  "share_of_this_table": 0.14173539636016622
+                }
+              ]
+            },
+            "device_activities": {
+              "denominator_ms": 0.07335499999999999,
+              "rows": [
+                {
+                  "name": "Cijk_Alik_Bljk_HHS_BH_MT64x64x16_SN_AMAS3_BL1_BS1_EPS1_GLVWA8_GLVWB8_GRVW8_GSU1_GSUASB_ISA1030_IU2_K1_KLA_LDL2_LRVW8_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU32_SUM3_SUS128_SVW4_TT8_8_USFGROn1_VAW2_VSn1_VW8_VWB8_WS32_WG8_8_1_WGM1.kd",
+                  "category": "kernel",
+                  "device": 0,
+                  "self_gpu_ms": 0.052518999999999996,
+                  "count": 1,
+                  "device_type": "CUDA",
+                  "input_shapes": [],
+                  "share_of_this_table": 0.7159566491718357
+                },
+                {
+                  "name": "void at::native::elementwise_kernel_manual_unroll<128, 4, at::native::gpu_kernel_impl<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#10}::operator()() const::{lambda(c10::Half)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#10}::operator()() const::{lambda(c10::Half)#1} const&)::{lambda(int, bool)#1}>(int, at::native::gpu_kernel_impl<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#10}::operator()() const::{lambda(c10::Half)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#10}::operator()() const::{lambda(c10::Half)#1} const&)::{lambda(int, bool)#1}) [clone .kd]",
+                  "category": "kernel",
+                  "device": 0,
+                  "self_gpu_ms": 0.016277999999999997,
+                  "count": 2,
+                  "device_type": "CUDA",
+                  "input_shapes": [],
+                  "share_of_this_table": 0.22190716379251585
+                },
+                {
+                  "name": "void at::native::vectorized_elementwise_kernel<4, at::native::float16tofloat32_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda(c10::Half)#1}, std::array<char*, 2ul> >(int, at::native::float16tofloat32_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda(c10::Half)#1}, std::array<char*, 2ul>) [clone .kd]",
+                  "category": "kernel",
+                  "device": 0,
+                  "self_gpu_ms": 0.002399,
+                  "count": 1,
+                  "device_type": "CUDA",
+                  "input_shapes": [],
+                  "share_of_this_table": 0.03270397382591508
+                },
+                {
+                  "name": "void at::native::vectorized_elementwise_kernel<4, at::native::bfloat16_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda(float)#1}, std::array<char*, 2ul> >(int, at::native::bfloat16_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda(float)#1}, std::array<char*, 2ul>) [clone .kd]",
+                  "category": "kernel",
+                  "device": 0,
+                  "self_gpu_ms": 0.002159,
+                  "count": 1,
+                  "device_type": "CUDA",
+                  "input_shapes": [],
+                  "share_of_this_table": 0.02943221320973349
+                }
+              ],
+              "top10": [
+                {
+                  "name": "Cijk_Alik_Bljk_HHS_BH_MT64x64x16_SN_AMAS3_BL1_BS1_EPS1_GLVWA8_GLVWB8_GRVW8_GSU1_GSUASB_ISA1030_IU2_K1_KLA_LDL2_LRVW8_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU32_SUM3_SUS128_SVW4_TT8_8_USFGROn1_VAW2_VSn1_VW8_VWB8_WS32_WG8_8_1_WGM1.kd",
+                  "category": "kernel",
+                  "device": 0,
+                  "self_gpu_ms": 0.052518999999999996,
+                  "count": 1,
+                  "device_type": "CUDA",
+                  "input_shapes": [],
+                  "share_of_this_table": 0.7159566491718357
+                },
+                {
+                  "name": "void at::native::elementwise_kernel_manual_unroll<128, 4, at::native::gpu_kernel_impl<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#10}::operator()() const::{lambda(c10::Half)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#10}::operator()() const::{lambda(c10::Half)#1} const&)::{lambda(int, bool)#1}>(int, at::native::gpu_kernel_impl<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#10}::operator()() const::{lambda(c10::Half)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#10}::operator()() const::{lambda(c10::Half)#1} const&)::{lambda(int, bool)#1}) [clone .kd]",
+                  "category": "kernel",
+                  "device": 0,
+                  "self_gpu_ms": 0.016277999999999997,
+                  "count": 2,
+                  "device_type": "CUDA",
+                  "input_shapes": [],
+                  "share_of_this_table": 0.22190716379251585
+                },
+                {
+                  "name": "void at::native::vectorized_elementwise_kernel<4, at::native::float16tofloat32_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda(c10::Half)#1}, std::array<char*, 2ul> >(int, at::native::float16tofloat32_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda(c10::Half)#1}, std::array<char*, 2ul>) [clone .kd]",
+                  "category": "kernel",
+                  "device": 0,
+                  "self_gpu_ms": 0.002399,
+                  "count": 1,
+                  "device_type": "CUDA",
+                  "input_shapes": [],
+                  "share_of_this_table": 0.03270397382591508
+                },
+                {
+                  "name": "void at::native::vectorized_elementwise_kernel<4, at::native::bfloat16_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda(float)#1}, std::array<char*, 2ul> >(int, at::native::bfloat16_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda(float)#1}, std::array<char*, 2ul>) [clone .kd]",
+                  "category": "kernel",
+                  "device": 0,
+                  "self_gpu_ms": 0.002159,
+                  "count": 1,
+                  "device_type": "CUDA",
+                  "input_shapes": [],
+                  "share_of_this_table": 0.02943221320973349
+                }
+              ],
+              "aggregation": "sum Chrome trace complete events (ph=X), grouped by category/name/device",
+              "included_categories": [
+                "kernel",
+                "gpu_memcpy",
+                "gpu_memset"
+              ],
+              "category_totals": {
+                "kernel": {
+                  "count": 5,
+                  "duration_ms": 0.073355
+                },
+                "gpu_memcpy": {
+                  "count": 0,
+                  "duration_ms": 0.0
+                },
+                "gpu_memset": {
+                  "count": 0,
+                  "duration_ms": 0.0
+                }
+              },
+              "excluded_complete_event_categories": {
+                "Trace": {
+                  "count": 1,
+                  "duration_ms": 0.290408
+                },
+                "cpu_op": {
+                  "count": 17,
+                  "duration_ms": 0.20399899999999996
+                },
+                "cuda_runtime": {
+                  "count": 10,
+                  "duration_ms": 0.13087000000000001
+                }
+              },
+              "trace_file": "bf16_vae_pv_fp16_f16.trace.json",
+              "trace_sha256": "fb1fbb9f1d62073651e9d8f27cb28d33935533cd970f097f0dff2ddf06db8522",
+              "trace_retained": true,
+              "trace_duration_unit": "microseconds",
+              "denominator_semantics": "summed kernel/memcpy/memset work; never add CPU attribution or GPU annotations; may overlap across streams"
+            }
+          },
+          "status": "measured",
+          "speedup_event": 1.2281091261499604,
+          "speedup_wall": 1.2154993582013711
+        },
+        {
+          "method": "dot2",
+          "error_vs_native": {
+            "finite": true,
+            "bit_equal": false,
+            "max_abs": 0.00390625,
+            "rmse": 1.0040254892373923e-05,
+            "reference_rms": 0.2502293884754181,
+            "normalized_rmse": 4.0124203450068584e-05,
+            "normalized_max": 0.01561067636299539
+          },
+          "error_vs_cpu_fp64": {
+            "method": "CPU FP64 dot over full K, 24x24 selected output coordinates, first batch",
+            "finite": true,
+            "max_abs": 0.001758212922140956,
+            "rmse": 0.0003888368224874557,
+            "normalized_rmse": 0.0015364289973547462,
+            "reference_rms": 0.2530782894340786,
+            "reference_shape": [
+              24,
+              24
+            ]
+          },
+          "operator_gate": {
+            "normalized_rmse": 0.004,
+            "normalized_max": 0.04
+          },
+          "operator_pass": true,
+          "kernel_metadata": {
+            "target": "gfx1030",
+            "assembly_available": true,
+            "assembly_sha256": "90c64b764696bb05337dbfbfca0a858ea5b02939b02a722d56a27e4ac1b34a63",
+            "instruction_counts_static": {
+              "v_dot2c_f32_f16": 512
+            },
+            "dot2_present": true,
+            "matrix_instructions_present": false,
+            "registers": 186,
+            "spills": 0,
+            "shared_bytes": 8192,
+            "method": "dot2",
+            "tile": [
+              64,
+              64,
+              32
+            ],
+            "num_warps": 4,
+            "input_dtype": "bf16",
+            "output_dtype": "bf16",
+            "fp16_range_check_in_call": false,
+            "require_exact_fp16": false
+          },
+          "memory": {
+            "additional_peak_allocated_bytes": 786432,
+            "output_bytes": 786432
+          },
+          "samples": [
+            {
+              "wall_ms": 0.14314566700098416,
+              "event_ms": 0.13768333196640015
+            },
+            {
+              "wall_ms": 0.14077233208809048,
+              "event_ms": 0.1350933313369751
+            },
+            {
+              "wall_ms": 0.14082233731945357,
+              "event_ms": 0.13547666867574057
+            }
+          ],
+          "median_wall_ms": 0.14082233731945357,
+          "median_event_ms": 0.13547666867574057,
+          "profile": {
+            "operator_attribution": {
+              "denominator_ms": 0.0,
+              "rows": [],
+              "top10": []
+            },
+            "device_activities": {
+              "denominator_ms": 0.113679,
+              "rows": [
+                {
+                  "name": "_bf16_mm.kd",
+                  "category": "kernel",
+                  "device": 0,
+                  "self_gpu_ms": 0.113679,
+                  "count": 1,
+                  "device_type": "CUDA",
+                  "input_shapes": [],
+                  "share_of_this_table": 1.0
+                }
+              ],
+              "top10": [
+                {
+                  "name": "_bf16_mm.kd",
+                  "category": "kernel",
+                  "device": 0,
+                  "self_gpu_ms": 0.113679,
+                  "count": 1,
+                  "device_type": "CUDA",
+                  "input_shapes": [],
+                  "share_of_this_table": 1.0
+                }
+              ],
+              "aggregation": "sum Chrome trace complete events (ph=X), grouped by category/name/device",
+              "included_categories": [
+                "kernel",
+                "gpu_memcpy",
+                "gpu_memset"
+              ],
+              "category_totals": {
+                "kernel": {
+                  "count": 1,
+                  "duration_ms": 0.113679
+                },
+                "gpu_memcpy": {
+                  "count": 0,
+                  "duration_ms": 0.0
+                },
+                "gpu_memset": {
+                  "count": 0,
+                  "duration_ms": 0.0
+                }
+              },
+              "excluded_complete_event_categories": {
+                "Trace": {
+                  "count": 1,
+                  "duration_ms": 0.338578
+                },
+                "cpu_op": {
+                  "count": 1,
+                  "duration_ms": 0.004019999999999999
+                },
+                "cuda_runtime": {
+                  "count": 9,
+                  "duration_ms": 0.19913899999999998
+                }
+              },
+              "trace_file": "bf16_vae_pv_dot2.trace.json",
+              "trace_sha256": "27ee17d6071a9dd3686b5ef969f0aef44a233fd2fe5b9170c236dd5d746c9e1b",
+              "trace_retained": true,
+              "trace_duration_unit": "microseconds",
+              "denominator_semantics": "summed kernel/memcpy/memset work; never add CPU attribution or GPU annotations; may overlap across streams"
+            }
+          },
+          "status": "measured",
+          "speedup_event": 0.8304505039329708,
+          "speedup_wall": 0.8380465127237415
+        },
+        {
+          "method": "simt_fp32",
+          "error_vs_native": {
+            "finite": true,
+            "bit_equal": false,
+            "max_abs": 0.00390625,
+            "rmse": 1.1724448995664716e-05,
+            "reference_rms": 0.2502293884754181,
+            "normalized_rmse": 4.685480417427666e-05,
+            "normalized_max": 0.01561067636299539
+          },
+          "error_vs_cpu_fp64": {
+            "method": "CPU FP64 dot over full K, 24x24 selected output coordinates, first batch",
+            "finite": true,
+            "max_abs": 0.001758212922140956,
+            "rmse": 0.0003888368224874557,
+            "normalized_rmse": 0.0015364289973547462,
+            "reference_rms": 0.2530782894340786,
+            "reference_shape": [
+              24,
+              24
+            ]
+          },
+          "operator_gate": {
+            "normalized_rmse": 0.004,
+            "normalized_max": 0.04
+          },
+          "operator_pass": true,
+          "kernel_metadata": {
+            "target": "gfx1030",
+            "assembly_available": true,
+            "assembly_sha256": "1ea88e93e36f4502fae29587867e3c064b233880fc070d625272f6a6c6d23368",
+            "instruction_counts_static": {
+              "v_fmac_f32_e32": 128
+            },
+            "dot2_present": false,
+            "matrix_instructions_present": false,
+            "registers": 90,
+            "spills": 0,
+            "shared_bytes": 2048,
+            "method": "simt_fp32",
+            "tile": [
+              32,
+              32,
+              16
+            ],
+            "num_warps": 4,
+            "input_dtype": "bf16",
+            "output_dtype": "bf16",
+            "fp16_range_check_in_call": false,
+            "require_exact_fp16": false
+          },
+          "memory": {
+            "additional_peak_allocated_bytes": 786432,
+            "output_bytes": 786432
+          },
+          "samples": [
+            {
+              "wall_ms": 0.42965333462537575,
+              "event_ms": 0.4230533440907796
+            },
+            {
+              "wall_ms": 0.37697399966418743,
+              "event_ms": 0.37166666984558105
+            },
+            {
+              "wall_ms": 0.37620066723320633,
+              "event_ms": 0.37086665630340576
+            }
+          ],
+          "median_wall_ms": 0.37697399966418743,
+          "median_event_ms": 0.37166666984558105,
+          "profile": {
+            "operator_attribution": {
+              "denominator_ms": 0.0,
+              "rows": [],
+              "top10": []
+            },
+            "device_activities": {
+              "denominator_ms": 0.351279,
+              "rows": [
+                {
+                  "name": "_bf16_mm.kd",
+                  "category": "kernel",
+                  "device": 0,
+                  "self_gpu_ms": 0.351279,
+                  "count": 1,
+                  "device_type": "CUDA",
+                  "input_shapes": [],
+                  "share_of_this_table": 1.0
+                }
+              ],
+              "top10": [
+                {
+                  "name": "_bf16_mm.kd",
+                  "category": "kernel",
+                  "device": 0,
+                  "self_gpu_ms": 0.351279,
+                  "count": 1,
+                  "device_type": "CUDA",
+                  "input_shapes": [],
+                  "share_of_this_table": 1.0
+                }
+              ],
+              "aggregation": "sum Chrome trace complete events (ph=X), grouped by category/name/device",
+              "included_categories": [
+                "kernel",
+                "gpu_memcpy",
+                "gpu_memset"
+              ],
+              "category_totals": {
+                "kernel": {
+                  "count": 1,
+                  "duration_ms": 0.351279
+                },
+                "gpu_memcpy": {
+                  "count": 0,
+                  "duration_ms": 0.0
+                },
+                "gpu_memset": {
+                  "count": 0,
+                  "duration_ms": 0.0
+                }
+              },
+              "excluded_complete_event_categories": {
+                "Trace": {
+                  "count": 1,
+                  "duration_ms": 0.574236
+                },
+                "cpu_op": {
+                  "count": 1,
+                  "duration_ms": 0.004030000000000001
+                },
+                "cuda_runtime": {
+                  "count": 9,
+                  "duration_ms": 0.437707
+                }
+              },
+              "trace_file": "bf16_vae_pv_simt_fp32.trace.json",
+              "trace_sha256": "a29b51c8ce31eaddc2fc31d82620ffcd419821aa189e1c62e96188050c24ccad",
+              "trace_retained": true,
+              "trace_duration_unit": "microseconds",
+              "denominator_semantics": "summed kernel/memcpy/memset work; never add CPU attribution or GPU annotations; may overlap across streams"
+            }
+          },
+          "status": "measured",
+          "speedup_event": 0.30270852056675623,
+          "speedup_wall": 0.31306049968778776
+        }
+      ],
+      "fp16_exact_inputs": false,
+      "fp16_finite_inputs": true,
+      "fp16_input_reexpression_error": {
+        "a": {
+          "finite": true,
+          "bit_equal": false,
+          "max_abs": 2.9802322387695312e-08,
+          "rmse": 5.4932274007324366e-11,
+          "reference_rms": 0.49962201714515686,
+          "normalized_rmse": 1.0994766467900615e-10,
+          "normalized_max": 5.964973793185888e-08
+        },
+        "b": {
+          "finite": true,
+          "bit_equal": false,
+          "max_abs": 2.9802322387695312e-08,
+          "rmse": 4.311422330260939e-10,
+          "reference_rms": 0.01563256047666073,
+          "normalized_rmse": 2.7579757882260258e-08,
+          "normalized_max": 1.9064261694167064e-06
+        }
+      },
+      "range_check_timing": {
+        "wall_ms": 0.1566420008506005,
+        "event_ms": 0.1465000013510386
+      },
+      "exact_check_timing": {
+        "wall_ms": 0.1562423373494918,
+        "event_ms": 0.1511300007502238
+      },
+      "baseline_output": "native BF16"
+    }
+  ],
+  "device": {
+    "name": "AMD Radeon RX 6900 XT",
+    "arch": "gfx1030",
+    "total_memory": 17163091968
+  },
+  "range_guard_probes": [
+    {
+      "case": "overflow",
+      "input": 1.2089258196146292e+24,
+      "half_guard_rejected": true
+    },
+    {
+      "case": "underflow",
+      "input": 7.52316384526264e-37,
+      "half_guard_rejected": true
+    }
+  ],
+  "gpu_audit": {
+    "available": true,
+    "valid_for_timing": true,
+    "method": "KFD client PID snapshots and periodic polling; research flock",
+    "limitation": "Detects observed KFD clients, not graphics load or sub-poll transient clients",
+    "allowed_pids": [
+      753120
+    ],
+    "interval_s": 0.25,
+    "sample_count": 88,
+    "started_unix_s": 1793988928.3902864,
+    "ended_unix_s": 1793988932.0042746,
+    "foreign_clients": [],
+    "errors": [],
+    "transitions": [
+      {
+        "unix_s": 1793988928.3902867,
+        "kfd_pids": [],
+        "foreign_or_error": []
+      }
+    ]
+  }
+}

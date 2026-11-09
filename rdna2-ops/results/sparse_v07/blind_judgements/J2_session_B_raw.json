@@ -1,0 +1,129 @@
+{
+  "reviewer_label": "J2/session-B",
+  "model_label_visible": "GPT-6 Astra Pro",
+  "internal_revision": "unknown",
+  "sets": [
+    {
+      "set_id": "p506af831a3e94ea5",
+      "viewed_files": [
+        "a0024.png",
+        "a0012.png",
+        "a0013.png",
+        "a0014.png",
+        "a0015.png"
+      ],
+      "preferred": "A",
+      "a_relative_degradation_severity": 0,
+      "b_relative_degradation_severity": 3,
+      "a_relative_defects": [],
+      "b_relative_defects": [
+        {
+          "category": "인물 수·구도",
+          "location": "a0012.png의 B 전체, a0013.png의 B 상단과 a0014.png·a0015.png의 B 중앙 및 하단",
+          "observation": "두 소녀가 한 소파에 함께 있는 장면 안에 짧은 머리와 긴 머리 인물이 여러 번 복제되어 세로로 겹친다. 상단부터 세 개의 머리가 나타나며 중앙과 하단에도 추가 얼굴들이 이어져, 두 사람의 단일한 장면이 유지되지 않는다.",
+          "severity": 3
+        },
+        {
+          "category": "신체 구조·연결",
+          "location": "a0014.png의 B 중앙과 a0015.png의 B 중앙·하단",
+          "observation": "기울어진 짧은 머리들이 다른 얼굴과 옷 위에 겹치고, 긴 머리 얼굴이 다른 머리와 목 아래에 바로 이어진다. 머리·목·몸통이 어느 인물에 속하는지 연속적으로 추적하기 어렵다.",
+          "severity": 3
+        },
+        {
+          "category": "인물 정체성·행동 배정",
+          "location": "a0013.png의 B 상단 중앙",
+          "observation": "추가된 짧은 머리 인물이 오른쪽 소녀의 특징인 조끼와 크라바트 차림으로 컵을 들고 있어, 입력의 두 인물에게 배정된 복장과 행동이 서로 섞인다.",
+          "severity": 2
+        }
+      ],
+      "common_defects": [],
+      "instruction_fidelity": "A는 입력의 두 소녀를 구별할 수 있는 머리색·장식·복장을 유지하며, 푸딩과 스푼, 펼친 책, 찻잔, 따뜻한 야간 도서관을 한 장면으로 구성한다. 왼쪽 소녀의 머리가 닿는 위치는 어깨보다 오른쪽 소녀의 머리 옆에 가깝지만 가까이 기대는 관계는 전달된다. B는 개별 부분에 같은 외형과 소품을 포함하나, 인물이 반복되어 정확히 두 소녀가 함께 앉아 있다는 핵심 지시를 크게 벗어난다.",
+      "confidence": "high",
+      "reason": "A는 얼굴과 몸, 푸딩을 든 손, 책을 든 손이 두 인물의 일관된 구조로 연결된다. B의 우열을 결정하는 문제는 미세한 화풍 차이가 아니라 전체 화면과 여러 크롭에서 반복 확인되는 인물 복제 및 신체 연결 붕괴다."
+    },
+    {
+      "set_id": "p77e54ad28ee8a89d",
+      "viewed_files": [
+        "a0024.png",
+        "a0016.png",
+        "a0017.png",
+        "a0018.png",
+        "a0019.png"
+      ],
+      "preferred": "A",
+      "a_relative_degradation_severity": 0,
+      "b_relative_degradation_severity": 3,
+      "a_relative_defects": [],
+      "b_relative_defects": [
+        {
+          "category": "인물 수·반복",
+          "location": "a0016.png의 B 전체, a0017.png부터 a0019.png까지의 B",
+          "observation": "짧은 머리 소녀와 긴 머리 소녀가 세 층으로 반복되어 여섯 개의 머리가 나타난다. 위쪽 두 사람 아래로 같은 역할의 인물들이 계속 추가되어 단일한 두 사람 구도가 무너진다.",
+          "severity": 3
+        },
+        {
+          "category": "신체 구조·연결",
+          "location": "a0019.png의 B 오른쪽",
+          "observation": "아래쪽 긴 머리 소녀의 턱 근처에 책이 놓이고, 그 밑으로 별도의 블라우스·크라바트·조끼 몸통과 또 다른 큰 책이 이어진다. 얼굴과 목, 몸통, 책을 든 팔 사이의 연결이 정상적인 한 사람의 자세로 읽히지 않는다.",
+          "severity": 3
+        },
+        {
+          "category": "손·소품·행동 구성",
+          "location": "a0018.png와 a0019.png의 B 왼쪽 및 중앙",
+          "observation": "후드 소매와 푸딩 컵을 든 손이 여러 층에 겹치고, 책도 서로 다른 높이에서 반복된다. 두 인물이 각각 푸딩을 먹고 책을 읽는 행동이 여러 복제 인물과 소품으로 분산된다.",
+          "severity": 2
+        }
+      ],
+      "common_defects": [],
+      "instruction_fidelity": "A는 두 인물의 외형, 가까이 기댄 자세, 왼쪽의 푸딩과 스푼, 오른쪽의 펼친 책을 유지한다. 따뜻한 조명, 책장, 밤을 나타내는 어두운 창과 작은 테이블의 찻잔도 들어 있다. B도 각 부분의 의상과 소품은 지시를 일부 따르지만, 세로로 반복되는 인물과 분리된 몸통 때문에 요청된 두 사람의 장면을 충족하지 못한다.",
+      "confidence": "high",
+      "reason": "A의 얼굴·손·책·다리는 한 쌍의 인물로 자연스럽게 연결되며, B보다 명확히 불리한 국소 결함은 확인하지 못했다. B에는 개별적으로 정돈된 얼굴도 있지만, 여섯 머리와 하단 오른쪽의 몸통 연결 문제는 전체와 크롭에서 모두 분명하다."
+    },
+    {
+      "set_id": "p37d12c010e3506f1",
+      "viewed_files": [
+        "a0024.png",
+        "a0020.png",
+        "a0021.png",
+        "a0022.png",
+        "a0023.png"
+      ],
+      "preferred": "A",
+      "a_relative_degradation_severity": 1,
+      "b_relative_degradation_severity": 3,
+      "a_relative_defects": [
+        {
+          "category": "행동 배정·지시 충실도",
+          "location": "a0022.png의 A 왼쪽 스푼 손과 그 아래 흰 소매, a0023.png의 A 왼쪽·중앙",
+          "observation": "왼쪽 소녀의 얼굴 가까이에서 스푼을 쥔 손이 흰 블라우스 소매로 이어져 오른쪽 소녀의 손으로 읽힌다. 검은 후드 소매의 손은 푸딩 접시를 받치고 있어, 왼쪽 소녀가 푸딩과 스푼을 직접 함께 든다는 행동 배정에서 작게 벗어난다. B의 중간 왼쪽 인물에서는 스푼 손이 검은 후드 소매에 연결된다.",
+          "severity": 1
+        }
+      ],
+      "b_relative_defects": [
+        {
+          "category": "인물 수·구도",
+          "location": "a0020.png의 B 전체, a0021.png·a0022.png·a0023.png의 B",
+          "observation": "짧은 머리와 긴 머리 소녀가 위·중간·아래의 세 쌍으로 반복되어 여섯 개의 머리가 보인다. 각 층에 푸딩이나 책을 든 장면이 다시 나타나, 두 사람이 함께 앉은 하나의 장면 대신 복제 장면이 겹쳐진다.",
+          "severity": 3
+        },
+        {
+          "category": "신체 배치·연결",
+          "location": "a0022.png의 B 중앙 아래와 a0023.png의 B 상단·중앙",
+          "observation": "아래층 긴 머리 소녀의 머리가 중간층 소녀의 책·가슴·흰 소매 바로 아래에 끼어들고, 서로 다른 크기의 머리와 팔, 책이 좁은 공간에 겹친다. 개별 얼굴의 형태보다는 인물 간 신체 배치와 소매·몸통의 소속 관계가 크게 흐트러진다.",
+          "severity": 3
+        }
+      ],
+      "common_defects": [
+        {
+          "category": "소품 형태·지시 충실도",
+          "location": "a0022.png의 A 왼쪽 푸딩과 B 중간 왼쪽 푸딩",
+          "observation": "해당 푸딩은 작은 컵 안에 담긴 모습보다 흰 접시 위에 꺼내 놓은 플란 형태로 보인다.",
+          "severity": 1
+        }
+      ],
+      "instruction_fidelity": "A는 두 인물의 외형과 의상, 가까이 기대는 관계, 따뜻한 야간 도서관, 책과 찻잔을 일관되게 구성한다. 스푼을 쥔 손이 오른쪽 소녀에게 연결되고 푸딩이 접시 형태이며, 오른쪽 소녀의 닫힌 입은 소리 내어 읽는 행동을 강하게 나타내지는 않는다. B는 부분적으로 왼쪽의 스푼·푸딩과 오른쪽의 책을 맞게 배정하지만, 인물을 세 쌍으로 반복하여 요청의 핵심 구도를 크게 위반한다.",
+      "confidence": "high",
+      "reason": "A에는 스푼의 행동 주체가 달라지는 작은 문제가 있으나, 두 인물의 얼굴·복장·몸과 주변 공간은 안정적으로 연결된다. B의 반복된 여섯 머리와 중앙·하단의 겹친 신체 배치는 훨씬 큰 결함이므로 전체 품질은 A가 명확히 우세하다."
+    }
+  ]
+}

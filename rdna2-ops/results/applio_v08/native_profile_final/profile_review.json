@@ -1,0 +1,584 @@
+{
+  "guard": true,
+  "catalog": true,
+  "protected": true,
+  "operating": {
+    "legacy16_count": 16,
+    "additional_count": 987,
+    "changed": []
+  },
+  "metadata": {
+    "name": "voice_model_A",
+    "filelist_rows": 233,
+    "sampler_samples": 248,
+    "steps_per_epoch": 31,
+    "batch_size": 8
+  },
+  "geometry_equal": true,
+  "geometry_idsets_equal": true,
+  "weight_norm_before": {
+    "name": "aten::_weight_norm_interface",
+    "count": 5355,
+    "self_gpu_us": 56945.24799999037,
+    "gpu_us": 56945.24799999037,
+    "self_cpu_us": 17738.42799998673,
+    "cpu_us": 49788.37399999947,
+    "share_percent": 2.6805660321185423
+  },
+  "weight_norm_final": {
+    "name": "aten::_weight_norm_interface",
+    "count": 1785,
+    "self_gpu_us": 24386.210000001385,
+    "gpu_us": 24386.210000001385,
+    "self_cpu_us": 9358.888000003188,
+    "cpu_us": 27395.855999996355,
+    "share_percent": 1.1804746174330325
+  },
+  "operator_top10": [
+    {
+      "name": "aten::convolution_backward",
+      "count": 1780,
+      "self_gpu_us": 1150358.5059999987,
+      "gpu_us": 1177874.7269999897,
+      "self_cpu_us": 222162.45800001966,
+      "cpu_us": 436791.30899999884,
+      "share_percent": 55.68593960607681
+    },
+    {
+      "name": "aten::miopen_convolution",
+      "count": 2035,
+      "self_gpu_us": 508710.1950000003,
+      "gpu_us": 533735.8350000038,
+      "self_cpu_us": 157612.46600002283,
+      "cpu_us": 213038.84600000232,
+      "share_percent": 24.625371176040666
+    },
+    {
+      "name": "aten::copy_",
+      "count": 11675,
+      "self_gpu_us": 52898.92000000009,
+      "gpu_us": 52898.92000000009,
+      "self_cpu_us": 26122.12600001099,
+      "cpu_us": 51496.48300001256,
+      "share_percent": 2.5607026409440894
+    },
+    {
+      "name": "aten::add_",
+      "count": 7880,
+      "self_gpu_us": 40947.8920000028,
+      "gpu_us": 40947.8920000028,
+      "self_cpu_us": 16843.725999976516,
+      "cpu_us": 24679.073999979442,
+      "share_percent": 1.9821836662355363
+    },
+    {
+      "name": "aten::_foreach_addcdiv_",
+      "count": 10,
+      "self_gpu_us": 25658.95399999956,
+      "gpu_us": 25658.95399999956,
+      "self_cpu_us": 673.2770000011369,
+      "cpu_us": 856.0360000003129,
+      "share_percent": 1.242084928608404
+    },
+    {
+      "name": "aten::linalg_vector_norm",
+      "count": 3635,
+      "self_gpu_us": 24720.829000001453,
+      "gpu_us": 24919.929000000382,
+      "self_cpu_us": 11339.293999997652,
+      "cpu_us": 20527.016000011223,
+      "share_percent": 1.1966726751062373
+    },
+    {
+      "name": "aten::_weight_norm_interface",
+      "count": 1785,
+      "self_gpu_us": 24386.210000001385,
+      "gpu_us": 24386.210000001385,
+      "self_cpu_us": 9358.888000003188,
+      "cpu_us": 27395.855999996355,
+      "share_percent": 1.1804746174330325
+    },
+    {
+      "name": "aten::sum",
+      "count": 1745,
+      "self_gpu_us": 23629.502999988777,
+      "gpu_us": 23629.502999988777,
+      "self_cpu_us": 11212.072999996184,
+      "cpu_us": 15279.037000000724,
+      "share_percent": 1.14384434949272
+    },
+    {
+      "name": "aten::_weight_norm_interface_backward",
+      "count": 1235,
+      "self_gpu_us": 20156.56100000837,
+      "gpu_us": 20156.56100000837,
+      "self_cpu_us": 4443.251000004428,
+      "cpu_us": 11664.684999998368,
+      "share_percent": 0.9757280297040465
+    },
+    {
+      "name": "aten::_foreach_lerp_",
+      "count": 10,
+      "self_gpu_us": 19501.090999999462,
+      "gpu_us": 19501.090999999462,
+      "self_cpu_us": 454.6989999996731,
+      "cpu_us": 628.9449999999197,
+      "share_percent": 0.9439983883411901
+    }
+  ],
+  "kernel_top10": [
+    {
+      "name": "miopenSp3AsmConv_v30_3_1_gfx10_fp16_dot2_f2x3_stride1",
+      "calls": 1415,
+      "gpu_us": 326055.3419999997,
+      "share_percent": 15.846938942011688
+    },
+    {
+      "name": "miopenSp3AsmConv_v30_3_1_gfx10_fp16_dot2_f3x2_stride1",
+      "calls": 585,
+      "gpu_us": 225585.58500000014,
+      "share_percent": 10.963908671960949
+    },
+    {
+      "name": "Im2d2Col_v2",
+      "calls": 13400,
+      "gpu_us": 219878.89400000309,
+      "share_percent": 10.686552124808038
+    },
+    {
+      "name": "Cijk_Ailk_Bljk_HHS_BH_MT64x32x16_SN_AMAS3_BL1_BS1_EPS1_GLVWA2_GLVWB2_GRVW2_GSU1_GSUASB_ISA1030_IU2_K1_KLA_LDL2_LRVW2_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU32_SUM3_SUS128_SVW4_TT4_4_USFGROn1_VAW2_VSn1_VW2_VWB2_WS32_WG16_8_1_WGM1",
+      "calls": 1280,
+      "gpu_us": 97115.66700000003,
+      "share_percent": 4.720014816569823
+    },
+    {
+      "name": "Cijk_Alik_Bljk_HHS_BH_MT128x256x16_SN_AMAS3_BL1_BS1_EPS0_GLVWA8_GLVWB8_GRVW8_GSU1_GSUASB_ISA1030_IU2_K1_KLA_LDL2_LRVW8_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU32_SUM3_SUS128_SVW4_TT8_16_USFGROn1_VAW2_VSn1_VW8_VWB8_WS32_WG16_16_1_WGM8",
+      "calls": 160,
+      "gpu_us": 71187.59300000001,
+      "share_percent": 3.4598587858737786
+    },
+    {
+      "name": "Cijk_Alik_Bljk_HHS_BH_MT32x32x8_SN_AMAS3_BL1_BS1_EPS1_GLVWA2_GLVWB2_GRVW2_GSU1_GSUASB_ISA1030_IU2_K1_KLA_LDL2_LRVW2_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU0_SUM0_SUS0_SVW4_TT4_4_USFGROn1_VAW2_VSn1_VW2_VWB2_WS32_WG8_8_1_WGM1",
+      "calls": 640,
+      "gpu_us": 70779.35199999997,
+      "share_percent": 3.440017460284866
+    },
+    {
+      "name": "Col2Im2dU",
+      "calls": 5840,
+      "gpu_us": 69551.5490000002,
+      "share_percent": 3.3803437893844968
+    },
+    {
+      "name": "Cijk_Alik_Bljk_HHS_BH_MT128x128x32_SN_AMAS3_BL1_BS1_EPS0_GLVWA8_GLVWB8_GRVW8_GSU4_GSUAMB_ISA1030_IU2_K1_KLA_LDL2_LRVW8_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU32_SUM3_SUS128_SVW4_TT8_16_USFGROn1_VAW1_VSn1_VW8_VWB8_WS32_WG16_8_1_WGM4",
+      "calls": 360,
+      "gpu_us": 67358.95099999999,
+      "share_percent": 3.2737791601493154
+    },
+    {
+      "name": "Cijk_Alik_Bljk_HHS_BH_MT32x32x8_SN_AMAS3_BL1_BS1_EPS1_GLVWA2_GLVWB2_GRVW2_GSU4_GSUAMB_ISA1030_IU2_K1_KLA_LDL2_LRVW2_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU0_SUM0_SUS0_SVW4_TT4_4_USFGROn1_VAW1_VSn1_VW2_VWB2_WS32_WG8_8_1_WGM4",
+      "calls": 520,
+      "gpu_us": 56770.47099999993,
+      "share_percent": 2.7591579457889845
+    },
+    {
+      "name": "Cijk_Ailk_Bjlk_HHS_BH_MT32x32x16_SN_AMAS3_BL1_BS1_EPS1_GLVWA2_GLVWB2_GRVW2_GSU1_GSUASB_ISA1030_IU2_K1_KLA_LDL2_LRVW2_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU0_SUM0_SUS0_SVW4_TT4_4_USFGROn1_VAW2_VSn1_VW2_VWB2_WS32_WG8_8_1_WGM1",
+      "calls": 960,
+      "gpu_us": 48018.42999999997,
+      "share_percent": 2.333791323993282
+    }
+  ],
+  "host_sync": [
+    {
+      "name": "hipMemcpyWithStream",
+      "count": 165,
+      "self_gpu_us": 0.0,
+      "gpu_us": 0.0,
+      "self_cpu_us": 1248975.3190000013,
+      "cpu_us": 1248975.3190000013,
+      "share_percent": 48.02219357908222
+    },
+    {
+      "name": "hipMemcpyAsync",
+      "count": 1100,
+      "self_gpu_us": 0.0,
+      "gpu_us": 0.0,
+      "self_cpu_us": 3813.223000004257,
+      "cpu_us": 3813.223000004257,
+      "share_percent": 0.14661565387299128
+    },
+    {
+      "name": "hipDeviceSynchronize",
+      "count": 2,
+      "self_gpu_us": 0.0,
+      "gpu_us": 0.0,
+      "self_cpu_us": 19.06000000005588,
+      "cpu_us": 19.06000000005588,
+      "share_percent": 0.0007328431520591079
+    }
+  ],
+  "scalars": [
+    {
+      "name": "aten::item",
+      "count": 7550,
+      "self_gpu_us": 0.0,
+      "gpu_us": 341.72500000043874,
+      "self_cpu_us": 3710.1209999827224,
+      "cpu_us": 1253984.662000006
+    },
+    {
+      "name": "aten::_local_scalar_dense",
+      "count": 7550,
+      "self_gpu_us": 341.72500000043874,
+      "gpu_us": 341.72500000043874,
+      "self_cpu_us": 1613.820000022395,
+      "cpu_us": 1250274.5410000233
+    }
+  ],
+  "dataloader": {
+    "count": 5,
+    "sum_cpu_us": 168.77,
+    "max_cpu_us": 62.59
+  },
+  "adamw_us": 110127.406,
+  "idle_top": [
+    {
+      "start_relative_us": 519222.83203125,
+      "duration_us": 5814.509765625,
+      "overlapping_cpu_ranges": [
+        {
+          "name": "V08_CONV_c7efb137d005",
+          "cat": "user_annotation",
+          "overlap_us": 5814.509765625,
+          "event_duration_us": 6242.504
+        },
+        {
+          "name": "aten::conv1d",
+          "cat": "cpu_op",
+          "overlap_us": 5814.509765625,
+          "event_duration_us": 6192.675
+        },
+        {
+          "name": "aten::conv1d",
+          "cat": "cpu_op",
+          "overlap_us": 5814.509765625,
+          "event_duration_us": 6162.856
+        },
+        {
+          "name": "aten::convolution",
+          "cat": "cpu_op",
+          "overlap_us": 5814.509765625,
+          "event_duration_us": 6157.916
+        },
+        {
+          "name": "aten::_convolution",
+          "cat": "cpu_op",
+          "overlap_us": 5814.509765625,
+          "event_duration_us": 6147.066
+        }
+      ]
+    },
+    {
+      "start_relative_us": 502184.61279296875,
+      "duration_us": 4451.0009765625,
+      "overlapping_cpu_ranges": [
+        {
+          "name": "Optimizer.step#ResearchAdamW.step",
+          "cat": "user_annotation",
+          "overlap_us": 4391.8037109375,
+          "event_duration_us": 10144.047
+        },
+        {
+          "name": "aten::_foreach_add_",
+          "cat": "cpu_op",
+          "overlap_us": 775.205078125,
+          "event_duration_us": 775.205
+        },
+        {
+          "name": "aten::_foreach_mul_",
+          "cat": "cpu_op",
+          "overlap_us": 156.248046875,
+          "event_duration_us": 156.248
+        },
+        {
+          "name": "aten::_foreach_lerp_",
+          "cat": "cpu_op",
+          "overlap_us": 48.27490234375,
+          "event_duration_us": 110.699
+        },
+        {
+          "name": "aten::add_",
+          "cat": "cpu_op",
+          "overlap_us": 23.31005859375,
+          "event_duration_us": 23.31
+        }
+      ]
+    },
+    {
+      "start_relative_us": 514788.6318359375,
+      "duration_us": 2729.28125,
+      "overlapping_cpu_ranges": [
+        {
+          "name": "aten::to",
+          "cat": "cpu_op",
+          "overlap_us": 45.35986328125,
+          "event_duration_us": 45.36
+        },
+        {
+          "name": "aten::_to_copy",
+          "cat": "cpu_op",
+          "overlap_us": 43.509765625,
+          "event_duration_us": 43.51
+        },
+        {
+          "name": "aten::to",
+          "cat": "cpu_op",
+          "overlap_us": 30.3330078125,
+          "event_duration_us": 42.619
+        },
+        {
+          "name": "aten::_to_copy",
+          "cat": "cpu_op",
+          "overlap_us": 28.783203125,
+          "event_duration_us": 40.929
+        },
+        {
+          "name": "aten::copy_",
+          "cat": "cpu_op",
+          "overlap_us": 26.3798828125,
+          "event_duration_us": 26.38
+        }
+      ]
+    }
+  ],
+  "conv1d_priority": [
+    [
+      "fd241b14da6c",
+      [
+        8,
+        1024,
+        200
+      ],
+      [
+        1024,
+        4,
+        41
+      ],
+      [
+        1
+      ],
+      20,
+      7193.58,
+      4061.32
+    ],
+    [
+      "442dae1ccf0b",
+      [
+        8,
+        256,
+        800
+      ],
+      [
+        1024,
+        4,
+        41
+      ],
+      [
+        1
+      ],
+      20,
+      5740.698,
+      3572.12
+    ],
+    [
+      "710c1f326be5",
+      [
+        8,
+        16,
+        12800
+      ],
+      [
+        64,
+        4,
+        41
+      ],
+      [
+        1
+      ],
+      20,
+      4686.579,
+      3261.12
+    ],
+    [
+      "4155f58fe7bf",
+      [
+        8,
+        64,
+        3200
+      ],
+      [
+        256,
+        4,
+        41
+      ],
+      [
+        1
+      ],
+      20,
+      5147.499,
+      3234.959
+    ],
+    [
+      "195a5b68948a",
+      [
+        8,
+        32,
+        12800
+      ],
+      [
+        32,
+        32,
+        11
+      ],
+      [
+        5
+      ],
+      5,
+      3609.113,
+      2560.118
+    ],
+    [
+      "89dfdaeee1f1",
+      [
+        8,
+        128,
+        3200
+      ],
+      [
+        128,
+        128,
+        11
+      ],
+      [
+        5
+      ],
+      5,
+      4970.755,
+      2557.04
+    ],
+    [
+      "18cb3df3362d",
+      [
+        8,
+        64,
+        6400
+      ],
+      [
+        64,
+        64,
+        11
+      ],
+      [
+        5
+      ],
+      5,
+      4853.513,
+      2554.64
+    ],
+    [
+      "f80553a24685",
+      [
+        8,
+        32,
+        12800
+      ],
+      [
+        32,
+        32,
+        11
+      ],
+      [
+        3
+      ],
+      5,
+      3247.675,
+      2195.12
+    ],
+    [
+      "9714ef3cb3f1",
+      [
+        8,
+        128,
+        3200
+      ],
+      [
+        128,
+        128,
+        11
+      ],
+      [
+        3
+      ],
+      5,
+      4619.274,
+      2185.6
+    ],
+    [
+      "128ae5e3525b",
+      [
+        8,
+        64,
+        6400
+      ],
+      [
+        64,
+        64,
+        11
+      ],
+      [
+        3
+      ],
+      5,
+      4512.035,
+      2181.08
+    ],
+    [
+      "9835179fb5b4",
+      [
+        8,
+        64,
+        6400
+      ],
+      [
+        64,
+        64,
+        7
+      ],
+      [
+        3
+      ],
+      5,
+      3630.155,
+      2000.08
+    ],
+    [
+      "0c86de94e965",
+      [
+        8,
+        128,
+        3200
+      ],
+      [
+        128,
+        128,
+        7
+      ],
+      [
+        3
+      ],
+      5,
+      3682.473,
+      1999.6
+    ]
+  ]
+}

@@ -1,0 +1,703 @@
+{
+  "spec": {
+    "sampler": [
+      "KSampler",
+      "sample"
+    ],
+    "sampler_node": "7",
+    "model": "anima",
+    "runtime": "~/DevSpace/moss-image-rdna2-lab01/runtime/ComfyUI",
+    "workflow": "~/DevSpace/anima-rdna2-lab01/workflows/anima_t2i_1024_api.json",
+    "decoder": [
+      "VAEDecode",
+      "decode"
+    ],
+    "save_node": "9",
+    "attention_target": "comfy.ops:scaled_dot_product_attention",
+    "switch_module": "attention_switches_v06",
+    "gpu_audit": true,
+    "env": {},
+    "server_args": [
+      "--extra-model-paths-config",
+      "~/DevSpace/anima-rdna2-lab01/extra_model_paths.yaml",
+      "--disable-auto-launch",
+      "--use-pytorch-cross-attention",
+      "--disable-comfy-compiler"
+    ],
+    "attention_capture_target": "comfy.ldm.cosmos.predict2:optimized_attention",
+    "comparison_reference_modes": [
+      "attn_manual_nn",
+      "attn_manual_vt"
+    ],
+    "save_reference_tensors": true
+  },
+  "seed": 20261107,
+  "rgb_gate": {
+    "max_abs": 0.00784313725490196,
+    "rmse": 0.000980392156862745
+  },
+  "runs": [
+    {
+      "index": 0,
+      "mode": "warm",
+      "success": true,
+      "wall": {
+        "denoise_s": 80.88638492999598,
+        "vae_s": 0.6538272049947409
+      },
+      "request_wall_s": 83.36545837699668,
+      "conditioning_first_embedding_sha256": {
+        "positive": "a6c15ee3d0208bb976cb338714960a180fd73170fa904280577da928000f4968",
+        "negative": "f2199b5a6d7ba57a2d9d62675ea8d45c8d5da3f77d6e969fc1ee7f562cb0ec2e"
+      },
+      "candidate": {},
+      "stage_calls": {
+        "denoise": 1,
+        "vae": 1
+      },
+      "profile_artifacts": [],
+      "latent_error": {
+        "finite": true,
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "byte_equal": true
+      },
+      "image_error": {
+        "finite": true,
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "byte_equal": true
+      },
+      "comparison_errors": {},
+      "image_gate": true,
+      "latent_sha256": "cc054fd19dc8f334da8d9acaf3b0b53aab1165944a6023a38c6c1ee9a34c3a13",
+      "image_sha256": "52ea16286731f37e2760ef622b66446443e95e657aea57dc9b0dd511b853cb3a"
+    },
+    {
+      "index": 1,
+      "mode": "attn_manual_nn",
+      "success": true,
+      "wall": {
+        "denoise_s": 63.72378771100193,
+        "vae_s": 0.5560411640035454
+      },
+      "request_wall_s": 64.56509085699508,
+      "conditioning_first_embedding_sha256": {
+        "positive": "a6c15ee3d0208bb976cb338714960a180fd73170fa904280577da928000f4968",
+        "negative": "f2199b5a6d7ba57a2d9d62675ea8d45c8d5da3f77d6e969fc1ee7f562cb0ec2e"
+      },
+      "candidate": {
+        "method": "manual_nn",
+        "hits": 1680,
+        "fallbacks": 0,
+        "shapes": {
+          "((2, 16, 4096, 128), (2, 16, 4096, 128))": 840,
+          "((2, 16, 4096, 128), (2, 16, 512, 128))": 840
+        },
+        "source_sha256": {
+          "attention_switches_v06.py": "5239a564a7b88dec410c79ed2d05ea0119251325734bed2f430e635ec38d53c8",
+          "rdna2_ops/fp16_attention_v06.py": "03426cbf5ad93adbcfc3ed4ad1a5569577e1baae83be28315eca2f4100fd72cd"
+        }
+      },
+      "stage_calls": {
+        "denoise": 1,
+        "vae": 1
+      },
+      "profile_artifacts": [],
+      "latent_error": {
+        "finite": true,
+        "max_abs": 2.02824068069458,
+        "rmse": 0.07019309797540198,
+        "byte_equal": false
+      },
+      "image_error": {
+        "finite": true,
+        "max_abs": 0.8203125,
+        "rmse": 0.024798754013303337,
+        "byte_equal": false
+      },
+      "comparison_errors": {},
+      "image_gate": false,
+      "latent_sha256": "ad6fbbe167e7683956352d631dfc744afdb43baa234cc1beea67dff96c14b5f5",
+      "image_sha256": "5f5c3e89bbc947605a4e5cd31cebab1f64d5895606056d4e8d2b6590284cf68e"
+    },
+    {
+      "index": 2,
+      "mode": "attn_manual_vt",
+      "success": true,
+      "wall": {
+        "denoise_s": 56.952527175002615,
+        "vae_s": 0.5569302569929278
+      },
+      "request_wall_s": 57.819799819000764,
+      "conditioning_first_embedding_sha256": {
+        "positive": "a6c15ee3d0208bb976cb338714960a180fd73170fa904280577da928000f4968",
+        "negative": "f2199b5a6d7ba57a2d9d62675ea8d45c8d5da3f77d6e969fc1ee7f562cb0ec2e"
+      },
+      "candidate": {
+        "method": "manual_vt",
+        "hits": 1680,
+        "fallbacks": 0,
+        "shapes": {
+          "((2, 16, 4096, 128), (2, 16, 4096, 128))": 840,
+          "((2, 16, 4096, 128), (2, 16, 512, 128))": 840
+        },
+        "source_sha256": {
+          "attention_switches_v06.py": "5239a564a7b88dec410c79ed2d05ea0119251325734bed2f430e635ec38d53c8",
+          "rdna2_ops/fp16_attention_v06.py": "03426cbf5ad93adbcfc3ed4ad1a5569577e1baae83be28315eca2f4100fd72cd"
+        }
+      },
+      "stage_calls": {
+        "denoise": 1,
+        "vae": 1
+      },
+      "profile_artifacts": [],
+      "latent_error": {
+        "finite": true,
+        "max_abs": 2.0420567989349365,
+        "rmse": 0.07087963226392664,
+        "byte_equal": false
+      },
+      "image_error": {
+        "finite": true,
+        "max_abs": 0.82470703125,
+        "rmse": 0.024306802322194728,
+        "byte_equal": false
+      },
+      "comparison_errors": {
+        "attn_manual_nn": {
+          "latent": {
+            "finite": true,
+            "max_abs": 1.7679888010025024,
+            "rmse": 0.04394003392718159,
+            "byte_equal": false
+          },
+          "image": {
+            "finite": true,
+            "max_abs": 0.69140625,
+            "rmse": 0.014653656081766124,
+            "byte_equal": false
+          }
+        }
+      },
+      "image_gate": false,
+      "latent_sha256": "5dfca6b63bd8682d1833b2b86b94ef4f72d9b98bbd7ccd43ae0adea8d3af7500",
+      "image_sha256": "d7a945dcf69a4c9d64a9cc7e59f1b766c661caa51978cdd27dd0ffac4a6fc0b3"
+    },
+    {
+      "index": 3,
+      "mode": "attn_prescale_vt",
+      "success": true,
+      "wall": {
+        "denoise_s": 57.14817417699669,
+        "vae_s": 0.5552882299962221
+      },
+      "request_wall_s": 58.01321867799561,
+      "conditioning_first_embedding_sha256": {
+        "positive": "a6c15ee3d0208bb976cb338714960a180fd73170fa904280577da928000f4968",
+        "negative": "f2199b5a6d7ba57a2d9d62675ea8d45c8d5da3f77d6e969fc1ee7f562cb0ec2e"
+      },
+      "candidate": {
+        "method": "prescale_vt",
+        "hits": 1680,
+        "fallbacks": 0,
+        "shapes": {
+          "((2, 16, 4096, 128), (2, 16, 4096, 128))": 840,
+          "((2, 16, 4096, 128), (2, 16, 512, 128))": 840
+        },
+        "source_sha256": {
+          "attention_switches_v06.py": "5239a564a7b88dec410c79ed2d05ea0119251325734bed2f430e635ec38d53c8",
+          "rdna2_ops/fp16_attention_v06.py": "03426cbf5ad93adbcfc3ed4ad1a5569577e1baae83be28315eca2f4100fd72cd"
+        }
+      },
+      "stage_calls": {
+        "denoise": 1,
+        "vae": 1
+      },
+      "profile_artifacts": [],
+      "latent_error": {
+        "finite": true,
+        "max_abs": 2.086437702178955,
+        "rmse": 0.07473881669583793,
+        "byte_equal": false
+      },
+      "image_error": {
+        "finite": true,
+        "max_abs": 0.8056640625,
+        "rmse": 0.024888045015533357,
+        "byte_equal": false
+      },
+      "comparison_errors": {
+        "attn_manual_nn": {
+          "latent": {
+            "finite": true,
+            "max_abs": 2.4837281703948975,
+            "rmse": 0.09330122170489738,
+            "byte_equal": false
+          },
+          "image": {
+            "finite": true,
+            "max_abs": 0.84912109375,
+            "rmse": 0.03127015179694434,
+            "byte_equal": false
+          }
+        },
+        "attn_manual_vt": {
+          "latent": {
+            "finite": true,
+            "max_abs": 2.3729801177978516,
+            "rmse": 0.09137807053636335,
+            "byte_equal": false
+          },
+          "image": {
+            "finite": true,
+            "max_abs": 0.84765625,
+            "rmse": 0.030224674110501486,
+            "byte_equal": false
+          }
+        }
+      },
+      "image_gate": false,
+      "latent_sha256": "05a2d58872b6087fd897656714225d860350681f9ee4bca6a9303e046f951705",
+      "image_sha256": "ee7ae44ede9b34cd7761d4d22792bb5dd81fefa8baaa5b581af3767c22802fb9"
+    },
+    {
+      "index": 4,
+      "mode": "attn_prescale4d_native",
+      "success": true,
+      "wall": {
+        "denoise_s": 83.01857638300862,
+        "vae_s": 0.5547574139927747
+      },
+      "request_wall_s": 83.91952955600573,
+      "conditioning_first_embedding_sha256": {
+        "positive": "a6c15ee3d0208bb976cb338714960a180fd73170fa904280577da928000f4968",
+        "negative": "f2199b5a6d7ba57a2d9d62675ea8d45c8d5da3f77d6e969fc1ee7f562cb0ec2e"
+      },
+      "candidate": {
+        "method": "prescale4d_native",
+        "hits": 1680,
+        "fallbacks": 0,
+        "shapes": {
+          "((2, 16, 4096, 128), (2, 16, 4096, 128))": 840,
+          "((2, 16, 4096, 128), (2, 16, 512, 128))": 840
+        },
+        "source_sha256": {
+          "attention_switches_v06.py": "5239a564a7b88dec410c79ed2d05ea0119251325734bed2f430e635ec38d53c8",
+          "rdna2_ops/fp16_attention_v06.py": "03426cbf5ad93adbcfc3ed4ad1a5569577e1baae83be28315eca2f4100fd72cd"
+        }
+      },
+      "stage_calls": {
+        "denoise": 1,
+        "vae": 1
+      },
+      "profile_artifacts": [],
+      "latent_error": {
+        "finite": true,
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "byte_equal": true
+      },
+      "image_error": {
+        "finite": true,
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "byte_equal": true
+      },
+      "comparison_errors": {
+        "attn_manual_nn": {
+          "latent": {
+            "finite": true,
+            "max_abs": 2.02824068069458,
+            "rmse": 0.07019309797540198,
+            "byte_equal": false
+          },
+          "image": {
+            "finite": true,
+            "max_abs": 0.8203125,
+            "rmse": 0.024798754013303337,
+            "byte_equal": false
+          }
+        },
+        "attn_manual_vt": {
+          "latent": {
+            "finite": true,
+            "max_abs": 2.0420567989349365,
+            "rmse": 0.07087963226392664,
+            "byte_equal": false
+          },
+          "image": {
+            "finite": true,
+            "max_abs": 0.82470703125,
+            "rmse": 0.024306802322194728,
+            "byte_equal": false
+          }
+        }
+      },
+      "image_gate": true,
+      "latent_sha256": "cc054fd19dc8f334da8d9acaf3b0b53aab1165944a6023a38c6c1ee9a34c3a13",
+      "image_sha256": "52ea16286731f37e2760ef622b66446443e95e657aea57dc9b0dd511b853cb3a"
+    },
+    {
+      "index": 5,
+      "mode": "baseline",
+      "success": true,
+      "wall": {
+        "denoise_s": 80.79603927400603,
+        "vae_s": 0.553910860005999
+      },
+      "request_wall_s": 81.64801110200642,
+      "conditioning_first_embedding_sha256": {
+        "positive": "a6c15ee3d0208bb976cb338714960a180fd73170fa904280577da928000f4968",
+        "negative": "f2199b5a6d7ba57a2d9d62675ea8d45c8d5da3f77d6e969fc1ee7f562cb0ec2e"
+      },
+      "candidate": {},
+      "stage_calls": {
+        "denoise": 1,
+        "vae": 1
+      },
+      "profile_artifacts": [],
+      "latent_error": {
+        "finite": true,
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "byte_equal": true
+      },
+      "image_error": {
+        "finite": true,
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "byte_equal": true
+      },
+      "comparison_errors": {
+        "attn_manual_nn": {
+          "latent": {
+            "finite": true,
+            "max_abs": 2.02824068069458,
+            "rmse": 0.07019309797540198,
+            "byte_equal": false
+          },
+          "image": {
+            "finite": true,
+            "max_abs": 0.8203125,
+            "rmse": 0.024798754013303337,
+            "byte_equal": false
+          }
+        },
+        "attn_manual_vt": {
+          "latent": {
+            "finite": true,
+            "max_abs": 2.0420567989349365,
+            "rmse": 0.07087963226392664,
+            "byte_equal": false
+          },
+          "image": {
+            "finite": true,
+            "max_abs": 0.82470703125,
+            "rmse": 0.024306802322194728,
+            "byte_equal": false
+          }
+        }
+      },
+      "image_gate": true,
+      "latent_sha256": "cc054fd19dc8f334da8d9acaf3b0b53aab1165944a6023a38c6c1ee9a34c3a13",
+      "image_sha256": "52ea16286731f37e2760ef622b66446443e95e657aea57dc9b0dd511b853cb3a"
+    },
+    {
+      "index": 6,
+      "mode": "attn_prescale4d_native",
+      "success": true,
+      "wall": {
+        "denoise_s": 67.72613075999834,
+        "vae_s": 0.5527336490049493
+      },
+      "request_wall_s": 68.56682692200411,
+      "conditioning_first_embedding_sha256": {
+        "positive": "a6c15ee3d0208bb976cb338714960a180fd73170fa904280577da928000f4968",
+        "negative": "f2199b5a6d7ba57a2d9d62675ea8d45c8d5da3f77d6e969fc1ee7f562cb0ec2e"
+      },
+      "candidate": {
+        "method": "prescale4d_native",
+        "hits": 1680,
+        "fallbacks": 0,
+        "shapes": {
+          "((2, 16, 4096, 128), (2, 16, 4096, 128))": 840,
+          "((2, 16, 4096, 128), (2, 16, 512, 128))": 840
+        },
+        "source_sha256": {
+          "attention_switches_v06.py": "5239a564a7b88dec410c79ed2d05ea0119251325734bed2f430e635ec38d53c8",
+          "rdna2_ops/fp16_attention_v06.py": "03426cbf5ad93adbcfc3ed4ad1a5569577e1baae83be28315eca2f4100fd72cd"
+        }
+      },
+      "stage_calls": {
+        "denoise": 1,
+        "vae": 1
+      },
+      "profile_artifacts": [],
+      "latent_error": {
+        "finite": true,
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "byte_equal": true
+      },
+      "image_error": {
+        "finite": true,
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "byte_equal": true
+      },
+      "comparison_errors": {
+        "attn_manual_nn": {
+          "latent": {
+            "finite": true,
+            "max_abs": 2.02824068069458,
+            "rmse": 0.07019309797540198,
+            "byte_equal": false
+          },
+          "image": {
+            "finite": true,
+            "max_abs": 0.8203125,
+            "rmse": 0.024798754013303337,
+            "byte_equal": false
+          }
+        },
+        "attn_manual_vt": {
+          "latent": {
+            "finite": true,
+            "max_abs": 2.0420567989349365,
+            "rmse": 0.07087963226392664,
+            "byte_equal": false
+          },
+          "image": {
+            "finite": true,
+            "max_abs": 0.82470703125,
+            "rmse": 0.024306802322194728,
+            "byte_equal": false
+          }
+        }
+      },
+      "image_gate": true,
+      "latent_sha256": "cc054fd19dc8f334da8d9acaf3b0b53aab1165944a6023a38c6c1ee9a34c3a13",
+      "image_sha256": "52ea16286731f37e2760ef622b66446443e95e657aea57dc9b0dd511b853cb3a"
+    },
+    {
+      "index": 7,
+      "mode": "attn_prescale_vt",
+      "success": true,
+      "wall": {
+        "denoise_s": 57.17816920300538,
+        "vae_s": 0.550507434993051
+      },
+      "request_wall_s": 58.0415121059923,
+      "conditioning_first_embedding_sha256": {
+        "positive": "a6c15ee3d0208bb976cb338714960a180fd73170fa904280577da928000f4968",
+        "negative": "f2199b5a6d7ba57a2d9d62675ea8d45c8d5da3f77d6e969fc1ee7f562cb0ec2e"
+      },
+      "candidate": {
+        "method": "prescale_vt",
+        "hits": 1680,
+        "fallbacks": 0,
+        "shapes": {
+          "((2, 16, 4096, 128), (2, 16, 4096, 128))": 840,
+          "((2, 16, 4096, 128), (2, 16, 512, 128))": 840
+        },
+        "source_sha256": {
+          "attention_switches_v06.py": "5239a564a7b88dec410c79ed2d05ea0119251325734bed2f430e635ec38d53c8",
+          "rdna2_ops/fp16_attention_v06.py": "03426cbf5ad93adbcfc3ed4ad1a5569577e1baae83be28315eca2f4100fd72cd"
+        }
+      },
+      "stage_calls": {
+        "denoise": 1,
+        "vae": 1
+      },
+      "profile_artifacts": [],
+      "latent_error": {
+        "finite": true,
+        "max_abs": 2.086437702178955,
+        "rmse": 0.07473881669583793,
+        "byte_equal": false
+      },
+      "image_error": {
+        "finite": true,
+        "max_abs": 0.8056640625,
+        "rmse": 0.024888045015533357,
+        "byte_equal": false
+      },
+      "comparison_errors": {
+        "attn_manual_nn": {
+          "latent": {
+            "finite": true,
+            "max_abs": 2.4837281703948975,
+            "rmse": 0.09330122170489738,
+            "byte_equal": false
+          },
+          "image": {
+            "finite": true,
+            "max_abs": 0.84912109375,
+            "rmse": 0.03127015179694434,
+            "byte_equal": false
+          }
+        },
+        "attn_manual_vt": {
+          "latent": {
+            "finite": true,
+            "max_abs": 2.3729801177978516,
+            "rmse": 0.09137807053636335,
+            "byte_equal": false
+          },
+          "image": {
+            "finite": true,
+            "max_abs": 0.84765625,
+            "rmse": 0.030224674110501486,
+            "byte_equal": false
+          }
+        }
+      },
+      "image_gate": false,
+      "latent_sha256": "05a2d58872b6087fd897656714225d860350681f9ee4bca6a9303e046f951705",
+      "image_sha256": "ee7ae44ede9b34cd7761d4d22792bb5dd81fefa8baaa5b581af3767c22802fb9"
+    },
+    {
+      "index": 8,
+      "mode": "attn_manual_vt",
+      "success": true,
+      "wall": {
+        "denoise_s": 57.02267691999441,
+        "vae_s": 0.557574693011702
+      },
+      "request_wall_s": 57.86828360600339,
+      "conditioning_first_embedding_sha256": {
+        "positive": "a6c15ee3d0208bb976cb338714960a180fd73170fa904280577da928000f4968",
+        "negative": "f2199b5a6d7ba57a2d9d62675ea8d45c8d5da3f77d6e969fc1ee7f562cb0ec2e"
+      },
+      "candidate": {
+        "method": "manual_vt",
+        "hits": 1680,
+        "fallbacks": 0,
+        "shapes": {
+          "((2, 16, 4096, 128), (2, 16, 4096, 128))": 840,
+          "((2, 16, 4096, 128), (2, 16, 512, 128))": 840
+        },
+        "source_sha256": {
+          "attention_switches_v06.py": "5239a564a7b88dec410c79ed2d05ea0119251325734bed2f430e635ec38d53c8",
+          "rdna2_ops/fp16_attention_v06.py": "03426cbf5ad93adbcfc3ed4ad1a5569577e1baae83be28315eca2f4100fd72cd"
+        }
+      },
+      "stage_calls": {
+        "denoise": 1,
+        "vae": 1
+      },
+      "profile_artifacts": [],
+      "latent_error": {
+        "finite": true,
+        "max_abs": 2.0420567989349365,
+        "rmse": 0.07087963226392664,
+        "byte_equal": false
+      },
+      "image_error": {
+        "finite": true,
+        "max_abs": 0.82470703125,
+        "rmse": 0.024306802322194728,
+        "byte_equal": false
+      },
+      "comparison_errors": {
+        "attn_manual_nn": {
+          "latent": {
+            "finite": true,
+            "max_abs": 1.7679888010025024,
+            "rmse": 0.04394003392718159,
+            "byte_equal": false
+          },
+          "image": {
+            "finite": true,
+            "max_abs": 0.69140625,
+            "rmse": 0.014653656081766124,
+            "byte_equal": false
+          }
+        },
+        "attn_manual_vt": {
+          "latent": {
+            "finite": true,
+            "max_abs": 0.0,
+            "rmse": 0.0,
+            "byte_equal": true
+          },
+          "image": {
+            "finite": true,
+            "max_abs": 0.0,
+            "rmse": 0.0,
+            "byte_equal": true
+          }
+        }
+      },
+      "image_gate": false,
+      "latent_sha256": "5dfca6b63bd8682d1833b2b86b94ef4f72d9b98bbd7ccd43ae0adea8d3af7500",
+      "image_sha256": "d7a945dcf69a4c9d64a9cc7e59f1b766c661caa51978cdd27dd0ffac4a6fc0b3"
+    },
+    {
+      "index": 9,
+      "mode": "baseline",
+      "success": true,
+      "wall": {
+        "denoise_s": 80.7507614740025,
+        "vae_s": 0.55365138000343
+      },
+      "request_wall_s": 81.60167929300223,
+      "conditioning_first_embedding_sha256": {
+        "positive": "a6c15ee3d0208bb976cb338714960a180fd73170fa904280577da928000f4968",
+        "negative": "f2199b5a6d7ba57a2d9d62675ea8d45c8d5da3f77d6e969fc1ee7f562cb0ec2e"
+      },
+      "candidate": {},
+      "stage_calls": {
+        "denoise": 1,
+        "vae": 1
+      },
+      "profile_artifacts": [],
+      "latent_error": {
+        "finite": true,
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "byte_equal": true
+      },
+      "image_error": {
+        "finite": true,
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "byte_equal": true
+      },
+      "comparison_errors": {
+        "attn_manual_nn": {
+          "latent": {
+            "finite": true,
+            "max_abs": 2.02824068069458,
+            "rmse": 0.07019309797540198,
+            "byte_equal": false
+          },
+          "image": {
+            "finite": true,
+            "max_abs": 0.8203125,
+            "rmse": 0.024798754013303337,
+            "byte_equal": false
+          }
+        },
+        "attn_manual_vt": {
+          "latent": {
+            "finite": true,
+            "max_abs": 2.0420567989349365,
+            "rmse": 0.07087963226392664,
+            "byte_equal": false
+          },
+          "image": {
+            "finite": true,
+            "max_abs": 0.82470703125,
+            "rmse": 0.024306802322194728,
+            "byte_equal": false
+          }
+        }
+      },
+      "image_gate": true,
+      "latent_sha256": "cc054fd19dc8f334da8d9acaf3b0b53aab1165944a6023a38c6c1ee9a34c3a13",
+      "image_sha256": "52ea16286731f37e2760ef622b66446443e95e657aea57dc9b0dd511b853cb3a"
+    }
+  ]
+}

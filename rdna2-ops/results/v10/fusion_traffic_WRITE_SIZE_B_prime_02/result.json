@@ -1,0 +1,188 @@
+{
+  "schema": "applio_v10_fusion_gl2c_traffic",
+  "case": {
+    "name": "B8_C32_T12800_K3_D1",
+    "key1": "[[8,32,12800],[32,32,3],1,1,1,\"float16\",\"NCT\",1]",
+    "key2": "[[8,32,12800],[32,32,3],1,1,1,\"float16\",\"NCT\",1]",
+    "pair_key": "[\"[[8,32,12800],[32,32,3],1,1,1,\\\"float16\\\",\\\"NCT\\\",1]\",\"[[8,32,12800],[32,32,3],1,1,1,\\\"float16\\\",\\\"NCT\\\",1]\"]",
+    "shape": [
+      8,
+      32,
+      12800
+    ],
+    "weight": [
+      32,
+      32,
+      3
+    ],
+    "dilation": 1,
+    "padding": 1,
+    "directions1": {
+      "fwd": {
+        "bm": 32,
+        "bn": 128,
+        "bk": 32,
+        "num_warps": 4
+      },
+      "dx": {
+        "bm": 32,
+        "bn": 64,
+        "bk": 32,
+        "num_warps": 4
+      },
+      "dw": {
+        "bm": 32,
+        "bn": 32,
+        "bk": 64,
+        "num_warps": 4,
+        "split": 32
+      }
+    },
+    "directions2": {
+      "fwd": {
+        "bm": 32,
+        "bn": 128,
+        "bk": 32,
+        "num_warps": 4
+      },
+      "dx": {
+        "bm": 32,
+        "bn": 64,
+        "bk": 32,
+        "num_warps": 4
+      },
+      "dw": {
+        "bm": 32,
+        "bn": 32,
+        "bk": 64,
+        "num_warps": 4,
+        "split": 32
+      }
+    }
+  },
+  "arm": "B_prime",
+  "seed": 20261108,
+  "warmup": 3,
+  "measured_pairs": 1,
+  "label": "B8_C32_T12800_K3_D1_float16_B_prime",
+  "expected_kernel_count_per_pair": 22,
+  "evidence": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/v10/fusion_full/result.json",
+  "evidence_sha256": "7b8f5708cf2ef20139e7d4db13722bf1f201bdc4c6a4982d729c452fd937fa86",
+  "manifest": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/applio_v08/direct_selected_final/dispatch.json",
+  "manifest_sha256": "22e41075581e8b2d969388244bf063adba59579942c4959ae892e2aeb4fcfa59",
+  "selection": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/v10/fusion_full/selection.json",
+  "selection_sha256": "db3da6994b49d8433bb3e63031c604a2ca0d61aa6404cbc6fbf024aef968cdfa",
+  "sources": {
+    "bench_v10_fusion.py": "d3f6c6f7d5a26e601c6d0780a8510e5e5e4dbe9aeff59c5fc771f1041569068c",
+    "v08_direct_conv.py": "6ef607af92b0ffd561a633093ff9bd62ae8428deb6f613aa2d38fca3a674b4e3",
+    "v10_fused_resblock.py": "c824ee32ccaf69d6b17b605f68687bc556b4958c2d951663e0563b481ee780b6"
+  },
+  "checks": {
+    "completed_evidence": true,
+    "valid_contract_evidence": true,
+    "valid_timing_evidence": true,
+    "row_pass": true,
+    "source_matches_evidence": true,
+    "v08_source_matches": true,
+    "benchmark_source_matches": true,
+    "manifest_matches": true,
+    "selection_matches_source": true,
+    "selection_matches_evidence": true,
+    "selected_fp16_pair": true,
+    "seed_matches": true,
+    "roctx_library_exists": true
+  },
+  "requested_counters": [
+    "WRITE_SIZE"
+  ],
+  "memory_scope": "GL2C/EA interface request bytes; not identified physical DRAM bytes",
+  "safety_env": {
+    "MIOPEN_DEBUG_CONV_IMPLICIT_GEMM_HIP_FWD_V4R1": "0",
+    "MIOPEN_DEBUG_CONV_DIRECT_HIP_WRW53": "0",
+    "HSA_DISABLE_COREDUMP_ON_EXCEPTION": "1"
+  },
+  "prior_logical_traffic_model": {
+    "element_bytes": 2,
+    "elements": 3276800,
+    "forward_avoided_read_write_bytes": 39321600,
+    "backward_avoided_read_write_bytes": 39321600,
+    "forward_activation_allocation_eliminated_bytes": 13107200,
+    "native_backward_activation_remakes": 0,
+    "scope": "Static logical tensor traffic for eliminated activation/output/gradient intermediates; hardware DRAM bytes unmeasured"
+  },
+  "prior_profile": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/v10/fusion_full/B8_C32_T12800_K3_D1_float16_B_prime.trace.json",
+  "pid": 2622622,
+  "driver_sha256": "b236e122cd424dd57ff1d95bf6ce1df0707d657af950b148d85a22f415f47acb",
+  "completed": true,
+  "valid_for_timing": false,
+  "valid_for_input_contract": true,
+  "valid_for_counters": false,
+  "counter_validation": "Pending CPU CSV postprocessing after rocprofv3 exits",
+  "db": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/v10/fusion_traffic_db_01",
+  "roctx_library": "~/DevSpace/applio-lab/.venv-rocm10/lib/python3.12/site-packages/_rocm_sdk_core/lib/librocprofiler-sdk-roctx.so.1",
+  "input_hashes": {
+    "x": "a0615c363ed0a967ec9560f5c7257a9fb6751ddeeff2718fa066b7a8b92e1279",
+    "dy": "7a011c36bb7fcb6ffe3d691ed63056de21fac9fade5014e1f9703bc5dd1d73bb",
+    "masters": "d52d2def6678b413224a3daadddf1d144f6c12de0b5fb15e31d8850e48813b20"
+  },
+  "after_hashes": {
+    "x": "a0615c363ed0a967ec9560f5c7257a9fb6751ddeeff2718fa066b7a8b92e1279",
+    "dy": "7a011c36bb7fcb6ffe3d691ed63056de21fac9fade5014e1f9703bc5dd1d73bb",
+    "masters": "d52d2def6678b413224a3daadddf1d144f6c12de0b5fb15e31d8850e48813b20"
+  },
+  "output_hashes": {
+    "y": "67d583581aea2260d5d3c8f7b6c3cda512745e4518469bdd0751ae924d96dbd8",
+    "dx": "fd6c102fba9cd3c641fb37c847632c0fb88fb239f4df425b3971748d00b4dec8",
+    "convs1.0.bias": "34feb258c558048f24547d40be31e2dae1e3c2bb3e152ad7c840ebe0f45ba17d",
+    "convs1.0.parametrizations.weight.original0": "11817b813129b5347769315030c0fad30023b9aae2039ee02931d30b4696ee6a",
+    "convs1.0.parametrizations.weight.original1": "9563c4a48d8bb1079853ae00210694e214c4974cc6cf234b8f2e306deaebe934",
+    "convs2.0.bias": "9f1c3c350cb75dae9251d66e8f70d18f2397de44077a3ffdf04b1512bc517247",
+    "convs2.0.parametrizations.weight.original0": "7365defda5133506810a77e0d40c61dadaeb73e5869ef60e8907dbe821f3accc",
+    "convs2.0.parametrizations.weight.original1": "d9e044ff37961370d53f97b59e6018a4a186dfe8517fa38e2437063eca80ba70"
+  },
+  "finite": {
+    "y": true,
+    "dx": true,
+    "convs1.0.bias": true,
+    "convs1.0.parametrizations.weight.original0": true,
+    "convs1.0.parametrizations.weight.original1": true,
+    "convs2.0.bias": true,
+    "convs2.0.parametrizations.weight.original0": true,
+    "convs2.0.parametrizations.weight.original1": true
+  },
+  "fp32_masters_and_gradients": true,
+  "input_output_gradient_fp16": true,
+  "measured_direct_hits": {},
+  "measured_fusion_hits": {
+    "[\"[[8,32,12800],[32,32,3],1,1,1,\\\"float16\\\",\\\"NCT\\\",1]\",\"[[8,32,12800],[32,32,3],1,1,1,\\\"float16\\\",\\\"NCT\\\",1]\"]": 1
+  },
+  "expected_route_pass": true,
+  "torch": "2.11.0+rocm10.0.0",
+  "hip": "7.15.26333",
+  "input_construction": "bench_v10_fusion.py one(), same fixed CPU RNG order",
+  "measurement_scope": "warmup paused; one global resume/pause window; one arm per process",
+  "gpu_audit": {
+    "available": true,
+    "valid_for_timing": true,
+    "method": "KFD client PID snapshots and periodic polling; research flock",
+    "limitation": "Detects observed KFD clients, not graphics load or sub-poll transient clients",
+    "allowed_pids": [
+      2622622
+    ],
+    "interval_s": 0.25,
+    "sample_count": 12,
+    "started_unix_s": 1794138643.622614,
+    "ended_unix_s": 1794138645.7060747,
+    "foreign_clients": [],
+    "errors": [],
+    "transitions": [
+      {
+        "unix_s": 1794138643.6226144,
+        "kfd_pids": [
+          2622622
+        ],
+        "foreign_or_error": []
+      }
+    ]
+  }
+}

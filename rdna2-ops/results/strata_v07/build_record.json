@@ -1,0 +1,59 @@
+{
+  "started_unix_s": 1794004670.0860367,
+  "nice": 12,
+  "offline": true,
+  "commands": [
+    [
+      "/usr/bin/cmake",
+      "-S",
+      "~/DevSpace/strata-prefill-v07-lab-20261107",
+      "-B",
+      "~/DevSpace/strata-prefill-v07-lab-20261107/build-v07-gfx1030",
+      "-G",
+      "Ninja",
+      "-DCMAKE_BUILD_TYPE=Release",
+      "-DSTRATA_ENABLE_HIP=ON",
+      "-DSTRATA_ENABLE_CUDA=OFF",
+      "-DSTRATA_HIP_GFX906=OFF",
+      "-DSTRATA_PREFILL_MMQ=ON",
+      "-DSTRATA_NATIVE_EXPERTS=ON",
+      "-DSTRATA_MMQ_KQUANTS=OFF",
+      "-DSTRATA_ORCA_Q4KS_MMQ=OFF",
+      "-DSTRATA_BUILD_TESTS=ON",
+      "-DSTRATA_PORTABLE=OFF",
+      "-DCMAKE_HIP_ARCHITECTURES=gfx1030",
+      "-DCMAKE_C_COMPILER=~/DevSpace/rocm10-gfx1030/install/lib/llvm/bin/clang",
+      "-DCMAKE_CXX_COMPILER=~/DevSpace/rocm10-gfx1030/install/lib/llvm/bin/clang++",
+      "-DCMAKE_HIP_COMPILER=~/DevSpace/rocm10-gfx1030/install/lib/llvm/bin/clang++",
+      "-DCMAKE_PREFIX_PATH=~/DevSpace/rocm10-gfx1030/install",
+      "-DSTRATA_GGML_DIR=~/DevSpace/strata_v01403_port/build-hip-gfx1030-rocm10-juud/_deps/strata_llamacpp-src",
+      "-DFETCHCONTENT_FULLY_DISCONNECTED=ON",
+      "-DFETCHCONTENT_UPDATES_DISCONNECTED=ON"
+    ],
+    [
+      "/usr/bin/cmake",
+      "--build",
+      "~/DevSpace/strata-prefill-v07-lab-20261107/build-v07-gfx1030",
+      "--target",
+      "strata",
+      "-j",
+      "2"
+    ]
+  ],
+  "gpu_execution": false,
+  "steps": [
+    {
+      "stage": 0,
+      "exit": 0,
+      "log": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/strata_v07/configure_v07.log"
+    },
+    {
+      "stage": 1,
+      "exit": 0,
+      "log": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/strata_v07/build_v07.log"
+    }
+  ],
+  "ended_unix_s": 1794004818.0227876,
+  "exe": "~/DevSpace/strata-prefill-v07-lab-20261107/build-v07-gfx1030/strata",
+  "exe_sha256": "21fc55e6ef64ae4678322b2f67e8c1d01f1e23548d4e5fa361c914bac2f32e20"
+}

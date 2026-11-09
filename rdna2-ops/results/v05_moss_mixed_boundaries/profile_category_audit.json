@@ -1,0 +1,232 @@
+{
+  "denoise": {
+    "categories": {
+      "user_annotation": 1,
+      "cpu_op": 73313,
+      "cuda_runtime": 21542,
+      "kernel": 17644,
+      "gpu_memcpy": 7,
+      "gpu_user_annotation": 2,
+      "Trace": 1
+    },
+    "duration_sum_ms": {
+      "user_annotation": 4797.34921,
+      "cpu_op": 7493.977435000059,
+      "cuda_runtime": 4389.89747200008,
+      "kernel": 4635.060722000009,
+      "gpu_memcpy": 0.184153,
+      "gpu_user_annotation": 9553.166826,
+      "Trace": 4797.617438
+    },
+    "samples": {
+      "user_annotation": {
+        "cat": "user_annotation",
+        "name": "rdna2_stage::denoise",
+        "dur": 4797349.21,
+        "args": {
+          "External id": 1,
+          "Record function id": 0,
+          "Ev Idx": 0
+        }
+      },
+      "cpu_op": {
+        "cat": "cpu_op",
+        "name": "aten::count_nonzero",
+        "dur": 522.926,
+        "args": {
+          "External id": 2,
+          "Record function id": 0,
+          "Concrete Inputs": [
+            "",
+            ""
+          ],
+          "Input type": [
+            "float",
+            ""
+          ],
+          "Input Strides": [
+            [
+              131072,
+              1024,
+              32,
+              1
+            ],
+            []
+          ],
+          "Input Dims": [
+            [
+              1,
+              128,
+              32,
+              32
+            ],
+            []
+          ],
+          "Ev Idx": 1
+        }
+      },
+      "cuda_runtime": {
+        "cat": "cuda_runtime",
+        "name": "hipDevicePrimaryCtxGetState",
+        "dur": 2.53,
+        "args": {
+          "cid": 55,
+          "correlation": 1
+        }
+      },
+      "kernel": {
+        "cat": "kernel",
+        "name": "__amd_rocclr_copyBuffer.kd",
+        "dur": 8.759,
+        "args": {
+          "External id": 41,
+          "device": 0,
+          "stream": 1,
+          "correlation": 9,
+          "kind": "Dispatch Kernel"
+        }
+      },
+      "gpu_memcpy": {
+        "cat": "gpu_memcpy",
+        "name": "Memcpy HtoD (Host -> Device)",
+        "dur": 25.839,
+        "args": {
+          "External id": 1960,
+          "device": 0,
+          "stream": 0,
+          "correlation": 553,
+          "kind": "HtoD"
+        }
+      },
+      "gpu_user_annotation": {
+        "cat": "gpu_user_annotation",
+        "name": "rdna2_stage::denoise",
+        "dur": 4760308.318,
+        "args": {
+          "External id": 1
+        }
+      },
+      "Trace": {
+        "cat": "Trace",
+        "name": "PyTorch Profiler (0)",
+        "dur": 4797617.438,
+        "args": {
+          "Op count": 0
+        }
+      }
+    }
+  },
+  "vae": {
+    "categories": {
+      "user_annotation": 1,
+      "cpu_op": 2044,
+      "cuda_runtime": 727,
+      "kernel": 412,
+      "gpu_memcpy": 2,
+      "gpu_user_annotation": 2,
+      "Trace": 1
+    },
+    "duration_sum_ms": {
+      "user_annotation": 59.652572,
+      "cpu_op": 119.94785799999994,
+      "cuda_runtime": 26.089819999999996,
+      "kernel": 29.775439999999996,
+      "gpu_memcpy": 0.076597,
+      "gpu_user_annotation": 97.423701,
+      "Trace": 59.780571
+    },
+    "samples": {
+      "user_annotation": {
+        "cat": "user_annotation",
+        "name": "rdna2_stage::vae",
+        "dur": 59652.572,
+        "args": {
+          "External id": 73729,
+          "Record function id": 0,
+          "Ev Idx": 0
+        }
+      },
+      "cpu_op": {
+        "cat": "cpu_op",
+        "name": "aten::detach",
+        "dur": 1.22,
+        "args": {
+          "External id": 73730,
+          "Record function id": 0,
+          "Concrete Inputs": [
+            ""
+          ],
+          "Input type": [
+            "float"
+          ],
+          "Input Strides": [
+            [
+              27,
+              9,
+              3,
+              1
+            ]
+          ],
+          "Input Dims": [
+            [
+              128,
+              3,
+              3,
+              3
+            ]
+          ],
+          "Ev Idx": 1
+        }
+      },
+      "cuda_runtime": {
+        "cat": "cuda_runtime",
+        "name": "hipMemGetInfo",
+        "dur": 5.95,
+        "args": {
+          "cid": 236,
+          "correlation": 21543
+        }
+      },
+      "kernel": {
+        "cat": "kernel",
+        "name": "__amd_rocclr_copyBuffer.kd",
+        "dur": 7.719,
+        "args": {
+          "External id": 74091,
+          "device": 0,
+          "stream": 1,
+          "correlation": 21553,
+          "kind": "Dispatch Kernel"
+        }
+      },
+      "gpu_memcpy": {
+        "cat": "gpu_memcpy",
+        "name": "Memcpy HtoD (Host -> Device)",
+        "dur": 15.559,
+        "args": {
+          "External id": 74679,
+          "device": 0,
+          "stream": 0,
+          "correlation": 21896,
+          "kind": "HtoD"
+        }
+      },
+      "gpu_user_annotation": {
+        "cat": "gpu_user_annotation",
+        "name": "rdna2_stage::vae",
+        "dur": 43079.691,
+        "args": {
+          "External id": 73729
+        }
+      },
+      "Trace": {
+        "cat": "Trace",
+        "name": "PyTorch Profiler (0)",
+        "dur": 59780.571,
+        "args": {
+          "Op count": 0
+        }
+      }
+    }
+  }
+}

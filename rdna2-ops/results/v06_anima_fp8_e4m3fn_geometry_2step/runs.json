@@ -1,0 +1,448 @@
+{
+  "spec": {
+    "sampler": [
+      "KSampler",
+      "sample"
+    ],
+    "sampler_node": "7",
+    "model": "anima",
+    "runtime": "~/DevSpace/moss-image-rdna2-lab01/runtime/ComfyUI",
+    "workflow": "~/DevSpace/anima-rdna2-lab01/workflows/anima_t2i_1024_api.json",
+    "decoder": [
+      "VAEDecode",
+      "decode"
+    ],
+    "save_node": "9",
+    "attention_target": "comfy.ldm.cosmos.predict2:optimized_attention",
+    "env": {},
+    "server_args": [
+      "--extra-model-paths-config",
+      "~/DevSpace/anima-rdna2-lab01/extra_model_paths.yaml",
+      "--disable-auto-launch",
+      "--use-pytorch-cross-attention",
+      "--disable-comfy-compiler"
+    ],
+    "input_files": [],
+    "inputs": {
+      "1": {
+        "weight_dtype": "fp8_e4m3fn"
+      }
+    },
+    "attention_capture_target": "comfy.ops:scaled_dot_product_attention",
+    "switch_module": "dtype_switches_v06",
+    "fp8_prepared_cache_bytes": 5368709120,
+    "fp8_int8_allowed_shapes": [
+      [
+        8192,
+        2048,
+        2048
+      ]
+    ],
+    "research_scope": "Existing Anima BF16 checkpoint is represented as unscaled e4m3fn only in this request. Baseline and candidates use identical FP8 values.",
+    "gpu_audit": true,
+    "save_reference_tensors": true,
+    "require_bitwise_modes": [
+      "fp8_control",
+      "fp8_prepared_fp16",
+      "fp8_decode"
+    ]
+  },
+  "seed": 20261107,
+  "rgb_gate": {
+    "max_abs": 0.00784313725490196,
+    "rmse": 0.000980392156862745
+  },
+  "runs": [
+    {
+      "index": 0,
+      "mode": "warm",
+      "success": true,
+      "wall": {
+        "denoise_s": 5.934796460001962,
+        "vae_s": 0.6680103599937866
+      },
+      "request_wall_s": 8.305626807996305,
+      "conditioning_first_embedding_sha256": {
+        "positive": "a6c15ee3d0208bb976cb338714960a180fd73170fa904280577da928000f4968",
+        "negative": "f2199b5a6d7ba57a2d9d62675ea8d45c8d5da3f77d6e969fc1ee7f562cb0ec2e"
+      },
+      "candidate": {},
+      "stage_calls": {
+        "denoise": 1,
+        "vae": 1
+      },
+      "profile_artifacts": [],
+      "latent_error": {
+        "finite": true,
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "byte_equal": true
+      },
+      "image_error": {
+        "finite": true,
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "byte_equal": true
+      },
+      "comparison_errors": {},
+      "image_gate": true,
+      "latent_sha256": "d1fdab36ca3eaf3b52572cba8eed958d93d5f7f3e324c8368ee8b6ddbea08024",
+      "image_sha256": "7b4acda55216004addd15afe43306aa00a38a4b9c22685e4e5874a2a440a14fc"
+    },
+    {
+      "index": 1,
+      "mode": "fp8_control",
+      "success": true,
+      "wall": {
+        "denoise_s": 5.386503595000249,
+        "vae_s": 0.550257299997611
+      },
+      "request_wall_s": 6.228818030998809,
+      "conditioning_first_embedding_sha256": {
+        "positive": "a6c15ee3d0208bb976cb338714960a180fd73170fa904280577da928000f4968",
+        "negative": "f2199b5a6d7ba57a2d9d62675ea8d45c8d5da3f77d6e969fc1ee7f562cb0ec2e"
+      },
+      "candidate": {
+        "mode": "fp8_control",
+        "hits": 1030,
+        "candidate_calls": 0,
+        "cache_reuses": 0,
+        "preparations": 0,
+        "cache_bytes": 0,
+        "max_cache_bytes": 5368709120,
+        "int8_allowed_shapes": [
+          [
+            8192,
+            2048,
+            2048
+          ]
+        ],
+        "contract": "plain unscaled FP8 weight, FP16 activation, immutable model, request-local prepared storage",
+        "preparation_in_stage_time": true,
+        "native_source_weight_dtype": {
+          "torch.bfloat16": 1030
+        },
+        "geometry_weight_dtype": {
+          "torch.float8_e4m3fn": 1030
+        },
+        "actual_resident_weight_dtype": {
+          "torch.float8_e4m3fn": 1030
+        },
+        "shapes": {
+          "((1, 177, 1024), (1024, 1024), 'torch.float8_e4m3fn')": 37,
+          "((1, 156, 1024), (1024, 1024), 'torch.float8_e4m3fn')": 12,
+          "((1, 177, 1024), (4096, 1024), 'torch.float8_e4m3fn')": 6,
+          "((1, 177, 4096), (1024, 4096), 'torch.float8_e4m3fn')": 6,
+          "((1, 38, 1024), (1024, 1024), 'torch.float8_e4m3fn')": 37,
+          "((1, 32, 1024), (1024, 1024), 'torch.float8_e4m3fn')": 12,
+          "((1, 38, 1024), (4096, 1024), 'torch.float8_e4m3fn')": 6,
+          "((1, 38, 4096), (1024, 4096), 'torch.float8_e4m3fn')": 6,
+          "((2, 1, 64, 64, 68), (2048, 68), 'torch.float8_e4m3fn')": 2,
+          "((2, 1, 2048), (2048, 2048), 'torch.float8_e4m3fn')": 2,
+          "((2, 1, 2048), (6144, 2048), 'torch.float8_e4m3fn')": 2,
+          "((2, 1, 2048), (256, 2048), 'torch.float8_e4m3fn')": 170,
+          "((2, 1, 256), (6144, 256), 'torch.float8_e4m3fn')": 168,
+          "((2, 4096, 2048), (2048, 2048), 'torch.float8_e4m3fn')": 336,
+          "((2, 512, 1024), (2048, 1024), 'torch.float8_e4m3fn')": 112,
+          "((2, 1, 64, 64, 2048), (8192, 2048), 'torch.float8_e4m3fn')": 56,
+          "((2, 1, 64, 64, 8192), (2048, 8192), 'torch.float8_e4m3fn')": 56,
+          "((2, 1, 256), (4096, 256), 'torch.float8_e4m3fn')": 2,
+          "((2, 1, 64, 64, 2048), (64, 2048), 'torch.float8_e4m3fn')": 2
+        },
+        "fallbacks": {},
+        "source_sha256": {
+          "dtype_switches_v06.py": "409304a81e69932b19e8f8a8462624b1e467e46462dc1396bcf3c0ce3106040e",
+          "rdna2_ops/fp8_weight_gemm_v06.py": "6305048cda4e2dd61c1512d775cef700784de1aaf9831cae7d3eef1c12597223",
+          "rdna2_ops/int8_gemm.py": "0b2d0970af17ddf61aa19d242bfebbb6f42add330e07387442dbe97ab316109d"
+        },
+        "cuda_peak_allocated_bytes": 3045647872,
+        "prepared_entries": 0,
+        "request_cache_released": true
+      },
+      "stage_calls": {
+        "denoise": 1,
+        "vae": 1
+      },
+      "profile_artifacts": [],
+      "latent_error": {
+        "finite": true,
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "byte_equal": true
+      },
+      "image_error": {
+        "finite": true,
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "byte_equal": true
+      },
+      "comparison_errors": {},
+      "image_gate": true,
+      "latent_sha256": "d1fdab36ca3eaf3b52572cba8eed958d93d5f7f3e324c8368ee8b6ddbea08024",
+      "image_sha256": "7b4acda55216004addd15afe43306aa00a38a4b9c22685e4e5874a2a440a14fc",
+      "required_bitwise_gate": true
+    },
+    {
+      "index": 2,
+      "mode": "fp8_prepared_fp16",
+      "success": true,
+      "wall": {
+        "denoise_s": 5.40424267599883,
+        "vae_s": 0.5607850920059718
+      },
+      "request_wall_s": 6.336219706994598,
+      "conditioning_first_embedding_sha256": {
+        "positive": "a6c15ee3d0208bb976cb338714960a180fd73170fa904280577da928000f4968",
+        "negative": "f2199b5a6d7ba57a2d9d62675ea8d45c8d5da3f77d6e969fc1ee7f562cb0ec2e"
+      },
+      "candidate": {
+        "mode": "fp8_prepared_fp16",
+        "hits": 1030,
+        "candidate_calls": 1030,
+        "cache_reuses": 515,
+        "preparations": 515,
+        "cache_bytes": 4116201472,
+        "max_cache_bytes": 5368709120,
+        "int8_allowed_shapes": [
+          [
+            8192,
+            2048,
+            2048
+          ]
+        ],
+        "contract": "plain unscaled FP8 weight, FP16 activation, immutable model, request-local prepared storage",
+        "preparation_in_stage_time": true,
+        "native_source_weight_dtype": {
+          "torch.bfloat16": 1030
+        },
+        "geometry_weight_dtype": {
+          "torch.float8_e4m3fn": 1030
+        },
+        "actual_resident_weight_dtype": {
+          "torch.float8_e4m3fn": 1030
+        },
+        "shapes": {
+          "((1, 177, 1024), (1024, 1024), 'torch.float8_e4m3fn')": 37,
+          "((1, 156, 1024), (1024, 1024), 'torch.float8_e4m3fn')": 12,
+          "((1, 177, 1024), (4096, 1024), 'torch.float8_e4m3fn')": 6,
+          "((1, 177, 4096), (1024, 4096), 'torch.float8_e4m3fn')": 6,
+          "((1, 38, 1024), (1024, 1024), 'torch.float8_e4m3fn')": 37,
+          "((1, 32, 1024), (1024, 1024), 'torch.float8_e4m3fn')": 12,
+          "((1, 38, 1024), (4096, 1024), 'torch.float8_e4m3fn')": 6,
+          "((1, 38, 4096), (1024, 4096), 'torch.float8_e4m3fn')": 6,
+          "((2, 1, 64, 64, 68), (2048, 68), 'torch.float8_e4m3fn')": 2,
+          "((2, 1, 2048), (2048, 2048), 'torch.float8_e4m3fn')": 2,
+          "((2, 1, 2048), (6144, 2048), 'torch.float8_e4m3fn')": 2,
+          "((2, 1, 2048), (256, 2048), 'torch.float8_e4m3fn')": 170,
+          "((2, 1, 256), (6144, 256), 'torch.float8_e4m3fn')": 168,
+          "((2, 4096, 2048), (2048, 2048), 'torch.float8_e4m3fn')": 336,
+          "((2, 512, 1024), (2048, 1024), 'torch.float8_e4m3fn')": 112,
+          "((2, 1, 64, 64, 2048), (8192, 2048), 'torch.float8_e4m3fn')": 56,
+          "((2, 1, 64, 64, 8192), (2048, 8192), 'torch.float8_e4m3fn')": 56,
+          "((2, 1, 256), (4096, 256), 'torch.float8_e4m3fn')": 2,
+          "((2, 1, 64, 64, 2048), (64, 2048), 'torch.float8_e4m3fn')": 2
+        },
+        "fallbacks": {},
+        "source_sha256": {
+          "dtype_switches_v06.py": "409304a81e69932b19e8f8a8462624b1e467e46462dc1396bcf3c0ce3106040e",
+          "rdna2_ops/fp8_weight_gemm_v06.py": "6305048cda4e2dd61c1512d775cef700784de1aaf9831cae7d3eef1c12597223",
+          "rdna2_ops/int8_gemm.py": "0b2d0970af17ddf61aa19d242bfebbb6f42add330e07387442dbe97ab316109d"
+        },
+        "cuda_peak_allocated_bytes": 7200400896,
+        "prepared_entries": 515,
+        "request_cache_released": true
+      },
+      "stage_calls": {
+        "denoise": 1,
+        "vae": 1
+      },
+      "profile_artifacts": [],
+      "latent_error": {
+        "finite": true,
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "byte_equal": true
+      },
+      "image_error": {
+        "finite": true,
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "byte_equal": true
+      },
+      "comparison_errors": {},
+      "image_gate": true,
+      "latent_sha256": "d1fdab36ca3eaf3b52572cba8eed958d93d5f7f3e324c8368ee8b6ddbea08024",
+      "image_sha256": "7b4acda55216004addd15afe43306aa00a38a4b9c22685e4e5874a2a440a14fc",
+      "required_bitwise_gate": true
+    },
+    {
+      "index": 3,
+      "mode": "fp8_prepared_int8",
+      "success": true,
+      "wall": {
+        "denoise_s": 6.842908254999202,
+        "vae_s": 0.5539403329894412
+      },
+      "request_wall_s": 7.633242080002674,
+      "conditioning_first_embedding_sha256": {
+        "positive": "a6c15ee3d0208bb976cb338714960a180fd73170fa904280577da928000f4968",
+        "negative": "f2199b5a6d7ba57a2d9d62675ea8d45c8d5da3f77d6e969fc1ee7f562cb0ec2e"
+      },
+      "candidate": {
+        "mode": "fp8_prepared_int8",
+        "hits": 336,
+        "candidate_calls": 336,
+        "cache_reuses": 168,
+        "preparations": 168,
+        "cache_bytes": 706019328,
+        "max_cache_bytes": 5368709120,
+        "int8_allowed_shapes": [
+          [
+            8192,
+            2048,
+            2048
+          ]
+        ],
+        "contract": "plain unscaled FP8 weight, FP16 activation, immutable model, request-local prepared storage",
+        "preparation_in_stage_time": true,
+        "native_source_weight_dtype": {
+          "torch.bfloat16": 1030
+        },
+        "geometry_weight_dtype": {
+          "torch.float8_e4m3fn": 1030
+        },
+        "actual_resident_weight_dtype": {
+          "torch.float8_e4m3fn": 336
+        },
+        "shapes": {
+          "((2, 4096, 2048), (2048, 2048), 'torch.float8_e4m3fn')": 336
+        },
+        "fallbacks": {
+          "unmeasured_or_slower_shape": 694
+        },
+        "source_sha256": {
+          "dtype_switches_v06.py": "409304a81e69932b19e8f8a8462624b1e467e46462dc1396bcf3c0ce3106040e",
+          "rdna2_ops/fp8_weight_gemm_v06.py": "6305048cda4e2dd61c1512d775cef700784de1aaf9831cae7d3eef1c12597223",
+          "rdna2_ops/int8_gemm.py": "0b2d0970af17ddf61aa19d242bfebbb6f42add330e07387442dbe97ab316109d"
+        },
+        "cuda_peak_allocated_bytes": 7200400896,
+        "prepared_entries": 168,
+        "request_cache_released": true
+      },
+      "stage_calls": {
+        "denoise": 1,
+        "vae": 1
+      },
+      "profile_artifacts": [],
+      "latent_error": {
+        "finite": true,
+        "max_abs": 0.28277766704559326,
+        "rmse": 0.04423798326951076,
+        "byte_equal": false
+      },
+      "image_error": {
+        "finite": true,
+        "max_abs": 0.656982421875,
+        "rmse": 0.025658012567046553,
+        "byte_equal": false
+      },
+      "comparison_errors": {},
+      "image_gate": false,
+      "latent_sha256": "238b29f95719fba5fdca4aa7a194237a9b690acf024645107224c08a93fc0122",
+      "image_sha256": "55253b30ebef5dc706878d65eda0e589fc352d238585c8c1b97435af3058bb9c"
+    },
+    {
+      "index": 4,
+      "mode": "fp8_control",
+      "success": true,
+      "wall": {
+        "denoise_s": 5.405483627007925,
+        "vae_s": 0.5573570880078478
+      },
+      "request_wall_s": 6.333476376006729,
+      "conditioning_first_embedding_sha256": {
+        "positive": "a6c15ee3d0208bb976cb338714960a180fd73170fa904280577da928000f4968",
+        "negative": "f2199b5a6d7ba57a2d9d62675ea8d45c8d5da3f77d6e969fc1ee7f562cb0ec2e"
+      },
+      "candidate": {
+        "mode": "fp8_control",
+        "hits": 1030,
+        "candidate_calls": 0,
+        "cache_reuses": 0,
+        "preparations": 0,
+        "cache_bytes": 0,
+        "max_cache_bytes": 5368709120,
+        "int8_allowed_shapes": [
+          [
+            8192,
+            2048,
+            2048
+          ]
+        ],
+        "contract": "plain unscaled FP8 weight, FP16 activation, immutable model, request-local prepared storage",
+        "preparation_in_stage_time": true,
+        "native_source_weight_dtype": {
+          "torch.bfloat16": 1030
+        },
+        "geometry_weight_dtype": {
+          "torch.float8_e4m3fn": 1030
+        },
+        "actual_resident_weight_dtype": {
+          "torch.float8_e4m3fn": 1030
+        },
+        "shapes": {
+          "((1, 177, 1024), (1024, 1024), 'torch.float8_e4m3fn')": 37,
+          "((1, 156, 1024), (1024, 1024), 'torch.float8_e4m3fn')": 12,
+          "((1, 177, 1024), (4096, 1024), 'torch.float8_e4m3fn')": 6,
+          "((1, 177, 4096), (1024, 4096), 'torch.float8_e4m3fn')": 6,
+          "((1, 38, 1024), (1024, 1024), 'torch.float8_e4m3fn')": 37,
+          "((1, 32, 1024), (1024, 1024), 'torch.float8_e4m3fn')": 12,
+          "((1, 38, 1024), (4096, 1024), 'torch.float8_e4m3fn')": 6,
+          "((1, 38, 4096), (1024, 4096), 'torch.float8_e4m3fn')": 6,
+          "((2, 1, 64, 64, 68), (2048, 68), 'torch.float8_e4m3fn')": 2,
+          "((2, 1, 2048), (2048, 2048), 'torch.float8_e4m3fn')": 2,
+          "((2, 1, 2048), (6144, 2048), 'torch.float8_e4m3fn')": 2,
+          "((2, 1, 2048), (256, 2048), 'torch.float8_e4m3fn')": 170,
+          "((2, 1, 256), (6144, 256), 'torch.float8_e4m3fn')": 168,
+          "((2, 4096, 2048), (2048, 2048), 'torch.float8_e4m3fn')": 336,
+          "((2, 512, 1024), (2048, 1024), 'torch.float8_e4m3fn')": 112,
+          "((2, 1, 64, 64, 2048), (8192, 2048), 'torch.float8_e4m3fn')": 56,
+          "((2, 1, 64, 64, 8192), (2048, 8192), 'torch.float8_e4m3fn')": 56,
+          "((2, 1, 256), (4096, 256), 'torch.float8_e4m3fn')": 2,
+          "((2, 1, 64, 64, 2048), (64, 2048), 'torch.float8_e4m3fn')": 2
+        },
+        "fallbacks": {},
+        "source_sha256": {
+          "dtype_switches_v06.py": "409304a81e69932b19e8f8a8462624b1e467e46462dc1396bcf3c0ce3106040e",
+          "rdna2_ops/fp8_weight_gemm_v06.py": "6305048cda4e2dd61c1512d775cef700784de1aaf9831cae7d3eef1c12597223",
+          "rdna2_ops/int8_gemm.py": "0b2d0970af17ddf61aa19d242bfebbb6f42add330e07387442dbe97ab316109d"
+        },
+        "cuda_peak_allocated_bytes": 7200400896,
+        "prepared_entries": 0,
+        "request_cache_released": true
+      },
+      "stage_calls": {
+        "denoise": 1,
+        "vae": 1
+      },
+      "profile_artifacts": [],
+      "latent_error": {
+        "finite": true,
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "byte_equal": true
+      },
+      "image_error": {
+        "finite": true,
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "byte_equal": true
+      },
+      "comparison_errors": {},
+      "image_gate": true,
+      "latent_sha256": "d1fdab36ca3eaf3b52572cba8eed958d93d5f7f3e324c8368ee8b6ddbea08024",
+      "image_sha256": "7b4acda55216004addd15afe43306aa00a38a4b9c22685e4e5874a2a440a14fc",
+      "required_bitwise_gate": true
+    }
+  ]
+}

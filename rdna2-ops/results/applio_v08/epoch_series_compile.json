@@ -1,0 +1,24 @@
+{
+  "purpose": "Evaluate decoder compile separately from the measured eager candidate, including its first-epoch cost. Native RNG operators are retained. Synchronous compilation keeps compiler workers from opening competing GPU contexts.",
+  "runs": [
+    {
+      "name": "epoch_B_compile_dec",
+      "out": "results/applio_v08/epoch_B_compile_dec",
+      "db": "results/applio_v08/epoch_B_compile_dec_db",
+      "db_seed": "results/applio_v08/solver_selected_final_db",
+      "epochs": 4,
+      "args": ["--dispatch", "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/applio_v08/direct_selected_final/dispatch.json", "--nonconv", "--compile", "dec", "--compile-native-rng"],
+      "env": {
+        "APPLIO_RDNA2_ADAMW": "native",
+        "APPLIO_RDNA2_ADAMW_G": "native",
+        "APPLIO_RDNA2_ADAMW_D": "single",
+        "APPLIO_RDNA2_SLICE_GATHER": "1",
+        "APPLIO_RDNA2_GRAD_NORM": "foreach",
+        "APPLIO_RDNA2_D_WN_CACHE": "0",
+        "APPLIO_RDNA2_SKIP_EMPTY_CACHE": "1",
+        "TORCHINDUCTOR_COMPILE_THREADS": "1",
+        "TORCH_LOGS": "graph_breaks,recompiles"
+      }
+    }
+  ]
+}

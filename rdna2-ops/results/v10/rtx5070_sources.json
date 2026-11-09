@@ -1,0 +1,96 @@
+{
+  "schema": "rdna2_v10_rtx5070_primary_sources",
+  "checked_date": "2026-11-08",
+  "status": "primary_specifications_verified; local_v10_profile_pending",
+  "model": "GeForce RTX 5070 desktop / GB205",
+  "nvidia_specification": {
+    "fp16_tensor_fp32_accumulate_dense_tflop_s": 61.7,
+    "fp16_tensor_fp32_accumulate_sparse_effective_tflop_s": 123.5,
+    "fp16_tensor_fp16_accumulate_dense_tflop_s": 123.5,
+    "fp16_tensor_fp16_accumulate_sparse_effective_tflop_s": 246.9,
+    "fp32_non_tensor_tflop_s": 30.9,
+    "fp4_tensor_fp32_accumulate_dense_tflop_s": 493.9,
+    "fp4_tensor_fp32_accumulate_sparse_effective_tflop_s": 987.8,
+    "memory_bandwidth_gb_s": 672.0,
+    "memory_gb": 12,
+    "memory_type": "GDDR7",
+    "memory_interface_bits": 192,
+    "memory_data_rate_gbit_s": 28,
+    "boost_clock_mhz": 2512,
+    "sm_count": 48,
+    "tensor_cores": 192,
+    "cuda_cores": 6144,
+    "peak_basis": "Published GPU Boost clock; not measured sustained Applio throughput",
+    "primary_source_id": "nvidia_blackwell_whitepaper_table6"
+  },
+  "sources": [
+    {
+      "id": "nvidia_blackwell_whitepaper_table6",
+      "title": "NVIDIA RTX Blackwell GPU Architecture",
+      "url": "https://images.nvidia.com/aem-dam/Solutions/geforce/blackwell/nvidia-rtx-blackwell-gpu-architecture.pdf",
+      "location": "Appendix C, Table 6, printed pages 54-56 (FP16 and bandwidth on page 55; sparsity footnote on page 56)",
+      "claims": [
+        "RTX 5070 FP16 Tensor Core with FP32 accumulation: 61.7 dense, 123.5 sparse-effective TFLOP/s.",
+        "FP16 accumulation instead gives 123.5 dense TFLOP/s; this is a different numerical contract.",
+        "987.8 FP4 sparse-effective TOPS rounds to the product page's 988 AI TOPS.",
+        "Peak rates are based on GPU Boost clock. Slash second values use sparsity."
+      ]
+    },
+    {
+      "id": "nvidia_rtx5070_product",
+      "title": "GeForce RTX 5070 Family",
+      "url": "https://www.nvidia.com/en-us/geforce/graphics-cards/50-series/rtx-5070-family/",
+      "location": "Specs / GeForce RTX 5070 column",
+      "claims": ["12 GB GDDR7, 192-bit interface, 672 GB/s published memory bandwidth; 6144 CUDA cores and 5th-generation Tensor Cores."]
+    },
+    {
+      "id": "nvidia_convolution_performance",
+      "title": "Convolutional Layers User's Guide",
+      "url": "https://docs.nvidia.com/deeplearning/performance/dl-performance-convolutional/index.html",
+      "location": "Sections 3, 4.1-4.3, 5.1",
+      "claims": [
+        "cuDNN provides implicit-GEMM and transform (FFT/Winograd) convolution families.",
+        "Implicit GEMM forms the convolution matrices virtually without materializing full im2col matrices.",
+        "Tensor Core convolution may need NCHW-to-NHWC transforms; small or poorly tiled dimensions lose efficiency.",
+        "Dilation does not increase the nominal GEMM dimensions; layout and implementation still affect performance."
+      ],
+      "not_evidence_for": "A selected RTX 5070 kernel or achieved speed for these exact Applio shapes"
+    },
+    {
+      "id": "nvidia_cudnn_precision",
+      "title": "cuDNN Core Concepts",
+      "url": "https://docs.nvidia.com/deeplearning/cudnn/backend/latest/developer/core-concepts.html",
+      "location": "Tensor Core Operations / Notes on Tensor Core Precision",
+      "claims": ["FP16 Tensor Core operations may accumulate in FP16 or FP32; FP32 accumulators may be converted to FP16 outputs."]
+    },
+    {
+      "id": "nvidia_cudnn_cnn_api",
+      "title": "cuDNN CNN Library API 9.21.1",
+      "url": "https://docs.nvidia.com/deeplearning/cudnn/backend/v9.21.1/api/cudnn-cnn-library.html",
+      "location": "ConvolutionForward / ConvolutionBackwardData supported-algorithm and data-type tables",
+      "claims": ["The API distinguishes HALF tensor / FLOAT compute configurations from HALF compute; exact algorithm support depends on layouts, dimensions, stride, dilation and groups."],
+      "not_evidence_for": "The external RTX 5070 user's library version or selected algorithm"
+    }
+  ],
+  "external_5070_report": {
+    "reported_100_epoch_minutes": 12,
+    "evidence": "User-provided report of another user; original matched-condition benchmark not supplied",
+    "same_dataset_model_steps_batch_seed_precision_library_host_verified": false,
+    "measured_here": false
+  },
+  "local_ceiling_source": "../applio_v08/hardware_calibration/result.json",
+  "local_reference": {
+    "register_dot2_tflop_s": 48.72519057989304,
+    "streaming_copy_gb_s": 436.7451150963019,
+    "not_universal_achievable_for_every_kernel": true
+  },
+  "restrictions": [
+    "Use 61.7 TFLOP/s for the dense FP16 multiply / FP32 accumulation matched contract.",
+    "Do not use FP4 sparse AI TOPS, sparse FP16 rates, or FP16 accumulation rates as this training contract's peak.",
+    "Do not call minimum logical tensor bytes measured DRAM traffic.",
+    "Do not call dense-equivalent FLOPs actual executed FLOPs for Winograd or FFT.",
+    "Differences between ideal roofs are conditional model terms, not measured irreducible minutes.",
+    "No RTX 5070 execution or device counters have been collected."
+  ],
+  "downloads_to_operating_environment": []
+}

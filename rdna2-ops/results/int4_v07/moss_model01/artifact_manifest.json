@@ -1,0 +1,121 @@
+{
+  "cpu_only": true,
+  "scope": "PNG decoded RGB8 pixels; file hashes include different workflow metadata. FP32 tensor comparisons are in runs.json.",
+  "sources": [
+    {
+      "original": "int4_model_switches_v07.py",
+      "snapshot": "source/int4_model_switches_v07.py",
+      "sha256": "79085f271771cd35ebb44479d7d767bc61f82f3640ebdc95f092628ac13fe6e4",
+      "bytes": 4913
+    },
+    {
+      "original": "rdna2_ops/int4_weight_gemm_v07.py",
+      "snapshot": "source/rdna2_ops/int4_weight_gemm_v07.py",
+      "sha256": "9876326b9585f81816c2f695c7b1a5c0a01e1a8205d15e35130004833c73e1ab",
+      "bytes": 26724
+    },
+    {
+      "original": "rdna2_ops/int8_gemm.py",
+      "snapshot": "source/rdna2_ops/int8_gemm.py",
+      "sha256": "0b2d0970af17ddf61aa19d242bfebbb6f42add330e07387442dbe97ab316109d",
+      "bytes": 16073
+    },
+    {
+      "original": "research_comfy_v05.py",
+      "snapshot": "source/research_comfy_v05.py",
+      "sha256": "f9c315caf7200e0ea664f491dc27b807e7b380f7d63d17a9ad9a962801136b30",
+      "bytes": 27957
+    },
+    {
+      "original": "gpu_guard_v06.py",
+      "snapshot": "source/gpu_guard_v06.py",
+      "sha256": "7409f98dbf2c1975f5727338346af248657d98229c4a92732809379207b4b329",
+      "bytes": 4401
+    },
+    {
+      "original": "research_configs/moss_int4_v07.json",
+      "snapshot": "source/research_configs/moss_int4_v07.json",
+      "sha256": "1b92ac1bf0ad071a55c930a743065130a7cb2d5be4856a85b078cb79beba187d",
+      "bytes": 1412
+    }
+  ],
+  "images": [
+    {
+      "file": "images/v05_0_warm_00001_.png",
+      "size": [
+        512,
+        512
+      ],
+      "file_sha256": "b5eecea12e26ef192a486b67503b7ae77c7224347c3b78c062b325abe19deb1e",
+      "rgb8_sha256": "e95c518baf00928c9ab63296532a69c59658bdc905dedcf09b796c2d6e671ad8"
+    },
+    {
+      "file": "images/v05_1_int8_fused_00001_.png",
+      "size": [
+        512,
+        512
+      ],
+      "file_sha256": "9271c647acd3986fccda418f1ddcc50c73024eb3fae799d5bcb3366279d5aa03",
+      "rgb8_sha256": "e95c518baf00928c9ab63296532a69c59658bdc905dedcf09b796c2d6e671ad8"
+    },
+    {
+      "file": "images/v05_2_int4_reference_00001_.png",
+      "size": [
+        512,
+        512
+      ],
+      "file_sha256": "43728307ed02b7844e5961d55b819e7dd5c53a4d470c252ceab6fa8baf2ef348",
+      "rgb8_sha256": "2f6454337d4a23417d2e3028c9c2e200a19d521b3767b6c063b0c174ddc15bfd"
+    },
+    {
+      "file": "images/v05_3_int4_dot4_00001_.png",
+      "size": [
+        512,
+        512
+      ],
+      "file_sha256": "fc588fe5c6e621821e64f69686f6108110a88ca6f5a9b444f2802c8fcb925755",
+      "rgb8_sha256": "2f6454337d4a23417d2e3028c9c2e200a19d521b3767b6c063b0c174ddc15bfd"
+    },
+    {
+      "file": "images/v05_4_int8_fused_00001_.png",
+      "size": [
+        512,
+        512
+      ],
+      "file_sha256": "80ca067d55ab16433a8d446782e5eb42e8b958a739bec1d9c9d40dc8f1530c12",
+      "rgb8_sha256": "e95c518baf00928c9ab63296532a69c59658bdc905dedcf09b796c2d6e671ad8"
+    }
+  ],
+  "pixel_checks": [
+    {
+      "comparison": "native_repeat",
+      "indices": [
+        1,
+        4
+      ],
+      "byte_equal": true,
+      "max_8bit": 0,
+      "rmse_8bit": 0.0
+    },
+    {
+      "comparison": "same_w4_reference_custom",
+      "indices": [
+        2,
+        3
+      ],
+      "byte_equal": true,
+      "max_8bit": 0,
+      "rmse_8bit": 0.0
+    },
+    {
+      "comparison": "native_to_w4_reference",
+      "indices": [
+        1,
+        2
+      ],
+      "byte_equal": false,
+      "max_8bit": 240,
+      "rmse_8bit": 45.29023933208712
+    }
+  ]
+}

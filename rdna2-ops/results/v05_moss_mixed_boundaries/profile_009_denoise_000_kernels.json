@@ -1,0 +1,962 @@
+{
+  "stage": "denoise",
+  "request_index": 9,
+  "invocation": 0,
+  "profiled_stage_wall_s": 5.401316591000068,
+  "runtime_metadata": "runtime_metadata.json",
+  "wall_excludes_report_export": true,
+  "denominator_ms": 4635.244875000001,
+  "rows": [
+    {
+      "name": "_dot_i8_i32_kernel.kd",
+      "category": "kernel",
+      "device": 0,
+      "self_gpu_ms": 3643.7745110000014,
+      "count": 672,
+      "device_type": "CUDA",
+      "input_shapes": [],
+      "share_of_this_table": 0.7861018369606634
+    },
+    {
+      "name": "Cijk_Alik_Bljk_SB_MT128x128x16_SN_AMAS3_BL1_BS1_EPS0_GLVWA4_GLVWB4_GRVW4_GSU1_GSUASB_ISA1030_IU1_K1_KLA_LDL1_LRVW4_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU0_SUM0_SUS0_SVW4_TT8_16_USFGROn1_VAW1_VSn1_VW4_VWB4_WS32_WG16_8_1_WGM1.kd",
+      "category": "kernel",
+      "device": 0,
+      "self_gpu_ms": 127.52819799999993,
+      "count": 168,
+      "device_type": "CUDA",
+      "input_shapes": [],
+      "share_of_this_table": 0.027512720781553077
+    },
+    {
+      "name": "void at::native::vectorized_elementwise_kernel<4, at::native::BinaryFunctor<float, float, float, at::native::binary_internal::MulFunctor<float> >, std::array<char*, 3ul> >(int, at::native::BinaryFunctor<float, float, float, at::native::binary_internal::MulFunctor<float> >, std::array<char*, 3ul>) [clone .kd]",
+      "category": "kernel",
+      "device": 0,
+      "self_gpu_ms": 120.90627500000006,
+      "count": 1369,
+      "device_type": "CUDA",
+      "input_shapes": [],
+      "share_of_this_table": 0.02608411815567781
+    },
+    {
+      "name": "void (anonymous namespace)::softmax_warp_forward<float, float, float, 11, false, false, 32>(float*, float const*, int, int, int, bool const*, int, bool) [clone .kd]",
+      "category": "kernel",
+      "device": 0,
+      "self_gpu_ms": 93.12317900000004,
+      "count": 168,
+      "device_type": "CUDA",
+      "input_shapes": [],
+      "share_of_this_table": 0.020090239353320036
+    },
+    {
+      "name": "Cijk_Ailk_Bljk_SB_MT128x64x16_SN_AMAS3_BL1_BS1_EPS0_GLVWA4_GLVWB4_GRVW4_GSU1_GSUASB_ISA1030_IU1_K1_KLA_LDL1_LRVW4_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU32_SUM3_SUS128_SVW4_TT8_8_USFGROn1_VAW1_VSn1_VW4_VWB4_WS32_WG16_8_1_WGM1.kd",
+      "category": "kernel",
+      "device": 0,
+      "self_gpu_ms": 78.21139500000007,
+      "count": 168,
+      "device_type": "CUDA",
+      "input_shapes": [],
+      "share_of_this_table": 0.016873195938758263
+    },
+    {
+      "name": "Cijk_Ailk_Bljk_SB_MT128x16x8_SN_AMAS3_BL1_BS1_EPS1_GLVWA2_GLVWB1_GRVW2_GSU1_GSUASB_ISA1030_IU1_K1_KLA_LDL1_LRVW2_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU0_SUM0_SUS0_SVW4_TT4_4_USFGROn1_VAW1_VSn1_VW2_VWB2_WS32_WG32_4_1_WGM8.kd",
+      "category": "kernel",
+      "device": 0,
+      "self_gpu_ms": 70.24107799999993,
+      "count": 504,
+      "device_type": "CUDA",
+      "input_shapes": [],
+      "share_of_this_table": 0.015153693039787874
+    },
+    {
+      "name": "__amd_rocclr_copyBuffer.kd",
+      "category": "kernel",
+      "device": 0,
+      "self_gpu_ms": 64.595469,
+      "count": 875,
+      "device_type": "CUDA",
+      "input_shapes": [],
+      "share_of_this_table": 0.013935718768256009
+    },
+    {
+      "name": "void at::native::elementwise_kernel_manual_unroll<128, 4, at::native::gpu_kernel_impl<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1} const&)::{lambda(int, bool)#1}>(int, at::native::gpu_kernel_impl<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1} const&)::{lambda(int, bool)#1}) [clone .kd]",
+      "category": "kernel",
+      "device": 0,
+      "self_gpu_ms": 56.765278999999985,
+      "count": 688,
+      "device_type": "CUDA",
+      "input_shapes": [],
+      "share_of_this_table": 0.012246446634602011
+    },
+    {
+      "name": "void at::native::elementwise_kernel_manual_unroll<128, 4, at::native::gpu_kernel_impl_nocast<at::native::BUnaryFunctor<float, float, float, at::native::binary_internal::MulFunctor<float> > >(at::TensorIteratorBase&, at::native::BUnaryFunctor<float, float, float, at::native::binary_internal::MulFunctor<float> > const&)::{lambda(int, bool)#1}>(int, at::native::gpu_kernel_impl_nocast<at::native::BUnaryFunctor<float, float, float, at::native::binary_internal::MulFunctor<float> > >(at::TensorIteratorBase&, at::native::BUnaryFunctor<float, float, float, at::native::binary_internal::MulFunctor<float> > const&)::{lambda(int, bool)#1}) [clone .kd]",
+      "category": "kernel",
+      "device": 0,
+      "self_gpu_ms": 45.40443099999999,
+      "count": 336,
+      "device_type": "CUDA",
+      "input_shapes": [],
+      "share_of_this_table": 0.009795476231447206
+    },
+    {
+      "name": "Cijk_Ailk_Bljk_SB_MT128x128x16_SN_AMAS3_BL1_BS1_EPS0_GLVWA4_GLVWB4_GRVW4_GSU1_GSUASB_ISA1030_IU1_K1_KLA_LDL1_LRVW4_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU0_SUM0_SUS0_SVW4_TT8_16_USFGROn1_VAW1_VSn1_VW4_VWB4_WS32_WG16_8_1_WGM4.kd",
+      "category": "kernel",
+      "device": 0,
+      "self_gpu_ms": 37.120325,
+      "count": 168,
+      "device_type": "CUDA",
+      "input_shapes": [],
+      "share_of_this_table": 0.008008277016864183
+    },
+    {
+      "name": "void at::native::elementwise_kernel_manual_unroll<128, 4, at::native::gpu_kernel_impl_nocast<at::native::BinaryFunctor<float, float, float, at::native::binary_internal::MulFunctor<float> > >(at::TensorIteratorBase&, at::native::BinaryFunctor<float, float, float, at::native::binary_internal::MulFunctor<float> > const&)::{lambda(int, bool)#1}>(int, at::native::gpu_kernel_impl_nocast<at::native::BinaryFunctor<float, float, float, at::native::binary_internal::MulFunctor<float> > >(at::TensorIteratorBase&, at::native::BinaryFunctor<float, float, float, at::native::binary_internal::MulFunctor<float> > const&)::{lambda(int, bool)#1}) [clone .kd]",
+      "category": "kernel",
+      "device": 0,
+      "self_gpu_ms": 30.446087999999957,
+      "count": 686,
+      "device_type": "CUDA",
+      "input_shapes": [],
+      "share_of_this_table": 0.006568388255863171
+    },
+    {
+      "name": "void at::native::elementwise_kernel_manual_unroll<128, 4, at::native::gpu_kernel_impl<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#2}::operator()() const::{lambda(signed char)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#2}::operator()() const::{lambda(signed char)#1} const&)::{lambda(int, bool)#1}>(int, at::native::gpu_kernel_impl<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#2}::operator()() const::{lambda(signed char)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#2}::operator()() const::{lambda(signed char)#1} const&)::{lambda(int, bool)#1}) [clone .kd]",
+      "category": "kernel",
+      "device": 0,
+      "self_gpu_ms": 25.666261000000002,
+      "count": 672,
+      "device_type": "CUDA",
+      "input_shapes": [],
+      "share_of_this_table": 0.005537196349308297
+    },
+    {
+      "name": "void at::native::vectorized_elementwise_kernel<4, at::native::AUnaryFunctor<float, float, float, at::native::binary_internal::MulFunctor<float> >, std::array<char*, 2ul> >(int, at::native::AUnaryFunctor<float, float, float, at::native::binary_internal::MulFunctor<float> >, std::array<char*, 2ul>) [clone .kd]",
+      "category": "kernel",
+      "device": 0,
+      "self_gpu_ms": 23.32635199999996,
+      "count": 741,
+      "device_type": "CUDA",
+      "input_shapes": [],
+      "share_of_this_table": 0.0050323882834776784
+    },
+    {
+      "name": "void at::native::elementwise_kernel_manual_unroll<128, 4, at::native::gpu_kernel_impl_nocast<at::native::BinaryFunctor<float, float, float, at::native::binary_internal::DivFunctor<float> > >(at::TensorIteratorBase&, at::native::BinaryFunctor<float, float, float, at::native::binary_internal::DivFunctor<float> > const&)::{lambda(int, bool)#1}>(int, at::native::gpu_kernel_impl_nocast<at::native::BinaryFunctor<float, float, float, at::native::binary_internal::DivFunctor<float> > >(at::TensorIteratorBase&, at::native::BinaryFunctor<float, float, float, at::native::binary_internal::DivFunctor<float> > const&)::{lambda(int, bool)#1}) [clone .kd]",
+      "category": "kernel",
+      "device": 0,
+      "self_gpu_ms": 21.107187000000017,
+      "count": 677,
+      "device_type": "CUDA",
+      "input_shapes": [],
+      "share_of_this_table": 0.004553629326864854
+    },
+    {
+      "name": "void at::native::vectorized_elementwise_kernel<4, at::native::AbsFunctor<float>, std::array<char*, 2ul> >(int, at::native::AbsFunctor<float>, std::array<char*, 2ul>) [clone .kd]",
+      "category": "kernel",
+      "device": 0,
+      "self_gpu_ms": 19.763347999999997,
+      "count": 672,
+      "device_type": "CUDA",
+      "input_shapes": [],
+      "share_of_this_table": 0.004263711741874261
+    },
+    {
+      "name": "void at::native::vectorized_elementwise_kernel<4, at::native::(anonymous namespace)::launch_clamp_scalar(at::TensorIteratorBase&, c10::Scalar, c10::Scalar, at::native::detail::ClampLimits)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1}, std::array<char*, 2ul> >(int, at::native::(anonymous namespace)::launch_clamp_scalar(at::TensorIteratorBase&, c10::Scalar, c10::Scalar, at::native::detail::ClampLimits)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1}, std::array<char*, 2ul>) [clone .kd]",
+      "category": "kernel",
+      "device": 0,
+      "self_gpu_ms": 18.24379700000002,
+      "count": 1344,
+      "device_type": "CUDA",
+      "input_shapes": [],
+      "share_of_this_table": 0.003935886343005775
+    },
+    {
+      "name": "void at::native::reduce_kernel<512, 1, at::native::ReduceOp<float, at::native::func_wrapper_t<float, at::native::MaxNanFunctor<float> >, unsigned int, float, 4, 4> >(at::native::ReduceOp<float, at::native::func_wrapper_t<float, at::native::MaxNanFunctor<float> >, unsigned int, float, 4, 4>) [clone .kd]",
+      "category": "kernel",
+      "device": 0,
+      "self_gpu_ms": 17.557115,
+      "count": 672,
+      "device_type": "CUDA",
+      "input_shapes": [],
+      "share_of_this_table": 0.0037877427133771427
+    },
+    {
+      "name": "void at::native::elementwise_kernel_manual_unroll<128, 4, at::native::gpu_kernel_impl_nocast<at::native::addcmul_cuda_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#2}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, float, float)#1}>(at::TensorIteratorBase&, at::native::addcmul_cuda_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#2}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, float, float)#1} const&)::{lambda(int, bool)#1}>(int, at::native::gpu_kernel_impl_nocast<at::native::addcmul_cuda_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#2}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, float, float)#1}>(at::TensorIteratorBase&, at::native::addcmul_cuda_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#2}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, float, float)#1} const&)::{lambda(int, bool)#1}) [clone .kd]",
+      "category": "kernel",
+      "device": 0,
+      "self_gpu_ms": 16.392566999999993,
+      "count": 336,
+      "device_type": "CUDA",
+      "input_shapes": [],
+      "share_of_this_table": 0.0035365050697564256
+    },
+    {
+      "name": "void at::native::vectorized_elementwise_kernel<4, at::native::round_kernel_cuda(at::TensorIteratorBase&)::{lambda()#1}::operator()() const::{lambda()#2}::operator()() const::{lambda(float)#1}, std::array<char*, 2ul> >(int, at::native::round_kernel_cuda(at::TensorIteratorBase&)::{lambda()#1}::operator()() const::{lambda()#2}::operator()() const::{lambda(float)#1}, std::array<char*, 2ul>) [clone .kd]",
+      "category": "kernel",
+      "device": 0,
+      "self_gpu_ms": 16.047273999999994,
+      "count": 672,
+      "device_type": "CUDA",
+      "input_shapes": [],
+      "share_of_this_table": 0.0034620121337170973
+    },
+    {
+      "name": "void comfy::hip_backend::adaln_kernel<float, false>(void const*, void const*, void const*, float*, int, int, int, float, int, int, int) [clone .kd]",
+      "category": "kernel",
+      "device": 0,
+      "self_gpu_ms": 14.896449999999987,
+      "count": 340,
+      "device_type": "CUDA",
+      "input_shapes": [],
+      "share_of_this_table": 0.0032137352829714272
+    },
+    {
+      "name": "Cijk_Alik_Bljk_SB_MT64x32x8_SN_AMAS0_BL1_BS1_EPS1_GLVWA1_GLVWB1_GRVW1_GSU1_GSUASB_ISA1030_IU1_K1_KLA_LDL1_LRVW1_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU32_SUM3_SUS128_SVW4_TT4_4_USFGROn1_VAW1_VSn1_VW1_VWB1_WS32_WG16_8_1_WGM1.kd",
+      "category": "kernel",
+      "device": 0,
+      "self_gpu_ms": 14.450004000000002,
+      "count": 24,
+      "device_type": "CUDA",
+      "input_shapes": [],
+      "share_of_this_table": 0.0031174197673860754
+    },
+    {
+      "name": "void comfy::hip_backend::rms_rope_wave32_128_kernel<float, 8, false>(void const*, void const*, void const*, void const*, void const*, float*, float*, long, long, long, int, long, long, long, long, long, long, long, long, long, long, long, long, long, long, long, long, long, int, int, int, float, bool) [clone .kd]",
+      "category": "kernel",
+      "device": 0,
+      "self_gpu_ms": 14.164613000000001,
+      "count": 176,
+      "device_type": "CUDA",
+      "input_shapes": [],
+      "share_of_this_table": 0.0030558499889393647
+    },
+    {
+      "name": "void at::native::vectorized_elementwise_kernel<4, at::native::tanh_kernel_cuda(at::TensorIteratorBase&)::{lambda()#2}::operator()() const::{lambda()#2}::operator()() const::{lambda(float)#1}, std::array<char*, 2ul> >(int, at::native::tanh_kernel_cuda(at::TensorIteratorBase&)::{lambda()#2}::operator()() const::{lambda()#2}::operator()() const::{lambda(float)#1}, std::array<char*, 2ul>) [clone .kd]",
+      "category": "kernel",
+      "device": 0,
+      "self_gpu_ms": 14.077868999999996,
+      "count": 352,
+      "device_type": "CUDA",
+      "input_shapes": [],
+      "share_of_this_table": 0.0030371359830261378
+    },
+    {
+      "name": "void at::native::elementwise_kernel_manual_unroll<128, 4, at::native::gpu_kernel_impl_nocast<at::native::sigmoid_kernel_cuda(at::TensorIteratorBase&)::{lambda()#2}::operator()() const::{lambda()#2}::operator()() const::{lambda(float)#1}>(at::TensorIteratorBase&, at::native::sigmoid_kernel_cuda(at::TensorIteratorBase&)::{lambda()#2}::operator()() const::{lambda()#2}::operator()() const::{lambda(float)#1} const&)::{lambda(int, bool)#1}>(int, at::native::gpu_kernel_impl_nocast<at::native::sigmoid_kernel_cuda(at::TensorIteratorBase&)::{lambda()#2}::operator()() const::{lambda()#2}::operator()() const::{lambda(float)#1}>(at::TensorIteratorBase&, at::native::sigmoid_kernel_cuda(at::TensorIteratorBase&)::{lambda()#2}::operator()() const::{lambda()#2}::operator()() const::{lambda(float)#1} const&)::{lambda(int, bool)#1}) [clone .kd]",
+      "category": "kernel",
+      "device": 0,
+      "self_gpu_ms": 10.318765000000012,
+      "count": 168,
+      "device_type": "CUDA",
+      "input_shapes": [],
+      "share_of_this_table": 0.0022261531544220756
+    },
+    {
+      "name": "Cijk_Alik_Bljk_SB_MT128x256x16_SN_AMAS3_BL1_BS1_EPS0_GLVWA4_GLVWB4_GRVW4_GSU1_GSUASB_ISA1030_IU1_K1_KLA_LDL1_LRVW4_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU32_SUM3_SUS128_SVW4_TT8_16_USFGROn1_VAW1_VSn1_VW4_VWB4_WS32_WG16_16_1_WGM4.kd",
+      "category": "kernel",
+      "device": 0,
+      "self_gpu_ms": 7.5644290000000005,
+      "count": 4,
+      "device_type": "CUDA",
+      "input_shapes": [],
+      "share_of_this_table": 0.0016319372986739991
+    },
+    {
+      "name": "Cijk_Alik_Bljk_SB_MT128x128x16_SN_AMAS3_BL1_BS1_EPS1_GLVWA4_GLVWB4_GRVW4_GSU1_GSUASB_ISA1030_IU1_K1_KLA_LDL1_LRVW4_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU32_SUM3_SUS128_SVW4_TT8_8_USFGROn1_VAW1_VSn1_VW4_VWB4_WS32_WG16_16_1_WGM1.kd",
+      "category": "kernel",
+      "device": 0,
+      "self_gpu_ms": 5.328747999999999,
+      "count": 8,
+      "device_type": "CUDA",
+      "input_shapes": [],
+      "share_of_this_table": 0.0011496152077618118
+    },
+    {
+      "name": "void at::native::elementwise_kernel_manual_unroll<128, 4, at::native::gpu_kernel_impl_nocast<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1} const&)::{lambda(int, bool)#1}>(int, at::native::gpu_kernel_impl_nocast<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1} const&)::{lambda(int, bool)#1}) [clone .kd]",
+      "category": "kernel",
+      "device": 0,
+      "self_gpu_ms": 4.784860999999999,
+      "count": 256,
+      "device_type": "CUDA",
+      "input_shapes": [],
+      "share_of_this_table": 0.0010322779333206205
+    },
+    {
+      "name": "Cijk_Alik_Bljk_SB_MT32x8x8_SN_AMAS0_BL1_BS1_EPS1_GLVWA1_GLVWB1_GRVW1_GSU1_GSUASB_ISA1030_IU1_K1_KLA_LDL1_LRVW1_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU32_SUM3_SUS128_SVW4_TT2_2_USFGROn1_VAW1_VSn1_VW1_VWB1_WS32_WG16_4_1_WGM1.kd",
+      "category": "kernel",
+      "device": 0,
+      "self_gpu_ms": 3.16987,
+      "count": 8,
+      "device_type": "CUDA",
+      "input_shapes": [],
+      "share_of_this_table": 0.0006838624679996004
+    },
+    {
+      "name": "_repair_all_negative_inf.kd",
+      "category": "kernel",
+      "device": 0,
+      "self_gpu_ms": 2.827149000000001,
+      "count": 168,
+      "device_type": "CUDA",
+      "input_shapes": [],
+      "share_of_this_table": 0.0006099244109514279
+    },
+    {
+      "name": "void at::native::vectorized_elementwise_kernel<4, at::native::AUnaryFunctor<float, float, bool, at::native::(anonymous namespace)::CompareEqFunctor<float> >, std::array<char*, 2ul> >(int, at::native::AUnaryFunctor<float, float, bool, at::native::(anonymous namespace)::CompareEqFunctor<float> >, std::array<char*, 2ul>) [clone .kd]",
+      "category": "kernel",
+      "device": 0,
+      "self_gpu_ms": 2.7757259999999944,
+      "count": 673,
+      "device_type": "CUDA",
+      "input_shapes": [],
+      "share_of_this_table": 0.0005988304986799632
+    },
+    {
+      "name": "void at::native::vectorized_elementwise_kernel<4, at::native::(anonymous namespace)::where_kernel_impl(at::TensorIterator&)::{lambda()#1}::operator()() const::{lambda()#11}::operator()() const::{lambda(bool, float, float)#1}, std::array<char*, 4ul> >(int, at::native::(anonymous namespace)::where_kernel_impl(at::TensorIterator&)::{lambda()#1}::operator()() const::{lambda()#11}::operator()() const::{lambda(bool, float, float)#1}, std::array<char*, 4ul>) [clone .kd]",
+      "category": "kernel",
+      "device": 0,
+      "self_gpu_ms": 2.671928000000008,
+      "count": 672,
+      "device_type": "CUDA",
+      "input_shapes": [],
+      "share_of_this_table": 0.0005764372912445121
+    },
+    {
+      "name": "Cijk_Alik_Bljk_SB_MT64x32x8_SN_AMAS0_BL1_BS1_EPS1_GLVWA1_GLVWB1_GRVW1_GSU1_GSUASB_ISA1030_IU1_K1_KLA_LDL1_LRVW1_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU32_SUM3_SUS128_SVW4_TT4_4_USFGROn1_VAW1_VSn1_VW1_VWB1_WS32_WG16_8_1_WGM4.kd",
+      "category": "kernel",
+      "device": 0,
+      "self_gpu_ms": 2.117629,
+      "count": 8,
+      "device_type": "CUDA",
+      "input_shapes": [],
+      "share_of_this_table": 0.0004568537492854678
+    },
+    {
+      "name": "void at::native::vectorized_elementwise_kernel<4, at::native::bfloat16tofloat32_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda(c10::BFloat16)#1}, std::array<char*, 2ul> >(int, at::native::bfloat16tofloat32_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda(c10::BFloat16)#1}, std::array<char*, 2ul>) [clone .kd]",
+      "category": "kernel",
+      "device": 0,
+      "self_gpu_ms": 2.00901,
+      "count": 708,
+      "device_type": "CUDA",
+      "input_shapes": [],
+      "share_of_this_table": 0.0004334204673490954
+    },
+    {
+      "name": "Cijk_Alik_Bljk_SB_MT128x128x16_SN_AMAS3_BL1_BS1_EPS1_GLVWA4_GLVWB4_GRVW4_GSU1_GSUASB_ISA1030_IU1_K1_KLA_LDL1_LRVW4_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU32_SUM3_SUS128_SVW4_TT8_8_USFGROn1_VAW1_VSn1_VW4_VWB4_WS32_WG16_16_1_WGM8.kd",
+      "category": "kernel",
+      "device": 0,
+      "self_gpu_ms": 1.324554,
+      "count": 4,
+      "device_type": "CUDA",
+      "input_shapes": [],
+      "share_of_this_table": 0.000285757071248582
+    },
+    {
+      "name": "void at::native::vectorized_elementwise_kernel<4, at::native::BUnaryFunctor<float, float, float, at::native::binary_internal::MulFunctor<float> >, std::array<char*, 2ul> >(int, at::native::BUnaryFunctor<float, float, float, at::native::binary_internal::MulFunctor<float> >, std::array<char*, 2ul>) [clone .kd]",
+      "category": "kernel",
+      "device": 0,
+      "self_gpu_ms": 1.2751080000000043,
+      "count": 692,
+      "device_type": "CUDA",
+      "input_shapes": [],
+      "share_of_this_table": 0.00027508967366044585
+    },
+    {
+      "name": "void at::native::vectorized_elementwise_kernel<4, at::native::CUDAFunctorOnSelf_add<float>, std::array<char*, 2ul> >(int, at::native::CUDAFunctorOnSelf_add<float>, std::array<char*, 2ul>) [clone .kd]",
+      "category": "kernel",
+      "device": 0,
+      "self_gpu_ms": 1.140779,
+      "count": 700,
+      "device_type": "CUDA",
+      "input_shapes": [],
+      "share_of_this_table": 0.0002461097591958396
+    },
+    {
+      "name": "void at::native::vectorized_elementwise_kernel<4, at::native::FillFunctor<float>, std::array<char*, 1ul> >(int, at::native::FillFunctor<float>, std::array<char*, 1ul>) [clone .kd]",
+      "category": "kernel",
+      "device": 0,
+      "self_gpu_ms": 1.1334130000000033,
+      "count": 705,
+      "device_type": "CUDA",
+      "input_shapes": [],
+      "share_of_this_table": 0.00024452063063874334
+    },
+    {
+      "name": "Cijk_Alik_Bljk_SB_MT64x64x8_SN_AMAS0_BL1_BS1_EPS1_GLVWA1_GLVWB1_GRVW1_GSU1_GSUASB_ISA1030_IU1_K1_KLA_LDL1_LRVW1_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU32_SUM3_SUS128_SVW4_TT4_4_USFGROn1_VAW1_VSn1_VW1_VWB1_WS32_WG16_16_1_WGM4.kd",
+      "category": "kernel",
+      "device": 0,
+      "self_gpu_ms": 0.654956,
+      "count": 4,
+      "device_type": "CUDA",
+      "input_shapes": [],
+      "share_of_this_table": 0.0001412991152921559
+    },
+    {
+      "name": "void at::native::elementwise_kernel_manual_unroll<128, 4, at::native::gpu_kernel_impl<at::native::BinaryFunctor<double, double, double, at::native::binary_internal::MulFunctor<double> > >(at::TensorIteratorBase&, at::native::BinaryFunctor<double, double, double, at::native::binary_internal::MulFunctor<double> > const&)::{lambda(int, bool)#2}>(int, at::native::gpu_kernel_impl<at::native::BinaryFunctor<double, double, double, at::native::binary_internal::MulFunctor<double> > >(at::TensorIteratorBase&, at::native::BinaryFunctor<double, double, double, at::native::binary_internal::MulFunctor<double> > const&)::{lambda(int, bool)#2}) [clone .kd]",
+      "category": "kernel",
+      "device": 0,
+      "self_gpu_ms": 0.19122299999999995,
+      "count": 16,
+      "device_type": "CUDA",
+      "input_shapes": [],
+      "share_of_this_table": 4.12541311531033e-05
+    },
+    {
+      "name": "Cijk_Alik_Bjlk_SB_MT128x64x8_SN_AMAS3_BL1_BS1_EPS0_GLVWA4_GLVWB4_GRVW4_GSU1_GSUASB_ISA1030_IU1_K1_KLA_LDL1_LRVW4_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU32_SUM3_SUS128_SVW4_TT8_8_USFGROn1_VAW1_VSn1_VW4_VWB4_WS32_WG16_8_1_WGM8.kd",
+      "category": "kernel",
+      "device": 0,
+      "self_gpu_ms": 0.18623599999999998,
+      "count": 4,
+      "device_type": "CUDA",
+      "input_shapes": [],
+      "share_of_this_table": 4.0178244088992156e-05
+    },
+    {
+      "name": "Memcpy HtoD (Host -> Device)",
+      "category": "gpu_memcpy",
+      "device": 0,
+      "self_gpu_ms": 0.160234,
+      "count": 6,
+      "device_type": "CUDA",
+      "input_shapes": [],
+      "share_of_this_table": 3.4568615967673106e-05
+    },
+    {
+      "name": "Cijk_Alik_Bljk_SB_MT32x8x8_SN_AMAS0_BL1_BS1_EPS1_GLVWA1_GLVWB1_GRVW1_GSU1_GSUASB_ISA1030_IU1_K1_KLA_LDL1_LRVW1_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU32_SUM3_SUS128_SVW4_TT2_2_USFGROn1_VAW1_VSn1_VW1_VWB1_WS32_WG16_4_1_WGM4.kd",
+      "category": "kernel",
+      "device": 0,
+      "self_gpu_ms": 0.152076,
+      "count": 4,
+      "device_type": "CUDA",
+      "input_shapes": [],
+      "share_of_this_table": 3.280862265124665e-05
+    },
+    {
+      "name": "void at::native::vectorized_elementwise_kernel<4, at::native::sin_kernel_cuda(at::TensorIteratorBase&)::{lambda()#2}::operator()() const::{lambda()#1}::operator()() const::{lambda(double)#1}, std::array<char*, 2ul> >(int, at::native::sin_kernel_cuda(at::TensorIteratorBase&)::{lambda()#2}::operator()() const::{lambda()#1}::operator()() const::{lambda(double)#1}, std::array<char*, 2ul>) [clone .kd]",
+      "category": "kernel",
+      "device": 0,
+      "self_gpu_ms": 0.15004800000000001,
+      "count": 32,
+      "device_type": "CUDA",
+      "input_shapes": [],
+      "share_of_this_table": 3.237110531296364e-05
+    },
+    {
+      "name": "void at::native::elementwise_kernel_manual_unroll<128, 4, at::native::gpu_kernel_impl_nocast<at::native::CUDAFunctor_add<float> >(at::TensorIteratorBase&, at::native::CUDAFunctor_add<float> const&)::{lambda(int, bool)#1}>(int, at::native::gpu_kernel_impl_nocast<at::native::CUDAFunctor_add<float> >(at::TensorIteratorBase&, at::native::CUDAFunctor_add<float> const&)::{lambda(int, bool)#1}) [clone .kd]",
+      "category": "kernel",
+      "device": 0,
+      "self_gpu_ms": 0.13707100000000003,
+      "count": 8,
+      "device_type": "CUDA",
+      "input_shapes": [],
+      "share_of_this_table": 2.9571468972283796e-05
+    },
+    {
+      "name": "void at::native::vectorized_elementwise_kernel<4, at::native::cos_kernel_cuda(at::TensorIteratorBase&)::{lambda()#2}::operator()() const::{lambda()#1}::operator()() const::{lambda(double)#1}, std::array<char*, 2ul> >(int, at::native::cos_kernel_cuda(at::TensorIteratorBase&)::{lambda()#2}::operator()() const::{lambda()#1}::operator()() const::{lambda(double)#1}, std::array<char*, 2ul>) [clone .kd]",
+      "category": "kernel",
+      "device": 0,
+      "self_gpu_ms": 0.13600800000000005,
+      "count": 32,
+      "device_type": "CUDA",
+      "input_shapes": [],
+      "share_of_this_table": 2.9342139124850446e-05
+    },
+    {
+      "name": "Cijk_Alik_Bljk_SB_MT32x32x16_SN_AMAS0_BL1_BS1_EPS1_GLVWA1_GLVWB1_GRVW1_GSU1_GSUASB_ISA1030_IU1_K1_KLA_LDL1_LRVW1_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU32_SUM3_SUS128_SVW4_TT4_4_USFGROn1_VAW1_VSn1_VW1_VWB1_WS32_WG8_8_1_WGM4.kd",
+      "category": "kernel",
+      "device": 0,
+      "self_gpu_ms": 0.110072,
+      "count": 8,
+      "device_type": "CUDA",
+      "input_shapes": [],
+      "share_of_this_table": 2.374674973347551e-05
+    },
+    {
+      "name": "void at::native::vectorized_elementwise_kernel<4, at::native::CUDAFunctor_add<float>, std::array<char*, 3ul> >(int, at::native::CUDAFunctor_add<float>, std::array<char*, 3ul>) [clone .kd]",
+      "category": "kernel",
+      "device": 0,
+      "self_gpu_ms": 0.10443899999999999,
+      "count": 41,
+      "device_type": "CUDA",
+      "input_shapes": [],
+      "share_of_this_table": 2.2531495706577953e-05
+    },
+    {
+      "name": "void at::native::(anonymous namespace)::CatArrayBatchedCopy_contig<at::native::(anonymous namespace)::OpaqueType<4u>, unsigned int, 3, 128, 1>(at::native::(anonymous namespace)::OpaqueType<4u>*, at::native::(anonymous namespace)::CatArrInputTensorMetadata<at::native::(anonymous namespace)::OpaqueType<4u>, unsigned int, 128, 1>, at::native::(anonymous namespace)::TensorSizeStride<unsigned int, 4u>, int, unsigned int) [clone .kd]",
+      "category": "kernel",
+      "device": 0,
+      "self_gpu_ms": 0.094596,
+      "count": 4,
+      "device_type": "CUDA",
+      "input_shapes": [],
+      "share_of_this_table": 2.0407983299911414e-05
+    },
+    {
+      "name": "void at::native::(anonymous namespace)::CatArrayBatchedCopy_contig<at::native::(anonymous namespace)::OpaqueType<8u>, unsigned int, 4, 128, 1>(at::native::(anonymous namespace)::OpaqueType<8u>*, at::native::(anonymous namespace)::CatArrInputTensorMetadata<at::native::(anonymous namespace)::OpaqueType<8u>, unsigned int, 128, 1>, at::native::(anonymous namespace)::TensorSizeStride<unsigned int, 4u>, int, unsigned int) [clone .kd]",
+      "category": "kernel",
+      "device": 0,
+      "self_gpu_ms": 0.089304,
+      "count": 16,
+      "device_type": "CUDA",
+      "input_shapes": [],
+      "share_of_this_table": 1.9266296044391822e-05
+    },
+    {
+      "name": "void at::native::reduce_kernel<512, 1, at::native::ReduceOp<bool, at::native::func_wrapper_t<bool, at::native::and_kernel_cuda(at::TensorIterator&)::{lambda()#1}::operator()() const::{lambda()#12}::operator()() const::{lambda(bool, bool)#1}>, unsigned int, bool, 4, 4> >(at::native::ReduceOp<bool, at::native::func_wrapper_t<bool, at::native::and_kernel_cuda(at::TensorIterator&)::{lambda()#1}::operator()() const::{lambda()#12}::operator()() const::{lambda(bool, bool)#1}>, unsigned int, bool, 4, 4>) [clone .kd]",
+      "category": "kernel",
+      "device": 0,
+      "self_gpu_ms": 0.08347199999999999,
+      "count": 8,
+      "device_type": "CUDA",
+      "input_shapes": [],
+      "share_of_this_table": 1.8008110089329415e-05
+    },
+    {
+      "name": "Cijk_Ailk_Bljk_SB_MT64x32x32_SN_AMAS0_BL1_BS1_EPS1_GLVWA1_GLVWB1_GRVW1_GSU1_GSUASB_ISA1030_IU1_K1_KLA_LDL1_LRVW1_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU32_SUM3_SUS128_SVW4_TT4_4_USFGROn1_VAW1_VSn1_VW1_VWB1_WS32_WG16_8_1_WGM1.kd",
+      "category": "kernel",
+      "device": 0,
+      "self_gpu_ms": 0.081232,
+      "count": 8,
+      "device_type": "CUDA",
+      "input_shapes": [],
+      "share_of_this_table": 1.752485622455922e-05
+    },
+    {
+      "name": "void at::native::elementwise_kernel_manual_unroll<128, 4, at::native::gpu_kernel_impl_nocast<at::native::(anonymous namespace)::pow_tensor_tensor_kernel(at::TensorIteratorBase&)::{lambda()#1}::operator()() const::{lambda()#6}::operator()() const::{lambda(double, double)#1}>(at::TensorIteratorBase&, at::native::(anonymous namespace)::pow_tensor_tensor_kernel(at::TensorIteratorBase&)::{lambda()#1}::operator()() const::{lambda()#6}::operator()() const::{lambda(double, double)#1} const&)::{lambda(int, bool)#1}>(int, at::native::gpu_kernel_impl_nocast<at::native::(anonymous namespace)::pow_tensor_tensor_kernel(at::TensorIteratorBase&)::{lambda()#1}::operator()() const::{lambda()#6}::operator()() const::{lambda(double, double)#1}>(at::TensorIteratorBase&, at::native::(anonymous namespace)::pow_tensor_tensor_kernel(at::TensorIteratorBase&)::{lambda()#1}::operator()() const::{lambda()#6}::operator()() const::{lambda(double, double)#1} const&)::{lambda(int, bool)#1}) [clone .kd]",
+      "category": "kernel",
+      "device": 0,
+      "self_gpu_ms": 0.06506400000000001,
+      "count": 16,
+      "device_type": "CUDA",
+      "input_shapes": [],
+      "share_of_this_table": 1.4036798864914337e-05
+    },
+    {
+      "name": "void at::native::(anonymous namespace)::vectorized_layer_norm_kernel<float, float, true>(int, float, float const*, float const*, float const*, float*, float*, float*) [clone .kd]",
+      "category": "kernel",
+      "device": 0,
+      "self_gpu_ms": 0.060183999999999994,
+      "count": 16,
+      "device_type": "CUDA",
+      "input_shapes": [],
+      "share_of_this_table": 1.298399580237926e-05
+    },
+    {
+      "name": "void at::native::vectorized_elementwise_kernel<4, at::native::(anonymous namespace)::isneginf_kernel_impl(at::TensorIteratorBase&)::{lambda()#1}::operator()() const::{lambda()#2}::operator()() const::{lambda(float)#1}, std::array<char*, 2ul> >(int, at::native::(anonymous namespace)::isneginf_kernel_impl(at::TensorIteratorBase&)::{lambda()#1}::operator()() const::{lambda()#2}::operator()() const::{lambda(float)#1}, std::array<char*, 2ul>) [clone .kd]",
+      "category": "kernel",
+      "device": 0,
+      "self_gpu_ms": 0.032192,
+      "count": 8,
+      "device_type": "CUDA",
+      "input_shapes": [],
+      "share_of_this_table": 6.9450483994116905e-06
+    },
+    {
+      "name": "void at::native::elementwise_kernel_manual_unroll<128, 4, at::native::gpu_kernel_impl_nocast<at::native::(anonymous namespace)::where_kernel_impl(at::TensorIterator&)::{lambda()#1}::operator()() const::{lambda()#11}::operator()() const::{lambda(bool, float, float)#1}>(at::TensorIteratorBase&, at::native::(anonymous namespace)::where_kernel_impl(at::TensorIterator&)::{lambda()#1}::operator()() const::{lambda()#11}::operator()() const::{lambda(bool, float, float)#1} const&)::{lambda(int, bool)#1}>(int, at::native::gpu_kernel_impl_nocast<at::native::(anonymous namespace)::where_kernel_impl(at::TensorIterator&)::{lambda()#1}::operator()() const::{lambda()#11}::operator()() const::{lambda(bool, float, float)#1}>(at::TensorIteratorBase&, at::native::(anonymous namespace)::where_kernel_impl(at::TensorIterator&)::{lambda()#1}::operator()() const::{lambda()#11}::operator()() const::{lambda(bool, float, float)#1} const&)::{lambda(int, bool)#1}) [clone .kd]",
+      "category": "kernel",
+      "device": 0,
+      "self_gpu_ms": 0.032072,
+      "count": 8,
+      "device_type": "CUDA",
+      "input_shapes": [],
+      "share_of_this_table": 6.919159799513288e-06
+    },
+    {
+      "name": "void at::native::vectorized_elementwise_kernel<4, at::native::reciprocal_kernel_cuda(at::TensorIteratorBase&)::{lambda()#1}::operator()() const::{lambda()#1}::operator()() const::{lambda(double)#1}, std::array<char*, 2ul> >(int, at::native::reciprocal_kernel_cuda(at::TensorIteratorBase&)::{lambda()#1}::operator()() const::{lambda()#1}::operator()() const::{lambda(double)#1}, std::array<char*, 2ul>) [clone .kd]",
+      "category": "kernel",
+      "device": 0,
+      "self_gpu_ms": 0.032064,
+      "count": 16,
+      "device_type": "CUDA",
+      "input_shapes": [],
+      "share_of_this_table": 6.917433892853394e-06
+    },
+    {
+      "name": "void at::native::elementwise_kernel_manual_unroll<128, 4, at::native::gpu_kernel_impl<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#4}::operator()() const::{lambda(long)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#4}::operator()() const::{lambda(long)#1} const&)::{lambda(int, bool)#1}>(int, at::native::gpu_kernel_impl<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#4}::operator()() const::{lambda(long)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#4}::operator()() const::{lambda(long)#1} const&)::{lambda(int, bool)#1}) [clone .kd]",
+      "category": "kernel",
+      "device": 0,
+      "self_gpu_ms": 0.031719000000000004,
+      "count": 1,
+      "device_type": "CUDA",
+      "input_shapes": [],
+      "share_of_this_table": 6.843004168145485e-06
+    },
+    {
+      "name": "void at::native::vectorized_elementwise_kernel<4, at::native::AUnaryFunctor<double, double, double, at::native::binary_internal::MulFunctor<double> >, std::array<char*, 2ul> >(int, at::native::AUnaryFunctor<double, double, double, at::native::binary_internal::MulFunctor<double> >, std::array<char*, 2ul>) [clone .kd]",
+      "category": "kernel",
+      "device": 0,
+      "self_gpu_ms": 0.029864000000000005,
+      "count": 16,
+      "device_type": "CUDA",
+      "input_shapes": [],
+      "share_of_this_table": 6.442809561382666e-06
+    },
+    {
+      "name": "void at::native::vectorized_elementwise_kernel<4, at::native::sigmoid_kernel_cuda(at::TensorIteratorBase&)::{lambda()#2}::operator()() const::{lambda()#2}::operator()() const::{lambda(float)#1}, std::array<char*, 2ul> >(int, at::native::sigmoid_kernel_cuda(at::TensorIteratorBase&)::{lambda()#2}::operator()() const::{lambda()#2}::operator()() const::{lambda(float)#1}, std::array<char*, 2ul>) [clone .kd]",
+      "category": "kernel",
+      "device": 0,
+      "self_gpu_ms": 0.028872,
+      "count": 8,
+      "device_type": "CUDA",
+      "input_shapes": [],
+      "share_of_this_table": 6.228797135555862e-06
+    },
+    {
+      "name": "void at::native::elementwise_kernel_manual_unroll<128, 4, at::native::gpu_kernel_impl_nocast<at::native::FillFunctor<float> >(at::TensorIteratorBase&, at::native::FillFunctor<float> const&)::{lambda(int, bool)#1}>(int, at::native::gpu_kernel_impl_nocast<at::native::FillFunctor<float> >(at::TensorIteratorBase&, at::native::FillFunctor<float> const&)::{lambda(int, bool)#1}) [clone .kd]",
+      "category": "kernel",
+      "device": 0,
+      "self_gpu_ms": 0.028555999999999998,
+      "count": 4,
+      "device_type": "CUDA",
+      "input_shapes": [],
+      "share_of_this_table": 6.160623822490066e-06
+    },
+    {
+      "name": "void at::native::vectorized_elementwise_kernel<4, at::native::neg_kernel_cuda(at::TensorIteratorBase&)::{lambda()#2}::operator()() const::{lambda()#6}::operator()() const::{lambda(double)#1}, std::array<char*, 2ul> >(int, at::native::neg_kernel_cuda(at::TensorIteratorBase&)::{lambda()#2}::operator()() const::{lambda()#6}::operator()() const::{lambda(double)#1}, std::array<char*, 2ul>) [clone .kd]",
+      "category": "kernel",
+      "device": 0,
+      "self_gpu_ms": 0.028183999999999997,
+      "count": 16,
+      "device_type": "CUDA",
+      "input_shapes": [],
+      "share_of_this_table": 6.080369162805016e-06
+    },
+    {
+      "name": "void at::native::vectorized_elementwise_kernel<4, at::native::BinaryFunctor<float, float, float, at::native::binary_internal::DivFunctor<float> >, std::array<char*, 3ul> >(int, at::native::BinaryFunctor<float, float, float, at::native::binary_internal::DivFunctor<float> >, std::array<char*, 3ul>) [clone .kd]",
+      "category": "kernel",
+      "device": 0,
+      "self_gpu_ms": 0.027751999999999995,
+      "count": 8,
+      "device_type": "CUDA",
+      "input_shapes": [],
+      "share_of_this_table": 5.987170203170763e-06
+    },
+    {
+      "name": "void at::native::vectorized_elementwise_kernel<4, at::native::FillFunctor<double>, std::array<char*, 1ul> >(int, at::native::FillFunctor<double>, std::array<char*, 1ul>) [clone .kd]",
+      "category": "kernel",
+      "device": 0,
+      "self_gpu_ms": 0.026864000000000006,
+      "count": 16,
+      "device_type": "CUDA",
+      "input_shapes": [],
+      "share_of_this_table": 5.79559456392258e-06
+    },
+    {
+      "name": "void (anonymous namespace)::softmax_warp_forward<float, float, float, 6, false, false, 32>(float*, float const*, int, int, int, bool const*, int, bool) [clone .kd]",
+      "category": "kernel",
+      "device": 0,
+      "self_gpu_ms": 0.025072,
+      "count": 8,
+      "device_type": "CUDA",
+      "input_shapes": [],
+      "share_of_this_table": 5.408991472106421e-06
+    },
+    {
+      "name": "Memcpy DtoH (Device -> Host)",
+      "category": "gpu_memcpy",
+      "device": 0,
+      "self_gpu_ms": 0.023919,
+      "count": 1,
+      "device_type": "CUDA",
+      "input_shapes": [],
+      "share_of_this_table": 5.1602451747492615e-06
+    },
+    {
+      "name": "void at::native::reduce_kernel<512, 1, at::native::ReduceOp<long, at::native::func_wrapper_t<long, at::native::sum_functor<long, long, long>::operator()(at::TensorIterator&)::{lambda(long, long)#1}>, unsigned int, long, 4, 4> >(at::native::ReduceOp<long, at::native::func_wrapper_t<long, at::native::sum_functor<long, long, long>::operator()(at::TensorIterator&)::{lambda(long, long)#1}>, unsigned int, long, 4, 4>) [clone .kd]",
+      "category": "kernel",
+      "device": 0,
+      "self_gpu_ms": 0.023839,
+      "count": 1,
+      "device_type": "CUDA",
+      "input_shapes": [],
+      "share_of_this_table": 5.142986108150326e-06
+    },
+    {
+      "name": "void (anonymous namespace)::elementwise_kernel_with_index<int, at::native::linspace_cuda_out(c10::Scalar const&, c10::Scalar const&, long, at::Tensor&)::{lambda()#2}::operator()() const::{lambda()#1}::operator()() const::{lambda(long)#1}>(int, at::native::linspace_cuda_out(c10::Scalar const&, c10::Scalar const&, long, at::Tensor&)::{lambda()#2}::operator()() const::{lambda()#1}::operator()() const::{lambda(long)#1}, function_traits<at::native::linspace_cuda_out(c10::Scalar const&, c10::Scalar const&, long, at::Tensor&)::{lambda()#2}::operator()() const::{lambda()#1}::operator()() const::{lambda(long)#1}>::result_type*) [clone .kd]",
+      "category": "kernel",
+      "device": 0,
+      "self_gpu_ms": 0.023143999999999998,
+      "count": 16,
+      "device_type": "CUDA",
+      "input_shapes": [],
+      "share_of_this_table": 4.993047967072073e-06
+    },
+    {
+      "name": "void (anonymous namespace)::elementwise_kernel_with_index<int, at::native::arange_cuda_out(c10::Scalar const&, c10::Scalar const&, c10::Scalar const&, at::Tensor&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(long)#1}>(int, at::native::arange_cuda_out(c10::Scalar const&, c10::Scalar const&, c10::Scalar const&, at::Tensor&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(long)#1}, function_traits<at::native::arange_cuda_out(c10::Scalar const&, c10::Scalar const&, c10::Scalar const&, at::Tensor&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(long)#1}>::result_type*) [clone .kd]",
+      "category": "kernel",
+      "device": 0,
+      "self_gpu_ms": 0.022624000000000005,
+      "count": 16,
+      "device_type": "CUDA",
+      "input_shapes": [],
+      "share_of_this_table": 4.880864034178992e-06
+    },
+    {
+      "name": "void at::native::vectorized_elementwise_kernel<4, at::native::compare_scalar_kernel<long>(at::TensorIteratorBase&, at::native::(anonymous namespace)::OpType, long)::{lambda(long)#1}, std::array<char*, 2ul> >(int, at::native::compare_scalar_kernel<long>(at::TensorIteratorBase&, at::native::(anonymous namespace)::OpType, long)::{lambda(long)#1}, std::array<char*, 2ul>) [clone .kd]",
+      "category": "kernel",
+      "device": 0,
+      "self_gpu_ms": 0.020519,
+      "count": 1,
+      "device_type": "CUDA",
+      "input_shapes": [],
+      "share_of_this_table": 4.426734844294497e-06
+    },
+    {
+      "name": "void at::native::(anonymous namespace)::CatArrayBatchedCopy_contig<at::native::(anonymous namespace)::OpaqueType<4u>, unsigned int, 2, 128, 1>(at::native::(anonymous namespace)::OpaqueType<4u>*, at::native::(anonymous namespace)::CatArrInputTensorMetadata<at::native::(anonymous namespace)::OpaqueType<4u>, unsigned int, 128, 1>, at::native::(anonymous namespace)::TensorSizeStride<unsigned int, 4u>, int, unsigned int) [clone .kd]",
+      "category": "kernel",
+      "device": 0,
+      "self_gpu_ms": 0.019156,
+      "count": 4,
+      "device_type": "CUDA",
+      "input_shapes": [],
+      "share_of_this_table": 4.132683497115132e-06
+    },
+    {
+      "name": "void at::native::vectorized_elementwise_kernel<4, at::native::cos_kernel_cuda(at::TensorIteratorBase&)::{lambda()#2}::operator()() const::{lambda()#2}::operator()() const::{lambda(float)#1}, std::array<char*, 2ul> >(int, at::native::cos_kernel_cuda(at::TensorIteratorBase&)::{lambda()#2}::operator()() const::{lambda()#2}::operator()() const::{lambda(float)#1}, std::array<char*, 2ul>) [clone .kd]",
+      "category": "kernel",
+      "device": 0,
+      "self_gpu_ms": 0.017276000000000003,
+      "count": 4,
+      "device_type": "CUDA",
+      "input_shapes": [],
+      "share_of_this_table": 3.727095432040146e-06
+    },
+    {
+      "name": "void at::native::vectorized_elementwise_kernel<4, at::native::sin_kernel_cuda(at::TensorIteratorBase&)::{lambda()#2}::operator()() const::{lambda()#2}::operator()() const::{lambda(float)#1}, std::array<char*, 2ul> >(int, at::native::sin_kernel_cuda(at::TensorIteratorBase&)::{lambda()#2}::operator()() const::{lambda()#2}::operator()() const::{lambda(float)#1}, std::array<char*, 2ul>) [clone .kd]",
+      "category": "kernel",
+      "device": 0,
+      "self_gpu_ms": 0.015756,
+      "count": 4,
+      "device_type": "CUDA",
+      "input_shapes": [],
+      "share_of_this_table": 3.3991731666603688e-06
+    },
+    {
+      "name": "void at::native::vectorized_elementwise_kernel<4, at::native::(anonymous namespace)::silu_kernel(at::TensorIteratorBase&)::{lambda()#1}::operator()() const::{lambda()#2}::operator()() const::{lambda(float)#1}, std::array<char*, 2ul> >(int, at::native::(anonymous namespace)::silu_kernel(at::TensorIteratorBase&)::{lambda()#1}::operator()() const::{lambda()#2}::operator()() const::{lambda(float)#1}, std::array<char*, 2ul>) [clone .kd]",
+      "category": "kernel",
+      "device": 0,
+      "self_gpu_ms": 0.012916,
+      "count": 4,
+      "device_type": "CUDA",
+      "input_shapes": [],
+      "share_of_this_table": 2.7864763023981548e-06
+    },
+    {
+      "name": "void at::native::vectorized_elementwise_kernel<4, at::native::exp_kernel_cuda(at::TensorIteratorBase&)::{lambda()#2}::operator()() const::{lambda()#2}::operator()() const::{lambda(float)#1}, std::array<char*, 2ul> >(int, at::native::exp_kernel_cuda(at::TensorIteratorBase&)::{lambda()#2}::operator()() const::{lambda()#2}::operator()() const::{lambda(float)#1}, std::array<char*, 2ul>) [clone .kd]",
+      "category": "kernel",
+      "device": 0,
+      "self_gpu_ms": 0.012796,
+      "count": 4,
+      "device_type": "CUDA",
+      "input_shapes": [],
+      "share_of_this_table": 2.760587702499751e-06
+    },
+    {
+      "name": "void at::native::unrolled_elementwise_kernel<at::native::CUDAFunctor_add<float>, std::array<char*, 3ul>, 4, TrivialOffsetCalculator<2, unsigned int>, TrivialOffsetCalculator<1, unsigned int>, at::native::memory::LoadWithoutCast, at::native::memory::StoreWithoutCast>(int, at::native::CUDAFunctor_add<float>, std::array<char*, 3ul>, TrivialOffsetCalculator<2, unsigned int>, TrivialOffsetCalculator<1, unsigned int>, at::native::memory::LoadWithoutCast, at::native::memory::StoreWithoutCast) [clone .kd]",
+      "category": "kernel",
+      "device": 0,
+      "self_gpu_ms": 0.006716000000000001,
+      "count": 4,
+      "device_type": "CUDA",
+      "input_shapes": [],
+      "share_of_this_table": 1.4488986409806447e-06
+    },
+    {
+      "name": "void at::native::vectorized_elementwise_kernel<4, at::native::CUDAFunctorOnOther_add<float>, std::array<char*, 2ul> >(int, at::native::CUDAFunctorOnOther_add<float>, std::array<char*, 2ul>) [clone .kd]",
+      "category": "kernel",
+      "device": 0,
+      "self_gpu_ms": 0.006477999999999999,
+      "count": 2,
+      "device_type": "CUDA",
+      "input_shapes": [],
+      "share_of_this_table": 1.397552917848811e-06
+    },
+    {
+      "name": "__amd_rocclr_fillBufferUnAligned.kd",
+      "category": "kernel",
+      "device": 0,
+      "self_gpu_ms": 0.0037189999999999996,
+      "count": 1,
+      "device_type": "CUDA",
+      "input_shapes": [],
+      "share_of_this_table": 8.023308585180193e-07
+    },
+    {
+      "name": "void at::native::unrolled_elementwise_kernel<at::native::BinaryFunctor<float, float, float, at::native::binary_internal::MulFunctor<float> >, std::array<char*, 3ul>, 4, TrivialOffsetCalculator<2, unsigned int>, TrivialOffsetCalculator<1, unsigned int>, at::native::memory::LoadWithoutCast, at::native::memory::StoreWithoutCast>(int, at::native::BinaryFunctor<float, float, float, at::native::binary_internal::MulFunctor<float> >, std::array<char*, 3ul>, TrivialOffsetCalculator<2, unsigned int>, TrivialOffsetCalculator<1, unsigned int>, at::native::memory::LoadWithoutCast, at::native::memory::StoreWithoutCast) [clone .kd]",
+      "category": "kernel",
+      "device": 0,
+      "self_gpu_ms": 0.003718,
+      "count": 2,
+      "device_type": "CUDA",
+      "input_shapes": [],
+      "share_of_this_table": 8.021151201855326e-07
+    },
+    {
+      "name": "void at::native::vectorized_elementwise_kernel<2, at::native::BinaryFunctor<float, float, float, at::native::binary_internal::MulFunctor<float> >, std::array<char*, 3ul> >(int, at::native::BinaryFunctor<float, float, float, at::native::binary_internal::MulFunctor<float> >, std::array<char*, 3ul>) [clone .kd]",
+      "category": "kernel",
+      "device": 0,
+      "self_gpu_ms": 0.001839,
+      "count": 1,
+      "device_type": "CUDA",
+      "input_shapes": [],
+      "share_of_this_table": 3.967427934430324e-07
+    }
+  ],
+  "top10": [
+    {
+      "name": "_dot_i8_i32_kernel.kd",
+      "category": "kernel",
+      "device": 0,
+      "self_gpu_ms": 3643.7745110000014,
+      "count": 672,
+      "device_type": "CUDA",
+      "input_shapes": [],
+      "share_of_this_table": 0.7861018369606634
+    },
+    {
+      "name": "Cijk_Alik_Bljk_SB_MT128x128x16_SN_AMAS3_BL1_BS1_EPS0_GLVWA4_GLVWB4_GRVW4_GSU1_GSUASB_ISA1030_IU1_K1_KLA_LDL1_LRVW4_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU0_SUM0_SUS0_SVW4_TT8_16_USFGROn1_VAW1_VSn1_VW4_VWB4_WS32_WG16_8_1_WGM1.kd",
+      "category": "kernel",
+      "device": 0,
+      "self_gpu_ms": 127.52819799999993,
+      "count": 168,
+      "device_type": "CUDA",
+      "input_shapes": [],
+      "share_of_this_table": 0.027512720781553077
+    },
+    {
+      "name": "void at::native::vectorized_elementwise_kernel<4, at::native::BinaryFunctor<float, float, float, at::native::binary_internal::MulFunctor<float> >, std::array<char*, 3ul> >(int, at::native::BinaryFunctor<float, float, float, at::native::binary_internal::MulFunctor<float> >, std::array<char*, 3ul>) [clone .kd]",
+      "category": "kernel",
+      "device": 0,
+      "self_gpu_ms": 120.90627500000006,
+      "count": 1369,
+      "device_type": "CUDA",
+      "input_shapes": [],
+      "share_of_this_table": 0.02608411815567781
+    },
+    {
+      "name": "void (anonymous namespace)::softmax_warp_forward<float, float, float, 11, false, false, 32>(float*, float const*, int, int, int, bool const*, int, bool) [clone .kd]",
+      "category": "kernel",
+      "device": 0,
+      "self_gpu_ms": 93.12317900000004,
+      "count": 168,
+      "device_type": "CUDA",
+      "input_shapes": [],
+      "share_of_this_table": 0.020090239353320036
+    },
+    {
+      "name": "Cijk_Ailk_Bljk_SB_MT128x64x16_SN_AMAS3_BL1_BS1_EPS0_GLVWA4_GLVWB4_GRVW4_GSU1_GSUASB_ISA1030_IU1_K1_KLA_LDL1_LRVW4_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU32_SUM3_SUS128_SVW4_TT8_8_USFGROn1_VAW1_VSn1_VW4_VWB4_WS32_WG16_8_1_WGM1.kd",
+      "category": "kernel",
+      "device": 0,
+      "self_gpu_ms": 78.21139500000007,
+      "count": 168,
+      "device_type": "CUDA",
+      "input_shapes": [],
+      "share_of_this_table": 0.016873195938758263
+    },
+    {
+      "name": "Cijk_Ailk_Bljk_SB_MT128x16x8_SN_AMAS3_BL1_BS1_EPS1_GLVWA2_GLVWB1_GRVW2_GSU1_GSUASB_ISA1030_IU1_K1_KLA_LDL1_LRVW2_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU0_SUM0_SUS0_SVW4_TT4_4_USFGROn1_VAW1_VSn1_VW2_VWB2_WS32_WG32_4_1_WGM8.kd",
+      "category": "kernel",
+      "device": 0,
+      "self_gpu_ms": 70.24107799999993,
+      "count": 504,
+      "device_type": "CUDA",
+      "input_shapes": [],
+      "share_of_this_table": 0.015153693039787874
+    },
+    {
+      "name": "__amd_rocclr_copyBuffer.kd",
+      "category": "kernel",
+      "device": 0,
+      "self_gpu_ms": 64.595469,
+      "count": 875,
+      "device_type": "CUDA",
+      "input_shapes": [],
+      "share_of_this_table": 0.013935718768256009
+    },
+    {
+      "name": "void at::native::elementwise_kernel_manual_unroll<128, 4, at::native::gpu_kernel_impl<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1} const&)::{lambda(int, bool)#1}>(int, at::native::gpu_kernel_impl<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1} const&)::{lambda(int, bool)#1}) [clone .kd]",
+      "category": "kernel",
+      "device": 0,
+      "self_gpu_ms": 56.765278999999985,
+      "count": 688,
+      "device_type": "CUDA",
+      "input_shapes": [],
+      "share_of_this_table": 0.012246446634602011
+    },
+    {
+      "name": "void at::native::elementwise_kernel_manual_unroll<128, 4, at::native::gpu_kernel_impl_nocast<at::native::BUnaryFunctor<float, float, float, at::native::binary_internal::MulFunctor<float> > >(at::TensorIteratorBase&, at::native::BUnaryFunctor<float, float, float, at::native::binary_internal::MulFunctor<float> > const&)::{lambda(int, bool)#1}>(int, at::native::gpu_kernel_impl_nocast<at::native::BUnaryFunctor<float, float, float, at::native::binary_internal::MulFunctor<float> > >(at::TensorIteratorBase&, at::native::BUnaryFunctor<float, float, float, at::native::binary_internal::MulFunctor<float> > const&)::{lambda(int, bool)#1}) [clone .kd]",
+      "category": "kernel",
+      "device": 0,
+      "self_gpu_ms": 45.40443099999999,
+      "count": 336,
+      "device_type": "CUDA",
+      "input_shapes": [],
+      "share_of_this_table": 0.009795476231447206
+    },
+    {
+      "name": "Cijk_Ailk_Bljk_SB_MT128x128x16_SN_AMAS3_BL1_BS1_EPS0_GLVWA4_GLVWB4_GRVW4_GSU1_GSUASB_ISA1030_IU1_K1_KLA_LDL1_LRVW4_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU0_SUM0_SUS0_SVW4_TT8_16_USFGROn1_VAW1_VSn1_VW4_VWB4_WS32_WG16_8_1_WGM4.kd",
+      "category": "kernel",
+      "device": 0,
+      "self_gpu_ms": 37.120325,
+      "count": 168,
+      "device_type": "CUDA",
+      "input_shapes": [],
+      "share_of_this_table": 0.008008277016864183
+    }
+  ],
+  "denominator": "Chrome trace kernel/gpu_memcpy/gpu_memset complete events only; exclude GPU annotations and CPU attribution",
+  "aggregation": "sum Chrome trace complete events (ph=X), grouped by category/name/device",
+  "included_categories": [
+    "kernel",
+    "gpu_memcpy",
+    "gpu_memset"
+  ],
+  "category_totals": {
+    "kernel": {
+      "count": 17644,
+      "duration_ms": 4635.0607220000375
+    },
+    "gpu_memcpy": {
+      "count": 7,
+      "duration_ms": 0.18415299999999998
+    },
+    "gpu_memset": {
+      "count": 0,
+      "duration_ms": 0.0
+    }
+  },
+  "excluded_complete_event_categories": {
+    "Trace": {
+      "count": 1,
+      "duration_ms": 4797.617438
+    },
+    "cpu_op": {
+      "count": 73313,
+      "duration_ms": 7493.97743500009
+    },
+    "cuda_runtime": {
+      "count": 21542,
+      "duration_ms": 4389.897472000036
+    },
+    "gpu_user_annotation": {
+      "count": 2,
+      "duration_ms": 9553.166826
+    },
+    "user_annotation": {
+      "count": 1,
+      "duration_ms": 4797.34921
+    }
+  },
+  "trace_file": "profile_009_denoise_000_trace.json",
+  "trace_sha256": "e82fd036fc6189041756055f015b1feadea7d0e6e29ba4533d423c39ba10c781",
+  "trace_retained": true,
+  "trace_duration_unit": "microseconds",
+  "denominator_semantics": "summed kernel/memcpy/memset work; never add CPU attribution or GPU annotations; may overlap across streams",
+  "profile_schema_version": 2,
+  "correction": {
+    "reason": "Prior CUDA device_type filter included gpu_user_annotation and double-counted nested GPU ranges",
+    "source": "re-aggregate original retained Chrome trace; no GPU rerun for this correction",
+    "previous_report": "profile_009_denoise_000_kernels_pre_fix.json",
+    "previous_sha256": "643e00b00e213c612d9bb5025b0c50629d3a6c2e70c9dc89b93f50b5a55a2abd",
+    "previous_denominator_ms": 14188.411696999992,
+    "aggregation_harness_sha256": "a9a5c31a539ffe6095835559c755b1fa2b33d9435129ab763c46505f04340442",
+    "corrected_utc": "2026-11-06T15:40:07.738942+00:00",
+    "independent_audit": "profile_category_audit.json"
+  }
+}

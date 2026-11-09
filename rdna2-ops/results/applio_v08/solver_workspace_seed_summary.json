@@ -1,0 +1,32 @@
+{
+  "schema": "v08_workspace_seed24_summary",
+  "results": [
+    {
+      "file": "results/applio_v08/solver_workspace_smoke1/result.json",
+      "sha256": "a4bba46af3e625749593c6280e892261c0bb2824ff703995bb09dac813e1841d",
+      "cases": 1,
+      "gates_passed": 3,
+      "workspace_warnings": 0,
+      "audit_clean": true,
+      "valid_for_timing": false
+    },
+    {
+      "file": "results/applio_v08/solver_workspace_seed23/result.json",
+      "sha256": "011e986f08c2de5756357c1c505797c704e879d483901047ab0354ba34282a4b",
+      "cases": 23,
+      "gates_passed": 69,
+      "workspace_warnings": 0,
+      "audit_clean": true,
+      "valid_for_timing": true
+    }
+  ],
+  "db": "results/applio_v08/solver_workspace_seed_db24/gfx1030_40.HIP.3_6_0_8d1ae90e.ufdb.txt",
+  "db_sha256": "2ad80c8b505d65bf95ff3d12a944f3d12d005bee36fac5d494cb3a0aef6b1e49",
+  "FP16_keys": 72,
+  "FP32_keys": 72,
+  "missing_FP16_directions": [],
+  "workspace_fix": "original query replaced with max(original, Range.max) only in opted-in NORMAL process",
+  "seed_completed": true,
+  "requires_FAST_replay": true,
+  "rank_plan": "results/applio_v08/solver_workspace_rank_cases24/plan.json"
+}

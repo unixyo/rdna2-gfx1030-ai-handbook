@@ -1,0 +1,321 @@
+{
+  "spec": {
+    "sampler": [
+      "KSampler",
+      "sample"
+    ],
+    "sampler_node": "8",
+    "model": "moss",
+    "runtime": "~/DevSpace/moss-image-rdna2-lab01/runtime/ComfyUI",
+    "workflow": "~/DevSpace/moss-image-rdna2-lab01/workflows/sft_fast4_int8_512.json",
+    "decoder": [
+      "VAEDecode",
+      "decode"
+    ],
+    "save_node": "11",
+    "attention_target": "comfy.ops:scaled_dot_product_attention",
+    "env": {
+      "MOSS_RDNA2_INT8_PATCH": "1",
+      "MOSS_RDNA2_INT8_LAYOUT": "view",
+      "MOSS_RDNA2_ATTENTION": "auto"
+    },
+    "server_args": [
+      "--base-directory",
+      "~/DevSpace/moss-image-rdna2-lab01",
+      "--models-directory",
+      "~/DevSpace/moss-image-rdna2-lab01/models",
+      "--use-pytorch-cross-attention",
+      "--disable-comfy-compiler"
+    ],
+    "int8_config": {
+      "tile": [
+        64,
+        128,
+        64
+      ],
+      "num_warps": 4,
+      "num_stages": 2,
+      "group_m": 8,
+      "wrapped": false
+    }
+  },
+  "seed": 20261106,
+  "rgb_gate": {
+    "max_abs": 0.00784313725490196,
+    "rmse": 0.000980392156862745
+  },
+  "runs": [
+    {
+      "index": 0,
+      "mode": "warm",
+      "success": true,
+      "wall": {
+        "denoise_s": 6.720432226997218,
+        "vae_s": 0.2175667350020376
+      },
+      "request_wall_s": 10.881833679995907,
+      "conditioning_first_embedding_sha256": {
+        "positive": "251d19f7de9576d6a7fd8900c2e52c2c2cb0aa68c247c8438dbfcca4f8d8117a",
+        "negative": "05f22cb7835bb984dc4e6e98cf65be2206ed7cf18c7328f65661cb86fe281954"
+      },
+      "candidate": {},
+      "stage_calls": {
+        "denoise": 1,
+        "vae": 1
+      },
+      "profile_artifacts": [],
+      "latent_error": {
+        "finite": true,
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "byte_equal": true
+      },
+      "image_error": {
+        "finite": true,
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "byte_equal": true
+      },
+      "image_gate": true,
+      "latent_sha256": "57ccb0ce643d77ad97c4b5a251eb6d1145ed7481668c8bf2e272b1706602c61d",
+      "image_sha256": "d545d941a144379535b87c31cad2f75620a83b25eacf08e581479db4cda45654"
+    },
+    {
+      "index": 1,
+      "mode": "baseline",
+      "success": true,
+      "wall": {
+        "denoise_s": 4.735179098002845,
+        "vae_s": 0.04715114399732556
+      },
+      "request_wall_s": 4.824483664997388,
+      "conditioning_first_embedding_sha256": {
+        "positive": "251d19f7de9576d6a7fd8900c2e52c2c2cb0aa68c247c8438dbfcca4f8d8117a",
+        "negative": "05f22cb7835bb984dc4e6e98cf65be2206ed7cf18c7328f65661cb86fe281954"
+      },
+      "candidate": {},
+      "stage_calls": {
+        "denoise": 1,
+        "vae": 1
+      },
+      "profile_artifacts": [],
+      "latent_error": {
+        "finite": true,
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "byte_equal": true
+      },
+      "image_error": {
+        "finite": true,
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "byte_equal": true
+      },
+      "image_gate": true,
+      "latent_sha256": "57ccb0ce643d77ad97c4b5a251eb6d1145ed7481668c8bf2e272b1706602c61d",
+      "image_sha256": "d545d941a144379535b87c31cad2f75620a83b25eacf08e581479db4cda45654"
+    },
+    {
+      "index": 2,
+      "mode": "int8",
+      "success": true,
+      "wall": {
+        "denoise_s": 2.09457736400509,
+        "vae_s": 0.048853262000193354
+      },
+      "request_wall_s": 2.213221814999997,
+      "conditioning_first_embedding_sha256": {
+        "positive": "251d19f7de9576d6a7fd8900c2e52c2c2cb0aa68c247c8438dbfcca4f8d8117a",
+        "negative": "05f22cb7835bb984dc4e6e98cf65be2206ed7cf18c7328f65661cb86fe281954"
+      },
+      "candidate": {
+        "hits": 672,
+        "fallbacks": 0,
+        "shapes": {
+          "(1061, 9216, 3072)": 168,
+          "(1061, 3072, 3072)": 168,
+          "(1061, 16384, 3072)": 168,
+          "(1061, 3072, 8192)": 168
+        }
+      },
+      "stage_calls": {
+        "denoise": 1,
+        "vae": 1
+      },
+      "profile_artifacts": [],
+      "latent_error": {
+        "finite": true,
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "byte_equal": true
+      },
+      "image_error": {
+        "finite": true,
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "byte_equal": true
+      },
+      "image_gate": true,
+      "latent_sha256": "57ccb0ce643d77ad97c4b5a251eb6d1145ed7481668c8bf2e272b1706602c61d",
+      "image_sha256": "d545d941a144379535b87c31cad2f75620a83b25eacf08e581479db4cda45654"
+    },
+    {
+      "index": 3,
+      "mode": "baseline",
+      "success": true,
+      "wall": {
+        "denoise_s": 4.890820042004634,
+        "vae_s": 0.048335086001316085
+      },
+      "request_wall_s": 5.2532101739998325,
+      "conditioning_first_embedding_sha256": {
+        "positive": "251d19f7de9576d6a7fd8900c2e52c2c2cb0aa68c247c8438dbfcca4f8d8117a",
+        "negative": "05f22cb7835bb984dc4e6e98cf65be2206ed7cf18c7328f65661cb86fe281954"
+      },
+      "candidate": {},
+      "stage_calls": {
+        "denoise": 1,
+        "vae": 1
+      },
+      "profile_artifacts": [],
+      "latent_error": {
+        "finite": true,
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "byte_equal": true
+      },
+      "image_error": {
+        "finite": true,
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "byte_equal": true
+      },
+      "image_gate": true,
+      "latent_sha256": "57ccb0ce643d77ad97c4b5a251eb6d1145ed7481668c8bf2e272b1706602c61d",
+      "image_sha256": "d545d941a144379535b87c31cad2f75620a83b25eacf08e581479db4cda45654"
+    },
+    {
+      "index": 4,
+      "mode": "int8",
+      "success": true,
+      "wall": {
+        "denoise_s": 2.1084931360019254,
+        "vae_s": 0.047510341995803174
+      },
+      "request_wall_s": 2.212749218000681,
+      "conditioning_first_embedding_sha256": {
+        "positive": "251d19f7de9576d6a7fd8900c2e52c2c2cb0aa68c247c8438dbfcca4f8d8117a",
+        "negative": "05f22cb7835bb984dc4e6e98cf65be2206ed7cf18c7328f65661cb86fe281954"
+      },
+      "candidate": {
+        "hits": 672,
+        "fallbacks": 0,
+        "shapes": {
+          "(1061, 9216, 3072)": 168,
+          "(1061, 3072, 3072)": 168,
+          "(1061, 16384, 3072)": 168,
+          "(1061, 3072, 8192)": 168
+        }
+      },
+      "stage_calls": {
+        "denoise": 1,
+        "vae": 1
+      },
+      "profile_artifacts": [],
+      "latent_error": {
+        "finite": true,
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "byte_equal": true
+      },
+      "image_error": {
+        "finite": true,
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "byte_equal": true
+      },
+      "image_gate": true,
+      "latent_sha256": "57ccb0ce643d77ad97c4b5a251eb6d1145ed7481668c8bf2e272b1706602c61d",
+      "image_sha256": "d545d941a144379535b87c31cad2f75620a83b25eacf08e581479db4cda45654"
+    },
+    {
+      "index": 5,
+      "mode": "int8",
+      "success": true,
+      "wall": {
+        "denoise_s": 2.0939149690020713,
+        "vae_s": 0.0475562009960413
+      },
+      "request_wall_s": 2.211483437997231,
+      "conditioning_first_embedding_sha256": {
+        "positive": "251d19f7de9576d6a7fd8900c2e52c2c2cb0aa68c247c8438dbfcca4f8d8117a",
+        "negative": "05f22cb7835bb984dc4e6e98cf65be2206ed7cf18c7328f65661cb86fe281954"
+      },
+      "candidate": {
+        "hits": 672,
+        "fallbacks": 0,
+        "shapes": {
+          "(1061, 9216, 3072)": 168,
+          "(1061, 3072, 3072)": 168,
+          "(1061, 16384, 3072)": 168,
+          "(1061, 3072, 8192)": 168
+        }
+      },
+      "stage_calls": {
+        "denoise": 1,
+        "vae": 1
+      },
+      "profile_artifacts": [],
+      "latent_error": {
+        "finite": true,
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "byte_equal": true
+      },
+      "image_error": {
+        "finite": true,
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "byte_equal": true
+      },
+      "image_gate": true,
+      "latent_sha256": "57ccb0ce643d77ad97c4b5a251eb6d1145ed7481668c8bf2e272b1706602c61d",
+      "image_sha256": "d545d941a144379535b87c31cad2f75620a83b25eacf08e581479db4cda45654"
+    },
+    {
+      "index": 6,
+      "mode": "baseline",
+      "success": true,
+      "wall": {
+        "denoise_s": 4.8510287499957485,
+        "vae_s": 0.04671344799862709
+      },
+      "request_wall_s": 5.024321147000592,
+      "conditioning_first_embedding_sha256": {
+        "positive": "251d19f7de9576d6a7fd8900c2e52c2c2cb0aa68c247c8438dbfcca4f8d8117a",
+        "negative": "05f22cb7835bb984dc4e6e98cf65be2206ed7cf18c7328f65661cb86fe281954"
+      },
+      "candidate": {},
+      "stage_calls": {
+        "denoise": 1,
+        "vae": 1
+      },
+      "profile_artifacts": [],
+      "latent_error": {
+        "finite": true,
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "byte_equal": true
+      },
+      "image_error": {
+        "finite": true,
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "byte_equal": true
+      },
+      "image_gate": true,
+      "latent_sha256": "57ccb0ce643d77ad97c4b5a251eb6d1145ed7481668c8bf2e272b1706602c61d",
+      "image_sha256": "d545d941a144379535b87c31cad2f75620a83b25eacf08e581479db4cda45654"
+    }
+  ]
+}

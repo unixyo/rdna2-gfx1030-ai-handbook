@@ -1,0 +1,128 @@
+{
+  "spec": {
+    "sampler": [
+      "KSampler",
+      "sample"
+    ],
+    "sampler_node": "8",
+    "model": "moss",
+    "runtime": "~/DevSpace/moss-image-rdna2-lab01/runtime/ComfyUI",
+    "workflow": "~/DevSpace/moss-image-rdna2-lab01/workflows/sft_fast4_int8_512.json",
+    "decoder": [
+      "VAEDecode",
+      "decode"
+    ],
+    "save_node": "11",
+    "attention_target": "comfy.ops:scaled_dot_product_attention",
+    "env": {
+      "MOSS_RDNA2_INT8_PATCH": "1",
+      "MOSS_RDNA2_INT8_LAYOUT": "view",
+      "MOSS_RDNA2_ATTENTION": "auto"
+    },
+    "server_args": [
+      "--base-directory",
+      "~/DevSpace/moss-image-rdna2-lab01",
+      "--models-directory",
+      "~/DevSpace/moss-image-rdna2-lab01/models",
+      "--use-pytorch-cross-attention",
+      "--disable-comfy-compiler"
+    ]
+  },
+  "seed": 20261106,
+  "rgb_gate": {
+    "max_abs": 0.00784313725490196,
+    "rmse": 0.000980392156862745
+  },
+  "runs": [
+    {
+      "index": 0,
+      "mode": "warm",
+      "success": true,
+      "wall": {
+        "denoise_s": 7.264483326005575,
+        "vae_s": 0.23569207500258926
+      },
+      "request_wall_s": 11.642317187004664,
+      "conditioning_sha256": {
+        "positive": "69fa7e979e493e3c8be0d71eec17b952fc8ea9fed79cbbaf901e3bdc6feffc10",
+        "negative": "ebd65525dee803867cc4edc618857b4982e48633e95e467085a2a6fa4122098b"
+      },
+      "candidate": {},
+      "latent_error": {
+        "finite": true,
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "byte_equal": true
+      },
+      "image_error": {
+        "finite": true,
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "byte_equal": true
+      },
+      "image_gate": true,
+      "latent_sha256": "ce1060d54340c353803609f31844a89fecb3bcabc58f0d86b30c321a0e4c0312",
+      "image_sha256": "0efe9560356c7e59607a9708b23c9e1e7155c548d5ead385cb8e6a8083e055e7"
+    },
+    {
+      "index": 1,
+      "mode": "capture",
+      "success": true,
+      "wall": {
+        "denoise_s": 4.7568552079974324,
+        "vae_s": 0.0461887060009758
+      },
+      "request_wall_s": 5.024572317001002,
+      "conditioning_sha256": {
+        "positive": "69fa7e979e493e3c8be0d71eec17b952fc8ea9fed79cbbaf901e3bdc6feffc10",
+        "negative": "ebd65525dee803867cc4edc618857b4982e48633e95e467085a2a6fa4122098b"
+      },
+      "candidate": {},
+      "latent_error": {
+        "finite": true,
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "byte_equal": true
+      },
+      "image_error": {
+        "finite": true,
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "byte_equal": true
+      },
+      "image_gate": true,
+      "latent_sha256": "ce1060d54340c353803609f31844a89fecb3bcabc58f0d86b30c321a0e4c0312",
+      "image_sha256": "0efe9560356c7e59607a9708b23c9e1e7155c548d5ead385cb8e6a8083e055e7"
+    },
+    {
+      "index": 2,
+      "mode": "baseline",
+      "success": true,
+      "wall": {
+        "denoise_s": 4.729874343996926,
+        "vae_s": 0.04727499800355872
+      },
+      "request_wall_s": 5.015539125997748,
+      "conditioning_sha256": {
+        "positive": "69fa7e979e493e3c8be0d71eec17b952fc8ea9fed79cbbaf901e3bdc6feffc10",
+        "negative": "ebd65525dee803867cc4edc618857b4982e48633e95e467085a2a6fa4122098b"
+      },
+      "candidate": {},
+      "latent_error": {
+        "finite": true,
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "byte_equal": true
+      },
+      "image_error": {
+        "finite": true,
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "byte_equal": true
+      },
+      "image_gate": true,
+      "latent_sha256": "ce1060d54340c353803609f31844a89fecb3bcabc58f0d86b30c321a0e4c0312",
+      "image_sha256": "0efe9560356c7e59607a9708b23c9e1e7155c548d5ead385cb8e6a8083e055e7"
+    }
+  ]
+}

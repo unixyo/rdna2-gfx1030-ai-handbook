@@ -1,0 +1,7958 @@
+{
+  "schema": "applio_v10_operating_train",
+  "arm": "B",
+  "completed": true,
+  "profile_at": 40,
+  "epochs_requested": 3,
+  "model_dir": "~/DevSpace/applio-lab/logs/v10_profile_B_target_20261108",
+  "protected_before": {
+    "~/DevSpace/applio-lab/core.py": "fd288f0d20f7796723f72e9075c8dc274a058b8b772b3bf2420b5a449159dd5b",
+    "~/DevSpace/applio-lab/rvc/train/train.py": "9188a3f716db06998d6647f59367216b13f002f29f0778cf9e8c970163064273",
+    "~/DevSpace/applio-lab/rvc/train/lab_hooks.py": "224a62190e5d0058d1981a92c1d3d56a28069fe26e927dcb337591863c9323fe",
+    "~/DevSpace/applio-lab/assets/config.json": "308b2af4c1b96775d2a3279ebe1532425e2df55647cd5a8be50cb8d48b2f047a",
+    "~/DevSpace/applio-lab/run-applio.sh": "4aa540b86815cc29665899f00fef618af71395a111dffd0c9f310bfa4bbf74a1",
+    "~/DevSpace/applio-lab/lab/train_bench.sh": "6bd75ce51c3a03ec2638fa699c52c13be2cbfa39487613c391669f38e425b848",
+    "~/DevSpace/applio-lab/rvc/train/rdna2_v08/__init__.py": "042c1d552996929f0536a9043e04812546385c2c158b1a9b4db3763e85e6fd8e",
+    "~/DevSpace/applio-lab/rvc/train/rdna2_v08/v08_direct_conv.py": "6ef607af92b0ffd561a633093ff9bd62ae8428deb6f613aa2d38fca3a674b4e3",
+    "~/DevSpace/applio-lab/rvc/train/rdna2_v08/dispatch.json": "22e41075581e8b2d969388244bf063adba59579942c4959ae892e2aeb4fcfa59",
+    "~/DevSpace/applio-lab/rvc/train/rdna2_v08/SOURCE.md": "e90eced8bcdfa644b0f65e17f622b4e8534872467512ee41bbd858f6496ee84e",
+    "~/DevSpace/applio-lab/rvc/train/rdna2_v08/v08_nonconv_opt.py": "4912353a4e45e13f18b0c33839ff78af33d872315c2415232fa32888109094a8",
+    "~/DevSpace/applio-lab/rvc/train/rdna2_v08/miopen_db/gfx1030_40.HIP.3_6_0_8d1ae90e.ufdb.txt.time": "54ef6b494912e84d58946a12bbde0022a896ad754e21c132e20c8ec4ff3a2c29",
+    "~/DevSpace/applio-lab/rvc/train/rdna2_v08/miopen_db/gfx1030_40.HIP.3_6_0_8d1ae90e.ufdb.txt": "fa2af4e846b0b565e23f058ae5d011cba85fe47a757a399a3ffa618563fbfdd5",
+    "~/DevSpace/applio-lab/rvc/train/rdna2_v08/miopen_db_seed/gfx1030_40.HIP.3_6_0_8d1ae90e.ufdb.txt.time": "54ef6b494912e84d58946a12bbde0022a896ad754e21c132e20c8ec4ff3a2c29",
+    "~/DevSpace/applio-lab/rvc/train/rdna2_v08/miopen_db_seed/gfx1030_40.HIP.3_6_0_8d1ae90e.ufdb.txt": "fa2af4e846b0b565e23f058ae5d011cba85fe47a757a399a3ffa618563fbfdd5",
+    "~/DevSpace/applio-lab/rvc/train/rdna2_v08/__pycache__/__init__.cpython-314.pyc": "15038018f6b52a5f1d45623dc9acfbfb162deb58261a98236964cd3a67c103c2"
+  },
+  "valid_for_epoch_timing": false,
+  "command": [
+    "~/DevSpace/applio-lab/.venv-rocm10/bin/python",
+    "core.py",
+    "train",
+    "--model-name",
+    "v10_profile_B_target_20261108",
+    "--vocoder",
+    "HiFi-GAN",
+    "--save-every-epoch",
+    "100",
+    "--total-epoch",
+    "3",
+    "--sample-rate",
+    "40000",
+    "--batch-size",
+    "8",
+    "--gpu",
+    "0",
+    "--pretrained",
+    "--custom-pretrained",
+    "--g-pretrained-path",
+    "~/DevSpace/applio-lab/rvc/models/pretraineds/custom/G_KLM_HFG_40k.pth",
+    "--d-pretrained-path",
+    "~/DevSpace/applio-lab/rvc/models/pretraineds/custom/D_KLM_HFG_40k.pth",
+    "--index-algorithm",
+    "Auto"
+  ],
+  "explicit_env": {
+    "APPLIO_RDNA2_V08": "1",
+    "APPLIO_WORKER_NO_GPU": "1",
+    "APPLIO_PROFILE_AT": "40",
+    "APPLIO_PROFILE_STEPS": "5",
+    "APPLIO_AMP_LOG": "0",
+    "APPLIO_COMPILE": "",
+    "APPLIO_V10_OUTPUT": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/v10/profile_B_target",
+    "MIOPEN_USER_DB_PATH": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/v10/profile_B_target/miopen_db",
+    "MIOPEN_FIND_MODE": "FAST",
+    "MIOPEN_DEBUG_CONV_IMPLICIT_GEMM_HIP_FWD_V4R1": "0",
+    "MIOPEN_DEBUG_CONV_DIRECT_HIP_WRW53": "0",
+    "HSA_DISABLE_COREDUMP_ON_EXCEPTION": "1",
+    "PYTHONDONTWRITEBYTECODE": "1",
+    "PYTHONUNBUFFERED": "1",
+    "PYTHONPATH": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/v10_inject:~/DevSpace/rdna2-pro-research-20261102/rdna2-ops",
+    "APPLIO_RDNA2_ADAMW": "native",
+    "APPLIO_RDNA2_ADAMW_G": "native",
+    "APPLIO_RDNA2_ADAMW_D": "single",
+    "APPLIO_RDNA2_SLICE_GATHER": "1",
+    "APPLIO_RDNA2_GRAD_NORM": "foreach",
+    "APPLIO_RDNA2_D_WN_CACHE": "0",
+    "APPLIO_RDNA2_SKIP_EMPTY_CACHE": "1",
+    "APPLIO_RDNA2_DIRECT_CONV": "1",
+    "PYTORCH_TUNABLEOP_ENABLED": "0"
+  },
+  "process_exit_code": 0,
+  "pid": 2540757,
+  "epochs": [
+    {
+      "epoch": 1,
+      "seconds": 16.50780963897705,
+      "steps": 31,
+      "nonfinite_losses": 0,
+      "scale_reductions": 11,
+      "scale_after": 32.0,
+      "peak_allocated_bytes": 4446521856,
+      "timing_scope": "same start/end as operating EpochRecorder, before research export/checkpoint"
+    },
+    {
+      "epoch": 2,
+      "seconds": 43.294318437576294,
+      "steps": 31,
+      "nonfinite_losses": 0,
+      "scale_reductions": 0,
+      "scale_after": 32.0,
+      "peak_allocated_bytes": 4458169344,
+      "timing_scope": "same start/end as operating EpochRecorder, before research export/checkpoint"
+    },
+    {
+      "epoch": 3,
+      "seconds": 12.498799324035645,
+      "steps": 31,
+      "nonfinite_losses": 0,
+      "scale_reductions": 0,
+      "scale_after": 32.0,
+      "peak_allocated_bytes": 4458766336,
+      "timing_scope": "same start/end as operating EpochRecorder, before research export/checkpoint"
+    }
+  ],
+  "steps": [
+    {
+      "step": 1,
+      "epoch": 1,
+      "loss_d": 11.358027458190918,
+      "loss_g": 67.81596374511719,
+      "mel": 27.313047409057617,
+      "fm": 17.484375,
+      "kl": 15.114114761352539,
+      "adv": 7.904428482055664,
+      "grad_norm_d": null,
+      "grad_norm_g": null,
+      "scale_before": 65536.0,
+      "scale_after": 32768.0,
+      "scale_reduced": true
+    },
+    {
+      "step": 2,
+      "epoch": 1,
+      "loss_d": 9.899454116821289,
+      "loss_g": 60.2908935546875,
+      "mel": 24.280542373657227,
+      "fm": 10.171875,
+      "kl": 17.449556350708008,
+      "adv": 8.388923645019531,
+      "grad_norm_d": null,
+      "grad_norm_g": null,
+      "scale_before": 32768.0,
+      "scale_after": 16384.0,
+      "scale_reduced": true
+    },
+    {
+      "step": 3,
+      "epoch": 1,
+      "loss_d": 7.394896507263184,
+      "loss_g": 41.708961486816406,
+      "mel": 18.111940383911133,
+      "fm": 6.9765625,
+      "kl": 11.737327575683594,
+      "adv": 4.883130073547363,
+      "grad_norm_d": null,
+      "grad_norm_g": null,
+      "scale_before": 16384.0,
+      "scale_after": 8192.0,
+      "scale_reduced": true
+    },
+    {
+      "step": 4,
+      "epoch": 1,
+      "loss_d": 8.12535285949707,
+      "loss_g": 58.38526153564453,
+      "mel": 24.192489624023438,
+      "fm": 12.6171875,
+      "kl": 15.68195915222168,
+      "adv": 5.8936262130737305,
+      "grad_norm_d": null,
+      "grad_norm_g": null,
+      "scale_before": 8192.0,
+      "scale_after": 4096.0,
+      "scale_reduced": true
+    },
+    {
+      "step": 5,
+      "epoch": 1,
+      "loss_d": 8.620123863220215,
+      "loss_g": 56.782012939453125,
+      "mel": 21.835023880004883,
+      "fm": 10.28125,
+      "kl": 18.443580627441406,
+      "adv": 6.222159385681152,
+      "grad_norm_d": null,
+      "grad_norm_g": null,
+      "scale_before": 4096.0,
+      "scale_after": 2048.0,
+      "scale_reduced": true
+    },
+    {
+      "step": 6,
+      "epoch": 1,
+      "loss_d": 6.353370666503906,
+      "loss_g": 53.07608413696289,
+      "mel": 20.68822479248047,
+      "fm": 11.515625,
+      "kl": 16.742691040039062,
+      "adv": 4.129543781280518,
+      "grad_norm_d": 271.5817565917969,
+      "grad_norm_g": null,
+      "scale_before": 2048.0,
+      "scale_after": 1024.0,
+      "scale_reduced": true
+    },
+    {
+      "step": 7,
+      "epoch": 1,
+      "loss_d": 5.726433277130127,
+      "loss_g": 45.708187103271484,
+      "mel": 18.31432342529297,
+      "fm": 9.53125,
+      "kl": 14.539155006408691,
+      "adv": 3.3234572410583496,
+      "grad_norm_d": 648.375732421875,
+      "grad_norm_g": null,
+      "scale_before": 1024.0,
+      "scale_after": 512.0,
+      "scale_reduced": true
+    },
+    {
+      "step": 8,
+      "epoch": 1,
+      "loss_d": 5.557397365570068,
+      "loss_g": 50.33293151855469,
+      "mel": 17.98382568359375,
+      "fm": 11.96875,
+      "kl": 17.125396728515625,
+      "adv": 3.254960060119629,
+      "grad_norm_d": 356.1773681640625,
+      "grad_norm_g": null,
+      "scale_before": 512.0,
+      "scale_after": 256.0,
+      "scale_reduced": true
+    },
+    {
+      "step": 9,
+      "epoch": 1,
+      "loss_d": 4.876263618469238,
+      "loss_g": 57.61308288574219,
+      "mel": 24.5835018157959,
+      "fm": 12.5390625,
+      "kl": 17.37105369567871,
+      "adv": 3.119466543197632,
+      "grad_norm_d": 160.74880981445312,
+      "grad_norm_g": 612.599609375,
+      "scale_before": 256.0,
+      "scale_after": 256.0,
+      "scale_reduced": false
+    },
+    {
+      "step": 10,
+      "epoch": 1,
+      "loss_d": 4.659868240356445,
+      "loss_g": 43.901973724365234,
+      "mel": 22.573938369750977,
+      "fm": 9.953125,
+      "kl": 8.41064167022705,
+      "adv": 2.9642677307128906,
+      "grad_norm_d": 191.09274291992188,
+      "grad_norm_g": 261.6438903808594,
+      "scale_before": 256.0,
+      "scale_after": 256.0,
+      "scale_reduced": false
+    },
+    {
+      "step": 11,
+      "epoch": 1,
+      "loss_d": 4.961434841156006,
+      "loss_g": 32.57802963256836,
+      "mel": 15.049361228942871,
+      "fm": 7.60546875,
+      "kl": 7.078890323638916,
+      "adv": 2.844308614730835,
+      "grad_norm_d": 157.47036743164062,
+      "grad_norm_g": 558.4702758789062,
+      "scale_before": 256.0,
+      "scale_after": 256.0,
+      "scale_reduced": false
+    },
+    {
+      "step": 12,
+      "epoch": 1,
+      "loss_d": 5.275599002838135,
+      "loss_g": 51.06421661376953,
+      "mel": 25.75091552734375,
+      "fm": 16.203125,
+      "kl": 5.554231643676758,
+      "adv": 3.5559465885162354,
+      "grad_norm_d": 381.23492431640625,
+      "grad_norm_g": 247.42039489746094,
+      "scale_before": 256.0,
+      "scale_after": 256.0,
+      "scale_reduced": false
+    },
+    {
+      "step": 13,
+      "epoch": 1,
+      "loss_d": 4.405813694000244,
+      "loss_g": 50.50281524658203,
+      "mel": 24.649206161499023,
+      "fm": 16.171875,
+      "kl": 4.878220081329346,
+      "adv": 4.803511619567871,
+      "grad_norm_d": 57.45528030395508,
+      "grad_norm_g": 421.1746520996094,
+      "scale_before": 256.0,
+      "scale_after": 256.0,
+      "scale_reduced": false
+    },
+    {
+      "step": 14,
+      "epoch": 1,
+      "loss_d": 4.329417705535889,
+      "loss_g": 42.60282897949219,
+      "mel": 22.336942672729492,
+      "fm": 12.328125,
+      "kl": 3.8165979385375977,
+      "adv": 4.121163368225098,
+      "grad_norm_d": 41.235694885253906,
+      "grad_norm_g": 288.9007873535156,
+      "scale_before": 256.0,
+      "scale_after": 256.0,
+      "scale_reduced": false
+    },
+    {
+      "step": 15,
+      "epoch": 1,
+      "loss_d": 4.814963340759277,
+      "loss_g": 46.1445198059082,
+      "mel": 22.821434020996094,
+      "fm": 14.8046875,
+      "kl": 4.472886562347412,
+      "adv": 4.045513153076172,
+      "grad_norm_d": 67.77342987060547,
+      "grad_norm_g": null,
+      "scale_before": 256.0,
+      "scale_after": 128.0,
+      "scale_reduced": true
+    },
+    {
+      "step": 16,
+      "epoch": 1,
+      "loss_d": 4.477806568145752,
+      "loss_g": 27.44519805908203,
+      "mel": 14.503776550292969,
+      "fm": 6.34765625,
+      "kl": 3.6921629905700684,
+      "adv": 2.901602268218994,
+      "grad_norm_d": 31.7669620513916,
+      "grad_norm_g": null,
+      "scale_before": 128.0,
+      "scale_after": 64.0,
+      "scale_reduced": true
+    },
+    {
+      "step": 17,
+      "epoch": 1,
+      "loss_d": 4.362316608428955,
+      "loss_g": 20.03297996520996,
+      "mel": 10.243918418884277,
+      "fm": 4.36328125,
+      "kl": 2.611692190170288,
+      "adv": 2.8140883445739746,
+      "grad_norm_d": 22.565446853637695,
+      "grad_norm_g": null,
+      "scale_before": 64.0,
+      "scale_after": 32.0,
+      "scale_reduced": true
+    },
+    {
+      "step": 18,
+      "epoch": 1,
+      "loss_d": 4.410165309906006,
+      "loss_g": 28.748403549194336,
+      "mel": 15.052727699279785,
+      "fm": 6.7578125,
+      "kl": 3.8582358360290527,
+      "adv": 3.0796260833740234,
+      "grad_norm_d": 34.976531982421875,
+      "grad_norm_g": 2436.816650390625,
+      "scale_before": 32.0,
+      "scale_after": 32.0,
+      "scale_reduced": false
+    },
+    {
+      "step": 19,
+      "epoch": 1,
+      "loss_d": 4.189745903015137,
+      "loss_g": 39.72929382324219,
+      "mel": 20.050525665283203,
+      "fm": 12.515625,
+      "kl": 4.061763286590576,
+      "adv": 3.101379156112671,
+      "grad_norm_d": 30.558425903320312,
+      "grad_norm_g": 257.5980529785156,
+      "scale_before": 32.0,
+      "scale_after": 32.0,
+      "scale_reduced": false
+    },
+    {
+      "step": 20,
+      "epoch": 1,
+      "loss_d": 4.251120090484619,
+      "loss_g": 39.402164459228516,
+      "mel": 21.351442337036133,
+      "fm": 11.9296875,
+      "kl": 2.8492655754089355,
+      "adv": 3.271768569946289,
+      "grad_norm_d": 28.89565658569336,
+      "grad_norm_g": 187.09913635253906,
+      "scale_before": 32.0,
+      "scale_after": 32.0,
+      "scale_reduced": false
+    },
+    {
+      "step": 21,
+      "epoch": 1,
+      "loss_d": 4.079626560211182,
+      "loss_g": 42.879329681396484,
+      "mel": 23.090530395507812,
+      "fm": 13.2109375,
+      "kl": 3.231130361557007,
+      "adv": 3.3467342853546143,
+      "grad_norm_d": 46.84478759765625,
+      "grad_norm_g": 156.8567657470703,
+      "scale_before": 32.0,
+      "scale_after": 32.0,
+      "scale_reduced": false
+    },
+    {
+      "step": 22,
+      "epoch": 1,
+      "loss_d": 4.1353960037231445,
+      "loss_g": 39.11979675292969,
+      "mel": 21.194843292236328,
+      "fm": 11.4921875,
+      "kl": 2.8908474445343018,
+      "adv": 3.5419185161590576,
+      "grad_norm_d": 26.47283172607422,
+      "grad_norm_g": 240.17495727539062,
+      "scale_before": 32.0,
+      "scale_after": 32.0,
+      "scale_reduced": false
+    },
+    {
+      "step": 23,
+      "epoch": 1,
+      "loss_d": 4.178145408630371,
+      "loss_g": 41.572757720947266,
+      "mel": 22.002426147460938,
+      "fm": 13.296875,
+      "kl": 2.732851266860962,
+      "adv": 3.54060435295105,
+      "grad_norm_d": 42.94558334350586,
+      "grad_norm_g": 236.43661499023438,
+      "scale_before": 32.0,
+      "scale_after": 32.0,
+      "scale_reduced": false
+    },
+    {
+      "step": 24,
+      "epoch": 1,
+      "loss_d": 4.051236629486084,
+      "loss_g": 37.642555236816406,
+      "mel": 18.948959350585938,
+      "fm": 12.3671875,
+      "kl": 3.225125551223755,
+      "adv": 3.1012847423553467,
+      "grad_norm_d": 41.2407112121582,
+      "grad_norm_g": 397.9347839355469,
+      "scale_before": 32.0,
+      "scale_after": 32.0,
+      "scale_reduced": false
+    },
+    {
+      "step": 25,
+      "epoch": 1,
+      "loss_d": 3.9091811180114746,
+      "loss_g": 40.805694580078125,
+      "mel": 19.94171905517578,
+      "fm": 14.40625,
+      "kl": 3.378929853439331,
+      "adv": 3.078798532485962,
+      "grad_norm_d": 37.219730377197266,
+      "grad_norm_g": 305.9461364746094,
+      "scale_before": 32.0,
+      "scale_after": 32.0,
+      "scale_reduced": false
+    },
+    {
+      "step": 26,
+      "epoch": 1,
+      "loss_d": 4.160454750061035,
+      "loss_g": 31.89423179626465,
+      "mel": 17.461204528808594,
+      "fm": 8.6875,
+      "kl": 2.8703665733337402,
+      "adv": 2.8751611709594727,
+      "grad_norm_d": 29.025733947753906,
+      "grad_norm_g": 363.1204528808594,
+      "scale_before": 32.0,
+      "scale_after": 32.0,
+      "scale_reduced": false
+    },
+    {
+      "step": 27,
+      "epoch": 1,
+      "loss_d": 4.202647686004639,
+      "loss_g": 38.06342697143555,
+      "mel": 20.43638801574707,
+      "fm": 11.5234375,
+      "kl": 3.1829965114593506,
+      "adv": 2.9206082820892334,
+      "grad_norm_d": 32.376224517822266,
+      "grad_norm_g": 277.53704833984375,
+      "scale_before": 32.0,
+      "scale_after": 32.0,
+      "scale_reduced": false
+    },
+    {
+      "step": 28,
+      "epoch": 1,
+      "loss_d": 4.034064769744873,
+      "loss_g": 37.56858825683594,
+      "mel": 19.86808204650879,
+      "fm": 11.5859375,
+      "kl": 2.8160667419433594,
+      "adv": 3.2985026836395264,
+      "grad_norm_d": 25.224369049072266,
+      "grad_norm_g": 456.0360412597656,
+      "scale_before": 32.0,
+      "scale_after": 32.0,
+      "scale_reduced": false
+    },
+    {
+      "step": 29,
+      "epoch": 1,
+      "loss_d": 4.096973419189453,
+      "loss_g": 41.654502868652344,
+      "mel": 21.705068588256836,
+      "fm": 14.4296875,
+      "kl": 2.3657689094543457,
+      "adv": 3.1539766788482666,
+      "grad_norm_d": 44.43830490112305,
+      "grad_norm_g": 205.98622131347656,
+      "scale_before": 32.0,
+      "scale_after": 32.0,
+      "scale_reduced": false
+    },
+    {
+      "step": 30,
+      "epoch": 1,
+      "loss_d": 4.249354362487793,
+      "loss_g": 35.42748260498047,
+      "mel": 18.871400833129883,
+      "fm": 10.8359375,
+      "kl": 2.76250958442688,
+      "adv": 2.9576363563537598,
+      "grad_norm_d": 42.532501220703125,
+      "grad_norm_g": 362.37353515625,
+      "scale_before": 32.0,
+      "scale_after": 32.0,
+      "scale_reduced": false
+    },
+    {
+      "step": 31,
+      "epoch": 1,
+      "loss_d": 4.1533637046813965,
+      "loss_g": 42.64019012451172,
+      "mel": 23.23959732055664,
+      "fm": 13.2421875,
+      "kl": 2.643176555633545,
+      "adv": 3.5152292251586914,
+      "grad_norm_d": 27.106002807617188,
+      "grad_norm_g": 122.0490951538086,
+      "scale_before": 32.0,
+      "scale_after": 32.0,
+      "scale_reduced": false
+    },
+    {
+      "step": 32,
+      "epoch": 2,
+      "loss_d": 4.309844970703125,
+      "loss_g": 30.85041046142578,
+      "mel": 17.034244537353516,
+      "fm": 8.078125,
+      "kl": 2.6190271377563477,
+      "adv": 3.1190149784088135,
+      "grad_norm_d": 37.19367218017578,
+      "grad_norm_g": 231.5113983154297,
+      "scale_before": 32.0,
+      "scale_after": 32.0,
+      "scale_reduced": false
+    },
+    {
+      "step": 33,
+      "epoch": 2,
+      "loss_d": 4.736730098724365,
+      "loss_g": 45.078125,
+      "mel": 23.354616165161133,
+      "fm": 16.15625,
+      "kl": 2.1644132137298584,
+      "adv": 3.4028480052948,
+      "grad_norm_d": 38.977882385253906,
+      "grad_norm_g": 171.77975463867188,
+      "scale_before": 32.0,
+      "scale_after": 32.0,
+      "scale_reduced": false
+    },
+    {
+      "step": 34,
+      "epoch": 2,
+      "loss_d": 4.253968238830566,
+      "loss_g": 43.58135986328125,
+      "mel": 23.153413772583008,
+      "fm": 14.3125,
+      "kl": 2.5835800170898438,
+      "adv": 3.5318679809570312,
+      "grad_norm_d": 130.19654846191406,
+      "grad_norm_g": 187.1336669921875,
+      "scale_before": 32.0,
+      "scale_after": 32.0,
+      "scale_reduced": false
+    },
+    {
+      "step": 35,
+      "epoch": 2,
+      "loss_d": 4.090030670166016,
+      "loss_g": 37.53390884399414,
+      "mel": 20.595232009887695,
+      "fm": 10.953125,
+      "kl": 2.725116729736328,
+      "adv": 3.2604331970214844,
+      "grad_norm_d": 21.637657165527344,
+      "grad_norm_g": 270.886474609375,
+      "scale_before": 32.0,
+      "scale_after": 32.0,
+      "scale_reduced": false
+    },
+    {
+      "step": 36,
+      "epoch": 2,
+      "loss_d": 4.419107437133789,
+      "loss_g": 30.674375534057617,
+      "mel": 15.337135314941406,
+      "fm": 10.1796875,
+      "kl": 2.0871479511260986,
+      "adv": 3.070403814315796,
+      "grad_norm_d": 43.266048431396484,
+      "grad_norm_g": 355.2757873535156,
+      "scale_before": 32.0,
+      "scale_after": 32.0,
+      "scale_reduced": false
+    },
+    {
+      "step": 37,
+      "epoch": 2,
+      "loss_d": 4.24841833114624,
+      "loss_g": 36.13194274902344,
+      "mel": 18.909278869628906,
+      "fm": 11.7890625,
+      "kl": 2.306793451309204,
+      "adv": 3.1268060207366943,
+      "grad_norm_d": 31.840110778808594,
+      "grad_norm_g": 205.64695739746094,
+      "scale_before": 32.0,
+      "scale_after": 32.0,
+      "scale_reduced": false
+    },
+    {
+      "step": 38,
+      "epoch": 2,
+      "loss_d": 4.072622299194336,
+      "loss_g": 40.437992095947266,
+      "mel": 21.576948165893555,
+      "fm": 13.5859375,
+      "kl": 2.0176610946655273,
+      "adv": 3.2574448585510254,
+      "grad_norm_d": 45.01276397705078,
+      "grad_norm_g": 512.5223388671875,
+      "scale_before": 32.0,
+      "scale_after": 32.0,
+      "scale_reduced": false
+    },
+    {
+      "step": 39,
+      "epoch": 2,
+      "loss_d": 4.205337047576904,
+      "loss_g": 43.53195571899414,
+      "mel": 23.402013778686523,
+      "fm": 14.4140625,
+      "kl": 2.355952262878418,
+      "adv": 3.359926223754883,
+      "grad_norm_d": 49.561927795410156,
+      "grad_norm_g": 120.0356216430664,
+      "scale_before": 32.0,
+      "scale_after": 32.0,
+      "scale_reduced": false
+    },
+    {
+      "step": 40,
+      "epoch": 2,
+      "loss_d": 4.128048419952393,
+      "loss_g": 32.94089889526367,
+      "mel": 18.158897399902344,
+      "fm": 9.9140625,
+      "kl": 1.6749776601791382,
+      "adv": 3.1929636001586914,
+      "grad_norm_d": 28.17032814025879,
+      "grad_norm_g": 303.1703796386719,
+      "scale_before": 32.0,
+      "scale_after": 32.0,
+      "scale_reduced": false
+    },
+    {
+      "step": 41,
+      "epoch": 2,
+      "loss_d": 4.4530863761901855,
+      "loss_g": 26.05487060546875,
+      "mel": 13.074882507324219,
+      "fm": 8.1796875,
+      "kl": 2.0013651847839355,
+      "adv": 2.7989346981048584,
+      "grad_norm_d": 40.463069915771484,
+      "grad_norm_g": 640.76513671875,
+      "scale_before": 32.0,
+      "scale_after": 32.0,
+      "scale_reduced": false
+    },
+    {
+      "step": 42,
+      "epoch": 2,
+      "loss_d": 4.034734725952148,
+      "loss_g": 40.514060974121094,
+      "mel": 21.08330535888672,
+      "fm": 13.734375,
+      "kl": 2.1761202812194824,
+      "adv": 3.5202598571777344,
+      "grad_norm_d": 20.219568252563477,
+      "grad_norm_g": 532.4379272460938,
+      "scale_before": 32.0,
+      "scale_after": 32.0,
+      "scale_reduced": false
+    },
+    {
+      "step": 43,
+      "epoch": 2,
+      "loss_d": 4.476521968841553,
+      "loss_g": 40.018272399902344,
+      "mel": 19.125654220581055,
+      "fm": 14.984375,
+      "kl": 2.5650272369384766,
+      "adv": 3.343214988708496,
+      "grad_norm_d": 44.292564392089844,
+      "grad_norm_g": 642.1966552734375,
+      "scale_before": 32.0,
+      "scale_after": 32.0,
+      "scale_reduced": false
+    },
+    {
+      "step": 44,
+      "epoch": 2,
+      "loss_d": 4.283773899078369,
+      "loss_g": 33.99264907836914,
+      "mel": 19.318981170654297,
+      "fm": 10.0234375,
+      "kl": 1.8065379858016968,
+      "adv": 2.8436942100524902,
+      "grad_norm_d": 59.390724182128906,
+      "grad_norm_g": 202.76596069335938,
+      "scale_before": 32.0,
+      "scale_after": 32.0,
+      "scale_reduced": false
+    },
+    {
+      "step": 45,
+      "epoch": 2,
+      "loss_d": 4.134259223937988,
+      "loss_g": 33.97666931152344,
+      "mel": 19.5374813079834,
+      "fm": 10.09375,
+      "kl": 1.109490990638733,
+      "adv": 3.2359461784362793,
+      "grad_norm_d": 21.73285484313965,
+      "grad_norm_g": 314.2066345214844,
+      "scale_before": 32.0,
+      "scale_after": 32.0,
+      "scale_reduced": false
+    },
+    {
+      "step": 46,
+      "epoch": 2,
+      "loss_d": 4.32589054107666,
+      "loss_g": 26.70595932006836,
+      "mel": 13.451889991760254,
+      "fm": 8.4140625,
+      "kl": 1.9468573331832886,
+      "adv": 2.893150568008423,
+      "grad_norm_d": 37.31298828125,
+      "grad_norm_g": 1824.2071533203125,
+      "scale_before": 32.0,
+      "scale_after": 32.0,
+      "scale_reduced": false
+    },
+    {
+      "step": 47,
+      "epoch": 2,
+      "loss_d": 3.97452974319458,
+      "loss_g": 40.600433349609375,
+      "mel": 20.749082565307617,
+      "fm": 14.1875,
+      "kl": 2.2868032455444336,
+      "adv": 3.377044200897217,
+      "grad_norm_d": 42.254329681396484,
+      "grad_norm_g": 413.91888427734375,
+      "scale_before": 32.0,
+      "scale_after": 32.0,
+      "scale_reduced": false
+    },
+    {
+      "step": 48,
+      "epoch": 2,
+      "loss_d": 4.8743133544921875,
+      "loss_g": 40.80875778198242,
+      "mel": 19.89755630493164,
+      "fm": 14.5703125,
+      "kl": 2.261103391647339,
+      "adv": 4.0797834396362305,
+      "grad_norm_d": 110.19261932373047,
+      "grad_norm_g": 954.65771484375,
+      "scale_before": 32.0,
+      "scale_after": 32.0,
+      "scale_reduced": false
+    },
+    {
+      "step": 49,
+      "epoch": 2,
+      "loss_d": 4.047121524810791,
+      "loss_g": 35.82890701293945,
+      "mel": 18.30487823486328,
+      "fm": 12.328125,
+      "kl": 1.9843337535858154,
+      "adv": 3.211568832397461,
+      "grad_norm_d": 30.696794509887695,
+      "grad_norm_g": 275.92755126953125,
+      "scale_before": 32.0,
+      "scale_after": 32.0,
+      "scale_reduced": false
+    },
+    {
+      "step": 50,
+      "epoch": 2,
+      "loss_d": 4.080606460571289,
+      "loss_g": 34.67915725708008,
+      "mel": 17.972965240478516,
+      "fm": 11.3125,
+      "kl": 2.266035795211792,
+      "adv": 3.127655029296875,
+      "grad_norm_d": 29.69455337524414,
+      "grad_norm_g": 295.14630126953125,
+      "scale_before": 32.0,
+      "scale_after": 32.0,
+      "scale_reduced": false
+    },
+    {
+      "step": 51,
+      "epoch": 2,
+      "loss_d": 4.163654804229736,
+      "loss_g": 19.860294342041016,
+      "mel": 10.283567428588867,
+      "fm": 4.609375,
+      "kl": 2.095547676086426,
+      "adv": 2.8718032836914062,
+      "grad_norm_d": 41.92521667480469,
+      "grad_norm_g": 628.7674560546875,
+      "scale_before": 32.0,
+      "scale_after": 32.0,
+      "scale_reduced": false
+    },
+    {
+      "step": 52,
+      "epoch": 2,
+      "loss_d": 3.9344518184661865,
+      "loss_g": 38.052486419677734,
+      "mel": 19.914894104003906,
+      "fm": 12.3515625,
+      "kl": 2.3330764770507812,
+      "adv": 3.452953815460205,
+      "grad_norm_d": 27.620180130004883,
+      "grad_norm_g": 343.92742919921875,
+      "scale_before": 32.0,
+      "scale_after": 32.0,
+      "scale_reduced": false
+    },
+    {
+      "step": 53,
+      "epoch": 2,
+      "loss_d": 4.201245307922363,
+      "loss_g": 33.7323112487793,
+      "mel": 16.60568618774414,
+      "fm": 12.0859375,
+      "kl": 1.9834649562835693,
+      "adv": 3.057223320007324,
+      "grad_norm_d": 38.29679489135742,
+      "grad_norm_g": 554.3158569335938,
+      "scale_before": 32.0,
+      "scale_after": 32.0,
+      "scale_reduced": false
+    },
+    {
+      "step": 54,
+      "epoch": 2,
+      "loss_d": 4.1204705238342285,
+      "loss_g": 43.98948669433594,
+      "mel": 22.488861083984375,
+      "fm": 16.359375,
+      "kl": 2.0058505535125732,
+      "adv": 3.1354005336761475,
+      "grad_norm_d": 38.047325134277344,
+      "grad_norm_g": 214.17620849609375,
+      "scale_before": 32.0,
+      "scale_after": 32.0,
+      "scale_reduced": false
+    },
+    {
+      "step": 55,
+      "epoch": 2,
+      "loss_d": 3.9953207969665527,
+      "loss_g": 41.39799118041992,
+      "mel": 22.759979248046875,
+      "fm": 13.1796875,
+      "kl": 1.9515818357467651,
+      "adv": 3.5067434310913086,
+      "grad_norm_d": 26.485279083251953,
+      "grad_norm_g": 150.88516235351562,
+      "scale_before": 32.0,
+      "scale_after": 32.0,
+      "scale_reduced": false
+    },
+    {
+      "step": 56,
+      "epoch": 2,
+      "loss_d": 4.059813976287842,
+      "loss_g": 38.470298767089844,
+      "mel": 20.071327209472656,
+      "fm": 12.90625,
+      "kl": 1.9326627254486084,
+      "adv": 3.560058355331421,
+      "grad_norm_d": 48.54436111450195,
+      "grad_norm_g": 367.2792663574219,
+      "scale_before": 32.0,
+      "scale_after": 32.0,
+      "scale_reduced": false
+    },
+    {
+      "step": 57,
+      "epoch": 2,
+      "loss_d": 4.151111125946045,
+      "loss_g": 36.000205993652344,
+      "mel": 18.856454849243164,
+      "fm": 12.21875,
+      "kl": 1.8580589294433594,
+      "adv": 3.066941261291504,
+      "grad_norm_d": 18.7636775970459,
+      "grad_norm_g": 309.09185791015625,
+      "scale_before": 32.0,
+      "scale_after": 32.0,
+      "scale_reduced": false
+    },
+    {
+      "step": 58,
+      "epoch": 2,
+      "loss_d": 4.1567277908325195,
+      "loss_g": 35.417266845703125,
+      "mel": 17.727710723876953,
+      "fm": 13.171875,
+      "kl": 1.2631237506866455,
+      "adv": 3.2545580863952637,
+      "grad_norm_d": 32.08543395996094,
+      "grad_norm_g": 436.95831298828125,
+      "scale_before": 32.0,
+      "scale_after": 32.0,
+      "scale_reduced": false
+    },
+    {
+      "step": 59,
+      "epoch": 2,
+      "loss_d": 4.145593166351318,
+      "loss_g": 37.139495849609375,
+      "mel": 20.337867736816406,
+      "fm": 11.59375,
+      "kl": 1.6550606489181519,
+      "adv": 3.55281925201416,
+      "grad_norm_d": 35.9011116027832,
+      "grad_norm_g": 151.62588500976562,
+      "scale_before": 32.0,
+      "scale_after": 32.0,
+      "scale_reduced": false
+    },
+    {
+      "step": 60,
+      "epoch": 2,
+      "loss_d": 4.1271748542785645,
+      "loss_g": 39.22690200805664,
+      "mel": 21.75150489807129,
+      "fm": 11.96875,
+      "kl": 2.102733612060547,
+      "adv": 3.4039154052734375,
+      "grad_norm_d": 43.17228317260742,
+      "grad_norm_g": 216.5423126220703,
+      "scale_before": 32.0,
+      "scale_after": 32.0,
+      "scale_reduced": false
+    },
+    {
+      "step": 61,
+      "epoch": 2,
+      "loss_d": 4.36358118057251,
+      "loss_g": 28.089433670043945,
+      "mel": 15.421817779541016,
+      "fm": 7.6875,
+      "kl": 2.2000229358673096,
+      "adv": 2.7800917625427246,
+      "grad_norm_d": 26.66215705871582,
+      "grad_norm_g": 1229.0523681640625,
+      "scale_before": 32.0,
+      "scale_after": 32.0,
+      "scale_reduced": false
+    },
+    {
+      "step": 62,
+      "epoch": 2,
+      "loss_d": 4.191983222961426,
+      "loss_g": 37.49177169799805,
+      "mel": 21.08172607421875,
+      "fm": 11.3046875,
+      "kl": 2.1910579204559326,
+      "adv": 2.9142985343933105,
+      "grad_norm_d": 26.190526962280273,
+      "grad_norm_g": 226.57894897460938,
+      "scale_before": 32.0,
+      "scale_after": 32.0,
+      "scale_reduced": false
+    },
+    {
+      "step": 63,
+      "epoch": 3,
+      "loss_d": 4.080112457275391,
+      "loss_g": 38.62117385864258,
+      "mel": 21.813732147216797,
+      "fm": 12.265625,
+      "kl": 1.6379660367965698,
+      "adv": 2.9038515090942383,
+      "grad_norm_d": 35.532493591308594,
+      "grad_norm_g": 130.44552612304688,
+      "scale_before": 32.0,
+      "scale_after": 32.0,
+      "scale_reduced": false
+    },
+    {
+      "step": 64,
+      "epoch": 3,
+      "loss_d": 4.246435642242432,
+      "loss_g": 26.163402557373047,
+      "mel": 14.165701866149902,
+      "fm": 7.9609375,
+      "kl": 1.208109974861145,
+      "adv": 2.8286514282226562,
+      "grad_norm_d": 60.41398239135742,
+      "grad_norm_g": 561.6528930664062,
+      "scale_before": 32.0,
+      "scale_after": 32.0,
+      "scale_reduced": false
+    },
+    {
+      "step": 65,
+      "epoch": 3,
+      "loss_d": 4.302121639251709,
+      "loss_g": 29.2742977142334,
+      "mel": 15.247356414794922,
+      "fm": 9.0859375,
+      "kl": 1.7889469861984253,
+      "adv": 3.1520566940307617,
+      "grad_norm_d": 43.53976821899414,
+      "grad_norm_g": 466.29278564453125,
+      "scale_before": 32.0,
+      "scale_after": 32.0,
+      "scale_reduced": false
+    },
+    {
+      "step": 66,
+      "epoch": 3,
+      "loss_d": 4.061728477478027,
+      "loss_g": 39.22884750366211,
+      "mel": 20.02482032775879,
+      "fm": 13.515625,
+      "kl": 2.049664258956909,
+      "adv": 3.6387412548065186,
+      "grad_norm_d": 86.74567413330078,
+      "grad_norm_g": 258.87689208984375,
+      "scale_before": 32.0,
+      "scale_after": 32.0,
+      "scale_reduced": false
+    },
+    {
+      "step": 67,
+      "epoch": 3,
+      "loss_d": 3.999999761581421,
+      "loss_g": 35.01576614379883,
+      "mel": 20.11873435974121,
+      "fm": 9.8515625,
+      "kl": 1.9302698373794556,
+      "adv": 3.115199565887451,
+      "grad_norm_d": 31.837827682495117,
+      "grad_norm_g": 142.0192108154297,
+      "scale_before": 32.0,
+      "scale_after": 32.0,
+      "scale_reduced": false
+    },
+    {
+      "step": 68,
+      "epoch": 3,
+      "loss_d": 4.08080530166626,
+      "loss_g": 28.804290771484375,
+      "mel": 15.998852729797363,
+      "fm": 8.1953125,
+      "kl": 1.620441198348999,
+      "adv": 2.989685535430908,
+      "grad_norm_d": 26.74732208251953,
+      "grad_norm_g": 705.8560180664062,
+      "scale_before": 32.0,
+      "scale_after": 32.0,
+      "scale_reduced": false
+    },
+    {
+      "step": 69,
+      "epoch": 3,
+      "loss_d": 4.147904396057129,
+      "loss_g": 25.801124572753906,
+      "mel": 14.639859199523926,
+      "fm": 7.1328125,
+      "kl": 1.3175878524780273,
+      "adv": 2.7108657360076904,
+      "grad_norm_d": 30.57483673095703,
+      "grad_norm_g": 622.2930297851562,
+      "scale_before": 32.0,
+      "scale_after": 32.0,
+      "scale_reduced": false
+    },
+    {
+      "step": 70,
+      "epoch": 3,
+      "loss_d": 4.146984577178955,
+      "loss_g": 31.241291046142578,
+      "mel": 17.49656105041504,
+      "fm": 8.8671875,
+      "kl": 1.8230690956115723,
+      "adv": 3.054473876953125,
+      "grad_norm_d": 23.668052673339844,
+      "grad_norm_g": 363.1251525878906,
+      "scale_before": 32.0,
+      "scale_after": 32.0,
+      "scale_reduced": false
+    },
+    {
+      "step": 71,
+      "epoch": 3,
+      "loss_d": 4.077076435089111,
+      "loss_g": 38.717124938964844,
+      "mel": 19.026153564453125,
+      "fm": 14.5078125,
+      "kl": 1.7322731018066406,
+      "adv": 3.4508860111236572,
+      "grad_norm_d": 111.70221710205078,
+      "grad_norm_g": 322.9229736328125,
+      "scale_before": 32.0,
+      "scale_after": 32.0,
+      "scale_reduced": false
+    },
+    {
+      "step": 72,
+      "epoch": 3,
+      "loss_d": 4.154914855957031,
+      "loss_g": 29.978689193725586,
+      "mel": 15.623644828796387,
+      "fm": 9.5546875,
+      "kl": 1.8617836236953735,
+      "adv": 2.9385721683502197,
+      "grad_norm_d": 88.87982940673828,
+      "grad_norm_g": 882.327880859375,
+      "scale_before": 32.0,
+      "scale_after": 32.0,
+      "scale_reduced": false
+    },
+    {
+      "step": 73,
+      "epoch": 3,
+      "loss_d": 4.126349925994873,
+      "loss_g": 36.20867919921875,
+      "mel": 19.1733455657959,
+      "fm": 12.265625,
+      "kl": 1.6790165901184082,
+      "adv": 3.090693950653076,
+      "grad_norm_d": 35.0802116394043,
+      "grad_norm_g": 298.2701110839844,
+      "scale_before": 32.0,
+      "scale_after": 32.0,
+      "scale_reduced": false
+    },
+    {
+      "step": 74,
+      "epoch": 3,
+      "loss_d": 4.280307769775391,
+      "loss_g": 34.016578674316406,
+      "mel": 18.900827407836914,
+      "fm": 10.359375,
+      "kl": 1.5036258697509766,
+      "adv": 3.2527496814727783,
+      "grad_norm_d": 50.57354736328125,
+      "grad_norm_g": 322.7880859375,
+      "scale_before": 32.0,
+      "scale_after": 32.0,
+      "scale_reduced": false
+    },
+    {
+      "step": 75,
+      "epoch": 3,
+      "loss_d": 4.185469150543213,
+      "loss_g": 38.754417419433594,
+      "mel": 19.578765869140625,
+      "fm": 13.375,
+      "kl": 2.3157806396484375,
+      "adv": 3.484873056411743,
+      "grad_norm_d": 24.787668228149414,
+      "grad_norm_g": 258.99688720703125,
+      "scale_before": 32.0,
+      "scale_after": 32.0,
+      "scale_reduced": false
+    },
+    {
+      "step": 76,
+      "epoch": 3,
+      "loss_d": 4.065774917602539,
+      "loss_g": 42.280941009521484,
+      "mel": 21.4942684173584,
+      "fm": 14.8203125,
+      "kl": 2.0848796367645264,
+      "adv": 3.8814783096313477,
+      "grad_norm_d": 29.79633331298828,
+      "grad_norm_g": 167.95936584472656,
+      "scale_before": 32.0,
+      "scale_after": 32.0,
+      "scale_reduced": false
+    },
+    {
+      "step": 77,
+      "epoch": 3,
+      "loss_d": 4.337580680847168,
+      "loss_g": 44.601558685302734,
+      "mel": 23.008865356445312,
+      "fm": 15.8046875,
+      "kl": 1.9932365417480469,
+      "adv": 3.794771194458008,
+      "grad_norm_d": 42.02756118774414,
+      "grad_norm_g": 143.85470581054688,
+      "scale_before": 32.0,
+      "scale_after": 32.0,
+      "scale_reduced": false
+    },
+    {
+      "step": 78,
+      "epoch": 3,
+      "loss_d": 4.1863274574279785,
+      "loss_g": 29.679777145385742,
+      "mel": 15.779150009155273,
+      "fm": 9.1796875,
+      "kl": 1.7049294710159302,
+      "adv": 3.01600980758667,
+      "grad_norm_d": 26.498371124267578,
+      "grad_norm_g": 586.94482421875,
+      "scale_before": 32.0,
+      "scale_after": 32.0,
+      "scale_reduced": false
+    },
+    {
+      "step": 79,
+      "epoch": 3,
+      "loss_d": 4.174300193786621,
+      "loss_g": 30.144500732421875,
+      "mel": 16.280805587768555,
+      "fm": 9.3984375,
+      "kl": 1.4270741939544678,
+      "adv": 3.0381832122802734,
+      "grad_norm_d": 19.26103401184082,
+      "grad_norm_g": 831.69873046875,
+      "scale_before": 32.0,
+      "scale_after": 32.0,
+      "scale_reduced": false
+    },
+    {
+      "step": 80,
+      "epoch": 3,
+      "loss_d": 4.386662006378174,
+      "loss_g": 26.50840950012207,
+      "mel": 14.84476089477539,
+      "fm": 6.95703125,
+      "kl": 1.9475343227386475,
+      "adv": 2.759082078933716,
+      "grad_norm_d": 33.257469177246094,
+      "grad_norm_g": 502.2400207519531,
+      "scale_before": 32.0,
+      "scale_after": 32.0,
+      "scale_reduced": false
+    },
+    {
+      "step": 81,
+      "epoch": 3,
+      "loss_d": 4.135239124298096,
+      "loss_g": 35.47882080078125,
+      "mel": 19.071346282958984,
+      "fm": 11.4375,
+      "kl": 1.7560100555419922,
+      "adv": 3.21396541595459,
+      "grad_norm_d": 78.67066192626953,
+      "grad_norm_g": 201.4666748046875,
+      "scale_before": 32.0,
+      "scale_after": 32.0,
+      "scale_reduced": false
+    },
+    {
+      "step": 82,
+      "epoch": 3,
+      "loss_d": 4.327851295471191,
+      "loss_g": 26.649791717529297,
+      "mel": 14.339320182800293,
+      "fm": 8.3984375,
+      "kl": 1.0520164966583252,
+      "adv": 2.860015392303467,
+      "grad_norm_d": 49.02758026123047,
+      "grad_norm_g": 389.3743896484375,
+      "scale_before": 32.0,
+      "scale_after": 32.0,
+      "scale_reduced": false
+    },
+    {
+      "step": 83,
+      "epoch": 3,
+      "loss_d": 4.203351020812988,
+      "loss_g": 34.773536682128906,
+      "mel": 18.68488311767578,
+      "fm": 11.015625,
+      "kl": 1.9611350297927856,
+      "adv": 3.1118924617767334,
+      "grad_norm_d": 43.485877990722656,
+      "grad_norm_g": 235.8961944580078,
+      "scale_before": 32.0,
+      "scale_after": 32.0,
+      "scale_reduced": false
+    },
+    {
+      "step": 84,
+      "epoch": 3,
+      "loss_d": 4.29307222366333,
+      "loss_g": 38.68543243408203,
+      "mel": 20.770614624023438,
+      "fm": 12.296875,
+      "kl": 2.2913706302642822,
+      "adv": 3.326573371887207,
+      "grad_norm_d": 56.55924606323242,
+      "grad_norm_g": 123.16709899902344,
+      "scale_before": 32.0,
+      "scale_after": 32.0,
+      "scale_reduced": false
+    },
+    {
+      "step": 85,
+      "epoch": 3,
+      "loss_d": 4.233089923858643,
+      "loss_g": 36.221073150634766,
+      "mel": 19.232328414916992,
+      "fm": 11.796875,
+      "kl": 2.0466818809509277,
+      "adv": 3.145188808441162,
+      "grad_norm_d": 57.12934875488281,
+      "grad_norm_g": 217.85940551757812,
+      "scale_before": 32.0,
+      "scale_after": 32.0,
+      "scale_reduced": false
+    },
+    {
+      "step": 86,
+      "epoch": 3,
+      "loss_d": 4.152159214019775,
+      "loss_g": 37.722694396972656,
+      "mel": 21.372417449951172,
+      "fm": 11.375,
+      "kl": 1.6530430316925049,
+      "adv": 3.322234630584717,
+      "grad_norm_d": 30.657197952270508,
+      "grad_norm_g": 151.71762084960938,
+      "scale_before": 32.0,
+      "scale_after": 32.0,
+      "scale_reduced": false
+    },
+    {
+      "step": 87,
+      "epoch": 3,
+      "loss_d": 4.022631645202637,
+      "loss_g": 36.785858154296875,
+      "mel": 19.139585494995117,
+      "fm": 12.0390625,
+      "kl": 2.3192098140716553,
+      "adv": 3.2880008220672607,
+      "grad_norm_d": 37.982181549072266,
+      "grad_norm_g": 250.87265014648438,
+      "scale_before": 32.0,
+      "scale_after": 32.0,
+      "scale_reduced": false
+    },
+    {
+      "step": 88,
+      "epoch": 3,
+      "loss_d": 4.064053058624268,
+      "loss_g": 30.897483825683594,
+      "mel": 16.143136978149414,
+      "fm": 9.984375,
+      "kl": 1.6588484048843384,
+      "adv": 3.1111245155334473,
+      "grad_norm_d": 68.82830047607422,
+      "grad_norm_g": 589.2052612304688,
+      "scale_before": 32.0,
+      "scale_after": 32.0,
+      "scale_reduced": false
+    },
+    {
+      "step": 89,
+      "epoch": 3,
+      "loss_d": 4.140175819396973,
+      "loss_g": 24.015125274658203,
+      "mel": 13.318873405456543,
+      "fm": 6.05859375,
+      "kl": 1.6440175771713257,
+      "adv": 2.9936397075653076,
+      "grad_norm_d": 21.91852378845215,
+      "grad_norm_g": 1016.4686279296875,
+      "scale_before": 32.0,
+      "scale_after": 32.0,
+      "scale_reduced": false
+    },
+    {
+      "step": 90,
+      "epoch": 3,
+      "loss_d": 3.8491783142089844,
+      "loss_g": 40.2615966796875,
+      "mel": 19.451995849609375,
+      "fm": 15.078125,
+      "kl": 2.2037272453308105,
+      "adv": 3.5277504920959473,
+      "grad_norm_d": 65.77600860595703,
+      "grad_norm_g": 1415.7681884765625,
+      "scale_before": 32.0,
+      "scale_after": 32.0,
+      "scale_reduced": false
+    },
+    {
+      "step": 91,
+      "epoch": 3,
+      "loss_d": 3.9587836265563965,
+      "loss_g": 32.575016021728516,
+      "mel": 17.03567123413086,
+      "fm": 11.109375,
+      "kl": 1.4652122259140015,
+      "adv": 2.9647579193115234,
+      "grad_norm_d": 14.52071762084961,
+      "grad_norm_g": 244.3910369873047,
+      "scale_before": 32.0,
+      "scale_after": 32.0,
+      "scale_reduced": false
+    },
+    {
+      "step": 92,
+      "epoch": 3,
+      "loss_d": 3.8966383934020996,
+      "loss_g": 36.531864166259766,
+      "mel": 19.899173736572266,
+      "fm": 11.7578125,
+      "kl": 1.7478607892990112,
+      "adv": 3.127019166946411,
+      "grad_norm_d": 33.49960708618164,
+      "grad_norm_g": 154.37171936035156,
+      "scale_before": 32.0,
+      "scale_after": 32.0,
+      "scale_reduced": false
+    },
+    {
+      "step": 93,
+      "epoch": 3,
+      "loss_d": 3.6893885135650635,
+      "loss_g": 42.806007385253906,
+      "mel": 21.705873489379883,
+      "fm": 15.8515625,
+      "kl": 1.808534026145935,
+      "adv": 3.4400389194488525,
+      "grad_norm_d": 28.80701446533203,
+      "grad_norm_g": 153.59078979492188,
+      "scale_before": 32.0,
+      "scale_after": 32.0,
+      "scale_reduced": false
+    }
+  ],
+  "conv_calls": {
+    "e45a387d9885": {
+      "kind": "Conv1d",
+      "input": [
+        8,
+        192,
+        298
+      ],
+      "weight": [
+        192,
+        192,
+        1
+      ],
+      "input_dtype": "torch.float16",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        1
+      ],
+      "padding": [
+        0
+      ],
+      "dilation": [
+        1
+      ],
+      "groups": 1,
+      "output_padding": [
+        0
+      ],
+      "count": 9
+    },
+    "946a9627263f": {
+      "kind": "Conv1d",
+      "input": [
+        8,
+        192,
+        300
+      ],
+      "weight": [
+        768,
+        192,
+        3
+      ],
+      "input_dtype": "torch.float32",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        1
+      ],
+      "padding": [
+        0
+      ],
+      "dilation": [
+        1
+      ],
+      "groups": 1,
+      "output_padding": [
+        0
+      ],
+      "count": 6
+    },
+    "4a5a1c44994d": {
+      "kind": "Conv1d",
+      "input": [
+        8,
+        768,
+        300
+      ],
+      "weight": [
+        192,
+        768,
+        3
+      ],
+      "input_dtype": "torch.float16",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        1
+      ],
+      "padding": [
+        0
+      ],
+      "dilation": [
+        1
+      ],
+      "groups": 1,
+      "output_padding": [
+        0
+      ],
+      "count": 6
+    },
+    "316326e95983": {
+      "kind": "Conv1d",
+      "input": [
+        8,
+        192,
+        298
+      ],
+      "weight": [
+        192,
+        192,
+        1
+      ],
+      "input_dtype": "torch.float32",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        1
+      ],
+      "padding": [
+        0
+      ],
+      "dilation": [
+        1
+      ],
+      "groups": 1,
+      "output_padding": [
+        0
+      ],
+      "count": 15
+    },
+    "4bb78d999b74": {
+      "kind": "Conv1d",
+      "input": [
+        8,
+        192,
+        298
+      ],
+      "weight": [
+        384,
+        192,
+        1
+      ],
+      "input_dtype": "torch.float32",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        1
+      ],
+      "padding": [
+        0
+      ],
+      "dilation": [
+        1
+      ],
+      "groups": 1,
+      "output_padding": [
+        0
+      ],
+      "count": 2
+    },
+    "515e3a9d3287": {
+      "kind": "Conv1d",
+      "input": [
+        8,
+        1025,
+        298
+      ],
+      "weight": [
+        192,
+        1025,
+        1
+      ],
+      "input_dtype": "torch.float32",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        1
+      ],
+      "padding": [
+        0
+      ],
+      "dilation": [
+        1
+      ],
+      "groups": 1,
+      "output_padding": [
+        0
+      ],
+      "count": 1
+    },
+    "e851f1cf1f83": {
+      "kind": "ParametrizedConv1d",
+      "input": [
+        8,
+        256,
+        1
+      ],
+      "weight": [
+        6144,
+        256,
+        1
+      ],
+      "input_dtype": "torch.float32",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        1
+      ],
+      "padding": [
+        0
+      ],
+      "dilation": [
+        1
+      ],
+      "groups": 1,
+      "output_padding": [
+        0
+      ],
+      "count": 5
+    },
+    "439b1010fce0": {
+      "kind": "ParametrizedConv1d",
+      "input": [
+        8,
+        192,
+        298
+      ],
+      "weight": [
+        384,
+        192,
+        5
+      ],
+      "input_dtype": "torch.float32",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        1
+      ],
+      "padding": [
+        2
+      ],
+      "dilation": [
+        1
+      ],
+      "groups": 1,
+      "output_padding": [
+        0
+      ],
+      "count": 28
+    },
+    "d49f11de2b59": {
+      "kind": "ParametrizedConv1d",
+      "input": [
+        8,
+        192,
+        298
+      ],
+      "weight": [
+        384,
+        192,
+        1
+      ],
+      "input_dtype": "torch.float32",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        1
+      ],
+      "padding": [
+        0
+      ],
+      "dilation": [
+        1
+      ],
+      "groups": 1,
+      "output_padding": [
+        0
+      ],
+      "count": 23
+    },
+    "17fdfa29fa95": {
+      "kind": "ParametrizedConv1d",
+      "input": [
+        8,
+        192,
+        298
+      ],
+      "weight": [
+        192,
+        192,
+        1
+      ],
+      "input_dtype": "torch.float32",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        1
+      ],
+      "padding": [
+        0
+      ],
+      "dilation": [
+        1
+      ],
+      "groups": 1,
+      "output_padding": [
+        0
+      ],
+      "count": 5
+    },
+    "3589e7f2cf9d": {
+      "kind": "Conv1d",
+      "input": [
+        8,
+        96,
+        298
+      ],
+      "weight": [
+        192,
+        96,
+        1
+      ],
+      "input_dtype": "torch.float32",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        1
+      ],
+      "padding": [
+        0
+      ],
+      "dilation": [
+        1
+      ],
+      "groups": 1,
+      "output_padding": [
+        0
+      ],
+      "count": 4
+    },
+    "2776f1a19cca": {
+      "kind": "ParametrizedConv1d",
+      "input": [
+        8,
+        256,
+        1
+      ],
+      "weight": [
+        1152,
+        256,
+        1
+      ],
+      "input_dtype": "torch.float32",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        1
+      ],
+      "padding": [
+        0
+      ],
+      "dilation": [
+        1
+      ],
+      "groups": 1,
+      "output_padding": [
+        0
+      ],
+      "count": 20
+    },
+    "a12420a08138": {
+      "kind": "Conv1d",
+      "input": [
+        8,
+        192,
+        298
+      ],
+      "weight": [
+        96,
+        192,
+        1
+      ],
+      "input_dtype": "torch.float32",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        1
+      ],
+      "padding": [
+        0
+      ],
+      "dilation": [
+        1
+      ],
+      "groups": 1,
+      "output_padding": [
+        0
+      ],
+      "count": 4
+    },
+    "a8718bbd1647": {
+      "kind": "Conv1d",
+      "input": [
+        8,
+        192,
+        32
+      ],
+      "weight": [
+        512,
+        192,
+        7
+      ],
+      "input_dtype": "torch.float32",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        1
+      ],
+      "padding": [
+        3
+      ],
+      "dilation": [
+        1
+      ],
+      "groups": 1,
+      "output_padding": [
+        0
+      ],
+      "count": 5
+    },
+    "84c10b695508": {
+      "kind": "Conv1d",
+      "input": [
+        8,
+        256,
+        1
+      ],
+      "weight": [
+        512,
+        256,
+        1
+      ],
+      "input_dtype": "torch.float32",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        1
+      ],
+      "padding": [
+        0
+      ],
+      "dilation": [
+        1
+      ],
+      "groups": 1,
+      "output_padding": [
+        0
+      ],
+      "count": 5
+    },
+    "3cff049c6aff": {
+      "kind": "ParametrizedConvTranspose1d",
+      "input": [
+        8,
+        512,
+        32
+      ],
+      "weight": [
+        512,
+        256,
+        16
+      ],
+      "input_dtype": "torch.float16",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        10
+      ],
+      "padding": [
+        3
+      ],
+      "dilation": [
+        1
+      ],
+      "groups": 1,
+      "output_padding": [
+        0
+      ],
+      "count": 5
+    },
+    "4a62b384012e": {
+      "kind": "Conv1d",
+      "input": [
+        8,
+        1,
+        12800
+      ],
+      "weight": [
+        256,
+        1,
+        80
+      ],
+      "input_dtype": "torch.float16",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        40
+      ],
+      "padding": [
+        20
+      ],
+      "dilation": [
+        1
+      ],
+      "groups": 1,
+      "output_padding": [
+        0
+      ],
+      "count": 5
+    },
+    "503803ef6635": {
+      "kind": "ParametrizedConv1d",
+      "input": [
+        8,
+        256,
+        320
+      ],
+      "weight": [
+        256,
+        256,
+        3
+      ],
+      "input_dtype": "torch.float16",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        1
+      ],
+      "padding": [
+        1
+      ],
+      "dilation": [
+        1
+      ],
+      "groups": 1,
+      "output_padding": [
+        0
+      ],
+      "count": 20
+    },
+    "4b4555c33e12": {
+      "kind": "ParametrizedConv1d",
+      "input": [
+        8,
+        256,
+        320
+      ],
+      "weight": [
+        256,
+        256,
+        3
+      ],
+      "input_dtype": "torch.float16",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        1
+      ],
+      "padding": [
+        3
+      ],
+      "dilation": [
+        3
+      ],
+      "groups": 1,
+      "output_padding": [
+        0
+      ],
+      "count": 5
+    },
+    "08998ac5e999": {
+      "kind": "ParametrizedConv1d",
+      "input": [
+        8,
+        256,
+        320
+      ],
+      "weight": [
+        256,
+        256,
+        3
+      ],
+      "input_dtype": "torch.float16",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        1
+      ],
+      "padding": [
+        5
+      ],
+      "dilation": [
+        5
+      ],
+      "groups": 1,
+      "output_padding": [
+        0
+      ],
+      "count": 5
+    },
+    "e67b882fac43": {
+      "kind": "ParametrizedConv1d",
+      "input": [
+        8,
+        256,
+        320
+      ],
+      "weight": [
+        256,
+        256,
+        7
+      ],
+      "input_dtype": "torch.float16",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        1
+      ],
+      "padding": [
+        3
+      ],
+      "dilation": [
+        1
+      ],
+      "groups": 1,
+      "output_padding": [
+        0
+      ],
+      "count": 20
+    },
+    "126911079844": {
+      "kind": "ParametrizedConv1d",
+      "input": [
+        8,
+        256,
+        320
+      ],
+      "weight": [
+        256,
+        256,
+        7
+      ],
+      "input_dtype": "torch.float16",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        1
+      ],
+      "padding": [
+        9
+      ],
+      "dilation": [
+        3
+      ],
+      "groups": 1,
+      "output_padding": [
+        0
+      ],
+      "count": 5
+    },
+    "221949c4a611": {
+      "kind": "ParametrizedConv1d",
+      "input": [
+        8,
+        256,
+        320
+      ],
+      "weight": [
+        256,
+        256,
+        7
+      ],
+      "input_dtype": "torch.float16",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        1
+      ],
+      "padding": [
+        15
+      ],
+      "dilation": [
+        5
+      ],
+      "groups": 1,
+      "output_padding": [
+        0
+      ],
+      "count": 5
+    },
+    "ff53041a95bd": {
+      "kind": "ParametrizedConv1d",
+      "input": [
+        8,
+        256,
+        320
+      ],
+      "weight": [
+        256,
+        256,
+        11
+      ],
+      "input_dtype": "torch.float16",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        1
+      ],
+      "padding": [
+        5
+      ],
+      "dilation": [
+        1
+      ],
+      "groups": 1,
+      "output_padding": [
+        0
+      ],
+      "count": 20
+    },
+    "4502bc7e9306": {
+      "kind": "ParametrizedConv1d",
+      "input": [
+        8,
+        256,
+        320
+      ],
+      "weight": [
+        256,
+        256,
+        11
+      ],
+      "input_dtype": "torch.float16",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        1
+      ],
+      "padding": [
+        15
+      ],
+      "dilation": [
+        3
+      ],
+      "groups": 1,
+      "output_padding": [
+        0
+      ],
+      "count": 5
+    },
+    "b179f16ed937": {
+      "kind": "ParametrizedConv1d",
+      "input": [
+        8,
+        256,
+        320
+      ],
+      "weight": [
+        256,
+        256,
+        11
+      ],
+      "input_dtype": "torch.float16",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        1
+      ],
+      "padding": [
+        25
+      ],
+      "dilation": [
+        5
+      ],
+      "groups": 1,
+      "output_padding": [
+        0
+      ],
+      "count": 5
+    },
+    "bcb0cffabbfe": {
+      "kind": "ParametrizedConvTranspose1d",
+      "input": [
+        8,
+        256,
+        320
+      ],
+      "weight": [
+        256,
+        128,
+        16
+      ],
+      "input_dtype": "torch.float16",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        10
+      ],
+      "padding": [
+        3
+      ],
+      "dilation": [
+        1
+      ],
+      "groups": 1,
+      "output_padding": [
+        0
+      ],
+      "count": 5
+    },
+    "a3e854da8034": {
+      "kind": "Conv1d",
+      "input": [
+        8,
+        1,
+        12800
+      ],
+      "weight": [
+        128,
+        1,
+        8
+      ],
+      "input_dtype": "torch.float16",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        4
+      ],
+      "padding": [
+        2
+      ],
+      "dilation": [
+        1
+      ],
+      "groups": 1,
+      "output_padding": [
+        0
+      ],
+      "count": 5
+    },
+    "98f1895a6839": {
+      "kind": "ParametrizedConv1d",
+      "input": [
+        8,
+        128,
+        3200
+      ],
+      "weight": [
+        128,
+        128,
+        3
+      ],
+      "input_dtype": "torch.float16",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        1
+      ],
+      "padding": [
+        1
+      ],
+      "dilation": [
+        1
+      ],
+      "groups": 1,
+      "output_padding": [
+        0
+      ],
+      "count": 20
+    },
+    "aa3ce5d9bfc4": {
+      "kind": "ParametrizedConv1d",
+      "input": [
+        8,
+        128,
+        3200
+      ],
+      "weight": [
+        128,
+        128,
+        3
+      ],
+      "input_dtype": "torch.float16",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        1
+      ],
+      "padding": [
+        3
+      ],
+      "dilation": [
+        3
+      ],
+      "groups": 1,
+      "output_padding": [
+        0
+      ],
+      "count": 5
+    },
+    "8475855691cf": {
+      "kind": "ParametrizedConv1d",
+      "input": [
+        8,
+        128,
+        3200
+      ],
+      "weight": [
+        128,
+        128,
+        3
+      ],
+      "input_dtype": "torch.float16",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        1
+      ],
+      "padding": [
+        5
+      ],
+      "dilation": [
+        5
+      ],
+      "groups": 1,
+      "output_padding": [
+        0
+      ],
+      "count": 5
+    },
+    "f99c3e3185dd": {
+      "kind": "ParametrizedConv1d",
+      "input": [
+        8,
+        128,
+        3200
+      ],
+      "weight": [
+        128,
+        128,
+        7
+      ],
+      "input_dtype": "torch.float16",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        1
+      ],
+      "padding": [
+        3
+      ],
+      "dilation": [
+        1
+      ],
+      "groups": 1,
+      "output_padding": [
+        0
+      ],
+      "count": 20
+    },
+    "0c86de94e965": {
+      "kind": "ParametrizedConv1d",
+      "input": [
+        8,
+        128,
+        3200
+      ],
+      "weight": [
+        128,
+        128,
+        7
+      ],
+      "input_dtype": "torch.float16",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        1
+      ],
+      "padding": [
+        9
+      ],
+      "dilation": [
+        3
+      ],
+      "groups": 1,
+      "output_padding": [
+        0
+      ],
+      "count": 5
+    },
+    "1bf1fca3e754": {
+      "kind": "ParametrizedConv1d",
+      "input": [
+        8,
+        128,
+        3200
+      ],
+      "weight": [
+        128,
+        128,
+        7
+      ],
+      "input_dtype": "torch.float16",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        1
+      ],
+      "padding": [
+        15
+      ],
+      "dilation": [
+        5
+      ],
+      "groups": 1,
+      "output_padding": [
+        0
+      ],
+      "count": 5
+    },
+    "e2f6ccf4fb0c": {
+      "kind": "ParametrizedConv1d",
+      "input": [
+        8,
+        128,
+        3200
+      ],
+      "weight": [
+        128,
+        128,
+        11
+      ],
+      "input_dtype": "torch.float16",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        1
+      ],
+      "padding": [
+        5
+      ],
+      "dilation": [
+        1
+      ],
+      "groups": 1,
+      "output_padding": [
+        0
+      ],
+      "count": 20
+    },
+    "9714ef3cb3f1": {
+      "kind": "ParametrizedConv1d",
+      "input": [
+        8,
+        128,
+        3200
+      ],
+      "weight": [
+        128,
+        128,
+        11
+      ],
+      "input_dtype": "torch.float16",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        1
+      ],
+      "padding": [
+        15
+      ],
+      "dilation": [
+        3
+      ],
+      "groups": 1,
+      "output_padding": [
+        0
+      ],
+      "count": 5
+    },
+    "89dfdaeee1f1": {
+      "kind": "ParametrizedConv1d",
+      "input": [
+        8,
+        128,
+        3200
+      ],
+      "weight": [
+        128,
+        128,
+        11
+      ],
+      "input_dtype": "torch.float16",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        1
+      ],
+      "padding": [
+        25
+      ],
+      "dilation": [
+        5
+      ],
+      "groups": 1,
+      "output_padding": [
+        0
+      ],
+      "count": 5
+    },
+    "acfaf5997e37": {
+      "kind": "ParametrizedConvTranspose1d",
+      "input": [
+        8,
+        128,
+        3200
+      ],
+      "weight": [
+        128,
+        64,
+        4
+      ],
+      "input_dtype": "torch.float16",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        2
+      ],
+      "padding": [
+        1
+      ],
+      "dilation": [
+        1
+      ],
+      "groups": 1,
+      "output_padding": [
+        0
+      ],
+      "count": 5
+    },
+    "b9b1fedce955": {
+      "kind": "Conv1d",
+      "input": [
+        8,
+        1,
+        12800
+      ],
+      "weight": [
+        64,
+        1,
+        4
+      ],
+      "input_dtype": "torch.float16",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        2
+      ],
+      "padding": [
+        1
+      ],
+      "dilation": [
+        1
+      ],
+      "groups": 1,
+      "output_padding": [
+        0
+      ],
+      "count": 5
+    },
+    "8ed6bb3b4c5c": {
+      "kind": "ParametrizedConv1d",
+      "input": [
+        8,
+        64,
+        6400
+      ],
+      "weight": [
+        64,
+        64,
+        3
+      ],
+      "input_dtype": "torch.float16",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        1
+      ],
+      "padding": [
+        1
+      ],
+      "dilation": [
+        1
+      ],
+      "groups": 1,
+      "output_padding": [
+        0
+      ],
+      "count": 20
+    },
+    "a427b71ca974": {
+      "kind": "ParametrizedConv1d",
+      "input": [
+        8,
+        64,
+        6400
+      ],
+      "weight": [
+        64,
+        64,
+        3
+      ],
+      "input_dtype": "torch.float16",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        1
+      ],
+      "padding": [
+        3
+      ],
+      "dilation": [
+        3
+      ],
+      "groups": 1,
+      "output_padding": [
+        0
+      ],
+      "count": 5
+    },
+    "d01f6f7aaf90": {
+      "kind": "ParametrizedConv1d",
+      "input": [
+        8,
+        64,
+        6400
+      ],
+      "weight": [
+        64,
+        64,
+        3
+      ],
+      "input_dtype": "torch.float16",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        1
+      ],
+      "padding": [
+        5
+      ],
+      "dilation": [
+        5
+      ],
+      "groups": 1,
+      "output_padding": [
+        0
+      ],
+      "count": 5
+    },
+    "3198433fc5cd": {
+      "kind": "ParametrizedConv1d",
+      "input": [
+        8,
+        64,
+        6400
+      ],
+      "weight": [
+        64,
+        64,
+        7
+      ],
+      "input_dtype": "torch.float16",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        1
+      ],
+      "padding": [
+        3
+      ],
+      "dilation": [
+        1
+      ],
+      "groups": 1,
+      "output_padding": [
+        0
+      ],
+      "count": 20
+    },
+    "9835179fb5b4": {
+      "kind": "ParametrizedConv1d",
+      "input": [
+        8,
+        64,
+        6400
+      ],
+      "weight": [
+        64,
+        64,
+        7
+      ],
+      "input_dtype": "torch.float16",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        1
+      ],
+      "padding": [
+        9
+      ],
+      "dilation": [
+        3
+      ],
+      "groups": 1,
+      "output_padding": [
+        0
+      ],
+      "count": 5
+    },
+    "ede18b7109d3": {
+      "kind": "ParametrizedConv1d",
+      "input": [
+        8,
+        64,
+        6400
+      ],
+      "weight": [
+        64,
+        64,
+        7
+      ],
+      "input_dtype": "torch.float16",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        1
+      ],
+      "padding": [
+        15
+      ],
+      "dilation": [
+        5
+      ],
+      "groups": 1,
+      "output_padding": [
+        0
+      ],
+      "count": 5
+    },
+    "f9901f687881": {
+      "kind": "ParametrizedConv1d",
+      "input": [
+        8,
+        64,
+        6400
+      ],
+      "weight": [
+        64,
+        64,
+        11
+      ],
+      "input_dtype": "torch.float16",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        1
+      ],
+      "padding": [
+        5
+      ],
+      "dilation": [
+        1
+      ],
+      "groups": 1,
+      "output_padding": [
+        0
+      ],
+      "count": 20
+    },
+    "128ae5e3525b": {
+      "kind": "ParametrizedConv1d",
+      "input": [
+        8,
+        64,
+        6400
+      ],
+      "weight": [
+        64,
+        64,
+        11
+      ],
+      "input_dtype": "torch.float16",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        1
+      ],
+      "padding": [
+        15
+      ],
+      "dilation": [
+        3
+      ],
+      "groups": 1,
+      "output_padding": [
+        0
+      ],
+      "count": 5
+    },
+    "18cb3df3362d": {
+      "kind": "ParametrizedConv1d",
+      "input": [
+        8,
+        64,
+        6400
+      ],
+      "weight": [
+        64,
+        64,
+        11
+      ],
+      "input_dtype": "torch.float16",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        1
+      ],
+      "padding": [
+        25
+      ],
+      "dilation": [
+        5
+      ],
+      "groups": 1,
+      "output_padding": [
+        0
+      ],
+      "count": 5
+    },
+    "9863fde5421e": {
+      "kind": "ParametrizedConvTranspose1d",
+      "input": [
+        8,
+        64,
+        6400
+      ],
+      "weight": [
+        64,
+        32,
+        4
+      ],
+      "input_dtype": "torch.float16",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        2
+      ],
+      "padding": [
+        1
+      ],
+      "dilation": [
+        1
+      ],
+      "groups": 1,
+      "output_padding": [
+        0
+      ],
+      "count": 5
+    },
+    "5ba9973edd37": {
+      "kind": "Conv1d",
+      "input": [
+        8,
+        1,
+        12800
+      ],
+      "weight": [
+        32,
+        1,
+        1
+      ],
+      "input_dtype": "torch.float16",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        1
+      ],
+      "padding": [
+        0
+      ],
+      "dilation": [
+        1
+      ],
+      "groups": 1,
+      "output_padding": [
+        0
+      ],
+      "count": 5
+    },
+    "08015ce1fa12": {
+      "kind": "ParametrizedConv1d",
+      "input": [
+        8,
+        32,
+        12800
+      ],
+      "weight": [
+        32,
+        32,
+        3
+      ],
+      "input_dtype": "torch.float16",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        1
+      ],
+      "padding": [
+        1
+      ],
+      "dilation": [
+        1
+      ],
+      "groups": 1,
+      "output_padding": [
+        0
+      ],
+      "count": 20
+    },
+    "46510875b36f": {
+      "kind": "ParametrizedConv1d",
+      "input": [
+        8,
+        32,
+        12800
+      ],
+      "weight": [
+        32,
+        32,
+        3
+      ],
+      "input_dtype": "torch.float16",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        1
+      ],
+      "padding": [
+        3
+      ],
+      "dilation": [
+        3
+      ],
+      "groups": 1,
+      "output_padding": [
+        0
+      ],
+      "count": 5
+    },
+    "1a34f662013d": {
+      "kind": "ParametrizedConv1d",
+      "input": [
+        8,
+        32,
+        12800
+      ],
+      "weight": [
+        32,
+        32,
+        3
+      ],
+      "input_dtype": "torch.float16",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        1
+      ],
+      "padding": [
+        5
+      ],
+      "dilation": [
+        5
+      ],
+      "groups": 1,
+      "output_padding": [
+        0
+      ],
+      "count": 5
+    },
+    "53cc52acdf23": {
+      "kind": "ParametrizedConv1d",
+      "input": [
+        8,
+        32,
+        12800
+      ],
+      "weight": [
+        32,
+        32,
+        7
+      ],
+      "input_dtype": "torch.float16",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        1
+      ],
+      "padding": [
+        3
+      ],
+      "dilation": [
+        1
+      ],
+      "groups": 1,
+      "output_padding": [
+        0
+      ],
+      "count": 20
+    },
+    "3d7026e72ed6": {
+      "kind": "ParametrizedConv1d",
+      "input": [
+        8,
+        32,
+        12800
+      ],
+      "weight": [
+        32,
+        32,
+        7
+      ],
+      "input_dtype": "torch.float16",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        1
+      ],
+      "padding": [
+        9
+      ],
+      "dilation": [
+        3
+      ],
+      "groups": 1,
+      "output_padding": [
+        0
+      ],
+      "count": 5
+    },
+    "c6633aaa287d": {
+      "kind": "ParametrizedConv1d",
+      "input": [
+        8,
+        32,
+        12800
+      ],
+      "weight": [
+        32,
+        32,
+        7
+      ],
+      "input_dtype": "torch.float16",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        1
+      ],
+      "padding": [
+        15
+      ],
+      "dilation": [
+        5
+      ],
+      "groups": 1,
+      "output_padding": [
+        0
+      ],
+      "count": 5
+    },
+    "06ee922bd936": {
+      "kind": "ParametrizedConv1d",
+      "input": [
+        8,
+        32,
+        12800
+      ],
+      "weight": [
+        32,
+        32,
+        11
+      ],
+      "input_dtype": "torch.float16",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        1
+      ],
+      "padding": [
+        5
+      ],
+      "dilation": [
+        1
+      ],
+      "groups": 1,
+      "output_padding": [
+        0
+      ],
+      "count": 20
+    },
+    "f80553a24685": {
+      "kind": "ParametrizedConv1d",
+      "input": [
+        8,
+        32,
+        12800
+      ],
+      "weight": [
+        32,
+        32,
+        11
+      ],
+      "input_dtype": "torch.float16",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        1
+      ],
+      "padding": [
+        15
+      ],
+      "dilation": [
+        3
+      ],
+      "groups": 1,
+      "output_padding": [
+        0
+      ],
+      "count": 5
+    },
+    "195a5b68948a": {
+      "kind": "ParametrizedConv1d",
+      "input": [
+        8,
+        32,
+        12800
+      ],
+      "weight": [
+        32,
+        32,
+        11
+      ],
+      "input_dtype": "torch.float16",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        1
+      ],
+      "padding": [
+        25
+      ],
+      "dilation": [
+        5
+      ],
+      "groups": 1,
+      "output_padding": [
+        0
+      ],
+      "count": 5
+    },
+    "707d789a9b09": {
+      "kind": "Conv1d",
+      "input": [
+        8,
+        32,
+        12800
+      ],
+      "weight": [
+        1,
+        32,
+        7
+      ],
+      "input_dtype": "torch.float16",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        1
+      ],
+      "padding": [
+        3
+      ],
+      "dilation": [
+        1
+      ],
+      "groups": 1,
+      "output_padding": [
+        0
+      ],
+      "count": 5
+    },
+    "b40d95687b48": {
+      "kind": "ParametrizedConv1d",
+      "input": [
+        8,
+        1,
+        12800
+      ],
+      "weight": [
+        16,
+        1,
+        15
+      ],
+      "input_dtype": "torch.float32",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        1
+      ],
+      "padding": [
+        7
+      ],
+      "dilation": [
+        1
+      ],
+      "groups": 1,
+      "output_padding": [
+        0
+      ],
+      "count": 10
+    },
+    "710c1f326be5": {
+      "kind": "ParametrizedConv1d",
+      "input": [
+        8,
+        16,
+        12800
+      ],
+      "weight": [
+        64,
+        4,
+        41
+      ],
+      "input_dtype": "torch.float16",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        4
+      ],
+      "padding": [
+        20
+      ],
+      "dilation": [
+        1
+      ],
+      "groups": 4,
+      "output_padding": [
+        0
+      ],
+      "count": 20
+    },
+    "4155f58fe7bf": {
+      "kind": "ParametrizedConv1d",
+      "input": [
+        8,
+        64,
+        3200
+      ],
+      "weight": [
+        256,
+        4,
+        41
+      ],
+      "input_dtype": "torch.float16",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        4
+      ],
+      "padding": [
+        20
+      ],
+      "dilation": [
+        1
+      ],
+      "groups": 16,
+      "output_padding": [
+        0
+      ],
+      "count": 20
+    },
+    "442dae1ccf0b": {
+      "kind": "ParametrizedConv1d",
+      "input": [
+        8,
+        256,
+        800
+      ],
+      "weight": [
+        1024,
+        4,
+        41
+      ],
+      "input_dtype": "torch.float16",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        4
+      ],
+      "padding": [
+        20
+      ],
+      "dilation": [
+        1
+      ],
+      "groups": 64,
+      "output_padding": [
+        0
+      ],
+      "count": 20
+    },
+    "fd241b14da6c": {
+      "kind": "ParametrizedConv1d",
+      "input": [
+        8,
+        1024,
+        200
+      ],
+      "weight": [
+        1024,
+        4,
+        41
+      ],
+      "input_dtype": "torch.float16",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        4
+      ],
+      "padding": [
+        20
+      ],
+      "dilation": [
+        1
+      ],
+      "groups": 256,
+      "output_padding": [
+        0
+      ],
+      "count": 20
+    },
+    "bbdfca1247c2": {
+      "kind": "ParametrizedConv1d",
+      "input": [
+        8,
+        1024,
+        50
+      ],
+      "weight": [
+        1024,
+        1024,
+        5
+      ],
+      "input_dtype": "torch.float16",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        1
+      ],
+      "padding": [
+        2
+      ],
+      "dilation": [
+        1
+      ],
+      "groups": 1,
+      "output_padding": [
+        0
+      ],
+      "count": 20
+    },
+    "685eb509160d": {
+      "kind": "ParametrizedConv1d",
+      "input": [
+        8,
+        1024,
+        50
+      ],
+      "weight": [
+        1,
+        1024,
+        3
+      ],
+      "input_dtype": "torch.float16",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        1
+      ],
+      "padding": [
+        1
+      ],
+      "dilation": [
+        1
+      ],
+      "groups": 1,
+      "output_padding": [
+        0
+      ],
+      "count": 20
+    },
+    "88cae981b766": {
+      "kind": "ParametrizedConv1d",
+      "input": [
+        8,
+        1,
+        12800
+      ],
+      "weight": [
+        16,
+        1,
+        15
+      ],
+      "input_dtype": "torch.float16",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        1
+      ],
+      "padding": [
+        7
+      ],
+      "dilation": [
+        1
+      ],
+      "groups": 1,
+      "output_padding": [
+        0
+      ],
+      "count": 10
+    },
+    "c838c4e9e9b8": {
+      "kind": "ParametrizedConv2d",
+      "input": [
+        8,
+        1,
+        6400,
+        2
+      ],
+      "weight": [
+        32,
+        1,
+        5,
+        1
+      ],
+      "input_dtype": "torch.float32",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        3,
+        1
+      ],
+      "padding": [
+        2,
+        0
+      ],
+      "dilation": [
+        1,
+        1
+      ],
+      "groups": 1,
+      "output_padding": [
+        0,
+        0
+      ],
+      "count": 10
+    },
+    "9361be4258af": {
+      "kind": "ParametrizedConv2d",
+      "input": [
+        8,
+        32,
+        2134,
+        2
+      ],
+      "weight": [
+        128,
+        32,
+        5,
+        1
+      ],
+      "input_dtype": "torch.float16",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        3,
+        1
+      ],
+      "padding": [
+        2,
+        0
+      ],
+      "dilation": [
+        1,
+        1
+      ],
+      "groups": 1,
+      "output_padding": [
+        0,
+        0
+      ],
+      "count": 20
+    },
+    "36da8b5084f5": {
+      "kind": "ParametrizedConv2d",
+      "input": [
+        8,
+        128,
+        712,
+        2
+      ],
+      "weight": [
+        512,
+        128,
+        5,
+        1
+      ],
+      "input_dtype": "torch.float16",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        3,
+        1
+      ],
+      "padding": [
+        2,
+        0
+      ],
+      "dilation": [
+        1,
+        1
+      ],
+      "groups": 1,
+      "output_padding": [
+        0,
+        0
+      ],
+      "count": 20
+    },
+    "429a9ea9bf7c": {
+      "kind": "ParametrizedConv2d",
+      "input": [
+        8,
+        512,
+        238,
+        2
+      ],
+      "weight": [
+        1024,
+        512,
+        5,
+        1
+      ],
+      "input_dtype": "torch.float16",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        3,
+        1
+      ],
+      "padding": [
+        2,
+        0
+      ],
+      "dilation": [
+        1,
+        1
+      ],
+      "groups": 1,
+      "output_padding": [
+        0,
+        0
+      ],
+      "count": 20
+    },
+    "c516f23d7451": {
+      "kind": "ParametrizedConv2d",
+      "input": [
+        8,
+        1024,
+        80,
+        2
+      ],
+      "weight": [
+        1024,
+        1024,
+        5,
+        1
+      ],
+      "input_dtype": "torch.float16",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        1,
+        1
+      ],
+      "padding": [
+        2,
+        0
+      ],
+      "dilation": [
+        1,
+        1
+      ],
+      "groups": 1,
+      "output_padding": [
+        0,
+        0
+      ],
+      "count": 20
+    },
+    "2b1180adbbe8": {
+      "kind": "ParametrizedConv2d",
+      "input": [
+        8,
+        1024,
+        80,
+        2
+      ],
+      "weight": [
+        1,
+        1024,
+        3,
+        1
+      ],
+      "input_dtype": "torch.float16",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        1,
+        1
+      ],
+      "padding": [
+        1,
+        0
+      ],
+      "dilation": [
+        1,
+        1
+      ],
+      "groups": 1,
+      "output_padding": [
+        0,
+        0
+      ],
+      "count": 20
+    },
+    "c3788b0de521": {
+      "kind": "ParametrizedConv2d",
+      "input": [
+        8,
+        1,
+        6400,
+        2
+      ],
+      "weight": [
+        32,
+        1,
+        5,
+        1
+      ],
+      "input_dtype": "torch.float16",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        3,
+        1
+      ],
+      "padding": [
+        2,
+        0
+      ],
+      "dilation": [
+        1,
+        1
+      ],
+      "groups": 1,
+      "output_padding": [
+        0,
+        0
+      ],
+      "count": 10
+    },
+    "107039b99e14": {
+      "kind": "ParametrizedConv2d",
+      "input": [
+        8,
+        1,
+        4267,
+        3
+      ],
+      "weight": [
+        32,
+        1,
+        5,
+        1
+      ],
+      "input_dtype": "torch.float32",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        3,
+        1
+      ],
+      "padding": [
+        2,
+        0
+      ],
+      "dilation": [
+        1,
+        1
+      ],
+      "groups": 1,
+      "output_padding": [
+        0,
+        0
+      ],
+      "count": 10
+    },
+    "3742916cbca3": {
+      "kind": "ParametrizedConv2d",
+      "input": [
+        8,
+        32,
+        1423,
+        3
+      ],
+      "weight": [
+        128,
+        32,
+        5,
+        1
+      ],
+      "input_dtype": "torch.float16",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        3,
+        1
+      ],
+      "padding": [
+        2,
+        0
+      ],
+      "dilation": [
+        1,
+        1
+      ],
+      "groups": 1,
+      "output_padding": [
+        0,
+        0
+      ],
+      "count": 20
+    },
+    "a4b03356c434": {
+      "kind": "ParametrizedConv2d",
+      "input": [
+        8,
+        128,
+        475,
+        3
+      ],
+      "weight": [
+        512,
+        128,
+        5,
+        1
+      ],
+      "input_dtype": "torch.float16",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        3,
+        1
+      ],
+      "padding": [
+        2,
+        0
+      ],
+      "dilation": [
+        1,
+        1
+      ],
+      "groups": 1,
+      "output_padding": [
+        0,
+        0
+      ],
+      "count": 20
+    },
+    "384facc99faf": {
+      "kind": "ParametrizedConv2d",
+      "input": [
+        8,
+        512,
+        159,
+        3
+      ],
+      "weight": [
+        1024,
+        512,
+        5,
+        1
+      ],
+      "input_dtype": "torch.float16",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        3,
+        1
+      ],
+      "padding": [
+        2,
+        0
+      ],
+      "dilation": [
+        1,
+        1
+      ],
+      "groups": 1,
+      "output_padding": [
+        0,
+        0
+      ],
+      "count": 20
+    },
+    "2b9ef45eac5b": {
+      "kind": "ParametrizedConv2d",
+      "input": [
+        8,
+        1024,
+        53,
+        3
+      ],
+      "weight": [
+        1024,
+        1024,
+        5,
+        1
+      ],
+      "input_dtype": "torch.float16",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        1,
+        1
+      ],
+      "padding": [
+        2,
+        0
+      ],
+      "dilation": [
+        1,
+        1
+      ],
+      "groups": 1,
+      "output_padding": [
+        0,
+        0
+      ],
+      "count": 20
+    },
+    "c0cd1737c736": {
+      "kind": "ParametrizedConv2d",
+      "input": [
+        8,
+        1024,
+        53,
+        3
+      ],
+      "weight": [
+        1,
+        1024,
+        3,
+        1
+      ],
+      "input_dtype": "torch.float16",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        1,
+        1
+      ],
+      "padding": [
+        1,
+        0
+      ],
+      "dilation": [
+        1,
+        1
+      ],
+      "groups": 1,
+      "output_padding": [
+        0,
+        0
+      ],
+      "count": 20
+    },
+    "9b54da43efda": {
+      "kind": "ParametrizedConv2d",
+      "input": [
+        8,
+        1,
+        4267,
+        3
+      ],
+      "weight": [
+        32,
+        1,
+        5,
+        1
+      ],
+      "input_dtype": "torch.float16",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        3,
+        1
+      ],
+      "padding": [
+        2,
+        0
+      ],
+      "dilation": [
+        1,
+        1
+      ],
+      "groups": 1,
+      "output_padding": [
+        0,
+        0
+      ],
+      "count": 10
+    },
+    "72289750bde3": {
+      "kind": "ParametrizedConv2d",
+      "input": [
+        8,
+        1,
+        2560,
+        5
+      ],
+      "weight": [
+        32,
+        1,
+        5,
+        1
+      ],
+      "input_dtype": "torch.float32",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        3,
+        1
+      ],
+      "padding": [
+        2,
+        0
+      ],
+      "dilation": [
+        1,
+        1
+      ],
+      "groups": 1,
+      "output_padding": [
+        0,
+        0
+      ],
+      "count": 10
+    },
+    "da1cc438c4b0": {
+      "kind": "ParametrizedConv2d",
+      "input": [
+        8,
+        32,
+        854,
+        5
+      ],
+      "weight": [
+        128,
+        32,
+        5,
+        1
+      ],
+      "input_dtype": "torch.float16",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        3,
+        1
+      ],
+      "padding": [
+        2,
+        0
+      ],
+      "dilation": [
+        1,
+        1
+      ],
+      "groups": 1,
+      "output_padding": [
+        0,
+        0
+      ],
+      "count": 20
+    },
+    "3b91db171697": {
+      "kind": "ParametrizedConv2d",
+      "input": [
+        8,
+        128,
+        285,
+        5
+      ],
+      "weight": [
+        512,
+        128,
+        5,
+        1
+      ],
+      "input_dtype": "torch.float16",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        3,
+        1
+      ],
+      "padding": [
+        2,
+        0
+      ],
+      "dilation": [
+        1,
+        1
+      ],
+      "groups": 1,
+      "output_padding": [
+        0,
+        0
+      ],
+      "count": 20
+    },
+    "d81c2230c6fe": {
+      "kind": "ParametrizedConv2d",
+      "input": [
+        8,
+        512,
+        95,
+        5
+      ],
+      "weight": [
+        1024,
+        512,
+        5,
+        1
+      ],
+      "input_dtype": "torch.float16",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        3,
+        1
+      ],
+      "padding": [
+        2,
+        0
+      ],
+      "dilation": [
+        1,
+        1
+      ],
+      "groups": 1,
+      "output_padding": [
+        0,
+        0
+      ],
+      "count": 20
+    },
+    "3cd73a074b74": {
+      "kind": "ParametrizedConv2d",
+      "input": [
+        8,
+        1024,
+        32,
+        5
+      ],
+      "weight": [
+        1024,
+        1024,
+        5,
+        1
+      ],
+      "input_dtype": "torch.float16",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        1,
+        1
+      ],
+      "padding": [
+        2,
+        0
+      ],
+      "dilation": [
+        1,
+        1
+      ],
+      "groups": 1,
+      "output_padding": [
+        0,
+        0
+      ],
+      "count": 20
+    },
+    "c7a8e4be91bb": {
+      "kind": "ParametrizedConv2d",
+      "input": [
+        8,
+        1024,
+        32,
+        5
+      ],
+      "weight": [
+        1,
+        1024,
+        3,
+        1
+      ],
+      "input_dtype": "torch.float16",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        1,
+        1
+      ],
+      "padding": [
+        1,
+        0
+      ],
+      "dilation": [
+        1,
+        1
+      ],
+      "groups": 1,
+      "output_padding": [
+        0,
+        0
+      ],
+      "count": 20
+    },
+    "cdc927848d6d": {
+      "kind": "ParametrizedConv2d",
+      "input": [
+        8,
+        1,
+        2560,
+        5
+      ],
+      "weight": [
+        32,
+        1,
+        5,
+        1
+      ],
+      "input_dtype": "torch.float16",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        3,
+        1
+      ],
+      "padding": [
+        2,
+        0
+      ],
+      "dilation": [
+        1,
+        1
+      ],
+      "groups": 1,
+      "output_padding": [
+        0,
+        0
+      ],
+      "count": 10
+    },
+    "0fe8dececa16": {
+      "kind": "ParametrizedConv2d",
+      "input": [
+        8,
+        1,
+        1829,
+        7
+      ],
+      "weight": [
+        32,
+        1,
+        5,
+        1
+      ],
+      "input_dtype": "torch.float32",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        3,
+        1
+      ],
+      "padding": [
+        2,
+        0
+      ],
+      "dilation": [
+        1,
+        1
+      ],
+      "groups": 1,
+      "output_padding": [
+        0,
+        0
+      ],
+      "count": 10
+    },
+    "bcb83f6afea8": {
+      "kind": "ParametrizedConv2d",
+      "input": [
+        8,
+        32,
+        610,
+        7
+      ],
+      "weight": [
+        128,
+        32,
+        5,
+        1
+      ],
+      "input_dtype": "torch.float16",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        3,
+        1
+      ],
+      "padding": [
+        2,
+        0
+      ],
+      "dilation": [
+        1,
+        1
+      ],
+      "groups": 1,
+      "output_padding": [
+        0,
+        0
+      ],
+      "count": 20
+    },
+    "6c1a95547e4d": {
+      "kind": "ParametrizedConv2d",
+      "input": [
+        8,
+        128,
+        204,
+        7
+      ],
+      "weight": [
+        512,
+        128,
+        5,
+        1
+      ],
+      "input_dtype": "torch.float16",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        3,
+        1
+      ],
+      "padding": [
+        2,
+        0
+      ],
+      "dilation": [
+        1,
+        1
+      ],
+      "groups": 1,
+      "output_padding": [
+        0,
+        0
+      ],
+      "count": 20
+    },
+    "d6a70671b412": {
+      "kind": "ParametrizedConv2d",
+      "input": [
+        8,
+        512,
+        68,
+        7
+      ],
+      "weight": [
+        1024,
+        512,
+        5,
+        1
+      ],
+      "input_dtype": "torch.float16",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        3,
+        1
+      ],
+      "padding": [
+        2,
+        0
+      ],
+      "dilation": [
+        1,
+        1
+      ],
+      "groups": 1,
+      "output_padding": [
+        0,
+        0
+      ],
+      "count": 20
+    },
+    "27d7a0c9d2b3": {
+      "kind": "ParametrizedConv2d",
+      "input": [
+        8,
+        1024,
+        23,
+        7
+      ],
+      "weight": [
+        1024,
+        1024,
+        5,
+        1
+      ],
+      "input_dtype": "torch.float16",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        1,
+        1
+      ],
+      "padding": [
+        2,
+        0
+      ],
+      "dilation": [
+        1,
+        1
+      ],
+      "groups": 1,
+      "output_padding": [
+        0,
+        0
+      ],
+      "count": 20
+    },
+    "fa0470c1ccde": {
+      "kind": "ParametrizedConv2d",
+      "input": [
+        8,
+        1024,
+        23,
+        7
+      ],
+      "weight": [
+        1,
+        1024,
+        3,
+        1
+      ],
+      "input_dtype": "torch.float16",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        1,
+        1
+      ],
+      "padding": [
+        1,
+        0
+      ],
+      "dilation": [
+        1,
+        1
+      ],
+      "groups": 1,
+      "output_padding": [
+        0,
+        0
+      ],
+      "count": 20
+    },
+    "2b0f5047c935": {
+      "kind": "ParametrizedConv2d",
+      "input": [
+        8,
+        1,
+        1829,
+        7
+      ],
+      "weight": [
+        32,
+        1,
+        5,
+        1
+      ],
+      "input_dtype": "torch.float16",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        3,
+        1
+      ],
+      "padding": [
+        2,
+        0
+      ],
+      "dilation": [
+        1,
+        1
+      ],
+      "groups": 1,
+      "output_padding": [
+        0,
+        0
+      ],
+      "count": 10
+    },
+    "cc191cbf9731": {
+      "kind": "ParametrizedConv2d",
+      "input": [
+        8,
+        1,
+        1164,
+        11
+      ],
+      "weight": [
+        32,
+        1,
+        5,
+        1
+      ],
+      "input_dtype": "torch.float32",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        3,
+        1
+      ],
+      "padding": [
+        2,
+        0
+      ],
+      "dilation": [
+        1,
+        1
+      ],
+      "groups": 1,
+      "output_padding": [
+        0,
+        0
+      ],
+      "count": 10
+    },
+    "bd47b5237678": {
+      "kind": "ParametrizedConv2d",
+      "input": [
+        8,
+        32,
+        388,
+        11
+      ],
+      "weight": [
+        128,
+        32,
+        5,
+        1
+      ],
+      "input_dtype": "torch.float16",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        3,
+        1
+      ],
+      "padding": [
+        2,
+        0
+      ],
+      "dilation": [
+        1,
+        1
+      ],
+      "groups": 1,
+      "output_padding": [
+        0,
+        0
+      ],
+      "count": 20
+    },
+    "69e5c6559847": {
+      "kind": "ParametrizedConv2d",
+      "input": [
+        8,
+        128,
+        130,
+        11
+      ],
+      "weight": [
+        512,
+        128,
+        5,
+        1
+      ],
+      "input_dtype": "torch.float16",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        3,
+        1
+      ],
+      "padding": [
+        2,
+        0
+      ],
+      "dilation": [
+        1,
+        1
+      ],
+      "groups": 1,
+      "output_padding": [
+        0,
+        0
+      ],
+      "count": 20
+    },
+    "0b7a01ef8442": {
+      "kind": "ParametrizedConv2d",
+      "input": [
+        8,
+        512,
+        44,
+        11
+      ],
+      "weight": [
+        1024,
+        512,
+        5,
+        1
+      ],
+      "input_dtype": "torch.float16",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        3,
+        1
+      ],
+      "padding": [
+        2,
+        0
+      ],
+      "dilation": [
+        1,
+        1
+      ],
+      "groups": 1,
+      "output_padding": [
+        0,
+        0
+      ],
+      "count": 20
+    },
+    "972d751e1103": {
+      "kind": "ParametrizedConv2d",
+      "input": [
+        8,
+        1024,
+        15,
+        11
+      ],
+      "weight": [
+        1024,
+        1024,
+        5,
+        1
+      ],
+      "input_dtype": "torch.float16",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        1,
+        1
+      ],
+      "padding": [
+        2,
+        0
+      ],
+      "dilation": [
+        1,
+        1
+      ],
+      "groups": 1,
+      "output_padding": [
+        0,
+        0
+      ],
+      "count": 20
+    },
+    "c7edd5d96e1e": {
+      "kind": "ParametrizedConv2d",
+      "input": [
+        8,
+        1024,
+        15,
+        11
+      ],
+      "weight": [
+        1,
+        1024,
+        3,
+        1
+      ],
+      "input_dtype": "torch.float16",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        1,
+        1
+      ],
+      "padding": [
+        1,
+        0
+      ],
+      "dilation": [
+        1,
+        1
+      ],
+      "groups": 1,
+      "output_padding": [
+        0,
+        0
+      ],
+      "count": 20
+    },
+    "b8224bd31478": {
+      "kind": "ParametrizedConv2d",
+      "input": [
+        8,
+        1,
+        1164,
+        11
+      ],
+      "weight": [
+        32,
+        1,
+        5,
+        1
+      ],
+      "input_dtype": "torch.float16",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        3,
+        1
+      ],
+      "padding": [
+        2,
+        0
+      ],
+      "dilation": [
+        1,
+        1
+      ],
+      "groups": 1,
+      "output_padding": [
+        0,
+        0
+      ],
+      "count": 10
+    },
+    "8539ab5d623c": {
+      "kind": "ParametrizedConv2d",
+      "input": [
+        8,
+        1,
+        753,
+        17
+      ],
+      "weight": [
+        32,
+        1,
+        5,
+        1
+      ],
+      "input_dtype": "torch.float32",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        3,
+        1
+      ],
+      "padding": [
+        2,
+        0
+      ],
+      "dilation": [
+        1,
+        1
+      ],
+      "groups": 1,
+      "output_padding": [
+        0,
+        0
+      ],
+      "count": 10
+    },
+    "4119d8403130": {
+      "kind": "ParametrizedConv2d",
+      "input": [
+        8,
+        32,
+        251,
+        17
+      ],
+      "weight": [
+        128,
+        32,
+        5,
+        1
+      ],
+      "input_dtype": "torch.float16",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        3,
+        1
+      ],
+      "padding": [
+        2,
+        0
+      ],
+      "dilation": [
+        1,
+        1
+      ],
+      "groups": 1,
+      "output_padding": [
+        0,
+        0
+      ],
+      "count": 20
+    },
+    "0bef1efba6df": {
+      "kind": "ParametrizedConv2d",
+      "input": [
+        8,
+        128,
+        84,
+        17
+      ],
+      "weight": [
+        512,
+        128,
+        5,
+        1
+      ],
+      "input_dtype": "torch.float16",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        3,
+        1
+      ],
+      "padding": [
+        2,
+        0
+      ],
+      "dilation": [
+        1,
+        1
+      ],
+      "groups": 1,
+      "output_padding": [
+        0,
+        0
+      ],
+      "count": 20
+    },
+    "b1f6c570cf1b": {
+      "kind": "ParametrizedConv2d",
+      "input": [
+        8,
+        512,
+        28,
+        17
+      ],
+      "weight": [
+        1024,
+        512,
+        5,
+        1
+      ],
+      "input_dtype": "torch.float16",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        3,
+        1
+      ],
+      "padding": [
+        2,
+        0
+      ],
+      "dilation": [
+        1,
+        1
+      ],
+      "groups": 1,
+      "output_padding": [
+        0,
+        0
+      ],
+      "count": 20
+    },
+    "fc98ef804046": {
+      "kind": "ParametrizedConv2d",
+      "input": [
+        8,
+        1024,
+        10,
+        17
+      ],
+      "weight": [
+        1024,
+        1024,
+        5,
+        1
+      ],
+      "input_dtype": "torch.float16",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        1,
+        1
+      ],
+      "padding": [
+        2,
+        0
+      ],
+      "dilation": [
+        1,
+        1
+      ],
+      "groups": 1,
+      "output_padding": [
+        0,
+        0
+      ],
+      "count": 20
+    },
+    "8023daa98eae": {
+      "kind": "ParametrizedConv2d",
+      "input": [
+        8,
+        1024,
+        10,
+        17
+      ],
+      "weight": [
+        1,
+        1024,
+        3,
+        1
+      ],
+      "input_dtype": "torch.float16",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        1,
+        1
+      ],
+      "padding": [
+        1,
+        0
+      ],
+      "dilation": [
+        1,
+        1
+      ],
+      "groups": 1,
+      "output_padding": [
+        0,
+        0
+      ],
+      "count": 20
+    },
+    "f2ef7382546a": {
+      "kind": "ParametrizedConv2d",
+      "input": [
+        8,
+        1,
+        753,
+        17
+      ],
+      "weight": [
+        32,
+        1,
+        5,
+        1
+      ],
+      "input_dtype": "torch.float16",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        3,
+        1
+      ],
+      "padding": [
+        2,
+        0
+      ],
+      "dilation": [
+        1,
+        1
+      ],
+      "groups": 1,
+      "output_padding": [
+        0,
+        0
+      ],
+      "count": 10
+    },
+    "319c8d9bdd42": {
+      "kind": "ParametrizedConv2d",
+      "input": [
+        8,
+        1,
+        557,
+        23
+      ],
+      "weight": [
+        32,
+        1,
+        5,
+        1
+      ],
+      "input_dtype": "torch.float32",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        3,
+        1
+      ],
+      "padding": [
+        2,
+        0
+      ],
+      "dilation": [
+        1,
+        1
+      ],
+      "groups": 1,
+      "output_padding": [
+        0,
+        0
+      ],
+      "count": 10
+    },
+    "8e9a489b7c95": {
+      "kind": "ParametrizedConv2d",
+      "input": [
+        8,
+        32,
+        186,
+        23
+      ],
+      "weight": [
+        128,
+        32,
+        5,
+        1
+      ],
+      "input_dtype": "torch.float16",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        3,
+        1
+      ],
+      "padding": [
+        2,
+        0
+      ],
+      "dilation": [
+        1,
+        1
+      ],
+      "groups": 1,
+      "output_padding": [
+        0,
+        0
+      ],
+      "count": 20
+    },
+    "dbc3ab41858e": {
+      "kind": "ParametrizedConv2d",
+      "input": [
+        8,
+        128,
+        62,
+        23
+      ],
+      "weight": [
+        512,
+        128,
+        5,
+        1
+      ],
+      "input_dtype": "torch.float16",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        3,
+        1
+      ],
+      "padding": [
+        2,
+        0
+      ],
+      "dilation": [
+        1,
+        1
+      ],
+      "groups": 1,
+      "output_padding": [
+        0,
+        0
+      ],
+      "count": 20
+    },
+    "3c8724e8fcaf": {
+      "kind": "ParametrizedConv2d",
+      "input": [
+        8,
+        512,
+        21,
+        23
+      ],
+      "weight": [
+        1024,
+        512,
+        5,
+        1
+      ],
+      "input_dtype": "torch.float16",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        3,
+        1
+      ],
+      "padding": [
+        2,
+        0
+      ],
+      "dilation": [
+        1,
+        1
+      ],
+      "groups": 1,
+      "output_padding": [
+        0,
+        0
+      ],
+      "count": 20
+    },
+    "e2e7543fbc48": {
+      "kind": "ParametrizedConv2d",
+      "input": [
+        8,
+        1024,
+        7,
+        23
+      ],
+      "weight": [
+        1024,
+        1024,
+        5,
+        1
+      ],
+      "input_dtype": "torch.float16",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        1,
+        1
+      ],
+      "padding": [
+        2,
+        0
+      ],
+      "dilation": [
+        1,
+        1
+      ],
+      "groups": 1,
+      "output_padding": [
+        0,
+        0
+      ],
+      "count": 20
+    },
+    "be88181e041e": {
+      "kind": "ParametrizedConv2d",
+      "input": [
+        8,
+        1024,
+        7,
+        23
+      ],
+      "weight": [
+        1,
+        1024,
+        3,
+        1
+      ],
+      "input_dtype": "torch.float16",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        1,
+        1
+      ],
+      "padding": [
+        1,
+        0
+      ],
+      "dilation": [
+        1,
+        1
+      ],
+      "groups": 1,
+      "output_padding": [
+        0,
+        0
+      ],
+      "count": 20
+    },
+    "a0f4651b891d": {
+      "kind": "ParametrizedConv2d",
+      "input": [
+        8,
+        1,
+        557,
+        23
+      ],
+      "weight": [
+        32,
+        1,
+        5,
+        1
+      ],
+      "input_dtype": "torch.float16",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        3,
+        1
+      ],
+      "padding": [
+        2,
+        0
+      ],
+      "dilation": [
+        1,
+        1
+      ],
+      "groups": 1,
+      "output_padding": [
+        0,
+        0
+      ],
+      "count": 10
+    },
+    "999f8c8ed89a": {
+      "kind": "ParametrizedConv2d",
+      "input": [
+        8,
+        1,
+        346,
+        37
+      ],
+      "weight": [
+        32,
+        1,
+        5,
+        1
+      ],
+      "input_dtype": "torch.float32",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        3,
+        1
+      ],
+      "padding": [
+        2,
+        0
+      ],
+      "dilation": [
+        1,
+        1
+      ],
+      "groups": 1,
+      "output_padding": [
+        0,
+        0
+      ],
+      "count": 10
+    },
+    "e6d39e96639c": {
+      "kind": "ParametrizedConv2d",
+      "input": [
+        8,
+        32,
+        116,
+        37
+      ],
+      "weight": [
+        128,
+        32,
+        5,
+        1
+      ],
+      "input_dtype": "torch.float16",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        3,
+        1
+      ],
+      "padding": [
+        2,
+        0
+      ],
+      "dilation": [
+        1,
+        1
+      ],
+      "groups": 1,
+      "output_padding": [
+        0,
+        0
+      ],
+      "count": 20
+    },
+    "8dfe0357517d": {
+      "kind": "ParametrizedConv2d",
+      "input": [
+        8,
+        128,
+        39,
+        37
+      ],
+      "weight": [
+        512,
+        128,
+        5,
+        1
+      ],
+      "input_dtype": "torch.float16",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        3,
+        1
+      ],
+      "padding": [
+        2,
+        0
+      ],
+      "dilation": [
+        1,
+        1
+      ],
+      "groups": 1,
+      "output_padding": [
+        0,
+        0
+      ],
+      "count": 20
+    },
+    "dd871101ae14": {
+      "kind": "ParametrizedConv2d",
+      "input": [
+        8,
+        512,
+        13,
+        37
+      ],
+      "weight": [
+        1024,
+        512,
+        5,
+        1
+      ],
+      "input_dtype": "torch.float16",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        3,
+        1
+      ],
+      "padding": [
+        2,
+        0
+      ],
+      "dilation": [
+        1,
+        1
+      ],
+      "groups": 1,
+      "output_padding": [
+        0,
+        0
+      ],
+      "count": 20
+    },
+    "d97c65ab2a8f": {
+      "kind": "ParametrizedConv2d",
+      "input": [
+        8,
+        1024,
+        5,
+        37
+      ],
+      "weight": [
+        1024,
+        1024,
+        5,
+        1
+      ],
+      "input_dtype": "torch.float16",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        1,
+        1
+      ],
+      "padding": [
+        2,
+        0
+      ],
+      "dilation": [
+        1,
+        1
+      ],
+      "groups": 1,
+      "output_padding": [
+        0,
+        0
+      ],
+      "count": 20
+    },
+    "a19716ca7b3b": {
+      "kind": "ParametrizedConv2d",
+      "input": [
+        8,
+        1024,
+        5,
+        37
+      ],
+      "weight": [
+        1,
+        1024,
+        3,
+        1
+      ],
+      "input_dtype": "torch.float16",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        1,
+        1
+      ],
+      "padding": [
+        1,
+        0
+      ],
+      "dilation": [
+        1,
+        1
+      ],
+      "groups": 1,
+      "output_padding": [
+        0,
+        0
+      ],
+      "count": 20
+    },
+    "eb840d41eee0": {
+      "kind": "ParametrizedConv2d",
+      "input": [
+        8,
+        1,
+        346,
+        37
+      ],
+      "weight": [
+        32,
+        1,
+        5,
+        1
+      ],
+      "input_dtype": "torch.float16",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        3,
+        1
+      ],
+      "padding": [
+        2,
+        0
+      ],
+      "dilation": [
+        1,
+        1
+      ],
+      "groups": 1,
+      "output_padding": [
+        0,
+        0
+      ],
+      "count": 10
+    },
+    "c7efb137d005": {
+      "kind": "Conv1d",
+      "input": [
+        8,
+        192,
+        326
+      ],
+      "weight": [
+        192,
+        192,
+        1
+      ],
+      "input_dtype": "torch.float16",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        1
+      ],
+      "padding": [
+        0
+      ],
+      "dilation": [
+        1
+      ],
+      "groups": 1,
+      "output_padding": [
+        0
+      ],
+      "count": 9
+    },
+    "0bd872d996eb": {
+      "kind": "Conv1d",
+      "input": [
+        8,
+        192,
+        328
+      ],
+      "weight": [
+        768,
+        192,
+        3
+      ],
+      "input_dtype": "torch.float32",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        1
+      ],
+      "padding": [
+        0
+      ],
+      "dilation": [
+        1
+      ],
+      "groups": 1,
+      "output_padding": [
+        0
+      ],
+      "count": 6
+    },
+    "a6570191ebfa": {
+      "kind": "Conv1d",
+      "input": [
+        8,
+        768,
+        328
+      ],
+      "weight": [
+        192,
+        768,
+        3
+      ],
+      "input_dtype": "torch.float16",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        1
+      ],
+      "padding": [
+        0
+      ],
+      "dilation": [
+        1
+      ],
+      "groups": 1,
+      "output_padding": [
+        0
+      ],
+      "count": 6
+    },
+    "a0e68625e9a0": {
+      "kind": "Conv1d",
+      "input": [
+        8,
+        192,
+        326
+      ],
+      "weight": [
+        192,
+        192,
+        1
+      ],
+      "input_dtype": "torch.float32",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        1
+      ],
+      "padding": [
+        0
+      ],
+      "dilation": [
+        1
+      ],
+      "groups": 1,
+      "output_padding": [
+        0
+      ],
+      "count": 15
+    },
+    "ec1ec31758b7": {
+      "kind": "Conv1d",
+      "input": [
+        8,
+        192,
+        326
+      ],
+      "weight": [
+        384,
+        192,
+        1
+      ],
+      "input_dtype": "torch.float32",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        1
+      ],
+      "padding": [
+        0
+      ],
+      "dilation": [
+        1
+      ],
+      "groups": 1,
+      "output_padding": [
+        0
+      ],
+      "count": 2
+    },
+    "f0216ec4bdc4": {
+      "kind": "Conv1d",
+      "input": [
+        8,
+        1025,
+        326
+      ],
+      "weight": [
+        192,
+        1025,
+        1
+      ],
+      "input_dtype": "torch.float32",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        1
+      ],
+      "padding": [
+        0
+      ],
+      "dilation": [
+        1
+      ],
+      "groups": 1,
+      "output_padding": [
+        0
+      ],
+      "count": 1
+    },
+    "bb4647d78ea1": {
+      "kind": "ParametrizedConv1d",
+      "input": [
+        8,
+        192,
+        326
+      ],
+      "weight": [
+        384,
+        192,
+        5
+      ],
+      "input_dtype": "torch.float32",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        1
+      ],
+      "padding": [
+        2
+      ],
+      "dilation": [
+        1
+      ],
+      "groups": 1,
+      "output_padding": [
+        0
+      ],
+      "count": 28
+    },
+    "74f44c5a626d": {
+      "kind": "ParametrizedConv1d",
+      "input": [
+        8,
+        192,
+        326
+      ],
+      "weight": [
+        384,
+        192,
+        1
+      ],
+      "input_dtype": "torch.float32",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        1
+      ],
+      "padding": [
+        0
+      ],
+      "dilation": [
+        1
+      ],
+      "groups": 1,
+      "output_padding": [
+        0
+      ],
+      "count": 23
+    },
+    "08527a13d51d": {
+      "kind": "ParametrizedConv1d",
+      "input": [
+        8,
+        192,
+        326
+      ],
+      "weight": [
+        192,
+        192,
+        1
+      ],
+      "input_dtype": "torch.float32",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        1
+      ],
+      "padding": [
+        0
+      ],
+      "dilation": [
+        1
+      ],
+      "groups": 1,
+      "output_padding": [
+        0
+      ],
+      "count": 5
+    },
+    "711f19c97495": {
+      "kind": "Conv1d",
+      "input": [
+        8,
+        96,
+        326
+      ],
+      "weight": [
+        192,
+        96,
+        1
+      ],
+      "input_dtype": "torch.float32",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        1
+      ],
+      "padding": [
+        0
+      ],
+      "dilation": [
+        1
+      ],
+      "groups": 1,
+      "output_padding": [
+        0
+      ],
+      "count": 4
+    },
+    "074eb2f19255": {
+      "kind": "Conv1d",
+      "input": [
+        8,
+        192,
+        326
+      ],
+      "weight": [
+        96,
+        192,
+        1
+      ],
+      "input_dtype": "torch.float32",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        1
+      ],
+      "padding": [
+        0
+      ],
+      "dilation": [
+        1
+      ],
+      "groups": 1,
+      "output_padding": [
+        0
+      ],
+      "count": 4
+    },
+    "953e9964acde": {
+      "kind": "Conv1d",
+      "input": [
+        8,
+        192,
+        74
+      ],
+      "weight": [
+        192,
+        192,
+        1
+      ],
+      "input_dtype": "torch.float16",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        1
+      ],
+      "padding": [
+        0
+      ],
+      "dilation": [
+        1
+      ],
+      "groups": 1,
+      "output_padding": [
+        0
+      ],
+      "count": 9
+    },
+    "f24f19c96f0b": {
+      "kind": "Conv1d",
+      "input": [
+        8,
+        192,
+        76
+      ],
+      "weight": [
+        768,
+        192,
+        3
+      ],
+      "input_dtype": "torch.float32",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        1
+      ],
+      "padding": [
+        0
+      ],
+      "dilation": [
+        1
+      ],
+      "groups": 1,
+      "output_padding": [
+        0
+      ],
+      "count": 6
+    },
+    "ec0929d2f590": {
+      "kind": "Conv1d",
+      "input": [
+        8,
+        768,
+        76
+      ],
+      "weight": [
+        192,
+        768,
+        3
+      ],
+      "input_dtype": "torch.float16",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        1
+      ],
+      "padding": [
+        0
+      ],
+      "dilation": [
+        1
+      ],
+      "groups": 1,
+      "output_padding": [
+        0
+      ],
+      "count": 6
+    },
+    "8f3ae874fccc": {
+      "kind": "Conv1d",
+      "input": [
+        8,
+        192,
+        74
+      ],
+      "weight": [
+        192,
+        192,
+        1
+      ],
+      "input_dtype": "torch.float32",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        1
+      ],
+      "padding": [
+        0
+      ],
+      "dilation": [
+        1
+      ],
+      "groups": 1,
+      "output_padding": [
+        0
+      ],
+      "count": 15
+    },
+    "3343b0ad457e": {
+      "kind": "Conv1d",
+      "input": [
+        8,
+        192,
+        74
+      ],
+      "weight": [
+        384,
+        192,
+        1
+      ],
+      "input_dtype": "torch.float32",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        1
+      ],
+      "padding": [
+        0
+      ],
+      "dilation": [
+        1
+      ],
+      "groups": 1,
+      "output_padding": [
+        0
+      ],
+      "count": 2
+    },
+    "27cafffea233": {
+      "kind": "Conv1d",
+      "input": [
+        8,
+        1025,
+        74
+      ],
+      "weight": [
+        192,
+        1025,
+        1
+      ],
+      "input_dtype": "torch.float32",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        1
+      ],
+      "padding": [
+        0
+      ],
+      "dilation": [
+        1
+      ],
+      "groups": 1,
+      "output_padding": [
+        0
+      ],
+      "count": 1
+    },
+    "45896d016b00": {
+      "kind": "ParametrizedConv1d",
+      "input": [
+        8,
+        192,
+        74
+      ],
+      "weight": [
+        384,
+        192,
+        5
+      ],
+      "input_dtype": "torch.float32",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        1
+      ],
+      "padding": [
+        2
+      ],
+      "dilation": [
+        1
+      ],
+      "groups": 1,
+      "output_padding": [
+        0
+      ],
+      "count": 28
+    },
+    "6b49363ece2f": {
+      "kind": "ParametrizedConv1d",
+      "input": [
+        8,
+        192,
+        74
+      ],
+      "weight": [
+        384,
+        192,
+        1
+      ],
+      "input_dtype": "torch.float32",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        1
+      ],
+      "padding": [
+        0
+      ],
+      "dilation": [
+        1
+      ],
+      "groups": 1,
+      "output_padding": [
+        0
+      ],
+      "count": 23
+    },
+    "b7ac66d83a93": {
+      "kind": "ParametrizedConv1d",
+      "input": [
+        8,
+        192,
+        74
+      ],
+      "weight": [
+        192,
+        192,
+        1
+      ],
+      "input_dtype": "torch.float32",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        1
+      ],
+      "padding": [
+        0
+      ],
+      "dilation": [
+        1
+      ],
+      "groups": 1,
+      "output_padding": [
+        0
+      ],
+      "count": 5
+    },
+    "398ecb97a896": {
+      "kind": "Conv1d",
+      "input": [
+        8,
+        96,
+        74
+      ],
+      "weight": [
+        192,
+        96,
+        1
+      ],
+      "input_dtype": "torch.float32",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        1
+      ],
+      "padding": [
+        0
+      ],
+      "dilation": [
+        1
+      ],
+      "groups": 1,
+      "output_padding": [
+        0
+      ],
+      "count": 4
+    },
+    "6d730f8a7766": {
+      "kind": "Conv1d",
+      "input": [
+        8,
+        192,
+        74
+      ],
+      "weight": [
+        96,
+        192,
+        1
+      ],
+      "input_dtype": "torch.float32",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        1
+      ],
+      "padding": [
+        0
+      ],
+      "dilation": [
+        1
+      ],
+      "groups": 1,
+      "output_padding": [
+        0
+      ],
+      "count": 4
+    },
+    "26f82f3d522f": {
+      "kind": "Conv1d",
+      "input": [
+        8,
+        192,
+        224
+      ],
+      "weight": [
+        192,
+        192,
+        1
+      ],
+      "input_dtype": "torch.float16",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        1
+      ],
+      "padding": [
+        0
+      ],
+      "dilation": [
+        1
+      ],
+      "groups": 1,
+      "output_padding": [
+        0
+      ],
+      "count": 9
+    },
+    "da49670af60c": {
+      "kind": "Conv1d",
+      "input": [
+        8,
+        192,
+        226
+      ],
+      "weight": [
+        768,
+        192,
+        3
+      ],
+      "input_dtype": "torch.float32",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        1
+      ],
+      "padding": [
+        0
+      ],
+      "dilation": [
+        1
+      ],
+      "groups": 1,
+      "output_padding": [
+        0
+      ],
+      "count": 6
+    },
+    "4b9c13621ba7": {
+      "kind": "Conv1d",
+      "input": [
+        8,
+        768,
+        226
+      ],
+      "weight": [
+        192,
+        768,
+        3
+      ],
+      "input_dtype": "torch.float16",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        1
+      ],
+      "padding": [
+        0
+      ],
+      "dilation": [
+        1
+      ],
+      "groups": 1,
+      "output_padding": [
+        0
+      ],
+      "count": 6
+    },
+    "c9e99118a841": {
+      "kind": "Conv1d",
+      "input": [
+        8,
+        192,
+        224
+      ],
+      "weight": [
+        192,
+        192,
+        1
+      ],
+      "input_dtype": "torch.float32",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        1
+      ],
+      "padding": [
+        0
+      ],
+      "dilation": [
+        1
+      ],
+      "groups": 1,
+      "output_padding": [
+        0
+      ],
+      "count": 15
+    },
+    "ab4458e22a5f": {
+      "kind": "Conv1d",
+      "input": [
+        8,
+        192,
+        224
+      ],
+      "weight": [
+        384,
+        192,
+        1
+      ],
+      "input_dtype": "torch.float32",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        1
+      ],
+      "padding": [
+        0
+      ],
+      "dilation": [
+        1
+      ],
+      "groups": 1,
+      "output_padding": [
+        0
+      ],
+      "count": 2
+    },
+    "787ff6c67423": {
+      "kind": "Conv1d",
+      "input": [
+        8,
+        1025,
+        224
+      ],
+      "weight": [
+        192,
+        1025,
+        1
+      ],
+      "input_dtype": "torch.float32",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        1
+      ],
+      "padding": [
+        0
+      ],
+      "dilation": [
+        1
+      ],
+      "groups": 1,
+      "output_padding": [
+        0
+      ],
+      "count": 1
+    },
+    "8a5178828d11": {
+      "kind": "ParametrizedConv1d",
+      "input": [
+        8,
+        192,
+        224
+      ],
+      "weight": [
+        384,
+        192,
+        5
+      ],
+      "input_dtype": "torch.float32",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        1
+      ],
+      "padding": [
+        2
+      ],
+      "dilation": [
+        1
+      ],
+      "groups": 1,
+      "output_padding": [
+        0
+      ],
+      "count": 28
+    },
+    "e814fd80b92b": {
+      "kind": "ParametrizedConv1d",
+      "input": [
+        8,
+        192,
+        224
+      ],
+      "weight": [
+        384,
+        192,
+        1
+      ],
+      "input_dtype": "torch.float32",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        1
+      ],
+      "padding": [
+        0
+      ],
+      "dilation": [
+        1
+      ],
+      "groups": 1,
+      "output_padding": [
+        0
+      ],
+      "count": 23
+    },
+    "970bc8dae32c": {
+      "kind": "ParametrizedConv1d",
+      "input": [
+        8,
+        192,
+        224
+      ],
+      "weight": [
+        192,
+        192,
+        1
+      ],
+      "input_dtype": "torch.float32",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        1
+      ],
+      "padding": [
+        0
+      ],
+      "dilation": [
+        1
+      ],
+      "groups": 1,
+      "output_padding": [
+        0
+      ],
+      "count": 5
+    },
+    "c51937f4c3ba": {
+      "kind": "Conv1d",
+      "input": [
+        8,
+        96,
+        224
+      ],
+      "weight": [
+        192,
+        96,
+        1
+      ],
+      "input_dtype": "torch.float32",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        1
+      ],
+      "padding": [
+        0
+      ],
+      "dilation": [
+        1
+      ],
+      "groups": 1,
+      "output_padding": [
+        0
+      ],
+      "count": 4
+    },
+    "73db0ec5f8b4": {
+      "kind": "Conv1d",
+      "input": [
+        8,
+        192,
+        224
+      ],
+      "weight": [
+        96,
+        192,
+        1
+      ],
+      "input_dtype": "torch.float32",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        1
+      ],
+      "padding": [
+        0
+      ],
+      "dilation": [
+        1
+      ],
+      "groups": 1,
+      "output_padding": [
+        0
+      ],
+      "count": 4
+    },
+    "e67de80452c6": {
+      "kind": "Conv1d",
+      "input": [
+        8,
+        192,
+        220
+      ],
+      "weight": [
+        192,
+        192,
+        1
+      ],
+      "input_dtype": "torch.float16",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        1
+      ],
+      "padding": [
+        0
+      ],
+      "dilation": [
+        1
+      ],
+      "groups": 1,
+      "output_padding": [
+        0
+      ],
+      "count": 9
+    },
+    "5668238db9d3": {
+      "kind": "Conv1d",
+      "input": [
+        8,
+        192,
+        222
+      ],
+      "weight": [
+        768,
+        192,
+        3
+      ],
+      "input_dtype": "torch.float32",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        1
+      ],
+      "padding": [
+        0
+      ],
+      "dilation": [
+        1
+      ],
+      "groups": 1,
+      "output_padding": [
+        0
+      ],
+      "count": 6
+    },
+    "49e0f60185aa": {
+      "kind": "Conv1d",
+      "input": [
+        8,
+        768,
+        222
+      ],
+      "weight": [
+        192,
+        768,
+        3
+      ],
+      "input_dtype": "torch.float16",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        1
+      ],
+      "padding": [
+        0
+      ],
+      "dilation": [
+        1
+      ],
+      "groups": 1,
+      "output_padding": [
+        0
+      ],
+      "count": 6
+    },
+    "99152bcc1e93": {
+      "kind": "Conv1d",
+      "input": [
+        8,
+        192,
+        220
+      ],
+      "weight": [
+        192,
+        192,
+        1
+      ],
+      "input_dtype": "torch.float32",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        1
+      ],
+      "padding": [
+        0
+      ],
+      "dilation": [
+        1
+      ],
+      "groups": 1,
+      "output_padding": [
+        0
+      ],
+      "count": 15
+    },
+    "9d2aac01e42c": {
+      "kind": "Conv1d",
+      "input": [
+        8,
+        192,
+        220
+      ],
+      "weight": [
+        384,
+        192,
+        1
+      ],
+      "input_dtype": "torch.float32",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        1
+      ],
+      "padding": [
+        0
+      ],
+      "dilation": [
+        1
+      ],
+      "groups": 1,
+      "output_padding": [
+        0
+      ],
+      "count": 2
+    },
+    "ea17ae70b60c": {
+      "kind": "Conv1d",
+      "input": [
+        8,
+        1025,
+        220
+      ],
+      "weight": [
+        192,
+        1025,
+        1
+      ],
+      "input_dtype": "torch.float32",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        1
+      ],
+      "padding": [
+        0
+      ],
+      "dilation": [
+        1
+      ],
+      "groups": 1,
+      "output_padding": [
+        0
+      ],
+      "count": 1
+    },
+    "74ad859ddee8": {
+      "kind": "ParametrizedConv1d",
+      "input": [
+        8,
+        192,
+        220
+      ],
+      "weight": [
+        384,
+        192,
+        5
+      ],
+      "input_dtype": "torch.float32",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        1
+      ],
+      "padding": [
+        2
+      ],
+      "dilation": [
+        1
+      ],
+      "groups": 1,
+      "output_padding": [
+        0
+      ],
+      "count": 28
+    },
+    "1aea40dd190f": {
+      "kind": "ParametrizedConv1d",
+      "input": [
+        8,
+        192,
+        220
+      ],
+      "weight": [
+        384,
+        192,
+        1
+      ],
+      "input_dtype": "torch.float32",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        1
+      ],
+      "padding": [
+        0
+      ],
+      "dilation": [
+        1
+      ],
+      "groups": 1,
+      "output_padding": [
+        0
+      ],
+      "count": 23
+    },
+    "0a584fdcccfe": {
+      "kind": "ParametrizedConv1d",
+      "input": [
+        8,
+        192,
+        220
+      ],
+      "weight": [
+        192,
+        192,
+        1
+      ],
+      "input_dtype": "torch.float32",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        1
+      ],
+      "padding": [
+        0
+      ],
+      "dilation": [
+        1
+      ],
+      "groups": 1,
+      "output_padding": [
+        0
+      ],
+      "count": 5
+    },
+    "e5b62a42ccd0": {
+      "kind": "Conv1d",
+      "input": [
+        8,
+        96,
+        220
+      ],
+      "weight": [
+        192,
+        96,
+        1
+      ],
+      "input_dtype": "torch.float32",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        1
+      ],
+      "padding": [
+        0
+      ],
+      "dilation": [
+        1
+      ],
+      "groups": 1,
+      "output_padding": [
+        0
+      ],
+      "count": 4
+    },
+    "895cf2c9fd9e": {
+      "kind": "Conv1d",
+      "input": [
+        8,
+        192,
+        220
+      ],
+      "weight": [
+        96,
+        192,
+        1
+      ],
+      "input_dtype": "torch.float32",
+      "weight_dtype": "torch.float32",
+      "stride": [
+        1
+      ],
+      "padding": [
+        0
+      ],
+      "dilation": [
+        1
+      ],
+      "groups": 1,
+      "output_padding": [
+        0
+      ],
+      "count": 4
+    }
+  },
+  "direct_calls": {
+    "340ce4cd8216": {
+      "direction": "fwd",
+      "input": [
+        8,
+        128,
+        3200
+      ],
+      "weight": [
+        128,
+        128,
+        11
+      ],
+      "dilation": 1,
+      "padding": 5,
+      "groups": 1,
+      "dtype": "torch.float16",
+      "count": 20
+    },
+    "363d7513966a": {
+      "direction": "fwd",
+      "input": [
+        8,
+        128,
+        3200
+      ],
+      "weight": [
+        128,
+        128,
+        11
+      ],
+      "dilation": 3,
+      "padding": 15,
+      "groups": 1,
+      "dtype": "torch.float16",
+      "count": 5
+    },
+    "480d56c6ce44": {
+      "direction": "fwd",
+      "input": [
+        8,
+        128,
+        3200
+      ],
+      "weight": [
+        128,
+        128,
+        11
+      ],
+      "dilation": 5,
+      "padding": 25,
+      "groups": 1,
+      "dtype": "torch.float16",
+      "count": 5
+    },
+    "b94bf1a02d4a": {
+      "direction": "fwd",
+      "input": [
+        8,
+        64,
+        6400
+      ],
+      "weight": [
+        64,
+        64,
+        3
+      ],
+      "dilation": 1,
+      "padding": 1,
+      "groups": 1,
+      "dtype": "torch.float16",
+      "count": 20
+    },
+    "310891f8646b": {
+      "direction": "fwd",
+      "input": [
+        8,
+        64,
+        6400
+      ],
+      "weight": [
+        64,
+        64,
+        3
+      ],
+      "dilation": 3,
+      "padding": 3,
+      "groups": 1,
+      "dtype": "torch.float16",
+      "count": 5
+    },
+    "ea3b77c6258d": {
+      "direction": "fwd",
+      "input": [
+        8,
+        64,
+        6400
+      ],
+      "weight": [
+        64,
+        64,
+        3
+      ],
+      "dilation": 5,
+      "padding": 5,
+      "groups": 1,
+      "dtype": "torch.float16",
+      "count": 5
+    },
+    "71b9dbf27725": {
+      "direction": "fwd",
+      "input": [
+        8,
+        64,
+        6400
+      ],
+      "weight": [
+        64,
+        64,
+        7
+      ],
+      "dilation": 1,
+      "padding": 3,
+      "groups": 1,
+      "dtype": "torch.float16",
+      "count": 20
+    },
+    "7941dab5520e": {
+      "direction": "fwd",
+      "input": [
+        8,
+        64,
+        6400
+      ],
+      "weight": [
+        64,
+        64,
+        7
+      ],
+      "dilation": 3,
+      "padding": 9,
+      "groups": 1,
+      "dtype": "torch.float16",
+      "count": 5
+    },
+    "079058b7831e": {
+      "direction": "fwd",
+      "input": [
+        8,
+        64,
+        6400
+      ],
+      "weight": [
+        64,
+        64,
+        7
+      ],
+      "dilation": 5,
+      "padding": 15,
+      "groups": 1,
+      "dtype": "torch.float16",
+      "count": 5
+    },
+    "b2d5fe9a0750": {
+      "direction": "fwd",
+      "input": [
+        8,
+        64,
+        6400
+      ],
+      "weight": [
+        64,
+        64,
+        11
+      ],
+      "dilation": 1,
+      "padding": 5,
+      "groups": 1,
+      "dtype": "torch.float16",
+      "count": 20
+    },
+    "22d0746d60e4": {
+      "direction": "fwd",
+      "input": [
+        8,
+        64,
+        6400
+      ],
+      "weight": [
+        64,
+        64,
+        11
+      ],
+      "dilation": 3,
+      "padding": 15,
+      "groups": 1,
+      "dtype": "torch.float16",
+      "count": 5
+    },
+    "612f60fbdcc6": {
+      "direction": "fwd",
+      "input": [
+        8,
+        64,
+        6400
+      ],
+      "weight": [
+        64,
+        64,
+        11
+      ],
+      "dilation": 5,
+      "padding": 25,
+      "groups": 1,
+      "dtype": "torch.float16",
+      "count": 5
+    },
+    "c0f3c8c4a208": {
+      "direction": "fwd",
+      "input": [
+        8,
+        32,
+        12800
+      ],
+      "weight": [
+        32,
+        32,
+        3
+      ],
+      "dilation": 1,
+      "padding": 1,
+      "groups": 1,
+      "dtype": "torch.float16",
+      "count": 20
+    },
+    "18a2155a81ae": {
+      "direction": "fwd",
+      "input": [
+        8,
+        32,
+        12800
+      ],
+      "weight": [
+        32,
+        32,
+        3
+      ],
+      "dilation": 3,
+      "padding": 3,
+      "groups": 1,
+      "dtype": "torch.float16",
+      "count": 5
+    },
+    "401211ba3dc9": {
+      "direction": "fwd",
+      "input": [
+        8,
+        32,
+        12800
+      ],
+      "weight": [
+        32,
+        32,
+        3
+      ],
+      "dilation": 5,
+      "padding": 5,
+      "groups": 1,
+      "dtype": "torch.float16",
+      "count": 5
+    },
+    "223d7b4b95e2": {
+      "direction": "fwd",
+      "input": [
+        8,
+        32,
+        12800
+      ],
+      "weight": [
+        32,
+        32,
+        7
+      ],
+      "dilation": 1,
+      "padding": 3,
+      "groups": 1,
+      "dtype": "torch.float16",
+      "count": 20
+    },
+    "8441c4748c51": {
+      "direction": "fwd",
+      "input": [
+        8,
+        32,
+        12800
+      ],
+      "weight": [
+        32,
+        32,
+        11
+      ],
+      "dilation": 1,
+      "padding": 5,
+      "groups": 1,
+      "dtype": "torch.float16",
+      "count": 20
+    },
+    "420f5dfbdfb2": {
+      "direction": "fwd",
+      "input": [
+        8,
+        32,
+        12800
+      ],
+      "weight": [
+        32,
+        32,
+        11
+      ],
+      "dilation": 5,
+      "padding": 25,
+      "groups": 1,
+      "dtype": "torch.float16",
+      "count": 5
+    },
+    "3ff76832a056": {
+      "direction": "dx",
+      "input": [
+        8,
+        32,
+        12800
+      ],
+      "weight": [
+        32,
+        32,
+        11
+      ],
+      "dilation": 1,
+      "padding": 5,
+      "groups": 1,
+      "dtype": "torch.float16",
+      "count": 20
+    },
+    "68aea523ce42": {
+      "direction": "dw",
+      "input": [
+        8,
+        32,
+        12800
+      ],
+      "weight": [
+        32,
+        32,
+        11
+      ],
+      "dilation": 1,
+      "padding": 5,
+      "groups": 1,
+      "dtype": "torch.float16",
+      "count": 20
+    },
+    "d29a228fe891": {
+      "direction": "dx",
+      "input": [
+        8,
+        32,
+        12800
+      ],
+      "weight": [
+        32,
+        32,
+        11
+      ],
+      "dilation": 5,
+      "padding": 25,
+      "groups": 1,
+      "dtype": "torch.float16",
+      "count": 5
+    },
+    "ee2f36d7cf8b": {
+      "direction": "dw",
+      "input": [
+        8,
+        32,
+        12800
+      ],
+      "weight": [
+        32,
+        32,
+        11
+      ],
+      "dilation": 5,
+      "padding": 25,
+      "groups": 1,
+      "dtype": "torch.float16",
+      "count": 5
+    },
+    "ac6e33131dff": {
+      "direction": "dx",
+      "input": [
+        8,
+        32,
+        12800
+      ],
+      "weight": [
+        32,
+        32,
+        7
+      ],
+      "dilation": 1,
+      "padding": 3,
+      "groups": 1,
+      "dtype": "torch.float16",
+      "count": 20
+    },
+    "da036af8f8d9": {
+      "direction": "dw",
+      "input": [
+        8,
+        32,
+        12800
+      ],
+      "weight": [
+        32,
+        32,
+        7
+      ],
+      "dilation": 1,
+      "padding": 3,
+      "groups": 1,
+      "dtype": "torch.float16",
+      "count": 20
+    },
+    "c1ee1072dfff": {
+      "direction": "dx",
+      "input": [
+        8,
+        32,
+        12800
+      ],
+      "weight": [
+        32,
+        32,
+        3
+      ],
+      "dilation": 1,
+      "padding": 1,
+      "groups": 1,
+      "dtype": "torch.float16",
+      "count": 20
+    },
+    "db543681bc05": {
+      "direction": "dw",
+      "input": [
+        8,
+        32,
+        12800
+      ],
+      "weight": [
+        32,
+        32,
+        3
+      ],
+      "dilation": 1,
+      "padding": 1,
+      "groups": 1,
+      "dtype": "torch.float16",
+      "count": 20
+    },
+    "94ed57d062d0": {
+      "direction": "dx",
+      "input": [
+        8,
+        32,
+        12800
+      ],
+      "weight": [
+        32,
+        32,
+        3
+      ],
+      "dilation": 5,
+      "padding": 5,
+      "groups": 1,
+      "dtype": "torch.float16",
+      "count": 5
+    },
+    "826d43aa0074": {
+      "direction": "dw",
+      "input": [
+        8,
+        32,
+        12800
+      ],
+      "weight": [
+        32,
+        32,
+        3
+      ],
+      "dilation": 5,
+      "padding": 5,
+      "groups": 1,
+      "dtype": "torch.float16",
+      "count": 5
+    },
+    "9bb6a5aad564": {
+      "direction": "dx",
+      "input": [
+        8,
+        32,
+        12800
+      ],
+      "weight": [
+        32,
+        32,
+        3
+      ],
+      "dilation": 3,
+      "padding": 3,
+      "groups": 1,
+      "dtype": "torch.float16",
+      "count": 5
+    },
+    "926ca94ba413": {
+      "direction": "dw",
+      "input": [
+        8,
+        32,
+        12800
+      ],
+      "weight": [
+        32,
+        32,
+        3
+      ],
+      "dilation": 3,
+      "padding": 3,
+      "groups": 1,
+      "dtype": "torch.float16",
+      "count": 5
+    },
+    "d41ba4e4ada3": {
+      "direction": "dx",
+      "input": [
+        8,
+        64,
+        6400
+      ],
+      "weight": [
+        64,
+        64,
+        11
+      ],
+      "dilation": 1,
+      "padding": 5,
+      "groups": 1,
+      "dtype": "torch.float16",
+      "count": 20
+    },
+    "24d515a241ee": {
+      "direction": "dw",
+      "input": [
+        8,
+        64,
+        6400
+      ],
+      "weight": [
+        64,
+        64,
+        11
+      ],
+      "dilation": 1,
+      "padding": 5,
+      "groups": 1,
+      "dtype": "torch.float16",
+      "count": 20
+    },
+    "46e7aff417eb": {
+      "direction": "dx",
+      "input": [
+        8,
+        64,
+        6400
+      ],
+      "weight": [
+        64,
+        64,
+        11
+      ],
+      "dilation": 5,
+      "padding": 25,
+      "groups": 1,
+      "dtype": "torch.float16",
+      "count": 5
+    },
+    "61bf92343155": {
+      "direction": "dw",
+      "input": [
+        8,
+        64,
+        6400
+      ],
+      "weight": [
+        64,
+        64,
+        11
+      ],
+      "dilation": 5,
+      "padding": 25,
+      "groups": 1,
+      "dtype": "torch.float16",
+      "count": 5
+    },
+    "be2a72619811": {
+      "direction": "dx",
+      "input": [
+        8,
+        64,
+        6400
+      ],
+      "weight": [
+        64,
+        64,
+        11
+      ],
+      "dilation": 3,
+      "padding": 15,
+      "groups": 1,
+      "dtype": "torch.float16",
+      "count": 5
+    },
+    "3bed227cdb39": {
+      "direction": "dw",
+      "input": [
+        8,
+        64,
+        6400
+      ],
+      "weight": [
+        64,
+        64,
+        11
+      ],
+      "dilation": 3,
+      "padding": 15,
+      "groups": 1,
+      "dtype": "torch.float16",
+      "count": 5
+    },
+    "cfa303d2af13": {
+      "direction": "dx",
+      "input": [
+        8,
+        64,
+        6400
+      ],
+      "weight": [
+        64,
+        64,
+        7
+      ],
+      "dilation": 1,
+      "padding": 3,
+      "groups": 1,
+      "dtype": "torch.float16",
+      "count": 20
+    },
+    "5155642ed7ee": {
+      "direction": "dw",
+      "input": [
+        8,
+        64,
+        6400
+      ],
+      "weight": [
+        64,
+        64,
+        7
+      ],
+      "dilation": 1,
+      "padding": 3,
+      "groups": 1,
+      "dtype": "torch.float16",
+      "count": 20
+    },
+    "73e2c7a18d6f": {
+      "direction": "dx",
+      "input": [
+        8,
+        64,
+        6400
+      ],
+      "weight": [
+        64,
+        64,
+        7
+      ],
+      "dilation": 5,
+      "padding": 15,
+      "groups": 1,
+      "dtype": "torch.float16",
+      "count": 5
+    },
+    "27042a418071": {
+      "direction": "dw",
+      "input": [
+        8,
+        64,
+        6400
+      ],
+      "weight": [
+        64,
+        64,
+        7
+      ],
+      "dilation": 5,
+      "padding": 15,
+      "groups": 1,
+      "dtype": "torch.float16",
+      "count": 5
+    },
+    "343353272e2e": {
+      "direction": "dx",
+      "input": [
+        8,
+        64,
+        6400
+      ],
+      "weight": [
+        64,
+        64,
+        7
+      ],
+      "dilation": 3,
+      "padding": 9,
+      "groups": 1,
+      "dtype": "torch.float16",
+      "count": 5
+    },
+    "e82c98421c94": {
+      "direction": "dw",
+      "input": [
+        8,
+        64,
+        6400
+      ],
+      "weight": [
+        64,
+        64,
+        7
+      ],
+      "dilation": 3,
+      "padding": 9,
+      "groups": 1,
+      "dtype": "torch.float16",
+      "count": 5
+    },
+    "13b8197c592e": {
+      "direction": "dx",
+      "input": [
+        8,
+        64,
+        6400
+      ],
+      "weight": [
+        64,
+        64,
+        3
+      ],
+      "dilation": 1,
+      "padding": 1,
+      "groups": 1,
+      "dtype": "torch.float16",
+      "count": 20
+    },
+    "3e5df8e571b4": {
+      "direction": "dw",
+      "input": [
+        8,
+        64,
+        6400
+      ],
+      "weight": [
+        64,
+        64,
+        3
+      ],
+      "dilation": 1,
+      "padding": 1,
+      "groups": 1,
+      "dtype": "torch.float16",
+      "count": 20
+    },
+    "690e1c452892": {
+      "direction": "dx",
+      "input": [
+        8,
+        64,
+        6400
+      ],
+      "weight": [
+        64,
+        64,
+        3
+      ],
+      "dilation": 5,
+      "padding": 5,
+      "groups": 1,
+      "dtype": "torch.float16",
+      "count": 5
+    },
+    "44868af74f3e": {
+      "direction": "dw",
+      "input": [
+        8,
+        64,
+        6400
+      ],
+      "weight": [
+        64,
+        64,
+        3
+      ],
+      "dilation": 5,
+      "padding": 5,
+      "groups": 1,
+      "dtype": "torch.float16",
+      "count": 5
+    },
+    "ea66b59f9cde": {
+      "direction": "dx",
+      "input": [
+        8,
+        64,
+        6400
+      ],
+      "weight": [
+        64,
+        64,
+        3
+      ],
+      "dilation": 3,
+      "padding": 3,
+      "groups": 1,
+      "dtype": "torch.float16",
+      "count": 5
+    },
+    "7c83edd3d115": {
+      "direction": "dw",
+      "input": [
+        8,
+        64,
+        6400
+      ],
+      "weight": [
+        64,
+        64,
+        3
+      ],
+      "dilation": 3,
+      "padding": 3,
+      "groups": 1,
+      "dtype": "torch.float16",
+      "count": 5
+    },
+    "7d8c064b3ca8": {
+      "direction": "dx",
+      "input": [
+        8,
+        128,
+        3200
+      ],
+      "weight": [
+        128,
+        128,
+        11
+      ],
+      "dilation": 5,
+      "padding": 25,
+      "groups": 1,
+      "dtype": "torch.float16",
+      "count": 5
+    },
+    "4ba2b581e6c2": {
+      "direction": "dx",
+      "input": [
+        8,
+        128,
+        3200
+      ],
+      "weight": [
+        128,
+        128,
+        11
+      ],
+      "dilation": 3,
+      "padding": 15,
+      "groups": 1,
+      "dtype": "torch.float16",
+      "count": 5
+    },
+    "6272dbb5ae9f": {
+      "direction": "fwd",
+      "input": [
+        8,
+        192,
+        326
+      ],
+      "weight": [
+        384,
+        192,
+        5
+      ],
+      "dilation": 1,
+      "padding": 2,
+      "groups": 1,
+      "dtype": "torch.float16",
+      "count": 28
+    },
+    "77a06274ac31": {
+      "direction": "dx",
+      "input": [
+        8,
+        192,
+        326
+      ],
+      "weight": [
+        384,
+        192,
+        5
+      ],
+      "dilation": 1,
+      "padding": 2,
+      "groups": 1,
+      "dtype": "torch.float16",
+      "count": 28
+    },
+    "df9801c8617e": {
+      "direction": "fwd",
+      "input": [
+        8,
+        192,
+        74
+      ],
+      "weight": [
+        384,
+        192,
+        5
+      ],
+      "dilation": 1,
+      "padding": 2,
+      "groups": 1,
+      "dtype": "torch.float16",
+      "count": 28
+    },
+    "1c808731e696": {
+      "direction": "dx",
+      "input": [
+        8,
+        192,
+        74
+      ],
+      "weight": [
+        384,
+        192,
+        5
+      ],
+      "dilation": 1,
+      "padding": 2,
+      "groups": 1,
+      "dtype": "torch.float16",
+      "count": 28
+    },
+    "d04792606cd5": {
+      "direction": "fwd",
+      "input": [
+        8,
+        192,
+        224
+      ],
+      "weight": [
+        384,
+        192,
+        5
+      ],
+      "dilation": 1,
+      "padding": 2,
+      "groups": 1,
+      "dtype": "torch.float16",
+      "count": 28
+    },
+    "156c485c0df0": {
+      "direction": "dx",
+      "input": [
+        8,
+        192,
+        224
+      ],
+      "weight": [
+        384,
+        192,
+        5
+      ],
+      "dilation": 1,
+      "padding": 2,
+      "groups": 1,
+      "dtype": "torch.float16",
+      "count": 28
+    }
+  },
+  "dataset": "voice_model_A",
+  "batch_size": 8,
+  "entrypoint": "operating core.py train -> operating train.py",
+  "spawn_run_globals_same_as_module_dict": false,
+  "source_model_info": {
+    "path": "~/DevSpace/applio-lab/logs/voice_model_A/model_info.json",
+    "sha256": "b475401155328130d1f4c31a18673c19039160066af9908ffd76086e51dd1a7d",
+    "speakers_id": 1,
+    "embedder_model": "rvc/models/embedders/embedders_custom/KLM-SVM"
+  },
+  "export_metadata_repair": {
+    "scope": "missing metadata locals only, process-local function copy",
+    "original_function_sha256": "0b6eddd3aa67679685711faf96c2aac7488faf502a5d5845535f3884b9ecd60c",
+    "runtime_function_sha256": "c8af91e6c3dda4b1c4249f3e9b1b943b16319875b9c1d2af117088393638df18"
+  },
+  "torch": "2.11.0+rocm10.0.0",
+  "hip": "7.15.26333",
+  "train_dtype": "torch.float16",
+  "effective_cudnn_benchmark": false,
+  "seed": 1234,
+  "model_name": "v10_profile_B_target_20261108",
+  "effective_model_metadata": {
+    "speakers_id": 1,
+    "embedder_model": "rvc/models/embedders/embedders_custom/KLM-SVM"
+  },
+  "initial_state_sha256": [
+    "732feda6913551ecdc4309f1466ce1debbf829a9c56ea968a22b168a15359f7f",
+    "ae2b43f05be2d7a4becd607dc91ad55a1f7bb74d07d7356f57382e742ac425f9"
+  ],
+  "steps_per_epoch": 31,
+  "dataset_rows": 233,
+  "dataset_sampler_samples": 248,
+  "optimizer_groups": [
+    {
+      "foreach": null,
+      "fused": null,
+      "capturable": false,
+      "eps": 1e-09,
+      "weight_decay": 0.01
+    },
+    {
+      "foreach": false,
+      "fused": false,
+      "capturable": false,
+      "eps": 1e-09,
+      "weight_decay": 0.01
+    }
+  ],
+  "direct_conv_hits": {
+    "[[8,128,3200],[128,128,11],1,5,1,\"float16\",\"NCT\",1]": 372,
+    "[[8,128,3200],[128,128,11],3,15,1,\"float16\",\"NCT\",1]": 93,
+    "[[8,128,3200],[128,128,11],5,25,1,\"float16\",\"NCT\",1]": 93,
+    "[[8,64,6400],[64,64,3],1,1,1,\"float16\",\"NCT\",1]": 372,
+    "[[8,64,6400],[64,64,3],3,3,1,\"float16\",\"NCT\",1]": 93,
+    "[[8,64,6400],[64,64,3],5,5,1,\"float16\",\"NCT\",1]": 93,
+    "[[8,64,6400],[64,64,7],1,3,1,\"float16\",\"NCT\",1]": 372,
+    "[[8,64,6400],[64,64,7],3,9,1,\"float16\",\"NCT\",1]": 93,
+    "[[8,64,6400],[64,64,7],5,15,1,\"float16\",\"NCT\",1]": 93,
+    "[[8,64,6400],[64,64,11],1,5,1,\"float16\",\"NCT\",1]": 372,
+    "[[8,64,6400],[64,64,11],3,15,1,\"float16\",\"NCT\",1]": 93,
+    "[[8,64,6400],[64,64,11],5,25,1,\"float16\",\"NCT\",1]": 93,
+    "[[8,32,12800],[32,32,3],1,1,1,\"float16\",\"NCT\",1]": 372,
+    "[[8,32,12800],[32,32,3],3,3,1,\"float16\",\"NCT\",1]": 93,
+    "[[8,32,12800],[32,32,3],5,5,1,\"float16\",\"NCT\",1]": 93,
+    "[[8,32,12800],[32,32,7],1,3,1,\"float16\",\"NCT\",1]": 372,
+    "[[8,32,12800],[32,32,11],1,5,1,\"float16\",\"NCT\",1]": 372,
+    "[[8,32,12800],[32,32,11],5,25,1,\"float16\",\"NCT\",1]": 93,
+    "[[8,192,224],[384,192,5],1,2,1,\"float16\",\"NCT\",1]": 84,
+    "[[8,192,74],[384,192,5],1,2,1,\"float16\",\"NCT\",1]": 84,
+    "[[8,192,326],[384,192,5],1,2,1,\"float16\",\"NCT\",1]": 28
+  },
+  "profile_saved": true,
+  "model_exports": [
+    {
+      "path": "~/DevSpace/applio-lab/logs/v10_profile_B_target_20261108/v10_profile_B_target_20261108_3e_93s.pth",
+      "bytes": 55182752,
+      "sha256": "fec56cf16a19dfa2f131a5a4918900ecd9be952d67c8c6ec5ba0d85b904d26cd"
+    }
+  ],
+  "training_completed": true,
+  "export_completed": true,
+  "process_wall_s": 89.55149813598837,
+  "gpu_audit": {
+    "available": true,
+    "valid_for_timing": true,
+    "method": "KFD client PID snapshots and periodic polling; research flock",
+    "limitation": "Detects observed KFD clients, not graphics load or sub-poll transient clients",
+    "allowed_pids": [
+      2540516,
+      2540536,
+      2540653,
+      2540756,
+      2540757,
+      2540878,
+      2540879,
+      2540880,
+      2540881,
+      2541984
+    ],
+    "interval_s": 0.25,
+    "sample_count": 360,
+    "started_unix_s": 1794132190.8324165,
+    "ended_unix_s": 1794132280.3838758,
+    "foreign_clients": [],
+    "errors": [],
+    "transitions": [
+      {
+        "unix_s": 1794132190.8324525,
+        "kfd_pids": [],
+        "foreign_or_error": []
+      }
+    ],
+    "max_queues": 7,
+    "max_clients": 6,
+    "queue_transitions": [
+      {
+        "unix_s": 1794132190.8324873,
+        "clients": {},
+        "queues": 0
+      },
+      {
+        "unix_s": 1794132195.5892496,
+        "clients": {
+          "2540653": 0
+        },
+        "queues": 0
+      },
+      {
+        "unix_s": 1794132196.8411071,
+        "clients": {
+          "2540653": 3
+        },
+        "queues": 3
+      },
+      {
+        "unix_s": 1794132198.5940857,
+        "clients": {
+          "2540653": 3,
+          "2540757": 3
+        },
+        "queues": 6
+      },
+      {
+        "unix_s": 1794132202.6031094,
+        "clients": {
+          "2540878": 0,
+          "2540880": 0,
+          "2540653": 3,
+          "2540879": 0,
+          "2540881": 0,
+          "2540757": 3
+        },
+        "queues": 6
+      },
+      {
+        "unix_s": 1794132205.3587573,
+        "clients": {
+          "2540878": 0,
+          "2540880": 0,
+          "2540653": 3,
+          "2540879": 0,
+          "2540881": 0,
+          "2540757": 4
+        },
+        "queues": 7
+      },
+      {
+        "unix_s": 1794132275.5062425,
+        "clients": {
+          "2540878": 0,
+          "2540880": 0,
+          "2540653": 3,
+          "2540879": 0,
+          "2540881": 0,
+          "2540757": 0
+        },
+        "queues": 3
+      },
+      {
+        "unix_s": 1794132276.0070908,
+        "clients": {
+          "2540878": 0,
+          "2540880": 0,
+          "2540653": 3,
+          "2540879": 0,
+          "2540881": 0
+        },
+        "queues": 3
+      },
+      {
+        "unix_s": 1794132278.7615201,
+        "clients": {
+          "2540653": 3
+        },
+        "queues": 3
+      },
+      {
+        "unix_s": 1794132279.0118406,
+        "clients": {},
+        "queues": 0
+      }
+    ],
+    "queue_limit": 7,
+    "queues_pass": true
+  },
+  "protected_after": {
+    "~/DevSpace/applio-lab/core.py": "fd288f0d20f7796723f72e9075c8dc274a058b8b772b3bf2420b5a449159dd5b",
+    "~/DevSpace/applio-lab/rvc/train/train.py": "9188a3f716db06998d6647f59367216b13f002f29f0778cf9e8c970163064273",
+    "~/DevSpace/applio-lab/rvc/train/lab_hooks.py": "224a62190e5d0058d1981a92c1d3d56a28069fe26e927dcb337591863c9323fe",
+    "~/DevSpace/applio-lab/assets/config.json": "308b2af4c1b96775d2a3279ebe1532425e2df55647cd5a8be50cb8d48b2f047a",
+    "~/DevSpace/applio-lab/run-applio.sh": "4aa540b86815cc29665899f00fef618af71395a111dffd0c9f310bfa4bbf74a1",
+    "~/DevSpace/applio-lab/lab/train_bench.sh": "6bd75ce51c3a03ec2638fa699c52c13be2cbfa39487613c391669f38e425b848",
+    "~/DevSpace/applio-lab/rvc/train/rdna2_v08/__init__.py": "042c1d552996929f0536a9043e04812546385c2c158b1a9b4db3763e85e6fd8e",
+    "~/DevSpace/applio-lab/rvc/train/rdna2_v08/v08_direct_conv.py": "6ef607af92b0ffd561a633093ff9bd62ae8428deb6f613aa2d38fca3a674b4e3",
+    "~/DevSpace/applio-lab/rvc/train/rdna2_v08/dispatch.json": "22e41075581e8b2d969388244bf063adba59579942c4959ae892e2aeb4fcfa59",
+    "~/DevSpace/applio-lab/rvc/train/rdna2_v08/SOURCE.md": "e90eced8bcdfa644b0f65e17f622b4e8534872467512ee41bbd858f6496ee84e",
+    "~/DevSpace/applio-lab/rvc/train/rdna2_v08/v08_nonconv_opt.py": "4912353a4e45e13f18b0c33839ff78af33d872315c2415232fa32888109094a8",
+    "~/DevSpace/applio-lab/rvc/train/rdna2_v08/miopen_db/gfx1030_40.HIP.3_6_0_8d1ae90e.ufdb.txt.time": "54ef6b494912e84d58946a12bbde0022a896ad754e21c132e20c8ec4ff3a2c29",
+    "~/DevSpace/applio-lab/rvc/train/rdna2_v08/miopen_db/gfx1030_40.HIP.3_6_0_8d1ae90e.ufdb.txt": "fa2af4e846b0b565e23f058ae5d011cba85fe47a757a399a3ffa618563fbfdd5",
+    "~/DevSpace/applio-lab/rvc/train/rdna2_v08/miopen_db_seed/gfx1030_40.HIP.3_6_0_8d1ae90e.ufdb.txt.time": "54ef6b494912e84d58946a12bbde0022a896ad754e21c132e20c8ec4ff3a2c29",
+    "~/DevSpace/applio-lab/rvc/train/rdna2_v08/miopen_db_seed/gfx1030_40.HIP.3_6_0_8d1ae90e.ufdb.txt": "fa2af4e846b0b565e23f058ae5d011cba85fe47a757a399a3ffa618563fbfdd5",
+    "~/DevSpace/applio-lab/rvc/train/rdna2_v08/__pycache__/__init__.cpython-314.pyc": "15038018f6b52a5f1d45623dc9acfbfb162deb58261a98236964cd3a67c103c2"
+  },
+  "protected_unchanged": true,
+  "valid_for_timing": true,
+  "steady_epoch_median_s": null,
+  "index_note": "Only config/filelist copied per protocol. Post-training index command has no extracted/ input; training completion is checked from epochs and final model, not index status."
+}

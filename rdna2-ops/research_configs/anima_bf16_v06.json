@@ -1,0 +1,36 @@
+{
+  "sampler": [
+    "KSampler",
+    "sample"
+  ],
+  "sampler_node": "7",
+  "model": "anima",
+  "runtime": "~/DevSpace/moss-image-rdna2-lab01/runtime/ComfyUI",
+  "workflow": "~/DevSpace/anima-rdna2-lab01/workflows/anima_t2i_1024_api.json",
+  "decoder": [
+    "VAEDecode",
+    "decode"
+  ],
+  "save_node": "9",
+  "attention_target": "comfy.ldm.cosmos.predict2:optimized_attention",
+  "env": {},
+  "server_args": [
+    "--extra-model-paths-config",
+    "~/DevSpace/anima-rdna2-lab01/extra_model_paths.yaml",
+    "--disable-auto-launch",
+    "--use-pytorch-cross-attention",
+    "--disable-comfy-compiler",
+    "--bf16-unet"
+  ],
+  "input_files": [],
+  "inputs": {},
+  "attention_capture_target": "comfy.ops:scaled_dot_product_attention",
+  "switch_module": "dtype_switches_v06",
+  "research_scope": "Existing Anima BF16 checkpoint with BF16 UNET compute in this owned process; 2-step completed denoise+VAE probe, not the normal FP16 operating configuration or a 30-step claim.",
+  "gpu_audit": true,
+  "save_reference_tensors": true,
+  "require_bitwise_modes": [
+    "bf16_control",
+    "baseline"
+  ]
+}

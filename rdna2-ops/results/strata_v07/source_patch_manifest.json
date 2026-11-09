@@ -1,0 +1,10 @@
+{
+  "base": "a6fe1183805bc75fa6dfd4aae741a75b187a9cdf",
+  "patch_sha256": "f7df27a2cfb8443f64ff578b554b759076c84dd4d756448d12b2499ffadccd3d",
+  "bytes": 80222,
+  "untracked_sources_included": [
+    "src/kernels/cpu/pool_tasks_bench.cpp",
+    "tests/hip/prefill_mmq_v07.cpp"
+  ],
+  "notes": "Applies to a separate worktree at base; includes inherited typical-J diagnostics. The shared pinned ggml checkout is read-only and identified separately."
+}

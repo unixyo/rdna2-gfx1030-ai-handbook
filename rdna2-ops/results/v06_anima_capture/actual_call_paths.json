@@ -1,0 +1,119 @@
+{
+  "attention": [
+    {
+      "capture_target": "comfy.ldm.cosmos.predict2:optimized_attention",
+      "dtype": "torch.float16",
+      "heads": 16,
+      "input_wrappers": [
+        "AttentionTensorContainer",
+        "AttentionTensorContainer",
+        "AttentionTensorContainer"
+      ],
+      "mask": null,
+      "shapes": [
+        [
+          2,
+          16,
+          4096,
+          128
+        ],
+        [
+          2,
+          16,
+          4096,
+          128
+        ],
+        [
+          2,
+          16,
+          4096,
+          128
+        ]
+      ],
+      "source": {
+        "module": "comfy.ldm.modules.attention",
+        "name": "attention_pytorch",
+        "path": "~/DevSpace/moss-image-rdna2-lab01/runtime/ComfyUI/comfy/ldm/modules/attention.py"
+      },
+      "strides": [
+        [
+          8388608,
+          128,
+          2048,
+          1
+        ],
+        [
+          8388608,
+          128,
+          2048,
+          1
+        ],
+        [
+          8388608,
+          128,
+          2048,
+          1
+        ]
+      ],
+      "calls": 56
+    },
+    {
+      "capture_target": "comfy.ldm.cosmos.predict2:optimized_attention",
+      "dtype": "torch.float16",
+      "heads": 16,
+      "input_wrappers": [
+        "AttentionTensorContainer",
+        "AttentionTensorContainer",
+        "AttentionTensorContainer"
+      ],
+      "mask": null,
+      "shapes": [
+        [
+          2,
+          16,
+          4096,
+          128
+        ],
+        [
+          2,
+          16,
+          512,
+          128
+        ],
+        [
+          2,
+          16,
+          512,
+          128
+        ]
+      ],
+      "source": {
+        "module": "comfy.ldm.modules.attention",
+        "name": "attention_pytorch",
+        "path": "~/DevSpace/moss-image-rdna2-lab01/runtime/ComfyUI/comfy/ldm/modules/attention.py"
+      },
+      "strides": [
+        [
+          8388608,
+          128,
+          2048,
+          1
+        ],
+        [
+          1048576,
+          128,
+          2048,
+          1
+        ],
+        [
+          1048576,
+          128,
+          2048,
+          1
+        ]
+      ],
+      "calls": 56
+    }
+  ],
+  "int8_linear": []
+}

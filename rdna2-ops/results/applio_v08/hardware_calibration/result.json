@@ -1,0 +1,145 @@
+{
+  "schema": "applio_v08_hardware_calibration",
+  "caution": "Optimistic measured arithmetic/copy ceilings, not predicted achieved Conv performance",
+  "torch": "2.11.0+rocm10.0.0",
+  "triton": "3.8.0",
+  "hip": "7.15.26333",
+  "source_sha256": "422530e503b84971892ff715aea343532545a7f80dd79c66c191d761a94e3b83",
+  "repetitions": 20,
+  "rounds": 5,
+  "device": "AMD Radeon RX 6900 XT",
+  "arch": "gfx1030",
+  "dot2": {
+    "elements": 262144,
+    "iterations": 1024,
+    "independent_accumulators": 8,
+    "flop_count": 8589934592,
+    "first_compile_and_call_s": 1.141073079983471,
+    "finite": true,
+    "max_abs": 0.0016326904296875,
+    "max_relative": 2.4770450181677006e-05,
+    "instruction_counts_static": {
+      "v_dot2c_f32_f16": 64,
+      "v_dot2_f32_f16": 0,
+      "v_fma_f32": 0,
+      "v_fmac_f32": 0
+    },
+    "assembly_sha256": "fc1b807b57767a4056ba738ed69aadd3b4c29333a4b4c57643a289d29556d302",
+    "registers": 21,
+    "spills": 0,
+    "rounds": [
+      {
+        "event_ms": 0.17465800046920776,
+        "wall_ms": 0.20085654978174716
+      },
+      {
+        "event_ms": 0.1763265013694763,
+        "wall_ms": 0.17789620032999665
+      },
+      {
+        "event_ms": 0.1766374945640564,
+        "wall_ms": 0.17826670082286
+      },
+      {
+        "event_ms": 0.17624950408935547,
+        "wall_ms": 0.1776437507942319
+      },
+      {
+        "event_ms": 0.17629350423812867,
+        "wall_ms": 0.17763670039130375
+      }
+    ],
+    "event_median_ms": 0.17629350423812867,
+    "wall_median_ms": 0.17789620032999665,
+    "measured_tflop_s": 48.72519057989304
+  },
+  "copy": {
+    "buffer_bytes": 268435456,
+    "read_write_bytes": 536870912,
+    "bitwise_correct": true,
+    "implementation": "Triton contiguous load/store",
+    "cache_scope": "larger-than-Infinity-Cache",
+    "rounds": [
+      {
+        "event_ms": 1.2278104782104493,
+        "wall_ms": 1.230586098972708
+      },
+      {
+        "event_ms": 1.2311949729919434,
+        "wall_ms": 1.2341850495431572
+      },
+      {
+        "event_ms": 1.2292380332946777,
+        "wall_ms": 1.2320810492383316
+      },
+      {
+        "event_ms": 1.2292545318603516,
+        "wall_ms": 1.2317550499574281
+      },
+      {
+        "event_ms": 1.2299654960632325,
+        "wall_ms": 1.2320630994508974
+      }
+    ],
+    "event_median_ms": 1.2292545318603516,
+    "wall_median_ms": 1.2320630994508974,
+    "measured_GB_s": 436.7451150963019,
+    "measured_GiB_s": 406.75058504222136
+  },
+  "copy_cached": {
+    "buffer_bytes": 8388608,
+    "read_write_bytes": 16777216,
+    "bitwise_correct": true,
+    "implementation": "Triton contiguous load/store",
+    "cache_scope": "warm small working set; may be cache resident",
+    "rounds": [
+      {
+        "event_ms": 0.021758000552654266,
+        "wall_ms": 0.023249350488185883
+      },
+      {
+        "event_ms": 0.0175915002822876,
+        "wall_ms": 0.0184358490514569
+      },
+      {
+        "event_ms": 0.01796800047159195,
+        "wall_ms": 0.01871885033324361
+      },
+      {
+        "event_ms": 0.020919999480247496,
+        "wall_ms": 0.021709350403398275
+      },
+      {
+        "event_ms": 0.021318000555038453,
+        "wall_ms": 0.022169850126374513
+      }
+    ],
+    "event_median_ms": 0.020919999480247496,
+    "wall_median_ms": 0.021709350403398275,
+    "measured_GB_s": 801.9701920088917,
+    "measured_GiB_s": 746.8929439865907
+  },
+  "gpu_audit": {
+    "available": true,
+    "valid_for_timing": true,
+    "method": "KFD client PID snapshots and periodic polling; research flock",
+    "limitation": "Detects observed KFD clients, not graphics load or sub-poll transient clients",
+    "allowed_pids": [
+      1534377
+    ],
+    "interval_s": 0.25,
+    "sample_count": 11,
+    "started_unix_s": 1794059007.962044,
+    "ended_unix_s": 1794059010.0633893,
+    "foreign_clients": [],
+    "errors": [],
+    "transitions": [
+      {
+        "unix_s": 1794059007.9620445,
+        "kfd_pids": [],
+        "foreign_or_error": []
+      }
+    ]
+  },
+  "valid_for_timing": true
+}

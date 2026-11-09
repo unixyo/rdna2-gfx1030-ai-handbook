@@ -1,0 +1,119 @@
+{
+  "dtype": "bf16",
+  "load_mode": "lowvram",
+  "latent_source": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/actual_comfy_profile/actual_latent.pt",
+  "latent_shape": [
+    1,
+    128,
+    32,
+    32
+  ],
+  "comfy_source": "~/DevSpace/moss-image-rdna2-lab01/runtime/ComfyUI",
+  "torch": "2.12.0+rocm10.2.0a20261011",
+  "rows": [
+    {
+      "path": "regular",
+      "image_shape": [
+        1,
+        512,
+        512,
+        3
+      ],
+      "fused_blocks": 14,
+      "dispatch": {
+        "blocks": 14,
+        "cast_calls": 28,
+        "hip_calls": 28
+      },
+      "max_abs": 0.01043701171875,
+      "rmse": 0.0008391004521399736,
+      "max_abs_8bit_levels": 2.66143798828125,
+      "finite": true,
+      "memory": {
+        "dynamic": false,
+        "model_lowvram": true,
+        "cast_modules": 124,
+        "cpu_weight_modules": 124,
+        "loaded_bytes": 0,
+        "peak_allocated_bytes": 1200425984
+      },
+      "accuracy_pass": true,
+      "module_ids_restored": true,
+      "state_dict_names_restored": true,
+      "samples_wall_ms": {
+        "native": [
+          172.08524465483302,
+          172.32746301063648,
+          171.70001766256368,
+          172.22065067229173,
+          171.85618633326763
+        ],
+        "rdna2": [
+          170.48112266153717,
+          170.44185598691305,
+          170.16585832849765,
+          170.98076267090315,
+          170.41476299831024
+        ]
+      },
+      "native_wall_ms": 172.08524465483302,
+      "rdna2_wall_ms": 170.44185598691305,
+      "speedup": 1.0096419313108522
+    },
+    {
+      "path": "tiled_256_overlap64",
+      "image_shape": [
+        1,
+        512,
+        512,
+        3
+      ],
+      "fused_blocks": 14,
+      "dispatch": {
+        "blocks": 14,
+        "cast_calls": 644,
+        "hip_calls": 644
+      },
+      "max_abs": 0.003234267234802246,
+      "rmse": 0.0004287000629119575,
+      "max_abs_8bit_levels": 0.8247381448745728,
+      "finite": true,
+      "memory": {
+        "dynamic": false,
+        "model_lowvram": true,
+        "cast_modules": 124,
+        "cpu_weight_modules": 124,
+        "loaded_bytes": 0,
+        "peak_allocated_bytes": 329190400
+      },
+      "accuracy_pass": true,
+      "module_ids_restored": true,
+      "state_dict_names_restored": true,
+      "samples_wall_ms": {
+        "native": [
+          938.9803939848207,
+          935.9357740031555,
+          935.2369600092061,
+          937.039127049502,
+          936.3334919908084
+        ],
+        "rdna2": [
+          930.1262450171635,
+          933.1277350429446,
+          930.391913978383,
+          931.0931389918551,
+          952.2307200240903
+        ]
+      },
+      "native_wall_ms": 936.3334919908084,
+      "rdna2_wall_ms": 931.0931389918551,
+      "speedup": 1.0056281727138783
+    }
+  ],
+  "status": "passed",
+  "pixel_acceptance": {
+    "max_abs": 0.04,
+    "rmse": 0.006
+  },
+  "actual_vae_dtype": "torch.bfloat16"
+}

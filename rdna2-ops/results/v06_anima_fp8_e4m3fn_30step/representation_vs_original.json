@@ -1,0 +1,53 @@
+{
+  "scope": "Original Anima BF16 checkpoint with normal FP16 compute versus same existing checkpoint represented as raw unscaled E4M3fn in Comfy DynamicVRAM; both complete 30-step denoise+VAE. This is storage-representation error, separate from candidate-vs-identical-FP8 accuracy.",
+  "metadata": {
+    "seed": 20261107,
+    "steps": 30,
+    "conditioning_first_embedding_sha256": {
+      "positive": "a6c15ee3d0208bb976cb338714960a180fd73170fa904280577da928000f4968",
+      "negative": "f2199b5a6d7ba57a2d9d62675ea8d45c8d5da3f77d6e969fc1ee7f562cb0ec2e"
+    }
+  },
+  "reference_file": "results/v06_anima_attention_ab/reference_tensors.pt",
+  "candidate_file": "results/v06_anima_fp8_e4m3fn_30step/reference_tensors.pt",
+  "reference_file_sha256": "881071e7529b6a7f2f9680dbdf90832aeeabdeb278402230b8244848851e4bed",
+  "candidate_file_sha256": "47ce6082348d0c4bcc58dbf2566275d83dcf23e9a24a5fb7499423fa7678c268",
+  "gpu_initialized": false,
+  "errors": {
+    "latent": {
+      "shape": [
+        1,
+        16,
+        1,
+        128,
+        128
+      ],
+      "finite": true,
+      "bit_equal": false,
+      "max_abs": 5.61065673828125,
+      "rmse": 0.7143018960549069,
+      "max_levels_255": 1430.7174682617188,
+      "rmse_levels_255": 182.14698349400126,
+      "reference_sha256": "cc054fd19dc8f334da8d9acaf3b0b53aab1165944a6023a38c6c1ee9a34c3a13",
+      "candidate_sha256": "75565b9f9ca9dd05a20e4a02b3e5cf53e8bbb390254af9c01dc579a345c853db"
+    },
+    "image": {
+      "shape": [
+        1,
+        1024,
+        1024,
+        3
+      ],
+      "finite": true,
+      "bit_equal": false,
+      "max_abs": 0.94775390625,
+      "rmse": 0.17677345964097368,
+      "max_levels_255": 241.67724609375,
+      "rmse_levels_255": 45.07723220844829,
+      "reference_sha256": "52ea16286731f37e2760ef622b66446443e95e657aea57dc9b0dd511b853cb3a",
+      "candidate_sha256": "3915987e3b7be9b50e497437a0fbc4e3316fdda5a84e145675c7b38e1358f27f",
+      "strict_rgb_pass": false
+    }
+  },
+  "gpu_initialized_after": false
+}

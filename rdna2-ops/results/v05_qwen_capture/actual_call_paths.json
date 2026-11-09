@@ -1,0 +1,366 @@
+{
+  "attention": [
+    {
+      "dtype": "torch.float32",
+      "heads": 32,
+      "mask": [
+        8,
+        8
+      ],
+      "shapes": [
+        [
+          1,
+          8,
+          4096
+        ],
+        [
+          1,
+          8,
+          4096
+        ],
+        [
+          1,
+          8,
+          4096
+        ]
+      ],
+      "source": {
+        "module": "comfy.ldm.modules.attention",
+        "name": "attention_split",
+        "path": "~/DevSpace/qwen-image-21-rdna2-lab01/runtime/ComfyUI/comfy/ldm/modules/attention.py"
+      },
+      "strides": [
+        [
+          32768,
+          4096,
+          1
+        ],
+        [
+          32768,
+          4096,
+          1
+        ],
+        [
+          32768,
+          4096,
+          1
+        ]
+      ],
+      "calls": 32
+    },
+    {
+      "dtype": "torch.float32",
+      "heads": 32,
+      "mask": null,
+      "shapes": [
+        [
+          1,
+          2400,
+          4096
+        ],
+        [
+          1,
+          2408,
+          4096
+        ],
+        [
+          1,
+          2408,
+          4096
+        ]
+      ],
+      "source": {
+        "module": "comfy.ldm.modules.attention",
+        "name": "attention_split",
+        "path": "~/DevSpace/qwen-image-21-rdna2-lab01/runtime/ComfyUI/comfy/ldm/modules/attention.py"
+      },
+      "strides": [
+        [
+          9830400,
+          4096,
+          1
+        ],
+        [
+          9863168,
+          4096,
+          1
+        ],
+        [
+          9863168,
+          4096,
+          1
+        ]
+      ],
+      "calls": 32
+    },
+    {
+      "dtype": "torch.float32",
+      "heads": 32,
+      "mask": [
+        156,
+        2564
+      ],
+      "shapes": [
+        [
+          1,
+          156,
+          4096
+        ],
+        [
+          1,
+          2564,
+          4096
+        ],
+        [
+          1,
+          2564,
+          4096
+        ]
+      ],
+      "source": {
+        "module": "comfy.ldm.modules.attention",
+        "name": "attention_split",
+        "path": "~/DevSpace/qwen-image-21-rdna2-lab01/runtime/ComfyUI/comfy/ldm/modules/attention.py"
+      },
+      "strides": [
+        [
+          638976,
+          4096,
+          1
+        ],
+        [
+          10502144,
+          4096,
+          1
+        ],
+        [
+          10502144,
+          4096,
+          1
+        ]
+      ],
+      "calls": 32
+    },
+    {
+      "dtype": "torch.float32",
+      "heads": 32,
+      "mask": null,
+      "shapes": [
+        [
+          1,
+          2400,
+          4096
+        ],
+        [
+          1,
+          4964,
+          4096
+        ],
+        [
+          1,
+          4964,
+          4096
+        ]
+      ],
+      "source": {
+        "module": "comfy.ldm.modules.attention",
+        "name": "attention_split",
+        "path": "~/DevSpace/qwen-image-21-rdna2-lab01/runtime/ComfyUI/comfy/ldm/modules/attention.py"
+      },
+      "strides": [
+        [
+          9830400,
+          4096,
+          1
+        ],
+        [
+          20332544,
+          4096,
+          1
+        ],
+        [
+          20332544,
+          4096,
+          1
+        ]
+      ],
+      "calls": 256
+    }
+  ],
+  "int8_linear": [
+    {
+      "convrot": true,
+      "input_act": null,
+      "out_dtype": "torch.float32",
+      "scale": [
+        4096,
+        1
+      ],
+      "source": {
+        "module": "~/DevSpace/qwen-image-21-rdna2-lab01/runtime/ComfyUI/custom_nodes/RDNA2-Qwen21-INT8.rocm_int8_kitchen_patch",
+        "name": "rocm_int8_linear",
+        "path": "~/DevSpace/qwen-image-21-rdna2-lab01/runtime/ComfyUI/custom_nodes/RDNA2-Qwen21-INT8/rocm_int8_kitchen_patch.py"
+      },
+      "weight": [
+        4096,
+        4096
+      ],
+      "weight_stride": [
+        4096,
+        1
+      ],
+      "x": [
+        1,
+        4964,
+        4096
+      ],
+      "x_dtype": "torch.float32",
+      "calls": 128
+    },
+    {
+      "convrot": true,
+      "input_act": null,
+      "out_dtype": "torch.float32",
+      "scale": [
+        24576,
+        1
+      ],
+      "source": {
+        "module": "~/DevSpace/qwen-image-21-rdna2-lab01/runtime/ComfyUI/custom_nodes/RDNA2-Qwen21-INT8.rocm_int8_kitchen_patch",
+        "name": "rocm_int8_linear",
+        "path": "~/DevSpace/qwen-image-21-rdna2-lab01/runtime/ComfyUI/custom_nodes/RDNA2-Qwen21-INT8/rocm_int8_kitchen_patch.py"
+      },
+      "weight": [
+        24576,
+        4096
+      ],
+      "weight_stride": [
+        4096,
+        1
+      ],
+      "x": [
+        1,
+        4964,
+        4096
+      ],
+      "x_dtype": "torch.float32",
+      "calls": 32
+    },
+    {
+      "convrot": true,
+      "input_act": "swiglu",
+      "out_dtype": "torch.float32",
+      "scale": [
+        4096,
+        1
+      ],
+      "source": {
+        "module": "~/DevSpace/qwen-image-21-rdna2-lab01/runtime/ComfyUI/custom_nodes/RDNA2-Qwen21-INT8.rocm_int8_kitchen_patch",
+        "name": "rocm_int8_linear",
+        "path": "~/DevSpace/qwen-image-21-rdna2-lab01/runtime/ComfyUI/custom_nodes/RDNA2-Qwen21-INT8/rocm_int8_kitchen_patch.py"
+      },
+      "weight": [
+        4096,
+        12288
+      ],
+      "weight_stride": [
+        12288,
+        1
+      ],
+      "x": [
+        1,
+        4964,
+        24576
+      ],
+      "x_dtype": "torch.float32",
+      "calls": 32
+    },
+    {
+      "convrot": true,
+      "input_act": null,
+      "out_dtype": "torch.float32",
+      "scale": [
+        4096,
+        1
+      ],
+      "source": {
+        "module": "~/DevSpace/qwen-image-21-rdna2-lab01/runtime/ComfyUI/custom_nodes/RDNA2-Qwen21-INT8.rocm_int8_kitchen_patch",
+        "name": "rocm_int8_linear",
+        "path": "~/DevSpace/qwen-image-21-rdna2-lab01/runtime/ComfyUI/custom_nodes/RDNA2-Qwen21-INT8/rocm_int8_kitchen_patch.py"
+      },
+      "weight": [
+        4096,
+        4096
+      ],
+      "weight_stride": [
+        4096,
+        1
+      ],
+      "x": [
+        1,
+        2400,
+        4096
+      ],
+      "x_dtype": "torch.float32",
+      "calls": 896
+    },
+    {
+      "convrot": true,
+      "input_act": null,
+      "out_dtype": "torch.float32",
+      "scale": [
+        24576,
+        1
+      ],
+      "source": {
+        "module": "~/DevSpace/qwen-image-21-rdna2-lab01/runtime/ComfyUI/custom_nodes/RDNA2-Qwen21-INT8.rocm_int8_kitchen_patch",
+        "name": "rocm_int8_linear",
+        "path": "~/DevSpace/qwen-image-21-rdna2-lab01/runtime/ComfyUI/custom_nodes/RDNA2-Qwen21-INT8/rocm_int8_kitchen_patch.py"
+      },
+      "weight": [
+        24576,
+        4096
+      ],
+      "weight_stride": [
+        4096,
+        1
+      ],
+      "x": [
+        1,
+        2400,
+        4096
+      ],
+      "x_dtype": "torch.float32",
+      "calls": 224
+    },
+    {
+      "convrot": true,
+      "input_act": "swiglu",
+      "out_dtype": "torch.float32",
+      "scale": [
+        4096,
+        1
+      ],
+      "source": {
+        "module": "~/DevSpace/qwen-image-21-rdna2-lab01/runtime/ComfyUI/custom_nodes/RDNA2-Qwen21-INT8.rocm_int8_kitchen_patch",
+        "name": "rocm_int8_linear",
+        "path": "~/DevSpace/qwen-image-21-rdna2-lab01/runtime/ComfyUI/custom_nodes/RDNA2-Qwen21-INT8/rocm_int8_kitchen_patch.py"
+      },
+      "weight": [
+        4096,
+        12288
+      ],
+      "weight_stride": [
+        12288,
+        1
+      ],
+      "x": [
+        1,
+        2400,
+        24576
+      ],
+      "x_dtype": "torch.float32",
+      "calls": 224
+    }
+  ]
+}

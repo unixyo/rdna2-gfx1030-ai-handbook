@@ -1,0 +1,22 @@
+{
+  "available": true,
+  "valid_for_timing": true,
+  "method": "KFD client PID snapshots and periodic polling; research flock",
+  "limitation": "Detects observed KFD clients, not graphics load or sub-poll transient clients",
+  "allowed_pids": [
+    954446
+  ],
+  "interval_s": 0.25,
+  "sample_count": 405,
+  "started_unix_s": 1794006336.6087599,
+  "ended_unix_s": 1794006438.2550108,
+  "foreign_clients": [],
+  "errors": [],
+  "transitions": [
+    {
+      "unix_s": 1794006336.60876,
+      "kfd_pids": [],
+      "foreign_or_error": []
+    }
+  ]
+}

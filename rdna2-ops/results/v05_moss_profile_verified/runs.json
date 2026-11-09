@@ -1,0 +1,158 @@
+{
+  "spec": {
+    "sampler": [
+      "KSampler",
+      "sample"
+    ],
+    "sampler_node": "8",
+    "model": "moss",
+    "runtime": "~/DevSpace/moss-image-rdna2-lab01/runtime/ComfyUI",
+    "workflow": "~/DevSpace/moss-image-rdna2-lab01/workflows/sft_fast4_int8_512.json",
+    "decoder": [
+      "VAEDecode",
+      "decode"
+    ],
+    "save_node": "11",
+    "attention_target": "comfy.ops:scaled_dot_product_attention",
+    "env": {
+      "MOSS_RDNA2_INT8_PATCH": "1",
+      "MOSS_RDNA2_INT8_LAYOUT": "view",
+      "MOSS_RDNA2_ATTENTION": "auto"
+    },
+    "server_args": [
+      "--base-directory",
+      "~/DevSpace/moss-image-rdna2-lab01",
+      "--models-directory",
+      "~/DevSpace/moss-image-rdna2-lab01/models",
+      "--use-pytorch-cross-attention",
+      "--disable-comfy-compiler"
+    ]
+  },
+  "seed": 20261106,
+  "rgb_gate": {
+    "max_abs": 0.00784313725490196,
+    "rmse": 0.000980392156862745
+  },
+  "runs": [
+    {
+      "index": 0,
+      "mode": "warm",
+      "success": true,
+      "wall": {
+        "denoise_s": 7.442008588994213,
+        "vae_s": 0.3033343220013194
+      },
+      "request_wall_s": 12.61042773200461,
+      "conditioning_first_embedding_sha256": {
+        "positive": "2d5720731d1ca7f36feeb134a0a73eb91829aaaccc1f381b5a0663b41a51d6d6",
+        "negative": "5789b9efbf728f0288e08e0f8efdbf5fc673b0ad07e2e364cbce1bfdd6d60533"
+      },
+      "candidate": {},
+      "stage_calls": {
+        "denoise": 1,
+        "vae": 1
+      },
+      "profile_artifacts": [],
+      "latent_error": {
+        "finite": true,
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "byte_equal": true
+      },
+      "image_error": {
+        "finite": true,
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "byte_equal": true
+      },
+      "image_gate": true,
+      "latent_sha256": "d9afca7eeed62759eea091e7fdb29fdc9bded2f43e6d25a93a3bb03c7bac4a08",
+      "image_sha256": "2d7fdf91e265c8787c4123b2e5b3ea044ff719a39d3199cd549759a79d4ccf40"
+    },
+    {
+      "index": 1,
+      "mode": "profile",
+      "success": true,
+      "wall": {
+        "denoise_s": 5.520700728004158,
+        "vae_s": 0.07021110299683642
+      },
+      "request_wall_s": 14.744528825001908,
+      "conditioning_first_embedding_sha256": {
+        "positive": "2d5720731d1ca7f36feeb134a0a73eb91829aaaccc1f381b5a0663b41a51d6d6",
+        "negative": "5789b9efbf728f0288e08e0f8efdbf5fc673b0ad07e2e364cbce1bfdd6d60533"
+      },
+      "candidate": {},
+      "stage_calls": {
+        "denoise": 1,
+        "vae": 1
+      },
+      "profile_artifacts": [
+        {
+          "stage": "denoise",
+          "invocation": 0,
+          "operators": "profile_001_denoise_000_operators.json",
+          "kernels": "profile_001_denoise_000_kernels.json",
+          "trace": "profile_001_denoise_000_trace.json"
+        },
+        {
+          "stage": "vae",
+          "invocation": 0,
+          "operators": "profile_001_vae_000_operators.json",
+          "kernels": "profile_001_vae_000_kernels.json",
+          "trace": "profile_001_vae_000_trace.json"
+        }
+      ],
+      "latent_error": {
+        "finite": true,
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "byte_equal": true
+      },
+      "image_error": {
+        "finite": true,
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "byte_equal": true
+      },
+      "image_gate": true,
+      "latent_sha256": "d9afca7eeed62759eea091e7fdb29fdc9bded2f43e6d25a93a3bb03c7bac4a08",
+      "image_sha256": "2d7fdf91e265c8787c4123b2e5b3ea044ff719a39d3199cd549759a79d4ccf40"
+    },
+    {
+      "index": 2,
+      "mode": "baseline",
+      "success": true,
+      "wall": {
+        "denoise_s": 4.763210937002441,
+        "vae_s": 0.05422422300034668
+      },
+      "request_wall_s": 5.02818600700266,
+      "conditioning_first_embedding_sha256": {
+        "positive": "2d5720731d1ca7f36feeb134a0a73eb91829aaaccc1f381b5a0663b41a51d6d6",
+        "negative": "5789b9efbf728f0288e08e0f8efdbf5fc673b0ad07e2e364cbce1bfdd6d60533"
+      },
+      "candidate": {},
+      "stage_calls": {
+        "denoise": 1,
+        "vae": 1
+      },
+      "profile_artifacts": [],
+      "latent_error": {
+        "finite": true,
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "byte_equal": true
+      },
+      "image_error": {
+        "finite": true,
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "byte_equal": true
+      },
+      "image_gate": true,
+      "latent_sha256": "d9afca7eeed62759eea091e7fdb29fdc9bded2f43e6d25a93a3bb03c7bac4a08",
+      "image_sha256": "2d7fdf91e265c8787c4123b2e5b3ea044ff719a39d3199cd549759a79d4ccf40"
+    }
+  ]
+}

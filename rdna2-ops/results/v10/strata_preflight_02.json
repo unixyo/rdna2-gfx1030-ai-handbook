@@ -1,0 +1,1788 @@
+{
+  "schema": "strata_v10_cpu_preflight",
+  "utc": "2026-11-08T11:47:58.635311+00:00",
+  "phase": "CPU preparation only; no new GPU/server execution",
+  "service_before": {
+    "ActiveState": "inactive",
+    "SubState": "dead",
+    "FragmentPath": "~/.config/systemd/user/strata-verified-256k.service",
+    "DropInPaths": "",
+    "MainPID": "0"
+  },
+  "service_after": {
+    "ActiveState": "inactive",
+    "SubState": "dead",
+    "FragmentPath": "~/.config/systemd/user/strata-verified-256k.service",
+    "DropInPaths": "",
+    "MainPID": "0"
+  },
+  "before": {
+    "meminfo_bytes": {
+      "MemTotal": 65154752512,
+      "MemFree": 8558759936,
+      "MemAvailable": 38557175808,
+      "Buffers": 1748086784,
+      "Cached": 27293552640,
+      "SwapCached": 2219630592,
+      "Active": 14586822656,
+      "Inactive": 34410950656,
+      "Active(anon)": 13583024128,
+      "Inactive(anon)": 6920912896,
+      "Active(file)": 1003798528,
+      "Inactive(file)": 27490037760,
+      "Unevictable": 184320,
+      "Mlocked": 184320,
+      "SwapTotal": 37358653440,
+      "SwapFree": 20710318080,
+      "Zswap": 0,
+      "Zswapped": 0,
+      "Dirty": 11120640,
+      "Writeback": 0,
+      "AnonPages": 19894784000,
+      "Mapped": 1904381952,
+      "Shmem": 548114432,
+      "KReclaimable": 2239471616,
+      "Slab": 3426533376,
+      "SReclaimable": 2239471616,
+      "SUnreclaim": 1187061760,
+      "KernelStack": 99508224,
+      "PageTables": 521428992,
+      "SecPageTables": 7700480,
+      "NFS_Unstable": 0,
+      "Bounce": 0,
+      "WritebackTmp": 0,
+      "CommitLimit": 69936029696,
+      "Committed_AS": 150042988544,
+      "VmallocTotal": 35184372087808,
+      "VmallocUsed": 170160128,
+      "VmallocChunk": 0,
+      "Percpu": 36372480,
+      "HardwareCorrupted": 0,
+      "AnonHugePages": 0,
+      "ShmemHugePages": 0,
+      "ShmemPmdMapped": 0,
+      "FileHugePages": 205520896,
+      "FilePmdMapped": 0,
+      "CmaTotal": 0,
+      "CmaFree": 0,
+      "Unaccepted": 0,
+      "Balloon": 0,
+      "GPUActive": 0,
+      "GPUReclaim": 21214257152,
+      "Hugepagesize": 2097152,
+      "Hugetlb": 0,
+      "DirectMap4k": 16068739072,
+      "DirectMap2M": 47154462720,
+      "DirectMap1G": 4294967296
+    },
+    "mem_available_bytes": 38557175808,
+    "swap_used_bytes": 16648335360,
+    "pswpin_pages": 2541286,
+    "pswpout_pages": 6378555,
+    "page_bytes": 4096,
+    "memory_psi": "some avg10=0.00 avg60=0.00 avg300=0.00 total=79290141\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=73213565",
+    "io_psi": "some avg10=0.00 avg60=0.00 avg300=0.01 total=286439795\nfull avg10=0.00 avg60=0.00 avg300=0.01 total=217671165"
+  },
+  "after": {
+    "meminfo_bytes": {
+      "MemTotal": 65154752512,
+      "MemFree": 8583380992,
+      "MemAvailable": 38638370816,
+      "Buffers": 1749135360,
+      "Cached": 27349086208,
+      "SwapCached": 2219622400,
+      "Active": 14531985408,
+      "Inactive": 34467512320,
+      "Active(anon)": 13528186880,
+      "Inactive(anon)": 6920900608,
+      "Active(file)": 1003798528,
+      "Inactive(file)": 27546611712,
+      "Unevictable": 184320,
+      "Mlocked": 184320,
+      "SwapTotal": 37358653440,
+      "SwapFree": 20710338560,
+      "Zswap": 0,
+      "Zswapped": 0,
+      "Dirty": 1601536,
+      "Writeback": 0,
+      "AnonPages": 19841130496,
+      "Mapped": 1912442880,
+      "Shmem": 548126720,
+      "KReclaimable": 2239471616,
+      "Slab": 3426762752,
+      "SReclaimable": 2239471616,
+      "SUnreclaim": 1187291136,
+      "KernelStack": 99516416,
+      "PageTables": 521682944,
+      "SecPageTables": 7700480,
+      "NFS_Unstable": 0,
+      "Bounce": 0,
+      "WritebackTmp": 0,
+      "CommitLimit": 69936029696,
+      "Committed_AS": 150041509888,
+      "VmallocTotal": 35184372087808,
+      "VmallocUsed": 170242048,
+      "VmallocChunk": 0,
+      "Percpu": 36372480,
+      "HardwareCorrupted": 0,
+      "AnonHugePages": 0,
+      "ShmemHugePages": 0,
+      "ShmemPmdMapped": 0,
+      "FileHugePages": 205520896,
+      "FilePmdMapped": 0,
+      "CmaTotal": 0,
+      "CmaFree": 0,
+      "Unaccepted": 0,
+      "Balloon": 0,
+      "GPUActive": 0,
+      "GPUReclaim": 21170307072,
+      "Hugepagesize": 2097152,
+      "Hugetlb": 0,
+      "DirectMap4k": 16068739072,
+      "DirectMap2M": 47154462720,
+      "DirectMap1G": 4294967296
+    },
+    "mem_available_bytes": 38638370816,
+    "swap_used_bytes": 16648314880,
+    "pswpin_pages": 2541288,
+    "pswpout_pages": 6378555,
+    "page_bytes": 4096,
+    "memory_psi": "some avg10=0.00 avg60=0.00 avg300=0.00 total=79290147\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=73213571",
+    "io_psi": "some avg10=0.00 avg60=0.00 avg300=0.01 total=286446328\nfull avg10=0.00 avg60=0.00 avg300=0.01 total=217677612"
+  },
+  "cache_method": "PROT_NONE/MAP_PRIVATE/mincore; mapped pages never touched",
+  "file_cache": [
+    {
+      "path": "~/DevSpace/strata-rocm-feasibility/models/SC117-IQ3_S/strata/rt/dense.bin",
+      "bytes": 116099072,
+      "resident_pages": 0,
+      "total_pages": 28345,
+      "resident_bytes": 0,
+      "resident_fraction": 0.0,
+      "stable_while_observed": true,
+      "owned_by_current_uid": true,
+      "writable_by_current_uid": true
+    },
+    {
+      "path": "~/DevSpace/strata-rocm-feasibility/models/SC117-IQ3_S/strata/rt/experts.bin",
+      "bytes": 707788800,
+      "resident_pages": 0,
+      "total_pages": 172800,
+      "resident_bytes": 0,
+      "resident_fraction": 0.0,
+      "stable_while_observed": true,
+      "owned_by_current_uid": true,
+      "writable_by_current_uid": true
+    },
+    {
+      "path": "~/DevSpace/strata-rocm-feasibility/packs/iq2_xs/dense.bin",
+      "bytes": 1538035200,
+      "resident_pages": 0,
+      "total_pages": 375497,
+      "resident_bytes": 0,
+      "resident_fraction": 0.0,
+      "stable_while_observed": true,
+      "owned_by_current_uid": true,
+      "writable_by_current_uid": true
+    },
+    {
+      "path": "~/DevSpace/strata-rocm-feasibility/packs/iq2_xs/tokenizer/merges.txt",
+      "bytes": 3353258,
+      "resident_pages": 0,
+      "total_pages": 819,
+      "resident_bytes": 0,
+      "resident_fraction": 0.0,
+      "stable_while_observed": true,
+      "owned_by_current_uid": true,
+      "writable_by_current_uid": true
+    },
+    {
+      "path": "~/DevSpace/strata-rocm-feasibility/packs/iq2_xs/tokenizer/vocab.json",
+      "bytes": 5737005,
+      "resident_pages": 0,
+      "total_pages": 1401,
+      "resident_bytes": 0,
+      "resident_fraction": 0.0,
+      "stable_while_observed": true,
+      "owned_by_current_uid": true,
+      "writable_by_current_uid": true
+    },
+    {
+      "path": "~/DevSpace/strata-rocm-feasibility/packs/iq4-hybrid-bf16-20260928/dense.bin",
+      "bytes": 1538035200,
+      "resident_pages": 0,
+      "total_pages": 375497,
+      "resident_bytes": 0,
+      "resident_fraction": 0.0,
+      "stable_while_observed": true,
+      "owned_by_current_uid": true,
+      "writable_by_current_uid": true
+    },
+    {
+      "path": "~/DevSpace/strata-rocm-feasibility/packs/iq4-hybrid-bf16-20260928/tokenizer/merges.txt",
+      "bytes": 3353258,
+      "resident_pages": 0,
+      "total_pages": 819,
+      "resident_bytes": 0,
+      "resident_fraction": 0.0,
+      "stable_while_observed": true,
+      "owned_by_current_uid": true,
+      "writable_by_current_uid": true
+    },
+    {
+      "path": "~/DevSpace/strata-rocm-feasibility/packs/iq4-hybrid-bf16-20260928/tokenizer/vocab.json",
+      "bytes": 5737005,
+      "resident_pages": 0,
+      "total_pages": 1401,
+      "resident_bytes": 0,
+      "resident_fraction": 0.0,
+      "stable_while_observed": true,
+      "owned_by_current_uid": true,
+      "writable_by_current_uid": true
+    },
+    {
+      "path": "~/DevSpace/strata-rocm-feasibility/packs/sc117-iq3s-abliterated-20261002/dense.bin",
+      "bytes": 1538035200,
+      "resident_pages": 0,
+      "total_pages": 375497,
+      "resident_bytes": 0,
+      "resident_fraction": 0.0,
+      "stable_while_observed": true,
+      "owned_by_current_uid": true,
+      "writable_by_current_uid": true
+    },
+    {
+      "path": "~/DevSpace/strata-rocm-feasibility/packs/sc117-iq3s-abliterated-20261002/tokenizer/merges.txt",
+      "bytes": 3353258,
+      "resident_pages": 0,
+      "total_pages": 819,
+      "resident_bytes": 0,
+      "resident_fraction": 0.0,
+      "stable_while_observed": true,
+      "owned_by_current_uid": true,
+      "writable_by_current_uid": true
+    },
+    {
+      "path": "~/DevSpace/strata-rocm-feasibility/packs/sc117-iq3s-abliterated-20261002/tokenizer/vocab.json",
+      "bytes": 5737005,
+      "resident_pages": 0,
+      "total_pages": 1401,
+      "resident_bytes": 0,
+      "resident_fraction": 0.0,
+      "stable_while_observed": true,
+      "owned_by_current_uid": true,
+      "writable_by_current_uid": true
+    },
+    {
+      "path": "~/DevSpace/strata-rocm-feasibility/packs/swift-iq2_xs/dense.bin",
+      "bytes": 1538035200,
+      "resident_pages": 0,
+      "total_pages": 375497,
+      "resident_bytes": 0,
+      "resident_fraction": 0.0,
+      "stable_while_observed": true,
+      "owned_by_current_uid": true,
+      "writable_by_current_uid": true
+    },
+    {
+      "path": "~/DevSpace/strata-rocm-feasibility/packs/swift-iq2_xs/tokenizer/merges.txt",
+      "bytes": 3353258,
+      "resident_pages": 0,
+      "total_pages": 819,
+      "resident_bytes": 0,
+      "resident_fraction": 0.0,
+      "stable_while_observed": true,
+      "owned_by_current_uid": true,
+      "writable_by_current_uid": true
+    },
+    {
+      "path": "~/DevSpace/strata-rocm-feasibility/packs/swift-iq2_xs/tokenizer/vocab.json",
+      "bytes": 5737005,
+      "resident_pages": 0,
+      "total_pages": 1401,
+      "resident_bytes": 0,
+      "resident_fraction": 0.0,
+      "stable_while_observed": true,
+      "owned_by_current_uid": true,
+      "writable_by_current_uid": true
+    },
+    {
+      "path": "~/DevSpace/strata_v01403_port/prod-promoted/engine-pinned-20261024-dd6753203cec325a",
+      "bytes": 21015712,
+      "resident_pages": 0,
+      "total_pages": 5131,
+      "resident_bytes": 0,
+      "resident_fraction": 0.0,
+      "stable_while_observed": true,
+      "owned_by_current_uid": true,
+      "writable_by_current_uid": false
+    },
+    {
+      "path": "<storage>/models/SC117-IQ3_XXS/IQ3_XXS/Qwen3.8-Flash-Next-GSQ-RCO-abliterated-IQ3_XXS-00001-of-00002.gguf",
+      "bytes": 47342144896,
+      "resident_pages": 0,
+      "total_pages": 11558141,
+      "resident_bytes": 0,
+      "resident_fraction": 0.0,
+      "stable_while_observed": true,
+      "owned_by_current_uid": true,
+      "writable_by_current_uid": true
+    },
+    {
+      "path": "<storage>/models/SC117-IQ3_XXS/IQ3_XXS/Qwen3.8-Flash-Next-GSQ-RCO-abliterated-IQ3_XXS-00002-of-00002.gguf",
+      "bytes": 28800138432,
+      "resident_pages": 0,
+      "total_pages": 7031284,
+      "resident_bytes": 0,
+      "resident_fraction": 0.0,
+      "stable_while_observed": true,
+      "owned_by_current_uid": true,
+      "writable_by_current_uid": true
+    },
+    {
+      "path": "<storage>/models/SC117-IQ3_XXS/pack-strata-v0142/dense.bin",
+      "bytes": 1538035200,
+      "resident_pages": 0,
+      "total_pages": 375497,
+      "resident_bytes": 0,
+      "resident_fraction": 0.0,
+      "stable_while_observed": true,
+      "owned_by_current_uid": true,
+      "writable_by_current_uid": true
+    },
+    {
+      "path": "<storage>/models/SC117-IQ3_XXS/pack-strata-v0142/experts.bin",
+      "bytes": 42912972800,
+      "resident_pages": 0,
+      "total_pages": 10476800,
+      "resident_bytes": 0,
+      "resident_fraction": 0.0,
+      "stable_while_observed": true,
+      "owned_by_current_uid": true,
+      "writable_by_current_uid": true
+    },
+    {
+      "path": "<storage>/models/SC117-IQ3_XXS/pack-strata-v0142/tokenizer/merges.txt",
+      "bytes": 3353258,
+      "resident_pages": 0,
+      "total_pages": 819,
+      "resident_bytes": 0,
+      "resident_fraction": 0.0,
+      "stable_while_observed": true,
+      "owned_by_current_uid": true,
+      "writable_by_current_uid": true
+    },
+    {
+      "path": "<storage>/models/SC117-IQ3_XXS/pack-strata-v0142/tokenizer/vocab.json",
+      "bytes": 5737005,
+      "resident_pages": 0,
+      "total_pages": 1401,
+      "resident_bytes": 0,
+      "resident_fraction": 0.0,
+      "stable_while_observed": true,
+      "owned_by_current_uid": true,
+      "writable_by_current_uid": true
+    },
+    {
+      "path": "/mnt/sn850x/flashnext-ext4-model-gate-20260922/SC117-IQ3_XXS-PLE-IQ4_NL-20261031.gguf",
+      "bytes": 28800138432,
+      "resident_pages": 0,
+      "total_pages": 7031284,
+      "resident_bytes": 0,
+      "resident_fraction": 0.0,
+      "stable_while_observed": true,
+      "owned_by_current_uid": true,
+      "writable_by_current_uid": true
+    }
+  ],
+  "cache_errors": [],
+  "large_processes": [
+    {
+      "pid": 1567263,
+      "name": "chrome",
+      "VmRSS": 1776975872,
+      "RssAnon": 1653972992,
+      "RssFile": 121786368,
+      "RssShmem": 1216512,
+      "VmSwap": 379060224
+    },
+    {
+      "pid": 1532807,
+      "name": "chat-on-steroid",
+      "VmRSS": 1582710784,
+      "RssAnon": 1521041408,
+      "RssFile": 57798656,
+      "RssShmem": 3870720,
+      "VmSwap": 52842496
+    },
+    {
+      "pid": 2529852,
+      "name": "vivaldi-bin",
+      "VmRSS": 1185132544,
+      "RssAnon": 997474304,
+      "RssFile": 162283520,
+      "RssShmem": 25374720,
+      "VmSwap": 9711616
+    },
+    {
+      "pid": 9687,
+      "name": "claude-desktop",
+      "VmRSS": 695345152,
+      "RssAnon": 618860544,
+      "RssFile": 64921600,
+      "RssShmem": 11563008,
+      "VmSwap": 209551360
+    },
+    {
+      "pid": 1490422,
+      "name": "vivaldi-bin",
+      "VmRSS": 624979968,
+      "RssAnon": 438898688,
+      "RssFile": 161972224,
+      "RssShmem": 24109056,
+      "VmSwap": 66170880
+    },
+    {
+      "pid": 7419,
+      "name": "vivaldi-bin",
+      "VmRSS": 556277760,
+      "RssAnon": 294285312,
+      "RssFile": 239710208,
+      "RssShmem": 22282240,
+      "VmSwap": 84623360
+    },
+    {
+      "pid": 7116,
+      "name": "plasmashell",
+      "VmRSS": 389935104,
+      "RssAnon": 267259904,
+      "RssFile": 122109952,
+      "RssShmem": 565248,
+      "VmSwap": 166645760
+    },
+    {
+      "pid": 13541,
+      "name": "steamwebhelper",
+      "VmRSS": 338501632,
+      "RssAnon": 268247040,
+      "RssFile": 69799936,
+      "RssShmem": 454656,
+      "VmSwap": 339214336
+    },
+    {
+      "pid": 11809,
+      "name": "language_server",
+      "VmRSS": 308531200,
+      "RssAnon": 269463552,
+      "RssFile": 39067648,
+      "RssShmem": 0,
+      "VmSwap": 147316736
+    },
+    {
+      "pid": 7410,
+      "name": "claude-desktop",
+      "VmRSS": 225611776,
+      "RssAnon": 108494848,
+      "RssFile": 111460352,
+      "RssShmem": 5656576,
+      "VmSwap": 141373440
+    },
+    {
+      "pid": 1940546,
+      "name": "node-MainThread",
+      "VmRSS": 55726080,
+      "RssAnon": 3571712,
+      "RssFile": 52154368,
+      "RssShmem": 0,
+      "VmSwap": 184008704
+    },
+    {
+      "pid": 10957,
+      "name": "MainThread",
+      "VmRSS": 19664896,
+      "RssAnon": 4096,
+      "RssFile": 19660800,
+      "RssShmem": 0,
+      "VmSwap": 195969024
+    }
+  ],
+  "kfd_clients": [],
+  "ports": {
+    "8080": false,
+    "18487": false
+  },
+  "sources": {
+    "builds": [
+      {
+        "path": "~/DevSpace/strata-prefill-v07-lab-20261107/build-v07-gfx1030/strata",
+        "bytes": 21010736,
+        "sha256": "31ecea0716fd7cba638d004b2fc7987efa1b179f9a9cf67ca96f8d42b4c263b5",
+        "recorded_v07_sha256": "31ecea0716fd7cba638d004b2fc7987efa1b179f9a9cf67ca96f8d42b4c263b5",
+        "matches_v07": true
+      },
+      {
+        "path": "~/DevSpace/strata-prefill-v07-lab-20261107/build-v07-gfx1030/strata-pinned-baseline",
+        "bytes": 21015712,
+        "sha256": "dd6753203cec325a2a89bc1c9a96d2a847c0bbcf3e08622d9cebb62484977466",
+        "recorded_v07_sha256": "dd6753203cec325a2a89bc1c9a96d2a847c0bbcf3e08622d9cebb62484977466",
+        "matches_v07": true
+      }
+    ],
+    "source_sha256": {
+      "strata_prefill_v07.py": "2cc68664dd9f193cbcf988c6b85bb8b108b1fcbe223deed739cd434ab8bd1ea0",
+      "strata_server_v07.py": "a40139809656a224cbb7f78847a5574b2e2071682365258c3727c0ccf7f14b18",
+      "strata_audit_v07.py": "5372bcebe603b07d681c3b26b574840ee4696daafc1dda95ed5595b3d6dcbc18",
+      "strata_summarize_v07.py": "6deeb6669ff524a898af9ac45c6b487364d327463923cb36b44a12295badfe6f",
+      "gpu_guard_v06.py": "7409f98dbf2c1975f5727338346af248657d98229c4a92732809379207b4b329",
+      "v10_strata_preflight.py": "718906904ab196714fd3ea8d5582918930e4ed14982d27a0f8c27fa0618a0805"
+    },
+    "fixed_256_mib_guard_verified": true
+  },
+  "protection": {
+    "recommended_files": [
+      {
+        "path": "~/.config/systemd/user/strata-verified-256k.service",
+        "reasons": [
+          "legacy_v07",
+          "live_systemd_fragment",
+          "operating_control"
+        ],
+        "in_v10_applio_baseline": false,
+        "in_v07_baseline": true,
+        "bytes": 422,
+        "mtime_ns": 1792972124637518403,
+        "resolved_path": "~/.config/systemd/user/strata-verified-256k.service",
+        "exists": true,
+        "legacy_stat_equal": true
+      },
+      {
+        "path": "~/DevSpace/strata-rocm-feasibility/models/SC117-IQ3_S/strata/rt/dense.bin",
+        "reasons": [
+          "runtime_mtp"
+        ],
+        "in_v10_applio_baseline": false,
+        "in_v07_baseline": false,
+        "bytes": 116099072,
+        "mtime_ns": 1790528630922000000,
+        "resolved_path": "~/DevSpace/strata-rocm-feasibility/models/SC117-IQ3_S/strata/rt/dense.bin",
+        "exists": true,
+        "legacy_stat_equal": false
+      },
+      {
+        "path": "~/DevSpace/strata-rocm-feasibility/models/SC117-IQ3_S/strata/rt/dense.txt",
+        "reasons": [
+          "runtime_mtp"
+        ],
+        "in_v10_applio_baseline": false,
+        "in_v07_baseline": false,
+        "bytes": 1880,
+        "mtime_ns": 1790935022493000000,
+        "resolved_path": "~/DevSpace/strata-rocm-feasibility/models/SC117-IQ3_S/strata/rt/dense.txt",
+        "exists": true,
+        "legacy_stat_equal": false
+      },
+      {
+        "path": "~/DevSpace/strata-rocm-feasibility/models/SC117-IQ3_S/strata/rt/draft_vocab.bin",
+        "reasons": [
+          "runtime_mtp"
+        ],
+        "in_v10_applio_baseline": false,
+        "in_v07_baseline": false,
+        "bytes": 425196,
+        "mtime_ns": 1790935021255000000,
+        "resolved_path": "~/DevSpace/strata-rocm-feasibility/models/SC117-IQ3_S/strata/rt/draft_vocab.bin",
+        "exists": true,
+        "legacy_stat_equal": false
+      },
+      {
+        "path": "~/DevSpace/strata-rocm-feasibility/models/SC117-IQ3_S/strata/rt/experts.bin",
+        "reasons": [
+          "runtime_mtp"
+        ],
+        "in_v10_applio_baseline": false,
+        "in_v07_baseline": false,
+        "bytes": 707788800,
+        "mtime_ns": 1790528630179000000,
+        "resolved_path": "~/DevSpace/strata-rocm-feasibility/models/SC117-IQ3_S/strata/rt/experts.bin",
+        "exists": true,
+        "legacy_stat_equal": false
+      },
+      {
+        "path": "~/DevSpace/strata-rocm-feasibility/packs/iq2_xs/dense.bin",
+        "reasons": [
+          "legacy_v07"
+        ],
+        "in_v10_applio_baseline": false,
+        "in_v07_baseline": true,
+        "bytes": 1538035200,
+        "mtime_ns": 1790528092513991713,
+        "resolved_path": "~/DevSpace/strata-rocm-feasibility/packs/iq2_xs/dense.bin",
+        "exists": true,
+        "legacy_stat_equal": true
+      },
+      {
+        "path": "~/DevSpace/strata-rocm-feasibility/packs/iq2_xs/index.txt",
+        "reasons": [
+          "legacy_v07"
+        ],
+        "in_v10_applio_baseline": false,
+        "in_v07_baseline": true,
+        "bytes": 93686,
+        "mtime_ns": 1790528092753505841,
+        "resolved_path": "~/DevSpace/strata-rocm-feasibility/packs/iq2_xs/index.txt",
+        "exists": true,
+        "legacy_stat_equal": true
+      },
+      {
+        "path": "~/DevSpace/strata-rocm-feasibility/packs/iq2_xs/native_experts.txt",
+        "reasons": [
+          "legacy_v07"
+        ],
+        "in_v10_applio_baseline": false,
+        "in_v07_baseline": true,
+        "bytes": 3289,
+        "mtime_ns": 1790528093342786816,
+        "resolved_path": "~/DevSpace/strata-rocm-feasibility/packs/iq2_xs/native_experts.txt",
+        "exists": true,
+        "legacy_stat_equal": true
+      },
+      {
+        "path": "~/DevSpace/strata-rocm-feasibility/packs/iq2_xs/tokenizer/chat_template.jinja",
+        "reasons": [
+          "legacy_v07"
+        ],
+        "in_v10_applio_baseline": false,
+        "in_v07_baseline": true,
+        "bytes": 9993,
+        "mtime_ns": 1790528093315121332,
+        "resolved_path": "~/DevSpace/strata-rocm-feasibility/packs/iq2_xs/tokenizer/chat_template.jinja",
+        "exists": true,
+        "legacy_stat_equal": true
+      },
+      {
+        "path": "~/DevSpace/strata-rocm-feasibility/packs/iq2_xs/tokenizer/merges.txt",
+        "reasons": [
+          "legacy_v07"
+        ],
+        "in_v10_applio_baseline": false,
+        "in_v07_baseline": true,
+        "bytes": 3353258,
+        "mtime_ns": 1790528093186121744,
+        "resolved_path": "~/DevSpace/strata-rocm-feasibility/packs/iq2_xs/tokenizer/merges.txt",
+        "exists": true,
+        "legacy_stat_equal": true
+      },
+      {
+        "path": "~/DevSpace/strata-rocm-feasibility/packs/iq2_xs/tokenizer/token_type.json",
+        "reasons": [
+          "legacy_v07"
+        ],
+        "in_v10_applio_baseline": false,
+        "in_v07_baseline": true,
+        "bytes": 744960,
+        "mtime_ns": 1790528093191873593,
+        "resolved_path": "~/DevSpace/strata-rocm-feasibility/packs/iq2_xs/tokenizer/token_type.json",
+        "exists": true,
+        "legacy_stat_equal": true
+      },
+      {
+        "path": "~/DevSpace/strata-rocm-feasibility/packs/iq2_xs/tokenizer/tokenizer.json",
+        "reasons": [
+          "legacy_v07"
+        ],
+        "in_v10_applio_baseline": false,
+        "in_v07_baseline": true,
+        "bytes": 541,
+        "mtime_ns": 1790528093192057532,
+        "resolved_path": "~/DevSpace/strata-rocm-feasibility/packs/iq2_xs/tokenizer/tokenizer.json",
+        "exists": true,
+        "legacy_stat_equal": true
+      },
+      {
+        "path": "~/DevSpace/strata-rocm-feasibility/packs/iq2_xs/tokenizer/vocab.json",
+        "reasons": [
+          "legacy_v07"
+        ],
+        "in_v10_applio_baseline": false,
+        "in_v07_baseline": true,
+        "bytes": 5737005,
+        "mtime_ns": 1790528093119121957,
+        "resolved_path": "~/DevSpace/strata-rocm-feasibility/packs/iq2_xs/tokenizer/vocab.json",
+        "exists": true,
+        "legacy_stat_equal": true
+      },
+      {
+        "path": "~/DevSpace/strata-rocm-feasibility/packs/iq4-hybrid-bf16-20260928/dense.bin",
+        "reasons": [
+          "legacy_v07"
+        ],
+        "in_v10_applio_baseline": false,
+        "in_v07_baseline": true,
+        "bytes": 1538035200,
+        "mtime_ns": 1790607466703489602,
+        "resolved_path": "~/DevSpace/strata-rocm-feasibility/packs/iq4-hybrid-bf16-20260928/dense.bin",
+        "exists": true,
+        "legacy_stat_equal": true
+      },
+      {
+        "path": "~/DevSpace/strata-rocm-feasibility/packs/iq4-hybrid-bf16-20260928/hybrid_manifest.json",
+        "reasons": [
+          "legacy_v07"
+        ],
+        "in_v10_applio_baseline": false,
+        "in_v07_baseline": true,
+        "bytes": 2652,
+        "mtime_ns": 1790607957795892058,
+        "resolved_path": "~/DevSpace/strata-rocm-feasibility/packs/iq4-hybrid-bf16-20260928/hybrid_manifest.json",
+        "exists": true,
+        "legacy_stat_equal": true
+      },
+      {
+        "path": "~/DevSpace/strata-rocm-feasibility/packs/iq4-hybrid-bf16-20260928/index.txt",
+        "reasons": [
+          "legacy_v07"
+        ],
+        "in_v10_applio_baseline": false,
+        "in_v07_baseline": true,
+        "bytes": 93674,
+        "mtime_ns": 1790607466705939704,
+        "resolved_path": "~/DevSpace/strata-rocm-feasibility/packs/iq4-hybrid-bf16-20260928/index.txt",
+        "exists": true,
+        "legacy_stat_equal": true
+      },
+      {
+        "path": "~/DevSpace/strata-rocm-feasibility/packs/iq4-hybrid-bf16-20260928/native_experts.txt",
+        "reasons": [
+          "legacy_v07"
+        ],
+        "in_v10_applio_baseline": false,
+        "in_v07_baseline": true,
+        "bytes": 5608,
+        "mtime_ns": 1790607956272511986,
+        "resolved_path": "~/DevSpace/strata-rocm-feasibility/packs/iq4-hybrid-bf16-20260928/native_experts.txt",
+        "exists": true,
+        "legacy_stat_equal": true
+      },
+      {
+        "path": "~/DevSpace/strata-rocm-feasibility/packs/iq4-hybrid-bf16-20260928/tokenizer/chat_template.jinja",
+        "reasons": [
+          "legacy_v07"
+        ],
+        "in_v10_applio_baseline": false,
+        "in_v07_baseline": true,
+        "bytes": 8952,
+        "mtime_ns": 1790607956810552071,
+        "resolved_path": "~/DevSpace/strata-rocm-feasibility/packs/iq4-hybrid-bf16-20260928/tokenizer/chat_template.jinja",
+        "exists": true,
+        "legacy_stat_equal": true
+      },
+      {
+        "path": "~/DevSpace/strata-rocm-feasibility/packs/iq4-hybrid-bf16-20260928/tokenizer/merges.txt",
+        "reasons": [
+          "legacy_v07"
+        ],
+        "in_v10_applio_baseline": false,
+        "in_v07_baseline": true,
+        "bytes": 3353258,
+        "mtime_ns": 1790607956683489470,
+        "resolved_path": "~/DevSpace/strata-rocm-feasibility/packs/iq4-hybrid-bf16-20260928/tokenizer/merges.txt",
+        "exists": true,
+        "legacy_stat_equal": true
+      },
+      {
+        "path": "~/DevSpace/strata-rocm-feasibility/packs/iq4-hybrid-bf16-20260928/tokenizer/token_type.json",
+        "reasons": [
+          "legacy_v07"
+        ],
+        "in_v10_applio_baseline": false,
+        "in_v07_baseline": true,
+        "bytes": 744960,
+        "mtime_ns": 1790607956689233464,
+        "resolved_path": "~/DevSpace/strata-rocm-feasibility/packs/iq4-hybrid-bf16-20260928/tokenizer/token_type.json",
+        "exists": true,
+        "legacy_stat_equal": true
+      },
+      {
+        "path": "~/DevSpace/strata-rocm-feasibility/packs/iq4-hybrid-bf16-20260928/tokenizer/tokenizer.json",
+        "reasons": [
+          "legacy_v07"
+        ],
+        "in_v10_applio_baseline": false,
+        "in_v07_baseline": true,
+        "bytes": 541,
+        "mtime_ns": 1790607956689419572,
+        "resolved_path": "~/DevSpace/strata-rocm-feasibility/packs/iq4-hybrid-bf16-20260928/tokenizer/tokenizer.json",
+        "exists": true,
+        "legacy_stat_equal": true
+      },
+      {
+        "path": "~/DevSpace/strata-rocm-feasibility/packs/iq4-hybrid-bf16-20260928/tokenizer/vocab.json",
+        "reasons": [
+          "legacy_v07"
+        ],
+        "in_v10_applio_baseline": false,
+        "in_v07_baseline": true,
+        "bytes": 5737005,
+        "mtime_ns": 1790607956611489764,
+        "resolved_path": "~/DevSpace/strata-rocm-feasibility/packs/iq4-hybrid-bf16-20260928/tokenizer/vocab.json",
+        "exists": true,
+        "legacy_stat_equal": true
+      },
+      {
+        "path": "~/DevSpace/strata-rocm-feasibility/packs/sc117-iq3s-abliterated-20261002/dense.bin",
+        "reasons": [
+          "legacy_v07"
+        ],
+        "in_v10_applio_baseline": false,
+        "in_v07_baseline": true,
+        "bytes": 1538035200,
+        "mtime_ns": 1790528092513991713,
+        "resolved_path": "~/DevSpace/strata-rocm-feasibility/packs/sc117-iq3s-abliterated-20261002/dense.bin",
+        "exists": true,
+        "legacy_stat_equal": true
+      },
+      {
+        "path": "~/DevSpace/strata-rocm-feasibility/packs/sc117-iq3s-abliterated-20261002/index.txt",
+        "reasons": [
+          "legacy_v07"
+        ],
+        "in_v10_applio_baseline": false,
+        "in_v07_baseline": true,
+        "bytes": 93697,
+        "mtime_ns": 1790938862619641248,
+        "resolved_path": "~/DevSpace/strata-rocm-feasibility/packs/sc117-iq3s-abliterated-20261002/index.txt",
+        "exists": true,
+        "legacy_stat_equal": true
+      },
+      {
+        "path": "~/DevSpace/strata-rocm-feasibility/packs/sc117-iq3s-abliterated-20261002/native_experts.txt",
+        "reasons": [
+          "legacy_v07"
+        ],
+        "in_v10_applio_baseline": false,
+        "in_v07_baseline": true,
+        "bytes": 3316,
+        "mtime_ns": 1790938863177604313,
+        "resolved_path": "~/DevSpace/strata-rocm-feasibility/packs/sc117-iq3s-abliterated-20261002/native_experts.txt",
+        "exists": true,
+        "legacy_stat_equal": true
+      },
+      {
+        "path": "~/DevSpace/strata-rocm-feasibility/packs/sc117-iq3s-abliterated-20261002/tokenizer/chat_template.jinja",
+        "reasons": [
+          "legacy_v07",
+          "research_server_tokenizer"
+        ],
+        "in_v10_applio_baseline": false,
+        "in_v07_baseline": true,
+        "bytes": 9993,
+        "mtime_ns": 1790939003823046126,
+        "resolved_path": "~/DevSpace/strata-rocm-feasibility/packs/sc117-iq3s-abliterated-20261002/tokenizer/chat_template.jinja",
+        "exists": true,
+        "legacy_stat_equal": true
+      },
+      {
+        "path": "~/DevSpace/strata-rocm-feasibility/packs/sc117-iq3s-abliterated-20261002/tokenizer/merges.txt",
+        "reasons": [
+          "legacy_v07",
+          "research_server_tokenizer"
+        ],
+        "in_v10_applio_baseline": false,
+        "in_v07_baseline": true,
+        "bytes": 3353258,
+        "mtime_ns": 1790939003687410441,
+        "resolved_path": "~/DevSpace/strata-rocm-feasibility/packs/sc117-iq3s-abliterated-20261002/tokenizer/merges.txt",
+        "exists": true,
+        "legacy_stat_equal": true
+      },
+      {
+        "path": "~/DevSpace/strata-rocm-feasibility/packs/sc117-iq3s-abliterated-20261002/tokenizer/token_type.json",
+        "reasons": [
+          "legacy_v07",
+          "research_server_tokenizer"
+        ],
+        "in_v10_applio_baseline": false,
+        "in_v07_baseline": true,
+        "bytes": 744960,
+        "mtime_ns": 1790939003695227029,
+        "resolved_path": "~/DevSpace/strata-rocm-feasibility/packs/sc117-iq3s-abliterated-20261002/tokenizer/token_type.json",
+        "exists": true,
+        "legacy_stat_equal": true
+      },
+      {
+        "path": "~/DevSpace/strata-rocm-feasibility/packs/sc117-iq3s-abliterated-20261002/tokenizer/tokenizer.json",
+        "reasons": [
+          "legacy_v07",
+          "research_server_tokenizer"
+        ],
+        "in_v10_applio_baseline": false,
+        "in_v07_baseline": true,
+        "bytes": 541,
+        "mtime_ns": 1790939003695493498,
+        "resolved_path": "~/DevSpace/strata-rocm-feasibility/packs/sc117-iq3s-abliterated-20261002/tokenizer/tokenizer.json",
+        "exists": true,
+        "legacy_stat_equal": true
+      },
+      {
+        "path": "~/DevSpace/strata-rocm-feasibility/packs/sc117-iq3s-abliterated-20261002/tokenizer/vocab.json",
+        "reasons": [
+          "legacy_v07",
+          "research_server_tokenizer"
+        ],
+        "in_v10_applio_baseline": false,
+        "in_v07_baseline": true,
+        "bytes": 5737005,
+        "mtime_ns": 1790939003607410412,
+        "resolved_path": "~/DevSpace/strata-rocm-feasibility/packs/sc117-iq3s-abliterated-20261002/tokenizer/vocab.json",
+        "exists": true,
+        "legacy_stat_equal": true
+      },
+      {
+        "path": "~/DevSpace/strata-rocm-feasibility/packs/swift-iq2_xs/dense.bin",
+        "reasons": [
+          "legacy_v07"
+        ],
+        "in_v10_applio_baseline": false,
+        "in_v07_baseline": true,
+        "bytes": 1538035200,
+        "mtime_ns": 1790528092513991713,
+        "resolved_path": "~/DevSpace/strata-rocm-feasibility/packs/swift-iq2_xs/dense.bin",
+        "exists": true,
+        "legacy_stat_equal": true
+      },
+      {
+        "path": "~/DevSpace/strata-rocm-feasibility/packs/swift-iq2_xs/index.txt",
+        "reasons": [
+          "legacy_v07"
+        ],
+        "in_v10_applio_baseline": false,
+        "in_v07_baseline": true,
+        "bytes": 93692,
+        "mtime_ns": 1790573171198801211,
+        "resolved_path": "~/DevSpace/strata-rocm-feasibility/packs/swift-iq2_xs/index.txt",
+        "exists": true,
+        "legacy_stat_equal": true
+      },
+      {
+        "path": "~/DevSpace/strata-rocm-feasibility/packs/swift-iq2_xs/native_experts.txt",
+        "reasons": [
+          "legacy_v07"
+        ],
+        "in_v10_applio_baseline": false,
+        "in_v07_baseline": true,
+        "bytes": 5386,
+        "mtime_ns": 1790573171797362280,
+        "resolved_path": "~/DevSpace/strata-rocm-feasibility/packs/swift-iq2_xs/native_experts.txt",
+        "exists": true,
+        "legacy_stat_equal": true
+      },
+      {
+        "path": "~/DevSpace/strata-rocm-feasibility/packs/swift-iq2_xs/tokenizer/chat_template.jinja",
+        "reasons": [
+          "legacy_v07"
+        ],
+        "in_v10_applio_baseline": false,
+        "in_v07_baseline": true,
+        "bytes": 8952,
+        "mtime_ns": 1790573171765652542,
+        "resolved_path": "~/DevSpace/strata-rocm-feasibility/packs/swift-iq2_xs/tokenizer/chat_template.jinja",
+        "exists": true,
+        "legacy_stat_equal": true
+      },
+      {
+        "path": "~/DevSpace/strata-rocm-feasibility/packs/swift-iq2_xs/tokenizer/merges.txt",
+        "reasons": [
+          "legacy_v07"
+        ],
+        "in_v10_applio_baseline": false,
+        "in_v07_baseline": true,
+        "bytes": 3353258,
+        "mtime_ns": 1790573171637932757,
+        "resolved_path": "~/DevSpace/strata-rocm-feasibility/packs/swift-iq2_xs/tokenizer/merges.txt",
+        "exists": true,
+        "legacy_stat_equal": true
+      },
+      {
+        "path": "~/DevSpace/strata-rocm-feasibility/packs/swift-iq2_xs/tokenizer/token_type.json",
+        "reasons": [
+          "legacy_v07"
+        ],
+        "in_v10_applio_baseline": false,
+        "in_v07_baseline": true,
+        "bytes": 744960,
+        "mtime_ns": 1790573171643426191,
+        "resolved_path": "~/DevSpace/strata-rocm-feasibility/packs/swift-iq2_xs/tokenizer/token_type.json",
+        "exists": true,
+        "legacy_stat_equal": true
+      },
+      {
+        "path": "~/DevSpace/strata-rocm-feasibility/packs/swift-iq2_xs/tokenizer/tokenizer.json",
+        "reasons": [
+          "legacy_v07"
+        ],
+        "in_v10_applio_baseline": false,
+        "in_v07_baseline": true,
+        "bytes": 541,
+        "mtime_ns": 1790573171643647800,
+        "resolved_path": "~/DevSpace/strata-rocm-feasibility/packs/swift-iq2_xs/tokenizer/tokenizer.json",
+        "exists": true,
+        "legacy_stat_equal": true
+      },
+      {
+        "path": "~/DevSpace/strata-rocm-feasibility/packs/swift-iq2_xs/tokenizer/vocab.json",
+        "reasons": [
+          "legacy_v07"
+        ],
+        "in_v10_applio_baseline": false,
+        "in_v07_baseline": true,
+        "bytes": 5737005,
+        "mtime_ns": 1790573171563933011,
+        "resolved_path": "~/DevSpace/strata-rocm-feasibility/packs/swift-iq2_xs/tokenizer/vocab.json",
+        "exists": true,
+        "legacy_stat_equal": true
+      },
+      {
+        "path": "~/DevSpace/strata-rocm-feasibility/v2/pack-sc117-iq3s-abliterated-v0139/tokenizer/chat_template.jinja",
+        "reasons": [
+          "operating_tokenizer"
+        ],
+        "in_v10_applio_baseline": false,
+        "in_v07_baseline": false,
+        "bytes": 9993,
+        "mtime_ns": 1791221884450958728,
+        "resolved_path": "~/DevSpace/strata-rocm-feasibility/v2/pack-sc117-iq3s-abliterated-v0139/tokenizer/chat_template.jinja",
+        "exists": true,
+        "legacy_stat_equal": false
+      },
+      {
+        "path": "~/DevSpace/strata-rocm-feasibility/v2/pack-sc117-iq3s-abliterated-v0139/tokenizer/merges.txt",
+        "reasons": [
+          "operating_tokenizer"
+        ],
+        "in_v10_applio_baseline": false,
+        "in_v07_baseline": false,
+        "bytes": 3353258,
+        "mtime_ns": 1791221884317882465,
+        "resolved_path": "~/DevSpace/strata-rocm-feasibility/v2/pack-sc117-iq3s-abliterated-v0139/tokenizer/merges.txt",
+        "exists": true,
+        "legacy_stat_equal": false
+      },
+      {
+        "path": "~/DevSpace/strata-rocm-feasibility/v2/pack-sc117-iq3s-abliterated-v0139/tokenizer/token_type.json",
+        "reasons": [
+          "operating_tokenizer"
+        ],
+        "in_v10_applio_baseline": false,
+        "in_v07_baseline": false,
+        "bytes": 744960,
+        "mtime_ns": 1791221884324599005,
+        "resolved_path": "~/DevSpace/strata-rocm-feasibility/v2/pack-sc117-iq3s-abliterated-v0139/tokenizer/token_type.json",
+        "exists": true,
+        "legacy_stat_equal": false
+      },
+      {
+        "path": "~/DevSpace/strata-rocm-feasibility/v2/pack-sc117-iq3s-abliterated-v0139/tokenizer/tokenizer.json",
+        "reasons": [
+          "operating_tokenizer"
+        ],
+        "in_v10_applio_baseline": false,
+        "in_v07_baseline": false,
+        "bytes": 541,
+        "mtime_ns": 1791221884324849704,
+        "resolved_path": "~/DevSpace/strata-rocm-feasibility/v2/pack-sc117-iq3s-abliterated-v0139/tokenizer/tokenizer.json",
+        "exists": true,
+        "legacy_stat_equal": false
+      },
+      {
+        "path": "~/DevSpace/strata-rocm-feasibility/v2/pack-sc117-iq3s-abliterated-v0139/tokenizer/vocab.json",
+        "reasons": [
+          "operating_tokenizer"
+        ],
+        "in_v10_applio_baseline": false,
+        "in_v07_baseline": false,
+        "bytes": 5737005,
+        "mtime_ns": 1791221884249882753,
+        "resolved_path": "~/DevSpace/strata-rocm-feasibility/v2/pack-sc117-iq3s-abliterated-v0139/tokenizer/vocab.json",
+        "exists": true,
+        "legacy_stat_equal": false
+      },
+      {
+        "path": "~/DevSpace/strata_v01401_juud_eval/data/expert-profile.bin",
+        "reasons": [
+          "runtime_expert-profile"
+        ],
+        "in_v10_applio_baseline": false,
+        "in_v07_baseline": false,
+        "bytes": 196632,
+        "mtime_ns": 1791319316770521182,
+        "resolved_path": "~/DevSpace/strata_v01401_juud_eval/data/expert-profile.bin",
+        "exists": true,
+        "legacy_stat_equal": false
+      },
+      {
+        "path": "~/DevSpace/strata_v01401_juud_eval/draft_vocab_ko_ab/veneta65536.bin",
+        "reasons": [
+          "runtime_mtp-draft-vocab"
+        ],
+        "in_v10_applio_baseline": false,
+        "in_v07_baseline": false,
+        "bytes": 262144,
+        "mtime_ns": 1791365109120370398,
+        "resolved_path": "~/DevSpace/strata_v01401_juud_eval/draft_vocab_ko_ab/veneta65536.bin",
+        "exists": true,
+        "legacy_stat_equal": false
+      },
+      {
+        "path": "~/DevSpace/strata_v01403_port/diag-guard-wide-corpus-20261009/shadow-canary-v2/serve/__init__.py",
+        "reasons": [
+          "research_server_import_source"
+        ],
+        "in_v10_applio_baseline": false,
+        "in_v07_baseline": false,
+        "bytes": 127,
+        "mtime_ns": 1791482719113132172,
+        "resolved_path": "~/DevSpace/strata_v01403_port/diag-guard-wide-corpus-20261009/shadow-canary-v2/serve/__init__.py",
+        "exists": true,
+        "legacy_stat_equal": false
+      },
+      {
+        "path": "~/DevSpace/strata_v01403_port/diag-guard-wide-corpus-20261009/shadow-canary-v2/serve/server.py",
+        "reasons": [
+          "research_server_import_source"
+        ],
+        "in_v10_applio_baseline": false,
+        "in_v07_baseline": false,
+        "bytes": 345420,
+        "mtime_ns": 1791482719113025592,
+        "resolved_path": "~/DevSpace/strata_v01403_port/diag-guard-wide-corpus-20261009/shadow-canary-v2/serve/server.py",
+        "exists": true,
+        "legacy_stat_equal": false
+      },
+      {
+        "path": "~/DevSpace/strata_v01403_port/prod-promoted/context-verified.private.json",
+        "reasons": [
+          "legacy_v07",
+          "operating_control"
+        ],
+        "in_v10_applio_baseline": false,
+        "in_v07_baseline": true,
+        "bytes": 3543,
+        "mtime_ns": 1793435410018466798,
+        "resolved_path": "~/DevSpace/strata_v01403_port/prod-promoted/context-verified.private.json",
+        "exists": true,
+        "legacy_stat_equal": true
+      },
+      {
+        "path": "~/DevSpace/strata_v01403_port/prod-promoted/engine-pinned-20261024-dd6753203cec325a",
+        "reasons": [
+          "legacy_v07",
+          "operating_control"
+        ],
+        "in_v10_applio_baseline": false,
+        "in_v07_baseline": true,
+        "bytes": 21015712,
+        "mtime_ns": 1792815057390927960,
+        "resolved_path": "~/DevSpace/strata_v01403_port/prod-promoted/engine-pinned-20261024-dd6753203cec325a",
+        "exists": true,
+        "legacy_stat_equal": true
+      },
+      {
+        "path": "~/DevSpace/strata_v01403_port/serve_context_verified.sh",
+        "reasons": [
+          "legacy_v07",
+          "operating_control"
+        ],
+        "in_v10_applio_baseline": false,
+        "in_v07_baseline": true,
+        "bytes": 797,
+        "mtime_ns": 1791536378846899044,
+        "resolved_path": "~/DevSpace/strata_v01403_port/serve_context_verified.sh",
+        "exists": true,
+        "legacy_stat_equal": true
+      },
+      {
+        "path": "<storage>/models/SC117-IQ3_XXS/IQ3_XXS/Qwen3.8-Flash-Next-GSQ-RCO-abliterated-IQ3_XXS-00001-of-00002.gguf",
+        "reasons": [
+          "runtime_native",
+          "runtime_native-dense-gguf"
+        ],
+        "in_v10_applio_baseline": false,
+        "in_v07_baseline": false,
+        "bytes": 47342144896,
+        "mtime_ns": 1792748270787735500,
+        "resolved_path": "<storage>/models/SC117-IQ3_XXS/IQ3_XXS/Qwen3.8-Flash-Next-GSQ-RCO-abliterated-IQ3_XXS-00001-of-00002.gguf",
+        "exists": true,
+        "legacy_stat_equal": false
+      },
+      {
+        "path": "<storage>/models/SC117-IQ3_XXS/IQ3_XXS/Qwen3.8-Flash-Next-GSQ-RCO-abliterated-IQ3_XXS-00002-of-00002.gguf",
+        "reasons": [
+          "runtime_native-dense-gguf"
+        ],
+        "in_v10_applio_baseline": false,
+        "in_v07_baseline": false,
+        "bytes": 28800138432,
+        "mtime_ns": 1790936352352000000,
+        "resolved_path": "<storage>/models/SC117-IQ3_XXS/IQ3_XXS/Qwen3.8-Flash-Next-GSQ-RCO-abliterated-IQ3_XXS-00002-of-00002.gguf",
+        "exists": true,
+        "legacy_stat_equal": false
+      },
+      {
+        "path": "<storage>/models/SC117-IQ3_XXS/pack-strata-v0142/conversions.json",
+        "reasons": [
+          "legacy_v07",
+          "runtime_pack"
+        ],
+        "in_v10_applio_baseline": false,
+        "in_v07_baseline": true,
+        "bytes": 334,
+        "mtime_ns": 1792748950780187821,
+        "resolved_path": "<storage>/models/SC117-IQ3_XXS/pack-strata-v0142/conversions.json",
+        "exists": true,
+        "legacy_stat_equal": true
+      },
+      {
+        "path": "<storage>/models/SC117-IQ3_XXS/pack-strata-v0142/dense.bin",
+        "reasons": [
+          "legacy_v07",
+          "runtime_pack"
+        ],
+        "in_v10_applio_baseline": false,
+        "in_v07_baseline": true,
+        "bytes": 1538035200,
+        "mtime_ns": 1792748950778437255,
+        "resolved_path": "<storage>/models/SC117-IQ3_XXS/pack-strata-v0142/dense.bin",
+        "exists": true,
+        "legacy_stat_equal": true
+      },
+      {
+        "path": "<storage>/models/SC117-IQ3_XXS/pack-strata-v0142/experts.bin",
+        "reasons": [
+          "legacy_v07",
+          "runtime_pack"
+        ],
+        "in_v10_applio_baseline": false,
+        "in_v07_baseline": true,
+        "bytes": 42912972800,
+        "mtime_ns": 1792749125169845229,
+        "resolved_path": "<storage>/models/SC117-IQ3_XXS/pack-strata-v0142/experts.bin",
+        "exists": true,
+        "legacy_stat_equal": true
+      },
+      {
+        "path": "<storage>/models/SC117-IQ3_XXS/pack-strata-v0142/experts.bin.src.json",
+        "reasons": [
+          "legacy_v07",
+          "runtime_pack"
+        ],
+        "in_v10_applio_baseline": false,
+        "in_v07_baseline": true,
+        "bytes": 401,
+        "mtime_ns": 1792749125984774590,
+        "resolved_path": "<storage>/models/SC117-IQ3_XXS/pack-strata-v0142/experts.bin.src.json",
+        "exists": true,
+        "legacy_stat_equal": true
+      },
+      {
+        "path": "<storage>/models/SC117-IQ3_XXS/pack-strata-v0142/index.txt",
+        "reasons": [
+          "legacy_v07",
+          "runtime_pack"
+        ],
+        "in_v10_applio_baseline": false,
+        "in_v07_baseline": true,
+        "bytes": 93699,
+        "mtime_ns": 1792748950779437252,
+        "resolved_path": "<storage>/models/SC117-IQ3_XXS/pack-strata-v0142/index.txt",
+        "exists": true,
+        "legacy_stat_equal": true
+      },
+      {
+        "path": "<storage>/models/SC117-IQ3_XXS/pack-strata-v0142/native_experts.txt",
+        "reasons": [
+          "legacy_v07",
+          "runtime_pack"
+        ],
+        "in_v10_applio_baseline": false,
+        "in_v07_baseline": true,
+        "bytes": 3309,
+        "mtime_ns": 1792748951775286085,
+        "resolved_path": "<storage>/models/SC117-IQ3_XXS/pack-strata-v0142/native_experts.txt",
+        "exists": true,
+        "legacy_stat_equal": true
+      },
+      {
+        "path": "<storage>/models/SC117-IQ3_XXS/pack-strata-v0142/tokenizer/chat_template.jinja",
+        "reasons": [
+          "legacy_v07",
+          "runtime_pack"
+        ],
+        "in_v10_applio_baseline": false,
+        "in_v07_baseline": true,
+        "bytes": 9993,
+        "mtime_ns": 1792748951742433983,
+        "resolved_path": "<storage>/models/SC117-IQ3_XXS/pack-strata-v0142/tokenizer/chat_template.jinja",
+        "exists": true,
+        "legacy_stat_equal": true
+      },
+      {
+        "path": "<storage>/models/SC117-IQ3_XXS/pack-strata-v0142/tokenizer/merges.txt",
+        "reasons": [
+          "legacy_v07",
+          "runtime_pack"
+        ],
+        "in_v10_applio_baseline": false,
+        "in_v07_baseline": true,
+        "bytes": 3353258,
+        "mtime_ns": 1792748951609434434,
+        "resolved_path": "<storage>/models/SC117-IQ3_XXS/pack-strata-v0142/tokenizer/merges.txt",
+        "exists": true,
+        "legacy_stat_equal": true
+      },
+      {
+        "path": "<storage>/models/SC117-IQ3_XXS/pack-strata-v0142/tokenizer/token_type.json",
+        "reasons": [
+          "legacy_v07",
+          "runtime_pack"
+        ],
+        "in_v10_applio_baseline": false,
+        "in_v07_baseline": true,
+        "bytes": 744960,
+        "mtime_ns": 1792748951615936421,
+        "resolved_path": "<storage>/models/SC117-IQ3_XXS/pack-strata-v0142/tokenizer/token_type.json",
+        "exists": true,
+        "legacy_stat_equal": true
+      },
+      {
+        "path": "<storage>/models/SC117-IQ3_XXS/pack-strata-v0142/tokenizer/tokenizer.json",
+        "reasons": [
+          "legacy_v07",
+          "runtime_pack"
+        ],
+        "in_v10_applio_baseline": false,
+        "in_v07_baseline": true,
+        "bytes": 541,
+        "mtime_ns": 1792748951616154639,
+        "resolved_path": "<storage>/models/SC117-IQ3_XXS/pack-strata-v0142/tokenizer/tokenizer.json",
+        "exists": true,
+        "legacy_stat_equal": true
+      },
+      {
+        "path": "<storage>/models/SC117-IQ3_XXS/pack-strata-v0142/tokenizer/vocab.json",
+        "reasons": [
+          "legacy_v07",
+          "runtime_pack"
+        ],
+        "in_v10_applio_baseline": false,
+        "in_v07_baseline": true,
+        "bytes": 5737005,
+        "mtime_ns": 1792748951537434679,
+        "resolved_path": "<storage>/models/SC117-IQ3_XXS/pack-strata-v0142/tokenizer/vocab.json",
+        "exists": true,
+        "legacy_stat_equal": true
+      },
+      {
+        "path": "/mnt/sn850x/flashnext-ext4-model-gate-20260922/SC117-IQ3_XXS-PLE-IQ4_NL-20261031.gguf",
+        "reasons": [
+          "runtime_ple-gguf"
+        ],
+        "in_v10_applio_baseline": false,
+        "in_v07_baseline": false,
+        "bytes": 28800138432,
+        "mtime_ns": 1793429747708945876,
+        "resolved_path": "/mnt/sn850x/flashnext-ext4-model-gate-20260922/SC117-IQ3_XXS-PLE-IQ4_NL-20261031.gguf",
+        "exists": true,
+        "legacy_stat_equal": false
+      }
+    ],
+    "count": 64,
+    "bytes": 156451275508,
+    "legacy_count": 48,
+    "in_v10_applio_baseline": 0,
+    "hash_comparison_performed": false,
+    "note": "Stat equality is not SHA equality. A new before/after SHA inventory is required before any D GPU run."
+  },
+  "checks": {
+    "service_inactive": true,
+    "mem_available_at_least_14_gib": true,
+    "ports_unused": true,
+    "no_current_kfd_clients": true,
+    "existing_build_matches": true,
+    "fixed_256_mib_guard_verified": true,
+    "config_has_no_routing_trace": true,
+    "mincore_succeeded": true,
+    "recommended_inputs_present": true
+  },
+  "prerequisite_checks_pass": true,
+  "blocked_by": [],
+  "gpu_execution": false,
+  "server_execution": false,
+  "operating_service_actions": [],
+  "torch_imported": false,
+  "rocm_imported": false,
+  "guard": {
+    "swap_out_limit_bytes": 268435456,
+    "interval_seconds": 1,
+    "increasing_samples": 2,
+    "minimum_runtime_mem_available_bytes": 2147483648,
+    "scope": "System pswpout since research process start; stop only owned research group"
+  },
+  "commands": [
+    {
+      "label": "a1",
+      "argv": [
+        "env",
+        "-u",
+        "STRATA_MMQ_V07_TRACE",
+        "PYTHONDONTWRITEBYTECODE=1",
+        "HSA_DISABLE_COREDUMP_ON_EXCEPTION=1",
+        "MIOPEN_DEBUG_CONV_IMPLICIT_GEMM_HIP_FWD_V4R1=0",
+        "MIOPEN_DEBUG_CONV_DIRECT_HIP_WRW53=0",
+        "OMP_NUM_THREADS=2",
+        "/usr/bin/python3",
+        "-B",
+        "-u",
+        "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/strata_prefill_v07.py",
+        "--exe",
+        "~/DevSpace/strata-prefill-v07-lab-20261107/build-v07-gfx1030/strata",
+        "--prime-rows",
+        "390",
+        "--rows",
+        "390",
+        "--repeats",
+        "1",
+        "--max-new",
+        "32",
+        "--port",
+        "18487",
+        "--out",
+        "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/v10/strata_warm_01_a1",
+        "--arm",
+        "v10-warm-a1-j0",
+        "--env",
+        "STRATA_MMQ_TYPICAL_J=0"
+      ],
+      "shell": "env -u STRATA_MMQ_V07_TRACE PYTHONDONTWRITEBYTECODE=1 HSA_DISABLE_COREDUMP_ON_EXCEPTION=1 MIOPEN_DEBUG_CONV_IMPLICIT_GEMM_HIP_FWD_V4R1=0 MIOPEN_DEBUG_CONV_DIRECT_HIP_WRW53=0 OMP_NUM_THREADS=2 /usr/bin/python3 -B -u ~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/strata_prefill_v07.py --exe ~/DevSpace/strata-prefill-v07-lab-20261107/build-v07-gfx1030/strata --prime-rows 390 --rows 390 --repeats 1 --max-new 32 --port 18487 --out ~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/v10/strata_warm_01_a1 --arm v10-warm-a1-j0 --env STRATA_MMQ_TYPICAL_J=0",
+      "output_exists": false,
+      "eligible_for_throughput_median": true,
+      "optional": false
+    },
+    {
+      "label": "b1",
+      "argv": [
+        "env",
+        "-u",
+        "STRATA_MMQ_V07_TRACE",
+        "PYTHONDONTWRITEBYTECODE=1",
+        "HSA_DISABLE_COREDUMP_ON_EXCEPTION=1",
+        "MIOPEN_DEBUG_CONV_IMPLICIT_GEMM_HIP_FWD_V4R1=0",
+        "MIOPEN_DEBUG_CONV_DIRECT_HIP_WRW53=0",
+        "OMP_NUM_THREADS=2",
+        "/usr/bin/python3",
+        "-B",
+        "-u",
+        "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/strata_prefill_v07.py",
+        "--exe",
+        "~/DevSpace/strata-prefill-v07-lab-20261107/build-v07-gfx1030/strata",
+        "--prime-rows",
+        "390",
+        "--rows",
+        "390",
+        "--repeats",
+        "1",
+        "--max-new",
+        "32",
+        "--port",
+        "18487",
+        "--out",
+        "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/v10/strata_warm_01_b1",
+        "--arm",
+        "v10-warm-b1-j1",
+        "--env",
+        "STRATA_MMQ_TYPICAL_J=1"
+      ],
+      "shell": "env -u STRATA_MMQ_V07_TRACE PYTHONDONTWRITEBYTECODE=1 HSA_DISABLE_COREDUMP_ON_EXCEPTION=1 MIOPEN_DEBUG_CONV_IMPLICIT_GEMM_HIP_FWD_V4R1=0 MIOPEN_DEBUG_CONV_DIRECT_HIP_WRW53=0 OMP_NUM_THREADS=2 /usr/bin/python3 -B -u ~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/strata_prefill_v07.py --exe ~/DevSpace/strata-prefill-v07-lab-20261107/build-v07-gfx1030/strata --prime-rows 390 --rows 390 --repeats 1 --max-new 32 --port 18487 --out ~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/v10/strata_warm_01_b1 --arm v10-warm-b1-j1 --env STRATA_MMQ_TYPICAL_J=1",
+      "output_exists": false,
+      "eligible_for_throughput_median": true,
+      "optional": false
+    },
+    {
+      "label": "b2",
+      "argv": [
+        "env",
+        "-u",
+        "STRATA_MMQ_V07_TRACE",
+        "PYTHONDONTWRITEBYTECODE=1",
+        "HSA_DISABLE_COREDUMP_ON_EXCEPTION=1",
+        "MIOPEN_DEBUG_CONV_IMPLICIT_GEMM_HIP_FWD_V4R1=0",
+        "MIOPEN_DEBUG_CONV_DIRECT_HIP_WRW53=0",
+        "OMP_NUM_THREADS=2",
+        "/usr/bin/python3",
+        "-B",
+        "-u",
+        "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/strata_prefill_v07.py",
+        "--exe",
+        "~/DevSpace/strata-prefill-v07-lab-20261107/build-v07-gfx1030/strata",
+        "--prime-rows",
+        "390",
+        "--rows",
+        "390",
+        "--repeats",
+        "1",
+        "--max-new",
+        "32",
+        "--port",
+        "18487",
+        "--out",
+        "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/v10/strata_warm_01_b2",
+        "--arm",
+        "v10-warm-b2-j1",
+        "--env",
+        "STRATA_MMQ_TYPICAL_J=1"
+      ],
+      "shell": "env -u STRATA_MMQ_V07_TRACE PYTHONDONTWRITEBYTECODE=1 HSA_DISABLE_COREDUMP_ON_EXCEPTION=1 MIOPEN_DEBUG_CONV_IMPLICIT_GEMM_HIP_FWD_V4R1=0 MIOPEN_DEBUG_CONV_DIRECT_HIP_WRW53=0 OMP_NUM_THREADS=2 /usr/bin/python3 -B -u ~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/strata_prefill_v07.py --exe ~/DevSpace/strata-prefill-v07-lab-20261107/build-v07-gfx1030/strata --prime-rows 390 --rows 390 --repeats 1 --max-new 32 --port 18487 --out ~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/v10/strata_warm_01_b2 --arm v10-warm-b2-j1 --env STRATA_MMQ_TYPICAL_J=1",
+      "output_exists": false,
+      "eligible_for_throughput_median": true,
+      "optional": false
+    },
+    {
+      "label": "a2",
+      "argv": [
+        "env",
+        "-u",
+        "STRATA_MMQ_V07_TRACE",
+        "PYTHONDONTWRITEBYTECODE=1",
+        "HSA_DISABLE_COREDUMP_ON_EXCEPTION=1",
+        "MIOPEN_DEBUG_CONV_IMPLICIT_GEMM_HIP_FWD_V4R1=0",
+        "MIOPEN_DEBUG_CONV_DIRECT_HIP_WRW53=0",
+        "OMP_NUM_THREADS=2",
+        "/usr/bin/python3",
+        "-B",
+        "-u",
+        "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/strata_prefill_v07.py",
+        "--exe",
+        "~/DevSpace/strata-prefill-v07-lab-20261107/build-v07-gfx1030/strata",
+        "--prime-rows",
+        "390",
+        "--rows",
+        "390",
+        "--repeats",
+        "1",
+        "--max-new",
+        "32",
+        "--port",
+        "18487",
+        "--out",
+        "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/v10/strata_warm_01_a2",
+        "--arm",
+        "v10-warm-a2-j0",
+        "--env",
+        "STRATA_MMQ_TYPICAL_J=0"
+      ],
+      "shell": "env -u STRATA_MMQ_V07_TRACE PYTHONDONTWRITEBYTECODE=1 HSA_DISABLE_COREDUMP_ON_EXCEPTION=1 MIOPEN_DEBUG_CONV_IMPLICIT_GEMM_HIP_FWD_V4R1=0 MIOPEN_DEBUG_CONV_DIRECT_HIP_WRW53=0 OMP_NUM_THREADS=2 /usr/bin/python3 -B -u ~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/strata_prefill_v07.py --exe ~/DevSpace/strata-prefill-v07-lab-20261107/build-v07-gfx1030/strata --prime-rows 390 --rows 390 --repeats 1 --max-new 32 --port 18487 --out ~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/v10/strata_warm_01_a2 --arm v10-warm-a2-j0 --env STRATA_MMQ_TYPICAL_J=0",
+      "output_exists": false,
+      "eligible_for_throughput_median": true,
+      "optional": false
+    },
+    {
+      "label": "a3",
+      "argv": [
+        "env",
+        "-u",
+        "STRATA_MMQ_V07_TRACE",
+        "PYTHONDONTWRITEBYTECODE=1",
+        "HSA_DISABLE_COREDUMP_ON_EXCEPTION=1",
+        "MIOPEN_DEBUG_CONV_IMPLICIT_GEMM_HIP_FWD_V4R1=0",
+        "MIOPEN_DEBUG_CONV_DIRECT_HIP_WRW53=0",
+        "OMP_NUM_THREADS=2",
+        "/usr/bin/python3",
+        "-B",
+        "-u",
+        "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/strata_prefill_v07.py",
+        "--exe",
+        "~/DevSpace/strata-prefill-v07-lab-20261107/build-v07-gfx1030/strata",
+        "--prime-rows",
+        "390",
+        "--rows",
+        "390",
+        "--repeats",
+        "1",
+        "--max-new",
+        "32",
+        "--port",
+        "18487",
+        "--out",
+        "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/v10/strata_warm_01_a3",
+        "--arm",
+        "v10-warm-a3-j0",
+        "--env",
+        "STRATA_MMQ_TYPICAL_J=0"
+      ],
+      "shell": "env -u STRATA_MMQ_V07_TRACE PYTHONDONTWRITEBYTECODE=1 HSA_DISABLE_COREDUMP_ON_EXCEPTION=1 MIOPEN_DEBUG_CONV_IMPLICIT_GEMM_HIP_FWD_V4R1=0 MIOPEN_DEBUG_CONV_DIRECT_HIP_WRW53=0 OMP_NUM_THREADS=2 /usr/bin/python3 -B -u ~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/strata_prefill_v07.py --exe ~/DevSpace/strata-prefill-v07-lab-20261107/build-v07-gfx1030/strata --prime-rows 390 --rows 390 --repeats 1 --max-new 32 --port 18487 --out ~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/v10/strata_warm_01_a3 --arm v10-warm-a3-j0 --env STRATA_MMQ_TYPICAL_J=0",
+      "output_exists": false,
+      "eligible_for_throughput_median": true,
+      "optional": false
+    },
+    {
+      "label": "b3",
+      "argv": [
+        "env",
+        "-u",
+        "STRATA_MMQ_V07_TRACE",
+        "PYTHONDONTWRITEBYTECODE=1",
+        "HSA_DISABLE_COREDUMP_ON_EXCEPTION=1",
+        "MIOPEN_DEBUG_CONV_IMPLICIT_GEMM_HIP_FWD_V4R1=0",
+        "MIOPEN_DEBUG_CONV_DIRECT_HIP_WRW53=0",
+        "OMP_NUM_THREADS=2",
+        "/usr/bin/python3",
+        "-B",
+        "-u",
+        "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/strata_prefill_v07.py",
+        "--exe",
+        "~/DevSpace/strata-prefill-v07-lab-20261107/build-v07-gfx1030/strata",
+        "--prime-rows",
+        "390",
+        "--rows",
+        "390",
+        "--repeats",
+        "1",
+        "--max-new",
+        "32",
+        "--port",
+        "18487",
+        "--out",
+        "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/v10/strata_warm_01_b3",
+        "--arm",
+        "v10-warm-b3-j1",
+        "--env",
+        "STRATA_MMQ_TYPICAL_J=1"
+      ],
+      "shell": "env -u STRATA_MMQ_V07_TRACE PYTHONDONTWRITEBYTECODE=1 HSA_DISABLE_COREDUMP_ON_EXCEPTION=1 MIOPEN_DEBUG_CONV_IMPLICIT_GEMM_HIP_FWD_V4R1=0 MIOPEN_DEBUG_CONV_DIRECT_HIP_WRW53=0 OMP_NUM_THREADS=2 /usr/bin/python3 -B -u ~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/strata_prefill_v07.py --exe ~/DevSpace/strata-prefill-v07-lab-20261107/build-v07-gfx1030/strata --prime-rows 390 --rows 390 --repeats 1 --max-new 32 --port 18487 --out ~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/v10/strata_warm_01_b3 --arm v10-warm-b3-j1 --env STRATA_MMQ_TYPICAL_J=1",
+      "output_exists": false,
+      "eligible_for_throughput_median": true,
+      "optional": false
+    },
+    {
+      "label": "timing_a",
+      "argv": [
+        "env",
+        "-u",
+        "STRATA_MMQ_V07_TRACE",
+        "PYTHONDONTWRITEBYTECODE=1",
+        "HSA_DISABLE_COREDUMP_ON_EXCEPTION=1",
+        "MIOPEN_DEBUG_CONV_IMPLICIT_GEMM_HIP_FWD_V4R1=0",
+        "MIOPEN_DEBUG_CONV_DIRECT_HIP_WRW53=0",
+        "OMP_NUM_THREADS=2",
+        "/usr/bin/python3",
+        "-B",
+        "-u",
+        "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/strata_prefill_v07.py",
+        "--exe",
+        "~/DevSpace/strata-prefill-v07-lab-20261107/build-v07-gfx1030/strata",
+        "--prime-rows",
+        "390",
+        "--rows",
+        "390",
+        "--repeats",
+        "1",
+        "--max-new",
+        "32",
+        "--port",
+        "18487",
+        "--out",
+        "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/v10/strata_warm_01_timing_a",
+        "--arm",
+        "v10-warm-timing_a-j0",
+        "--env",
+        "STRATA_MMQ_TYPICAL_J=0",
+        "--timing"
+      ],
+      "shell": "env -u STRATA_MMQ_V07_TRACE PYTHONDONTWRITEBYTECODE=1 HSA_DISABLE_COREDUMP_ON_EXCEPTION=1 MIOPEN_DEBUG_CONV_IMPLICIT_GEMM_HIP_FWD_V4R1=0 MIOPEN_DEBUG_CONV_DIRECT_HIP_WRW53=0 OMP_NUM_THREADS=2 /usr/bin/python3 -B -u ~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/strata_prefill_v07.py --exe ~/DevSpace/strata-prefill-v07-lab-20261107/build-v07-gfx1030/strata --prime-rows 390 --rows 390 --repeats 1 --max-new 32 --port 18487 --out ~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/v10/strata_warm_01_timing_a --arm v10-warm-timing_a-j0 --env STRATA_MMQ_TYPICAL_J=0 --timing",
+      "output_exists": false,
+      "eligible_for_throughput_median": false,
+      "optional": false
+    },
+    {
+      "label": "timing_b",
+      "argv": [
+        "env",
+        "-u",
+        "STRATA_MMQ_V07_TRACE",
+        "PYTHONDONTWRITEBYTECODE=1",
+        "HSA_DISABLE_COREDUMP_ON_EXCEPTION=1",
+        "MIOPEN_DEBUG_CONV_IMPLICIT_GEMM_HIP_FWD_V4R1=0",
+        "MIOPEN_DEBUG_CONV_DIRECT_HIP_WRW53=0",
+        "OMP_NUM_THREADS=2",
+        "/usr/bin/python3",
+        "-B",
+        "-u",
+        "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/strata_prefill_v07.py",
+        "--exe",
+        "~/DevSpace/strata-prefill-v07-lab-20261107/build-v07-gfx1030/strata",
+        "--prime-rows",
+        "390",
+        "--rows",
+        "390",
+        "--repeats",
+        "1",
+        "--max-new",
+        "32",
+        "--port",
+        "18487",
+        "--out",
+        "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/v10/strata_warm_01_timing_b",
+        "--arm",
+        "v10-warm-timing_b-j1",
+        "--env",
+        "STRATA_MMQ_TYPICAL_J=1",
+        "--timing"
+      ],
+      "shell": "env -u STRATA_MMQ_V07_TRACE PYTHONDONTWRITEBYTECODE=1 HSA_DISABLE_COREDUMP_ON_EXCEPTION=1 MIOPEN_DEBUG_CONV_IMPLICIT_GEMM_HIP_FWD_V4R1=0 MIOPEN_DEBUG_CONV_DIRECT_HIP_WRW53=0 OMP_NUM_THREADS=2 /usr/bin/python3 -B -u ~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/strata_prefill_v07.py --exe ~/DevSpace/strata-prefill-v07-lab-20261107/build-v07-gfx1030/strata --prime-rows 390 --rows 390 --repeats 1 --max-new 32 --port 18487 --out ~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/v10/strata_warm_01_timing_b --arm v10-warm-timing_b-j1 --env STRATA_MMQ_TYPICAL_J=1 --timing",
+      "output_exists": false,
+      "eligible_for_throughput_median": false,
+      "optional": false
+    },
+    {
+      "label": "routing_b",
+      "argv": [
+        "env",
+        "-u",
+        "STRATA_MMQ_V07_TRACE",
+        "PYTHONDONTWRITEBYTECODE=1",
+        "HSA_DISABLE_COREDUMP_ON_EXCEPTION=1",
+        "MIOPEN_DEBUG_CONV_IMPLICIT_GEMM_HIP_FWD_V4R1=0",
+        "MIOPEN_DEBUG_CONV_DIRECT_HIP_WRW53=0",
+        "OMP_NUM_THREADS=2",
+        "/usr/bin/python3",
+        "-B",
+        "-u",
+        "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/strata_prefill_v07.py",
+        "--exe",
+        "~/DevSpace/strata-prefill-v07-lab-20261107/build-v07-gfx1030/strata",
+        "--prime-rows",
+        "390",
+        "--rows",
+        "390",
+        "--repeats",
+        "1",
+        "--max-new",
+        "32",
+        "--port",
+        "18487",
+        "--out",
+        "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/v10/strata_warm_01_routing_b",
+        "--arm",
+        "v10-warm-routing_b-j1",
+        "--env",
+        "STRATA_MMQ_TYPICAL_J=1",
+        "--env",
+        "STRATA_MMQ_V07_TRACE=1"
+      ],
+      "shell": "env -u STRATA_MMQ_V07_TRACE PYTHONDONTWRITEBYTECODE=1 HSA_DISABLE_COREDUMP_ON_EXCEPTION=1 MIOPEN_DEBUG_CONV_IMPLICIT_GEMM_HIP_FWD_V4R1=0 MIOPEN_DEBUG_CONV_DIRECT_HIP_WRW53=0 OMP_NUM_THREADS=2 /usr/bin/python3 -B -u ~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/strata_prefill_v07.py --exe ~/DevSpace/strata-prefill-v07-lab-20261107/build-v07-gfx1030/strata --prime-rows 390 --rows 390 --repeats 1 --max-new 32 --port 18487 --out ~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/v10/strata_warm_01_routing_b --arm v10-warm-routing_b-j1 --env STRATA_MMQ_TYPICAL_J=1 --env STRATA_MMQ_V07_TRACE=1",
+      "output_exists": false,
+      "eligible_for_throughput_median": false,
+      "optional": true
+    }
+  ],
+  "note": "Passing prerequisites is not a warm-timing result. Recheck before each arm under root GPU ownership. Do not repeat an unchanged failed resource state."
+}

@@ -1,0 +1,48 @@
+{
+  "source": "~/.cache/miopen",
+  "exists": true,
+  "copied": [],
+  "scope": "performance FindDb only; operating files read-only",
+  "config_db": {
+    "source": "~/.config/miopen",
+    "exists": true,
+    "copied": [
+      {
+        "source": "~/.config/miopen/gfx1030_40.HIP.3_6_2_3d8f334b.ufdb.txt",
+        "copy": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/applio_v08/db_fast_native/gfx1030_40.HIP.3_6_2_3d8f334b.ufdb.txt",
+        "bytes": 288112,
+        "sha256": "8bf85312a75117fa08abca830bb8852254b3a6be5ffefa1ad5d452f93f840bbe"
+      },
+      {
+        "source": "~/.config/miopen/gfx1030_40.HIP.3_6_2_d8756483.ufdb.txt",
+        "copy": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/applio_v08/db_fast_native/gfx1030_40.HIP.3_6_2_d8756483.ufdb.txt",
+        "bytes": 68907,
+        "sha256": "985f2d60bd1b1df84210c122ff5298720f34069efaaedd4dc67dadcbfd9224c2"
+      },
+      {
+        "source": "~/.config/miopen/gfx1030_40.HIP.3_6_0_8d1ae90e.ufdb.txt.time",
+        "copy": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/applio_v08/db_fast_native/gfx1030_40.HIP.3_6_0_8d1ae90e.ufdb.txt.time",
+        "bytes": 14,
+        "sha256": "54ef6b494912e84d58946a12bbde0022a896ad754e21c132e20c8ec4ff3a2c29"
+      },
+      {
+        "source": "~/.config/miopen/gfx1030_40.HIP.3_6_2_d8756483.ufdb.txt.time",
+        "copy": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/applio_v08/db_fast_native/gfx1030_40.HIP.3_6_2_d8756483.ufdb.txt.time",
+        "bytes": 14,
+        "sha256": "36f7ddb010e85fb587f30b33f330bdeb5054de918dd51a663e84896192b10b7d"
+      },
+      {
+        "source": "~/.config/miopen/gfx1030_40.HIP.3_6_2_3d8f334b.ufdb.txt.time",
+        "copy": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/applio_v08/db_fast_native/gfx1030_40.HIP.3_6_2_3d8f334b.ufdb.txt.time",
+        "bytes": 14,
+        "sha256": "94850e1afbb3e67cf30599f27ffeb74b486e60c211956ed83d80a279b98b7eee"
+      },
+      {
+        "source": "~/.config/miopen/gfx1030_40.HIP.3_6_0_8d1ae90e.ufdb.txt",
+        "copy": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/applio_v08/db_fast_native/gfx1030_40.HIP.3_6_0_8d1ae90e.ufdb.txt",
+        "bytes": 714381,
+        "sha256": "a5a7fa17513f541a46184072658ebed7abc808ae0370d30914fd485d8e4286b8"
+      }
+    ]
+  }
+}

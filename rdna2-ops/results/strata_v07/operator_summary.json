@@ -1,0 +1,304 @@
+{
+  "scope": "Actual layer35 weights, 3 new synthetic routing distributions; not model-captured histograms",
+  "raw": "operator_screen/operator.jsonl",
+  "raw_sha256": "bfd7f6e855c7c48c17a861ec553b7c9b67d0da8e0a21a996a095c131e6286f5b",
+  "all_rows": 54,
+  "all_bit_exact": true,
+  "note": "Same J64 timing fluctuations are a negative control, not performance gains. Exploratory best is not a deployed model policy.",
+  "summary": [
+    {
+      "case": "skew_tail",
+      "role": "gate_up",
+      "shape": {
+        "M": 1280,
+        "K": 2560,
+        "experts": 16,
+        "rows": 702,
+        "max_rows": 512,
+        "mean_rows": 44,
+        "counts": [
+          1,
+          1,
+          2,
+          2,
+          3,
+          4,
+          5,
+          6,
+          8,
+          10,
+          12,
+          16,
+          24,
+          32,
+          64,
+          512
+        ]
+      },
+      "baseline": {
+        "J": 64,
+        "us": 440.675629
+      },
+      "mean": {
+        "J": 48,
+        "us": 404.289612,
+        "ratio": 1.08999988,
+        "kernel_changed": true
+      },
+      "exploratory_best": {
+        "J": 40,
+        "us": 383.90155,
+        "ratio": 1.14788708
+      },
+      "all_byte_exact": true,
+      "max_ref_rel_l2": 0.00265506457,
+      "max_ref_max_over_rms": 0.0081727754,
+      "rows_tested": 9
+    },
+    {
+      "case": "skew_tail",
+      "role": "down",
+      "shape": {
+        "M": 2560,
+        "K": 640,
+        "experts": 16,
+        "rows": 702,
+        "max_rows": 512,
+        "mean_rows": 44,
+        "counts": [
+          1,
+          1,
+          2,
+          2,
+          3,
+          4,
+          5,
+          6,
+          8,
+          10,
+          12,
+          16,
+          24,
+          32,
+          64,
+          512
+        ]
+      },
+      "baseline": {
+        "J": 64,
+        "us": 197.341797
+      },
+      "mean": {
+        "J": 48,
+        "us": 182.683807,
+        "ratio": 1.08023694,
+        "kernel_changed": true
+      },
+      "exploratory_best": {
+        "J": 32,
+        "us": 161.283798,
+        "ratio": 1.22356864
+      },
+      "all_byte_exact": true,
+      "max_ref_rel_l2": 0.002500519,
+      "max_ref_max_over_rms": 0.00734203151,
+      "rows_tested": 9
+    },
+    {
+      "case": "prefill_medium",
+      "role": "gate_up",
+      "shape": {
+        "M": 1280,
+        "K": 2560,
+        "experts": 16,
+        "rows": 3389,
+        "max_rows": 512,
+        "mean_rows": 212,
+        "counts": [
+          61,
+          80,
+          96,
+          112,
+          128,
+          140,
+          160,
+          180,
+          200,
+          220,
+          240,
+          256,
+          300,
+          320,
+          384,
+          512
+        ]
+      },
+      "baseline": {
+        "J": 64,
+        "us": 858.253052
+      },
+      "mean": {
+        "J": 64,
+        "us": 852.647095,
+        "ratio": 1.00657477,
+        "kernel_changed": false
+      },
+      "exploratory_best": {
+        "J": 64,
+        "us": 852.647095,
+        "ratio": 1.00657477
+      },
+      "all_byte_exact": true,
+      "max_ref_rel_l2": 0.00262490759,
+      "max_ref_max_over_rms": 0.00823292423,
+      "rows_tested": 9
+    },
+    {
+      "case": "prefill_medium",
+      "role": "down",
+      "shape": {
+        "M": 2560,
+        "K": 640,
+        "experts": 16,
+        "rows": 3389,
+        "max_rows": 512,
+        "mean_rows": 212,
+        "counts": [
+          61,
+          80,
+          96,
+          112,
+          128,
+          140,
+          160,
+          180,
+          200,
+          220,
+          240,
+          256,
+          300,
+          320,
+          384,
+          512
+        ]
+      },
+      "baseline": {
+        "J": 64,
+        "us": 424.495544
+      },
+      "mean": {
+        "J": 64,
+        "us": 414.185486,
+        "ratio": 1.02489237,
+        "kernel_changed": false
+      },
+      "exploratory_best": {
+        "J": 64,
+        "us": 414.185486,
+        "ratio": 1.02489237
+      },
+      "all_byte_exact": true,
+      "max_ref_rel_l2": 0.00240419746,
+      "max_ref_max_over_rms": 0.00948556365,
+      "rows_tested": 9
+    },
+    {
+      "case": "prefill_large",
+      "role": "gate_up",
+      "shape": {
+        "M": 1280,
+        "K": 2560,
+        "experts": 16,
+        "rows": 6592,
+        "max_rows": 1024,
+        "mean_rows": 412,
+        "counts": [
+          128,
+          160,
+          192,
+          224,
+          256,
+          288,
+          320,
+          352,
+          384,
+          416,
+          448,
+          480,
+          512,
+          640,
+          768,
+          1024
+        ]
+      },
+      "baseline": {
+        "J": 64,
+        "us": 1450.74817
+      },
+      "mean": {
+        "J": 64,
+        "us": 1431.57422,
+        "ratio": 1.01339361,
+        "kernel_changed": false
+      },
+      "exploratory_best": {
+        "J": 64,
+        "us": 1431.57422,
+        "ratio": 1.01339361
+      },
+      "all_byte_exact": true,
+      "max_ref_rel_l2": 0.0028930438,
+      "max_ref_max_over_rms": 0.0123020541,
+      "rows_tested": 9
+    },
+    {
+      "case": "prefill_large",
+      "role": "down",
+      "shape": {
+        "M": 2560,
+        "K": 640,
+        "experts": 16,
+        "rows": 6592,
+        "max_rows": 1024,
+        "mean_rows": 412,
+        "counts": [
+          128,
+          160,
+          192,
+          224,
+          256,
+          288,
+          320,
+          352,
+          384,
+          416,
+          448,
+          480,
+          512,
+          640,
+          768,
+          1024
+        ]
+      },
+      "baseline": {
+        "J": 64,
+        "us": 740.74707
+      },
+      "mean": {
+        "J": 64,
+        "us": 718.611145,
+        "ratio": 1.03080376,
+        "kernel_changed": false
+      },
+      "exploratory_best": {
+        "J": 64,
+        "us": 718.611145,
+        "ratio": 1.03080376
+      },
+      "all_byte_exact": true,
+      "max_ref_rel_l2": 0.0025084092,
+      "max_ref_max_over_rms": 0.009429579,
+      "rows_tested": 9
+    }
+  ]
+}

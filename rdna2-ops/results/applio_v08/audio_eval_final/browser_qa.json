@@ -1,0 +1,253 @@
+{
+  "schema": "applio_v08_browser_listening_page_qa",
+  "page": "LISTEN_BLIND.html",
+  "metadata": {
+    "audioCount": 12,
+    "media": [
+      {
+        "controls": true,
+        "duration": 4.86,
+        "embedded": true,
+        "error": null,
+        "index": 0,
+        "paused": true,
+        "readyState": 4
+      },
+      {
+        "controls": true,
+        "duration": 4.86,
+        "embedded": true,
+        "error": null,
+        "index": 1,
+        "paused": true,
+        "readyState": 4
+      },
+      {
+        "controls": true,
+        "duration": 4.86,
+        "embedded": true,
+        "error": null,
+        "index": 2,
+        "paused": true,
+        "readyState": 4
+      },
+      {
+        "controls": true,
+        "duration": 4.3,
+        "embedded": true,
+        "error": null,
+        "index": 3,
+        "paused": true,
+        "readyState": 4
+      },
+      {
+        "controls": true,
+        "duration": 4.3,
+        "embedded": true,
+        "error": null,
+        "index": 4,
+        "paused": true,
+        "readyState": 4
+      },
+      {
+        "controls": true,
+        "duration": 4.3,
+        "embedded": true,
+        "error": null,
+        "index": 5,
+        "paused": true,
+        "readyState": 4
+      },
+      {
+        "controls": true,
+        "duration": 5.66,
+        "embedded": true,
+        "error": null,
+        "index": 6,
+        "paused": true,
+        "readyState": 4
+      },
+      {
+        "controls": true,
+        "duration": 5.66,
+        "embedded": true,
+        "error": null,
+        "index": 7,
+        "paused": true,
+        "readyState": 4
+      },
+      {
+        "controls": true,
+        "duration": 5.66,
+        "embedded": true,
+        "error": null,
+        "index": 8,
+        "paused": true,
+        "readyState": 4
+      },
+      {
+        "controls": true,
+        "duration": 5.38,
+        "embedded": true,
+        "error": null,
+        "index": 9,
+        "paused": true,
+        "readyState": 4
+      },
+      {
+        "controls": true,
+        "duration": 5.38,
+        "embedded": true,
+        "error": null,
+        "index": 10,
+        "paused": true,
+        "readyState": 4
+      },
+      {
+        "controls": true,
+        "duration": 5.38,
+        "embedded": true,
+        "error": null,
+        "index": 11,
+        "paused": true,
+        "readyState": 4
+      }
+    ],
+    "notesEmpty": true,
+    "selects": [
+      "undecided",
+      "undecided",
+      "undecided",
+      "undecided",
+      "undecided",
+      "undecided",
+      "undecided",
+      "undecided"
+    ]
+  },
+  "playback": {
+    "firstAdvanced": true,
+    "firstPausedBySecond": true,
+    "secondAdvanced": true
+  },
+  "allReset": true,
+  "choicesUntouched": true,
+  "notesEmpty": true,
+  "horizontalOverflow": false,
+  "sectionCount": 4,
+  "settled": {
+    "allReady": true,
+    "states": [
+      {
+        "currentTime": 0,
+        "duration": 4.86,
+        "error": null,
+        "index": 0,
+        "muted": false,
+        "paused": true,
+        "readyState": 4
+      },
+      {
+        "currentTime": 0,
+        "duration": 4.86,
+        "error": null,
+        "index": 1,
+        "muted": false,
+        "paused": true,
+        "readyState": 4
+      },
+      {
+        "currentTime": 0,
+        "duration": 4.86,
+        "error": null,
+        "index": 2,
+        "muted": false,
+        "paused": true,
+        "readyState": 4
+      },
+      {
+        "currentTime": 0,
+        "duration": 4.3,
+        "error": null,
+        "index": 3,
+        "muted": false,
+        "paused": true,
+        "readyState": 4
+      },
+      {
+        "currentTime": 0,
+        "duration": 4.3,
+        "error": null,
+        "index": 4,
+        "muted": false,
+        "paused": true,
+        "readyState": 4
+      },
+      {
+        "currentTime": 0,
+        "duration": 4.3,
+        "error": null,
+        "index": 5,
+        "muted": false,
+        "paused": true,
+        "readyState": 4
+      },
+      {
+        "currentTime": 0,
+        "duration": 5.66,
+        "error": null,
+        "index": 6,
+        "muted": false,
+        "paused": true,
+        "readyState": 4
+      },
+      {
+        "currentTime": 0,
+        "duration": 5.66,
+        "error": null,
+        "index": 7,
+        "muted": false,
+        "paused": true,
+        "readyState": 4
+      },
+      {
+        "currentTime": 0,
+        "duration": 5.66,
+        "error": null,
+        "index": 8,
+        "muted": false,
+        "paused": true,
+        "readyState": 4
+      },
+      {
+        "currentTime": 0,
+        "duration": 5.38,
+        "error": null,
+        "index": 9,
+        "muted": false,
+        "paused": true,
+        "readyState": 4
+      },
+      {
+        "currentTime": 0,
+        "duration": 5.38,
+        "error": null,
+        "index": 10,
+        "muted": false,
+        "paused": true,
+        "readyState": 4
+      },
+      {
+        "currentTime": 0,
+        "duration": 5.38,
+        "error": null,
+        "index": 11,
+        "muted": false,
+        "paused": true,
+        "readyState": 4
+      }
+    ]
+  },
+  "perceptual_judgment": "pending_user",
+  "note": "Muted playback succeeded after explicit browser interaction; all media paused, rewound and unmuted afterwards. The browser rejected pre-interaction scripted playback. No autoplay policy setting was changed."
+}

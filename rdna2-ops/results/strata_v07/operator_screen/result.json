@@ -1,0 +1,35 @@
+{
+  "command": [
+    "~/DevSpace/strata-prefill-v07-lab-20261107/build-v07-gfx1030/hip_prefill_mmq_v07",
+    "<storage>/models/SC117-IQ3_XXS/pack-strata-v0142"
+  ],
+  "exe_sha256": "6879df8c5daf458e826d8a895cf81b2ffe935067797d1d11bdf5d5236ef0d1f8",
+  "started_unix_s": 1794005546.0569663,
+  "prewarm": "3 launches per hint; 7 alternating rounds, 20 launches each",
+  "pid": 945668,
+  "exit": 0,
+  "guard": {
+    "available": true,
+    "valid_for_timing": true,
+    "method": "KFD client PID snapshots and periodic polling; research flock",
+    "limitation": "Detects observed KFD clients, not graphics load or sub-poll transient clients",
+    "allowed_pids": [
+      945666,
+      945668
+    ],
+    "interval_s": 0.25,
+    "sample_count": 41,
+    "started_unix_s": 1794005546.0571053,
+    "ended_unix_s": 1794005555.553468,
+    "foreign_clients": [],
+    "errors": [],
+    "transitions": [
+      {
+        "unix_s": 1794005546.0571058,
+        "kfd_pids": [],
+        "foreign_or_error": []
+      }
+    ]
+  },
+  "ended_unix_s": 1794005555.5534866
+}

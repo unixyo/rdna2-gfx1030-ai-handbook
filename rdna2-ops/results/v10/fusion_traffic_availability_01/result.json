@@ -1,0 +1,85 @@
+{
+  "command": [
+    "~/DevSpace/applio-lab/.venv-rocm10/bin/python",
+    "-B",
+    "~/DevSpace/applio-lab/.venv-rocm10/lib/python3.12/site-packages/_rocm_sdk_core/bin/rocprofv3",
+    "--list-avail",
+    "-f",
+    "csv",
+    "-d",
+    "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/v10/fusion_traffic_availability_01",
+    "-o",
+    "availability"
+  ],
+  "explicit_env": {
+    "ROCPROFILER_REGISTER_ENABLED": "1",
+    "HSA_DISABLE_COREDUMP_ON_EXCEPTION": "1",
+    "MIOPEN_DEBUG_CONV_IMPLICIT_GEMM_HIP_FWD_V4R1": "0",
+    "MIOPEN_DEBUG_CONV_DIRECT_HIP_WRW53": "0",
+    "PYTHONDONTWRITEBYTECODE": "1"
+  },
+  "completed": true,
+  "tool_sha256": "2d220ded2167097e480e6866a916b575548d56bed8a823a4e505f7133868f0a6",
+  "config_sha256": "63542b5a2a285098f6ccb1d355574c8559ca75d3d5f80c82c5f02be7e3c8f960",
+  "exit_code": 0,
+  "gpu_audit": {
+    "available": true,
+    "valid_for_timing": true,
+    "method": "KFD client PID snapshots and periodic polling; research flock",
+    "limitation": "Detects observed KFD clients, not graphics load or sub-poll transient clients",
+    "allowed_pids": [
+      2617124,
+      2617126,
+      2617127,
+      2617177
+    ],
+    "interval_s": 0.25,
+    "sample_count": 11,
+    "started_unix_s": 1794138209.7450345,
+    "ended_unix_s": 1794138211.5989919,
+    "foreign_clients": [],
+    "errors": [],
+    "transitions": [
+      {
+        "unix_s": 1794138209.7450902,
+        "kfd_pids": [],
+        "foreign_or_error": []
+      }
+    ],
+    "max_queues": 0,
+    "max_clients": 1,
+    "queue_transitions": [
+      {
+        "unix_s": 1794138209.7451367,
+        "clients": {},
+        "queues": 0
+      },
+      {
+        "unix_s": 1794138210.9969244,
+        "clients": {
+          "2617127": 0
+        },
+        "queues": 0
+      },
+      {
+        "unix_s": 1794138211.2472434,
+        "clients": {
+          "2617177": 0
+        },
+        "queues": 0
+      },
+      {
+        "unix_s": 1794138211.4975233,
+        "clients": {
+          "2617126": 0
+        },
+        "queues": 0
+      }
+    ],
+    "queue_limit": 7,
+    "queues_pass": true
+  },
+  "files": [
+    "availability.log"
+  ]
+}

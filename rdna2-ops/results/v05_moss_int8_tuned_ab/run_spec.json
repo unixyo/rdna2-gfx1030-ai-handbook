@@ -1,0 +1,50 @@
+{
+  "config": {
+    "sampler": [
+      "KSampler",
+      "sample"
+    ],
+    "sampler_node": "8",
+    "model": "moss",
+    "runtime": "~/DevSpace/moss-image-rdna2-lab01/runtime/ComfyUI",
+    "workflow": "~/DevSpace/moss-image-rdna2-lab01/workflows/sft_fast4_int8_512.json",
+    "decoder": [
+      "VAEDecode",
+      "decode"
+    ],
+    "save_node": "11",
+    "attention_target": "comfy.ops:scaled_dot_product_attention",
+    "env": {
+      "MOSS_RDNA2_INT8_PATCH": "1",
+      "MOSS_RDNA2_INT8_LAYOUT": "view",
+      "MOSS_RDNA2_ATTENTION": "auto"
+    },
+    "server_args": [
+      "--base-directory",
+      "~/DevSpace/moss-image-rdna2-lab01",
+      "--models-directory",
+      "~/DevSpace/moss-image-rdna2-lab01/models",
+      "--use-pytorch-cross-attention",
+      "--disable-comfy-compiler"
+    ],
+    "int8_config": {
+      "tile": [
+        64,
+        128,
+        64
+      ],
+      "num_warps": 4,
+      "num_stages": 2,
+      "group_m": 8,
+      "wrapped": false
+    }
+  },
+  "argv": {
+    "spec": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/research_configs/moss_int8_tuned_v05.json",
+    "out": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/v05_moss_int8_tuned_ab",
+    "modes": "warm,baseline,int8,baseline,int8,int8,baseline",
+    "seed": 20261106,
+    "steps": null,
+    "port": 8463
+  }
+}

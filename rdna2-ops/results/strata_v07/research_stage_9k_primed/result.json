@@ -1,0 +1,1444 @@
+{
+  "arm": "research-joff-stage-warm",
+  "started_utc": "2026-11-06T22:53:13.554386+00:00",
+  "service_before": {
+    "ActiveState": "inactive",
+    "SubState": "dead",
+    "FragmentPath": "~/.config/systemd/user/strata-verified-256k.service",
+    "DropInPaths": "",
+    "MainPID": "0"
+  },
+  "before": {
+    "memory_psi": "some avg10=0.00 avg60=0.00 avg300=0.06 total=13092289\nfull avg10=0.00 avg60=0.00 avg300=0.05 total=11584619",
+    "io_psi": "some avg10=0.00 avg60=0.04 avg300=0.18 total=97429541\nfull avg10=0.00 avg60=0.04 avg300=0.07 total=79464155",
+    "mem_available": 46611755008,
+    "swap_used": 9058627584,
+    "pswpin": 53257,
+    "pswpout": 2094042
+  },
+  "timing_enabled": true,
+  "exe": "~/DevSpace/strata-prefill-v07-lab-20261107/build-v07-gfx1030/strata",
+  "exe_sha256": "31ecea0716fd7cba638d004b2fc7987efa1b179f9a9cf67ca96f8d42b4c263b5",
+  "config_sha256": "2ec6d4798b203e9ca086abc2c217382e65846a0a59e4e94d22da8a39a1a4bd93",
+  "requests": [],
+  "owned_pids": [
+    {
+      "pid": 946230,
+      "ppid": 946182,
+      "exe": "~/DevSpace/strata-rocm-feasibility/vision_canary/build-hip/bin/strata-vision",
+      "requested_unix_s": 1794005593.9130313
+    },
+    {
+      "pid": 946268,
+      "ppid": 946182,
+      "exe": "~/DevSpace/strata-prefill-v07-lab-20261107/build-v07-gfx1030/strata",
+      "requested_unix_s": 1794005595.9566154
+    }
+  ],
+  "ownership_errors": [],
+  "resources": [
+    {
+      "memory_psi": "some avg10=0.00 avg60=0.00 avg300=0.06 total=13092308\nfull avg10=0.00 avg60=0.00 avg300=0.05 total=11584638",
+      "io_psi": "some avg10=0.00 avg60=0.04 avg300=0.18 total=97438219\nfull avg10=0.00 avg60=0.04 avg300=0.07 total=79472399",
+      "mem_available": 46380953600,
+      "swap_used": 9058623488,
+      "pswpin": 53268,
+      "pswpout": 2094042,
+      "unix_s": 1794005594.5770953,
+      "swap_out_since_process_start_bytes": 0,
+      "swap_out_since_request_start_bytes": null,
+      "owned_process_io": {
+        "946230": {
+          "io": {
+            "rchar": 11792647,
+            "wchar": 171,
+            "syscr": 3523,
+            "syscw": 3,
+            "read_bytes": 23580672,
+            "write_bytes": 4096,
+            "cancelled_write_bytes": 0
+          },
+          "wait_channel": "0"
+        }
+      }
+    },
+    {
+      "memory_psi": "some avg10=0.00 avg60=0.00 avg300=0.06 total=13092309\nfull avg10=0.00 avg60=0.00 avg300=0.05 total=11584639",
+      "io_psi": "some avg10=0.18 avg60=0.07 avg300=0.18 total=97462610\nfull avg10=0.18 avg60=0.07 avg300=0.07 total=79496677",
+      "mem_available": 46111633408,
+      "swap_used": 9058611200,
+      "pswpin": 53271,
+      "pswpout": 2094042,
+      "unix_s": 1794005595.5775075,
+      "swap_out_since_process_start_bytes": 0,
+      "swap_out_since_request_start_bytes": null,
+      "owned_process_io": {
+        "946230": {
+          "io": {
+            "rchar": 932028169,
+            "wchar": 27046041,
+            "syscr": 4041,
+            "syscw": 64,
+            "read_bytes": 976257024,
+            "write_bytes": 8192,
+            "cancelled_write_bytes": 0
+          },
+          "wait_channel": "0"
+        }
+      }
+    },
+    {
+      "memory_psi": "some avg10=0.00 avg60=0.00 avg300=0.06 total=13092313\nfull avg10=0.00 avg60=0.00 avg300=0.05 total=11584643",
+      "io_psi": "some avg10=0.18 avg60=0.07 avg300=0.18 total=97473875\nfull avg10=0.18 avg60=0.07 avg300=0.07 total=79507665",
+      "mem_available": 45720801280,
+      "swap_used": 9058594816,
+      "pswpin": 53278,
+      "pswpout": 2094042,
+      "unix_s": 1794005596.577866,
+      "swap_out_since_process_start_bytes": 0,
+      "swap_out_since_request_start_bytes": null,
+      "owned_process_io": {
+        "946230": {
+          "io": {
+            "rchar": 932028169,
+            "wchar": 27046098,
+            "syscr": 4041,
+            "syscw": 66,
+            "read_bytes": 976257024,
+            "write_bytes": 8192,
+            "cancelled_write_bytes": 0
+          },
+          "wait_channel": "anon_pipe_read"
+        },
+        "946268": {
+          "io": {
+            "rchar": 959204,
+            "wchar": 307119,
+            "syscr": 923,
+            "syscw": 34,
+            "read_bytes": 273326080,
+            "write_bytes": 4096,
+            "cancelled_write_bytes": 0
+          },
+          "wait_channel": "0"
+        }
+      }
+    },
+    {
+      "memory_psi": "some avg10=0.00 avg60=0.00 avg300=0.06 total=13092533\nfull avg10=0.00 avg60=0.00 avg300=0.05 total=11584862",
+      "io_psi": "some avg10=0.15 avg60=0.07 avg300=0.18 total=97477972\nfull avg10=0.15 avg60=0.07 avg300=0.07 total=79511696",
+      "mem_available": 45724401664,
+      "swap_used": 9058476032,
+      "pswpin": 53283,
+      "pswpout": 2094042,
+      "unix_s": 1794005597.5783026,
+      "swap_out_since_process_start_bytes": 0,
+      "swap_out_since_request_start_bytes": null,
+      "owned_process_io": {
+        "946230": {
+          "io": {
+            "rchar": 932028169,
+            "wchar": 27046098,
+            "syscr": 4041,
+            "syscw": 66,
+            "read_bytes": 976257024,
+            "write_bytes": 8192,
+            "cancelled_write_bytes": 0
+          },
+          "wait_channel": "anon_pipe_read"
+        },
+        "946268": {
+          "io": {
+            "rchar": 1538994404,
+            "wchar": 307277,
+            "syscr": 2139,
+            "syscw": 36,
+            "read_bytes": 3687174144,
+            "write_bytes": 4096,
+            "cancelled_write_bytes": 0
+          },
+          "wait_channel": "0"
+        }
+      }
+    },
+    {
+      "memory_psi": "some avg10=0.00 avg60=0.00 avg300=0.06 total=13092533\nfull avg10=0.00 avg60=0.00 avg300=0.05 total=11584862",
+      "io_psi": "some avg10=0.15 avg60=0.07 avg300=0.18 total=97507013\nfull avg10=0.15 avg60=0.07 avg300=0.07 total=79539342",
+      "mem_available": 45575544832,
+      "swap_used": 9058476032,
+      "pswpin": 53283,
+      "pswpout": 2094042,
+      "unix_s": 1794005598.5787377,
+      "swap_out_since_process_start_bytes": 0,
+      "swap_out_since_request_start_bytes": null,
+      "owned_process_io": {
+        "946230": {
+          "io": {
+            "rchar": 932028169,
+            "wchar": 27046098,
+            "syscr": 4041,
+            "syscw": 66,
+            "read_bytes": 976257024,
+            "write_bytes": 8192,
+            "cancelled_write_bytes": 0
+          },
+          "wait_channel": "anon_pipe_read"
+        },
+        "946268": {
+          "io": {
+            "rchar": 1672411203,
+            "wchar": 307875,
+            "syscr": 6250,
+            "syscw": 44,
+            "read_bytes": 4823498752,
+            "write_bytes": 4096,
+            "cancelled_write_bytes": 0
+          },
+          "wait_channel": "0"
+        }
+      },
+      "operating_service": {
+        "ActiveState": "inactive",
+        "SubState": "dead",
+        "FragmentPath": "~/.config/systemd/user/strata-verified-256k.service",
+        "DropInPaths": "",
+        "MainPID": "0"
+      }
+    },
+    {
+      "memory_psi": "some avg10=0.00 avg60=0.00 avg300=0.06 total=13112774\nfull avg10=0.00 avg60=0.00 avg300=0.05 total=11605084",
+      "io_psi": "some avg10=0.30 avg60=0.10 avg300=0.19 total=97507377\nfull avg10=0.30 avg60=0.10 avg300=0.08 total=79539688",
+      "mem_available": 45691596800,
+      "swap_used": 9059885056,
+      "pswpin": 53342,
+      "pswpout": 2094430,
+      "unix_s": 1794005599.5867958,
+      "swap_out_since_process_start_bytes": 1589248,
+      "swap_out_since_request_start_bytes": null,
+      "owned_process_io": {
+        "946230": {
+          "io": {
+            "rchar": 932028169,
+            "wchar": 27046098,
+            "syscr": 4041,
+            "syscw": 66,
+            "read_bytes": 976257024,
+            "write_bytes": 8192,
+            "cancelled_write_bytes": 0
+          },
+          "wait_channel": "anon_pipe_read"
+        },
+        "946268": {
+          "io": {
+            "rchar": 2380241315,
+            "wchar": 309478,
+            "syscr": 6399,
+            "syscw": 61,
+            "read_bytes": 6693875712,
+            "write_bytes": 8192,
+            "cancelled_write_bytes": 0
+          },
+          "wait_channel": "0"
+        }
+      }
+    },
+    {
+      "memory_psi": "some avg10=0.00 avg60=0.00 avg300=0.06 total=13129838\nfull avg10=0.00 avg60=0.00 avg300=0.05 total=11622147",
+      "io_psi": "some avg10=0.30 avg60=0.10 avg300=0.19 total=97507642\nfull avg10=0.30 avg60=0.10 avg300=0.08 total=79539953",
+      "mem_available": 45669031936,
+      "swap_used": 9060589568,
+      "pswpin": 53345,
+      "pswpout": 2094603,
+      "unix_s": 1794005600.5872264,
+      "swap_out_since_process_start_bytes": 2297856,
+      "swap_out_since_request_start_bytes": null,
+      "owned_process_io": {
+        "946230": {
+          "io": {
+            "rchar": 932028169,
+            "wchar": 27046098,
+            "syscr": 4041,
+            "syscw": 66,
+            "read_bytes": 976257024,
+            "write_bytes": 8192,
+            "cancelled_write_bytes": 0
+          },
+          "wait_channel": "anon_pipe_read"
+        },
+        "946268": {
+          "io": {
+            "rchar": 2380282275,
+            "wchar": 309478,
+            "syscr": 6409,
+            "syscw": 61,
+            "read_bytes": 8512339968,
+            "write_bytes": 8192,
+            "cancelled_write_bytes": 0
+          },
+          "wait_channel": "0"
+        }
+      }
+    },
+    {
+      "memory_psi": "some avg10=0.18 avg60=0.03 avg300=0.06 total=13131366\nfull avg10=0.18 avg60=0.03 avg300=0.05 total=11623675",
+      "io_psi": "some avg10=0.24 avg60=0.09 avg300=0.18 total=97509132\nfull avg10=0.24 avg60=0.09 avg300=0.08 total=79541424",
+      "mem_available": 45046018048,
+      "swap_used": 9061150720,
+      "pswpin": 53345,
+      "pswpout": 2094740,
+      "unix_s": 1794005601.5875738,
+      "swap_out_since_process_start_bytes": 2859008,
+      "swap_out_since_request_start_bytes": null,
+      "owned_process_io": {
+        "946230": {
+          "io": {
+            "rchar": 932028169,
+            "wchar": 27046098,
+            "syscr": 4041,
+            "syscw": 66,
+            "read_bytes": 976257024,
+            "write_bytes": 8192,
+            "cancelled_write_bytes": 0
+          },
+          "wait_channel": "anon_pipe_read"
+        },
+        "946268": {
+          "io": {
+            "rchar": 2392258341,
+            "wchar": 12187901,
+            "syscr": 6650,
+            "syscw": 94,
+            "read_bytes": 8686211072,
+            "write_bytes": 8192,
+            "cancelled_write_bytes": 0
+          },
+          "wait_channel": "futex_do_wait"
+        }
+      }
+    },
+    {
+      "memory_psi": "some avg10=0.18 avg60=0.03 avg300=0.06 total=13136431\nfull avg10=0.18 avg60=0.03 avg300=0.05 total=11628695",
+      "io_psi": "some avg10=0.24 avg60=0.09 avg300=0.18 total=97828515\nfull avg10=0.24 avg60=0.09 avg300=0.08 total=79564123",
+      "mem_available": 44977922048,
+      "swap_used": 9061519360,
+      "pswpin": 53514,
+      "pswpout": 2094853,
+      "unix_s": 1794005602.588036,
+      "swap_out_since_process_start_bytes": 3321856,
+      "swap_out_since_request_start_bytes": 462848,
+      "owned_process_io": {
+        "946230": {
+          "io": {
+            "rchar": 932028169,
+            "wchar": 27046098,
+            "syscr": 4041,
+            "syscw": 66,
+            "read_bytes": 976257024,
+            "write_bytes": 8192,
+            "cancelled_write_bytes": 0
+          },
+          "wait_channel": "anon_pipe_read"
+        },
+        "946268": {
+          "io": {
+            "rchar": 2477369082,
+            "wchar": 12187932,
+            "syscr": 16794,
+            "syscw": 117,
+            "read_bytes": 10006052864,
+            "write_bytes": 8192,
+            "cancelled_write_bytes": 0
+          },
+          "wait_channel": "0"
+        }
+      }
+    },
+    {
+      "memory_psi": "some avg10=0.14 avg60=0.03 avg300=0.06 total=13139153\nfull avg10=0.14 avg60=0.03 avg300=0.05 total=11631417",
+      "io_psi": "some avg10=5.09 avg60=0.97 avg300=0.37 total=98161338\nfull avg10=0.38 avg60=0.12 avg300=0.08 total=79564216",
+      "mem_available": 44768759808,
+      "swap_used": 9061822464,
+      "pswpin": 53534,
+      "pswpout": 2094943,
+      "unix_s": 1794005603.5885735,
+      "swap_out_since_process_start_bytes": 3690496,
+      "swap_out_since_request_start_bytes": 831488,
+      "owned_process_io": {
+        "946230": {
+          "io": {
+            "rchar": 932028169,
+            "wchar": 27046098,
+            "syscr": 4041,
+            "syscw": 66,
+            "read_bytes": 976257024,
+            "write_bytes": 8192,
+            "cancelled_write_bytes": 0
+          },
+          "wait_channel": "anon_pipe_read"
+        },
+        "946268": {
+          "io": {
+            "rchar": 2477426633,
+            "wchar": 12188022,
+            "syscr": 16812,
+            "syscw": 126,
+            "read_bytes": 11294978048,
+            "write_bytes": 8192,
+            "cancelled_write_bytes": 0
+          },
+          "wait_channel": "0"
+        }
+      },
+      "operating_service": {
+        "ActiveState": "inactive",
+        "SubState": "dead",
+        "FragmentPath": "~/.config/systemd/user/strata-verified-256k.service",
+        "DropInPaths": "",
+        "MainPID": "0"
+      }
+    },
+    {
+      "memory_psi": "some avg10=0.14 avg60=0.03 avg300=0.06 total=13144819\nfull avg10=0.14 avg60=0.03 avg300=0.05 total=11637069",
+      "io_psi": "some avg10=5.09 avg60=0.97 avg300=0.37 total=98504831\nfull avg10=0.38 avg60=0.12 avg300=0.08 total=79564315",
+      "mem_available": 44826636288,
+      "swap_used": 9062596608,
+      "pswpin": 53536,
+      "pswpout": 2095135,
+      "unix_s": 1794005604.596775,
+      "swap_out_since_process_start_bytes": 4476928,
+      "swap_out_since_request_start_bytes": 1617920,
+      "owned_process_io": {
+        "946230": {
+          "io": {
+            "rchar": 932028169,
+            "wchar": 27046098,
+            "syscr": 4041,
+            "syscw": 66,
+            "read_bytes": 976257024,
+            "write_bytes": 8192,
+            "cancelled_write_bytes": 0
+          },
+          "wait_channel": "anon_pipe_read"
+        },
+        "946268": {
+          "io": {
+            "rchar": 2477468060,
+            "wchar": 12188022,
+            "syscr": 16826,
+            "syscw": 126,
+            "read_bytes": 12601597952,
+            "write_bytes": 8192,
+            "cancelled_write_bytes": 0
+          },
+          "wait_channel": "0"
+        }
+      }
+    },
+    {
+      "memory_psi": "some avg10=0.12 avg60=0.02 avg300=0.06 total=13152103\nfull avg10=0.12 avg60=0.02 avg300=0.05 total=11644335",
+      "io_psi": "some avg10=11.05 avg60=2.18 avg300=0.62 total=99029641\nfull avg10=0.31 avg60=0.12 avg300=0.08 total=79564387",
+      "mem_available": 44870623232,
+      "swap_used": 9062932480,
+      "pswpin": 53536,
+      "pswpout": 2095217,
+      "unix_s": 1794005605.597298,
+      "swap_out_since_process_start_bytes": 4812800,
+      "swap_out_since_request_start_bytes": 1953792,
+      "owned_process_io": {
+        "946230": {
+          "io": {
+            "rchar": 932028169,
+            "wchar": 27046098,
+            "syscr": 4041,
+            "syscw": 66,
+            "read_bytes": 976257024,
+            "write_bytes": 8192,
+            "cancelled_write_bytes": 0
+          },
+          "wait_channel": "anon_pipe_read"
+        },
+        "946268": {
+          "io": {
+            "rchar": 2477509487,
+            "wchar": 12188022,
+            "syscr": 16840,
+            "syscw": 126,
+            "read_bytes": 13894438912,
+            "write_bytes": 8192,
+            "cancelled_write_bytes": 0
+          },
+          "wait_channel": "0"
+        }
+      }
+    },
+    {
+      "memory_psi": "some avg10=0.12 avg60=0.02 avg300=0.06 total=13166527\nfull avg10=0.12 avg60=0.02 avg300=0.05 total=11658684",
+      "io_psi": "some avg10=11.05 avg60=2.18 avg300=0.62 total=99555725\nfull avg10=0.31 avg60=0.12 avg300=0.08 total=79564458",
+      "mem_available": 44872929280,
+      "swap_used": 9064017920,
+      "pswpin": 53537,
+      "pswpout": 2095478,
+      "unix_s": 1794005606.597819,
+      "swap_out_since_process_start_bytes": 5881856,
+      "swap_out_since_request_start_bytes": 3022848,
+      "owned_process_io": {
+        "946230": {
+          "io": {
+            "rchar": 932028169,
+            "wchar": 27046098,
+            "syscr": 4041,
+            "syscw": 66,
+            "read_bytes": 976257024,
+            "write_bytes": 8192,
+            "cancelled_write_bytes": 0
+          },
+          "wait_channel": "anon_pipe_read"
+        },
+        "946268": {
+          "io": {
+            "rchar": 2477554945,
+            "wchar": 12188024,
+            "syscr": 16855,
+            "syscw": 128,
+            "read_bytes": 15252463616,
+            "write_bytes": 8192,
+            "cancelled_write_bytes": 0
+          },
+          "wait_channel": "0"
+        }
+      }
+    },
+    {
+      "memory_psi": "some avg10=0.09 avg60=0.02 avg300=0.06 total=13171671\nfull avg10=0.09 avg60=0.02 avg300=0.05 total=11663783",
+      "io_psi": "some avg10=18.47 avg60=3.81 avg300=0.98 total=99961063\nfull avg10=0.25 avg60=0.11 avg300=0.08 total=79564571",
+      "mem_available": 44826161152,
+      "swap_used": 9064378368,
+      "pswpin": 53539,
+      "pswpout": 2095567,
+      "unix_s": 1794005607.5983405,
+      "swap_out_since_process_start_bytes": 6246400,
+      "swap_out_since_request_start_bytes": 3387392,
+      "owned_process_io": {
+        "946230": {
+          "io": {
+            "rchar": 932028169,
+            "wchar": 27046098,
+            "syscr": 4041,
+            "syscw": 66,
+            "read_bytes": 976257024,
+            "write_bytes": 8192,
+            "cancelled_write_bytes": 0
+          },
+          "wait_channel": "anon_pipe_read"
+        },
+        "946268": {
+          "io": {
+            "rchar": 2477596372,
+            "wchar": 12188024,
+            "syscr": 16869,
+            "syscw": 128,
+            "read_bytes": 16501592064,
+            "write_bytes": 8192,
+            "cancelled_write_bytes": 0
+          },
+          "wait_channel": "0"
+        }
+      }
+    },
+    {
+      "memory_psi": "some avg10=0.09 avg60=0.02 avg300=0.06 total=13181640\nfull avg10=0.09 avg60=0.02 avg300=0.05 total=11673673",
+      "io_psi": "some avg10=18.47 avg60=3.81 avg300=0.98 total=100380756\nfull avg10=0.25 avg60=0.11 avg300=0.08 total=79564702",
+      "mem_available": 44331491328,
+      "swap_used": 9066065920,
+      "pswpin": 53539,
+      "pswpout": 2095975,
+      "unix_s": 1794005608.5988457,
+      "swap_out_since_process_start_bytes": 7917568,
+      "swap_out_since_request_start_bytes": 5058560,
+      "owned_process_io": {
+        "946230": {
+          "io": {
+            "rchar": 932028169,
+            "wchar": 27046098,
+            "syscr": 4041,
+            "syscw": 66,
+            "read_bytes": 976257024,
+            "write_bytes": 8192,
+            "cancelled_write_bytes": 0
+          },
+          "wait_channel": "anon_pipe_read"
+        },
+        "946268": {
+          "io": {
+            "rchar": 2477641830,
+            "wchar": 12188026,
+            "syscr": 16884,
+            "syscw": 130,
+            "read_bytes": 17859895296,
+            "write_bytes": 8192,
+            "cancelled_write_bytes": 0
+          },
+          "wait_channel": "0"
+        }
+      },
+      "operating_service": {
+        "ActiveState": "inactive",
+        "SubState": "dead",
+        "FragmentPath": "~/.config/systemd/user/strata-verified-256k.service",
+        "DropInPaths": "",
+        "MainPID": "0"
+      }
+    },
+    {
+      "memory_psi": "some avg10=0.08 avg60=0.02 avg300=0.06 total=13198802\nfull avg10=0.08 avg60=0.02 avg300=0.05 total=11690342",
+      "io_psi": "some avg10=22.55 avg60=5.03 avg300=1.25 total=100794215\nfull avg10=0.21 avg60=0.11 avg300=0.08 total=79565037",
+      "mem_available": 44831723520,
+      "swap_used": 9067143168,
+      "pswpin": 53539,
+      "pswpout": 2096238,
+      "unix_s": 1794005609.6071036,
+      "swap_out_since_process_start_bytes": 8994816,
+      "swap_out_since_request_start_bytes": 6135808,
+      "owned_process_io": {
+        "946230": {
+          "io": {
+            "rchar": 932028169,
+            "wchar": 27046098,
+            "syscr": 4041,
+            "syscw": 66,
+            "read_bytes": 976257024,
+            "write_bytes": 8192,
+            "cancelled_write_bytes": 0
+          },
+          "wait_channel": "anon_pipe_read"
+        },
+        "946268": {
+          "io": {
+            "rchar": 2477683257,
+            "wchar": 12188026,
+            "syscr": 16898,
+            "syscw": 130,
+            "read_bytes": 19167727616,
+            "write_bytes": 8192,
+            "cancelled_write_bytes": 0
+          },
+          "wait_channel": "0"
+        }
+      }
+    },
+    {
+      "memory_psi": "some avg10=0.08 avg60=0.02 avg300=0.06 total=13211767\nfull avg10=0.08 avg60=0.02 avg300=0.05 total=11703167",
+      "io_psi": "some avg10=22.55 avg60=5.03 avg300=1.25 total=101094396\nfull avg10=0.21 avg60=0.11 avg300=0.08 total=79565194",
+      "mem_available": 44735250432,
+      "swap_used": 9067823104,
+      "pswpin": 53539,
+      "pswpout": 2096405,
+      "unix_s": 1794005610.6076138,
+      "swap_out_since_process_start_bytes": 9678848,
+      "swap_out_since_request_start_bytes": 6819840,
+      "owned_process_io": {
+        "946230": {
+          "io": {
+            "rchar": 932028169,
+            "wchar": 27046098,
+            "syscr": 4041,
+            "syscw": 66,
+            "read_bytes": 976257024,
+            "write_bytes": 8192,
+            "cancelled_write_bytes": 0
+          },
+          "wait_channel": "anon_pipe_read"
+        },
+        "946268": {
+          "io": {
+            "rchar": 2477724684,
+            "wchar": 12188026,
+            "syscr": 16912,
+            "syscw": 130,
+            "read_bytes": 20139008000,
+            "write_bytes": 8192,
+            "cancelled_write_bytes": 0
+          },
+          "wait_channel": "0"
+        }
+      }
+    },
+    {
+      "memory_psi": "some avg10=0.60 avg60=0.12 avg300=0.08 total=13278380\nfull avg10=0.60 avg60=0.12 avg300=0.07 total=11768967",
+      "io_psi": "some avg10=24.44 avg60=5.95 avg300=1.47 total=101471442\nfull avg10=0.17 avg60=0.11 avg300=0.08 total=79566129",
+      "mem_available": 44590006272,
+      "swap_used": 9068306432,
+      "pswpin": 54752,
+      "pswpout": 2096766,
+      "unix_s": 1794005611.608125,
+      "swap_out_since_process_start_bytes": 11157504,
+      "swap_out_since_request_start_bytes": 8298496,
+      "owned_process_io": {
+        "946230": {
+          "io": {
+            "rchar": 932028169,
+            "wchar": 27046098,
+            "syscr": 4041,
+            "syscw": 66,
+            "read_bytes": 976257024,
+            "write_bytes": 8192,
+            "cancelled_write_bytes": 0
+          },
+          "wait_channel": "anon_pipe_read"
+        },
+        "946268": {
+          "io": {
+            "rchar": 2477766111,
+            "wchar": 12188026,
+            "syscr": 16926,
+            "syscw": 130,
+            "read_bytes": 21198610432,
+            "write_bytes": 8192,
+            "cancelled_write_bytes": 0
+          },
+          "wait_channel": "0"
+        }
+      }
+    },
+    {
+      "memory_psi": "some avg10=0.60 avg60=0.12 avg300=0.08 total=13330944\nfull avg10=0.60 avg60=0.12 avg300=0.07 total=11821214",
+      "io_psi": "some avg10=24.44 avg60=5.95 avg300=1.47 total=101854941\nfull avg10=0.17 avg60=0.11 avg300=0.08 total=79566307",
+      "mem_available": 44754120704,
+      "swap_used": 9069166592,
+      "pswpin": 55049,
+      "pswpout": 2097062,
+      "unix_s": 1794005612.6086388,
+      "swap_out_since_process_start_bytes": 12369920,
+      "swap_out_since_request_start_bytes": 9510912,
+      "owned_process_io": {
+        "946230": {
+          "io": {
+            "rchar": 932028169,
+            "wchar": 27046098,
+            "syscr": 4041,
+            "syscw": 66,
+            "read_bytes": 976257024,
+            "write_bytes": 8192,
+            "cancelled_write_bytes": 0
+          },
+          "wait_channel": "anon_pipe_read"
+        },
+        "946268": {
+          "io": {
+            "rchar": 2477807538,
+            "wchar": 12188026,
+            "syscr": 16940,
+            "syscw": 130,
+            "read_bytes": 22196903936,
+            "write_bytes": 8192,
+            "cancelled_write_bytes": 0
+          },
+          "wait_channel": "0"
+        }
+      }
+    },
+    {
+      "memory_psi": "some avg10=1.22 avg60=0.25 avg300=0.11 total=13363120\nfull avg10=1.22 avg60=0.25 avg300=0.10 total=11853099",
+      "io_psi": "some avg10=27.26 avg60=7.06 avg300=1.73 total=102329602\nfull avg10=0.14 avg60=0.10 avg300=0.08 total=79566385",
+      "mem_available": 44769140736,
+      "swap_used": 9070538752,
+      "pswpin": 55053,
+      "pswpout": 2097401,
+      "unix_s": 1794005613.609165,
+      "swap_out_since_process_start_bytes": 13758464,
+      "swap_out_since_request_start_bytes": 10899456,
+      "owned_process_io": {
+        "946230": {
+          "io": {
+            "rchar": 932028169,
+            "wchar": 27046098,
+            "syscr": 4041,
+            "syscw": 66,
+            "read_bytes": 976257024,
+            "write_bytes": 8192,
+            "cancelled_write_bytes": 0
+          },
+          "wait_channel": "anon_pipe_read"
+        },
+        "946268": {
+          "io": {
+            "rchar": 2477848966,
+            "wchar": 12188026,
+            "syscr": 16954,
+            "syscw": 130,
+            "read_bytes": 23217979392,
+            "write_bytes": 8192,
+            "cancelled_write_bytes": 0
+          },
+          "wait_channel": "0"
+        }
+      },
+      "operating_service": {
+        "ActiveState": "inactive",
+        "SubState": "dead",
+        "FragmentPath": "~/.config/systemd/user/strata-verified-256k.service",
+        "DropInPaths": "",
+        "MainPID": "0"
+      }
+    },
+    {
+      "memory_psi": "some avg10=1.22 avg60=0.25 avg300=0.11 total=13452234\nfull avg10=1.22 avg60=0.25 avg300=0.10 total=11932141",
+      "io_psi": "some avg10=27.26 avg60=7.06 avg300=1.73 total=102725890\nfull avg10=0.14 avg60=0.10 avg300=0.08 total=79566457",
+      "mem_available": 44754751488,
+      "swap_used": 9071734784,
+      "pswpin": 55053,
+      "pswpout": 2097693,
+      "unix_s": 1794005614.6176817,
+      "swap_out_since_process_start_bytes": 14954496,
+      "swap_out_since_request_start_bytes": 12095488,
+      "owned_process_io": {
+        "946230": {
+          "io": {
+            "rchar": 932028169,
+            "wchar": 27046098,
+            "syscr": 4041,
+            "syscw": 66,
+            "read_bytes": 976257024,
+            "write_bytes": 8192,
+            "cancelled_write_bytes": 0
+          },
+          "wait_channel": "anon_pipe_read"
+        },
+        "946268": {
+          "io": {
+            "rchar": 2477894490,
+            "wchar": 12188026,
+            "syscr": 16969,
+            "syscw": 130,
+            "read_bytes": 24236355584,
+            "write_bytes": 8192,
+            "cancelled_write_bytes": 0
+          },
+          "wait_channel": "0"
+        }
+      }
+    },
+    {
+      "memory_psi": "some avg10=2.08 avg60=0.44 avg300=0.15 total=13495699\nfull avg10=2.08 avg60=0.44 avg300=0.14 total=11972328",
+      "io_psi": "some avg10=29.02 avg60=8.04 avg300=1.97 total=103104965\nfull avg10=0.11 avg60=0.10 avg300=0.08 total=79568793",
+      "mem_available": 44774903808,
+      "swap_used": 9072820224,
+      "pswpin": 55270,
+      "pswpout": 2097981,
+      "unix_s": 1794005615.6181638,
+      "swap_out_since_process_start_bytes": 16134144,
+      "swap_out_since_request_start_bytes": 13275136,
+      "owned_process_io": {
+        "946230": {
+          "io": {
+            "rchar": 932028169,
+            "wchar": 27046098,
+            "syscr": 4041,
+            "syscw": 66,
+            "read_bytes": 976257024,
+            "write_bytes": 8192,
+            "cancelled_write_bytes": 0
+          },
+          "wait_channel": "anon_pipe_read"
+        },
+        "946268": {
+          "io": {
+            "rchar": 2477931823,
+            "wchar": 12188026,
+            "syscr": 16982,
+            "syscw": 130,
+            "read_bytes": 25428336640,
+            "write_bytes": 8192,
+            "cancelled_write_bytes": 0
+          },
+          "wait_channel": "0"
+        }
+      }
+    },
+    {
+      "memory_psi": "some avg10=2.08 avg60=0.44 avg300=0.15 total=13571326\nfull avg10=2.08 avg60=0.44 avg300=0.14 total=12046268",
+      "io_psi": "some avg10=29.02 avg60=8.04 avg300=1.97 total=103511285\nfull avg10=0.11 avg60=0.10 avg300=0.08 total=79568893",
+      "mem_available": 44730249216,
+      "swap_used": 9073471488,
+      "pswpin": 55282,
+      "pswpout": 2098147,
+      "unix_s": 1794005616.6186748,
+      "swap_out_since_process_start_bytes": 16814080,
+      "swap_out_since_request_start_bytes": 13955072,
+      "owned_process_io": {
+        "946230": {
+          "io": {
+            "rchar": 932028169,
+            "wchar": 27046098,
+            "syscr": 4041,
+            "syscw": 66,
+            "read_bytes": 976257024,
+            "write_bytes": 8192,
+            "cancelled_write_bytes": 0
+          },
+          "wait_channel": "anon_pipe_read"
+        },
+        "946268": {
+          "io": {
+            "rchar": 2477973252,
+            "wchar": 12188026,
+            "syscr": 16996,
+            "syscw": 130,
+            "read_bytes": 26574196736,
+            "write_bytes": 8192,
+            "cancelled_write_bytes": 0
+          },
+          "wait_channel": "0"
+        }
+      }
+    },
+    {
+      "memory_psi": "some avg10=2.61 avg60=0.59 avg300=0.18 total=13634524\nfull avg10=2.61 avg60=0.59 avg300=0.17 total=12109072",
+      "io_psi": "some avg10=31.01 avg60=9.09 avg300=2.23 total=103811161\nfull avg10=0.09 avg60=0.10 avg300=0.08 total=79569403",
+      "mem_available": 44802117632,
+      "swap_used": 9074151424,
+      "pswpin": 55457,
+      "pswpout": 2098340,
+      "unix_s": 1794005617.6191578,
+      "swap_out_since_process_start_bytes": 17604608,
+      "swap_out_since_request_start_bytes": 14745600,
+      "owned_process_io": {
+        "946230": {
+          "io": {
+            "rchar": 932028169,
+            "wchar": 27046098,
+            "syscr": 4041,
+            "syscw": 66,
+            "read_bytes": 976257024,
+            "write_bytes": 8192,
+            "cancelled_write_bytes": 0
+          },
+          "wait_channel": "anon_pipe_read"
+        },
+        "946268": {
+          "io": {
+            "rchar": 2478014681,
+            "wchar": 12188026,
+            "syscr": 17010,
+            "syscw": 130,
+            "read_bytes": 27815186432,
+            "write_bytes": 8192,
+            "cancelled_write_bytes": 0
+          },
+          "wait_channel": "0"
+        }
+      }
+    },
+    {
+      "memory_psi": "some avg10=2.61 avg60=0.59 avg300=0.18 total=13849433\nfull avg10=2.61 avg60=0.59 avg300=0.17 total=12317122",
+      "io_psi": "some avg10=31.01 avg60=9.09 avg300=2.23 total=104031357\nfull avg10=0.09 avg60=0.10 avg300=0.08 total=79569553",
+      "mem_available": 44771643392,
+      "swap_used": 9074675712,
+      "pswpin": 55619,
+      "pswpout": 2098558,
+      "unix_s": 1794005618.619661,
+      "swap_out_since_process_start_bytes": 18497536,
+      "swap_out_since_request_start_bytes": 15638528,
+      "owned_process_io": {
+        "946230": {
+          "io": {
+            "rchar": 932028169,
+            "wchar": 27046098,
+            "syscr": 4041,
+            "syscw": 66,
+            "read_bytes": 976257024,
+            "write_bytes": 8192,
+            "cancelled_write_bytes": 0
+          },
+          "wait_channel": "anon_pipe_read"
+        },
+        "946268": {
+          "io": {
+            "rchar": 2478056110,
+            "wchar": 12188026,
+            "syscr": 17024,
+            "syscw": 130,
+            "read_bytes": 28672385024,
+            "write_bytes": 8192,
+            "cancelled_write_bytes": 0
+          },
+          "wait_channel": "0"
+        }
+      },
+      "operating_service": {
+        "ActiveState": "inactive",
+        "SubState": "dead",
+        "FragmentPath": "~/.config/systemd/user/strata-verified-256k.service",
+        "DropInPaths": "",
+        "MainPID": "0"
+      }
+    },
+    {
+      "memory_psi": "some avg10=4.31 avg60=0.96 avg300=0.26 total=13862638\nfull avg10=4.31 avg60=0.96 avg300=0.25 total=12330269",
+      "io_psi": "some avg10=31.73 avg60=9.93 avg300=2.46 total=104631577\nfull avg10=0.07 avg60=0.09 avg300=0.08 total=79569645",
+      "mem_available": 44778319872,
+      "swap_used": 9075294208,
+      "pswpin": 55622,
+      "pswpout": 2098711,
+      "unix_s": 1794005619.6282334,
+      "swap_out_since_process_start_bytes": 19124224,
+      "swap_out_since_request_start_bytes": 16265216,
+      "owned_process_io": {
+        "946230": {
+          "io": {
+            "rchar": 932028169,
+            "wchar": 27046098,
+            "syscr": 4041,
+            "syscw": 66,
+            "read_bytes": 976257024,
+            "write_bytes": 8192,
+            "cancelled_write_bytes": 0
+          },
+          "wait_channel": "anon_pipe_read"
+        },
+        "946268": {
+          "io": {
+            "rchar": 2478101635,
+            "wchar": 12188026,
+            "syscr": 17039,
+            "syscw": 130,
+            "read_bytes": 29990612992,
+            "write_bytes": 8192,
+            "cancelled_write_bytes": 0
+          },
+          "wait_channel": "0"
+        }
+      }
+    },
+    {
+      "memory_psi": "some avg10=4.31 avg60=0.96 avg300=0.26 total=13875270\nfull avg10=4.31 avg60=0.96 avg300=0.25 total=12342731",
+      "io_psi": "some avg10=31.73 avg60=9.93 avg300=2.46 total=105001405\nfull avg10=0.07 avg60=0.09 avg300=0.08 total=79570396",
+      "mem_available": 44733796352,
+      "swap_used": 9074429952,
+      "pswpin": 56833,
+      "pswpout": 2098796,
+      "unix_s": 1794005620.6287298,
+      "swap_out_since_process_start_bytes": 19472384,
+      "swap_out_since_request_start_bytes": 16613376,
+      "owned_process_io": {
+        "946230": {
+          "io": {
+            "rchar": 932028169,
+            "wchar": 27046098,
+            "syscr": 4041,
+            "syscw": 66,
+            "read_bytes": 976257024,
+            "write_bytes": 8192,
+            "cancelled_write_bytes": 0
+          },
+          "wait_channel": "anon_pipe_read"
+        },
+        "946268": {
+          "io": {
+            "rchar": 2478147095,
+            "wchar": 12188028,
+            "syscr": 17054,
+            "syscw": 132,
+            "read_bytes": 31109132288,
+            "write_bytes": 8192,
+            "cancelled_write_bytes": 0
+          },
+          "wait_channel": "0"
+        }
+      }
+    },
+    {
+      "memory_psi": "some avg10=3.71 avg60=0.96 avg300=0.27 total=13900019\nfull avg10=3.71 avg60=0.96 avg300=0.26 total=12366867",
+      "io_psi": "some avg10=33.23 avg60=10.92 avg300=2.71 total=105382999\nfull avg10=0.06 avg60=0.09 avg300=0.07 total=79570722",
+      "mem_available": 44764127232,
+      "swap_used": 9077678080,
+      "pswpin": 56873,
+      "pswpout": 2099600,
+      "unix_s": 1794005621.6291676,
+      "swap_out_since_process_start_bytes": 22765568,
+      "swap_out_since_request_start_bytes": 19906560,
+      "owned_process_io": {
+        "946230": {
+          "io": {
+            "rchar": 932028169,
+            "wchar": 27046098,
+            "syscr": 4041,
+            "syscw": 66,
+            "read_bytes": 976257024,
+            "write_bytes": 8192,
+            "cancelled_write_bytes": 0
+          },
+          "wait_channel": "anon_pipe_read"
+        },
+        "946268": {
+          "io": {
+            "rchar": 2478188526,
+            "wchar": 12188028,
+            "syscr": 17068,
+            "syscw": 132,
+            "read_bytes": 32424017920,
+            "write_bytes": 8192,
+            "cancelled_write_bytes": 0
+          },
+          "wait_channel": "0"
+        }
+      }
+    },
+    {
+      "memory_psi": "some avg10=3.71 avg60=0.96 avg300=0.27 total=13928043\nfull avg10=3.71 avg60=0.96 avg300=0.26 total=12394696",
+      "io_psi": "some avg10=33.23 avg60=10.92 avg300=2.71 total=105796323\nfull avg10=0.06 avg60=0.09 avg300=0.07 total=79570817",
+      "mem_available": 44725002240,
+      "swap_used": 9079373824,
+      "pswpin": 56876,
+      "pswpout": 2100003,
+      "unix_s": 1794005622.6296089,
+      "swap_out_since_process_start_bytes": 24416256,
+      "swap_out_since_request_start_bytes": 21557248,
+      "owned_process_io": {
+        "946230": {
+          "io": {
+            "rchar": 932028169,
+            "wchar": 27046098,
+            "syscr": 4041,
+            "syscw": 66,
+            "read_bytes": 976257024,
+            "write_bytes": 8192,
+            "cancelled_write_bytes": 0
+          },
+          "wait_channel": "anon_pipe_read"
+        },
+        "946268": {
+          "io": {
+            "rchar": 2478229957,
+            "wchar": 12188028,
+            "syscr": 17082,
+            "syscw": 132,
+            "read_bytes": 33576960000,
+            "write_bytes": 8192,
+            "cancelled_write_bytes": 0
+          },
+          "wait_channel": "0"
+        }
+      }
+    },
+    {
+      "memory_psi": "some avg10=3.40 avg60=0.99 avg300=0.28 total=13964939\nfull avg10=3.40 avg60=0.99 avg300=0.27 total=12430973",
+      "io_psi": "some avg10=35.00 avg60=11.97 avg300=2.99 total=106221676\nfull avg10=0.05 avg60=0.08 avg300=0.07 total=79570886",
+      "mem_available": 44738641920,
+      "swap_used": 9080832000,
+      "pswpin": 56876,
+      "pswpout": 2100360,
+      "unix_s": 1794005623.6300108,
+      "swap_out_since_process_start_bytes": 25878528,
+      "swap_out_since_request_start_bytes": 23019520,
+      "owned_process_io": {
+        "946230": {
+          "io": {
+            "rchar": 932028169,
+            "wchar": 27046098,
+            "syscr": 4041,
+            "syscw": 66,
+            "read_bytes": 976257024,
+            "write_bytes": 8192,
+            "cancelled_write_bytes": 0
+          },
+          "wait_channel": "anon_pipe_read"
+        },
+        "946268": {
+          "io": {
+            "rchar": 2478271388,
+            "wchar": 12188028,
+            "syscr": 17096,
+            "syscw": 132,
+            "read_bytes": 34770558976,
+            "write_bytes": 8192,
+            "cancelled_write_bytes": 0
+          },
+          "wait_channel": "0"
+        }
+      },
+      "operating_service": {
+        "ActiveState": "inactive",
+        "SubState": "dead",
+        "FragmentPath": "~/.config/systemd/user/strata-verified-256k.service",
+        "DropInPaths": "",
+        "MainPID": "0"
+      }
+    },
+    {
+      "memory_psi": "some avg10=3.40 avg60=0.99 avg300=0.28 total=14014721\nfull avg10=3.40 avg60=0.99 avg300=0.27 total=12480593",
+      "io_psi": "some avg10=35.00 avg60=11.97 avg300=2.99 total=106542056\nfull avg10=0.05 avg60=0.08 avg300=0.07 total=79571015",
+      "mem_available": 44736806912,
+      "swap_used": 9082859520,
+      "pswpin": 56909,
+      "pswpout": 2100860,
+      "unix_s": 1794005624.638187,
+      "swap_out_since_process_start_bytes": 27926528,
+      "swap_out_since_request_start_bytes": 25067520,
+      "owned_process_io": {
+        "946230": {
+          "io": {
+            "rchar": 932028169,
+            "wchar": 27046098,
+            "syscr": 4041,
+            "syscw": 66,
+            "read_bytes": 976257024,
+            "write_bytes": 8192,
+            "cancelled_write_bytes": 0
+          },
+          "wait_channel": "anon_pipe_read"
+        },
+        "946268": {
+          "io": {
+            "rchar": 2478312819,
+            "wchar": 12188028,
+            "syscr": 17110,
+            "syscw": 132,
+            "read_bytes": 35821494272,
+            "write_bytes": 8192,
+            "cancelled_write_bytes": 0
+          },
+          "wait_channel": "0"
+        }
+      }
+    },
+    {
+      "memory_psi": "some avg10=3.51 avg60=1.09 avg300=0.31 total=14035156\nfull avg10=3.51 avg60=1.09 avg300=0.30 total=12500922",
+      "io_psi": "some avg10=34.45 avg60=12.62 avg300=3.19 total=106982860\nfull avg10=0.04 avg60=0.08 avg300=0.07 total=79571078",
+      "mem_available": 44740698112,
+      "swap_used": 9083019264,
+      "pswpin": 56909,
+      "pswpout": 2100899,
+      "unix_s": 1794005625.6386752,
+      "swap_out_since_process_start_bytes": 28086272,
+      "swap_out_since_request_start_bytes": 25227264,
+      "owned_process_io": {
+        "946230": {
+          "io": {
+            "rchar": 932028169,
+            "wchar": 27046098,
+            "syscr": 4041,
+            "syscw": 66,
+            "read_bytes": 976257024,
+            "write_bytes": 8192,
+            "cancelled_write_bytes": 0
+          },
+          "wait_channel": "anon_pipe_read"
+        },
+        "946268": {
+          "io": {
+            "rchar": 2478354250,
+            "wchar": 12188028,
+            "syscr": 17124,
+            "syscw": 132,
+            "read_bytes": 36833382400,
+            "write_bytes": 8192,
+            "cancelled_write_bytes": 0
+          },
+          "wait_channel": "0"
+        }
+      }
+    },
+    {
+      "memory_psi": "some avg10=3.51 avg60=1.09 avg300=0.31 total=14193328\nfull avg10=3.51 avg60=1.09 avg300=0.30 total=12657752",
+      "io_psi": "some avg10=34.45 avg60=12.62 avg300=3.19 total=107382386\nfull avg10=0.04 avg60=0.08 avg300=0.07 total=79597886",
+      "mem_available": 44982267904,
+      "swap_used": 9196888064,
+      "pswpin": 56918,
+      "pswpout": 2128195,
+      "unix_s": 1794005626.6391823,
+      "swap_out_since_process_start_bytes": 139890688,
+      "swap_out_since_request_start_bytes": 137031680,
+      "owned_process_io": {
+        "946230": {
+          "io": {
+            "rchar": 932028169,
+            "wchar": 27046098,
+            "syscr": 4041,
+            "syscw": 66,
+            "read_bytes": 976257024,
+            "write_bytes": 8192,
+            "cancelled_write_bytes": 0
+          },
+          "wait_channel": "anon_pipe_read"
+        },
+        "946268": {
+          "io": {
+            "rchar": 2478395681,
+            "wchar": 12188028,
+            "syscr": 17138,
+            "syscw": 132,
+            "read_bytes": 38045319168,
+            "write_bytes": 8192,
+            "cancelled_write_bytes": 0
+          },
+          "wait_channel": "0"
+        }
+      }
+    },
+    {
+      "memory_psi": "some avg10=5.23 avg60=1.48 avg300=0.39 total=14303429\nfull avg10=5.05 avg60=1.45 avg300=0.38 total=12764513",
+      "io_psi": "some avg10=34.73 avg60=13.39 avg300=3.41 total=107689354\nfull avg10=0.21 avg60=0.11 avg300=0.08 total=79608824",
+      "mem_available": 45137338368,
+      "swap_used": 9367367680,
+      "pswpin": 56918,
+      "pswpout": 2167813,
+      "unix_s": 1794005627.639699,
+      "swap_out_since_process_start_bytes": 302166016,
+      "swap_out_since_request_start_bytes": 299307008,
+      "owned_process_io": {
+        "946230": {
+          "io": {
+            "rchar": 932028169,
+            "wchar": 27046098,
+            "syscr": 4041,
+            "syscw": 66,
+            "read_bytes": 976257024,
+            "write_bytes": 8192,
+            "cancelled_write_bytes": 0
+          },
+          "wait_channel": "anon_pipe_read"
+        },
+        "946268": {
+          "io": {
+            "rchar": 2478437112,
+            "wchar": 12188028,
+            "syscr": 17152,
+            "syscw": 132,
+            "read_bytes": 39030665216,
+            "write_bytes": 8192,
+            "cancelled_write_bytes": 0
+          },
+          "wait_channel": "0"
+        }
+      }
+    },
+    {
+      "memory_psi": "some avg10=5.23 avg60=1.48 avg300=0.39 total=14720674\nfull avg10=5.05 avg60=1.45 avg300=0.38 total=13052569",
+      "io_psi": "some avg10=34.73 avg60=13.39 avg300=3.41 total=108024350\nfull avg10=0.21 avg60=0.11 avg300=0.08 total=79703838",
+      "mem_available": 44911984640,
+      "swap_used": 9707601920,
+      "pswpin": 56976,
+      "pswpout": 2242632,
+      "unix_s": 1794005628.6402004,
+      "swap_out_since_process_start_bytes": 608624640,
+      "swap_out_since_request_start_bytes": 605765632,
+      "owned_process_io": {
+        "946230": {
+          "io": {
+            "rchar": 932028169,
+            "wchar": 27046098,
+            "syscr": 4041,
+            "syscw": 66,
+            "read_bytes": 976257024,
+            "write_bytes": 8192,
+            "cancelled_write_bytes": 0
+          },
+          "wait_channel": "anon_pipe_read"
+        },
+        "946268": {
+          "io": {
+            "rchar": 2478478544,
+            "wchar": 12188028,
+            "syscr": 17166,
+            "syscw": 132,
+            "read_bytes": 39546540032,
+            "write_bytes": 8192,
+            "cancelled_write_bytes": 0
+          },
+          "wait_channel": "0"
+        }
+      }
+    }
+  ],
+  "ready_s": 8.010789444000693,
+  "resource_abort": "resource-contaminated: swap-out kept growing beyond 256 MiB since process start",
+  "resource_abort_sample": {
+    "memory_psi": "some avg10=5.23 avg60=1.48 avg300=0.39 total=14720674\nfull avg10=5.05 avg60=1.45 avg300=0.38 total=13052569",
+    "io_psi": "some avg10=34.73 avg60=13.39 avg300=3.41 total=108024350\nfull avg10=0.21 avg60=0.11 avg300=0.08 total=79703838",
+    "mem_available": 44911984640,
+    "swap_used": 9707601920,
+    "pswpin": 56976,
+    "pswpout": 2242632,
+    "unix_s": 1794005628.6402004,
+    "swap_out_since_process_start_bytes": 608624640,
+    "swap_out_since_request_start_bytes": 605765632,
+    "owned_process_io": {
+      "946230": {
+        "io": {
+          "rchar": 932028169,
+          "wchar": 27046098,
+          "syscr": 4041,
+          "syscw": 66,
+          "read_bytes": 976257024,
+          "write_bytes": 8192,
+          "cancelled_write_bytes": 0
+        },
+        "wait_channel": "anon_pipe_read"
+      },
+      "946268": {
+        "io": {
+          "rchar": 2478478544,
+          "wchar": 12188028,
+          "syscr": 17166,
+          "syscw": 132,
+          "read_bytes": 39546540032,
+          "write_bytes": 8192,
+          "cancelled_write_bytes": 0
+        },
+        "wait_channel": "0"
+      }
+    }
+  },
+  "error": "RemoteDisconnected: Remote end closed connection without response",
+  "owned_pids_remaining": [],
+  "after": {
+    "memory_psi": "some avg10=8.08 avg60=2.12 avg300=0.53 total=14728150\nfull avg10=6.85 avg60=1.89 avg300=0.48 total=13059450",
+    "io_psi": "some avg10=33.33 avg60=13.83 avg300=3.57 total=108061678\nfull avg10=1.26 avg60=0.30 avg300=0.12 total=79739401",
+    "mem_available": 46217658368,
+    "swap_used": 9698766848,
+    "pswpin": 86125,
+    "pswpout": 2246097
+  },
+  "service_after": {
+    "ActiveState": "inactive",
+    "SubState": "dead",
+    "FragmentPath": "~/.config/systemd/user/strata-verified-256k.service",
+    "DropInPaths": "",
+    "MainPID": "0"
+  },
+  "guard": {
+    "available": true,
+    "valid_for_timing": true,
+    "method": "KFD client PID snapshots and periodic polling; research flock",
+    "limitation": "Detects observed KFD clients, not graphics load or sub-poll transient clients",
+    "allowed_pids": [
+      946179,
+      946182,
+      946230,
+      946268
+    ],
+    "interval_s": 0.25,
+    "sample_count": 148,
+    "started_unix_s": 1794005593.5759294,
+    "ended_unix_s": 1794005629.7779677,
+    "foreign_clients": [],
+    "errors": [],
+    "transitions": [
+      {
+        "unix_s": 1794005593.5759299,
+        "kfd_pids": [],
+        "foreign_or_error": []
+      }
+    ]
+  },
+  "wall_s": 36.21179929999926,
+  "resource_valid_for_timing": false,
+  "post_observation_swap_gate": {
+    "limit_bytes": 268435456,
+    "consecutive_increasing_one_second_samples": 2,
+    "introduced_after": "pinned_stage_9k_first_retry",
+    "retroactive": false
+  },
+  "ended_utc": "2026-11-06T22:53:49.787713+00:00"
+}

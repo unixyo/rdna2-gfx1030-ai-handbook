@@ -1,0 +1,544 @@
+{
+  "schema": 1,
+  "purpose": "W4 real model Linear shapes; actual checkpoint weight, synthetic activation; no model quality claim",
+  "command": [
+    "bench_int4_v07.py",
+    "--mode",
+    "split_smoke",
+    "--out",
+    "results/int4_v07/subk_smoke01"
+  ],
+  "mode": "split_smoke",
+  "sources": {
+    "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/bench_int4_v07.py": "6ebea2b993e7ffe5c861a0f04ae260dcca3b941e4a25ce6f9239629cd495bfc5",
+    "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/rdna2_ops/int4_weight_gemm_v07.py": "9876326b9585f81816c2f695c7b1a5c0a01e1a8205d15e35130004833c73e1ab",
+    "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/rdna2_ops/int8_gemm.py": "0b2d0970af17ddf61aa19d242bfebbb6f42add330e07387442dbe97ab316109d",
+    "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/gpu_guard_v06.py": "7409f98dbf2c1975f5727338346af248657d98229c4a92732809379207b4b329"
+  },
+  "criteria_file": "source/INT4_PLAN_V07_KO.md",
+  "criteria_sha256": "151db7c72107459b68572902c77ea5a57b3809f27b7752a73c628e44d2c46f99",
+  "started_unix_s": 1794006295.1721706,
+  "criteria": {
+    "fp32_relative_l2": 2e-05,
+    "fp32_max_abs": "1e-4 + 1e-4*reference_max_abs",
+    "fp16_relative_l2": 0.001,
+    "fp16_max_abs": "2e-3 + 2e-3*reference_max_abs",
+    "model_rgb_max_abs": 0.00784313725490196,
+    "model_rgb_rmse": 0.000980392156862745,
+    "performance_promotion": 1.05
+  },
+  "timing": {
+    "rounds": 3,
+    "iterations": 3,
+    "warmups": 2,
+    "interleaved_forward_reverse": true,
+    "wall_scope": "synchronized ordinary call with output allocation and documented activation/weight conversion",
+    "event_scope": "HIP events around repeated ordinary calls; may contain host launch gaps",
+    "weight_cache": "explicit caller owned; resident bytes include sums and zeros",
+    "cold": "first compile/autotune/preparation separately; never warm throughput"
+  },
+  "success": true,
+  "runtime": {
+    "torch": "2.12.0+rocm10.2.0a20261011",
+    "triton": "3.8.0",
+    "hip": "7.17.26405",
+    "gpu": "AMD Radeon RX 6900 XT",
+    "arch": "gfx1030"
+  },
+  "smoke": [
+    {
+      "key": "g128_sym_nk_low",
+      "shape": [
+        17,
+        19,
+        384
+      ],
+      "failures": [],
+      "packing": {
+        "group_size": 128,
+        "symmetric": true,
+        "layout": "nk",
+        "order": "low",
+        "packed_bytes": 3648,
+        "scale_bytes": 228,
+        "zero_bytes": 228,
+        "sum_bytes": 228,
+        "total_resident_bytes": 4332,
+        "logical_stride": [
+          48,
+          1
+        ]
+      },
+      "cpu_gpu_pack_equal": {
+        "data": true,
+        "scales": true,
+        "zeros": true,
+        "sums": true
+      },
+      "decoder_exact": true,
+      "integer": {
+        "dot4_split": {
+          "byte_value_exact": true,
+          "max_abs": 0,
+          "kernel": {
+            "n_regs": 123,
+            "n_spills": 0,
+            "shared_bytes": 2048,
+            "instruction_counts": {
+              "v_dot8_i32_i4": 0,
+              "v_dot4c_i32_i8": 64,
+              "v_dot4_i32_i8": 0,
+              "v_dot2c_f32_f16": 0,
+              "v_dot2_f32_f16": 0
+            },
+            "asm_sha256": "d9e962a4049b4370f12aa21e5309431b184e341554ce35c67ac5cbdaa45ed302",
+            "kernel_name": "_linear_dot4_split",
+            "asm_file": "isa/dot4_split_i32_g128_sym_nk_low_d9e962a4049b.amdgcn"
+          }
+        }
+      },
+      "floating": {
+        "dot4_split": {
+          "error": {
+            "finite": true,
+            "max_abs": 4.2630178768376936e-05,
+            "rmse": 4.693238544166238e-06,
+            "reference_max_abs": 855.5400339961052,
+            "relative_l2": 3.602884291927464e-08
+          },
+          "gate": true,
+          "kernel": {
+            "n_regs": 126,
+            "n_spills": 0,
+            "shared_bytes": 2048,
+            "instruction_counts": {
+              "v_dot8_i32_i4": 0,
+              "v_dot4c_i32_i8": 64,
+              "v_dot4_i32_i8": 0,
+              "v_dot2c_f32_f16": 0,
+              "v_dot2_f32_f16": 0
+            },
+            "asm_sha256": "e7832067e53b860eb61ae945f1ba15fdcb9e109b405253e3ebecf56676c73717",
+            "kernel_name": "_linear_dot4_split",
+            "asm_file": "isa/dot4_split_f32_g128_sym_nk_low_e7832067e53b.amdgcn"
+          }
+        }
+      }
+    },
+    {
+      "key": "g128_sym_nk_high",
+      "shape": [
+        17,
+        19,
+        384
+      ],
+      "failures": [],
+      "packing": {
+        "group_size": 128,
+        "symmetric": true,
+        "layout": "nk",
+        "order": "high",
+        "packed_bytes": 3648,
+        "scale_bytes": 228,
+        "zero_bytes": 228,
+        "sum_bytes": 228,
+        "total_resident_bytes": 4332,
+        "logical_stride": [
+          48,
+          1
+        ]
+      },
+      "cpu_gpu_pack_equal": {
+        "data": true,
+        "scales": true,
+        "zeros": true,
+        "sums": true
+      },
+      "decoder_exact": true,
+      "integer": {
+        "dot4_split": {
+          "byte_value_exact": true,
+          "max_abs": 0,
+          "kernel": {
+            "n_regs": 123,
+            "n_spills": 0,
+            "shared_bytes": 2048,
+            "instruction_counts": {
+              "v_dot8_i32_i4": 0,
+              "v_dot4c_i32_i8": 64,
+              "v_dot4_i32_i8": 0,
+              "v_dot2c_f32_f16": 0,
+              "v_dot2_f32_f16": 0
+            },
+            "asm_sha256": "3081dace4b5d746f5b429c92350ec83b58ec06de8c5fc092e3abbb663bdc8381",
+            "kernel_name": "_linear_dot4_split",
+            "asm_file": "isa/dot4_split_i32_g128_sym_nk_high_3081dace4b5d.amdgcn"
+          }
+        }
+      }
+    },
+    {
+      "key": "g128_sym_kn_low",
+      "shape": [
+        17,
+        19,
+        384
+      ],
+      "failures": [],
+      "packing": {
+        "group_size": 128,
+        "symmetric": true,
+        "layout": "kn",
+        "order": "low",
+        "packed_bytes": 3648,
+        "scale_bytes": 228,
+        "zero_bytes": 228,
+        "sum_bytes": 228,
+        "total_resident_bytes": 4332,
+        "logical_stride": [
+          1,
+          19
+        ]
+      },
+      "cpu_gpu_pack_equal": {
+        "data": true,
+        "scales": true,
+        "zeros": true,
+        "sums": true
+      },
+      "decoder_exact": true,
+      "integer": {
+        "dot4_split": {
+          "byte_value_exact": true,
+          "max_abs": 0,
+          "kernel": {
+            "n_regs": 118,
+            "n_spills": 0,
+            "shared_bytes": 2048,
+            "instruction_counts": {
+              "v_dot8_i32_i4": 0,
+              "v_dot4c_i32_i8": 64,
+              "v_dot4_i32_i8": 0,
+              "v_dot2c_f32_f16": 0,
+              "v_dot2_f32_f16": 0
+            },
+            "asm_sha256": "1b5525d5705a87fc7394a9afadf7e180f2794bf23fb635d3833da434ffbda0c2",
+            "kernel_name": "_linear_dot4_split",
+            "asm_file": "isa/dot4_split_i32_g128_sym_kn_low_1b5525d5705a.amdgcn"
+          }
+        }
+      }
+    },
+    {
+      "key": "g128_sym_kn_high",
+      "shape": [
+        17,
+        19,
+        384
+      ],
+      "failures": [],
+      "packing": {
+        "group_size": 128,
+        "symmetric": true,
+        "layout": "kn",
+        "order": "high",
+        "packed_bytes": 3648,
+        "scale_bytes": 228,
+        "zero_bytes": 228,
+        "sum_bytes": 228,
+        "total_resident_bytes": 4332,
+        "logical_stride": [
+          1,
+          19
+        ]
+      },
+      "cpu_gpu_pack_equal": {
+        "data": true,
+        "scales": true,
+        "zeros": true,
+        "sums": true
+      },
+      "decoder_exact": true,
+      "integer": {
+        "dot4_split": {
+          "byte_value_exact": true,
+          "max_abs": 0,
+          "kernel": {
+            "n_regs": 118,
+            "n_spills": 0,
+            "shared_bytes": 2048,
+            "instruction_counts": {
+              "v_dot8_i32_i4": 0,
+              "v_dot4c_i32_i8": 64,
+              "v_dot4_i32_i8": 0,
+              "v_dot2c_f32_f16": 0,
+              "v_dot2_f32_f16": 0
+            },
+            "asm_sha256": "a53d0703a8831564e31c0e2dd0f112dae250598fcc476c53a9722b51681e9d06",
+            "kernel_name": "_linear_dot4_split",
+            "asm_file": "isa/dot4_split_i32_g128_sym_kn_high_a53d0703a883.amdgcn"
+          }
+        }
+      }
+    },
+    {
+      "key": "g128_aff_nk_low",
+      "shape": [
+        17,
+        19,
+        384
+      ],
+      "failures": [],
+      "packing": {
+        "group_size": 128,
+        "symmetric": false,
+        "layout": "nk",
+        "order": "low",
+        "packed_bytes": 3648,
+        "scale_bytes": 228,
+        "zero_bytes": 228,
+        "sum_bytes": 228,
+        "total_resident_bytes": 4332,
+        "logical_stride": [
+          48,
+          1
+        ]
+      },
+      "cpu_gpu_pack_equal": {
+        "data": true,
+        "scales": true,
+        "zeros": true,
+        "sums": true
+      },
+      "decoder_exact": true,
+      "integer": {
+        "dot4_split": {
+          "byte_value_exact": true,
+          "max_abs": 0,
+          "kernel": {
+            "n_regs": 123,
+            "n_spills": 0,
+            "shared_bytes": 2048,
+            "instruction_counts": {
+              "v_dot8_i32_i4": 0,
+              "v_dot4c_i32_i8": 64,
+              "v_dot4_i32_i8": 0,
+              "v_dot2c_f32_f16": 0,
+              "v_dot2_f32_f16": 0
+            },
+            "asm_sha256": "d9e962a4049b4370f12aa21e5309431b184e341554ce35c67ac5cbdaa45ed302",
+            "kernel_name": "_linear_dot4_split",
+            "asm_file": "isa/dot4_split_i32_g128_aff_nk_low_d9e962a4049b.amdgcn"
+          }
+        }
+      },
+      "floating": {
+        "dot4_split": {
+          "error": {
+            "finite": true,
+            "max_abs": 4.507726043811999e-05,
+            "rmse": 4.753244078487622e-06,
+            "reference_max_abs": 791.8400348361336,
+            "relative_l2": 3.728262838819266e-08
+          },
+          "gate": true,
+          "kernel": {
+            "n_regs": 126,
+            "n_spills": 0,
+            "shared_bytes": 2048,
+            "instruction_counts": {
+              "v_dot8_i32_i4": 0,
+              "v_dot4c_i32_i8": 64,
+              "v_dot4_i32_i8": 0,
+              "v_dot2c_f32_f16": 0,
+              "v_dot2_f32_f16": 0
+            },
+            "asm_sha256": "e7832067e53b860eb61ae945f1ba15fdcb9e109b405253e3ebecf56676c73717",
+            "kernel_name": "_linear_dot4_split",
+            "asm_file": "isa/dot4_split_f32_g128_aff_nk_low_e7832067e53b.amdgcn"
+          }
+        }
+      }
+    },
+    {
+      "key": "g128_aff_nk_high",
+      "shape": [
+        17,
+        19,
+        384
+      ],
+      "failures": [],
+      "packing": {
+        "group_size": 128,
+        "symmetric": false,
+        "layout": "nk",
+        "order": "high",
+        "packed_bytes": 3648,
+        "scale_bytes": 228,
+        "zero_bytes": 228,
+        "sum_bytes": 228,
+        "total_resident_bytes": 4332,
+        "logical_stride": [
+          48,
+          1
+        ]
+      },
+      "cpu_gpu_pack_equal": {
+        "data": true,
+        "scales": true,
+        "zeros": true,
+        "sums": true
+      },
+      "decoder_exact": true,
+      "integer": {
+        "dot4_split": {
+          "byte_value_exact": true,
+          "max_abs": 0,
+          "kernel": {
+            "n_regs": 123,
+            "n_spills": 0,
+            "shared_bytes": 2048,
+            "instruction_counts": {
+              "v_dot8_i32_i4": 0,
+              "v_dot4c_i32_i8": 64,
+              "v_dot4_i32_i8": 0,
+              "v_dot2c_f32_f16": 0,
+              "v_dot2_f32_f16": 0
+            },
+            "asm_sha256": "3081dace4b5d746f5b429c92350ec83b58ec06de8c5fc092e3abbb663bdc8381",
+            "kernel_name": "_linear_dot4_split",
+            "asm_file": "isa/dot4_split_i32_g128_aff_nk_high_3081dace4b5d.amdgcn"
+          }
+        }
+      }
+    },
+    {
+      "key": "g128_aff_kn_low",
+      "shape": [
+        17,
+        19,
+        384
+      ],
+      "failures": [],
+      "packing": {
+        "group_size": 128,
+        "symmetric": false,
+        "layout": "kn",
+        "order": "low",
+        "packed_bytes": 3648,
+        "scale_bytes": 228,
+        "zero_bytes": 228,
+        "sum_bytes": 228,
+        "total_resident_bytes": 4332,
+        "logical_stride": [
+          1,
+          19
+        ]
+      },
+      "cpu_gpu_pack_equal": {
+        "data": true,
+        "scales": true,
+        "zeros": true,
+        "sums": true
+      },
+      "decoder_exact": true,
+      "integer": {
+        "dot4_split": {
+          "byte_value_exact": true,
+          "max_abs": 0,
+          "kernel": {
+            "n_regs": 118,
+            "n_spills": 0,
+            "shared_bytes": 2048,
+            "instruction_counts": {
+              "v_dot8_i32_i4": 0,
+              "v_dot4c_i32_i8": 64,
+              "v_dot4_i32_i8": 0,
+              "v_dot2c_f32_f16": 0,
+              "v_dot2_f32_f16": 0
+            },
+            "asm_sha256": "1b5525d5705a87fc7394a9afadf7e180f2794bf23fb635d3833da434ffbda0c2",
+            "kernel_name": "_linear_dot4_split",
+            "asm_file": "isa/dot4_split_i32_g128_aff_kn_low_1b5525d5705a.amdgcn"
+          }
+        }
+      }
+    },
+    {
+      "key": "g128_aff_kn_high",
+      "shape": [
+        17,
+        19,
+        384
+      ],
+      "failures": [],
+      "packing": {
+        "group_size": 128,
+        "symmetric": false,
+        "layout": "kn",
+        "order": "high",
+        "packed_bytes": 3648,
+        "scale_bytes": 228,
+        "zero_bytes": 228,
+        "sum_bytes": 228,
+        "total_resident_bytes": 4332,
+        "logical_stride": [
+          1,
+          19
+        ]
+      },
+      "cpu_gpu_pack_equal": {
+        "data": true,
+        "scales": true,
+        "zeros": true,
+        "sums": true
+      },
+      "decoder_exact": true,
+      "integer": {
+        "dot4_split": {
+          "byte_value_exact": true,
+          "max_abs": 0,
+          "kernel": {
+            "n_regs": 118,
+            "n_spills": 0,
+            "shared_bytes": 2048,
+            "instruction_counts": {
+              "v_dot8_i32_i4": 0,
+              "v_dot4c_i32_i8": 64,
+              "v_dot4_i32_i8": 0,
+              "v_dot2c_f32_f16": 0,
+              "v_dot2_f32_f16": 0
+            },
+            "asm_sha256": "a53d0703a8831564e31c0e2dd0f112dae250598fcc476c53a9722b51681e9d06",
+            "kernel_name": "_linear_dot4_split",
+            "asm_file": "isa/dot4_split_i32_g128_aff_kn_high_a53d0703a883.amdgcn"
+          }
+        }
+      }
+    }
+  ],
+  "smoke_passed": true,
+  "gpu_audit": {
+    "available": true,
+    "valid_for_timing": true,
+    "method": "KFD client PID snapshots and periodic polling; research flock",
+    "limitation": "Detects observed KFD clients, not graphics load or sub-poll transient clients",
+    "allowed_pids": [
+      953938
+    ],
+    "interval_s": 0.25,
+    "sample_count": 10,
+    "started_unix_s": 1794006295.1722124,
+    "ended_unix_s": 1794006297.2444727,
+    "foreign_clients": [],
+    "errors": [],
+    "transitions": [
+      {
+        "unix_s": 1794006295.1722128,
+        "kfd_pids": [],
+        "foreign_or_error": []
+      }
+    ]
+  },
+  "ended_unix_s": 1794006297.2444868
+}

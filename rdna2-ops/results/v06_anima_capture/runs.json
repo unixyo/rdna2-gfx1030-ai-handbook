@@ -1,0 +1,141 @@
+{
+  "spec": {
+    "sampler": [
+      "KSampler",
+      "sample"
+    ],
+    "sampler_node": "7",
+    "model": "anima",
+    "runtime": "~/DevSpace/moss-image-rdna2-lab01/runtime/ComfyUI",
+    "workflow": "~/DevSpace/anima-rdna2-lab01/workflows/anima_t2i_1024_api.json",
+    "decoder": [
+      "VAEDecode",
+      "decode"
+    ],
+    "save_node": "9",
+    "attention_target": "comfy.ops:scaled_dot_product_attention",
+    "switch_module": "attention_switches_v06",
+    "gpu_audit": true,
+    "env": {},
+    "server_args": [
+      "--extra-model-paths-config",
+      "~/DevSpace/anima-rdna2-lab01/extra_model_paths.yaml",
+      "--disable-auto-launch",
+      "--use-pytorch-cross-attention",
+      "--disable-comfy-compiler"
+    ],
+    "attention_capture_target": "comfy.ldm.cosmos.predict2:optimized_attention"
+  },
+  "seed": 20261107,
+  "rgb_gate": {
+    "max_abs": 0.00784313725490196,
+    "rmse": 0.000980392156862745
+  },
+  "runs": [
+    {
+      "index": 0,
+      "mode": "warm",
+      "success": true,
+      "wall": {
+        "denoise_s": 5.830448000000615,
+        "vae_s": 0.6296935939972172
+      },
+      "request_wall_s": 8.073896025998692,
+      "conditioning_first_embedding_sha256": {
+        "positive": "a6c15ee3d0208bb976cb338714960a180fd73170fa904280577da928000f4968",
+        "negative": "f2199b5a6d7ba57a2d9d62675ea8d45c8d5da3f77d6e969fc1ee7f562cb0ec2e"
+      },
+      "candidate": {},
+      "stage_calls": {
+        "denoise": 1,
+        "vae": 1
+      },
+      "profile_artifacts": [],
+      "latent_error": {
+        "finite": true,
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "byte_equal": true
+      },
+      "image_error": {
+        "finite": true,
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "byte_equal": true
+      },
+      "image_gate": true,
+      "latent_sha256": "f25a81149b04254c302fbb3b30916891e478c5cb6a7d6d6b1e71d1a91c852b79",
+      "image_sha256": "d217619d12747efaa6810c175d4a6d2ba88ede33932c52ebe34a19977952bf6a"
+    },
+    {
+      "index": 1,
+      "mode": "capture",
+      "success": true,
+      "wall": {
+        "denoise_s": 5.533481207996374,
+        "vae_s": 0.5450310759988497
+      },
+      "request_wall_s": 6.224588857003255,
+      "conditioning_first_embedding_sha256": {
+        "positive": "a6c15ee3d0208bb976cb338714960a180fd73170fa904280577da928000f4968",
+        "negative": "f2199b5a6d7ba57a2d9d62675ea8d45c8d5da3f77d6e969fc1ee7f562cb0ec2e"
+      },
+      "candidate": {},
+      "stage_calls": {
+        "denoise": 1,
+        "vae": 1
+      },
+      "profile_artifacts": [],
+      "latent_error": {
+        "finite": true,
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "byte_equal": true
+      },
+      "image_error": {
+        "finite": true,
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "byte_equal": true
+      },
+      "image_gate": true,
+      "latent_sha256": "f25a81149b04254c302fbb3b30916891e478c5cb6a7d6d6b1e71d1a91c852b79",
+      "image_sha256": "d217619d12747efaa6810c175d4a6d2ba88ede33932c52ebe34a19977952bf6a"
+    },
+    {
+      "index": 2,
+      "mode": "baseline",
+      "success": true,
+      "wall": {
+        "denoise_s": 5.447963446997164,
+        "vae_s": 0.5474769290012773
+      },
+      "request_wall_s": 6.291583372003515,
+      "conditioning_first_embedding_sha256": {
+        "positive": "a6c15ee3d0208bb976cb338714960a180fd73170fa904280577da928000f4968",
+        "negative": "f2199b5a6d7ba57a2d9d62675ea8d45c8d5da3f77d6e969fc1ee7f562cb0ec2e"
+      },
+      "candidate": {},
+      "stage_calls": {
+        "denoise": 1,
+        "vae": 1
+      },
+      "profile_artifacts": [],
+      "latent_error": {
+        "finite": true,
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "byte_equal": true
+      },
+      "image_error": {
+        "finite": true,
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "byte_equal": true
+      },
+      "image_gate": true,
+      "latent_sha256": "f25a81149b04254c302fbb3b30916891e478c5cb6a7d6d6b1e71d1a91c852b79",
+      "image_sha256": "d217619d12747efaa6810c175d4a6d2ba88ede33932c52ebe34a19977952bf6a"
+    }
+  ]
+}

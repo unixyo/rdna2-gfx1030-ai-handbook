@@ -1,0 +1,9 @@
+{
+  "checked_at_utc": "2026-11-06T15:42:30.886240+00:00",
+  "scope": "10 explicitly tracked MOSS/Qwen operating source, configuration, workflow files; not a whole-directory audit",
+  "files_checked": 10,
+  "all_equal": true,
+  "changed_paths": [],
+  "before": "v05_operating_file_hashes_before.json",
+  "after": "v05_operating_file_hashes_after.json"
+}

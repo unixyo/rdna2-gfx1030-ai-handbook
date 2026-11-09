@@ -1,0 +1,2110 @@
+{
+  "schema": "applio_v08_direct_conv_contract",
+  "completed": true,
+  "valid_for_contract": true,
+  "valid_for_timing": false,
+  "gate": {
+    "finite": true,
+    "nrmse": 0.002,
+    "max_over_reference_rms": 0.02,
+    "reference": "native FP16 AMP with the identical FP32 weight_norm parameters and stored input/grad-output",
+    "scope": "AMP/cast/weight_norm/autograd contract; operator FP32-reference gates are separate"
+  },
+  "source_sha256": "6ef607af92b0ffd561a633093ff9bd62ae8428deb6f613aa2d38fca3a674b4e3",
+  "contract_tool_sha256": "e150f54b53b0e8061cb0c89457a08710f3fef4a927b76d4791d37e0431ef3a04",
+  "manifest": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/applio_v08/direct_provisional_contract_probe/dispatch.json",
+  "manifest_sha256": "e767ecfdebfa75cd2d247c30229c7bc49820bfca2eb8bc05c9567c47d177caac",
+  "manifest_is_contract_probe": true,
+  "db": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/applio_v08/direct_fast_db",
+  "seed": 63117,
+  "safety_env": {
+    "MIOPEN_DEBUG_CONV_IMPLICIT_GEMM_HIP_FWD_V4R1": "0",
+    "MIOPEN_DEBUG_CONV_DIRECT_HIP_WRW53": "0"
+  },
+  "cases": [
+    {
+      "key": "[[8,128,3200],[128,128,11],1,5,1,\"float16\",\"NCT\",1]",
+      "name": "conv1d_B8_C128_T3200_O128_K11_S1_D1_G1_P5",
+      "input_dtype": "torch.float16",
+      "directions": {
+        "fwd": {
+          "bm": 32,
+          "bn": 128,
+          "bk": 32,
+          "num_warps": 4
+        }
+      },
+      "output_dtype": "torch.float16",
+      "fp32_master_parameters_and_gradients": true,
+      "input_output_gradient_dtypes_match": true,
+      "weight_norm_dim": 0,
+      "parameter_names": [
+        "bias",
+        "parametrizations.weight.original0",
+        "parametrizations.weight.original1"
+      ],
+      "dispatch_hits": 1,
+      "hook_restored": true,
+      "metrics": {
+        "y": {
+          "finite": true,
+          "reference_finite": true,
+          "reference_rms": 1.002654845847709,
+          "rmse": 0.0004976340698762885,
+          "max_abs": 0.00390625,
+          "nrmse": 0.0004963164262728483,
+          "max_over_reference_rms": 0.0038959069675641024,
+          "candidate_dtype": "torch.float16",
+          "reference_dtype": "torch.float16",
+          "screen_pass": true
+        },
+        "dx": {
+          "finite": true,
+          "reference_finite": true,
+          "reference_rms": 0.009985524157004148,
+          "rmse": 0.0,
+          "max_abs": 0.0,
+          "nrmse": 0.0,
+          "max_over_reference_rms": 0.0,
+          "candidate_dtype": "torch.float16",
+          "reference_dtype": "torch.float16",
+          "screen_pass": true
+        },
+        "grad:bias": {
+          "finite": true,
+          "reference_finite": true,
+          "reference_rms": 1.7715583472062908,
+          "rmse": 0.0,
+          "max_abs": 0.0,
+          "nrmse": 0.0,
+          "max_over_reference_rms": 0.0,
+          "candidate_dtype": "torch.float32",
+          "reference_dtype": "torch.float32",
+          "screen_pass": true
+        },
+        "grad:parametrizations.weight.original0": {
+          "finite": true,
+          "reference_finite": true,
+          "reference_rms": 1.7080584487530726,
+          "rmse": 0.0,
+          "max_abs": 0.0,
+          "nrmse": 0.0,
+          "max_over_reference_rms": 0.0,
+          "candidate_dtype": "torch.float32",
+          "reference_dtype": "torch.float32",
+          "screen_pass": true
+        },
+        "grad:parametrizations.weight.original1": {
+          "finite": true,
+          "reference_finite": true,
+          "reference_rms": 1.5948778589703914,
+          "rmse": 0.0,
+          "max_abs": 0.0,
+          "nrmse": 0.0,
+          "max_over_reference_rms": 0.0,
+          "candidate_dtype": "torch.float32",
+          "reference_dtype": "torch.float32",
+          "screen_pass": true
+        }
+      },
+      "all_gates_pass": true
+    },
+    {
+      "key": "[[8,32,12800],[32,32,3],1,1,1,\"float16\",\"NCT\",1]",
+      "name": "conv1d_B8_C32_T12800_O32_K3_S1_D1_G1_P1",
+      "input_dtype": "torch.float16",
+      "directions": {
+        "fwd": {
+          "bm": 32,
+          "bn": 128,
+          "bk": 32,
+          "num_warps": 4
+        },
+        "dx": {
+          "bm": 32,
+          "bn": 64,
+          "bk": 32,
+          "num_warps": 4
+        },
+        "dw": {
+          "bm": 32,
+          "bn": 32,
+          "bk": 64,
+          "num_warps": 4,
+          "split": 32
+        }
+      },
+      "output_dtype": "torch.float16",
+      "fp32_master_parameters_and_gradients": true,
+      "input_output_gradient_dtypes_match": true,
+      "weight_norm_dim": 0,
+      "parameter_names": [
+        "bias",
+        "parametrizations.weight.original0",
+        "parametrizations.weight.original1"
+      ],
+      "dispatch_hits": 1,
+      "hook_restored": true,
+      "metrics": {
+        "y": {
+          "finite": true,
+          "reference_finite": true,
+          "reference_rms": 0.9929908252429815,
+          "rmse": 0.000505681900212974,
+          "max_abs": 0.00390625,
+          "nrmse": 0.0005092513317927537,
+          "max_over_reference_rms": 0.003933822851831641,
+          "candidate_dtype": "torch.float16",
+          "reference_dtype": "torch.float16",
+          "screen_pass": true
+        },
+        "dx": {
+          "finite": true,
+          "reference_finite": true,
+          "reference_rms": 0.009883005475934693,
+          "rmse": 4.874175864592164e-06,
+          "max_abs": 3.0517578125e-05,
+          "nrmse": 0.0004931876114468291,
+          "max_over_reference_rms": 0.003087884368708576,
+          "candidate_dtype": "torch.float16",
+          "reference_dtype": "torch.float16",
+          "screen_pass": true
+        },
+        "grad:bias": {
+          "finite": true,
+          "reference_finite": true,
+          "reference_rms": 4.544227965971596,
+          "rmse": 0.0,
+          "max_abs": 0.0,
+          "nrmse": 0.0,
+          "max_over_reference_rms": 0.0,
+          "candidate_dtype": "torch.float32",
+          "reference_dtype": "torch.float32",
+          "screen_pass": true
+        },
+        "grad:parametrizations.weight.original0": {
+          "finite": true,
+          "reference_finite": true,
+          "reference_rms": 2.8053849106590407,
+          "rmse": 0.0014886884532263622,
+          "max_abs": 0.005579471588134766,
+          "nrmse": 0.0005306539033449922,
+          "max_over_reference_rms": 0.0019888435155317194,
+          "candidate_dtype": "torch.float32",
+          "reference_dtype": "torch.float32",
+          "screen_pass": true
+        },
+        "grad:parametrizations.weight.original1": {
+          "finite": true,
+          "reference_finite": true,
+          "reference_rms": 3.150046114903223,
+          "rmse": 0.0015393839479437923,
+          "max_abs": 0.008023262023925781,
+          "nrmse": 0.0004886861626122848,
+          "max_over_reference_rms": 0.002547030021550105,
+          "candidate_dtype": "torch.float32",
+          "reference_dtype": "torch.float32",
+          "screen_pass": true
+        }
+      },
+      "all_gates_pass": true
+    },
+    {
+      "key": "[[8,64,6400],[64,64,7],1,3,1,\"float16\",\"NCT\",1]",
+      "name": "conv1d_B8_C64_T6400_O64_K7_S1_D1_G1_P3",
+      "input_dtype": "torch.float16",
+      "directions": {
+        "fwd": {
+          "bm": 32,
+          "bn": 128,
+          "bk": 32,
+          "num_warps": 4
+        },
+        "dx": {
+          "bm": 32,
+          "bn": 64,
+          "bk": 32,
+          "num_warps": 4
+        },
+        "dw": {
+          "bm": 32,
+          "bn": 32,
+          "bk": 64,
+          "num_warps": 4,
+          "split": 32
+        }
+      },
+      "output_dtype": "torch.float16",
+      "fp32_master_parameters_and_gradients": true,
+      "input_output_gradient_dtypes_match": true,
+      "weight_norm_dim": 0,
+      "parameter_names": [
+        "bias",
+        "parametrizations.weight.original0",
+        "parametrizations.weight.original1"
+      ],
+      "dispatch_hits": 1,
+      "hook_restored": true,
+      "metrics": {
+        "y": {
+          "finite": true,
+          "reference_finite": true,
+          "reference_rms": 1.0019202978196,
+          "rmse": 0.0004603401324512699,
+          "max_abs": 0.00390625,
+          "nrmse": 0.00045945783656950733,
+          "max_over_reference_rms": 0.0038987632135019756,
+          "candidate_dtype": "torch.float16",
+          "reference_dtype": "torch.float16",
+          "screen_pass": true
+        },
+        "dx": {
+          "finite": true,
+          "reference_finite": true,
+          "reference_rms": 0.009976654588602968,
+          "rmse": 4.481734283261088e-06,
+          "max_abs": 3.0517578125e-05,
+          "nrmse": 0.00044922215592999357,
+          "max_over_reference_rms": 0.003058898937912752,
+          "candidate_dtype": "torch.float16",
+          "reference_dtype": "torch.float16",
+          "screen_pass": true
+        },
+        "grad:bias": {
+          "finite": true,
+          "reference_finite": true,
+          "reference_rms": 2.703051263935831,
+          "rmse": 0.0,
+          "max_abs": 0.0,
+          "nrmse": 0.0,
+          "max_over_reference_rms": 0.0,
+          "candidate_dtype": "torch.float32",
+          "reference_dtype": "torch.float32",
+          "screen_pass": true
+        },
+        "grad:parametrizations.weight.original0": {
+          "finite": true,
+          "reference_finite": true,
+          "reference_rms": 2.3345726368664974,
+          "rmse": 0.0011170043702759115,
+          "max_abs": 0.0026667118072509766,
+          "nrmse": 0.0004784620331090548,
+          "max_over_reference_rms": 0.0011422697949678199,
+          "candidate_dtype": "torch.float32",
+          "reference_dtype": "torch.float32",
+          "screen_pass": true
+        },
+        "grad:parametrizations.weight.original1": {
+          "finite": true,
+          "reference_finite": true,
+          "reference_rms": 2.2512389257126904,
+          "rmse": 0.0011179409309145924,
+          "max_abs": 0.004116058349609375,
+          "nrmse": 0.0004965891972397723,
+          "max_over_reference_rms": 0.0018283525140745892,
+          "candidate_dtype": "torch.float32",
+          "reference_dtype": "torch.float32",
+          "screen_pass": true
+        }
+      },
+      "all_gates_pass": true
+    },
+    {
+      "key": "[[8,128,3200],[128,128,11],3,15,1,\"float16\",\"NCT\",1]",
+      "name": "conv1d_B8_C128_T3200_O128_K11_S1_D3_G1_P15",
+      "input_dtype": "torch.float16",
+      "directions": {
+        "fwd": {
+          "bm": 32,
+          "bn": 128,
+          "bk": 32,
+          "num_warps": 4
+        },
+        "dx": {
+          "bm": 32,
+          "bn": 64,
+          "bk": 32,
+          "num_warps": 4
+        }
+      },
+      "output_dtype": "torch.float16",
+      "fp32_master_parameters_and_gradients": true,
+      "input_output_gradient_dtypes_match": true,
+      "weight_norm_dim": 0,
+      "parameter_names": [
+        "bias",
+        "parametrizations.weight.original0",
+        "parametrizations.weight.original1"
+      ],
+      "dispatch_hits": 1,
+      "hook_restored": true,
+      "metrics": {
+        "y": {
+          "finite": true,
+          "reference_finite": true,
+          "reference_rms": 1.0020781883768703,
+          "rmse": 0.0,
+          "max_abs": 0.0,
+          "nrmse": 0.0,
+          "max_over_reference_rms": 0.0,
+          "candidate_dtype": "torch.float16",
+          "reference_dtype": "torch.float16",
+          "screen_pass": true
+        },
+        "dx": {
+          "finite": true,
+          "reference_finite": true,
+          "reference_rms": 0.009975995356622344,
+          "rmse": 3.22005837236157e-06,
+          "max_abs": 3.0517578125e-05,
+          "nrmse": 0.0003227806607010904,
+          "max_over_reference_rms": 0.003059101075537448,
+          "candidate_dtype": "torch.float16",
+          "reference_dtype": "torch.float16",
+          "screen_pass": true
+        },
+        "grad:bias": {
+          "finite": true,
+          "reference_finite": true,
+          "reference_rms": 1.7715583472062908,
+          "rmse": 0.0,
+          "max_abs": 0.0,
+          "nrmse": 0.0,
+          "max_over_reference_rms": 0.0,
+          "candidate_dtype": "torch.float32",
+          "reference_dtype": "torch.float32",
+          "screen_pass": true
+        },
+        "grad:parametrizations.weight.original0": {
+          "finite": true,
+          "reference_finite": true,
+          "reference_rms": 1.6727996075909468,
+          "rmse": 0.0,
+          "max_abs": 0.0,
+          "nrmse": 0.0,
+          "max_over_reference_rms": 0.0,
+          "candidate_dtype": "torch.float32",
+          "reference_dtype": "torch.float32",
+          "screen_pass": true
+        },
+        "grad:parametrizations.weight.original1": {
+          "finite": true,
+          "reference_finite": true,
+          "reference_rms": 1.5951535879073586,
+          "rmse": 0.0,
+          "max_abs": 0.0,
+          "nrmse": 0.0,
+          "max_over_reference_rms": 0.0,
+          "candidate_dtype": "torch.float32",
+          "reference_dtype": "torch.float32",
+          "screen_pass": true
+        }
+      },
+      "all_gates_pass": true
+    },
+    {
+      "key": "[[8,128,3200],[128,128,11],5,25,1,\"float16\",\"NCT\",1]",
+      "name": "conv1d_B8_C128_T3200_O128_K11_S1_D5_G1_P25",
+      "input_dtype": "torch.float16",
+      "directions": {
+        "fwd": {
+          "bm": 32,
+          "bn": 128,
+          "bk": 32,
+          "num_warps": 4
+        },
+        "dx": {
+          "bm": 32,
+          "bn": 64,
+          "bk": 32,
+          "num_warps": 4
+        }
+      },
+      "output_dtype": "torch.float16",
+      "fp32_master_parameters_and_gradients": true,
+      "input_output_gradient_dtypes_match": true,
+      "weight_norm_dim": 0,
+      "parameter_names": [
+        "bias",
+        "parametrizations.weight.original0",
+        "parametrizations.weight.original1"
+      ],
+      "dispatch_hits": 1,
+      "hook_restored": true,
+      "metrics": {
+        "y": {
+          "finite": true,
+          "reference_finite": true,
+          "reference_rms": 1.0019984754378288,
+          "rmse": 0.0,
+          "max_abs": 0.0,
+          "nrmse": 0.0,
+          "max_over_reference_rms": 0.0,
+          "candidate_dtype": "torch.float16",
+          "reference_dtype": "torch.float16",
+          "screen_pass": true
+        },
+        "dx": {
+          "finite": true,
+          "reference_finite": true,
+          "reference_rms": 0.009972001392660738,
+          "rmse": 3.214871658224372e-06,
+          "max_abs": 3.0517578125e-05,
+          "nrmse": 0.0003223898123991915,
+          "max_over_reference_rms": 0.003060326299940204,
+          "candidate_dtype": "torch.float16",
+          "reference_dtype": "torch.float16",
+          "screen_pass": true
+        },
+        "grad:bias": {
+          "finite": true,
+          "reference_finite": true,
+          "reference_rms": 1.7715583472062908,
+          "rmse": 0.0,
+          "max_abs": 0.0,
+          "nrmse": 0.0,
+          "max_over_reference_rms": 0.0,
+          "candidate_dtype": "torch.float32",
+          "reference_dtype": "torch.float32",
+          "screen_pass": true
+        },
+        "grad:parametrizations.weight.original0": {
+          "finite": true,
+          "reference_finite": true,
+          "reference_rms": 1.6904415050888049,
+          "rmse": 0.0,
+          "max_abs": 0.0,
+          "nrmse": 0.0,
+          "max_over_reference_rms": 0.0,
+          "candidate_dtype": "torch.float32",
+          "reference_dtype": "torch.float32",
+          "screen_pass": true
+        },
+        "grad:parametrizations.weight.original1": {
+          "finite": true,
+          "reference_finite": true,
+          "reference_rms": 1.5951164886962488,
+          "rmse": 0.0,
+          "max_abs": 0.0,
+          "nrmse": 0.0,
+          "max_over_reference_rms": 0.0,
+          "candidate_dtype": "torch.float32",
+          "reference_dtype": "torch.float32",
+          "screen_pass": true
+        }
+      },
+      "all_gates_pass": true
+    },
+    {
+      "key": "[[8,32,12800],[32,32,3],3,3,1,\"float16\",\"NCT\",1]",
+      "name": "conv1d_B8_C32_T12800_O32_K3_S1_D3_G1_P3",
+      "input_dtype": "torch.float16",
+      "directions": {
+        "fwd": {
+          "bm": 32,
+          "bn": 128,
+          "bk": 32,
+          "num_warps": 4
+        },
+        "dx": {
+          "bm": 32,
+          "bn": 64,
+          "bk": 32,
+          "num_warps": 4
+        },
+        "dw": {
+          "bm": 32,
+          "bn": 32,
+          "bk": 64,
+          "num_warps": 4,
+          "split": 32
+        }
+      },
+      "output_dtype": "torch.float16",
+      "fp32_master_parameters_and_gradients": true,
+      "input_output_gradient_dtypes_match": true,
+      "weight_norm_dim": 0,
+      "parameter_names": [
+        "bias",
+        "parametrizations.weight.original0",
+        "parametrizations.weight.original1"
+      ],
+      "dispatch_hits": 1,
+      "hook_restored": true,
+      "metrics": {
+        "y": {
+          "finite": true,
+          "reference_finite": true,
+          "reference_rms": 0.9931144804185051,
+          "rmse": 0.0,
+          "max_abs": 0.0,
+          "nrmse": 0.0,
+          "max_over_reference_rms": 0.0,
+          "candidate_dtype": "torch.float16",
+          "reference_dtype": "torch.float16",
+          "screen_pass": true
+        },
+        "dx": {
+          "finite": true,
+          "reference_finite": true,
+          "reference_rms": 0.009878074875491175,
+          "rmse": 3.350387447928712e-06,
+          "max_abs": 3.0517578125e-05,
+          "nrmse": 0.0003391741295909258,
+          "max_over_reference_rms": 0.003089425673490104,
+          "candidate_dtype": "torch.float16",
+          "reference_dtype": "torch.float16",
+          "screen_pass": true
+        },
+        "grad:bias": {
+          "finite": true,
+          "reference_finite": true,
+          "reference_rms": 4.544227965971596,
+          "rmse": 0.0,
+          "max_abs": 0.0,
+          "nrmse": 0.0,
+          "max_over_reference_rms": 0.0,
+          "candidate_dtype": "torch.float32",
+          "reference_dtype": "torch.float32",
+          "screen_pass": true
+        },
+        "grad:parametrizations.weight.original0": {
+          "finite": true,
+          "reference_finite": true,
+          "reference_rms": 3.564911560083575,
+          "rmse": 0.0016635654164649553,
+          "max_abs": 0.0038690567016601562,
+          "nrmse": 0.00046664984205834127,
+          "max_over_reference_rms": 0.001085316321723687,
+          "candidate_dtype": "torch.float32",
+          "reference_dtype": "torch.float32",
+          "screen_pass": true
+        },
+        "grad:parametrizations.weight.original1": {
+          "finite": true,
+          "reference_finite": true,
+          "reference_rms": 3.2190500162109723,
+          "rmse": 0.0015603726642961166,
+          "max_abs": 0.008240699768066406,
+          "nrmse": 0.00048473079213996647,
+          "max_over_reference_rms": 0.002559978790813023,
+          "candidate_dtype": "torch.float32",
+          "reference_dtype": "torch.float32",
+          "screen_pass": true
+        }
+      },
+      "all_gates_pass": true
+    },
+    {
+      "key": "[[8,32,12800],[32,32,3],5,5,1,\"float16\",\"NCT\",1]",
+      "name": "conv1d_B8_C32_T12800_O32_K3_S1_D5_G1_P5",
+      "input_dtype": "torch.float16",
+      "directions": {
+        "fwd": {
+          "bm": 32,
+          "bn": 128,
+          "bk": 32,
+          "num_warps": 4
+        },
+        "dx": {
+          "bm": 32,
+          "bn": 64,
+          "bk": 32,
+          "num_warps": 4
+        },
+        "dw": {
+          "bm": 32,
+          "bn": 32,
+          "bk": 64,
+          "num_warps": 4,
+          "split": 32
+        }
+      },
+      "output_dtype": "torch.float16",
+      "fp32_master_parameters_and_gradients": true,
+      "input_output_gradient_dtypes_match": true,
+      "weight_norm_dim": 0,
+      "parameter_names": [
+        "bias",
+        "parametrizations.weight.original0",
+        "parametrizations.weight.original1"
+      ],
+      "dispatch_hits": 1,
+      "hook_restored": true,
+      "metrics": {
+        "y": {
+          "finite": true,
+          "reference_finite": true,
+          "reference_rms": 0.9936897892755414,
+          "rmse": 0.0,
+          "max_abs": 0.0,
+          "nrmse": 0.0,
+          "max_over_reference_rms": 0.0,
+          "candidate_dtype": "torch.float16",
+          "reference_dtype": "torch.float16",
+          "screen_pass": true
+        },
+        "dx": {
+          "finite": true,
+          "reference_finite": true,
+          "reference_rms": 0.009880651909843226,
+          "rmse": 3.346101541688923e-06,
+          "max_abs": 3.0517578125e-05,
+          "nrmse": 0.00033865189991720036,
+          "max_over_reference_rms": 0.003088619901142152,
+          "candidate_dtype": "torch.float16",
+          "reference_dtype": "torch.float16",
+          "screen_pass": true
+        },
+        "grad:bias": {
+          "finite": true,
+          "reference_finite": true,
+          "reference_rms": 4.544227965971596,
+          "rmse": 0.0,
+          "max_abs": 0.0,
+          "nrmse": 0.0,
+          "max_over_reference_rms": 0.0,
+          "candidate_dtype": "torch.float32",
+          "reference_dtype": "torch.float32",
+          "screen_pass": true
+        },
+        "grad:parametrizations.weight.original0": {
+          "finite": true,
+          "reference_finite": true,
+          "reference_rms": 2.9167853970829434,
+          "rmse": 0.0015561219589518085,
+          "max_abs": 0.003383636474609375,
+          "nrmse": 0.0005335058110576374,
+          "max_over_reference_rms": 0.001160056711060514,
+          "candidate_dtype": "torch.float32",
+          "reference_dtype": "torch.float32",
+          "screen_pass": true
+        },
+        "grad:parametrizations.weight.original1": {
+          "finite": true,
+          "reference_finite": true,
+          "reference_rms": 3.2049223859424996,
+          "rmse": 0.0015238956187371656,
+          "max_abs": 0.00795745849609375,
+          "nrmse": 0.0004754859666559508,
+          "max_over_reference_rms": 0.002482886490792079,
+          "candidate_dtype": "torch.float32",
+          "reference_dtype": "torch.float32",
+          "screen_pass": true
+        }
+      },
+      "all_gates_pass": true
+    },
+    {
+      "key": "[[8,64,6400],[64,64,7],3,9,1,\"float16\",\"NCT\",1]",
+      "name": "conv1d_B8_C64_T6400_O64_K7_S1_D3_G1_P9",
+      "input_dtype": "torch.float16",
+      "directions": {
+        "fwd": {
+          "bm": 32,
+          "bn": 128,
+          "bk": 32,
+          "num_warps": 4
+        },
+        "dx": {
+          "bm": 32,
+          "bn": 64,
+          "bk": 32,
+          "num_warps": 4
+        },
+        "dw": {
+          "bm": 32,
+          "bn": 32,
+          "bk": 64,
+          "num_warps": 4,
+          "split": 32
+        }
+      },
+      "output_dtype": "torch.float16",
+      "fp32_master_parameters_and_gradients": true,
+      "input_output_gradient_dtypes_match": true,
+      "weight_norm_dim": 0,
+      "parameter_names": [
+        "bias",
+        "parametrizations.weight.original0",
+        "parametrizations.weight.original1"
+      ],
+      "dispatch_hits": 1,
+      "hook_restored": true,
+      "metrics": {
+        "y": {
+          "finite": true,
+          "reference_finite": true,
+          "reference_rms": 1.0016743142419664,
+          "rmse": 0.0,
+          "max_abs": 0.0,
+          "nrmse": 0.0,
+          "max_over_reference_rms": 0.0,
+          "candidate_dtype": "torch.float16",
+          "reference_dtype": "torch.float16",
+          "screen_pass": true
+        },
+        "dx": {
+          "finite": true,
+          "reference_finite": true,
+          "reference_rms": 0.009969398814883845,
+          "rmse": 3.2474613664542003e-06,
+          "max_abs": 3.0517578125e-05,
+          "nrmse": 0.0003257429486726815,
+          "max_over_reference_rms": 0.0030611252184473436,
+          "candidate_dtype": "torch.float16",
+          "reference_dtype": "torch.float16",
+          "screen_pass": true
+        },
+        "grad:bias": {
+          "finite": true,
+          "reference_finite": true,
+          "reference_rms": 2.703051263935831,
+          "rmse": 0.0,
+          "max_abs": 0.0,
+          "nrmse": 0.0,
+          "max_over_reference_rms": 0.0,
+          "candidate_dtype": "torch.float32",
+          "reference_dtype": "torch.float32",
+          "screen_pass": true
+        },
+        "grad:parametrizations.weight.original0": {
+          "finite": true,
+          "reference_finite": true,
+          "reference_rms": 2.2504902170403707,
+          "rmse": 0.0010320283291096962,
+          "max_abs": 0.002938389778137207,
+          "nrmse": 0.00045857934475579333,
+          "max_over_reference_rms": 0.0013056665413998093,
+          "candidate_dtype": "torch.float32",
+          "reference_dtype": "torch.float32",
+          "screen_pass": true
+        },
+        "grad:parametrizations.weight.original1": {
+          "finite": true,
+          "reference_finite": true,
+          "reference_rms": 2.250371681339085,
+          "rmse": 0.0010984305312171077,
+          "max_abs": 0.00785970687866211,
+          "nrmse": 0.0004881107153656884,
+          "max_over_reference_rms": 0.003492626104317659,
+          "candidate_dtype": "torch.float32",
+          "reference_dtype": "torch.float32",
+          "screen_pass": true
+        }
+      },
+      "all_gates_pass": true
+    },
+    {
+      "key": "[[8,64,6400],[64,64,7],5,15,1,\"float16\",\"NCT\",1]",
+      "name": "conv1d_B8_C64_T6400_O64_K7_S1_D5_G1_P15",
+      "input_dtype": "torch.float16",
+      "directions": {
+        "fwd": {
+          "bm": 32,
+          "bn": 128,
+          "bk": 32,
+          "num_warps": 4
+        },
+        "dx": {
+          "bm": 32,
+          "bn": 64,
+          "bk": 32,
+          "num_warps": 4
+        },
+        "dw": {
+          "bm": 32,
+          "bn": 32,
+          "bk": 64,
+          "num_warps": 4,
+          "split": 32
+        }
+      },
+      "output_dtype": "torch.float16",
+      "fp32_master_parameters_and_gradients": true,
+      "input_output_gradient_dtypes_match": true,
+      "weight_norm_dim": 0,
+      "parameter_names": [
+        "bias",
+        "parametrizations.weight.original0",
+        "parametrizations.weight.original1"
+      ],
+      "dispatch_hits": 1,
+      "hook_restored": true,
+      "metrics": {
+        "y": {
+          "finite": true,
+          "reference_finite": true,
+          "reference_rms": 1.0008531759778116,
+          "rmse": 0.0,
+          "max_abs": 0.0,
+          "nrmse": 0.0,
+          "max_over_reference_rms": 0.0,
+          "candidate_dtype": "torch.float16",
+          "reference_dtype": "torch.float16",
+          "screen_pass": true
+        },
+        "dx": {
+          "finite": true,
+          "reference_finite": true,
+          "reference_rms": 0.0099683358410247,
+          "rmse": 3.2496971665683185e-06,
+          "max_abs": 3.0517578125e-05,
+          "nrmse": 0.0003260019744914879,
+          "max_over_reference_rms": 0.0030614516416476324,
+          "candidate_dtype": "torch.float16",
+          "reference_dtype": "torch.float16",
+          "screen_pass": true
+        },
+        "grad:bias": {
+          "finite": true,
+          "reference_finite": true,
+          "reference_rms": 2.703051263935831,
+          "rmse": 0.0,
+          "max_abs": 0.0,
+          "nrmse": 0.0,
+          "max_over_reference_rms": 0.0,
+          "candidate_dtype": "torch.float32",
+          "reference_dtype": "torch.float32",
+          "screen_pass": true
+        },
+        "grad:parametrizations.weight.original0": {
+          "finite": true,
+          "reference_finite": true,
+          "reference_rms": 2.199698150629078,
+          "rmse": 0.0009712763682064491,
+          "max_abs": 0.0026252269744873047,
+          "nrmse": 0.0004415498407946017,
+          "max_over_reference_rms": 0.0011934487346532217,
+          "candidate_dtype": "torch.float32",
+          "reference_dtype": "torch.float32",
+          "screen_pass": true
+        },
+        "grad:parametrizations.weight.original1": {
+          "finite": true,
+          "reference_finite": true,
+          "reference_rms": 2.2576477459024473,
+          "rmse": 0.0010939075503953821,
+          "max_abs": 0.007875919342041016,
+          "nrmse": 0.00048453420263669855,
+          "max_over_reference_rms": 0.003488551017905932,
+          "candidate_dtype": "torch.float32",
+          "reference_dtype": "torch.float32",
+          "screen_pass": true
+        }
+      },
+      "all_gates_pass": true
+    },
+    {
+      "key": "[[8,64,6400],[64,64,11],1,5,1,\"float16\",\"NCT\",1]",
+      "name": "conv1d_B8_C64_T6400_O64_K11_S1_D1_G1_P5",
+      "input_dtype": "torch.float16",
+      "directions": {
+        "fwd": {
+          "bm": 32,
+          "bn": 128,
+          "bk": 32,
+          "num_warps": 4
+        },
+        "dx": {
+          "bm": 32,
+          "bn": 64,
+          "bk": 32,
+          "num_warps": 4
+        },
+        "dw": {
+          "bm": 32,
+          "bn": 32,
+          "bk": 64,
+          "num_warps": 4,
+          "split": 32
+        }
+      },
+      "output_dtype": "torch.float16",
+      "fp32_master_parameters_and_gradients": true,
+      "input_output_gradient_dtypes_match": true,
+      "weight_norm_dim": 0,
+      "parameter_names": [
+        "bias",
+        "parametrizations.weight.original0",
+        "parametrizations.weight.original1"
+      ],
+      "dispatch_hits": 1,
+      "hook_restored": true,
+      "metrics": {
+        "y": {
+          "finite": true,
+          "reference_finite": true,
+          "reference_rms": 0.9990211177155783,
+          "rmse": 0.0004968346838770762,
+          "max_abs": 0.0078125,
+          "nrmse": 0.0004973215030861091,
+          "max_over_reference_rms": 0.007820155011201898,
+          "candidate_dtype": "torch.float16",
+          "reference_dtype": "torch.float16",
+          "screen_pass": true
+        },
+        "dx": {
+          "finite": true,
+          "reference_finite": true,
+          "reference_rms": 0.009949187648592442,
+          "rmse": 4.864242821562219e-06,
+          "max_abs": 3.0517578125e-05,
+          "nrmse": 0.0004889085414174881,
+          "max_over_reference_rms": 0.0030673437071334626,
+          "candidate_dtype": "torch.float16",
+          "reference_dtype": "torch.float16",
+          "screen_pass": true
+        },
+        "grad:bias": {
+          "finite": true,
+          "reference_finite": true,
+          "reference_rms": 2.800436739779602,
+          "rmse": 0.0,
+          "max_abs": 0.0,
+          "nrmse": 0.0,
+          "max_over_reference_rms": 0.0,
+          "candidate_dtype": "torch.float32",
+          "reference_dtype": "torch.float32",
+          "screen_pass": true
+        },
+        "grad:parametrizations.weight.original0": {
+          "finite": true,
+          "reference_finite": true,
+          "reference_rms": 2.329100398392584,
+          "rmse": 0.0012281583330405958,
+          "max_abs": 0.003785550594329834,
+          "nrmse": 0.0005273101725834586,
+          "max_over_reference_rms": 0.0016253273568380354,
+          "candidate_dtype": "torch.float32",
+          "reference_dtype": "torch.float32",
+          "screen_pass": true
+        },
+        "grad:parametrizations.weight.original1": {
+          "finite": true,
+          "reference_finite": true,
+          "reference_rms": 2.2576972650919416,
+          "rmse": 0.0011194500261233003,
+          "max_abs": 0.00782012939453125,
+          "nrmse": 0.000495837082957051,
+          "max_over_reference_rms": 0.0034637635060486226,
+          "candidate_dtype": "torch.float32",
+          "reference_dtype": "torch.float32",
+          "screen_pass": true
+        }
+      },
+      "all_gates_pass": true
+    },
+    {
+      "key": "[[8,32,12800],[32,32,11],1,5,1,\"float16\",\"NCT\",1]",
+      "name": "conv1d_B8_C32_T12800_O32_K11_S1_D1_G1_P5",
+      "input_dtype": "torch.float16",
+      "directions": {
+        "fwd": {
+          "bm": 32,
+          "bn": 128,
+          "bk": 32,
+          "num_warps": 4
+        },
+        "dx": {
+          "bm": 32,
+          "bn": 64,
+          "bk": 32,
+          "num_warps": 4
+        },
+        "dw": {
+          "bm": 32,
+          "bn": 32,
+          "bk": 64,
+          "num_warps": 4,
+          "split": 32
+        }
+      },
+      "output_dtype": "torch.float16",
+      "fp32_master_parameters_and_gradients": true,
+      "input_output_gradient_dtypes_match": true,
+      "weight_norm_dim": 0,
+      "parameter_names": [
+        "bias",
+        "parametrizations.weight.original0",
+        "parametrizations.weight.original1"
+      ],
+      "dispatch_hits": 1,
+      "hook_restored": true,
+      "metrics": {
+        "y": {
+          "finite": true,
+          "reference_finite": true,
+          "reference_rms": 1.0015847007124001,
+          "rmse": 0.0004963097502661912,
+          "max_abs": 0.0078125,
+          "nrmse": 0.0004955244922503104,
+          "max_over_reference_rms": 0.007800139113989241,
+          "candidate_dtype": "torch.float16",
+          "reference_dtype": "torch.float16",
+          "screen_pass": true
+        },
+        "dx": {
+          "finite": true,
+          "reference_finite": true,
+          "reference_rms": 0.009989493700682093,
+          "rmse": 4.8942343856434835e-06,
+          "max_abs": 3.0517578125e-05,
+          "nrmse": 0.0004899381822833824,
+          "max_over_reference_rms": 0.003054967452746502,
+          "candidate_dtype": "torch.float16",
+          "reference_dtype": "torch.float16",
+          "screen_pass": true
+        },
+        "grad:bias": {
+          "finite": true,
+          "reference_finite": true,
+          "reference_rms": 3.57241634254841,
+          "rmse": 0.0,
+          "max_abs": 0.0,
+          "nrmse": 0.0,
+          "max_over_reference_rms": 0.0,
+          "candidate_dtype": "torch.float32",
+          "reference_dtype": "torch.float32",
+          "screen_pass": true
+        },
+        "grad:parametrizations.weight.original0": {
+          "finite": true,
+          "reference_finite": true,
+          "reference_rms": 3.0579673580506164,
+          "rmse": 0.0013380520758613532,
+          "max_abs": 0.0034702420234680176,
+          "nrmse": 0.00043756257644108097,
+          "max_over_reference_rms": 0.0011348198385218266,
+          "candidate_dtype": "torch.float32",
+          "reference_dtype": "torch.float32",
+          "screen_pass": true
+        },
+        "grad:parametrizations.weight.original1": {
+          "finite": true,
+          "reference_finite": true,
+          "reference_rms": 3.1726376753312335,
+          "rmse": 0.0015651701413941547,
+          "max_abs": 0.015614509582519531,
+          "nrmse": 0.000493334033559551,
+          "max_over_reference_rms": 0.004921617650805123,
+          "candidate_dtype": "torch.float32",
+          "reference_dtype": "torch.float32",
+          "screen_pass": true
+        }
+      },
+      "all_gates_pass": true
+    },
+    {
+      "key": "[[8,32,12800],[32,32,7],1,3,1,\"float16\",\"NCT\",1]",
+      "name": "conv1d_B8_C32_T12800_O32_K7_S1_D1_G1_P3",
+      "input_dtype": "torch.float16",
+      "directions": {
+        "fwd": {
+          "bm": 32,
+          "bn": 128,
+          "bk": 32,
+          "num_warps": 4
+        },
+        "dx": {
+          "bm": 32,
+          "bn": 64,
+          "bk": 32,
+          "num_warps": 4
+        },
+        "dw": {
+          "bm": 32,
+          "bn": 32,
+          "bk": 64,
+          "num_warps": 4,
+          "split": 32
+        }
+      },
+      "output_dtype": "torch.float16",
+      "fp32_master_parameters_and_gradients": true,
+      "input_output_gradient_dtypes_match": true,
+      "weight_norm_dim": 0,
+      "parameter_names": [
+        "bias",
+        "parametrizations.weight.original0",
+        "parametrizations.weight.original1"
+      ],
+      "dispatch_hits": 1,
+      "hook_restored": true,
+      "metrics": {
+        "y": {
+          "finite": true,
+          "reference_finite": true,
+          "reference_rms": 0.9949696200408196,
+          "rmse": 0.0004545868920721213,
+          "max_abs": 0.00390625,
+          "nrmse": 0.00045688519821687767,
+          "max_over_reference_rms": 0.003925999268037694,
+          "candidate_dtype": "torch.float16",
+          "reference_dtype": "torch.float16",
+          "screen_pass": true
+        },
+        "dx": {
+          "finite": true,
+          "reference_finite": true,
+          "reference_rms": 0.009925915020155142,
+          "rmse": 4.466138851571166e-06,
+          "max_abs": 3.0517578125e-05,
+          "nrmse": 0.00044994731896277716,
+          "max_over_reference_rms": 0.00307453550257405,
+          "candidate_dtype": "torch.float16",
+          "reference_dtype": "torch.float16",
+          "screen_pass": true
+        },
+        "grad:bias": {
+          "finite": true,
+          "reference_finite": true,
+          "reference_rms": 4.363771466556431,
+          "rmse": 0.0,
+          "max_abs": 0.0,
+          "nrmse": 0.0,
+          "max_over_reference_rms": 0.0,
+          "candidate_dtype": "torch.float32",
+          "reference_dtype": "torch.float32",
+          "screen_pass": true
+        },
+        "grad:parametrizations.weight.original0": {
+          "finite": true,
+          "reference_finite": true,
+          "reference_rms": 3.5050142908662254,
+          "rmse": 0.0015909478715062158,
+          "max_abs": 0.004211902618408203,
+          "nrmse": 0.0004539062438781186,
+          "max_over_reference_rms": 0.001201679157024857,
+          "candidate_dtype": "torch.float32",
+          "reference_dtype": "torch.float32",
+          "screen_pass": true
+        },
+        "grad:parametrizations.weight.original1": {
+          "finite": true,
+          "reference_finite": true,
+          "reference_rms": 3.182127987154338,
+          "rmse": 0.001524427917256334,
+          "max_abs": 0.007923126220703125,
+          "nrmse": 0.00047905927210035776,
+          "max_over_reference_rms": 0.0024898829502418883,
+          "candidate_dtype": "torch.float32",
+          "reference_dtype": "torch.float32",
+          "screen_pass": true
+        }
+      },
+      "all_gates_pass": true
+    },
+    {
+      "key": "[[8,64,6400],[64,64,3],1,1,1,\"float16\",\"NCT\",1]",
+      "name": "conv1d_B8_C64_T6400_O64_K3_S1_D1_G1_P1",
+      "input_dtype": "torch.float16",
+      "directions": {
+        "fwd": {
+          "bm": 32,
+          "bn": 128,
+          "bk": 32,
+          "num_warps": 4
+        },
+        "dx": {
+          "bm": 32,
+          "bn": 64,
+          "bk": 32,
+          "num_warps": 4
+        },
+        "dw": {
+          "bm": 32,
+          "bn": 32,
+          "bk": 64,
+          "num_warps": 4,
+          "split": 32
+        }
+      },
+      "output_dtype": "torch.float16",
+      "fp32_master_parameters_and_gradients": true,
+      "input_output_gradient_dtypes_match": true,
+      "weight_norm_dim": 0,
+      "parameter_names": [
+        "bias",
+        "parametrizations.weight.original0",
+        "parametrizations.weight.original1"
+      ],
+      "dispatch_hits": 1,
+      "hook_restored": true,
+      "metrics": {
+        "y": {
+          "finite": true,
+          "reference_finite": true,
+          "reference_rms": 1.0014494254169144,
+          "rmse": 0.0005100382971629026,
+          "max_abs": 0.00390625,
+          "nrmse": 0.0005093001046463909,
+          "max_over_reference_rms": 0.003900596376470819,
+          "candidate_dtype": "torch.float16",
+          "reference_dtype": "torch.float16",
+          "screen_pass": true
+        },
+        "dx": {
+          "finite": true,
+          "reference_finite": true,
+          "reference_rms": 0.009978554875885098,
+          "rmse": 4.9331740425468005e-06,
+          "max_abs": 3.0517578125e-05,
+          "nrmse": 0.0004943776031606208,
+          "max_over_reference_rms": 0.003058316409999508,
+          "candidate_dtype": "torch.float16",
+          "reference_dtype": "torch.float16",
+          "screen_pass": true
+        },
+        "grad:bias": {
+          "finite": true,
+          "reference_finite": true,
+          "reference_rms": 2.727065386984908,
+          "rmse": 0.0,
+          "max_abs": 0.0,
+          "nrmse": 0.0,
+          "max_over_reference_rms": 0.0,
+          "candidate_dtype": "torch.float32",
+          "reference_dtype": "torch.float32",
+          "screen_pass": true
+        },
+        "grad:parametrizations.weight.original0": {
+          "finite": true,
+          "reference_finite": true,
+          "reference_rms": 2.3297189697704397,
+          "rmse": 0.0011015152153039875,
+          "max_abs": 0.0031328201293945312,
+          "nrmse": 0.0004728103387562346,
+          "max_over_reference_rms": 0.0013447201873036324,
+          "candidate_dtype": "torch.float32",
+          "reference_dtype": "torch.float32",
+          "screen_pass": true
+        },
+        "grad:parametrizations.weight.original1": {
+          "finite": true,
+          "reference_finite": true,
+          "reference_rms": 2.246481750414646,
+          "rmse": 0.0011145073670609834,
+          "max_abs": 0.007824897766113281,
+          "nrmse": 0.0004961123618543852,
+          "max_over_reference_rms": 0.0034831788705467982,
+          "candidate_dtype": "torch.float32",
+          "reference_dtype": "torch.float32",
+          "screen_pass": true
+        }
+      },
+      "all_gates_pass": true
+    },
+    {
+      "key": "[[8,64,6400],[64,64,11],5,25,1,\"float16\",\"NCT\",1]",
+      "name": "conv1d_B8_C64_T6400_O64_K11_S1_D5_G1_P25",
+      "input_dtype": "torch.float16",
+      "directions": {
+        "fwd": {
+          "bm": 32,
+          "bn": 128,
+          "bk": 32,
+          "num_warps": 4
+        },
+        "dx": {
+          "bm": 32,
+          "bn": 64,
+          "bk": 32,
+          "num_warps": 4
+        },
+        "dw": {
+          "bm": 32,
+          "bn": 32,
+          "bk": 64,
+          "num_warps": 4,
+          "split": 32
+        }
+      },
+      "output_dtype": "torch.float16",
+      "fp32_master_parameters_and_gradients": true,
+      "input_output_gradient_dtypes_match": true,
+      "weight_norm_dim": 0,
+      "parameter_names": [
+        "bias",
+        "parametrizations.weight.original0",
+        "parametrizations.weight.original1"
+      ],
+      "dispatch_hits": 1,
+      "hook_restored": true,
+      "metrics": {
+        "y": {
+          "finite": true,
+          "reference_finite": true,
+          "reference_rms": 0.997895608424311,
+          "rmse": 0.0,
+          "max_abs": 0.0,
+          "nrmse": 0.0,
+          "max_over_reference_rms": 0.0,
+          "candidate_dtype": "torch.float16",
+          "reference_dtype": "torch.float16",
+          "screen_pass": true
+        },
+        "dx": {
+          "finite": true,
+          "reference_finite": true,
+          "reference_rms": 0.009940647721792945,
+          "rmse": 3.211804926031583e-06,
+          "max_abs": 3.0517578125e-05,
+          "nrmse": 0.00032309815375413845,
+          "max_over_reference_rms": 0.003069978836298174,
+          "candidate_dtype": "torch.float16",
+          "reference_dtype": "torch.float16",
+          "screen_pass": true
+        },
+        "grad:bias": {
+          "finite": true,
+          "reference_finite": true,
+          "reference_rms": 2.800436739779602,
+          "rmse": 0.0,
+          "max_abs": 0.0,
+          "nrmse": 0.0,
+          "max_over_reference_rms": 0.0,
+          "candidate_dtype": "torch.float32",
+          "reference_dtype": "torch.float32",
+          "screen_pass": true
+        },
+        "grad:parametrizations.weight.original0": {
+          "finite": true,
+          "reference_finite": true,
+          "reference_rms": 1.9569031942824817,
+          "rmse": 0.0009620129956657763,
+          "max_abs": 0.002582550048828125,
+          "nrmse": 0.0004915996859101189,
+          "max_over_reference_rms": 0.0013197127258893575,
+          "candidate_dtype": "torch.float32",
+          "reference_dtype": "torch.float32",
+          "screen_pass": true
+        },
+        "grad:parametrizations.weight.original1": {
+          "finite": true,
+          "reference_finite": true,
+          "reference_rms": 2.258290284799073,
+          "rmse": 0.0010884605899874667,
+          "max_abs": 0.007915019989013672,
+          "nrmse": 0.00048198435662327195,
+          "max_over_reference_rms": 0.003504872709363799,
+          "candidate_dtype": "torch.float32",
+          "reference_dtype": "torch.float32",
+          "screen_pass": true
+        }
+      },
+      "all_gates_pass": true
+    },
+    {
+      "key": "[[8,64,6400],[64,64,11],3,15,1,\"float16\",\"NCT\",1]",
+      "name": "conv1d_B8_C64_T6400_O64_K11_S1_D3_G1_P15",
+      "input_dtype": "torch.float16",
+      "directions": {
+        "fwd": {
+          "bm": 32,
+          "bn": 128,
+          "bk": 32,
+          "num_warps": 4
+        },
+        "dx": {
+          "bm": 32,
+          "bn": 64,
+          "bk": 32,
+          "num_warps": 4
+        },
+        "dw": {
+          "bm": 32,
+          "bn": 32,
+          "bk": 64,
+          "num_warps": 4,
+          "split": 32
+        }
+      },
+      "output_dtype": "torch.float16",
+      "fp32_master_parameters_and_gradients": true,
+      "input_output_gradient_dtypes_match": true,
+      "weight_norm_dim": 0,
+      "parameter_names": [
+        "bias",
+        "parametrizations.weight.original0",
+        "parametrizations.weight.original1"
+      ],
+      "dispatch_hits": 1,
+      "hook_restored": true,
+      "metrics": {
+        "y": {
+          "finite": true,
+          "reference_finite": true,
+          "reference_rms": 0.998462039514122,
+          "rmse": 0.0,
+          "max_abs": 0.0,
+          "nrmse": 0.0,
+          "max_over_reference_rms": 0.0,
+          "candidate_dtype": "torch.float16",
+          "reference_dtype": "torch.float16",
+          "screen_pass": true
+        },
+        "dx": {
+          "finite": true,
+          "reference_finite": true,
+          "reference_rms": 0.009944667755796426,
+          "rmse": 3.2115927780368406e-06,
+          "max_abs": 3.0517578125e-05,
+          "nrmse": 0.00032294621166855037,
+          "max_over_reference_rms": 0.0030687378275872806,
+          "candidate_dtype": "torch.float16",
+          "reference_dtype": "torch.float16",
+          "screen_pass": true
+        },
+        "grad:bias": {
+          "finite": true,
+          "reference_finite": true,
+          "reference_rms": 2.800436739779602,
+          "rmse": 0.0,
+          "max_abs": 0.0,
+          "nrmse": 0.0,
+          "max_over_reference_rms": 0.0,
+          "candidate_dtype": "torch.float32",
+          "reference_dtype": "torch.float32",
+          "screen_pass": true
+        },
+        "grad:parametrizations.weight.original0": {
+          "finite": true,
+          "reference_finite": true,
+          "reference_rms": 2.0867806851520907,
+          "rmse": 0.0010661463513028128,
+          "max_abs": 0.0026814937591552734,
+          "nrmse": 0.0005109048396358475,
+          "max_over_reference_rms": 0.001284990693192964,
+          "candidate_dtype": "torch.float32",
+          "reference_dtype": "torch.float32",
+          "screen_pass": true
+        },
+        "grad:parametrizations.weight.original1": {
+          "finite": true,
+          "reference_finite": true,
+          "reference_rms": 2.2624455093618456,
+          "rmse": 0.0010944610711515455,
+          "max_abs": 0.00782918930053711,
+          "nrmse": 0.0004837513507497706,
+          "max_over_reference_rms": 0.0034604985040039447,
+          "candidate_dtype": "torch.float32",
+          "reference_dtype": "torch.float32",
+          "screen_pass": true
+        }
+      },
+      "all_gates_pass": true
+    },
+    {
+      "key": "[[8,64,6400],[64,64,3],3,3,1,\"float16\",\"NCT\",1]",
+      "name": "conv1d_B8_C64_T6400_O64_K3_S1_D3_G1_P3",
+      "input_dtype": "torch.float16",
+      "directions": {
+        "fwd": {
+          "bm": 32,
+          "bn": 128,
+          "bk": 32,
+          "num_warps": 4
+        },
+        "dx": {
+          "bm": 32,
+          "bn": 64,
+          "bk": 32,
+          "num_warps": 4
+        },
+        "dw": {
+          "bm": 32,
+          "bn": 32,
+          "bk": 64,
+          "num_warps": 4,
+          "split": 32
+        }
+      },
+      "output_dtype": "torch.float16",
+      "fp32_master_parameters_and_gradients": true,
+      "input_output_gradient_dtypes_match": true,
+      "weight_norm_dim": 0,
+      "parameter_names": [
+        "bias",
+        "parametrizations.weight.original0",
+        "parametrizations.weight.original1"
+      ],
+      "dispatch_hits": 1,
+      "hook_restored": true,
+      "metrics": {
+        "y": {
+          "finite": true,
+          "reference_finite": true,
+          "reference_rms": 1.0009771350456913,
+          "rmse": 0.0,
+          "max_abs": 0.0,
+          "nrmse": 0.0,
+          "max_over_reference_rms": 0.0,
+          "candidate_dtype": "torch.float16",
+          "reference_dtype": "torch.float16",
+          "screen_pass": true
+        },
+        "dx": {
+          "finite": true,
+          "reference_finite": true,
+          "reference_rms": 0.009976925370420822,
+          "rmse": 3.378906282012522e-06,
+          "max_abs": 3.0517578125e-05,
+          "nrmse": 0.00033867210153041384,
+          "max_over_reference_rms": 0.00305881591692339,
+          "candidate_dtype": "torch.float16",
+          "reference_dtype": "torch.float16",
+          "screen_pass": true
+        },
+        "grad:bias": {
+          "finite": true,
+          "reference_finite": true,
+          "reference_rms": 2.727065386984908,
+          "rmse": 0.0,
+          "max_abs": 0.0,
+          "nrmse": 0.0,
+          "max_over_reference_rms": 0.0,
+          "candidate_dtype": "torch.float32",
+          "reference_dtype": "torch.float32",
+          "screen_pass": true
+        },
+        "grad:parametrizations.weight.original0": {
+          "finite": true,
+          "reference_finite": true,
+          "reference_rms": 2.0168300230138674,
+          "rmse": 0.0011326087526259399,
+          "max_abs": 0.0029379799962043762,
+          "nrmse": 0.0005615786852148384,
+          "max_over_reference_rms": 0.0014567315850514662,
+          "candidate_dtype": "torch.float32",
+          "reference_dtype": "torch.float32",
+          "screen_pass": true
+        },
+        "grad:parametrizations.weight.original1": {
+          "finite": true,
+          "reference_finite": true,
+          "reference_rms": 2.2729726465137223,
+          "rmse": 0.0011077217019413081,
+          "max_abs": 0.008018016815185547,
+          "nrmse": 0.00048734493291871674,
+          "max_over_reference_rms": 0.003527546549002054,
+          "candidate_dtype": "torch.float32",
+          "reference_dtype": "torch.float32",
+          "screen_pass": true
+        }
+      },
+      "all_gates_pass": true
+    },
+    {
+      "key": "[[8,64,6400],[64,64,3],5,5,1,\"float16\",\"NCT\",1]",
+      "name": "conv1d_B8_C64_T6400_O64_K3_S1_D5_G1_P5",
+      "input_dtype": "torch.float16",
+      "directions": {
+        "fwd": {
+          "bm": 32,
+          "bn": 128,
+          "bk": 32,
+          "num_warps": 4
+        },
+        "dx": {
+          "bm": 32,
+          "bn": 64,
+          "bk": 32,
+          "num_warps": 4
+        },
+        "dw": {
+          "bm": 32,
+          "bn": 32,
+          "bk": 64,
+          "num_warps": 4,
+          "split": 32
+        }
+      },
+      "output_dtype": "torch.float16",
+      "fp32_master_parameters_and_gradients": true,
+      "input_output_gradient_dtypes_match": true,
+      "weight_norm_dim": 0,
+      "parameter_names": [
+        "bias",
+        "parametrizations.weight.original0",
+        "parametrizations.weight.original1"
+      ],
+      "dispatch_hits": 1,
+      "hook_restored": true,
+      "metrics": {
+        "y": {
+          "finite": true,
+          "reference_finite": true,
+          "reference_rms": 1.0013516370621864,
+          "rmse": 0.0,
+          "max_abs": 0.0,
+          "nrmse": 0.0,
+          "max_over_reference_rms": 0.0,
+          "candidate_dtype": "torch.float16",
+          "reference_dtype": "torch.float16",
+          "screen_pass": true
+        },
+        "dx": {
+          "finite": true,
+          "reference_finite": true,
+          "reference_rms": 0.00997755209758364,
+          "rmse": 3.3809443469380227e-06,
+          "max_abs": 3.0517578125e-05,
+          "nrmse": 0.00033885509330057207,
+          "max_over_reference_rms": 0.0030586237813171368,
+          "candidate_dtype": "torch.float16",
+          "reference_dtype": "torch.float16",
+          "screen_pass": true
+        },
+        "grad:bias": {
+          "finite": true,
+          "reference_finite": true,
+          "reference_rms": 2.727065386984908,
+          "rmse": 0.0,
+          "max_abs": 0.0,
+          "nrmse": 0.0,
+          "max_over_reference_rms": 0.0,
+          "candidate_dtype": "torch.float32",
+          "reference_dtype": "torch.float32",
+          "screen_pass": true
+        },
+        "grad:parametrizations.weight.original0": {
+          "finite": true,
+          "reference_finite": true,
+          "reference_rms": 2.3084687958714483,
+          "rmse": 0.0010984286376310775,
+          "max_abs": 0.0029668807983398438,
+          "nrmse": 0.0004758256380140586,
+          "max_over_reference_rms": 0.0012852158988009385,
+          "candidate_dtype": "torch.float32",
+          "reference_dtype": "torch.float32",
+          "screen_pass": true
+        },
+        "grad:parametrizations.weight.original1": {
+          "finite": true,
+          "reference_finite": true,
+          "reference_rms": 2.2383083732779374,
+          "rmse": 0.0010822605311174454,
+          "max_abs": 0.00786590576171875,
+          "nrmse": 0.0004835171703944021,
+          "max_over_reference_rms": 0.0035142189769854456,
+          "candidate_dtype": "torch.float32",
+          "reference_dtype": "torch.float32",
+          "screen_pass": true
+        }
+      },
+      "all_gates_pass": true
+    },
+    {
+      "key": "[[8,32,12800],[32,32,11],5,25,1,\"float16\",\"NCT\",1]",
+      "name": "conv1d_B8_C32_T12800_O32_K11_S1_D5_G1_P25",
+      "input_dtype": "torch.float16",
+      "directions": {
+        "fwd": {
+          "bm": 32,
+          "bn": 128,
+          "bk": 32,
+          "num_warps": 4
+        },
+        "dx": {
+          "bm": 32,
+          "bn": 64,
+          "bk": 32,
+          "num_warps": 4
+        },
+        "dw": {
+          "bm": 32,
+          "bn": 32,
+          "bk": 64,
+          "num_warps": 4,
+          "split": 32
+        }
+      },
+      "output_dtype": "torch.float16",
+      "fp32_master_parameters_and_gradients": true,
+      "input_output_gradient_dtypes_match": true,
+      "weight_norm_dim": 0,
+      "parameter_names": [
+        "bias",
+        "parametrizations.weight.original0",
+        "parametrizations.weight.original1"
+      ],
+      "dispatch_hits": 1,
+      "hook_restored": true,
+      "metrics": {
+        "y": {
+          "finite": true,
+          "reference_finite": true,
+          "reference_rms": 1.001058227565897,
+          "rmse": 0.0,
+          "max_abs": 0.0,
+          "nrmse": 0.0,
+          "max_over_reference_rms": 0.0,
+          "candidate_dtype": "torch.float16",
+          "reference_dtype": "torch.float16",
+          "screen_pass": true
+        },
+        "dx": {
+          "finite": true,
+          "reference_finite": true,
+          "reference_rms": 0.009985093336475449,
+          "rmse": 3.2252342687405442e-06,
+          "max_abs": 3.0517578125e-05,
+          "nrmse": 0.00032300491943913984,
+          "max_over_reference_rms": 0.003056313756579479,
+          "candidate_dtype": "torch.float16",
+          "reference_dtype": "torch.float16",
+          "screen_pass": true
+        },
+        "grad:bias": {
+          "finite": true,
+          "reference_finite": true,
+          "reference_rms": 3.57241634254841,
+          "rmse": 0.0,
+          "max_abs": 0.0,
+          "nrmse": 0.0,
+          "max_over_reference_rms": 0.0,
+          "candidate_dtype": "torch.float32",
+          "reference_dtype": "torch.float32",
+          "screen_pass": true
+        },
+        "grad:parametrizations.weight.original0": {
+          "finite": true,
+          "reference_finite": true,
+          "reference_rms": 3.70097819390404,
+          "rmse": 0.0018397994867059464,
+          "max_abs": 0.003960195928812027,
+          "nrmse": 0.0004971116797543739,
+          "max_over_reference_rms": 0.0010700403302388946,
+          "candidate_dtype": "torch.float32",
+          "reference_dtype": "torch.float32",
+          "screen_pass": true
+        },
+        "grad:parametrizations.weight.original1": {
+          "finite": true,
+          "reference_finite": true,
+          "reference_rms": 3.2148857453788775,
+          "rmse": 0.0015502933404863632,
+          "max_abs": 0.015625953674316406,
+          "nrmse": 0.00048222346399550185,
+          "max_over_reference_rms": 0.004860500469348677,
+          "candidate_dtype": "torch.float32",
+          "reference_dtype": "torch.float32",
+          "screen_pass": true
+        }
+      },
+      "all_gates_pass": true
+    },
+    {
+      "key": "[[8,192,74],[384,192,5],1,2,1,\"float16\",\"NCT\",1]",
+      "name": "conv1d_B8_C192_T74_O384_K5_S1_D1_G1_P2",
+      "input_dtype": "torch.float32",
+      "directions": {
+        "fwd": {
+          "bm": 32,
+          "bn": 128,
+          "bk": 32,
+          "num_warps": 4
+        },
+        "dx": {
+          "bm": 32,
+          "bn": 64,
+          "bk": 32,
+          "num_warps": 4
+        }
+      },
+      "output_dtype": "torch.float16",
+      "fp32_master_parameters_and_gradients": true,
+      "input_output_gradient_dtypes_match": true,
+      "weight_norm_dim": 0,
+      "parameter_names": [
+        "bias",
+        "parametrizations.weight.original0",
+        "parametrizations.weight.original1"
+      ],
+      "dispatch_hits": 1,
+      "hook_restored": true,
+      "metrics": {
+        "y": {
+          "finite": true,
+          "reference_finite": true,
+          "reference_rms": 0.9967556124398949,
+          "rmse": 1.2734287084788842e-05,
+          "max_abs": 0.001953125,
+          "nrmse": 1.277573652544317e-05,
+          "max_over_reference_rms": 0.00195948232006346,
+          "candidate_dtype": "torch.float16",
+          "reference_dtype": "torch.float16",
+          "screen_pass": true
+        },
+        "dx": {
+          "finite": true,
+          "reference_finite": true,
+          "reference_rms": 0.013989970806364244,
+          "rmse": 4.623205981683799e-06,
+          "max_abs": 3.0517578125e-05,
+          "nrmse": 0.0003304657347519721,
+          "max_over_reference_rms": 0.0021813896931877157,
+          "candidate_dtype": "torch.float32",
+          "reference_dtype": "torch.float32",
+          "screen_pass": true
+        },
+        "grad:bias": {
+          "finite": true,
+          "reference_finite": true,
+          "reference_rms": 0.2524078903013063,
+          "rmse": 0.0,
+          "max_abs": 0.0,
+          "nrmse": 0.0,
+          "max_over_reference_rms": 0.0,
+          "candidate_dtype": "torch.float32",
+          "reference_dtype": "torch.float32",
+          "screen_pass": true
+        },
+        "grad:parametrizations.weight.original0": {
+          "finite": true,
+          "reference_finite": true,
+          "reference_rms": 0.23772968527933064,
+          "rmse": 0.0,
+          "max_abs": 0.0,
+          "nrmse": 0.0,
+          "max_over_reference_rms": 0.0,
+          "candidate_dtype": "torch.float32",
+          "reference_dtype": "torch.float32",
+          "screen_pass": true
+        },
+        "grad:parametrizations.weight.original1": {
+          "finite": true,
+          "reference_finite": true,
+          "reference_rms": 0.24150421517190754,
+          "rmse": 0.0,
+          "max_abs": 0.0,
+          "nrmse": 0.0,
+          "max_over_reference_rms": 0.0,
+          "candidate_dtype": "torch.float32",
+          "reference_dtype": "torch.float32",
+          "screen_pass": true
+        }
+      },
+      "all_gates_pass": true
+    },
+    {
+      "key": "[[8,192,224],[384,192,5],1,2,1,\"float16\",\"NCT\",1]",
+      "name": "conv1d_B8_C192_T224_O384_K5_S1_D1_G1_P2",
+      "input_dtype": "torch.float32",
+      "directions": {
+        "fwd": {
+          "bm": 32,
+          "bn": 128,
+          "bk": 32,
+          "num_warps": 4
+        },
+        "dx": {
+          "bm": 32,
+          "bn": 64,
+          "bk": 32,
+          "num_warps": 4
+        }
+      },
+      "output_dtype": "torch.float16",
+      "fp32_master_parameters_and_gradients": true,
+      "input_output_gradient_dtypes_match": true,
+      "weight_norm_dim": 0,
+      "parameter_names": [
+        "bias",
+        "parametrizations.weight.original0",
+        "parametrizations.weight.original1"
+      ],
+      "dispatch_hits": 1,
+      "hook_restored": true,
+      "metrics": {
+        "y": {
+          "finite": true,
+          "reference_finite": true,
+          "reference_rms": 1.00015435514915,
+          "rmse": 0.0004901770150261621,
+          "max_abs": 0.00390625,
+          "nrmse": 0.0004901013653568139,
+          "max_over_reference_rms": 0.0039056471432526757,
+          "candidate_dtype": "torch.float16",
+          "reference_dtype": "torch.float16",
+          "screen_pass": true
+        },
+        "dx": {
+          "finite": true,
+          "reference_finite": true,
+          "reference_rms": 0.014047791379217276,
+          "rmse": 6.699489329243447e-06,
+          "max_abs": 3.0517578125e-05,
+          "nrmse": 0.0004769069491703068,
+          "max_over_reference_rms": 0.002172411114401131,
+          "candidate_dtype": "torch.float32",
+          "reference_dtype": "torch.float32",
+          "screen_pass": true
+        },
+        "grad:bias": {
+          "finite": true,
+          "reference_finite": true,
+          "reference_rms": 0.4051719713606976,
+          "rmse": 0.0,
+          "max_abs": 0.0,
+          "nrmse": 0.0,
+          "max_over_reference_rms": 0.0,
+          "candidate_dtype": "torch.float32",
+          "reference_dtype": "torch.float32",
+          "screen_pass": true
+        },
+        "grad:parametrizations.weight.original0": {
+          "finite": true,
+          "reference_finite": true,
+          "reference_rms": 0.4215357819655052,
+          "rmse": 0.0,
+          "max_abs": 0.0,
+          "nrmse": 0.0,
+          "max_over_reference_rms": 0.0,
+          "candidate_dtype": "torch.float32",
+          "reference_dtype": "torch.float32",
+          "screen_pass": true
+        },
+        "grad:parametrizations.weight.original1": {
+          "finite": true,
+          "reference_finite": true,
+          "reference_rms": 0.42158740227062713,
+          "rmse": 0.0,
+          "max_abs": 0.0,
+          "nrmse": 0.0,
+          "max_over_reference_rms": 0.0,
+          "candidate_dtype": "torch.float32",
+          "reference_dtype": "torch.float32",
+          "screen_pass": true
+        }
+      },
+      "all_gates_pass": true
+    },
+    {
+      "key": "[[8,192,326],[384,192,5],1,2,1,\"float16\",\"NCT\",1]",
+      "name": "conv1d_B8_C192_T326_O384_K5_S1_D1_G1_P2",
+      "input_dtype": "torch.float32",
+      "directions": {
+        "fwd": {
+          "bm": 32,
+          "bn": 128,
+          "bk": 32,
+          "num_warps": 4
+        },
+        "dx": {
+          "bm": 32,
+          "bn": 64,
+          "bk": 32,
+          "num_warps": 4
+        }
+      },
+      "output_dtype": "torch.float16",
+      "fp32_master_parameters_and_gradients": true,
+      "input_output_gradient_dtypes_match": true,
+      "weight_norm_dim": 0,
+      "parameter_names": [
+        "bias",
+        "parametrizations.weight.original0",
+        "parametrizations.weight.original1"
+      ],
+      "dispatch_hits": 1,
+      "hook_restored": true,
+      "metrics": {
+        "y": {
+          "finite": true,
+          "reference_finite": true,
+          "reference_rms": 1.0006751800125846,
+          "rmse": 1.6460261253902285e-05,
+          "max_abs": 0.001953125,
+          "nrmse": 1.6449155113145985e-05,
+          "max_over_reference_rms": 0.001951807178804452,
+          "candidate_dtype": "torch.float16",
+          "reference_dtype": "torch.float16",
+          "screen_pass": true
+        },
+        "dx": {
+          "finite": true,
+          "reference_finite": true,
+          "reference_rms": 0.014110469641961292,
+          "rmse": 4.645228438352264e-06,
+          "max_abs": 6.103515625e-05,
+          "nrmse": 0.0003292043820099668,
+          "max_over_reference_rms": 0.004325522664993055,
+          "candidate_dtype": "torch.float32",
+          "reference_dtype": "torch.float32",
+          "screen_pass": true
+        },
+        "grad:bias": {
+          "finite": true,
+          "reference_finite": true,
+          "reference_rms": 0.4792826969203275,
+          "rmse": 0.0,
+          "max_abs": 0.0,
+          "nrmse": 0.0,
+          "max_over_reference_rms": 0.0,
+          "candidate_dtype": "torch.float32",
+          "reference_dtype": "torch.float32",
+          "screen_pass": true
+        },
+        "grad:parametrizations.weight.original0": {
+          "finite": true,
+          "reference_finite": true,
+          "reference_rms": 0.5287907976743128,
+          "rmse": 0.0,
+          "max_abs": 0.0,
+          "nrmse": 0.0,
+          "max_over_reference_rms": 0.0,
+          "candidate_dtype": "torch.float32",
+          "reference_dtype": "torch.float32",
+          "screen_pass": true
+        },
+        "grad:parametrizations.weight.original1": {
+          "finite": true,
+          "reference_finite": true,
+          "reference_rms": 0.508741069117605,
+          "rmse": 0.0,
+          "max_abs": 0.0,
+          "nrmse": 0.0,
+          "max_over_reference_rms": 0.0,
+          "candidate_dtype": "torch.float32",
+          "reference_dtype": "torch.float32",
+          "screen_pass": true
+        }
+      },
+      "all_gates_pass": true
+    }
+  ],
+  "scope": "Synthetic fixed-seed tensors at actual captured geometry/dtype, FP32 master parameters; no optimizer or real training steps",
+  "torch": "2.11.0+rocm10.0.0",
+  "hip": "7.15.26333",
+  "device": "AMD Radeon RX 6900 XT",
+  "arch": "gfx1030",
+  "cudnn_benchmark": false,
+  "active_case": {
+    "name": "conv1d_B8_C192_T326_O384_K5_S1_D1_G1_P2",
+    "input_dtype": "torch.float32"
+  },
+  "gpu_audit": {
+    "available": true,
+    "valid_for_timing": true,
+    "method": "KFD client PID snapshots and periodic polling; research flock",
+    "limitation": "Detects observed KFD clients, not graphics load or sub-poll transient clients",
+    "allowed_pids": [
+      1780438
+    ],
+    "interval_s": 0.25,
+    "sample_count": 40,
+    "started_unix_s": 1794076246.9595516,
+    "ended_unix_s": 1794076251.8746655,
+    "foreign_clients": [],
+    "errors": [],
+    "transitions": [
+      {
+        "unix_s": 1794076246.9595518,
+        "kfd_pids": [],
+        "foreign_or_error": []
+      }
+    ]
+  }
+}

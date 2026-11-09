@@ -1,0 +1,369 @@
+{
+  "spec": {
+    "sampler": [
+      "KSampler",
+      "sample"
+    ],
+    "sampler_node": "7",
+    "model": "anima",
+    "runtime": "~/DevSpace/moss-image-rdna2-lab01/runtime/ComfyUI",
+    "workflow": "~/DevSpace/anima-rdna2-lab01/workflows/anima_t2i_1024_api.json",
+    "decoder": [
+      "VAEDecode",
+      "decode"
+    ],
+    "save_node": "9",
+    "attention_target": "comfy.ldm.cosmos.predict2:optimized_attention",
+    "env": {},
+    "server_args": [
+      "--extra-model-paths-config",
+      "~/DevSpace/anima-rdna2-lab01/extra_model_paths.yaml",
+      "--disable-auto-launch",
+      "--use-pytorch-cross-attention",
+      "--disable-comfy-compiler",
+      "--bf16-unet"
+    ],
+    "input_files": [],
+    "inputs": {},
+    "attention_capture_target": "comfy.ops:scaled_dot_product_attention",
+    "switch_module": "dtype_switches_v06",
+    "research_scope": "Existing Anima BF16 checkpoint with BF16 UNET compute in this owned process; 2-step completed denoise+VAE probe, not the normal FP16 operating configuration or a 30-step claim.",
+    "gpu_audit": true,
+    "save_reference_tensors": true,
+    "require_bitwise_modes": [
+      "bf16_control",
+      "baseline"
+    ]
+  },
+  "seed": 20261107,
+  "rgb_gate": {
+    "max_abs": 0.00784313725490196,
+    "rmse": 0.000980392156862745
+  },
+  "runs": [
+    {
+      "index": 0,
+      "mode": "warm",
+      "success": true,
+      "wall": {
+        "denoise_s": 5.918654791996232,
+        "vae_s": 0.6828884650021791
+      },
+      "request_wall_s": 8.29371943399019,
+      "conditioning_first_embedding_sha256": {
+        "positive": "a6c15ee3d0208bb976cb338714960a180fd73170fa904280577da928000f4968",
+        "negative": "f2199b5a6d7ba57a2d9d62675ea8d45c8d5da3f77d6e969fc1ee7f562cb0ec2e"
+      },
+      "candidate": {},
+      "stage_calls": {
+        "denoise": 1,
+        "vae": 1
+      },
+      "profile_artifacts": [],
+      "latent_error": {
+        "finite": true,
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "byte_equal": true
+      },
+      "image_error": {
+        "finite": true,
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "byte_equal": true
+      },
+      "comparison_errors": {},
+      "image_gate": true,
+      "latent_sha256": "f25a81149b04254c302fbb3b30916891e478c5cb6a7d6d6b1e71d1a91c852b79",
+      "image_sha256": "d217619d12747efaa6810c175d4a6d2ba88ede33932c52ebe34a19977952bf6a"
+    },
+    {
+      "index": 1,
+      "mode": "baseline",
+      "success": true,
+      "wall": {
+        "denoise_s": 5.453799267997965,
+        "vae_s": 0.546973728996818
+      },
+      "request_wall_s": 6.228083492009318,
+      "conditioning_first_embedding_sha256": {
+        "positive": "a6c15ee3d0208bb976cb338714960a180fd73170fa904280577da928000f4968",
+        "negative": "f2199b5a6d7ba57a2d9d62675ea8d45c8d5da3f77d6e969fc1ee7f562cb0ec2e"
+      },
+      "candidate": {},
+      "stage_calls": {
+        "denoise": 1,
+        "vae": 1
+      },
+      "profile_artifacts": [],
+      "latent_error": {
+        "finite": true,
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "byte_equal": true
+      },
+      "image_error": {
+        "finite": true,
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "byte_equal": true
+      },
+      "comparison_errors": {},
+      "image_gate": true,
+      "latent_sha256": "f25a81149b04254c302fbb3b30916891e478c5cb6a7d6d6b1e71d1a91c852b79",
+      "image_sha256": "d217619d12747efaa6810c175d4a6d2ba88ede33932c52ebe34a19977952bf6a",
+      "required_bitwise_gate": true
+    },
+    {
+      "index": 2,
+      "mode": "bf16_control",
+      "success": true,
+      "wall": {
+        "denoise_s": 5.428824230009923,
+        "vae_s": 0.5461421259969939
+      },
+      "request_wall_s": 6.341753439002787,
+      "conditioning_first_embedding_sha256": {
+        "positive": "a6c15ee3d0208bb976cb338714960a180fd73170fa904280577da928000f4968",
+        "negative": "f2199b5a6d7ba57a2d9d62675ea8d45c8d5da3f77d6e969fc1ee7f562cb0ec2e"
+      },
+      "candidate": {
+        "mode": "bf16_control",
+        "method": "native",
+        "eligible_hits": 0,
+        "candidate_calls": 0,
+        "fallbacks": {
+          "contract": 1030
+        },
+        "shapes": {},
+        "actual_dtypes": {
+          "('torch.float16', 'torch.float16')": 1030
+        },
+        "input_range_validation_in_timing": false,
+        "half_output_overflow_not_excluded_by_input_finite_check": false,
+        "source_sha256": {
+          "dtype_switches_v06.py": "b8c304e36ebaeb905760e99772b34093ce9b0a84ed0c49f81af22eff3cf20f9b",
+          "rdna2_ops/bf16_gemm_v06.py": "9d0797dbbb23af1e21cb281a916f7edab980eaedd03725e192cb7f7251c00227"
+        }
+      },
+      "stage_calls": {
+        "denoise": 1,
+        "vae": 1
+      },
+      "profile_artifacts": [],
+      "latent_error": {
+        "finite": true,
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "byte_equal": true
+      },
+      "image_error": {
+        "finite": true,
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "byte_equal": true
+      },
+      "comparison_errors": {},
+      "image_gate": true,
+      "latent_sha256": "f25a81149b04254c302fbb3b30916891e478c5cb6a7d6d6b1e71d1a91c852b79",
+      "image_sha256": "d217619d12747efaa6810c175d4a6d2ba88ede33932c52ebe34a19977952bf6a",
+      "required_bitwise_gate": true
+    },
+    {
+      "index": 3,
+      "mode": "bf16_fp32",
+      "success": true,
+      "wall": {
+        "denoise_s": 5.376315988993156,
+        "vae_s": 0.5453900610009441
+      },
+      "request_wall_s": 6.22990334899805,
+      "conditioning_first_embedding_sha256": {
+        "positive": "a6c15ee3d0208bb976cb338714960a180fd73170fa904280577da928000f4968",
+        "negative": "f2199b5a6d7ba57a2d9d62675ea8d45c8d5da3f77d6e969fc1ee7f562cb0ec2e"
+      },
+      "candidate": {
+        "mode": "bf16_fp32",
+        "method": "fp32",
+        "eligible_hits": 0,
+        "candidate_calls": 0,
+        "fallbacks": {
+          "contract": 1030
+        },
+        "shapes": {},
+        "actual_dtypes": {
+          "('torch.float16', 'torch.float16')": 1030
+        },
+        "input_range_validation_in_timing": false,
+        "half_output_overflow_not_excluded_by_input_finite_check": false,
+        "source_sha256": {
+          "dtype_switches_v06.py": "b8c304e36ebaeb905760e99772b34093ce9b0a84ed0c49f81af22eff3cf20f9b",
+          "rdna2_ops/bf16_gemm_v06.py": "9d0797dbbb23af1e21cb281a916f7edab980eaedd03725e192cb7f7251c00227"
+        }
+      },
+      "stage_calls": {
+        "denoise": 1,
+        "vae": 1
+      },
+      "profile_artifacts": [],
+      "latent_error": {
+        "finite": true,
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "byte_equal": true
+      },
+      "image_error": {
+        "finite": true,
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "byte_equal": true
+      },
+      "comparison_errors": {},
+      "image_gate": true,
+      "latent_sha256": "f25a81149b04254c302fbb3b30916891e478c5cb6a7d6d6b1e71d1a91c852b79",
+      "image_sha256": "d217619d12747efaa6810c175d4a6d2ba88ede33932c52ebe34a19977952bf6a"
+    },
+    {
+      "index": 4,
+      "mode": "bf16_fp32",
+      "success": true,
+      "wall": {
+        "denoise_s": 5.414311373999226,
+        "vae_s": 0.5471047979954164
+      },
+      "request_wall_s": 6.3290891500073485,
+      "conditioning_first_embedding_sha256": {
+        "positive": "a6c15ee3d0208bb976cb338714960a180fd73170fa904280577da928000f4968",
+        "negative": "f2199b5a6d7ba57a2d9d62675ea8d45c8d5da3f77d6e969fc1ee7f562cb0ec2e"
+      },
+      "candidate": {
+        "mode": "bf16_fp32",
+        "method": "fp32",
+        "eligible_hits": 0,
+        "candidate_calls": 0,
+        "fallbacks": {
+          "contract": 1030
+        },
+        "shapes": {},
+        "actual_dtypes": {
+          "('torch.float16', 'torch.float16')": 1030
+        },
+        "input_range_validation_in_timing": false,
+        "half_output_overflow_not_excluded_by_input_finite_check": false,
+        "source_sha256": {
+          "dtype_switches_v06.py": "b8c304e36ebaeb905760e99772b34093ce9b0a84ed0c49f81af22eff3cf20f9b",
+          "rdna2_ops/bf16_gemm_v06.py": "9d0797dbbb23af1e21cb281a916f7edab980eaedd03725e192cb7f7251c00227"
+        }
+      },
+      "stage_calls": {
+        "denoise": 1,
+        "vae": 1
+      },
+      "profile_artifacts": [],
+      "latent_error": {
+        "finite": true,
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "byte_equal": true
+      },
+      "image_error": {
+        "finite": true,
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "byte_equal": true
+      },
+      "comparison_errors": {},
+      "image_gate": true,
+      "latent_sha256": "f25a81149b04254c302fbb3b30916891e478c5cb6a7d6d6b1e71d1a91c852b79",
+      "image_sha256": "d217619d12747efaa6810c175d4a6d2ba88ede33932c52ebe34a19977952bf6a"
+    },
+    {
+      "index": 5,
+      "mode": "baseline",
+      "success": true,
+      "wall": {
+        "denoise_s": 5.437424606992863,
+        "vae_s": 0.547364555997774
+      },
+      "request_wall_s": 6.230980451000505,
+      "conditioning_first_embedding_sha256": {
+        "positive": "a6c15ee3d0208bb976cb338714960a180fd73170fa904280577da928000f4968",
+        "negative": "f2199b5a6d7ba57a2d9d62675ea8d45c8d5da3f77d6e969fc1ee7f562cb0ec2e"
+      },
+      "candidate": {},
+      "stage_calls": {
+        "denoise": 1,
+        "vae": 1
+      },
+      "profile_artifacts": [],
+      "latent_error": {
+        "finite": true,
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "byte_equal": true
+      },
+      "image_error": {
+        "finite": true,
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "byte_equal": true
+      },
+      "comparison_errors": {},
+      "image_gate": true,
+      "latent_sha256": "f25a81149b04254c302fbb3b30916891e478c5cb6a7d6d6b1e71d1a91c852b79",
+      "image_sha256": "d217619d12747efaa6810c175d4a6d2ba88ede33932c52ebe34a19977952bf6a",
+      "required_bitwise_gate": true
+    },
+    {
+      "index": 6,
+      "mode": "profile",
+      "success": true,
+      "wall": {
+        "denoise_s": 5.680117950003478,
+        "vae_s": 0.5662003599863965
+      },
+      "request_wall_s": 10.813374530000146,
+      "conditioning_first_embedding_sha256": {
+        "positive": "a6c15ee3d0208bb976cb338714960a180fd73170fa904280577da928000f4968",
+        "negative": "f2199b5a6d7ba57a2d9d62675ea8d45c8d5da3f77d6e969fc1ee7f562cb0ec2e"
+      },
+      "candidate": {},
+      "stage_calls": {
+        "denoise": 1,
+        "vae": 1
+      },
+      "profile_artifacts": [
+        {
+          "stage": "denoise",
+          "invocation": 0,
+          "operators": "profile_006_denoise_000_operators.json",
+          "kernels": "profile_006_denoise_000_kernels.json",
+          "trace": "profile_006_denoise_000_trace.json"
+        },
+        {
+          "stage": "vae",
+          "invocation": 0,
+          "operators": "profile_006_vae_000_operators.json",
+          "kernels": "profile_006_vae_000_kernels.json",
+          "trace": "profile_006_vae_000_trace.json"
+        }
+      ],
+      "latent_error": {
+        "finite": true,
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "byte_equal": true
+      },
+      "image_error": {
+        "finite": true,
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "byte_equal": true
+      },
+      "comparison_errors": {},
+      "image_gate": true,
+      "latent_sha256": "f25a81149b04254c302fbb3b30916891e478c5cb6a7d6d6b1e71d1a91c852b79",
+      "image_sha256": "d217619d12747efaa6810c175d4a6d2ba88ede33932c52ebe34a19977952bf6a"
+    }
+  ]
+}

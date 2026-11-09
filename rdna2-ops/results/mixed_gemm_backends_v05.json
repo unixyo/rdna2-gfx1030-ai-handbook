@@ -1,0 +1,759 @@
+{
+  "input": "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/v05_moss_capture_fixed/actual_qkv_1061_1061.pt",
+  "shape": [
+    1,
+    24,
+    1061,
+    128
+  ],
+  "strides": [
+    [
+      3259392,
+      128,
+      3072,
+      1
+    ],
+    [
+      3259392,
+      128,
+      3072,
+      1
+    ],
+    [
+      9778176,
+      128,
+      9216,
+      1
+    ]
+  ],
+  "source": "actual captured QKV with original strides restored",
+  "capture_metadata": {
+    "shapes": [
+      [
+        1,
+        24,
+        1061,
+        128
+      ],
+      [
+        1,
+        24,
+        1061,
+        128
+      ],
+      [
+        1,
+        24,
+        1061,
+        128
+      ]
+    ],
+    "strides": [
+      [
+        3259392,
+        128,
+        3072,
+        1
+      ],
+      [
+        3259392,
+        128,
+        3072,
+        1
+      ],
+      [
+        9778176,
+        128,
+        9216,
+        1
+      ]
+    ],
+    "dtype": "torch.float32",
+    "heads": null,
+    "mask": null,
+    "source": {
+      "module": "~/DevSpace/moss-image-rdna2-lab01/custom_nodes/MOSS_RDNA2_INT8.attention_dispatch",
+      "name": "install.<locals>.dispatch",
+      "path": "~/DevSpace/moss-image-rdna2-lab01/custom_nodes/MOSS_RDNA2_INT8/attention_dispatch.py"
+    }
+  },
+  "scale": null,
+  "input_stats": {
+    "q": {
+      "finite": true,
+      "max_abs": 10.405517578125,
+      "half_finite": true
+    },
+    "k": {
+      "finite": true,
+      "max_abs": 9.109071731567383,
+      "half_finite": true
+    },
+    "v": {
+      "finite": true,
+      "max_abs": 24.949474334716797,
+      "half_finite": true
+    }
+  },
+  "torch": "2.12.0+rocm10.2.0a20261011",
+  "gpu": "AMD Radeon RX 6900 XT",
+  "acceptance": "operator diagnostic; final model RGB max<=2/255, RMSE<=.25/255 is decisive",
+  "timing": "ordinary wall; 3 warmups then 3 alternating rounds x3 calls; allocations/conversions included",
+  "rows": [
+    {
+      "mode": "native_math",
+      "error": {
+        "finite": true,
+        "byte_equal": true,
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "relative_rmse": 0.0
+      },
+      "extra_peak_bytes": 258430464,
+      "round_ms": [
+        2.5597206670984938,
+        2.556101001876717,
+        2.566590667508232
+      ],
+      "median_ms": 2.5597206670984938,
+      "speedup": 1.0
+    },
+    {
+      "mode": "control_fp32",
+      "error": {
+        "finite": true,
+        "byte_equal": true,
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "relative_rmse": 0.0
+      },
+      "extra_peak_bytes": 353256960,
+      "round_ms": [
+        2.7453493336603665,
+        2.7171759987443997,
+        2.745112666161731
+      ],
+      "median_ms": 2.745112666161731,
+      "speedup": 0.9324647030526234
+    },
+    {
+      "mode": "qk_half",
+      "error": {
+        "finite": true,
+        "byte_equal": false,
+        "max_abs": 0.006478309631347656,
+        "rmse": 8.530045275771276e-05,
+        "relative_rmse": 0.0001565738532607161
+      },
+      "extra_peak_bytes": 353256960,
+      "round_ms": [
+        5.94271533433736,
+        5.9478019999611815,
+        5.985611666498396
+      ],
+      "median_ms": 5.9478019999611815,
+      "speedup": 0.43036413571184784
+    },
+    {
+      "mode": "pv_half",
+      "error": {
+        "finite": true,
+        "byte_equal": false,
+        "max_abs": 0.010915756225585938,
+        "rmse": 7.444254910204788e-05,
+        "relative_rmse": 0.00013664355091484316
+      },
+      "extra_peak_bytes": 353256960,
+      "round_ms": [
+        3.1788293345016427,
+        3.1531096659212685,
+        3.18191933183698
+      ],
+      "median_ms": 3.1788293345016427,
+      "speedup": 0.8052400420860565
+    },
+    {
+      "mode": "both_half",
+      "error": {
+        "finite": true,
+        "byte_equal": false,
+        "max_abs": 0.011749267578125,
+        "rmse": 0.00011310259352035389,
+        "relative_rmse": 0.00020760627064386937
+      },
+      "extra_peak_bytes": 353256960,
+      "round_ms": [
+        6.42098533474685,
+        6.448274999759936,
+        6.427341999369673
+      ],
+      "median_ms": 6.427341999369673,
+      "speedup": 0.39825493452029226
+    },
+    {
+      "mode": "qk_split3",
+      "error": {
+        "finite": true,
+        "byte_equal": false,
+        "max_abs": 1.1444091796875e-05,
+        "rmse": 2.392030918335498e-07,
+        "relative_rmse": 4.3907093795430494e-07
+      },
+      "extra_peak_bytes": 488357888,
+      "round_ms": [
+        16.124532000200514,
+        16.48556933165916,
+        16.12464566763568
+      ],
+      "median_ms": 16.12464566763568,
+      "speedup": 0.15874585524916032
+    },
+    {
+      "mode": "pv_split3",
+      "error": {
+        "finite": true,
+        "byte_equal": false,
+        "max_abs": 1.430511474609375e-05,
+        "rmse": 3.115130667733979e-07,
+        "relative_rmse": 5.718000271852426e-07
+      },
+      "extra_peak_bytes": 535874048,
+      "round_ms": [
+        6.331206001050305,
+        6.336488998689068,
+        6.334635666765583
+      ],
+      "median_ms": 6.334635666765583,
+      "speedup": 0.40408332882157183
+    }
+  ],
+  "gemm_profile_scope": "3 warmed BMM calls per path; conversions excluded; diagnostic GPU activity totals",
+  "gemm_profiles": [
+    {
+      "stage": "QK",
+      "path": "fp32",
+      "output_dtype": "torch.float32",
+      "input_strides": [
+        [
+          128,
+          3072,
+          1
+        ],
+        [
+          128,
+          1,
+          3072
+        ]
+      ],
+      "profile": {
+        "operator_attribution": {
+          "denominator_ms": 4.620273999999999,
+          "rows": [
+            {
+              "name": "aten::bmm",
+              "self_gpu_ms": 4.620273999999999,
+              "count": 3,
+              "device_type": "DeviceType.CPU",
+              "input_shapes": [
+                [
+                  24,
+                  1061,
+                  128
+                ],
+                [
+                  24,
+                  128,
+                  1061
+                ]
+              ],
+              "share_of_this_table": 1.0
+            }
+          ],
+          "top10": [
+            {
+              "name": "aten::bmm",
+              "self_gpu_ms": 4.620273999999999,
+              "count": 3,
+              "device_type": "DeviceType.CPU",
+              "input_shapes": [
+                [
+                  24,
+                  1061,
+                  128
+                ],
+                [
+                  24,
+                  128,
+                  1061
+                ]
+              ],
+              "share_of_this_table": 1.0
+            }
+          ]
+        },
+        "device_activities": {
+          "denominator_ms": 4.620273999999999,
+          "rows": [
+            {
+              "name": "Cijk_Alik_Bljk_SB_MT128x128x16_SN_AMAS3_BL1_BS1_EPS0_GLVWA4_GLVWB4_GRVW4_GSU1_GSUASB_ISA1030_IU1_K1_KLA_LDL1_LRVW4_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU0_SUM0_SUS0_SVW4_TT8_16_USFGROn1_VAW1_VSn1_VW4_VWB4_WS32_WG16_8_1_WGM1.kd",
+              "self_gpu_ms": 4.620273999999999,
+              "count": 3,
+              "device_type": "DeviceType.CUDA",
+              "input_shapes": [],
+              "share_of_this_table": 1.0
+            }
+          ],
+          "top10": [
+            {
+              "name": "Cijk_Alik_Bljk_SB_MT128x128x16_SN_AMAS3_BL1_BS1_EPS0_GLVWA4_GLVWB4_GRVW4_GSU1_GSUASB_ISA1030_IU1_K1_KLA_LDL1_LRVW4_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU0_SUM0_SUS0_SVW4_TT8_16_USFGROn1_VAW1_VSn1_VW4_VWB4_WS32_WG16_8_1_WGM1.kd",
+              "self_gpu_ms": 4.620273999999999,
+              "count": 3,
+              "device_type": "DeviceType.CUDA",
+              "input_shapes": [],
+              "share_of_this_table": 1.0
+            }
+          ]
+        }
+      }
+    },
+    {
+      "stage": "QK",
+      "path": "fp16_output",
+      "output_dtype": "torch.float16",
+      "input_strides": [
+        [
+          128,
+          3072,
+          1
+        ],
+        [
+          128,
+          1,
+          3072
+        ]
+      ],
+      "profile": {
+        "operator_attribution": {
+          "denominator_ms": 1.3066750000000003,
+          "rows": [
+            {
+              "name": "aten::bmm",
+              "self_gpu_ms": 1.3066750000000003,
+              "count": 3,
+              "device_type": "DeviceType.CPU",
+              "input_shapes": [
+                [
+                  24,
+                  1061,
+                  128
+                ],
+                [
+                  24,
+                  128,
+                  1061
+                ]
+              ],
+              "share_of_this_table": 1.0
+            }
+          ],
+          "top10": [
+            {
+              "name": "aten::bmm",
+              "self_gpu_ms": 1.3066750000000003,
+              "count": 3,
+              "device_type": "DeviceType.CPU",
+              "input_shapes": [
+                [
+                  24,
+                  1061,
+                  128
+                ],
+                [
+                  24,
+                  128,
+                  1061
+                ]
+              ],
+              "share_of_this_table": 1.0
+            }
+          ]
+        },
+        "device_activities": {
+          "denominator_ms": 1.3066750000000003,
+          "rows": [
+            {
+              "name": "Cijk_Alik_Bljk_HHS_BH_MT128x256x16_SN_AMAS3_BL1_BS1_EPS0_GLVWA8_GLVWB8_GRVW8_GSU1_GSUASB_ISA1030_IU2_K1_KLA_LDL2_LRVW8_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU0_SUM0_SUS0_SVW4_TT8_16_USFGROn1_VAW2_VSn1_VW8_VWB8_WS32_WG16_16_1_WGM4.kd",
+              "self_gpu_ms": 1.3066750000000003,
+              "count": 3,
+              "device_type": "DeviceType.CUDA",
+              "input_shapes": [],
+              "share_of_this_table": 1.0
+            }
+          ],
+          "top10": [
+            {
+              "name": "Cijk_Alik_Bljk_HHS_BH_MT128x256x16_SN_AMAS3_BL1_BS1_EPS0_GLVWA8_GLVWB8_GRVW8_GSU1_GSUASB_ISA1030_IU2_K1_KLA_LDL2_LRVW8_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU0_SUM0_SUS0_SVW4_TT8_16_USFGROn1_VAW2_VSn1_VW8_VWB8_WS32_WG16_16_1_WGM4.kd",
+              "self_gpu_ms": 1.3066750000000003,
+              "count": 3,
+              "device_type": "DeviceType.CUDA",
+              "input_shapes": [],
+              "share_of_this_table": 1.0
+            }
+          ]
+        }
+      }
+    },
+    {
+      "stage": "QK",
+      "path": "fp32_output",
+      "output_dtype": "torch.float32",
+      "input_strides": [
+        [
+          128,
+          3072,
+          1
+        ],
+        [
+          128,
+          1,
+          3072
+        ]
+      ],
+      "profile": {
+        "operator_attribution": {
+          "denominator_ms": 11.877711,
+          "rows": [
+            {
+              "name": "aten::bmm",
+              "self_gpu_ms": 11.877711,
+              "count": 3,
+              "device_type": "DeviceType.CPU",
+              "input_shapes": [
+                [
+                  24,
+                  1061,
+                  128
+                ],
+                [
+                  24,
+                  128,
+                  1061
+                ],
+                []
+              ],
+              "share_of_this_table": 1.0
+            }
+          ],
+          "top10": [
+            {
+              "name": "aten::bmm",
+              "self_gpu_ms": 11.877711,
+              "count": 3,
+              "device_type": "DeviceType.CPU",
+              "input_shapes": [
+                [
+                  24,
+                  1061,
+                  128
+                ],
+                [
+                  24,
+                  128,
+                  1061
+                ],
+                []
+              ],
+              "share_of_this_table": 1.0
+            }
+          ]
+        },
+        "device_activities": {
+          "denominator_ms": 11.877711,
+          "rows": [
+            {
+              "name": "Cijk_Alik_Bljk_HSS_BH_MT64x32x8_SE_AMAS2_BL1_BS1_EPS0_GLVWA2_GLVWB1_GRVW2_GSU1_GSUASB_ISA000_IU1_K1_KLS_LDL1_LRVW2_MMFSC_NLCA1_NLCB1_PGR0_PLR1_SIA1_SU32_SUM0_SUS256_SVW4_TT4_2_USFGROn1_VAW2_VSn1_VW2_VWB2_WS64_WG16_16_1_WGM8.kd",
+              "self_gpu_ms": 11.877711,
+              "count": 3,
+              "device_type": "DeviceType.CUDA",
+              "input_shapes": [],
+              "share_of_this_table": 1.0
+            }
+          ],
+          "top10": [
+            {
+              "name": "Cijk_Alik_Bljk_HSS_BH_MT64x32x8_SE_AMAS2_BL1_BS1_EPS0_GLVWA2_GLVWB1_GRVW2_GSU1_GSUASB_ISA000_IU1_K1_KLS_LDL1_LRVW2_MMFSC_NLCA1_NLCB1_PGR0_PLR1_SIA1_SU32_SUM0_SUS256_SVW4_TT4_2_USFGROn1_VAW2_VSn1_VW2_VWB2_WS64_WG16_16_1_WGM8.kd",
+              "self_gpu_ms": 11.877711,
+              "count": 3,
+              "device_type": "DeviceType.CUDA",
+              "input_shapes": [],
+              "share_of_this_table": 1.0
+            }
+          ]
+        }
+      }
+    },
+    {
+      "stage": "PV",
+      "path": "fp32",
+      "output_dtype": "torch.float32",
+      "input_strides": [
+        [
+          1125721,
+          1061,
+          1
+        ],
+        [
+          128,
+          9216,
+          1
+        ]
+      ],
+      "profile": {
+        "operator_attribution": {
+          "denominator_ms": 1.0603159999999998,
+          "rows": [
+            {
+              "name": "aten::bmm",
+              "self_gpu_ms": 1.0603159999999998,
+              "count": 3,
+              "device_type": "DeviceType.CPU",
+              "input_shapes": [
+                [
+                  24,
+                  1061,
+                  1061
+                ],
+                [
+                  24,
+                  1061,
+                  128
+                ]
+              ],
+              "share_of_this_table": 1.0
+            }
+          ],
+          "top10": [
+            {
+              "name": "aten::bmm",
+              "self_gpu_ms": 1.0603159999999998,
+              "count": 3,
+              "device_type": "DeviceType.CPU",
+              "input_shapes": [
+                [
+                  24,
+                  1061,
+                  1061
+                ],
+                [
+                  24,
+                  1061,
+                  128
+                ]
+              ],
+              "share_of_this_table": 1.0
+            }
+          ]
+        },
+        "device_activities": {
+          "denominator_ms": 1.0603159999999998,
+          "rows": [
+            {
+              "name": "Cijk_Ailk_Bljk_SB_MT128x64x16_SN_AMAS3_BL1_BS1_EPS0_GLVWA4_GLVWB4_GRVW4_GSU1_GSUASB_ISA1030_IU1_K1_KLA_LDL1_LRVW4_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU32_SUM3_SUS128_SVW4_TT8_8_USFGROn1_VAW1_VSn1_VW4_VWB4_WS32_WG16_8_1_WGM1.kd",
+              "self_gpu_ms": 1.0603159999999998,
+              "count": 3,
+              "device_type": "DeviceType.CUDA",
+              "input_shapes": [],
+              "share_of_this_table": 1.0
+            }
+          ],
+          "top10": [
+            {
+              "name": "Cijk_Ailk_Bljk_SB_MT128x64x16_SN_AMAS3_BL1_BS1_EPS0_GLVWA4_GLVWB4_GRVW4_GSU1_GSUASB_ISA1030_IU1_K1_KLA_LDL1_LRVW4_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU32_SUM3_SUS128_SVW4_TT8_8_USFGROn1_VAW1_VSn1_VW4_VWB4_WS32_WG16_8_1_WGM1.kd",
+              "self_gpu_ms": 1.0603159999999998,
+              "count": 3,
+              "device_type": "DeviceType.CUDA",
+              "input_shapes": [],
+              "share_of_this_table": 1.0
+            }
+          ]
+        }
+      }
+    },
+    {
+      "stage": "PV",
+      "path": "fp16_output",
+      "output_dtype": "torch.float16",
+      "input_strides": [
+        [
+          1125721,
+          1061,
+          1
+        ],
+        [
+          128,
+          3072,
+          1
+        ]
+      ],
+      "profile": {
+        "operator_attribution": {
+          "denominator_ms": 0.608115,
+          "rows": [
+            {
+              "name": "aten::bmm",
+              "self_gpu_ms": 0.608115,
+              "count": 3,
+              "device_type": "DeviceType.CPU",
+              "input_shapes": [
+                [
+                  24,
+                  1061,
+                  1061
+                ],
+                [
+                  24,
+                  1061,
+                  128
+                ]
+              ],
+              "share_of_this_table": 1.0
+            }
+          ],
+          "top10": [
+            {
+              "name": "aten::bmm",
+              "self_gpu_ms": 0.608115,
+              "count": 3,
+              "device_type": "DeviceType.CPU",
+              "input_shapes": [
+                [
+                  24,
+                  1061,
+                  1061
+                ],
+                [
+                  24,
+                  1061,
+                  128
+                ]
+              ],
+              "share_of_this_table": 1.0
+            }
+          ]
+        },
+        "device_activities": {
+          "denominator_ms": 0.608115,
+          "rows": [
+            {
+              "name": "Cijk_Ailk_Bljk_HHS_BH_MT128x256x16_SN_AMAS3_BL1_BS1_EPS0_GLVWA8_GLVWB8_GRVW8_GSU1_GSUASB_ISA1030_IU2_K1_KLA_LDL2_LRVW8_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU32_SUM3_SUS128_SVW4_TT8_16_USFGROn1_VAW2_VSn1_VW8_VWB8_WS32_WG16_16_1_WGM4.kd",
+              "self_gpu_ms": 0.608115,
+              "count": 3,
+              "device_type": "DeviceType.CUDA",
+              "input_shapes": [],
+              "share_of_this_table": 1.0
+            }
+          ],
+          "top10": [
+            {
+              "name": "Cijk_Ailk_Bljk_HHS_BH_MT128x256x16_SN_AMAS3_BL1_BS1_EPS0_GLVWA8_GLVWB8_GRVW8_GSU1_GSUASB_ISA1030_IU2_K1_KLA_LDL2_LRVW8_MMFGLC_NLCA1_NLCB1_PGR1_PLR1_SIA1_SU32_SUM3_SUS128_SVW4_TT8_16_USFGROn1_VAW2_VSn1_VW8_VWB8_WS32_WG16_16_1_WGM4.kd",
+              "self_gpu_ms": 0.608115,
+              "count": 3,
+              "device_type": "DeviceType.CUDA",
+              "input_shapes": [],
+              "share_of_this_table": 1.0
+            }
+          ]
+        }
+      }
+    },
+    {
+      "stage": "PV",
+      "path": "fp32_output",
+      "output_dtype": "torch.float32",
+      "input_strides": [
+        [
+          1125721,
+          1061,
+          1
+        ],
+        [
+          128,
+          3072,
+          1
+        ]
+      ],
+      "profile": {
+        "operator_attribution": {
+          "denominator_ms": 1.3979169999999999,
+          "rows": [
+            {
+              "name": "aten::bmm",
+              "self_gpu_ms": 1.3979169999999999,
+              "count": 3,
+              "device_type": "DeviceType.CPU",
+              "input_shapes": [
+                [
+                  24,
+                  1061,
+                  1061
+                ],
+                [
+                  24,
+                  1061,
+                  128
+                ],
+                []
+              ],
+              "share_of_this_table": 1.0
+            }
+          ],
+          "top10": [
+            {
+              "name": "aten::bmm",
+              "self_gpu_ms": 1.3979169999999999,
+              "count": 3,
+              "device_type": "DeviceType.CPU",
+              "input_shapes": [
+                [
+                  24,
+                  1061,
+                  1061
+                ],
+                [
+                  24,
+                  1061,
+                  128
+                ],
+                []
+              ],
+              "share_of_this_table": 1.0
+            }
+          ]
+        },
+        "device_activities": {
+          "denominator_ms": 1.3979169999999999,
+          "rows": [
+            {
+              "name": "Cijk_Ailk_Bljk_HSS_BH_MT64x32x8_SE_AMAS2_BL1_BS1_EPS0_GLVWA2_GLVWB1_GRVW2_GSU1_GSUASB_ISA000_IU1_K1_KLS_LDL1_LRVW2_MMFSC_NLCA1_NLCB1_PGR0_PLR1_SIA1_SU32_SUM0_SUS256_SVW4_TT4_2_USFGROn1_VAW2_VSn1_VW2_VWB2_WS64_WG16_16_1_WGM8.kd",
+              "self_gpu_ms": 1.3979169999999999,
+              "count": 3,
+              "device_type": "DeviceType.CUDA",
+              "input_shapes": [],
+              "share_of_this_table": 1.0
+            }
+          ],
+          "top10": [
+            {
+              "name": "Cijk_Ailk_Bljk_HSS_BH_MT64x32x8_SE_AMAS2_BL1_BS1_EPS0_GLVWA2_GLVWB1_GRVW2_GSU1_GSUASB_ISA000_IU1_K1_KLS_LDL1_LRVW2_MMFSC_NLCA1_NLCB1_PGR0_PLR1_SIA1_SU32_SUM0_SUS256_SVW4_TT4_2_USFGROn1_VAW2_VSn1_VW2_VWB2_WS64_WG16_16_1_WGM8.kd",
+              "self_gpu_ms": 1.3979169999999999,
+              "count": 3,
+              "device_type": "DeviceType.CUDA",
+              "input_shapes": [],
+              "share_of_this_table": 1.0
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

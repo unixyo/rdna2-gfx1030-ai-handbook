@@ -1,0 +1,275 @@
+{
+  "scope": "Completed protocols and stored JSON SHA only; no PNG content IO during GPU measurement.",
+  "runs": {
+    "tunable_anima_filtered_p0": {
+      "controls": {
+        "model": "anima",
+        "runner_sha256": "c0aa7102f8373045d29923b4ca77ee717b93221e2c9a1cdffd82727be62b2047",
+        "workflow_sha256": "ff2e96430dac62b2bf6a76e2b8de79024921bb2702988505953e5ff0ae8bf804",
+        "runtime_torch": "2.12.0+rocm10.2.0a20261011",
+        "csv_sha256": "8a0fdd106358b7eeebbfaa025774af235daa91d92965b2d9f206e5041daa2573",
+        "tunable": "on",
+        "seed": "20261107",
+        "steps": "30",
+        "modes": "base,cand,cand,cand"
+      },
+      "completed": true,
+      "speed_valid": true,
+      "audit": true,
+      "source_unchanged": true,
+      "finite": true,
+      "tokens": [
+        "a2f7654792dd44e2986753f5fc28ff2b503cebe7c041ae4ffd7b98f45b53084d",
+        "e461676b01910264bdb8b32e2c237fc791b6313ab9ce64ee3342f702551d36e4"
+      ],
+      "conditioning": [
+        "4aacc99f150d5739a7949b36ea6bbe10a28ba0785b4f3ec366851d53bcf47ead",
+        "496f9e0ae38affd35ad16099f82e7e01d8da158f97d88987cfa7ea71ff05dd6f"
+      ],
+      "clip_count": 2,
+      "clip_calls_seen": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "modes": {
+        "base": {
+          "hashes": {
+            "positive": [
+              "496f9e0ae38affd35ad16099f82e7e01d8da158f97d88987cfa7ea71ff05dd6f"
+            ],
+            "negative": [
+              "4aacc99f150d5739a7949b36ea6bbe10a28ba0785b4f3ec366851d53bcf47ead"
+            ],
+            "latent_input": [
+              "7c83e340054b828c13a36a7e73665eeff4b5cf6d9fe98da6e5db49e60b7103af"
+            ],
+            "latent_output": [
+              "b876fa8cab366c124151ead4de0995a8602d6ffa1c251fbf30e9b079beb5a284"
+            ],
+            "rgb": [
+              [
+                "1bbf642dc2a49b03067c68809403cd0fc38c85f42b7e7fe45d383cc8c38743b2"
+              ]
+            ]
+          },
+          "distinct": {
+            "positive": 1,
+            "negative": 1,
+            "latent_input": 1,
+            "latent_output": 1,
+            "rgb": 1
+          },
+          "denoise_s": [
+            62.03766373998951
+          ],
+          "warm_median_s": null
+        },
+        "cand": {
+          "hashes": {
+            "positive": [
+              "496f9e0ae38affd35ad16099f82e7e01d8da158f97d88987cfa7ea71ff05dd6f",
+              "496f9e0ae38affd35ad16099f82e7e01d8da158f97d88987cfa7ea71ff05dd6f",
+              "496f9e0ae38affd35ad16099f82e7e01d8da158f97d88987cfa7ea71ff05dd6f"
+            ],
+            "negative": [
+              "4aacc99f150d5739a7949b36ea6bbe10a28ba0785b4f3ec366851d53bcf47ead",
+              "4aacc99f150d5739a7949b36ea6bbe10a28ba0785b4f3ec366851d53bcf47ead",
+              "4aacc99f150d5739a7949b36ea6bbe10a28ba0785b4f3ec366851d53bcf47ead"
+            ],
+            "latent_input": [
+              "7c83e340054b828c13a36a7e73665eeff4b5cf6d9fe98da6e5db49e60b7103af",
+              "7c83e340054b828c13a36a7e73665eeff4b5cf6d9fe98da6e5db49e60b7103af",
+              "7c83e340054b828c13a36a7e73665eeff4b5cf6d9fe98da6e5db49e60b7103af"
+            ],
+            "latent_output": [
+              "a2019e37e48b3ddc1de4f7c134353a30805ae45a651046ce821eeeb6d8589a35",
+              "a2019e37e48b3ddc1de4f7c134353a30805ae45a651046ce821eeeb6d8589a35",
+              "a2019e37e48b3ddc1de4f7c134353a30805ae45a651046ce821eeeb6d8589a35"
+            ],
+            "rgb": [
+              [
+                "c23715552e1c198b8f4df88f318035f3dd280a35d476dfa6e6363c53e9203ecc"
+              ],
+              [
+                "c23715552e1c198b8f4df88f318035f3dd280a35d476dfa6e6363c53e9203ecc"
+              ],
+              [
+                "c23715552e1c198b8f4df88f318035f3dd280a35d476dfa6e6363c53e9203ecc"
+              ]
+            ]
+          },
+          "distinct": {
+            "positive": 1,
+            "negative": 1,
+            "latent_input": 1,
+            "latent_output": 1,
+            "rgb": 1
+          },
+          "denoise_s": [
+            45.39418539201142,
+            45.07621221098816,
+            45.09923094100668
+          ],
+          "warm_median_s": 45.08772157599742
+        }
+      }
+    },
+    "tunable_anima_filtered_p1": {
+      "controls": {
+        "model": "anima",
+        "runner_sha256": "c0aa7102f8373045d29923b4ca77ee717b93221e2c9a1cdffd82727be62b2047",
+        "workflow_sha256": "ff2e96430dac62b2bf6a76e2b8de79024921bb2702988505953e5ff0ae8bf804",
+        "runtime_torch": "2.12.0+rocm10.2.0a20261011",
+        "csv_sha256": "8a0fdd106358b7eeebbfaa025774af235daa91d92965b2d9f206e5041daa2573",
+        "tunable": "on",
+        "seed": "20261107",
+        "steps": "30",
+        "modes": "base,cand,cand,cand"
+      },
+      "completed": true,
+      "speed_valid": true,
+      "audit": true,
+      "source_unchanged": true,
+      "finite": true,
+      "tokens": [
+        "a2f7654792dd44e2986753f5fc28ff2b503cebe7c041ae4ffd7b98f45b53084d",
+        "e461676b01910264bdb8b32e2c237fc791b6313ab9ce64ee3342f702551d36e4"
+      ],
+      "conditioning": [
+        "4aacc99f150d5739a7949b36ea6bbe10a28ba0785b4f3ec366851d53bcf47ead",
+        "496f9e0ae38affd35ad16099f82e7e01d8da158f97d88987cfa7ea71ff05dd6f"
+      ],
+      "clip_count": 2,
+      "clip_calls_seen": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "modes": {
+        "base": {
+          "hashes": {
+            "positive": [
+              "496f9e0ae38affd35ad16099f82e7e01d8da158f97d88987cfa7ea71ff05dd6f"
+            ],
+            "negative": [
+              "4aacc99f150d5739a7949b36ea6bbe10a28ba0785b4f3ec366851d53bcf47ead"
+            ],
+            "latent_input": [
+              "7c83e340054b828c13a36a7e73665eeff4b5cf6d9fe98da6e5db49e60b7103af"
+            ],
+            "latent_output": [
+              "b876fa8cab366c124151ead4de0995a8602d6ffa1c251fbf30e9b079beb5a284"
+            ],
+            "rgb": [
+              [
+                "1bbf642dc2a49b03067c68809403cd0fc38c85f42b7e7fe45d383cc8c38743b2"
+              ]
+            ]
+          },
+          "distinct": {
+            "positive": 1,
+            "negative": 1,
+            "latent_input": 1,
+            "latent_output": 1,
+            "rgb": 1
+          },
+          "denoise_s": [
+            61.82806278899079
+          ],
+          "warm_median_s": null
+        },
+        "cand": {
+          "hashes": {
+            "positive": [
+              "496f9e0ae38affd35ad16099f82e7e01d8da158f97d88987cfa7ea71ff05dd6f",
+              "496f9e0ae38affd35ad16099f82e7e01d8da158f97d88987cfa7ea71ff05dd6f",
+              "496f9e0ae38affd35ad16099f82e7e01d8da158f97d88987cfa7ea71ff05dd6f"
+            ],
+            "negative": [
+              "4aacc99f150d5739a7949b36ea6bbe10a28ba0785b4f3ec366851d53bcf47ead",
+              "4aacc99f150d5739a7949b36ea6bbe10a28ba0785b4f3ec366851d53bcf47ead",
+              "4aacc99f150d5739a7949b36ea6bbe10a28ba0785b4f3ec366851d53bcf47ead"
+            ],
+            "latent_input": [
+              "7c83e340054b828c13a36a7e73665eeff4b5cf6d9fe98da6e5db49e60b7103af",
+              "7c83e340054b828c13a36a7e73665eeff4b5cf6d9fe98da6e5db49e60b7103af",
+              "7c83e340054b828c13a36a7e73665eeff4b5cf6d9fe98da6e5db49e60b7103af"
+            ],
+            "latent_output": [
+              "a2019e37e48b3ddc1de4f7c134353a30805ae45a651046ce821eeeb6d8589a35",
+              "a2019e37e48b3ddc1de4f7c134353a30805ae45a651046ce821eeeb6d8589a35",
+              "a2019e37e48b3ddc1de4f7c134353a30805ae45a651046ce821eeeb6d8589a35"
+            ],
+            "rgb": [
+              [
+                "c23715552e1c198b8f4df88f318035f3dd280a35d476dfa6e6363c53e9203ecc"
+              ],
+              [
+                "c23715552e1c198b8f4df88f318035f3dd280a35d476dfa6e6363c53e9203ecc"
+              ],
+              [
+                "c23715552e1c198b8f4df88f318035f3dd280a35d476dfa6e6363c53e9203ecc"
+              ]
+            ]
+          },
+          "distinct": {
+            "positive": 1,
+            "negative": 1,
+            "latent_input": 1,
+            "latent_output": 1,
+            "rgb": 1
+          },
+          "denoise_s": [
+            45.108218521025265,
+            45.116619003005326,
+            45.11401108899736
+          ],
+          "warm_median_s": 45.11531504600134
+        }
+      }
+    }
+  },
+  "comparison": {
+    "same_controls": {
+      "model": true,
+      "runner_sha256": true,
+      "workflow_sha256": true,
+      "runtime_torch": true,
+      "csv_sha256": true,
+      "tunable": true,
+      "seed": true,
+      "steps": true,
+      "modes": true
+    },
+    "same_tokens": true,
+    "same_conditioning": true,
+    "combined_distinct_by_mode": {
+      "base": {
+        "positive": 1,
+        "negative": 1,
+        "latent_input": 1,
+        "latent_output": 1,
+        "rgb": 1
+      },
+      "cand": {
+        "positive": 1,
+        "negative": 1,
+        "latent_input": 1,
+        "latent_output": 1,
+        "rgb": 1
+      }
+    }
+  },
+  "pooled_filtered_warm_samples_s": [
+    45.07621221098816,
+    45.09923094100668,
+    45.116619003005326,
+    45.11401108899736
+  ],
+  "pooled_filtered_warm_median_s": 45.10662101500202,
+  "original_warm_median_s": 45.231108354986645,
+  "original_div_filtered_pooled": 1.0027598462749676
+}

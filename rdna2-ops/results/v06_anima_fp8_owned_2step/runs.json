@@ -1,0 +1,525 @@
+{
+  "spec": {
+    "sampler": [
+      "KSampler",
+      "sample"
+    ],
+    "sampler_node": "7",
+    "model": "anima",
+    "runtime": "~/DevSpace/moss-image-rdna2-lab01/runtime/ComfyUI",
+    "workflow": "~/DevSpace/anima-rdna2-lab01/workflows/anima_t2i_1024_api.json",
+    "decoder": [
+      "VAEDecode",
+      "decode"
+    ],
+    "save_node": "9",
+    "attention_target": "comfy.ldm.cosmos.predict2:optimized_attention",
+    "env": {},
+    "server_args": [
+      "--extra-model-paths-config",
+      "~/DevSpace/anima-rdna2-lab01/extra_model_paths.yaml",
+      "--disable-auto-launch",
+      "--use-pytorch-cross-attention",
+      "--disable-comfy-compiler"
+    ],
+    "input_files": [],
+    "inputs": {
+      "1": {
+        "weight_dtype": "fp8_e4m3fn"
+      }
+    },
+    "attention_capture_target": "comfy.ops:scaled_dot_product_attention",
+    "switch_module": "fp8_owned_switches_v06",
+    "fp8_prepared_cache_bytes": 5368709120,
+    "research_scope": "Existing Anima BF16 checkpoint is represented as unscaled e4m3fn only in this request. Baseline and candidates use identical FP8 values. Owned FP16 weight+bias request cache; hit bypasses staging context. Existing immutable Anima only, no LoRA generalization.",
+    "gpu_audit": true,
+    "save_reference_tensors": true,
+    "require_bitwise_modes": [
+      "fp8_control",
+      "fp8_owned_linear"
+    ],
+    "fp8_int8_allowed_shapes": [
+      [
+        8192,
+        2048,
+        2048
+      ]
+    ],
+    "immutable_model_during_request": true
+  },
+  "seed": 20261107,
+  "rgb_gate": {
+    "max_abs": 0.00784313725490196,
+    "rmse": 0.000980392156862745
+  },
+  "runs": [
+    {
+      "index": 0,
+      "mode": "warm",
+      "success": true,
+      "wall": {
+        "denoise_s": 5.783625203999691,
+        "vae_s": 0.68854876999103
+      },
+      "request_wall_s": 8.550733067997498,
+      "conditioning_first_embedding_sha256": {
+        "positive": "a6c15ee3d0208bb976cb338714960a180fd73170fa904280577da928000f4968",
+        "negative": "f2199b5a6d7ba57a2d9d62675ea8d45c8d5da3f77d6e969fc1ee7f562cb0ec2e"
+      },
+      "candidate": {},
+      "stage_calls": {
+        "denoise": 1,
+        "vae": 1
+      },
+      "profile_artifacts": [],
+      "latent_error": {
+        "finite": true,
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "byte_equal": true
+      },
+      "image_error": {
+        "finite": true,
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "byte_equal": true
+      },
+      "comparison_errors": {},
+      "image_gate": true,
+      "latent_sha256": "d1fdab36ca3eaf3b52572cba8eed958d93d5f7f3e324c8368ee8b6ddbea08024",
+      "image_sha256": "7b4acda55216004addd15afe43306aa00a38a4b9c22685e4e5874a2a440a14fc"
+    },
+    {
+      "index": 1,
+      "mode": "fp8_control",
+      "success": true,
+      "wall": {
+        "denoise_s": 5.415627331996802,
+        "vae_s": 0.5515734299988253
+      },
+      "request_wall_s": 6.23142698200536,
+      "conditioning_first_embedding_sha256": {
+        "positive": "a6c15ee3d0208bb976cb338714960a180fd73170fa904280577da928000f4968",
+        "negative": "f2199b5a6d7ba57a2d9d62675ea8d45c8d5da3f77d6e969fc1ee7f562cb0ec2e"
+      },
+      "candidate": {
+        "mode": "fp8_control",
+        "hits": 1030,
+        "candidate_calls": 0,
+        "cache_reuses": 0,
+        "preparations": 0,
+        "cache_bytes": 0,
+        "max_cache_bytes": 5368709120,
+        "int8_allowed_shapes": [
+          [
+            8192,
+            2048,
+            2048
+          ]
+        ],
+        "contract": "plain unscaled FP8 weight, FP16 activation, immutable model, request-local prepared storage",
+        "preparation_in_stage_time": true,
+        "native_source_weight_dtype": {
+          "torch.bfloat16": 1030
+        },
+        "geometry_weight_dtype": {
+          "torch.float8_e4m3fn": 1030
+        },
+        "actual_resident_weight_dtype": {
+          "torch.float8_e4m3fn": 1030
+        },
+        "actual_weight_contracts": {
+          "('torch.float8_e4m3fn', (1024, 1024), (1024, 1), 'cuda:0')": 98,
+          "('torch.float8_e4m3fn', (4096, 1024), (1024, 1), 'cuda:0')": 12,
+          "('torch.float8_e4m3fn', (1024, 4096), (4096, 1), 'cuda:0')": 12,
+          "('torch.float8_e4m3fn', (2048, 68), (68, 1), 'cuda:0')": 2,
+          "('torch.float8_e4m3fn', (2048, 2048), (2048, 1), 'cuda:0')": 338,
+          "('torch.float8_e4m3fn', (6144, 2048), (2048, 1), 'cuda:0')": 2,
+          "('torch.float8_e4m3fn', (256, 2048), (2048, 1), 'cuda:0')": 170,
+          "('torch.float8_e4m3fn', (6144, 256), (256, 1), 'cuda:0')": 168,
+          "('torch.float8_e4m3fn', (2048, 1024), (1024, 1), 'cuda:0')": 112,
+          "('torch.float8_e4m3fn', (8192, 2048), (2048, 1), 'cuda:0')": 56,
+          "('torch.float8_e4m3fn', (2048, 8192), (8192, 1), 'cuda:0')": 56,
+          "('torch.float8_e4m3fn', (4096, 256), (256, 1), 'cuda:0')": 2,
+          "('torch.float8_e4m3fn', (64, 2048), (2048, 1), 'cuda:0')": 2
+        },
+        "context_weight_is_resident_storage": {},
+        "shapes": {
+          "((1, 177, 1024), (1024, 1024), 'torch.float8_e4m3fn')": 37,
+          "((1, 156, 1024), (1024, 1024), 'torch.float8_e4m3fn')": 12,
+          "((1, 177, 1024), (4096, 1024), 'torch.float8_e4m3fn')": 6,
+          "((1, 177, 4096), (1024, 4096), 'torch.float8_e4m3fn')": 6,
+          "((1, 38, 1024), (1024, 1024), 'torch.float8_e4m3fn')": 37,
+          "((1, 32, 1024), (1024, 1024), 'torch.float8_e4m3fn')": 12,
+          "((1, 38, 1024), (4096, 1024), 'torch.float8_e4m3fn')": 6,
+          "((1, 38, 4096), (1024, 4096), 'torch.float8_e4m3fn')": 6,
+          "((2, 1, 64, 64, 68), (2048, 68), 'torch.float8_e4m3fn')": 2,
+          "((2, 1, 2048), (2048, 2048), 'torch.float8_e4m3fn')": 2,
+          "((2, 1, 2048), (6144, 2048), 'torch.float8_e4m3fn')": 2,
+          "((2, 1, 2048), (256, 2048), 'torch.float8_e4m3fn')": 170,
+          "((2, 1, 256), (6144, 256), 'torch.float8_e4m3fn')": 168,
+          "((2, 4096, 2048), (2048, 2048), 'torch.float8_e4m3fn')": 336,
+          "((2, 512, 1024), (2048, 1024), 'torch.float8_e4m3fn')": 112,
+          "((2, 1, 64, 64, 2048), (8192, 2048), 'torch.float8_e4m3fn')": 56,
+          "((2, 1, 64, 64, 8192), (2048, 8192), 'torch.float8_e4m3fn')": 56,
+          "((2, 1, 256), (4096, 256), 'torch.float8_e4m3fn')": 2,
+          "((2, 1, 64, 64, 2048), (64, 2048), 'torch.float8_e4m3fn')": 2
+        },
+        "fallbacks": {},
+        "source_sha256": {
+          "dtype_switches_v06.py": "bb0a9fde7506c560b6a7187288adace6d8f9e9b8025c0826a07572aac6972f07",
+          "rdna2_ops/fp8_weight_gemm_v06.py": "6305048cda4e2dd61c1512d775cef700784de1aaf9831cae7d3eef1c12597223",
+          "rdna2_ops/int8_gemm.py": "0b2d0970af17ddf61aa19d242bfebbb6f42add330e07387442dbe97ab316109d"
+        },
+        "cuda_allocated_bytes_at_entry": 33896448,
+        "memory_scope": "per-request PyTorch allocator, excludes external DynamicVRAM allocator; explicit prepared cache bytes also recorded",
+        "cuda_peak_allocated_bytes": 3045647872,
+        "prepared_entries": 0,
+        "request_cache_released": true
+      },
+      "stage_calls": {
+        "denoise": 1,
+        "vae": 1
+      },
+      "profile_artifacts": [],
+      "latent_error": {
+        "finite": true,
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "byte_equal": true
+      },
+      "image_error": {
+        "finite": true,
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "byte_equal": true
+      },
+      "comparison_errors": {},
+      "image_gate": true,
+      "latent_sha256": "d1fdab36ca3eaf3b52572cba8eed958d93d5f7f3e324c8368ee8b6ddbea08024",
+      "image_sha256": "7b4acda55216004addd15afe43306aa00a38a4b9c22685e4e5874a2a440a14fc",
+      "required_bitwise_gate": true
+    },
+    {
+      "index": 2,
+      "mode": "fp8_owned_linear",
+      "success": true,
+      "wall": {
+        "denoise_s": 5.382311287001357,
+        "vae_s": 0.556533044000389
+      },
+      "request_wall_s": 6.333883743995102,
+      "conditioning_first_embedding_sha256": {
+        "positive": "a6c15ee3d0208bb976cb338714960a180fd73170fa904280577da928000f4968",
+        "negative": "f2199b5a6d7ba57a2d9d62675ea8d45c8d5da3f77d6e969fc1ee7f562cb0ec2e"
+      },
+      "candidate": {
+        "mode": "fp8_owned_linear",
+        "hits": 1030,
+        "candidate_calls": 1030,
+        "preparations": 515,
+        "cache_reuses": 515,
+        "cache_bytes": 4116264960,
+        "max_cache_bytes": 5368709120,
+        "fallbacks": {},
+        "shapes": {
+          "((1, 177, 1024), (1024, 1024))": 37,
+          "((1, 156, 1024), (1024, 1024))": 12,
+          "((1, 177, 1024), (4096, 1024))": 6,
+          "((1, 177, 4096), (1024, 4096))": 6,
+          "((1, 38, 1024), (1024, 1024))": 37,
+          "((1, 32, 1024), (1024, 1024))": 12,
+          "((1, 38, 1024), (4096, 1024))": 6,
+          "((1, 38, 4096), (1024, 4096))": 6,
+          "((2, 1, 64, 64, 68), (2048, 68))": 2,
+          "((2, 1, 2048), (2048, 2048))": 2,
+          "((2, 1, 2048), (6144, 2048))": 2,
+          "((2, 1, 2048), (256, 2048))": 170,
+          "((2, 1, 256), (6144, 256))": 168,
+          "((2, 4096, 2048), (2048, 2048))": 336,
+          "((2, 512, 1024), (2048, 1024))": 112,
+          "((2, 1, 64, 64, 2048), (8192, 2048))": 56,
+          "((2, 1, 64, 64, 8192), (2048, 8192))": 56,
+          "((2, 1, 256), (4096, 256))": 2,
+          "((2, 1, 64, 64, 2048), (64, 2048))": 2
+        },
+        "source_weight_dtype": {
+          "torch.bfloat16": 1030
+        },
+        "geometry_weight_dtype": {
+          "torch.float8_e4m3fn": 1030
+        },
+        "prepared_from_weight_contracts": {
+          "('torch.float8_e4m3fn', (1024, 1024), (1024, 1), 'cuda:0')": 49,
+          "('torch.float8_e4m3fn', (4096, 1024), (1024, 1), 'cuda:0')": 6,
+          "('torch.float8_e4m3fn', (1024, 4096), (4096, 1), 'cuda:0')": 6,
+          "('torch.float8_e4m3fn', (2048, 68), (68, 1), 'cuda:0')": 1,
+          "('torch.float8_e4m3fn', (2048, 2048), (2048, 1), 'cuda:0')": 169,
+          "('torch.float8_e4m3fn', (6144, 2048), (2048, 1), 'cuda:0')": 1,
+          "('torch.float8_e4m3fn', (256, 2048), (2048, 1), 'cuda:0')": 85,
+          "('torch.float8_e4m3fn', (6144, 256), (256, 1), 'cuda:0')": 84,
+          "('torch.float8_e4m3fn', (2048, 1024), (1024, 1), 'cuda:0')": 56,
+          "('torch.float8_e4m3fn', (8192, 2048), (2048, 1), 'cuda:0')": 28,
+          "('torch.float8_e4m3fn', (2048, 8192), (8192, 1), 'cuda:0')": 28,
+          "('torch.float8_e4m3fn', (4096, 256), (256, 1), 'cuda:0')": 1,
+          "('torch.float8_e4m3fn', (64, 2048), (2048, 1), 'cuda:0')": 1
+        },
+        "context_weight_is_resident_storage": {
+          "True": 515
+        },
+        "bias_owned_copies": 13,
+        "cache_hit_context_entries": 0,
+        "preparation_in_stage_time": true,
+        "contract": "Existing immutable Anima, raw unscaled FP8 resident, FP16 activation; owned weight+bias per request; no LoRA or model mutation",
+        "memory_scope": "per-request PyTorch allocator, excludes external DynamicVRAM allocator; explicit owned cache bytes recorded",
+        "source_sha256": {
+          "fp8_owned_switches_v06.py": "5ac9b07ac4c2bf54249295ca4aea8acae25386251bf80a37680ac2e80c5da9e9",
+          "dtype_switches_v06.py": "bb0a9fde7506c560b6a7187288adace6d8f9e9b8025c0826a07572aac6972f07",
+          "rdna2_ops/fp8_weight_gemm_v06.py": "6305048cda4e2dd61c1512d775cef700784de1aaf9831cae7d3eef1c12597223"
+        },
+        "cuda_allocated_bytes_at_entry": 33896448,
+        "cuda_peak_allocated_bytes": 7200464384,
+        "prepared_entries": 515,
+        "request_cache_released": true
+      },
+      "stage_calls": {
+        "denoise": 1,
+        "vae": 1
+      },
+      "profile_artifacts": [],
+      "latent_error": {
+        "finite": true,
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "byte_equal": true
+      },
+      "image_error": {
+        "finite": true,
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "byte_equal": true
+      },
+      "comparison_errors": {},
+      "image_gate": true,
+      "latent_sha256": "d1fdab36ca3eaf3b52572cba8eed958d93d5f7f3e324c8368ee8b6ddbea08024",
+      "image_sha256": "7b4acda55216004addd15afe43306aa00a38a4b9c22685e4e5874a2a440a14fc",
+      "required_bitwise_gate": true
+    },
+    {
+      "index": 3,
+      "mode": "fp8_control",
+      "success": true,
+      "wall": {
+        "denoise_s": 5.388641900004586,
+        "vae_s": 0.5511245730012888
+      },
+      "request_wall_s": 6.231000835992745,
+      "conditioning_first_embedding_sha256": {
+        "positive": "a6c15ee3d0208bb976cb338714960a180fd73170fa904280577da928000f4968",
+        "negative": "f2199b5a6d7ba57a2d9d62675ea8d45c8d5da3f77d6e969fc1ee7f562cb0ec2e"
+      },
+      "candidate": {
+        "mode": "fp8_control",
+        "hits": 1030,
+        "candidate_calls": 0,
+        "cache_reuses": 0,
+        "preparations": 0,
+        "cache_bytes": 0,
+        "max_cache_bytes": 5368709120,
+        "int8_allowed_shapes": [
+          [
+            8192,
+            2048,
+            2048
+          ]
+        ],
+        "contract": "plain unscaled FP8 weight, FP16 activation, immutable model, request-local prepared storage",
+        "preparation_in_stage_time": true,
+        "native_source_weight_dtype": {
+          "torch.bfloat16": 1030
+        },
+        "geometry_weight_dtype": {
+          "torch.float8_e4m3fn": 1030
+        },
+        "actual_resident_weight_dtype": {
+          "torch.float8_e4m3fn": 1030
+        },
+        "actual_weight_contracts": {
+          "('torch.float8_e4m3fn', (1024, 1024), (1024, 1), 'cuda:0')": 98,
+          "('torch.float8_e4m3fn', (4096, 1024), (1024, 1), 'cuda:0')": 12,
+          "('torch.float8_e4m3fn', (1024, 4096), (4096, 1), 'cuda:0')": 12,
+          "('torch.float8_e4m3fn', (2048, 68), (68, 1), 'cuda:0')": 2,
+          "('torch.float8_e4m3fn', (2048, 2048), (2048, 1), 'cuda:0')": 338,
+          "('torch.float8_e4m3fn', (6144, 2048), (2048, 1), 'cuda:0')": 2,
+          "('torch.float8_e4m3fn', (256, 2048), (2048, 1), 'cuda:0')": 170,
+          "('torch.float8_e4m3fn', (6144, 256), (256, 1), 'cuda:0')": 168,
+          "('torch.float8_e4m3fn', (2048, 1024), (1024, 1), 'cuda:0')": 112,
+          "('torch.float8_e4m3fn', (8192, 2048), (2048, 1), 'cuda:0')": 56,
+          "('torch.float8_e4m3fn', (2048, 8192), (8192, 1), 'cuda:0')": 56,
+          "('torch.float8_e4m3fn', (4096, 256), (256, 1), 'cuda:0')": 2,
+          "('torch.float8_e4m3fn', (64, 2048), (2048, 1), 'cuda:0')": 2
+        },
+        "context_weight_is_resident_storage": {},
+        "shapes": {
+          "((1, 177, 1024), (1024, 1024), 'torch.float8_e4m3fn')": 37,
+          "((1, 156, 1024), (1024, 1024), 'torch.float8_e4m3fn')": 12,
+          "((1, 177, 1024), (4096, 1024), 'torch.float8_e4m3fn')": 6,
+          "((1, 177, 4096), (1024, 4096), 'torch.float8_e4m3fn')": 6,
+          "((1, 38, 1024), (1024, 1024), 'torch.float8_e4m3fn')": 37,
+          "((1, 32, 1024), (1024, 1024), 'torch.float8_e4m3fn')": 12,
+          "((1, 38, 1024), (4096, 1024), 'torch.float8_e4m3fn')": 6,
+          "((1, 38, 4096), (1024, 4096), 'torch.float8_e4m3fn')": 6,
+          "((2, 1, 64, 64, 68), (2048, 68), 'torch.float8_e4m3fn')": 2,
+          "((2, 1, 2048), (2048, 2048), 'torch.float8_e4m3fn')": 2,
+          "((2, 1, 2048), (6144, 2048), 'torch.float8_e4m3fn')": 2,
+          "((2, 1, 2048), (256, 2048), 'torch.float8_e4m3fn')": 170,
+          "((2, 1, 256), (6144, 256), 'torch.float8_e4m3fn')": 168,
+          "((2, 4096, 2048), (2048, 2048), 'torch.float8_e4m3fn')": 336,
+          "((2, 512, 1024), (2048, 1024), 'torch.float8_e4m3fn')": 112,
+          "((2, 1, 64, 64, 2048), (8192, 2048), 'torch.float8_e4m3fn')": 56,
+          "((2, 1, 64, 64, 8192), (2048, 8192), 'torch.float8_e4m3fn')": 56,
+          "((2, 1, 256), (4096, 256), 'torch.float8_e4m3fn')": 2,
+          "((2, 1, 64, 64, 2048), (64, 2048), 'torch.float8_e4m3fn')": 2
+        },
+        "fallbacks": {},
+        "source_sha256": {
+          "dtype_switches_v06.py": "bb0a9fde7506c560b6a7187288adace6d8f9e9b8025c0826a07572aac6972f07",
+          "rdna2_ops/fp8_weight_gemm_v06.py": "6305048cda4e2dd61c1512d775cef700784de1aaf9831cae7d3eef1c12597223",
+          "rdna2_ops/int8_gemm.py": "0b2d0970af17ddf61aa19d242bfebbb6f42add330e07387442dbe97ab316109d"
+        },
+        "cuda_allocated_bytes_at_entry": 33896448,
+        "memory_scope": "per-request PyTorch allocator, excludes external DynamicVRAM allocator; explicit prepared cache bytes also recorded",
+        "cuda_peak_allocated_bytes": 3045647872,
+        "prepared_entries": 0,
+        "request_cache_released": true
+      },
+      "stage_calls": {
+        "denoise": 1,
+        "vae": 1
+      },
+      "profile_artifacts": [],
+      "latent_error": {
+        "finite": true,
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "byte_equal": true
+      },
+      "image_error": {
+        "finite": true,
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "byte_equal": true
+      },
+      "comparison_errors": {},
+      "image_gate": true,
+      "latent_sha256": "d1fdab36ca3eaf3b52572cba8eed958d93d5f7f3e324c8368ee8b6ddbea08024",
+      "image_sha256": "7b4acda55216004addd15afe43306aa00a38a4b9c22685e4e5874a2a440a14fc",
+      "required_bitwise_gate": true
+    },
+    {
+      "index": 4,
+      "mode": "fp8_owned_linear",
+      "success": true,
+      "wall": {
+        "denoise_s": 5.453195918002166,
+        "vae_s": 0.5537780640006531
+      },
+      "request_wall_s": 6.370040509995306,
+      "conditioning_first_embedding_sha256": {
+        "positive": "a6c15ee3d0208bb976cb338714960a180fd73170fa904280577da928000f4968",
+        "negative": "f2199b5a6d7ba57a2d9d62675ea8d45c8d5da3f77d6e969fc1ee7f562cb0ec2e"
+      },
+      "candidate": {
+        "mode": "fp8_owned_linear",
+        "hits": 1030,
+        "candidate_calls": 1030,
+        "preparations": 515,
+        "cache_reuses": 515,
+        "cache_bytes": 4116264960,
+        "max_cache_bytes": 5368709120,
+        "fallbacks": {},
+        "shapes": {
+          "((1, 177, 1024), (1024, 1024))": 37,
+          "((1, 156, 1024), (1024, 1024))": 12,
+          "((1, 177, 1024), (4096, 1024))": 6,
+          "((1, 177, 4096), (1024, 4096))": 6,
+          "((1, 38, 1024), (1024, 1024))": 37,
+          "((1, 32, 1024), (1024, 1024))": 12,
+          "((1, 38, 1024), (4096, 1024))": 6,
+          "((1, 38, 4096), (1024, 4096))": 6,
+          "((2, 1, 64, 64, 68), (2048, 68))": 2,
+          "((2, 1, 2048), (2048, 2048))": 2,
+          "((2, 1, 2048), (6144, 2048))": 2,
+          "((2, 1, 2048), (256, 2048))": 170,
+          "((2, 1, 256), (6144, 256))": 168,
+          "((2, 4096, 2048), (2048, 2048))": 336,
+          "((2, 512, 1024), (2048, 1024))": 112,
+          "((2, 1, 64, 64, 2048), (8192, 2048))": 56,
+          "((2, 1, 64, 64, 8192), (2048, 8192))": 56,
+          "((2, 1, 256), (4096, 256))": 2,
+          "((2, 1, 64, 64, 2048), (64, 2048))": 2
+        },
+        "source_weight_dtype": {
+          "torch.bfloat16": 1030
+        },
+        "geometry_weight_dtype": {
+          "torch.float8_e4m3fn": 1030
+        },
+        "prepared_from_weight_contracts": {
+          "('torch.float8_e4m3fn', (1024, 1024), (1024, 1), 'cuda:0')": 49,
+          "('torch.float8_e4m3fn', (4096, 1024), (1024, 1), 'cuda:0')": 6,
+          "('torch.float8_e4m3fn', (1024, 4096), (4096, 1), 'cuda:0')": 6,
+          "('torch.float8_e4m3fn', (2048, 68), (68, 1), 'cuda:0')": 1,
+          "('torch.float8_e4m3fn', (2048, 2048), (2048, 1), 'cuda:0')": 169,
+          "('torch.float8_e4m3fn', (6144, 2048), (2048, 1), 'cuda:0')": 1,
+          "('torch.float8_e4m3fn', (256, 2048), (2048, 1), 'cuda:0')": 85,
+          "('torch.float8_e4m3fn', (6144, 256), (256, 1), 'cuda:0')": 84,
+          "('torch.float8_e4m3fn', (2048, 1024), (1024, 1), 'cuda:0')": 56,
+          "('torch.float8_e4m3fn', (8192, 2048), (2048, 1), 'cuda:0')": 28,
+          "('torch.float8_e4m3fn', (2048, 8192), (8192, 1), 'cuda:0')": 28,
+          "('torch.float8_e4m3fn', (4096, 256), (256, 1), 'cuda:0')": 1,
+          "('torch.float8_e4m3fn', (64, 2048), (2048, 1), 'cuda:0')": 1
+        },
+        "context_weight_is_resident_storage": {
+          "True": 515
+        },
+        "bias_owned_copies": 13,
+        "cache_hit_context_entries": 0,
+        "preparation_in_stage_time": true,
+        "contract": "Existing immutable Anima, raw unscaled FP8 resident, FP16 activation; owned weight+bias per request; no LoRA or model mutation",
+        "memory_scope": "per-request PyTorch allocator, excludes external DynamicVRAM allocator; explicit owned cache bytes recorded",
+        "source_sha256": {
+          "fp8_owned_switches_v06.py": "5ac9b07ac4c2bf54249295ca4aea8acae25386251bf80a37680ac2e80c5da9e9",
+          "dtype_switches_v06.py": "bb0a9fde7506c560b6a7187288adace6d8f9e9b8025c0826a07572aac6972f07",
+          "rdna2_ops/fp8_weight_gemm_v06.py": "6305048cda4e2dd61c1512d775cef700784de1aaf9831cae7d3eef1c12597223"
+        },
+        "cuda_allocated_bytes_at_entry": 33896448,
+        "cuda_peak_allocated_bytes": 7200464384,
+        "prepared_entries": 515,
+        "request_cache_released": true
+      },
+      "stage_calls": {
+        "denoise": 1,
+        "vae": 1
+      },
+      "profile_artifacts": [],
+      "latent_error": {
+        "finite": true,
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "byte_equal": true
+      },
+      "image_error": {
+        "finite": true,
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "byte_equal": true
+      },
+      "comparison_errors": {},
+      "image_gate": true,
+      "latent_sha256": "d1fdab36ca3eaf3b52572cba8eed958d93d5f7f3e324c8368ee8b6ddbea08024",
+      "image_sha256": "7b4acda55216004addd15afe43306aa00a38a4b9c22685e4e5874a2a440a14fc",
+      "required_bitwise_gate": true
+    }
+  ]
+}

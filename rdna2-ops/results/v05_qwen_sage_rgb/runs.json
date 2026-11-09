@@ -1,0 +1,215 @@
+{
+  "spec": {
+    "sampler": [
+      "KSampler",
+      "sample"
+    ],
+    "sampler_node": "8",
+    "model": "qwen",
+    "runtime": "~/DevSpace/qwen-image-21-rdna2-lab01/runtime/ComfyUI",
+    "workflow": "~/DevSpace/qwen-image-21-rdna2-lab01/workflows/request-gemini-edit-640x960-api.json",
+    "decoder": [
+      "VAEDecodeTiled",
+      "decode"
+    ],
+    "save_node": "10",
+    "attention_target": "comfy.ldm.qwen_image21.model:optimized_attention",
+    "env": {
+      "Q21_RDNA2_INT8_PATCH": "1",
+      "Q21_RDNA2_ENCODER_CPU": "0",
+      "Q21_RDNA2_CONV3D_PATCH": "0",
+      "Q21_CFG1_PROBE": "0"
+    },
+    "server_args": [
+      "--extra-model-paths-config",
+      "~/DevSpace/qwen-image-21-rdna2-lab01/extra_model_paths.yaml",
+      "--disable-auto-launch",
+      "--disable-triton-backend",
+      "--use-split-cross-attention",
+      "--reserve-vram",
+      "1",
+      "--vram-headroom",
+      "3"
+    ],
+    "input_files": [
+      "~/DevSpace/rdna2-pro-research-20261102/rehearsal_qwen_20261106/images/ref_image.png"
+    ],
+    "inputs": {
+      "11": {
+        "image": "ref_image.png"
+      },
+      "3": {
+        "resolution": 0,
+        "prompt": "[private prompt removed: two-character anime illustration edit with a reference image]",
+        "negative_prompt": "low quality, blurry, extra fingers, deformed hands, text, watermark"
+      }
+    },
+    "sage_config": {
+      "smooth_k": true,
+      "block_q": 32,
+      "block_k": 32,
+      "num_warps": 4
+    }
+  },
+  "seed": 20261106,
+  "rgb_gate": {
+    "max_abs": 0.00784313725490196,
+    "rmse": 0.000980392156862745
+  },
+  "runs": [
+    {
+      "index": 0,
+      "mode": "warm",
+      "success": true,
+      "wall": {
+        "denoise_s": 29.774613993999083,
+        "vae_s": 2.665872538993426
+      },
+      "request_wall_s": 42.110182680000435,
+      "conditioning_first_embedding_sha256": {
+        "positive": "8c4ea0b943170a57737be20b93200092279a724b620961e86eadbc15fda67b78",
+        "negative": "a9b843232e2151b917d1f97dee975e9eda228acb05421fe6e4c4a3e50280bde3"
+      },
+      "candidate": {},
+      "stage_calls": {
+        "denoise": 1,
+        "vae": 1
+      },
+      "profile_artifacts": [],
+      "latent_error": {
+        "finite": true,
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "byte_equal": true
+      },
+      "image_error": {
+        "finite": true,
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "byte_equal": true
+      },
+      "image_gate": true,
+      "latent_sha256": "bc1ac8ac02273bc4a49c764d97aceca271718e42e54eb605f363166efc1e42ac",
+      "image_sha256": "b52ba4883b8d6b1a7517739c0a0c86783202bcddd2f6cbc2c31d17409047cbc8"
+    },
+    {
+      "index": 1,
+      "mode": "baseline",
+      "success": true,
+      "wall": {
+        "denoise_s": 19.896349162998376,
+        "vae_s": 2.6300380780012347
+      },
+      "request_wall_s": 22.824391082998773,
+      "conditioning_first_embedding_sha256": {
+        "positive": "8c4ea0b943170a57737be20b93200092279a724b620961e86eadbc15fda67b78",
+        "negative": "a9b843232e2151b917d1f97dee975e9eda228acb05421fe6e4c4a3e50280bde3"
+      },
+      "candidate": {},
+      "stage_calls": {
+        "denoise": 1,
+        "vae": 1
+      },
+      "profile_artifacts": [],
+      "latent_error": {
+        "finite": true,
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "byte_equal": true
+      },
+      "image_error": {
+        "finite": true,
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "byte_equal": true
+      },
+      "image_gate": true,
+      "latent_sha256": "bc1ac8ac02273bc4a49c764d97aceca271718e42e54eb605f363166efc1e42ac",
+      "image_sha256": "b52ba4883b8d6b1a7517739c0a0c86783202bcddd2f6cbc2c31d17409047cbc8"
+    },
+    {
+      "index": 2,
+      "mode": "sage_qwen4964",
+      "success": true,
+      "wall": {
+        "denoise_s": 17.38356381500489,
+        "vae_s": 2.610287735995371
+      },
+      "request_wall_s": 20.32023806899815,
+      "conditioning_first_embedding_sha256": {
+        "positive": "8c4ea0b943170a57737be20b93200092279a724b620961e86eadbc15fda67b78",
+        "negative": "a9b843232e2151b917d1f97dee975e9eda228acb05421fe6e4c4a3e50280bde3"
+      },
+      "candidate": {
+        "hits": 256,
+        "fallbacks": 96,
+        "mode": "sage_qwen4964",
+        "scope": {
+          "heads": 32,
+          "query_length": 2400,
+          "key_length": 4964,
+          "head_dim": 128
+        },
+        "operator_gate_already_failed": true,
+        "shapes": {
+          "((1, 2400, 4096), (1, 4964, 4096), (1, 4964, 4096))": 256
+        }
+      },
+      "stage_calls": {
+        "denoise": 1,
+        "vae": 1
+      },
+      "profile_artifacts": [],
+      "latent_error": {
+        "finite": true,
+        "max_abs": 2.492601156234741,
+        "rmse": 0.1270277026393812,
+        "byte_equal": false
+      },
+      "image_error": {
+        "finite": true,
+        "max_abs": 0.5908203125,
+        "rmse": 0.0135610485652724,
+        "byte_equal": false
+      },
+      "image_gate": false,
+      "latent_sha256": "fc266d44dbcdf21f51825d1ff7d4337087da7c04421e3d795c0918da16fdabfd",
+      "image_sha256": "5a665e6a21560dfb300469c9fda8b9900c5c1003c3b5444c753d9b8afeeb11f8"
+    },
+    {
+      "index": 3,
+      "mode": "baseline",
+      "success": true,
+      "wall": {
+        "denoise_s": 19.887630197998078,
+        "vae_s": 2.648667908004427
+      },
+      "request_wall_s": 22.872263172001112,
+      "conditioning_first_embedding_sha256": {
+        "positive": "8c4ea0b943170a57737be20b93200092279a724b620961e86eadbc15fda67b78",
+        "negative": "a9b843232e2151b917d1f97dee975e9eda228acb05421fe6e4c4a3e50280bde3"
+      },
+      "candidate": {},
+      "stage_calls": {
+        "denoise": 1,
+        "vae": 1
+      },
+      "profile_artifacts": [],
+      "latent_error": {
+        "finite": true,
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "byte_equal": true
+      },
+      "image_error": {
+        "finite": true,
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "byte_equal": true
+      },
+      "image_gate": true,
+      "latent_sha256": "bc1ac8ac02273bc4a49c764d97aceca271718e42e54eb605f363166efc1e42ac",
+      "image_sha256": "b52ba4883b8d6b1a7517739c0a0c86783202bcddd2f6cbc2c31d17409047cbc8"
+    }
+  ]
+}

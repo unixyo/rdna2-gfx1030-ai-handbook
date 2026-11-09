@@ -1,0 +1,329 @@
+{
+  "scope": "Predeclared mode-first warmup exclusion; primary on original/filter each n2. Supplemental pooled last-off baseline n2, only after input/control equality. Metadata only during GPU counter work.",
+  "runs": {
+    "original": {
+      "directory": "results/v10/tunable_qwen_original_p0",
+      "completed": true,
+      "speed_valid": true,
+      "audit": true,
+      "source_unchanged": true,
+      "finite": true,
+      "unhashed_objects": 0,
+      "controls": {
+        "model": "qwen",
+        "runner_sha256": "55693f8b42591cf4863e57047a047c2789040afd169066b1b3b01981a8578006",
+        "workflow_sha256": "9d256b3127980229e02bf7801c32cb65ac127e122a377dcf13f092386e5ab466",
+        "runtime_torch": "2.12.0+rocm10.2.0a20261011",
+        "seed": "20261106",
+        "steps": "25",
+        "modes": "base,tbase,tbase,tbase,base"
+      },
+      "csv_sha256": "33c86b38815f736be73e2a1d77183fc49811eb8d164436f87f1664a2be71abe3",
+      "source_csv_sha256_now": "33c86b38815f736be73e2a1d77183fc49811eb8d164436f87f1664a2be71abe3",
+      "tokens": [
+        "0a5666795627bc68a70be1f2f9b447cf5580262ddc0bacfcc4e3b398b930f099",
+        "593c2c87f27615af6fa25af04d679ccc366b81710b5f31183c8ce9971d999c71"
+      ],
+      "conditioning": [
+        "72061d8be6b3c55e4b2f4e9167b7fdfa71cde4b37f8b9d9353a2b807d09cc475",
+        "73a188784dec61095ac44f327316d9eba85ab79d39a2a3ff6f1d8de809599364"
+      ],
+      "clip_tunable_enabled": [
+        false,
+        false
+      ],
+      "modes": {
+        "base": {
+          "indices": [
+            0,
+            4
+          ],
+          "tunable_enabled": [
+            false,
+            false
+          ],
+          "denoise_s": [
+            75.26252327399561,
+            57.00392360400292
+          ],
+          "warm_times_s": [
+            57.00392360400292
+          ],
+          "warm_median_s": 57.00392360400292,
+          "hashes": {
+            "positive": [
+              "5b61bd32f003a8662c724b992489c7dfefd55f95b5f8056c90afabf7674488a8",
+              "5b61bd32f003a8662c724b992489c7dfefd55f95b5f8056c90afabf7674488a8"
+            ],
+            "negative": [
+              "42ee3105a62c27d12e819409e80466bd09f34dcc03c46157713af9a67edd5330",
+              "42ee3105a62c27d12e819409e80466bd09f34dcc03c46157713af9a67edd5330"
+            ],
+            "latent_input": [
+              "a0f145ca91518c9039f35ab16bb11ebbed30c9c2accdb70903a1f87b72f853c0",
+              "a0f145ca91518c9039f35ab16bb11ebbed30c9c2accdb70903a1f87b72f853c0"
+            ],
+            "latent_output": [
+              "c39df5889e779a993ddc961c4d4b15058cc2c259fe8e009be29b2785d38603da",
+              "c39df5889e779a993ddc961c4d4b15058cc2c259fe8e009be29b2785d38603da"
+            ],
+            "rgb": [
+              [
+                "837bab6c5cd43d93e35fd93eedb09a9cf5b31f41e03469b3d46e83826b0d382e"
+              ],
+              [
+                "837bab6c5cd43d93e35fd93eedb09a9cf5b31f41e03469b3d46e83826b0d382e"
+              ]
+            ]
+          },
+          "distinct": {
+            "positive": 1,
+            "negative": 1,
+            "latent_input": 1,
+            "latent_output": 1,
+            "rgb": 1
+          }
+        },
+        "tbase": {
+          "indices": [
+            1,
+            2,
+            3
+          ],
+          "tunable_enabled": [
+            true,
+            true,
+            true
+          ],
+          "denoise_s": [
+            55.81290100899059,
+            55.55371870700037,
+            55.8774542149913
+          ],
+          "warm_times_s": [
+            55.55371870700037,
+            55.8774542149913
+          ],
+          "warm_median_s": 55.71558646099584,
+          "hashes": {
+            "positive": [
+              "5b61bd32f003a8662c724b992489c7dfefd55f95b5f8056c90afabf7674488a8",
+              "5b61bd32f003a8662c724b992489c7dfefd55f95b5f8056c90afabf7674488a8",
+              "5b61bd32f003a8662c724b992489c7dfefd55f95b5f8056c90afabf7674488a8"
+            ],
+            "negative": [
+              "42ee3105a62c27d12e819409e80466bd09f34dcc03c46157713af9a67edd5330",
+              "42ee3105a62c27d12e819409e80466bd09f34dcc03c46157713af9a67edd5330",
+              "42ee3105a62c27d12e819409e80466bd09f34dcc03c46157713af9a67edd5330"
+            ],
+            "latent_input": [
+              "a0f145ca91518c9039f35ab16bb11ebbed30c9c2accdb70903a1f87b72f853c0",
+              "a0f145ca91518c9039f35ab16bb11ebbed30c9c2accdb70903a1f87b72f853c0",
+              "a0f145ca91518c9039f35ab16bb11ebbed30c9c2accdb70903a1f87b72f853c0"
+            ],
+            "latent_output": [
+              "80e24df120404f1531e3b3967e24f02fe2a5b72a1cea942ae249478302ebf013",
+              "524a098ac1cccdaeaa081048197df8c1625d9471a33745a86316dbbf6775bb4b",
+              "7c2a496a52a1763c0e5147bb9c52436a675d8ce8b2b2ec62ea203eac1f749f7c"
+            ],
+            "rgb": [
+              [
+                "dbff4ca1726773bad7596ef94020f6536f60cf3f68ea41f5100005b1fa84a1ef"
+              ],
+              [
+                "a8638b0ac474c36b70cb05af11a8726d664cb27e7f994af0faeb5c82a4343cd1"
+              ],
+              [
+                "2fe3bed02b83d4bd252d35c99e89e545136a2b63438178f6c8744b113bb2612e"
+              ]
+            ]
+          },
+          "distinct": {
+            "positive": 1,
+            "negative": 1,
+            "latent_input": 1,
+            "latent_output": 3,
+            "rgb": 3
+          }
+        }
+      }
+    },
+    "filtered": {
+      "directory": "results/v10/tunable_qwen_filtered_p0",
+      "completed": true,
+      "speed_valid": true,
+      "audit": true,
+      "source_unchanged": true,
+      "finite": true,
+      "unhashed_objects": 0,
+      "controls": {
+        "model": "qwen",
+        "runner_sha256": "55693f8b42591cf4863e57047a047c2789040afd169066b1b3b01981a8578006",
+        "workflow_sha256": "9d256b3127980229e02bf7801c32cb65ac127e122a377dcf13f092386e5ab466",
+        "runtime_torch": "2.12.0+rocm10.2.0a20261011",
+        "seed": "20261106",
+        "steps": "25",
+        "modes": "base,tbase,tbase,tbase,base"
+      },
+      "csv_sha256": "587cffd10e920969e1a23d3b97a4918c50ddce6508781b75e7293ebb25e256ba",
+      "source_csv_sha256_now": "587cffd10e920969e1a23d3b97a4918c50ddce6508781b75e7293ebb25e256ba",
+      "tokens": [
+        "0a5666795627bc68a70be1f2f9b447cf5580262ddc0bacfcc4e3b398b930f099",
+        "593c2c87f27615af6fa25af04d679ccc366b81710b5f31183c8ce9971d999c71"
+      ],
+      "conditioning": [
+        "72061d8be6b3c55e4b2f4e9167b7fdfa71cde4b37f8b9d9353a2b807d09cc475",
+        "73a188784dec61095ac44f327316d9eba85ab79d39a2a3ff6f1d8de809599364"
+      ],
+      "clip_tunable_enabled": [
+        false,
+        false
+      ],
+      "modes": {
+        "base": {
+          "indices": [
+            0,
+            4
+          ],
+          "tunable_enabled": [
+            false,
+            false
+          ],
+          "denoise_s": [
+            76.02082144800806,
+            57.56962112599285
+          ],
+          "warm_times_s": [
+            57.56962112599285
+          ],
+          "warm_median_s": 57.56962112599285,
+          "hashes": {
+            "positive": [
+              "5b61bd32f003a8662c724b992489c7dfefd55f95b5f8056c90afabf7674488a8",
+              "5b61bd32f003a8662c724b992489c7dfefd55f95b5f8056c90afabf7674488a8"
+            ],
+            "negative": [
+              "42ee3105a62c27d12e819409e80466bd09f34dcc03c46157713af9a67edd5330",
+              "42ee3105a62c27d12e819409e80466bd09f34dcc03c46157713af9a67edd5330"
+            ],
+            "latent_input": [
+              "a0f145ca91518c9039f35ab16bb11ebbed30c9c2accdb70903a1f87b72f853c0",
+              "a0f145ca91518c9039f35ab16bb11ebbed30c9c2accdb70903a1f87b72f853c0"
+            ],
+            "latent_output": [
+              "c39df5889e779a993ddc961c4d4b15058cc2c259fe8e009be29b2785d38603da",
+              "c39df5889e779a993ddc961c4d4b15058cc2c259fe8e009be29b2785d38603da"
+            ],
+            "rgb": [
+              [
+                "837bab6c5cd43d93e35fd93eedb09a9cf5b31f41e03469b3d46e83826b0d382e"
+              ],
+              [
+                "837bab6c5cd43d93e35fd93eedb09a9cf5b31f41e03469b3d46e83826b0d382e"
+              ]
+            ]
+          },
+          "distinct": {
+            "positive": 1,
+            "negative": 1,
+            "latent_input": 1,
+            "latent_output": 1,
+            "rgb": 1
+          }
+        },
+        "tbase": {
+          "indices": [
+            1,
+            2,
+            3
+          ],
+          "tunable_enabled": [
+            true,
+            true,
+            true
+          ],
+          "denoise_s": [
+            56.444424713001354,
+            56.41765435397974,
+            56.47964816700551
+          ],
+          "warm_times_s": [
+            56.41765435397974,
+            56.47964816700551
+          ],
+          "warm_median_s": 56.448651260492625,
+          "hashes": {
+            "positive": [
+              "5b61bd32f003a8662c724b992489c7dfefd55f95b5f8056c90afabf7674488a8",
+              "5b61bd32f003a8662c724b992489c7dfefd55f95b5f8056c90afabf7674488a8",
+              "5b61bd32f003a8662c724b992489c7dfefd55f95b5f8056c90afabf7674488a8"
+            ],
+            "negative": [
+              "42ee3105a62c27d12e819409e80466bd09f34dcc03c46157713af9a67edd5330",
+              "42ee3105a62c27d12e819409e80466bd09f34dcc03c46157713af9a67edd5330",
+              "42ee3105a62c27d12e819409e80466bd09f34dcc03c46157713af9a67edd5330"
+            ],
+            "latent_input": [
+              "a0f145ca91518c9039f35ab16bb11ebbed30c9c2accdb70903a1f87b72f853c0",
+              "a0f145ca91518c9039f35ab16bb11ebbed30c9c2accdb70903a1f87b72f853c0",
+              "a0f145ca91518c9039f35ab16bb11ebbed30c9c2accdb70903a1f87b72f853c0"
+            ],
+            "latent_output": [
+              "88d023d61828af43345017123931ac2aa65e19b33a1bc5d6ffa2fd6f102c381c",
+              "88d023d61828af43345017123931ac2aa65e19b33a1bc5d6ffa2fd6f102c381c",
+              "88d023d61828af43345017123931ac2aa65e19b33a1bc5d6ffa2fd6f102c381c"
+            ],
+            "rgb": [
+              [
+                "7254a1c97ea259c0081a7b1ed5d5d2de2b90ce30f75705f88fd6758882d85ae0"
+              ],
+              [
+                "7254a1c97ea259c0081a7b1ed5d5d2de2b90ce30f75705f88fd6758882d85ae0"
+              ],
+              [
+                "7254a1c97ea259c0081a7b1ed5d5d2de2b90ce30f75705f88fd6758882d85ae0"
+              ]
+            ]
+          },
+          "distinct": {
+            "positive": 1,
+            "negative": 1,
+            "latent_input": 1,
+            "latent_output": 1,
+            "rgb": 1
+          }
+        }
+      }
+    }
+  },
+  "same_controls": {
+    "model": true,
+    "runner_sha256": true,
+    "workflow_sha256": true,
+    "runtime_torch": true,
+    "seed": true,
+    "steps": true,
+    "modes": true
+  },
+  "same_tokens": true,
+  "same_conditioning": true,
+  "same_last_off_inputs": {
+    "positive": true,
+    "negative": true,
+    "latent_input": true
+  },
+  "off_both_disabled": true,
+  "off_pool_eligible": true,
+  "off_warm_times_s": [
+    57.00392360400292,
+    57.56962112599285
+  ],
+  "off_warm_median_s": 57.28677236499789,
+  "off_combined_rgb_distinct": 1,
+  "original_tbase_warm_s": 55.71558646099584,
+  "filtered_tbase_warm_s": 56.448651260492625,
+  "original_div_filtered": 0.9870135993840858,
+  "off_div_original": 1.0282001142553165,
+  "off_div_filtered": 1.0148474956582683,
+  "filtered_on_vs_off_same_first_rgb": false
+}

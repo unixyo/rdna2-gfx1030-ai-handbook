@@ -1,0 +1,88 @@
+{
+  "purpose": "Final predeclared 100 epochs each: A current native, A_prime native repeat, B selected eager candidate. Preserve training semantics and final-save/export policy for all arms. User listening remains separate.",
+  "created_utc": "2026-11-07T18:46:01.709096+00:00",
+  "candidate_selection": {
+    "chosen": "B_full eager",
+    "compile_excluded": "First tracing failed at AMP boundary; eager-Conv boundary recovery completed but showed loop frame fallback and no measured speed benefit.",
+    "compile_steady_s": 12.583505253016483,
+    "eager_steady_s": 12.570070338988444,
+    "compile_first_plus_99_steady_s": 1264.3752378466306,
+    "eager_first_plus_99_steady_s": 1260.9731758988346,
+    "excluded": [
+      "fused AdamW numerical gate",
+      "D weight_norm cache invalid native reference",
+      "decoder compile no measured end-to-end gain"
+    ]
+  },
+  "forecast_from_short_runs": {
+    "native_steady_s": 14.967510690010386,
+    "native_first_s": 18.63187114597531,
+    "native_process_overhead_s": 33.781848643993726,
+    "candidate_process_overhead_s": 33.664491575036664,
+    "A_s": 1534.1972781009972,
+    "A_prime_s": 1534.1972781009972,
+    "B_s": 1294.6376674738713,
+    "total_s": 4363.032223675866,
+    "not_included": "Final checkpoint/reference inference/export overhead; allow extra minutes for these and audio conversion."
+  },
+  "source_sha256": {
+    "applio_epoch_v08.py": "953b67adb43a69b74a6b0d634980543138ef0d3d40846f639dc451e95c64fffd",
+    "v08_run_epoch_series.py": "d4d7d6b63a5541d00789ad2c7148b20de068c2592efa9fdff13f74c96ac97a81",
+    "v08_direct_conv.py": "6ef607af92b0ffd561a633093ff9bd62ae8428deb6f613aa2d38fca3a674b4e3",
+    "v08_nonconv_opt.py": "4912353a4e45e13f18b0c33839ff78af33d872315c2415232fa32888109094a8",
+    "results/applio_v08/direct_selected_final/dispatch.json": "22e41075581e8b2d969388244bf063adba59579942c4959ae892e2aeb4fcfa59"
+  },
+  "runs": [
+    {
+      "name": "final100_A",
+      "out": "results/applio_v08/final100_A",
+      "db": "results/applio_v08/final100_A_db",
+      "db_seed": "results/applio_v08/db_fast_native",
+      "epochs": 100,
+      "args": [
+        "--save-every",
+        "100",
+        "--save-only-latest",
+        "--export-final"
+      ]
+    },
+    {
+      "name": "final100_A_prime",
+      "out": "results/applio_v08/final100_A_prime",
+      "db": "results/applio_v08/final100_A_prime_db",
+      "db_seed": "results/applio_v08/db_fast_native",
+      "epochs": 100,
+      "args": [
+        "--save-every",
+        "100",
+        "--save-only-latest",
+        "--export-final"
+      ]
+    },
+    {
+      "name": "final100_B",
+      "out": "results/applio_v08/final100_B",
+      "db": "results/applio_v08/final100_B_db",
+      "db_seed": "results/applio_v08/solver_selected_final_db",
+      "epochs": 100,
+      "args": [
+        "--save-every",
+        "100",
+        "--save-only-latest",
+        "--export-final",
+        "--dispatch",
+        "~/DevSpace/rdna2-pro-research-20261102/rdna2-ops/results/applio_v08/direct_selected_final/dispatch.json",
+        "--nonconv"
+      ],
+      "env": {
+        "APPLIO_RDNA2_ADAMW": "native",
+        "APPLIO_RDNA2_ADAMW_G": "native",
+        "APPLIO_RDNA2_ADAMW_D": "single",
+        "APPLIO_RDNA2_SLICE_GATHER": "1",
+        "APPLIO_RDNA2_GRAD_NORM": "foreach",
+        "APPLIO_RDNA2_D_WN_CACHE": "0",
+        "APPLIO_RDNA2_SKIP_EMPTY_CACHE": "1"
+      }
+    }
+  ]
+}

@@ -1,0 +1,271 @@
+{
+  "seed": 20261105,
+  "workflow": "sft_fast4_int8_512",
+  "same_seed_forced_rerun": true,
+  "pixel_acceptance": {
+    "max_abs": 0.01,
+    "rmse": 0.001
+  },
+  "runs": [
+    {
+      "mode": "torch",
+      "warmup": true,
+      "stage_wall_s": {
+        "denoise": 9.291978591005318,
+        "vae": 0.21401504095410928
+      },
+      "latent_error": {
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "finite": true
+      },
+      "image_error": {
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "finite": true
+      },
+      "success": true,
+      "request_wall_s": 14.216533090046141,
+      "prompt_id": "96527a90-d7f6-47e2-9ade-b3624a941d50",
+      "outputs": {
+        "11": {
+          "images": [
+            {
+              "filename": "rdna2_torch_0_00001_.png",
+              "subfolder": "",
+              "type": "output",
+              "metadata": {
+                "kind": "image",
+                "width": 512,
+                "height": 512
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "mode": "torch",
+      "warmup": false,
+      "stage_wall_s": {
+        "denoise": 7.36981519300025,
+        "vae": 0.04500753397587687
+      },
+      "latent_error": {
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "finite": true
+      },
+      "image_error": {
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "finite": true
+      },
+      "success": true,
+      "request_wall_s": 7.628698731015902,
+      "prompt_id": "acf32ace-a742-4d72-bd48-31e2fb67bd89",
+      "outputs": {
+        "11": {
+          "images": [
+            {
+              "filename": "rdna2_torch_1_00001_.png",
+              "subfolder": "",
+              "type": "output",
+              "metadata": {
+                "kind": "image",
+                "width": 512,
+                "height": 512
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "mode": "rdna2",
+      "warmup": false,
+      "stage_wall_s": {
+        "denoise": 7.118350823991932,
+        "vae": 0.04512375401100144
+      },
+      "latent_error": {
+        "max_abs": 4.706376075744629,
+        "rmse": 0.495710164308548,
+        "finite": true
+      },
+      "image_error": {
+        "max_abs": 0.852783203125,
+        "rmse": 0.09785950183868408,
+        "finite": true
+      },
+      "success": true,
+      "request_wall_s": 7.393344378040638,
+      "prompt_id": "ef4358ec-a631-4bf1-a3e3-f39295391092",
+      "outputs": {
+        "11": {
+          "images": [
+            {
+              "filename": "rdna2_rdna2_2_00001_.png",
+              "subfolder": "",
+              "type": "output",
+              "metadata": {
+                "kind": "image",
+                "width": 512,
+                "height": 512
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "mode": "rdna2",
+      "warmup": false,
+      "stage_wall_s": {
+        "denoise": 7.119518127001356,
+        "vae": 0.04484593600500375
+      },
+      "latent_error": {
+        "max_abs": 4.706376075744629,
+        "rmse": 0.495710164308548,
+        "finite": true
+      },
+      "image_error": {
+        "max_abs": 0.852783203125,
+        "rmse": 0.09785950183868408,
+        "finite": true
+      },
+      "success": true,
+      "request_wall_s": 7.225870741007384,
+      "prompt_id": "b3abdec9-50c4-42d8-8227-9e01e392ea34",
+      "outputs": {
+        "11": {
+          "images": [
+            {
+              "filename": "rdna2_rdna2_3_00001_.png",
+              "subfolder": "",
+              "type": "output",
+              "metadata": {
+                "kind": "image",
+                "width": 512,
+                "height": 512
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "mode": "torch",
+      "warmup": false,
+      "stage_wall_s": {
+        "denoise": 7.374753268028144,
+        "vae": 0.04742723796516657
+      },
+      "latent_error": {
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "finite": true
+      },
+      "image_error": {
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "finite": true
+      },
+      "success": true,
+      "request_wall_s": 7.639659713022411,
+      "prompt_id": "83589fb4-3e2e-48ef-a1f7-8696d00eddfe",
+      "outputs": {
+        "11": {
+          "images": [
+            {
+              "filename": "rdna2_torch_4_00001_.png",
+              "subfolder": "",
+              "type": "output",
+              "metadata": {
+                "kind": "image",
+                "width": 512,
+                "height": 512
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "mode": "torch",
+      "warmup": false,
+      "stage_wall_s": {
+        "denoise": 7.388307753019035,
+        "vae": 0.04486765601905063
+      },
+      "latent_error": {
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "finite": true
+      },
+      "image_error": {
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "finite": true
+      },
+      "success": true,
+      "request_wall_s": 7.62732099898858,
+      "prompt_id": "34f15ee2-aad7-4d12-8e08-b083feb4d272",
+      "outputs": {
+        "11": {
+          "images": [
+            {
+              "filename": "rdna2_torch_5_00001_.png",
+              "subfolder": "",
+              "type": "output",
+              "metadata": {
+                "kind": "image",
+                "width": 512,
+                "height": 512
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "mode": "rdna2",
+      "warmup": false,
+      "stage_wall_s": {
+        "denoise": 7.128383543982636,
+        "vae": 0.04520000395132229
+      },
+      "latent_error": {
+        "max_abs": 4.706376075744629,
+        "rmse": 0.495710164308548,
+        "finite": true
+      },
+      "image_error": {
+        "max_abs": 0.852783203125,
+        "rmse": 0.09785950183868408,
+        "finite": true
+      },
+      "success": true,
+      "request_wall_s": 7.3821983259986155,
+      "prompt_id": "4459f0a1-e7ed-4067-b4a9-99d36b184ff7",
+      "outputs": {
+        "11": {
+          "images": [
+            {
+              "filename": "rdna2_rdna2_6_00001_.png",
+              "subfolder": "",
+              "type": "output",
+              "metadata": {
+                "kind": "image",
+                "width": 512,
+                "height": 512
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
+

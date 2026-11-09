@@ -1,0 +1,368 @@
+{
+  "spec": {
+    "sampler": [
+      "KSampler",
+      "sample"
+    ],
+    "sampler_node": "7",
+    "model": "anima",
+    "runtime": "~/DevSpace/moss-image-rdna2-lab01/runtime/ComfyUI",
+    "workflow": "~/DevSpace/anima-rdna2-lab01/workflows/anima_t2i_1024_api.json",
+    "decoder": [
+      "VAEDecode",
+      "decode"
+    ],
+    "save_node": "9",
+    "attention_target": "comfy.ldm.cosmos.predict2:optimized_attention",
+    "env": {},
+    "server_args": [
+      "--extra-model-paths-config",
+      "~/DevSpace/anima-rdna2-lab01/extra_model_paths.yaml",
+      "--disable-auto-launch",
+      "--use-pytorch-cross-attention",
+      "--disable-comfy-compiler"
+    ],
+    "input_files": [],
+    "inputs": {
+      "1": {
+        "weight_dtype": "fp8_e4m3fn"
+      }
+    },
+    "attention_capture_target": "comfy.ops:scaled_dot_product_attention",
+    "switch_module": "dtype_switches_v06",
+    "fp8_prepared_cache_bytes": 5368709120,
+    "fp8_int8_allowed_shapes": [
+      [
+        8192,
+        2048,
+        2048
+      ]
+    ],
+    "research_scope": "Existing Anima BF16 checkpoint is represented as unscaled e4m3fn only in this request. Baseline and candidates use identical FP8 values.",
+    "gpu_audit": true,
+    "save_reference_tensors": true,
+    "require_bitwise_modes": [
+      "fp8_control",
+      "fp8_prepared_fp16",
+      "fp8_decode"
+    ]
+  },
+  "seed": 20261107,
+  "rgb_gate": {
+    "max_abs": 0.00784313725490196,
+    "rmse": 0.000980392156862745
+  },
+  "runs": [
+    {
+      "index": 0,
+      "mode": "warm",
+      "success": true,
+      "wall": {
+        "denoise_s": 5.917046679998748,
+        "vae_s": 0.6748682000034023
+      },
+      "request_wall_s": 8.305316739992122,
+      "conditioning_first_embedding_sha256": {
+        "positive": "a6c15ee3d0208bb976cb338714960a180fd73170fa904280577da928000f4968",
+        "negative": "f2199b5a6d7ba57a2d9d62675ea8d45c8d5da3f77d6e969fc1ee7f562cb0ec2e"
+      },
+      "candidate": {},
+      "stage_calls": {
+        "denoise": 1,
+        "vae": 1
+      },
+      "profile_artifacts": [],
+      "latent_error": {
+        "finite": true,
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "byte_equal": true
+      },
+      "image_error": {
+        "finite": true,
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "byte_equal": true
+      },
+      "comparison_errors": {},
+      "image_gate": true,
+      "latent_sha256": "d1fdab36ca3eaf3b52572cba8eed958d93d5f7f3e324c8368ee8b6ddbea08024",
+      "image_sha256": "7b4acda55216004addd15afe43306aa00a38a4b9c22685e4e5874a2a440a14fc"
+    },
+    {
+      "index": 1,
+      "mode": "fp8_control",
+      "success": true,
+      "wall": {
+        "denoise_s": 5.3436267689976376,
+        "vae_s": 0.548886839998886
+      },
+      "request_wall_s": 6.22926545800874,
+      "conditioning_first_embedding_sha256": {
+        "positive": "a6c15ee3d0208bb976cb338714960a180fd73170fa904280577da928000f4968",
+        "negative": "f2199b5a6d7ba57a2d9d62675ea8d45c8d5da3f77d6e969fc1ee7f562cb0ec2e"
+      },
+      "candidate": {
+        "mode": "fp8_control",
+        "hits": 0,
+        "candidate_calls": 0,
+        "cache_reuses": 0,
+        "preparations": 0,
+        "cache_bytes": 0,
+        "max_cache_bytes": 5368709120,
+        "int8_allowed_shapes": [
+          [
+            8192,
+            2048,
+            2048
+          ]
+        ],
+        "contract": "plain unscaled FP8 weight, FP16 activation, immutable model, request-local prepared storage",
+        "preparation_in_stage_time": true,
+        "native_source_weight_dtype": {
+          "torch.bfloat16": 1030
+        },
+        "shapes": {},
+        "fallbacks": {
+          "not_fp8": 1030
+        },
+        "source_sha256": {
+          "dtype_switches_v06.py": "23aacbd4027745ba3f26116f969835def8b793246b60922e7460d7e4c4451fe6",
+          "rdna2_ops/fp8_weight_gemm_v06.py": "6305048cda4e2dd61c1512d775cef700784de1aaf9831cae7d3eef1c12597223",
+          "rdna2_ops/int8_gemm.py": "0b2d0970af17ddf61aa19d242bfebbb6f42add330e07387442dbe97ab316109d"
+        },
+        "cuda_peak_allocated_bytes": 3045647872,
+        "prepared_entries": 0,
+        "request_cache_released": true
+      },
+      "stage_calls": {
+        "denoise": 1,
+        "vae": 1
+      },
+      "profile_artifacts": [],
+      "latent_error": {
+        "finite": true,
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "byte_equal": true
+      },
+      "image_error": {
+        "finite": true,
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "byte_equal": true
+      },
+      "comparison_errors": {},
+      "image_gate": true,
+      "latent_sha256": "d1fdab36ca3eaf3b52572cba8eed958d93d5f7f3e324c8368ee8b6ddbea08024",
+      "image_sha256": "7b4acda55216004addd15afe43306aa00a38a4b9c22685e4e5874a2a440a14fc",
+      "required_bitwise_gate": true
+    },
+    {
+      "index": 2,
+      "mode": "fp8_prepared_fp16",
+      "success": true,
+      "wall": {
+        "denoise_s": 5.430881200998556,
+        "vae_s": 0.5467813650029711
+      },
+      "request_wall_s": 6.3660927479941165,
+      "conditioning_first_embedding_sha256": {
+        "positive": "a6c15ee3d0208bb976cb338714960a180fd73170fa904280577da928000f4968",
+        "negative": "f2199b5a6d7ba57a2d9d62675ea8d45c8d5da3f77d6e969fc1ee7f562cb0ec2e"
+      },
+      "candidate": {
+        "mode": "fp8_prepared_fp16",
+        "hits": 0,
+        "candidate_calls": 0,
+        "cache_reuses": 0,
+        "preparations": 0,
+        "cache_bytes": 0,
+        "max_cache_bytes": 5368709120,
+        "int8_allowed_shapes": [
+          [
+            8192,
+            2048,
+            2048
+          ]
+        ],
+        "contract": "plain unscaled FP8 weight, FP16 activation, immutable model, request-local prepared storage",
+        "preparation_in_stage_time": true,
+        "native_source_weight_dtype": {
+          "torch.bfloat16": 1030
+        },
+        "shapes": {},
+        "fallbacks": {
+          "not_fp8": 1030
+        },
+        "source_sha256": {
+          "dtype_switches_v06.py": "23aacbd4027745ba3f26116f969835def8b793246b60922e7460d7e4c4451fe6",
+          "rdna2_ops/fp8_weight_gemm_v06.py": "6305048cda4e2dd61c1512d775cef700784de1aaf9831cae7d3eef1c12597223",
+          "rdna2_ops/int8_gemm.py": "0b2d0970af17ddf61aa19d242bfebbb6f42add330e07387442dbe97ab316109d"
+        },
+        "cuda_peak_allocated_bytes": 3045647872,
+        "prepared_entries": 0,
+        "request_cache_released": true
+      },
+      "stage_calls": {
+        "denoise": 1,
+        "vae": 1
+      },
+      "profile_artifacts": [],
+      "latent_error": {
+        "finite": true,
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "byte_equal": true
+      },
+      "image_error": {
+        "finite": true,
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "byte_equal": true
+      },
+      "comparison_errors": {},
+      "image_gate": true,
+      "latent_sha256": "d1fdab36ca3eaf3b52572cba8eed958d93d5f7f3e324c8368ee8b6ddbea08024",
+      "image_sha256": "7b4acda55216004addd15afe43306aa00a38a4b9c22685e4e5874a2a440a14fc",
+      "required_bitwise_gate": true
+    },
+    {
+      "index": 3,
+      "mode": "fp8_prepared_int8",
+      "success": true,
+      "wall": {
+        "denoise_s": 5.391212501010159,
+        "vae_s": 0.546087089998764
+      },
+      "request_wall_s": 6.231401523007662,
+      "conditioning_first_embedding_sha256": {
+        "positive": "a6c15ee3d0208bb976cb338714960a180fd73170fa904280577da928000f4968",
+        "negative": "f2199b5a6d7ba57a2d9d62675ea8d45c8d5da3f77d6e969fc1ee7f562cb0ec2e"
+      },
+      "candidate": {
+        "mode": "fp8_prepared_int8",
+        "hits": 0,
+        "candidate_calls": 0,
+        "cache_reuses": 0,
+        "preparations": 0,
+        "cache_bytes": 0,
+        "max_cache_bytes": 5368709120,
+        "int8_allowed_shapes": [
+          [
+            8192,
+            2048,
+            2048
+          ]
+        ],
+        "contract": "plain unscaled FP8 weight, FP16 activation, immutable model, request-local prepared storage",
+        "preparation_in_stage_time": true,
+        "native_source_weight_dtype": {
+          "torch.bfloat16": 1030
+        },
+        "shapes": {},
+        "fallbacks": {
+          "not_fp8": 1030
+        },
+        "source_sha256": {
+          "dtype_switches_v06.py": "23aacbd4027745ba3f26116f969835def8b793246b60922e7460d7e4c4451fe6",
+          "rdna2_ops/fp8_weight_gemm_v06.py": "6305048cda4e2dd61c1512d775cef700784de1aaf9831cae7d3eef1c12597223",
+          "rdna2_ops/int8_gemm.py": "0b2d0970af17ddf61aa19d242bfebbb6f42add330e07387442dbe97ab316109d"
+        },
+        "cuda_peak_allocated_bytes": 3045647872,
+        "prepared_entries": 0,
+        "request_cache_released": true
+      },
+      "stage_calls": {
+        "denoise": 1,
+        "vae": 1
+      },
+      "profile_artifacts": [],
+      "latent_error": {
+        "finite": true,
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "byte_equal": true
+      },
+      "image_error": {
+        "finite": true,
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "byte_equal": true
+      },
+      "comparison_errors": {},
+      "image_gate": true,
+      "latent_sha256": "d1fdab36ca3eaf3b52572cba8eed958d93d5f7f3e324c8368ee8b6ddbea08024",
+      "image_sha256": "7b4acda55216004addd15afe43306aa00a38a4b9c22685e4e5874a2a440a14fc"
+    },
+    {
+      "index": 4,
+      "mode": "fp8_control",
+      "success": true,
+      "wall": {
+        "denoise_s": 5.340026095000212,
+        "vae_s": 0.5481762749986956
+      },
+      "request_wall_s": 6.286624298998504,
+      "conditioning_first_embedding_sha256": {
+        "positive": "a6c15ee3d0208bb976cb338714960a180fd73170fa904280577da928000f4968",
+        "negative": "f2199b5a6d7ba57a2d9d62675ea8d45c8d5da3f77d6e969fc1ee7f562cb0ec2e"
+      },
+      "candidate": {
+        "mode": "fp8_control",
+        "hits": 0,
+        "candidate_calls": 0,
+        "cache_reuses": 0,
+        "preparations": 0,
+        "cache_bytes": 0,
+        "max_cache_bytes": 5368709120,
+        "int8_allowed_shapes": [
+          [
+            8192,
+            2048,
+            2048
+          ]
+        ],
+        "contract": "plain unscaled FP8 weight, FP16 activation, immutable model, request-local prepared storage",
+        "preparation_in_stage_time": true,
+        "native_source_weight_dtype": {
+          "torch.bfloat16": 1030
+        },
+        "shapes": {},
+        "fallbacks": {
+          "not_fp8": 1030
+        },
+        "source_sha256": {
+          "dtype_switches_v06.py": "23aacbd4027745ba3f26116f969835def8b793246b60922e7460d7e4c4451fe6",
+          "rdna2_ops/fp8_weight_gemm_v06.py": "6305048cda4e2dd61c1512d775cef700784de1aaf9831cae7d3eef1c12597223",
+          "rdna2_ops/int8_gemm.py": "0b2d0970af17ddf61aa19d242bfebbb6f42add330e07387442dbe97ab316109d"
+        },
+        "cuda_peak_allocated_bytes": 3045647872,
+        "prepared_entries": 0,
+        "request_cache_released": true
+      },
+      "stage_calls": {
+        "denoise": 1,
+        "vae": 1
+      },
+      "profile_artifacts": [],
+      "latent_error": {
+        "finite": true,
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "byte_equal": true
+      },
+      "image_error": {
+        "finite": true,
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "byte_equal": true
+      },
+      "comparison_errors": {},
+      "image_gate": true,
+      "latent_sha256": "d1fdab36ca3eaf3b52572cba8eed958d93d5f7f3e324c8368ee8b6ddbea08024",
+      "image_sha256": "7b4acda55216004addd15afe43306aa00a38a4b9c22685e4e5874a2a440a14fc",
+      "required_bitwise_gate": true
+    }
+  ]
+}
