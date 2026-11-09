@@ -1,6 +1,6 @@
 # RX 6900 XT (gfx1030) 연산 카탈로그
 
-작성: 2026-11-08 KST, v0.6 / 실험 묶음 rdna2-ops v1.0(v0.9 + GPT Pro v1.0 연구: Applio 융합·남은 Conv 교체, TunableOp 비결정 원인, Strata 재개 판단. 가이드 §9.22·§9.20·§9.18). **Applio B′는 익명 청취에서 4문장 중 3문장 기존 B 선호·B′ 쪽 아티팩트 지적, 1문장 같음(2026-11-09 사용자)으로 보류했다.** 이전: v0.5 / rdna2-ops v0.9(Applio 학습 v0.8 연구·운영 롤아웃, 가이드 §9.21). 그 이전: v0.4 / rdna2-ops v0.8(TunableOp·FlashAttention·판정 기준 변경). 이 문서는 RDNA2 최적화 통합집의 **입구**다. 모델이 아니라 연산 부품 단위로 "되는가, 얼마나 빠른가, 원본과 얼마나 다른가"를 기록한다. 세부 실험과 레시피는 [`rdna2-ops/RDNA2_OPTIMIZATION_GUIDE_KO.md`](rdna2-ops/RDNA2_OPTIMIZATION_GUIDE_KO.md)(이하 가이드)에 있고, 이 표는 그 결과를 연산별로 다시 묶는다.
+작성: 2026-11-10 KST, v0.7 / 실험 묶음 rdna2-ops v1.1(Applio B+native 채택, 가이드 §9.22). 이전: v0.6 / rdna2-ops v1.0(v0.9 + GPT Pro v1.0 연구: Applio 융합·남은 Conv 교체, TunableOp 비결정 원인, Strata 재개 판단. 가이드 §9.22·§9.20·§9.18). **Applio B′는 익명 청취에서 4문장 중 3문장 기존 B 선호·B′ 쪽 아티팩트 지적, 1문장 같음(2026-11-09 사용자)으로 보류했다.** 이전: v0.5 / rdna2-ops v0.9(Applio 학습 v0.8 연구·운영 롤아웃, 가이드 §9.21). 그 이전: v0.4 / rdna2-ops v0.8(TunableOp·FlashAttention·판정 기준 변경). 이 문서는 RDNA2 최적화 통합집의 **입구**다. 모델이 아니라 연산 부품 단위로 "되는가, 얼마나 빠른가, 원본과 얼마나 다른가"를 기록한다. 세부 실험과 레시피는 [`rdna2-ops/RDNA2_OPTIMIZATION_GUIDE_KO.md`](rdna2-ops/RDNA2_OPTIMIZATION_GUIDE_KO.md)(이하 가이드)에 있고, 이 표는 그 결과를 연산별로 다시 묶는다.
 
 ## 0. 사용법
 
@@ -153,8 +153,8 @@
 | Applio v0.8 shape·방향별 MIOpen DB(운영 FAST DB 기준) | ✅ 지각 통과(묶음 B) | 144 geometry × 3방향 = 432/432 FP32 참조 통과. 실제 solver ID 432/432 확인 | 다시 고른 6방향 1.075–1.530배. 나머지는 기존 선택이 최선 | A, 가이드 §9.21. 빈 DB가 아닌 운영 DB 대비. DB SHA `fa2af4e8…` |
 | Applio 직접 Conv1d(Triton, implicit GEMM fwd/dX, FP32 partial dW) | ✅ 지각 통과(묶음 B) | 189/189 후보, 실제 dtype·weight_norm 경계 105/105 통과. bit 동일은 아님 | 21 shape·56방향: fwd 1.70–12.07배, dX 1.31–9.44배, dW 1.37–9.66배. C64/K7/d3 dW 3.98 → 0.68 ms | A, 가이드 §9.21. dilated 소채널에서 큰 이득. C128/K11 dW·C192→384/K5 dW는 native가 빨라 유지. shape는 batch 8·40 kHz 기준 |
 | MIOpen dilated GEMM workspace 질의 복구(NORMAL 탐색 전용) | ✅ 탐색 누락 해결 | 같은 solver가 계산. 72/72방향 통과 | 속도 이득으로 세지 않음(신규 채택 0) | A, 가이드 §9.21. `8d1ae90e`의 legacy 질의가 dilation>1에서 0을 반환해 후보가 조용히 탈락 |
-| Applio ResBlock LeakyReLU·Conv·잔차 융합(Triton, fwd+bwd) | ⚠️ 연산·운영 100 epoch 통과 / 묶음 B′ 청취 보류 | 18쌍 FP32 참조 108/108, 실제 AMP·weight_norm 계약 144/144. 검증 입력의 호출 경계 y/dX/gradient는 B와 바이트 일치(전체 학습 아님) | C32/C64 12쌍 event 1.039–1.135배. 대표 쌍 kernel 28→22, GL2C/EA 요청량 −37.5%(DRAM bytes 아님) | A, 가이드 §9.22. C64/K11은 관문 미달, C128/K11은 더 느림 |
-| Applio 남은 Conv 방향별 직접 커널(period Conv2d·ConvTranspose1d·Conv1d) | ⚠️ 연산·운영 100 epoch 통과 / 묶음 B′ 청취 보류 | 60 shape·169방향, 후보 531/531 FP32 참조 통과, AMP 계약 195/195 | 31 shape·새 68방향(Conv2d 59, ConvT 7, Conv1d 2). 대표 dW 27.3배·21.7배(작은 batch별 GEMM 17 kernel → 2 kernel) | A, 가이드 §9.22 |
+| Applio ResBlock LeakyReLU·Conv·잔차 융합(Triton, fwd+bwd) | ⚠️ 연산·운영 100 epoch 통과 / 묶음 B′ 청취 보류, 속도 순이득 거의 0이라 운영에서 끔 | 18쌍 FP32 참조 108/108, 실제 AMP·weight_norm 계약 144/144. 검증 입력의 호출 경계 y/dX/gradient는 B와 바이트 일치(전체 학습 아님) | C32/C64 12쌍 event 1.039–1.135배. 대표 쌍 kernel 28→22, GL2C/EA 요청량 −37.5%(DRAM bytes 아님) | A, 가이드 §9.22. C64/K11은 관문 미달, C128/K11은 더 느림 |
+| Applio 남은 Conv 방향별 직접 커널(period Conv2d·ConvTranspose1d·Conv1d) | ✅ 보컬 익명 청취 통과(B+native, 2026-11-10), 운영 적용 | 60 shape·169방향, 후보 531/531 FP32 참조 통과, AMP 계약 195/195 | 31 shape·새 68방향(Conv2d 59, ConvT 7, Conv1d 2). 대표 dW 27.3배·21.7배(작은 batch별 GEMM 17 kernel → 2 kernel) | A, 가이드 §9.22 |
 | C128/K11 dW·d1 dX, C192→384/K5 dW, ConvTranspose1d fwd, 큰 채널 period Conv2d | ✅ native 유지 | — | 직접 커널이 관문(event 1.10배·wall 1.05배)을 못 넘음. 하드웨어 최적의 증명은 아님 | A, 가이드 §9.22 |
 
 ### 4.4 정규화·활성화·원소별 연산
@@ -186,7 +186,7 @@
 
 이 PC의 LLM 주력은 Strata 엔진(v0.1.42 + 패치, Qwen 3.8-Flash-Next MoE, 256K 컨텍스트)이다. IQ3_XXS라는 pack 이름과 실제 layer 타입을 구분한다. v0.7에서 읽은 48개 층의 gate/up 중 IQ3_XXS는 6개이며, down도 IQ4_NL 18개/Q2_0 30개가 섞여 있다. 이번 프리필 결과는 아래 첫 세 행과 가이드 §9.18에 있다. 디코드는 이번 범위에서 제외했다.
 
-나머지 행은 `strata-rdna2-gfx1030-recipe` (`../strata-rdna2-gfx1030-recipe/README.ko.md`, 연구 폴더에만 있음)의 역사적 측정(A, 2026-10, 대부분 2–4회)을 옮긴 것이다. 이번에 다시 잰 수치가 아니다. llama.cpp를 실제 Strata 경로의 기준선으로 대신 쓰지 않는다.
+나머지 행은 [`strata-rdna2-gfx1030-recipe`](../strata-rdna2-gfx1030-recipe/README.ko.md)의 역사적 측정(A, 2026-10, 대부분 2–4회)을 옮긴 것이다. 이번에 다시 잰 수치가 아니다. llama.cpp를 실제 Strata 경로의 기준선으로 대신 쓰지 않는다.
 
 | 연산·설정 | 상태 | 비고 |
 |---|---|---|
@@ -222,6 +222,7 @@
 | spawn DataLoader 워커의 GPU 큐 제거 | ✅ 계산 불변 | 운영 train.py를 워커 4개가 다시 import하며 GPU 큐를 잡아(학습 중 6 프로세스·19 큐) 학습 kernel 전체가 1.5–2배 느려졌다. 학습 프로세스가 컨텍스트를 만든 뒤 `HIP_VISIBLE_DEVICES=-1` → 22 → 15 s/epoch. 하네스는 진입점이 달라 이 문제를 피했다. 가이드 §9.21 |
 | v0.8 B 적용 뒤 운영 경로의 남은 비용 | A | `core.py train` step 40–44 kernel 1,679.5 ms: native Conv2d 41.7%, native Conv1d 29.4%, 기존 직접 Conv 9.5%, optimizer 4.6%, ConvTranspose 1.8%. operator 표와 분모가 다르다. 가이드 §9.22 |
 | **Applio v1.0 B′**(v0.8 B + 위 융합 12쌍 + 남은 Conv 68방향) | ❌ 청취 보류(2026-11-09 사용자: 3/4 문장 기존 B 선호, B′ 쪽 아티팩트) | 운영 경로 교대 8 epoch 12.542 → 11.448 s(1.0956배). 100 epoch 각 1회: 프로세스 1,285.2 → 1,172.2 s(−113.0 s, −8.79%), 3,100 step, 초기 SHA 동일, nonfinite 0. 두 겹의 개별 기여는 미분리. 운영 사본 `rdna2_v10`은 준비됐고 꺼져 있음. 가이드 §9.22 |
+| **Applio v1.1 B+native**(v0.8 B + 남은 Conv 68방향, 융합 끔) | ✅ 보컬 익명 청취 구분 불가(2026-11-10 사용자), 운영 적용 | 운영 경로 100 epoch 프로세스 1,285.2 → 1,178.2 s(−8.33%), steady 12.566 → 11.439 s. 초기 SHA 동일, nonfinite 0. 운영 런처 5 epoch 스모크 11 s/epoch·31/31 hit. 가이드 §9.22 |
 
 ## 5. 모델별 적용 예
 
@@ -238,13 +239,14 @@
 | Applio RVC HiFi-GAN 학습 | MIOpen FAST, fp16 AMP, TheRock ROCm10 wheel | 정상 epoch 16~17 s → 11 s, 첫 epoch 44 s → 16 s(fp32 기본 대비) | `applio-lab/lab/RESULTS_2026-09-27.md` |
 | 〃 (v0.6) | 검증한 NORMAL FindDb, V4R1 Fwd 항목 제외, FAST 재생 | 정상 epoch 9.310 → 8.418 s(1.106배). 학습 품질 동등성 미확정 | 가이드 §9.14 |
 | 〃 (v0.9, voice_model_A 100 epoch) | 워커 GPU 큐 제거 + v0.8 묶음 B(solver DB, 직접 Conv1d, D single AdamW 등) | 운영 경로 22 → 12.6 s/epoch(100 epoch 약 37분 → 약 22분 추정). 하네스 100 epoch 25:40 → 22:00, 익명 청취 지각 통과 | 가이드 §9.21 |
+| 〃 (v1.1 B+native, 채택) | v0.9 + 남은 Conv 68방향(융합 끔) | 운영 경로 100 epoch 21.42 → 19.64분(−8.33%). 보컬 익명 청취 구분 불가 | 가이드 §9.22 |
 | 〃 (v1.0 B′, 청취에서 보류) | 위 + ResBlock 융합 12쌍 + 남은 Conv 68방향 | 운영 경로 100 epoch 실측 21.42 → 19.54분(−8.79%). 익명 청취 3/4 문장 기존 B 선호로 보류 | 가이드 §9.22 |
 
 누적 7.446 → 2.14 s는 서로 다른 A/B의 기준선을 이어 붙인 값이다. 한 번의 A/B로 측정한 값이 아니다.
 
 ## 6. v0.8 운영 후보와 남은 칸
 
-v0.8에서 판정 기준을 지각 기준 기본으로 바꿨다(§1). 아래 후보는 모델마다 스위치 하나와 롤백 명령을 갖춰 하나씩 넣는다. **2026-11-07 적용: Idol, MOSS INT8, Qwen alpha, Applio 안전 변수. 2026-11-08 적용: Applio v0.8 묶음 + 워커 GPU 큐 제거. 보류: Applio v1.0 B′(청취, 2026-11-09). 보류: Anima(운영 자리 없음), MOSS VAE(해당 없음).**
+v0.8에서 판정 기준을 지각 기준 기본으로 바꿨다(§1). 아래 후보는 모델마다 스위치 하나와 롤백 명령을 갖춰 하나씩 넣는다. **2026-11-07 적용: Idol, MOSS INT8, Qwen alpha, Applio 안전 변수. 2026-11-08 적용: Applio v0.8 묶음 + 워커 GPU 큐 제거. 2026-11-10 적용: Applio v1.1 B+native. 보류: Applio v1.0 B′(청취, 2026-11-09). 보류: Anima(운영 자리 없음), MOSS VAE(해당 없음).**
 
 | 모델 | 후보 | 효과 | 출력 | 근거 |
 |---|---|---|---|---|
@@ -255,12 +257,13 @@ v0.8에서 판정 기준을 지각 기준 기본으로 바꿨다(§1). 아래 �
 | 〃 (재현 우선) | FP16 4D native + row repair, prewarm | 1.19배 | 바이트 일치 | 가이드 §9.11. Anima 두 행은 **운영 자리 없음으로 보류**(2026-11-07 사용자: 실행기를 새로 만들지 않음). 레시피는 문서에만 둔다 |
 | Idol | Aceeton Sage(또는 Flash) attention | 1.49배(1.25배) | Sage 지각 통과(2026-11-07 사용자), Flash는 수학적 동일 | 가이드 §9.20. **적용됨(2026-11-07)**: `ATTN_BACKEND=sage_rdna2`, MCP `idol_submit` 기본값, 실행기 `run_rdna2_sage_idol.sh`. 실행기 PLY가 연구 결과와 SHA 동일, MCP stdio GPU 스모크 통과. 롤백 `idol-rdna2-lab01/backups/20261107_pre_sage_rdna2/ROLLBACK.md` |
 | Applio 학습 | MIOpen 두 차단 변수 + 검증 NORMAL FindDb | epoch 1.09–1.11배 | 학습 품질 동등성 미확정 | 가이드 §9.14. **두 차단 변수만 적용(2026-11-07)**: `run-applio.sh`, `lab/train_bench.sh`. FAST 4 epoch 대조 9.337 → 9.359 s(속도 변화 없음), NaN 0, loss 차 0.5% 이내. seeded DB(1.09배)는 학습 음성 동등성 확인 전까지 보류. 롤백 `applio-lab/backups/20261107_pre_miopen_safety/` |
+| Applio 학습(v1.1 B+native) | v0.9 + 남은 Conv 68방향(융합 끔) | 운영 경로 100 epoch 21.42 → 19.64분 | 보컬 익명 청취 구분 불가(2026-11-10 사용자) | 가이드 §9.22. **적용됨(2026-11-10)**: `APPLIO_RDNA2_V10=1`이 `run-applio.sh`·`lab/train_bench.sh` 기본값, 융합은 `APPLIO_RDNA2_V10_FUSION` 기본 0. 운영 `core.py train` 5 epoch 스모크 통과. 롤백 `APPLIO_RDNA2_V10=0`, 파일 `applio-lab/backups/20261110_pre_v10_native/ROLLBACK.md` |
 | Applio 학습(v1.0 B′) | v0.9 + ResBlock 융합 12쌍 + 남은 Conv 68방향 | 운영 경로 100 epoch 21.42 → 19.54분 | **청취 보류**(3/4 문장 기존 B 선호, B′ 쪽 아티팩트 지적, 2026-11-09 사용자) | 가이드 §9.22. **꺼진 채 둠**: `applio-lab/rvc/train/rdna2_v10/`(연구본 바이트 동일 사본), `APPLIO_RDNA2_V10=1`일 때만 동작, 런처 기본값 아님. 정적 검증만, 운영 사본 GPU 학습 미실행. 켜기·원복 `applio-lab/backups/20261108_pre_v10/ROLLBACK.md` |
 | Applio 학습(v0.9) | v0.8 묶음 B + 워커 GPU 큐 제거 | 운영 경로 22 → 12.6 s/epoch | 익명 청취 구분 불가(2026-11-08 사용자) | 가이드 §9.21. **적용됨(2026-11-08)**: `APPLIO_RDNA2_V08=1`과 `MIOPEN_FIND_MODE=FAST`가 `run-applio.sh`·`lab/train_bench.sh` 기본값, GUI는 `.venv-rocm10`으로 전환. 실제 `core.py train` 경로에서 21/21 shape hit 확인. 위 행의 seeded DB 보류는 이 묶음의 solver DB로 대체. 롤백 `APPLIO_RDNA2_V08=0`, 파일 `applio-lab/backups/20261108_pre_v08/ROLLBACK.md` |
 
 v0.8에서 기각한 것: Qwen·MOSS·Idol TunableOp(1.01·0.99·1.01배), FlashAttention의 TunableOp 위 중첩(이득 없음). Qwen Sage INT8 QK는 2026-11-08 실제 생성에서 native 대비 1.05배로, 운영 alpha 접기(바이트 일치)보다 느려 기각했다(가이드 §9.20). 남은 칸 네 가지는 [PRO_TASK_V10_KO.md](PRO_TASK_V10_KO.md)로 넘겼고, v1.0 결과는 다음과 같다(2026-11-08, Claude가 원자료 핵심 수치 재현).
 
-- Applio 남은 시간: 위 B′ 행. 속도는 −8.79%였지만 익명 청취에서 보류했다. 융합과 native 교체 중 무엇이 원인인지는 분리하지 않았다.
+- Applio 남은 시간: B′(−8.79%)는 청취에서 보류됐다. 속도가 거의 native 교체에서 나왔으므로 융합을 뺀 B+native(−8.33%)를 다시 시험했고, 보컬 청취를 통과해 운영에 적용했다(v1.1).
 - RTX 5070 대비 몫: 조건부 roofline 모델만 계산했다. 같은 알고리즘·최소 traffic을 가정한 두 하한 차이가 0.35분/100 epoch다. 외부 "12분"의 조건이 같다는 증거가 없어 하드웨어·소프트웨어 분할은 **미식별**이다. 이 PC에서 실제로 줄인 것은 B→B′ 1.88분이다. [GAP_5070_KO.md](rdna2-ops/results/v10/GAP_5070_KO.md)
 - TunableOp 비결정: FP32 GSU4 atomic 커널이 원인이다. 연구 필터로 재현성을 회복했고 Anima 1.79배를 유지했다. Qwen 필터의 새 프로세스 재현성과 MOSS는 미측정이고, 운영에는 적용하지 않았다. 위 §4.1 행.
 - Strata warm: 자원 조건 미달로 서버를 실행하지 않았다(미판정). 위 §4.6 행.
