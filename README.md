@@ -37,8 +37,8 @@ RX 6900 XT 한 장에서 PyTorch/ROCm 기반 AI 작업(이미지 생성, 3DGS, �
 | [rdna2-gfx1030-imagegen-recipes](https://github.com/unixyo/rdna2-gfx1030-imagegen-recipes) | Qwen-Image 2.1, MOSS-Image, MiniMax H3의 ComfyUI 설정·워크플로·패치·시간 측정 |
 | [strata-rdna2-gfx1030-recipe](https://github.com/unixyo/strata-rdna2-gfx1030-recipe) | Strata(Qwen3.8-Flash-Next) 엔진 설정·패치·측정 |
 
-- 레시피 리포는 2026-10-30 기준이다. 이후 이 핸드북에서 운영에 적용한 개선은 아직 반영되지 않았다. MOSS INT8 dot4 융합(가이드 §9.6)과 Qwen 후행 scale alpha 접기(가이드 §7.1)가 그렇다.
-- `rdna2-ops/production/MOSS_RDNA2_INT8/`는 연구 시점의 통합 스냅샷이다. 레시피 리포의 같은 이름 노드(`moss-image/custom_nodes/MOSS_RDNA2_INT8/`)와 내용이 다르다. 실행용으로는 레시피 리포 쪽을 기준으로 한다.
+- 이미지 레시피 리포에는 2026-11-10에 MOSS INT8 dot4 융합(가이드 §9.6)과 Qwen 후행 scale alpha 접기(가이드 §7.1)를 기본값으로 반영했다. 각 레시피의 "2026-11 update" 절에 있다.
+- `rdna2-ops/production/MOSS_RDNA2_INT8/`는 연구 시점의 통합 스냅샷이다(fused 레이아웃 이전). 실행용으로는 레시피 리포의 `moss-image/custom_nodes/MOSS_RDNA2_INT8/`(fused 포함)를 기준으로 한다.
 - Strata는 레시피 리포가 운영 설정을 다룬다. 이 핸드북의 §9.18은 그 위의 프리필 연구(J 타일, warm 병목)다.
 
 ## 환경
