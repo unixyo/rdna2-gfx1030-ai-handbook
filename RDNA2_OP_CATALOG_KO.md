@@ -1,6 +1,6 @@
 # RX 6900 XT (gfx1030) 연산 카탈로그
 
-작성: 2026-11-10 KST, v0.7 / 실험 묶음 rdna2-ops v1.1(Applio B+native 채택, 가이드 §9.22). 이전: v0.6 / rdna2-ops v1.0(v0.9 + GPT Pro v1.0 연구: Applio 융합·남은 Conv 교체, TunableOp 비결정 원인, Strata 재개 판단. 가이드 §9.22·§9.20·§9.18). **Applio B′는 익명 청취에서 4문장 중 3문장 기존 B 선호·B′ 쪽 아티팩트 지적, 1문장 같음(2026-11-09 사용자)으로 보류했다.** 이전: v0.5 / rdna2-ops v0.9(Applio 학습 v0.8 연구·운영 롤아웃, 가이드 §9.21). 그 이전: v0.4 / rdna2-ops v0.8(TunableOp·FlashAttention·판정 기준 변경). 이 문서는 RDNA2 최적화 통합집의 **입구**다. 모델이 아니라 연산 부품 단위로 "되는가, 얼마나 빠른가, 원본과 얼마나 다른가"를 기록한다. 세부 실험과 레시피는 [`rdna2-ops/RDNA2_OPTIMIZATION_GUIDE_KO.md`](rdna2-ops/RDNA2_OPTIMIZATION_GUIDE_KO.md)(이하 가이드)에 있고, 이 표는 그 결과를 연산별로 다시 묶는다.
+작성: 2026-11-10 KST, v0.8 / 실험 묶음 rdna2-ops v1.2(FSR 4.1.2 INT8 provider 확인과 exact 셰이더 추가 후보, 가이드 §9.23, 아래 §4.8). 이전: v0.7 / rdna2-ops v1.1(Applio B+native 채택, 가이드 §9.22). 이전: v0.6 / rdna2-ops v1.0(v0.9 + GPT Pro v1.0 연구: Applio 융합·남은 Conv 교체, TunableOp 비결정 원인, Strata 재개 판단. 가이드 §9.22·§9.20·§9.18). **Applio B′는 익명 청취에서 4문장 중 3문장 기존 B 선호·B′ 쪽 아티팩트 지적, 1문장 같음(2026-11-09 사용자)으로 보류했다.** 이전: v0.5 / rdna2-ops v0.9(Applio 학습 v0.8 연구·운영 롤아웃, 가이드 §9.21). 그 이전: v0.4 / rdna2-ops v0.8(TunableOp·FlashAttention·판정 기준 변경). 이 문서는 RDNA2 최적화 통합집의 **입구**다. 모델이 아니라 연산 부품 단위로 "되는가, 얼마나 빠른가, 원본과 얼마나 다른가"를 기록한다. 세부 실험과 레시피는 [`rdna2-ops/RDNA2_OPTIMIZATION_GUIDE_KO.md`](rdna2-ops/RDNA2_OPTIMIZATION_GUIDE_KO.md)(이하 가이드)에 있고, 이 표는 그 결과를 연산별로 다시 묶는다.
 
 ## 0. 사용법
 
@@ -186,7 +186,7 @@
 
 이 PC의 LLM 주력은 Strata 엔진(v0.1.42 + 패치, Qwen 3.8-Flash-Next MoE, 256K 컨텍스트)이다. IQ3_XXS라는 pack 이름과 실제 layer 타입을 구분한다. v0.7에서 읽은 48개 층의 gate/up 중 IQ3_XXS는 6개이며, down도 IQ4_NL 18개/Q2_0 30개가 섞여 있다. 이번 프리필 결과는 아래 첫 세 행과 가이드 §9.18에 있다. 디코드는 이번 범위에서 제외했다.
 
-나머지 행은 [`strata-rdna2-gfx1030-recipe`](../strata-rdna2-gfx1030-recipe/README.ko.md)의 역사적 측정(A, 2026-10, 대부분 2–4회)을 옮긴 것이다. 이번에 다시 잰 수치가 아니다. llama.cpp를 실제 Strata 경로의 기준선으로 대신 쓰지 않는다.
+나머지 행은 `strata-rdna2-gfx1030-recipe` (`../strata-rdna2-gfx1030-recipe/README.ko.md`, 연구 폴더에만 있음)의 역사적 측정(A, 2026-10, 대부분 2–4회)을 옮긴 것이다. 이번에 다시 잰 수치가 아니다. llama.cpp를 실제 Strata 경로의 기준선으로 대신 쓰지 않는다.
 
 | 연산·설정 | 상태 | 비고 |
 |---|---|---|
@@ -223,6 +223,18 @@
 | v0.8 B 적용 뒤 운영 경로의 남은 비용 | A | `core.py train` step 40–44 kernel 1,679.5 ms: native Conv2d 41.7%, native Conv1d 29.4%, 기존 직접 Conv 9.5%, optimizer 4.6%, ConvTranspose 1.8%. operator 표와 분모가 다르다. 가이드 §9.22 |
 | **Applio v1.0 B′**(v0.8 B + 위 융합 12쌍 + 남은 Conv 68방향) | ❌ 청취 보류(2026-11-09 사용자: 3/4 문장 기존 B 선호, B′ 쪽 아티팩트) | 운영 경로 교대 8 epoch 12.542 → 11.448 s(1.0956배). 100 epoch 각 1회: 프로세스 1,285.2 → 1,172.2 s(−113.0 s, −8.79%), 3,100 step, 초기 SHA 동일, nonfinite 0. 두 겹의 개별 기여는 미분리. 운영 사본 `rdna2_v10`은 준비됐고 꺼져 있음. 가이드 §9.22 |
 | **Applio v1.1 B+native**(v0.8 B + 남은 Conv 68방향, 융합 끔) | ✅ 보컬 익명 청취 구분 불가(2026-11-10 사용자), 운영 적용 | 운영 경로 100 epoch 프로세스 1,285.2 → 1,178.2 s(−8.33%), steady 12.566 → 11.439 s. 초기 SHA 동일, nonfinite 0. 운영 런처 5 epoch 스모크 11 s/epoch·31/31 hit. 가이드 §9.22 |
+
+### 4.8 그래픽 셰이더 INT8 추론 (Vulkan, FSR 4.1.2)
+
+Proton Experimental → vkd3d-proton 3.1.0 → RADV/ACO(Mesa 26.2.4), timing-kit 합성 Native AA 1080p·4K. 시간은 업스케일러 GPU 시간이며 게임 FPS가 아니다. 가이드 §9.23.
+
+| 연산/경로 | 상태 | 비고 |
+|---|---|---|
+| 무수정 SDK 2.4 DLL의 provider 선택 | ❌ FSR4 아님 | 파일 버전 4.1.2.4555지만 자동 선택은 **FSR 3.1.6**. Navi2 `IsSupported`의 D3DKMT type 0 조회를 Wine이 처리하지 않음. "FSR 켜짐" 표시만으로 FSR4 판정 금지. A+B |
+| 커뮤니티 exact 셰이더 (vs SDK 원본 셰이더) | ✅ 비트 일치 | 전체 시간 6.074~7.424% 감소, 최종 프레임 28쌍 바이트 동일, provider 4.1.2-exact-r2-cyboman. 실제 게임 provider·FPS 미검증. A |
+| clamp·shift 표현 변환 `clamp_all` (vs 커뮤니티 exact) | ❔ 3/4 조건 통과 | 1080p 움직임 −1.91%, 4K 정지 −1.37%, 4K 움직임 −1.43%. 1080p 정지는 CI에 0 포함으로 미채택. 96회 비교 바이트 동일. 커뮤니티 4.1.1 변환의 이식. 운영 적용 없음. A |
+| 커뮤니티 lossy (재학습) | ⚠️ 근사 | exact 대비 14.9~23.1% 감소, 출력 다름(선형 RGB MAE 0.003~0.006). 합성 입력이라 육안 판정 불가, 미채택. A |
+| Vulkan signed dot4 관측 기준 | A | wave32 probe 중앙값 91.68 TOPS. wave64 FSR의 하드웨어 상한으로 일반화 금지 |
 
 ## 5. 모델별 적용 예
 

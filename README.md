@@ -24,9 +24,10 @@ RX 6900 XT 한 장에서 PyTorch/ROCm 기반 AI 작업(이미지 생성, 3DGS, �
 | TunableOp 비결정 | 선택된 FP32 GSU4 rocBLAS 커널의 atomic 누산 때문이다. 해당 행만 Default로 바꾸면 재현성이 돌아온다(Anima 1.79배 유지). | 가이드 §9.20 |
 | 작은 batch Conv의 im2col+GEMM | period Conv2d·ConvTranspose dW에서 MIOpen이 batch별 작은 GEMM을 반복한다. Triton 직접 커널로 방향별 최대 27배 빨라졌다. 학습 전체로는 −8.8%였지만, 묶음 B′는 청취에서 보류됐다. | 가이드 §9.22 |
 | INT8 dot4 융합 GEMM | MOSS INT8 ConvRot 생성이 2.28배 빨라졌고 출력은 바이트 일치했다. | 가이드 §9.6 |
+| Linux의 "FSR 켜짐"은 FSR4가 아닐 수 있다 | Proton에서 무수정 FSR SDK 2.4 DLL(4.1.2)은 FSR 3.1.6을 골랐다. Navi2 지원 검사가 Wine이 처리하지 않는 AMD 전용 D3DKMT 조회에 걸린다. 커뮤니티 exact 셰이더는 4.1.2를 골랐고, 그 위에 clamp·shift 변환을 이식해 업스케일러 시간을 1.4–1.9% 더 줄였다(출력 바이트 동일, 1080p 정지는 미확정). | 가이드 §9.23 |
 | Triton 3.8 고정 | 3.9부터 RDNA2 지원이 빠졌다. hipBLASLt는 gfx1030을 지원하지 않는다. | 카탈로그 §2–3 |
 
-*English summary: worker-process GPU queues slowing training 1.5–2×; a MIOpen workspace-query bug for dilated GEMM; two MIOpen solvers that return wrong results; TunableOp nondeterminism traced to FP32 split-K atomics; Triton direct kernels replacing MIOpen's per-batch small GEMMs; an INT8 dot4 fused GEMM (2.28×, bit-exact). Details are in the Korean docs above.*
+*English summary: worker-process GPU queues slowing training 1.5–2×; a MIOpen workspace-query bug for dilated GEMM; two MIOpen solvers that return wrong results; TunableOp nondeterminism traced to FP32 split-K atomics; Triton direct kernels replacing MIOpen's per-batch small GEMMs; an INT8 dot4 fused GEMM (2.28×, bit-exact); FSR 4.1.2 under Proton silently falling back to FSR 3.1.6 with the stock SDK DLL, plus a byte-exact 1.4–1.9% shader gain on top of the community exact build. Details are in the Korean docs above.*
 
 ## 관련 리포
 

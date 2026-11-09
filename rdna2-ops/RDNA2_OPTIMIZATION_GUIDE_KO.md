@@ -1,6 +1,6 @@
 # RX 6900 XT / gfx1030 범용 AI 최적화 사용설명서
 
-작성 기준: **2026-11-10 KST, rdna2-ops v1.1**(v1.0 + Applio B+native 채택, §9.22 끝). 이전 판: **2026-11-08 KST, rdna2-ops v1.0**(v0.9 + GPT Pro의 v1.0 연구 §9.22와 §9.18·§9.20 보충). v1.0은 Applio ResBlock 융합과 남은 Conv 교체의 운영 경로 100 epoch 결과(§9.22), TunableOp 비결정의 원인과 연구 필터(§9.20), Strata warm 재개 판단(§9.18)을 추가한다. **Applio B′는 익명 청취에서 4문장 중 3문장 기존 B 선호·B′ 쪽 아티팩트 지적, 1문장 같음(2026-11-09 사용자)으로 보류했다.** v1.1에서 융합을 뺀 B+native가 보컬 익명 청취를 통과해 운영에 적용됐다(2026-11-10). 이전 판 기준: **2026-11-08 KST, rdna2-ops v0.9**(v0.8 + GPT Pro의 Applio 학습 연구와 Claude 운영 롤아웃 §9.21). v0.9는 Applio RVC 학습의 solver 선택·직접 Conv1d·Conv 외 최적화와 100 epoch 익명 청취 판정, 그리고 운영 학습 경로에서 찾은 DataLoader 워커의 GPU 큐 문제를 §9.21에 추가한다. 이전 판 기준: **2026-11-07 KST, rdna2-ops v0.8**(v0.7 + Claude 후속 실측 §9.20). v0.8은 판정 기준을 지각 기준 기본으로 바꾸고(§1.2), PyTorch TunableOp와 RDNA2용 FlashAttention Triton의 실제 모델 결과를 §9.20에 추가한다. 아래의 v0.7 서술은 그대로 보존한다. 입구는 [연산 카탈로그](../RDNA2_OP_CATALOG_KO.md)다. RX 6900 XT의 기존 환경에서 실행한 결과를 연산·dtype·shape·layout·backend별로 묶고, MOSS·Qwen·Anima·Applio는 최종 출력 검증에 쓰는 기존 사례로 다룬다. v0.3 운영 검증, v0.4 신규 커널, v0.5 Qwen 리허설 수정과 INT8·FP32 Attention·혼합 정밀도·Sage 이력은 그대로 보존했다. v0.6의 Claude 재현·원인 규명은 다시 측정하지 않고 검수 근거로 반영했다. v0.7은 INT4 가중치 GEMM·Sparse Attention·Strata 프리필의 성공/실패/미검증 칸을 §9.16–9.18에 추가한다.
+작성 기준: **2026-11-10 KST, rdna2-ops v1.2**(v1.1 + GPT Pro의 FSR 4.1.2 INT8 연구, §9.23). v1.2는 Linux/Proton에서 "FSR 켜짐"이 실제로는 FSR 3.1.x일 수 있다는 provider 확인 결과와, 커뮤니티 exact 셰이더 위의 추가 exact 후보(1.4~1.9%)를 추가한다. 이전 판: **2026-11-10 KST, rdna2-ops v1.1**(v1.0 + Applio B+native 채택, §9.22 끝). 이전 판: **2026-11-08 KST, rdna2-ops v1.0**(v0.9 + GPT Pro의 v1.0 연구 §9.22와 §9.18·§9.20 보충). v1.0은 Applio ResBlock 융합과 남은 Conv 교체의 운영 경로 100 epoch 결과(§9.22), TunableOp 비결정의 원인과 연구 필터(§9.20), Strata warm 재개 판단(§9.18)을 추가한다. **Applio B′는 익명 청취에서 4문장 중 3문장 기존 B 선호·B′ 쪽 아티팩트 지적, 1문장 같음(2026-11-09 사용자)으로 보류했다.** v1.1에서 융합을 뺀 B+native가 보컬 익명 청취를 통과해 운영에 적용됐다(2026-11-10). 이전 판 기준: **2026-11-08 KST, rdna2-ops v0.9**(v0.8 + GPT Pro의 Applio 학습 연구와 Claude 운영 롤아웃 §9.21). v0.9는 Applio RVC 학습의 solver 선택·직접 Conv1d·Conv 외 최적화와 100 epoch 익명 청취 판정, 그리고 운영 학습 경로에서 찾은 DataLoader 워커의 GPU 큐 문제를 §9.21에 추가한다. 이전 판 기준: **2026-11-07 KST, rdna2-ops v0.8**(v0.7 + Claude 후속 실측 §9.20). v0.8은 판정 기준을 지각 기준 기본으로 바꾸고(§1.2), PyTorch TunableOp와 RDNA2용 FlashAttention Triton의 실제 모델 결과를 §9.20에 추가한다. 아래의 v0.7 서술은 그대로 보존한다. 입구는 [연산 카탈로그](../RDNA2_OP_CATALOG_KO.md)다. RX 6900 XT의 기존 환경에서 실행한 결과를 연산·dtype·shape·layout·backend별로 묶고, MOSS·Qwen·Anima·Applio는 최종 출력 검증에 쓰는 기존 사례로 다룬다. v0.3 운영 검증, v0.4 신규 커널, v0.5 Qwen 리허설 수정과 INT8·FP32 Attention·혼합 정밀도·Sage 이력은 그대로 보존했다. v0.6의 Claude 재현·원인 규명은 다시 측정하지 않고 검수 근거로 반영했다. v0.7은 INT4 가중치 GEMM·Sparse Attention·Strata 프리필의 성공/실패/미검증 칸을 §9.16–9.18에 추가한다.
 
 설치·드라이버·가상환경·운영 기본 설정을 바꾸지 않았고 Triton 3.8을 유지했다. **v0.7에서 추적한 운영 파일 79개(기존 15+16개와 Strata 48개)의 SHA-256이 전후 동일**하다. Strata 서비스는 감사 전후 inactive/dead, MainPID 0이며 시작·중지·재시작하지 않았다. 이는 명시한 파일 범위이며 전체 디렉터리·OS page cache·컴파일 cache 감사가 아니다. GPU는 연구 lock과 KFD 감시 하에 순차 실행했고 겹친 측정·불완전 audit의 timing은 성능 판정에서 제외했다. [31개 사전](results/v07_operating_files/before.json) / [사후](results/v07_operating_files/after.json), [Strata 48개 사전](results/strata_v07/operating_before.json) / [사후](results/strata_v07/operating_after.json). Anima의 prewarm 코드 변경은 Claude 검수에서 이미 있었던 v0.7 시작 상태를 보호했다. 이전 [v0.6 감사](results/v06_operating_files_audit.json), [Applio epoch 감사](results/conv_catalog_v06/epoch_filtered_transpose/result.json), [v0.5 감사](results/v05_operating_files_audit.json)는 역사적 기록으로 남긴다.
 
@@ -2462,6 +2462,66 @@ v0.8 연구는 GPT Pro, 운영 롤아웃과 운영 경로 실측은 Claude가 �
   - 약 11.5 s/epoch
   - KFD 큐 7 이하
 - 켜기·끄기·원복 절차는 `applio-lab/backups/20261108_pre_v10/ROLLBACK.md`에 있다.
+
+### 9.23 FSR 4.1.2 INT8 업스케일러: 실제 provider 확인과 exact 셰이더 추가 최적화 (v1.2)
+
+GPT Pro 연구(2026-11-10), Claude 재계산·게임 모드 DLL 확인. 정본 보고서는 [results/fsr4/FSR4_RDNA2_KO.md](results/fsr4/FSR4_RDNA2_KO.md)다. 경로는 Proton Experimental → vkd3d-proton 3.1.0 → RADV/ACO(Mesa 26.2.4), RX 6900 XT다. 입력은 timing-kit의 합성 Native AA 1080p·4K, 정지·움직임 장면이다. 모든 %는 업스케일러 GPU 시간이며 게임 FPS가 아니다.
+
+#### 9.23.1 "FSR 켜짐"과 FSR4는 다르다
+
+- **확인된 사실:** 공식 SDK 2.4 upscaler DLL(파일 버전 4.1.2.4555)을 무수정으로 쓰면, 이 Proton 경로의 자동 context query는 **FSR 3.1.6**을 골랐다. 제공 목록도 3.1.6과 2.3.4뿐이었다. Navi2 provider의 `IsSupported`가 AMD Windows private adapter 정보(`NtGdiDdDDIQueryAdapterInfo` type 0, UMDRIVERPRIVATE)를 묻는데, Wine이 이 type을 처리하지 않는다. 실행 로그와 DLL 정적 분석이 둘 다 이 연결을 가리킨다. 근거: `results/fsr4/analysis/SDK_PROVIDER_GATE_KO.md`.
+- **확인된 사실:** 커뮤니티 exact DLL은 같은 경로에서 provider `4.1.2-exact-r2-cyboman`을 실제로 골랐다.
+- **확인된 사실(Claude, 2026-11-10):** Fallout 4 모드팩의 Upscaling Custom v1.41에 든 upscaler DLL은 FileVersion 4.1.0.0, 15.6 MB이고 `Navi2`·`Int8` 문자열이 없다. SDK 2.4 DLL(57 MB)에는 있다.
+- **추론:** 그 모드 기본 DLL로는 6900 XT에서 FSR4를 고를 수 없어 FSR 3.1.x로 내려갔을 가능성이 높다. 게임 안에서 provider를 직접 조회하지는 않았다.
+- **교훈:** OSD의 "FSR" 표시나 DLL 파일 버전만으로 FSR4 사용을 판정하지 않는다. provider 버전을 직접 조회하거나 provider 표시 기능(예: Proton-GE·proton-cachyos의 `PROTON_FSR4_INDICATOR=1`)으로 확인한다. 커뮤니티에는 "Proton Experimental의 FSR4는 RDNA3만, 나머지는 FSR3로 떨어진다"는 보고와 GE·cachyos의 RDNA2 경로가 이미 있다. 위 D3DKMT 원인 설명은 2026-11-10 검색 범위에서는 찾지 못했지만, 새 발견이라고 단정하지 않는다.
+
+#### 9.23.2 기준선: 원본 셰이더, 커뮤니티 exact, lossy
+
+원본 셰이더는 연구 사본의 Navi2 CPU 지원 판정 함수 시작 6바이트만 `mov eax,1; ret`로 바꾼 DLL로 쟀다. DXBC 1778개(고유 1389개)와 수정 구간 밖 모든 바이트가 그대로임을 검증했다. 측정은 warm40/timed200 × 7 round × 3빌드 × 4조건이다.
+
+| 조건 | SDK 원본 셰이더 ms | 커뮤니티 exact ms | 커뮤니티 lossy ms | 원본→exact | exact→lossy |
+|---|---:|---:|---:|---:|---:|
+| 1080p 정지 | 0.75096 | 0.70152 | 0.59278 | −6.584% | −15.552% |
+| 1080p 움직임 | 0.76162 | 0.70570 | 0.59834 | −7.424% | −14.899% |
+| 4K 정지 | 3.38648 | 3.17892 | 2.45636 | −6.074% | −23.096% |
+| 4K 움직임 | 3.39698 | 3.17038 | 2.45776 | −6.618% | −22.561% |
+
+원본↔exact 최종 프레임은 28쌍 모두 전체 바이트가 같았다. lossy는 재학습 모델이라 출력이 다르다(선형 RGB MAE 0.003~0.006). Claude가 exact 기준선 두 값(0.7057 ms, 3.17038 ms)을 GPT 스크립트 없이 원본 frame CSV에서 다시 계산해 일치를 확인했다.
+
+#### 9.23.3 추가 후보 `clamp_all`: 커뮤니티 exact 위에서 더 줄이기
+
+현재 exact의 실제 ISA에 shift→signed-byte clamp 패턴이 남아 있었다. 커뮤니티가 4.1.1용으로 만든 `model_clamp` 변환을 현재 4.1.2 dump에 이식했다. 20개 셰이더의 기계어만 바뀌었고 36개는 바이트가 그대로였다. dot4 수와 VGPR·LDS 할당은 유지했다. **새 최적화 원리가 아니라 기존 변환을 현재 경로에 옮긴 것이다.**
+
+판정 기준(`results/fsr4/PREDECLARED_GATES.json`)은 GPU 측정 전에 저장했다. 출력 전체 바이트 일치에 더해, 7개 paired 이득의 중앙값이 양수이고 2×MAD보다 크며, round 단위 bootstrap 95% 하한이 0보다 커야 한다. 양쪽 모두 warm400/timed200으로 7쌍을 교대 측정했다.
+
+| 조건 | exact ms | clamp_all ms | paired 감소 | 95% CI | 판정 |
+|---|---:|---:|---:|---|---|
+| 1080p 정지 | 0.737440 | 0.723100 | 1.9396% | [−0.4577, 1.9825]% | 미채택(이득 미확정) |
+| 1080p 움직임 | 0.741860 | 0.727640 | 1.9134% | [1.8141, 2.0009]% | 조건부 성공 |
+| 4K 정지 | 3.200760 | 3.152540 | 1.3735% | [1.3423, 1.5065]% | 조건부 성공 |
+| 4K 움직임 | 3.201120 | 3.151340 | 1.4334% | [1.3251, 1.6454]% | 조건부 성공 |
+
+출력은 probe 4쌍, 주분석 28쌍, 움직임·밝기 연속 프레임 64쌍, 총 96회 비교에서 모두 바이트가 같았다. 1080p 정지의 큰 음수 표본은 지우지 않았다. 외부 Steam GPU 활동이 관측된 한 쌍은 사전 규칙대로 분리하고 한 번만 보충했으며, 원본 7쌍·제외 6쌍·보충 7쌍 결과를 모두 남겼다. 4K에서 한 프레임 절감은 약 0.045 ms다. 게임 적용과 FPS는 미검증이다.
+
+#### 9.23.4 ISA·작업량을 읽을 때의 함정
+
+- 실제 기계어는 signed `v_dot4_i32_i8`/`v_dot4c_i32_i8`이고 dot와 누산이 이미 결합돼 있었다. pass 7/8의 정적 336개는 루프 때문에 유효 thread당 5248개, pass 9의 400개는 7296개가 된다. 덤프의 명령 수를 그대로 곱하면 작업량을 크게 적게 잡는다.
+- network 12 pass + post의 작업량은 1080p 27.17 GOP, 4K 108.69 GOP다. 별도 Vulkan probe의 dot4 관측치는 91.68 TOPS(wave32)다. 이 값으로 나눈 시간(0.296/1.186 ms)은 조건부 기준이며 물리적 하한이 아니다.
+- logical tensor 바이트는 실제 DRAM 전송량이 아니다. 물리 traffic counter 없이 대역폭으로 나눈 값을 실측 하한으로 쓰지 않는다.
+- 커뮤니티 post 셰이더는 원본보다 VGPR 72→128, LDS 0→16 KiB로 늘었는데도 빨랐다. RADV의 "Subgroups per SIMD"는 32-lane 환산값이라 wave64에서는 실제 occupancy가 아니다. 일부 SDWA/SMEM 역어셈블 오류는 다음 word를 가짜 명령으로 보이게 하므로 raw word 경계로 다시 센다.
+
+#### 9.23.5 화질 비교와 채택 상태
+
+- lossy 익명 A/B 페이지를 만들었지만, 합성 테스트 입력이라 사용자 눈으로는 구분되지 않았다(2026-11-10). 화질 판단은 수치와 실제 게임 장면으로 미룬다. 캡처 원본(약 15 GB)은 사용자 요청으로 정리 대상이 됐고, 목록은 `results/fsr4/analysis/captures_manifest/`에 남겼다.
+- 운영 설치와 게임 적용은 하지 않았다. 다음 단계는 게임에서 커뮤니티 exact DLL을 쓸 때 실제 provider가 4.1.2인지 확인하는 것이다. Fallout 4 모드는 MO2 하드링크 배포라서 `mods/` 안 파일을 직접 바꾸지 않는다.
+
+#### 9.23.6 다른 절에 대한 보충
+
+- §1.2: exact라도 셰이더 단독 측정만으로 채택하지 않는다. 같은 history의 최종 raw 출력과 전체 구간 시간을 같이 비교한다.
+- §9.7: register 감소, scratch 0, 정규화된 subgroup 수를 각각 따로 읽는다. SGPR→VGPR lane spill과 환산 정의를 확인한다.
+- §10: override 환경 변수를 설정한 것만으로 적용됐다고 보지 않는다. 실제 PSO/DXIL/SPIR-V 해시와 바뀐 기계어 대상을 대조한다.
+- §10: KFD client 0은 Vulkan 작업이 없다는 증거가 아니다. DRM client와 engine 활동을 같이 본다.
+- §10: 성능 이상값과 외부 GPU 활동은 따로 기록한다. 제외·보충 규칙은 결과를 본 뒤 바꾸지 않는다.
 
 ## 10. 새 모델에 적용하기 전 체크리스트
 
