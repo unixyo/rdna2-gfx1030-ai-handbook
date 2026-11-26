@@ -40,7 +40,7 @@ RX 6900 XT 한 장에서 PyTorch/ROCm 기반 AI 작업(이미지 생성, 3DGS, �
 
 - 이미지 레시피 리포에는 2026-11-10에 MOSS INT8 dot4 융합(가이드 §9.6)과 Qwen 후행 scale alpha 접기(가이드 §7.1)를 기본값으로 반영했다. 각 레시피의 "2026-11 update" 절에 있다.
 - `rdna2-ops/production/MOSS_RDNA2_INT8/`는 연구 시점의 통합 스냅샷이다(fused 레이아웃 이전). 실행용으로는 레시피 리포의 `moss-image/custom_nodes/MOSS_RDNA2_INT8/`(fused 포함)를 기준으로 한다.
-- Strata는 레시피 리포가 운영 설정을 다룬다. 이 핸드북의 §9.18은 그 위의 프리필 연구(J 타일, warm 병목)다.
+- Strata는 레시피 리포가 운영 설정을 다룬다. 이 핸드북의 §9.18은 그 위의 프리필 연구(J 타일, warm 병목)이며, 2026-11-26에 `RDNA2_OP_CATALOG_KO.md` §4.6·§5에 Strata `2af30ccaa` 기반 Phase 1·2 RDNA2 커널(`EXP_MODE=9`, `HC_REQ8/4`, `LM_I8`, `PF_DIRECT_HYBRID`, `ROUTE_SMART` v1/v2, `MTP_ADAPT`) 및 Zen 4 AVX-512(`STRATA_IQ512_EXACT_GU=1`) 통합 검증 결과를 추가했다.
 
 ## 환경
 

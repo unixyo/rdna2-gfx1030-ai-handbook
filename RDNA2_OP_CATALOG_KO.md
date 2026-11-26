@@ -197,7 +197,16 @@
 | IQ 코드북 인덱스 → 일반 INT4 dot8 직접 이식 | ❌ 같은 계산 아님 | IQ3_XXS/IQ4_NL의 코드는 비선형 lookup이며 signed nibble 값이 아님. 실제 IQ3 커널은 dot4 사용. §4.1 W4 결과를 그대로 전파하지 않음. B, 가이드 §9.18 |
 | MoE 전문가 양자화 IQ3_S → IQ3_XXS | ✅ | 당시 64 GB RAM 조건에서 전문가 약 40 GiB를 page cache에 올린 결과. 현재 다른 앱과의 메모리 경합 여부는 별도 확인. 프리필 1.1–3.5배, 디코드 22–41 → 40–45 tok/s. 답변 품질은 끝까지 측정하지 않음 |
 | 프롬프트 FP16 GEMM + rocBLAS 튜닝표 (`STRATA_HIP_PROMPT_F16`, `STRATA_ROCBLAS_TUNING`) | ✅ | gfx1030 프롬프트 경로. recipe §효과 순서 2 |
-| 프롬프트 attention #3381 백포트 (`STRATA_PROMPT_ATTN_RDNA2`) | ⚠️ | int8 KV에서 9.7K +8.4%. 최종 k8v4 KV에서는 split 경로로 되돌아가 효과 없음. k8v4용 확장은 attention 단계 24–28% 빨랐으나 요청 전체 무이득에 GPU 메모리 fault 1회로 철회 |
+| 프롬프트 attention #3381 백포트 (`STRATA_PROMPT_ATTN_RDNA2`) | ⚠️ | int8 KV에서 9.7K +8.4%. 최종 k8v4 KV에서는 split 경로로 되돌아가 효과 없음. k8v4용 확장은 attention 단계 24–28% 빨랐으나 요청 전체 무이득(1,319 vs 1,258–1,316 tok/s)에 콜드 119K GPU 메모리 fault(`page not present`) 1회로 철회(2026-11-26 `2af30ccaa` 재검토에서도 이식 보류 유지) |
+| **MoE VRAM 히트 RDNA2 커널 (`STRATA_EXP_MODE=9`, `2af30ccaa`)** | **✅ 비트 일치** | `Q2_0` `v_perm_b32` 언팩 + 5개 IQ 포맷 무분기 3-op 부호 반전 + Wave32 DPP 축약. 실제 GGUF 10개 층(`G=24, T=4`)에서 Mode 0 대비 **−18.5~−35.7%**(Mode 8 대비 −10.0~−17.7%), 비교 2,457,600 float 0 diff(독립 감사 재현) |
+| **선택적 RDNA2 LM Head + 무부하 PCIe 제거 (`STRATA_RDNA2_HEAD=1`, `STRATA_SKIP_ZERO_PCIE=1`)** | **✅ 비트 일치** | `n_out >= 32768`(LM Head 248,320)만 RDNA2 Wave32 MMVQ로 보내 소형 GEMV 회귀 제거; `--mmap-experts` 무핀 환경의 빈 PCIe 스핀 `1.65–1.84 → 0.12 ms/win` |
+| **Hyper-Connection 양자화 (`STRATA_HC_REQ8=1` / `STRATA_HC_REQ4=1`)** | **✅ (`REQ8`) / ⚠️ 근사 (`REQ4`)** | `REQ8`: +318 슬롯, HC −37%, Top-32 KL `0.00245`로 품질 우선 시 우세. `REQ4=1`(IQ4_NL, `sdot4`+`v_perm_b32`): +507 슬롯, 연산자 3.7배(`75.1 → 20.2 µs`), 단 KL `0.01225` |
+| **Hybrid `mincore` + `O_DIRECT` 프리필 (`STRATA_PF_DIRECT_HYBRID=1`, 4스레드 fail-closed)** | **✅ 비트 일치** | 페이지 캐시 웜은 RAM `memcpy`, 콜드는 4KB 정렬 `O_DIRECT` `pread`. 12스레드 연속 스캔 중 NVMe 컨트롤러 드랍(`CSTS=0xffffffff`) 후 기본 **4스레드**(`6,598 MB/s`=피크 95.8%, 큐 깊이 1/3)로 낮추고 `EIO`/`ENODEV`/`ENXIO` fail-closed + 연속 sysfs 워치독(7/7 테스트 PASS) 적용 |
+| **HIP `OWN-I8` 1-Pass Layer-Major 프리필 (`STRATA_LM_I8=1`)** | **✅ (대체 양자화 산술)** | 매칭 16,387토큰 직접 SSD 읽기 **`53,965 → 23,992 MiB`(−55.5%)**, 프리필 `16.16 → 14.32 s`(−11.4%), Top-5 100% 일치·`KL=3.55e-5`(비트 동일 아님). `--spec 6`에서는 `--vram-reserve-mib 896` 필요(`768`은 50 MiB 부족으로 fallback) |
+| **예산형·티어 인지 MoE 라우팅 (`STRATA_ROUTE_SMART` v1 / v2 `P2_CAL`)** | **⚠️ 근사(opt-in)** | 독립 감사 기준 v1(`C`)이 고정 운영판 `v0.2.16` 대비 4K 디코드 **`35.3 → 80.0 tok/s`(2.26배)**. v2 `P2_CAL`(13.65 ms warm bitmap + 엣지/민감도 가드)은 보류 808토큰 추가 NLL **`ΔNLL −66.1%`**, 엄격 `finish_reason=="stop"` **8/8 통과** |
+| **캐시 인지 적응형 MTP (`STRATA_MTP_ADAPT`, `--spec 6`)** | **✅ (타깃 검증 동일)** | 레이어당 CPU 전문가 EWMA로 콜드 `T<=4`↔웜 `T<=6` 전환 + 한계비용 체인 컷오프(`0.15`). 웜 auto-cache ABBA에서 `C` 대비 4K~16K **+2.7~+8.1%**(`89.4~100.5 tok/s`), 드래프트 채택 `0.73–0.76 → 0.83–0.85` |
+| **Zen 4 AVX-512 비트-정확 CPU IQ Gate/Up (`STRATA_IQ512_EXACT_GU=1`)** | **✅ 비트 일치 (CPU)** | VPOPCNTDQ 기반 1~3토큰 활성화 공유 + 기존 16레인 FP32 누산 순서 보존. 1코어 합성 `IQ3_XXS` −34.6~−39.3%, `IQ3_S` −25~−26%, 실측 4,268 작업 −23.34%(97M 출력 0 diff). `EXACT_P2`(CPU 비중 50~52%)·콜드 `P2_CAL`(24%+) 보완; 웜 `P1_MTP6`(CPU 16%)에선 E2E 상한 ~2–3% |
+| **CPU IQ4_NL down 2-row (`STRATA_IQ4NL_PAIR_ROWS=1`) / `STRATA_IO_PREFETCH=0` / `STRATA_SPEC_COST=1`** | **❌ 거절** | `PAIR_ROWS`: 7-워커 풀 −5.99% 역행. `IO_PREFETCH=0`: `io_fill_` 비활성화로 콜드 디코드 `19.9 tok/s`·`124,952` major faults 붕괴. `SPEC_COST=1`: 콜드 미스 EMA 오염으로 `avgT 2.30–2.48` 하락 |
 | KV cache 양자화 int8 → k8v4 | ✅ | 같은 속도, 전문가 슬롯 증가로 256K 가능. 256K 디코드는 약 −10% |
 | GDN 융합 스위치 (`STRATA_GDN_HEAD/PP/CONVL2/NOY`, `STRATA_CVEC_FUSE`) | ✅ | 프롬프트 길이에 따라 +5–12%. 연산 단독은 64토큰 이상 약 2배, 32토큰 미만은 느림 |
 | Decode GPU 커널 묶음 (`MMVF_ROWS`, `Q8_PACKED`, `Q6_PACKED`, `ATTN_LANECELL` 등) | ⚠️ 거절 | 디코드 무이득, warm 프리필 −4~−7%. gfx1151 이득이 옮겨지지 않음. 스위치별이 아니라 묶음으로 측정 |
@@ -253,6 +262,7 @@ Proton Experimental → vkd3d-proton 3.1.0 → RADV/ACO(Mesa 26.2.4), timing-kit
 | 〃 (v0.9, voice_model_A 100 epoch) | 워커 GPU 큐 제거 + v0.8 묶음 B(solver DB, 직접 Conv1d, D single AdamW 등) | 운영 경로 22 → 12.6 s/epoch(100 epoch 약 37분 → 약 22분 추정). 하네스 100 epoch 25:40 → 22:00, 익명 청취 지각 통과 | 가이드 §9.21 |
 | 〃 (v1.1 B+native, 채택) | v0.9 + 남은 Conv 68방향(융합 끔) | 운영 경로 100 epoch 21.42 → 19.64분(−8.33%). 보컬 익명 청취 구분 불가 | 가이드 §9.22 |
 | 〃 (v1.0 B′, 청취에서 보류) | 위 + ResBlock 융합 12쌍 + 남은 Conv 68방향 | 운영 경로 100 epoch 실측 21.42 → 19.54분(−8.79%). 익명 청취 3/4 문장 기존 B 선호로 보류 | 가이드 §9.22 |
+| **Strata (`2af30ccaa`, SC117 IQ3_XXS, 2026-11-26 v2)** | `EXP_MODE=9` + `RDNA2_HEAD` + `SKIP_ZERO_PCIE` + `HC_REQ8` + `PF_DIRECT_HYBRID`(4-thr fail-closed) + `LM_I8` + `MTP_ADAPT` + `ROUTE_SMART` v1/v2 (+ `IQ512_EXACT_GU`) | 4K~16K 웜 디코드 `89.4~100.5 tok/s`(`P1_MTP6`, 고정 운영 `v0.2.16` 4K 중앙값 `35.3` 대비 2배+), 16K 직접 SSD 읽기 −55.5%(`53.97→23.99 GiB`), `P2_CAL` 보류 `ΔNLL −66.1%`, 엄격 8/8 통과 | `strata-rdna2-gfx1030-recipe` (`results/v2-phase1-2.md`) |
 
 누적 7.446 → 2.14 s는 서로 다른 A/B의 기준선을 이어 붙인 값이다. 한 번의 A/B로 측정한 값이 아니다.
 
