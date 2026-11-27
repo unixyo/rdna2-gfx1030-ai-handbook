@@ -23,11 +23,12 @@ RX 6900 XT 한 장에서 PyTorch/ROCm 기반 AI 작업(이미지 생성, 3DGS, �
 | MIOpen 오답 solver 두 개 | `MIOPEN_DEBUG_CONV_IMPLICIT_GEMM_HIP_FWD_V4R1=0`, `MIOPEN_DEBUG_CONV_DIRECT_HIP_WRW53=0`로 끈다. NORMAL·FP32 Conv 참조에 필수다. | 카탈로그 §4.3 |
 | TunableOp 비결정 | 선택된 FP32 GSU4 rocBLAS 커널의 atomic 누산 때문이다. 해당 행만 Default로 바꾸면 재현성이 돌아온다(Anima 1.79배 유지). | 가이드 §9.20 |
 | 작은 batch Conv의 im2col+GEMM | period Conv2d·ConvTranspose dW에서 MIOpen이 batch별 작은 GEMM을 반복한다. Triton 직접 커널로 방향별 최대 27배 빨라졌다. 학습 전체로는 −8.8%였지만, 묶음 B′는 청취에서 보류됐다. | 가이드 §9.22 |
+| Direct HIP Conv/AdamW + 커스텀 `F(4,5)` 1D Winograd (Applio RVC) | `v1.1 B+native` 위에 Direct HIP 커널 46종 + C++ shim + zero-sync FP64 AdamW(`v6.2`)를 얹어 steady `11.50 → 7.11 s/epoch`(1.62배, 200 epoch 실전 청취 통과). 여기에 `F(4,5)` 1D Winograd(공간 곱 20→8) + 56행 고정 TunableOp CSV + fusion(`v7` opt-in)을 더해 `6.285 s/epoch`(1.82배 vs `v1.1`, 장기 청취 미실시)까지 단축했다. | 카탈로그 §4.7·§5·§6, [applio-rdna2-direct-hip](https://github.com/unixyo/applio-rdna2-direct-hip) |
 | INT8 dot4 융합 GEMM | MOSS INT8 ConvRot 생성이 2.28배 빨라졌고 출력은 바이트 일치했다. | 가이드 §9.6 |
 | Linux의 "FSR 켜짐"은 FSR4가 아닐 수 있다 | Proton에서 무수정 FSR SDK 2.4 DLL(4.1.2)은 FSR 3.1.6을 골랐다. Navi2 지원 검사가 Wine이 처리하지 않는 AMD 전용 D3DKMT 조회에 걸린다. 커뮤니티 exact 셰이더는 4.1.2를 골랐고, 그 위에 clamp·shift 변환을 이식해 업스케일러 시간을 1.4–1.9% 더 줄였다(출력 바이트 동일, 1080p 정지는 미확정). | 가이드 §9.23 |
 | Triton 3.8 고정 | 3.9부터 RDNA2 지원이 빠졌다. hipBLASLt는 gfx1030을 지원하지 않는다. | 카탈로그 §2–3 |
 
-*English summary: worker-process GPU queues slowing training 1.5–2×; a MIOpen workspace-query bug for dilated GEMM; two MIOpen solvers that return wrong results; TunableOp nondeterminism traced to FP32 split-K atomics; Triton direct kernels replacing MIOpen's per-batch small GEMMs; an INT8 dot4 fused GEMM (2.28×, bit-exact); FSR 4.1.2 under Proton silently falling back to FSR 3.1.6 with the stock SDK DLL, plus a byte-exact 1.4–1.9% shader gain on top of the community exact build. Details are in the Korean docs above.*
+*English summary: worker-process GPU queues slowing training 1.5–2×; a MIOpen workspace-query bug for dilated GEMM; two MIOpen solvers that return wrong results; TunableOp nondeterminism traced to FP32 split-K atomics; Triton direct kernels replacing MIOpen's per-batch small GEMMs; a Direct HIP + FP64 zero-sync AdamW + custom `F(4,5)` 1D Winograd stack for Applio RVC training (`11.50 → 7.11 s/ep` listening-verified `v6.2`, `6.285 s/ep` experimental `v7` opt-in); an INT8 dot4 fused GEMM (2.28×, bit-exact); FSR 4.1.2 under Proton silently falling back to FSR 3.1.6 with the stock SDK DLL, plus a byte-exact 1.4–1.9% shader gain on top of the community exact build. Details are in the Korean docs above.*
 
 ## 관련 리포
 
@@ -37,10 +38,12 @@ RX 6900 XT 한 장에서 PyTorch/ROCm 기반 AI 작업(이미지 생성, 3DGS, �
 |---|---|
 | [rdna2-gfx1030-imagegen-recipes](https://github.com/unixyo/rdna2-gfx1030-imagegen-recipes) | Qwen-Image 2.1, MOSS-Image, MiniMax H3의 ComfyUI 설정·워크플로·패치·시간 측정 |
 | [strata-rdna2-gfx1030-recipe](https://github.com/unixyo/strata-rdna2-gfx1030-recipe) | Strata(Qwen3.8-Flash-Next) 엔진 설정·패치·측정 |
+| [applio-rdna2-direct-hip](https://github.com/unixyo/applio-rdna2-direct-hip) | Applio RVC 40k HiFi-GAN 학습용 Direct HIP 커널·C++ shim·`F(4,5)` Winograd·고정 TunableOp 표 (`v6.2` 청취 완료 / `v7` 실험 opt-in) |
 
 - 이미지 레시피 리포에는 2026-11-10에 MOSS INT8 dot4 융합(가이드 §9.6)과 Qwen 후행 scale alpha 접기(가이드 §7.1)를 기본값으로 반영했다. 각 레시피의 "2026-11 update" 절에 있다.
 - `rdna2-ops/production/MOSS_RDNA2_INT8/`는 연구 시점의 통합 스냅샷이다(fused 레이아웃 이전). 실행용으로는 레시피 리포의 `moss-image/custom_nodes/MOSS_RDNA2_INT8/`(fused 포함)를 기준으로 한다.
 - Strata는 레시피 리포가 운영 설정을 다룬다. 이 핸드북의 §9.18은 그 위의 프리필 연구(J 타일, warm 병목)이며, 2026-11-26에 `RDNA2_OP_CATALOG_KO.md` §4.6·§5에 Strata `2af30ccaa` 기반 Phase 1·2 RDNA2 커널(`EXP_MODE=9`, `HC_REQ8/4`, `LM_I8`, `PF_DIRECT_HYBRID`, `ROUTE_SMART` v1/v2, `MTP_ADAPT`) 및 Zen 4 AVX-512(`STRATA_IQ512_EXACT_GU=1`) 통합 검증 결과를 추가했다.
+- Applio RVC 학습은 2026-11-27에 `RDNA2_OP_CATALOG_KO.md` §4.7·§5·§6에 [applio-rdna2-direct-hip](https://github.com/unixyo/applio-rdna2-direct-hip) 기반 Direct HIP `v6.2`(200 epoch 실전 청취 통과) 및 `v7`(`F(4,5)` 1D Winograd + 56행 고정 TunableOp CSV, 수치·ABBA 통과 / 장기 청취 미실시) 검증 결과를 추가했다.
 
 ## 환경
 
