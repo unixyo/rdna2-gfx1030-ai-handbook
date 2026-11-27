@@ -44,7 +44,7 @@ RX 6900 XT 한 장에서 PyTorch/ROCm 기반 AI 작업(이미지 생성, 3DGS, �
 
 - 이미지 레시피 리포에는 2026-11-10에 MOSS INT8 dot4 융합(가이드 §9.6)과 Qwen 후행 scale alpha 접기(가이드 §7.1)를 기본값으로 반영했다. 각 레시피의 "2026-11 update" 절에 있다.
 - `rdna2-ops/production/MOSS_RDNA2_INT8/`는 연구 시점의 통합 스냅샷이다(fused 레이아웃 이전). 실행용으로는 레시피 리포의 `moss-image/custom_nodes/MOSS_RDNA2_INT8/`(fused 포함)를 기준으로 한다.
-- Strata는 레시피 리포가 운영 설정을 다룬다. 이 핸드북의 §9.18은 그 위의 프리필 연구(J 타일, warm 병목)이며, 2026-11-26에 `RDNA2_OP_CATALOG_KO.md` §4.6·§5에 Strata `2af30ccaa` 기반 Phase 1·2 RDNA2 커널(`EXP_MODE=9`, `HC_REQ8/4`, `LM_I8`, `PF_DIRECT_HYBRID`, `ROUTE_SMART` v1/v2, `MTP_ADAPT`) 및 Zen 4 AVX-512(`STRATA_IQ512_EXACT_GU=1`) 통합 검증 결과를 추가했다.
+- Strata는 레시피 리포가 운영 설정을 다룬다. 이 핸드북의 §9.18은 그 위의 프리필 연구(J 타일, warm 병목)이며, 2026-11-26에 `RDNA2_OP_CATALOG_KO.md` §4.6·§5에 Strata `2af30ccaa` 기반 Phase 1·2 RDNA2 커널(`EXP_MODE=9`, `HC_REQ8/4`, `LM_I8`, `PF_DIRECT_HYBRID`, `ROUTE_SMART` v1/v2, `MTP_ADAPT`) 및 Zen 4 AVX-512(`STRATA_IQ512_EXACT_GU=1`) 통합 검증 결과를 추가했고, 2026-11-27에 v3 exact 커널 6종(`GDN_RDNA2=2`, `QSA_RDNA2_LDS`, `MMVQ_RDNA2_ROWS`, `IQ512_EXACT_DOWN`, `I8_RDNA2_SINGLE`, `EXP_MODE=10`) 및 Gen4 NVMe 실측 ABBA(`EXACT` 4K `59.8 → 68.3 tok/s`, `+14.3%`)를 반영했다.
 - Applio RVC 학습은 2026-11-27에 `RDNA2_OP_CATALOG_KO.md` §4.7·§5·§6에 [applio-rdna2-direct-hip](https://github.com/unixyo/applio-rdna2-direct-hip) 기반 Direct HIP `v6.2`(200 epoch 실전 청취 통과) 및 `v7`(`F(4,5)` 1D Winograd + 56행 고정 TunableOp CSV, 수치·ABBA 통과 / 장기 청취 미실시) 검증 결과를 추가했다.
 - Diffusion·3DGS 추론은 2026-11-27에 `RDNA2_OP_CATALOG_KO.md` §4.1·§4.2·§4.5·§5에 [rdna2-diffusion-sage-hip](https://github.com/unixyo/rdna2-diffusion-sage-hip) `v3.0`(89 커널 0-spill, `D=128/64` Direct HIP Flash·Sage Attention, `70.1 TOPS` Exact INT8 GEMM + C++ shim, MOSS `SITU→H256→RNE INT8` 융합) 실측 결과를 추가했다.
 
