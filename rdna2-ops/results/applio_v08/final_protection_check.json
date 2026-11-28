@@ -31,7 +31,7 @@
     "~/DevSpace/applio-lab/logs/voice_model_A/D_2333333.pth": "96406fd5b654c23c9e5764f0bc57d7435e0e79c788c5206619e0332432cac051",
     "~/DevSpace/applio-lab/logs/voice_model_A/G_2333333.pth": "1ff837ba2bdfbbaeb9885d76ac41b2c4be12aa5f1bbe2716fbe99729b6fb5261",
     "~/DevSpace/applio-lab/logs/voice_model_A/config.json": "c094bf09b022c44c0c7bca928f5322df36643760402b90f439938d9fd99798b2",
-    "~/DevSpace/applio-lab/logs/voice_model_A/eval/events.out.tfevents.1790528096.agnes-MS-7D75.914169.0": "7a2cb72843d62e5c97abc8a21b27165421ac83ff4d465f1b91891ae9e2189309",
+    "~/DevSpace/applio-lab/logs/voice_model_A/eval/events.out.tfevents.1790528096.rdna2-workstation.914169.0": "7a2cb72843d62e5c97abc8a21b27165421ac83ff4d465f1b91891ae9e2189309",
     "~/DevSpace/applio-lab/logs/voice_model_A/extracted/0_0_0.npy": "1e3d7ef67d0ac71ad0576e6cc8d909623b04b5c77626f3f847d0f1dceff76be2",
     "~/DevSpace/applio-lab/logs/voice_model_A/extracted/0_0_1.npy": "89dada8b60b4f80da890dfbe1decd24190e6112009d69a80a2aca039669bd0c3",
     "~/DevSpace/applio-lab/logs/voice_model_A/extracted/0_10_0.npy": "38a01e2b183751f913503af75d19af813a7062ec8d9e3a0616f62a2221191517",

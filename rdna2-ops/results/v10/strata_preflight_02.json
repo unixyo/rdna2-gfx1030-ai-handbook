@@ -384,7 +384,7 @@
       "writable_by_current_uid": true
     },
     {
-      "path": "/mnt/sn850x/flashnext-ext4-model-gate-20260922/SC117-IQ3_XXS-PLE-IQ4_NL-20261031.gguf",
+      "path": "<nvme-storage>/flashnext-ext4-model-gate-20260922/SC117-IQ3_XXS-PLE-IQ4_NL-20261031.gguf",
       "bytes": 28800138432,
       "resident_pages": 0,
       "total_pages": 7031284,
@@ -1382,7 +1382,7 @@
         "legacy_stat_equal": true
       },
       {
-        "path": "/mnt/sn850x/flashnext-ext4-model-gate-20260922/SC117-IQ3_XXS-PLE-IQ4_NL-20261031.gguf",
+        "path": "<nvme-storage>/flashnext-ext4-model-gate-20260922/SC117-IQ3_XXS-PLE-IQ4_NL-20261031.gguf",
         "reasons": [
           "runtime_ple-gguf"
         ],
@@ -1390,7 +1390,7 @@
         "in_v07_baseline": false,
         "bytes": 28800138432,
         "mtime_ns": 1793429747708945876,
-        "resolved_path": "/mnt/sn850x/flashnext-ext4-model-gate-20260922/SC117-IQ3_XXS-PLE-IQ4_NL-20261031.gguf",
+        "resolved_path": "<nvme-storage>/flashnext-ext4-model-gate-20260922/SC117-IQ3_XXS-PLE-IQ4_NL-20261031.gguf",
         "exists": true,
         "legacy_stat_equal": false
       }
